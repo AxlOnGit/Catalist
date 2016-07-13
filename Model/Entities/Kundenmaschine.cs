@@ -16,9 +16,9 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsMachines.KundenMaschineRow myBase = null;
-		private Dictionary<DateTime, Kunde> myOwnerList = null;
-		private DateTime noDate = new DateTime(100, 1, 1);
+		dsMachines.KundenMaschineRow myBase;
+		Dictionary<DateTime, Kunde> myOwnerList;
+		readonly DateTime noDate = new DateTime(100, 1, 1);
 
 		#endregion
 
@@ -29,7 +29,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -37,17 +37,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Kundenmaschine").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return string.Format("{0} [{1}]", this.Maschinenmodell, this.Seriennummer); }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Kundenmaschine"; }
 		}
@@ -182,7 +182,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return (myBase.LeasingFlag == "1") ? true : false;
+				return (myBase.LeasingFlag == "1");
 			}
 			set
 			{
@@ -218,7 +218,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return (myBase.MietkaufFlag == "1") ? true : false;
+				return (myBase.MietkaufFlag == "1");
 			}
 			set
 			{
@@ -234,7 +234,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return (myBase.ErstverwertungsFlag == "1") ? true : false;
+				return (myBase.ErstverwertungsFlag == "1");
 			}
 			set
 			{
@@ -304,7 +304,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				dsShared.TinteRow tRow = DataManager.SharedDataService.GetTinte(myBase.TintenId);
+				var tRow = DataManager.SharedDataService.GetTinte(myBase.TintenId);
 				return tRow == null ? string.Empty : tRow.Tintenbezeichnung;
 			}
 		}
@@ -397,31 +397,7 @@ namespace Products.Model.Entities
 
 		#endregion
 
-		#region event handler
-
-		void NotesService_NoteCreated(object sender, NotesService.NoteCreatedEventArgs e)
-		{
-			//if (e.LinkedItemPK == this.UID)
-			//{
-			//  this.NotizListe.Add(e.Notiz);
-			//}
-		}
-
-		#endregion
-
 		#region public procedures
-
-		/// <summary>
-		/// Erzeugt einen neuen Servicetermin und den dazu gehörenden David Kalendereintrag.
-		/// </summary>
-		/// <param name="forUser">Die User Instanz, die den Techniker repräsentiert, für den der Termin erstellt wird.</param>
-		/// <returns></returns>
-		public Appointment AddServicetermin(User forUser)
-		{
-			//APPT: Kundenmaschine -> AddServicetermin
-			// Wird ausgelagert in den AppointmentService
-			throw new NotImplementedException();
-		}
 
 		/// <summary>
 		/// Fügt einen neuen Dateilink zu dieser Kundenmaschine hinzu.

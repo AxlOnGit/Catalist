@@ -14,7 +14,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsSuppliers.LieferantRow myBase = null;
+		readonly dsSuppliers.LieferantRow myBase;
 
 		#endregion
 
@@ -25,7 +25,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.Lieferantennummer; }
 		}
@@ -33,17 +33,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Lieferant").UID; }
 		}
-		
-		string ILinkedItem.ItemName
+
+		public string ItemName
 		{
 			get { return this.myBase.Name1; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Lieferant"; }
 		}

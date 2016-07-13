@@ -23,17 +23,17 @@ namespace Products.Model.Entities
 
 		#region ILinkedItem
 
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.Nummer; }
 		}
 
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Bestellung").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get
 			{
@@ -41,7 +41,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Bestellung"; }
 		}

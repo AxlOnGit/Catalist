@@ -12,7 +12,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsSuppliers.LieferantenKontaktRow myBase = null;
+		readonly dsSuppliers.LieferantenKontaktRow myBase;
 
 		#endregion
 
@@ -23,7 +23,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return string.Format("{0}{1}", this.myBase.Lieferantennummer, this.myBase.Nummer); }
 		}
@@ -31,15 +31,15 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Lieferantenkontakt").UID; }
 		}
-		
+
 		/// <summary>
 		/// Bezeichnung der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Name; }
 		}
@@ -47,7 +47,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Bezeichnung des LinkTyps der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Lieferantenkontakt"; }
 		}

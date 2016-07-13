@@ -12,7 +12,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsOffers.OfferRow myBase;
+		readonly dsOffers.OfferRow myBase;
 
 		#endregion
 
@@ -23,7 +23,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -31,17 +31,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Angebot-Catalist").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.OfferId; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Angebot-Catalist"; }
 		}
@@ -128,7 +128,7 @@ namespace Products.Model.Entities
 		{ 
 			get 
 			{ 
-				return (myBase.Bestellkennzeichen == 0) ? false : true; 
+				return (myBase.Bestellkennzeichen != 0); 
 			} 
 			set 
 			{
@@ -273,7 +273,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				StringBuilder sb = new StringBuilder();
+				var sb = new StringBuilder();
 				sb.AppendLine(string.Format("Positionen:\t{0}", OfferDetails.Count));
 				sb.AppendLine(string.Format("Angebot (netto):\t{0:C2}", NetAmount));
 				sb.AppendLine(string.Format("Rohmarge:\t{0:C2}", Rohmarge));
@@ -325,11 +325,6 @@ namespace Products.Model.Entities
 			{
 				return ModelManager.OfferService.GetOfferDetailList(this.CustomerId, this.UID);
 			}
-		}
-
-		void OfferDetails_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
-		{
-			this.OfferDetails.Sort("Position");
 		}
 
 		#endregion

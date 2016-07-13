@@ -14,10 +14,10 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsSalesForce.TourRow myBase = null;
-		private User myVertreter = null;
-		private SBList<Kunde> myTourkunden = null;
-		private SBList<Interessent> myTourInteressenten = null;
+		readonly dsSalesForce.TourRow myBase;
+		User myVertreter;
+		SBList<Kunde> myTourkunden;
+		SBList<Interessent> myTourInteressenten;
 
 		#endregion
 
@@ -28,7 +28,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -36,17 +36,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Außendienst-Tour").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Tourname; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Außendienst-Tour"; }
 		}
@@ -168,9 +168,9 @@ namespace Products.Model.Entities
 		#region public procedures
 
 		/// <summary>
-		/// Fügt dieser Tour den Kunden mit der angegebenen Kundennummer hinzu.
+		/// Fügt dieser Tour den angegebenen Kunden hinzu.
 		/// </summary>
-		/// <param name="kundennummer"></param>
+		/// <param name="kunde"></param>
 		public void AddKunde(Kunde kunde)
 		{
 			try

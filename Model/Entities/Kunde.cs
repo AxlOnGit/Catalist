@@ -20,12 +20,12 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsCustomer.CustomerRow myBase = null;
-		dsCustomer.KundeRow myKundeRow = null;
-		SBList<Tour> myTourList = null;
-		Kundenkontakt myHauptKontakt = null;
-		string newLine = Environment.NewLine;
-		DateTime today = DateTime.Today;
+		dsCustomer.CustomerRow myBase;
+		dsCustomer.KundeRow myKundeRow;
+		SBList<Tour> myTourList;
+		Kundenkontakt myHauptKontakt;
+		readonly string newLine = Environment.NewLine;
+		readonly DateTime today = DateTime.Today;
 
 		#endregion
 
@@ -36,7 +36,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.Kundennummer; }
 		}
@@ -44,17 +44,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Kunde").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return string.Format(@"{0} ({1})", myBase.Name1, this.KundenNrCpm); }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Kunde"; }
 		}
@@ -175,28 +175,28 @@ namespace Products.Model.Entities
 		/// Returns a flag indicating whether the customer is marked
 		/// for a dunning letter or already has received one.
 		/// </summary>
-		public bool DunningFlag { get { return myBase.Sperrvermerk1 == "1" ? true : false; } }
+		public bool DunningFlag { get { return myBase.Sperrvermerk1 == "1"; } }
 
 		/// <summary>
 		/// Returns a flag indicating whether the customer's deliveries are halted.
 		/// </summary>
-		public bool DeliveryStopFlag { get { return myBase.Sperrvermerk2 == "1" ? true : false; } }
+		public bool DeliveryStopFlag { get { return myBase.Sperrvermerk2 == "1"; } }
 
 		/// <summary>
 		/// Returns a flag indicating whether the customer has to pay his orders prior to delivery.
 		/// </summary>
-		public bool AdvancePaymentFlag { get { return myBase.Sperrvermerk3 == "1" ? true : false; } }
+		public bool AdvancePaymentFlag { get { return myBase.Sperrvermerk3 == "1"; } }
 
 		/// <summary>
 		/// Gibt das Zahlungsziel in Tagen an, ab dem der Rechnungsbetrag ohne Skonto fällig wird.
 		/// </summary>
-		public Int16 ZahlungenTageNetto { get { return myBase.Zahlungskond_1_TageNetto; } }
+		public short ZahlungenTageNetto { get { return myBase.Zahlungskond_1_TageNetto; } }
 
 		/// <summary>
 		/// Gibt das Zahlungsziel in Tagen an, bis zu dem vom Rechnungsbetrag Skonto gezogen werden darf.
 		/// Der Skontosatz ergibt sich aus ZahlungenProzent.
 		/// </summary>
-		public Int16 ZahlungenTageSkonto { get { return myBase.Zahlungskond_1_TageSkonto1; } }
+		public short ZahlungenTageSkonto { get { return myBase.Zahlungskond_1_TageSkonto1; } }
 
 		/// <summary>
 		/// Gibt den Skontosatz in Prozent zurück.
@@ -310,7 +310,7 @@ namespace Products.Model.Entities
 			{
 				if (this.Versandstaffelpreisliste.Count > 0)
 				{
-					Versandstaffelpreis freiPreis = this.Versandstaffelpreisliste.FirstOrDefault(v => v.AbWert > 0 && v.Versandkosten == 0);
+					var freiPreis = this.Versandstaffelpreisliste.FirstOrDefault(v => v.AbWert > 0 && v.Versandkosten == 0);
 					if (freiPreis != null)
 					{
 						return freiPreis.AbWert;
@@ -330,7 +330,7 @@ namespace Products.Model.Entities
 			{
 				if (this.Versandstaffelpreisliste.Count > 0)
 				{
-					Versandstaffelpreis freiPreis = this.Versandstaffelpreisliste.FirstOrDefault(v => v.AbWert > 0 && v.Versandkosten == 0);
+					var freiPreis = this.Versandstaffelpreisliste.FirstOrDefault(v => v.AbWert > 0 && v.Versandkosten == 0);
 					if (freiPreis != null)
 					{
 						if (freiPreis.AbWert < 0.5m)
@@ -473,7 +473,7 @@ namespace Products.Model.Entities
 		/// <returns></returns>
 		public double GetSalesAverageAmount()
 		{
-			List<double> liste = new List<double>();
+			var liste = new List<double>();
 			var sList = ModelManager.SalesService.GetSalesStats(this);
 			foreach (var item in sList)
 			{
@@ -525,7 +525,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool MitAnmeldungFlag
 		{
-			get{return (this.KundenRow.MitAnmeldungFlag == 1) ? true : false; }
+			get{return (this.KundenRow.MitAnmeldungFlag == 1); }
 			set{  this.KundenRow.MitAnmeldungFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -534,7 +534,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool KurzpreislisteFlag
 		{
-			get { return (this.KundenRow.KurzpreislisteFlag == 1) ? true : false; }
+			get { return (this.KundenRow.KurzpreislisteFlag == 1); }
 			set { this.KundenRow.KurzpreislisteFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -543,7 +543,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool VorjahresvergleichFlag
 		{
-			get { return (this.KundenRow.VorjahresvergleichFlag == 1) ? true : false; }
+			get { return (this.KundenRow.VorjahresvergleichFlag == 1); }
 			set { this.KundenRow.VorjahresvergleichFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -552,7 +552,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool UmsatzSeitLetztemBesuchFlag
 		{
-			get { return (this.KundenRow.UmsatzSeitLetztemBesuchFlag == 1) ? true : false; }
+			get { return (this.KundenRow.UmsatzSeitLetztemBesuchFlag == 1); }
 			set { this.KundenRow.UmsatzSeitLetztemBesuchFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -561,7 +561,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool AusdruckLetztesAngebotFlag
 		{
-			get { return (this.KundenRow.AusdruckLetztesAngebotFlag == 1) ? true : false; }
+			get { return (this.KundenRow.AusdruckLetztesAngebotFlag == 1); }
 			set { this.KundenRow.AusdruckLetztesAngebotFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -570,7 +570,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool OhneVorbereitungFlag
 		{
-			get { return (this.KundenRow.OhneVorbereitungFlag == 1) ? true : false; }
+			get { return (this.KundenRow.OhneVorbereitungFlag == 1); }
 			set { this.KundenRow.OhneVorbereitungFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -579,7 +579,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool WeihnachtsFlag
 		{
-			get { return (this.KundenRow.WeihnachtsFlag == 1) ? true : false; }
+			get { return (this.KundenRow.WeihnachtsFlag == 1); }
 			set { this.KundenRow.WeihnachtsFlag = (value == true) ? 1 : 0; }
 		}
 
@@ -745,7 +745,7 @@ namespace Products.Model.Entities
 		#region ### .ctor ###
 
 		/// <summary>
-		/// Creates a new instance of the <seealso cref="Products.Model.Customer" class./>
+		/// Erzeugt eine neue Instanz der <seealso cref="Kunde"/> Klasse.
 		/// </summary>
 		/// <param name="baseRow"></param>
 		public Kunde(dsCustomer.CustomerRow baseRow)
@@ -759,21 +759,21 @@ namespace Products.Model.Entities
 
 		#region event handler
 
-		void NotesService_NoteCreated(object sender, NotesService.NoteCreatedEventArgs e)
-		{
-			if (e.Notiz.ParentItemId == this.myBase.Kundennummer)
-			{
-				this.Notizlist.Add(e.Notiz);
-			}
-		}
+		//void NotesService_NoteCreated(object sender, NotesService.NoteCreatedEventArgs e)
+		//{
+		//	if (e.Notiz.ParentItemId == this.myBase.Kundennummer)
+		//	{
+		//		this.Notizlist.Add(e.Notiz);
+		//	}
+		//}
 
-		void NotesService_NoteDeleted(object sender, NotesService.NoteDeletedEventArgs e)
-		{
-			if (e.Note.ParentItemId == this.myBase.Kundennummer)
-			{
-				this.Notizlist.Remove(e.Note);
-			}
-		}
+		//void NotesService_NoteDeleted(object sender, NotesService.NoteDeletedEventArgs e)
+		//{
+		//	if (e.Note.ParentItemId == this.myBase.Kundennummer)
+		//	{
+		//		this.Notizlist.Remove(e.Note);
+		//	}
+		//}
 
 		#endregion
 
@@ -818,11 +818,12 @@ namespace Products.Model.Entities
 		{
 			try
 			{
-				ProcessStartInfo psi = new ProcessStartInfo(Products.Common.Global.CreateBingMapsURL(this.Street, this.ZipCode + " " + City));
+				var psi = new ProcessStartInfo(Global.CreateBingMapsURL(this.Street, this.ZipCode + " " + City));
 				Process.Start(psi);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				throw ex;
 			}
 		}
 
@@ -831,8 +832,8 @@ namespace Products.Model.Entities
 		/// </summary>
 		public void OpenInSage(string exePath)
 		{
-			string paramString = string.Format(" /M001 /X\"PA1110|00000\" /B/P\"{0}\"", this.CustomerId);
-			ProcessStartInfo psi = new ProcessStartInfo(exePath, paramString);
+			var paramString = string.Format(" /M001 /X\"PA1110|00000\" /B/P\"{0}\"", this.CustomerId);
+			var psi = new ProcessStartInfo(exePath, paramString);
 			Process.Start(psi);
 		}
 
@@ -984,7 +985,7 @@ namespace Products.Model.Entities
 		/// <returns></returns>
 		public string GetNotesHtml()
 		{
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			foreach (var item in this.Notizlist.Sort("AssignedAt", System.ComponentModel.ListSortDirection.Descending).Where(n => n.InactiveFlag == false))
 			{
 				sb.AppendFormat(@"<p><font face=Calibri size=2>{0}<br><strong><u>{1}</u></strong><br>", item.AssignedAt.ToShortDateString(), item.Subject);
@@ -995,10 +996,10 @@ namespace Products.Model.Entities
 
 		#region MUSS UMGESCHRIEBEN WERDEN
 
-		public void UpdateServicetermine()
-		{
-			throw new NotImplementedException();
-		}
+		//public void UpdateServicetermine()
+		//{
+		//	throw new NotImplementedException();
+		//}
 
 		#endregion
 
@@ -1006,25 +1007,25 @@ namespace Products.Model.Entities
 
 		#region TXT
 
-		public string GetCustomerInfoText(Kundenkontakt contact)
-		{
-			throw new NotImplementedException();
-		}
+		//public string GetCustomerInfoText(Kundenkontakt contact)
+		//{
+		//	throw new NotImplementedException();
+		//}
 
-		public string GetLastProductsSoldText()
-		{
-			throw new NotImplementedException();
-		}
+		//public string GetLastProductsSoldText()
+		//{
+		//	throw new NotImplementedException();
+		//}
 
-		public string GetSpecialPriceListText()
-		{
-			throw new NotImplementedException();
-		}
+		//public string GetSpecialPriceListText()
+		//{
+		//	throw new NotImplementedException();
+		//}
 
-		public string GetNotesText()
-		{
-			throw new NotImplementedException();
-		}
+		//public string GetNotesText()
+		//{
+		//	throw new NotImplementedException();
+		//}
 
 		#endregion
 

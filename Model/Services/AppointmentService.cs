@@ -213,7 +213,7 @@ namespace Products.Model.Services
 		/// </summary>
 		/// <param name="appointment">Der Kalendereintrag, für den die verknüpften Elemente gesucht werden.</param>
 		/// <returns>Eine <seealso cref=""/>System.Collections.Generic.List<ILinkedItem> Instanz.</returns>
-		internal SBList<ILinkedItem> GetLinkedItemsList(Appointment appointment)
+		public SBList<ILinkedItem> GetLinkedItemsList(Appointment appointment)
 		{
 			if (!this.myLinkedItemsDictionary.ContainsKey(appointment.FullName))
 			{

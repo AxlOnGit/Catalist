@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Products.Data;
-using Products.Common;
+﻿using Products.Common;
 using Products.Data.Datasets;
 using Products.Common.Interfaces;
 
@@ -14,8 +9,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsShared.MaschinenSerieRow myBase = null;
-		private SortableBindingList<Maschinenmodell> myModelle = null;
+		readonly dsShared.MaschinenSerieRow myBase;
+		SortableBindingList<Maschinenmodell> myModelle;
 
 		#endregion
 
@@ -26,7 +21,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -34,17 +29,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Maschinenserie").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Serienname; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Maschinenserie"; }
 		}
@@ -105,7 +100,7 @@ namespace Products.Model.Entities
 			{
 				if (myModelle == null)
 				{
-					myModelle = ModelManager.SharedItemsService.GetMaschinenModellList(this);
+					this.myModelle = ModelManager.SharedItemsService.GetMaschinenModellList(this);
 				}
 				return myModelle;
 			}

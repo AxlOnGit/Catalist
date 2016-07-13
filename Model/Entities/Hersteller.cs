@@ -9,8 +9,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsShared.HerstellerRow myBase;
-	
+		readonly dsShared.HerstellerRow myBase;
+
 		#endregion
 
 		#region public properties
@@ -20,12 +20,12 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
 
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Hersteller").UID; }
 		}
@@ -33,7 +33,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Zeichenfolge 'Hersteller' zurück.
 		/// </summary>
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Hersteller"; }
 		}
@@ -41,7 +41,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den Herstellernamen (Firmennamen) dieses Herstellers zurück.
 		/// </summary>
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.HerstellerName; }
 		}

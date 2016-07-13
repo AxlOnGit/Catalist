@@ -25,5 +25,31 @@ namespace Products.Common.Views
 
 		#endregion
 
+		#region event handler
+
+		void trvCategories_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+		{
+			if (!e.Node.IsExpanded)
+			{
+				e.Node.Expand();
+			}
+			else
+			{
+				e.Node.Collapse();
+			}
+		}
+
+		void trvCategories_AfterCollapse(object sender, TreeViewEventArgs e)
+		{
+			e.Node.StateImageIndex = 0;
+		}
+
+		void trvCategories_AfterExpand(object sender, System.Windows.Forms.TreeViewEventArgs e)
+		{
+			e.Node.StateImageIndex = 1;
+		}
+
+		#endregion
+
 	}
 }

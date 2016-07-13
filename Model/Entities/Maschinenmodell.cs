@@ -8,8 +8,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsShared.MaschinenModellRow myBase;
-	
+		readonly dsShared.MaschinenModellRow myBase;
+
 		#endregion
 
 		#region public properties
@@ -19,7 +19,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -27,17 +27,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Maschinenmodell").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Modellbezeichnung; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Maschinenmodell"; }
 		}

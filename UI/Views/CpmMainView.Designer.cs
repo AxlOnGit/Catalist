@@ -63,6 +63,7 @@
 			this.mlnkCurrentCustomer = new MetroFramework.Controls.MetroLink();
 			this.mtileQuit = new MetroFramework.Controls.MetroTile();
 			this.mbtnShowRecentCustomers = new MetroFramework.Controls.MetroButton();
+			this.btnTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.errSearch)).BeginInit();
 			this.ctxTbarIcon.SuspendLayout();
 			this.ctxView.SuspendLayout();
@@ -609,6 +610,23 @@
 			this.mbtnShowRecentCustomers.UseSelectable = true;
 			this.mbtnShowRecentCustomers.Click += new System.EventHandler(this.mbtnShowRecentCustomers_Click);
 			// 
+			// btnTest
+			// 
+			this.btnTest.AutoSize = true;
+			this.btnTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.btnTest.BackColor = System.Drawing.Color.Transparent;
+			this.btnTest.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.btnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+			this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+			this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnTest.Location = new System.Drawing.Point(23, 217);
+			this.btnTest.Name = "btnTest";
+			this.btnTest.Size = new System.Drawing.Size(66, 25);
+			this.btnTest.TabIndex = 102;
+			this.btnTest.Text = "Testing ...";
+			this.btnTest.UseVisualStyleBackColor = false;
+			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+			// 
 			// CpmMainView
 			// 
 			this.AcceptButton = this.lnkDummy;
@@ -618,6 +636,7 @@
 			this.ClientSize = new System.Drawing.Size(359, 646);
 			this.ContextMenuStrip = this.ctxView;
 			this.ControlBox = false;
+			this.Controls.Add(this.btnTest);
 			this.Controls.Add(this.mbtnShowRecentCustomers);
 			this.Controls.Add(this.mtxtSearch);
 			this.Controls.Add(this.mlnkCurrentCustomer);
@@ -694,5 +713,6 @@
 		private MetroFramework.Controls.MetroLink mlnkCurrentCustomer;
 		private MetroFramework.Controls.MetroTextBox mtxtSearch;
 		private MetroFramework.Controls.MetroButton mbtnShowRecentCustomers;
+		private System.Windows.Forms.Button btnTest;
 	}
 }

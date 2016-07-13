@@ -17,8 +17,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsProspects.InteressentRow myBase = null;
-		private User myAcquiredBy = null;
+		readonly dsProspects.InteressentRow myBase;
+		User myAcquiredBy;
 		//private SBList<Notiz> notizen = null;
 
 		#endregion
@@ -30,7 +30,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -38,7 +38,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Interessent").UID; }
 		}
@@ -46,7 +46,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Bezeichnung der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.Firmenname; }
 		}
@@ -54,7 +54,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Bezeichnung des LinkedItemTyps.
 		/// </summary>
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Interessent"; }
 		}
@@ -75,7 +75,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return myBase.InaktivFlag == 0 ? false : true;
+				return myBase.InaktivFlag != 0;
 			}
 			set
 			{

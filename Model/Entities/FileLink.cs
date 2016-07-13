@@ -12,8 +12,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsFileLinks.FileLinkRow myBase = null;
-		private FileInfo myFileInfo = null;
+		readonly dsFileLinks.FileLinkRow myBase;
+		readonly FileInfo myFileInfo;
 
 		#endregion
 
@@ -24,22 +24,22 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.FullName; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.FileTitle; }
 		}
 
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Datei").UID; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Datei"; }
 		}

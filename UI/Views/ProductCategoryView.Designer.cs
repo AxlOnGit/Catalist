@@ -43,32 +43,43 @@
 			// 
 			// trvCategories
 			// 
+			this.trvCategories.AllowDrop = true;
 			this.trvCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.trvCategories.Dock = System.Windows.Forms.DockStyle.Left;
 			this.trvCategories.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.trvCategories.FullRowSelect = true;
-			this.trvCategories.HideSelection = false;
-			this.trvCategories.ImageKey = "ArrowRight.png";
-			this.trvCategories.ItemHeight = 20;
+			this.trvCategories.Indent = 20;
+			this.trvCategories.ItemHeight = 30;
+			this.trvCategories.LabelEdit = true;
 			this.trvCategories.LineColor = System.Drawing.Color.Silver;
 			this.trvCategories.Location = new System.Drawing.Point(20, 100);
 			this.trvCategories.Name = "trvCategories";
 			treeNode1.Name = "nodeMachines";
+			treeNode1.SelectedImageIndex = -2;
+			treeNode1.StateImageIndex = 0;
 			treeNode1.Text = "Maschinen";
 			treeNode2.Name = "nodeMachineAccessories";
+			treeNode2.SelectedImageIndex = -2;
+			treeNode2.StateImageIndex = 0;
 			treeNode2.Text = "Maschinenzubehör";
 			treeNode3.Name = "nodeInk";
+			treeNode3.SelectedImageIndex = -2;
+			treeNode3.StateImageIndex = 0;
 			treeNode3.Text = "Tinten";
 			treeNode4.Name = "nodeMain";
+			treeNode4.SelectedImageIndex = -2;
+			treeNode4.StateImageIndex = 0;
 			treeNode4.Text = "Kategorien";
 			this.trvCategories.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode4});
-			this.trvCategories.SelectedImageKey = "ArrowRight.png";
 			this.trvCategories.ShowLines = false;
+			this.trvCategories.ShowPlusMinus = false;
 			this.trvCategories.ShowRootLines = false;
-			this.trvCategories.Size = new System.Drawing.Size(324, 520);
+			this.trvCategories.Size = new System.Drawing.Size(271, 520);
 			this.trvCategories.StateImageList = this.imgList;
 			this.trvCategories.TabIndex = 0;
+			this.trvCategories.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.trvCategories_AfterCollapse);
+			this.trvCategories.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.trvCategories_AfterExpand);
+			this.trvCategories.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvCategories_NodeMouseClick);
 			// 
 			// imgList
 			// 
@@ -92,6 +103,7 @@
 		}
 
 		#endregion
+
 		private System.Windows.Forms.TreeView trvCategories;
 		private System.Windows.Forms.ImageList imgList;
 	}

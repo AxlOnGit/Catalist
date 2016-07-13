@@ -338,6 +338,7 @@
 			this.dgvLinkedItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvLinkedItems.HighLightPercentage = 1.2F;
 			this.dgvLinkedItems.Location = new System.Drawing.Point(702, 362);
+			this.dgvLinkedItems.MultiSelect = false;
 			this.dgvLinkedItems.Name = "dgvLinkedItems";
 			this.dgvLinkedItems.ReadOnly = true;
 			this.dgvLinkedItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

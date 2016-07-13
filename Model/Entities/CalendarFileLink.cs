@@ -12,7 +12,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		FileInfo myBase;
+		readonly FileInfo myBase;
 
 		#endregion
 
@@ -20,22 +20,22 @@ namespace Products.Model.Entities
 
 		#region ILinkedItem
 
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return myBase.FullName; }
 		}
 
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Datei").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return myBase.Name; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Datei"; }
 		}

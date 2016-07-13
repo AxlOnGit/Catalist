@@ -15,7 +15,7 @@ namespace Products.Common.Views
 
 		#region MEMBERS
 
-		private Appointment myAppointment;
+		Appointment myAppointment;
 		ILinkedItem mySelectedLinkedItem;
 		User myCurrentUser;
 
@@ -39,7 +39,7 @@ namespace Products.Common.Views
 		[DebuggerStepThrough]
 		void Application_Idle(object sender, EventArgs e)
 		{
-			this.mbtnRemoveLinkedItem.Enabled = this.myAppointment.GetLinkedItemsList().Count > 0;
+			this.mbtnRemoveLinkedItem.Enabled = ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Count > 0;
 			this.xcmdDeleteLinkedItem.Enabled = this.mbtnRemoveLinkedItem.Enabled;
 		}
 
@@ -125,7 +125,7 @@ namespace Products.Common.Views
 			var location = string.Empty;
 			var body = string.Empty;
 
-			foreach (var lItem in this.myAppointment.GetLinkedItemsList())
+			foreach (var lItem in ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment))
 			{
 				if (lItem is Kunde)
 				{
@@ -341,7 +341,7 @@ namespace Products.Common.Views
 			mcmbAppointmentType.ValueMember = "Name";
 			mcmbAppointmentType.DataSource = ModelManager.AppointmentService.GetAppointmentTypeList();
 			mcmbAppointmentType.DataBindings.Add("SelectedValue", myAppointment, "AppointmentType", false);
-			this.dgvLinkedItems.DataSource = this.myAppointment.GetLinkedItemsList();
+			this.dgvLinkedItems.DataSource = ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment);
 		}
 
 		void RefreshDataBindings()
@@ -395,8 +395,7 @@ namespace Products.Common.Views
 					this.AddLinkToFile();
 					break;
 			}
-			this.dgvLinkedItems.DataSource = this.myAppointment.GetLinkedItemsList().Sort("ItemName");
-			this.dgvLinkedItems.Invalidate();
+			this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 		}
 
 		void AddLinkToCustomer(Kunde kunde)
@@ -432,7 +431,7 @@ namespace Products.Common.Views
 
 				// Kunden hinzufügen, wenn dieser noch nicht hinzugefügt wurde.
 				var kunde = ModelManager.CustomerService.GetKunde((contact as Kundenkontakt).Kundennummer, true);
-				if (kunde != null && !this.myAppointment.GetLinkedItemsList().Contains(kunde as ILinkedItem))
+				if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde as ILinkedItem))
 				{
 					this.AddLinkToCustomer(kunde);
 				}
@@ -451,7 +450,7 @@ namespace Products.Common.Views
 
 				// Den Eigentümer der Maschine hinzufügen, wenn er noch nicht verknüpft wurde.
 				var kunde = ModelManager.CustomerService.GetKunde((machine as Kundenmaschine).Kundennummer, true);
-				if (kunde != null && !this.myAppointment.GetLinkedItemsList().Contains(kunde as ILinkedItem))
+				if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde as ILinkedItem))
 				{
 					this.AddLinkToCustomer(kunde);
 				}
@@ -466,7 +465,7 @@ namespace Products.Common.Views
 				var lieferant = llv.SelectedLieferant;
 				var msg = string.Format("Ich verknüpfe den Termin mit Lieferant '{0}'", lieferant.Name1);
 				MessageBox.Show(msg, "Verknüpfen mit Lieferant", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Model.ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, lieferant.Lieferantennummer, "Lieferant");
+				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, lieferant.Lieferantennummer, "Lieferant");
 			}
 		}
 
@@ -478,7 +477,7 @@ namespace Products.Common.Views
 				var user = usv.SelectedUser;
 				var msg = string.Format("Ich verknüpfe den Termin mit '{0}'.", user.NameFull);
 				MessageBox.Show(msg, "Verknüpfen mit Mitarbeiter", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Model.ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, user.UID, "Mitarbeiter");
+				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, user.UID, "Mitarbeiter");
 			}
 		}
 
@@ -493,8 +492,8 @@ namespace Products.Common.Views
 				var files = ofd.FileNames;
 				foreach (var file in files)
 				{
-					FileInfo newFilename = ModelManager.FileLinkService.CopyFileToServerLinkFolder(file);
-					Model.ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, newFilename.FullName, "Datei");
+					var newFilename = ModelManager.FileLinkService.CopyFileToServerLinkFolder(file);
+					ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, newFilename.FullName, "Datei");
 				}
 			}
 		}
@@ -506,7 +505,7 @@ namespace Products.Common.Views
 				var msg = string.Format("Ich entferne die Verknüpfung mit '{0}'", this.mySelectedLinkedItem.ItemName);
 				if (MessageBox.Show(msg, "Verknüpfung", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
 				{
-					Model.ModelManager.AppointmentService.RemoveLinkedItemFromAppointment(this.myAppointment, this.mySelectedLinkedItem);
+					ModelManager.AppointmentService.RemoveLinkedItemFromAppointment(this.myAppointment, this.mySelectedLinkedItem);
 				}
 			}
 		}

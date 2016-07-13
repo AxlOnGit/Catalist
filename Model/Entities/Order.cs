@@ -12,7 +12,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsOrders.OrderRow myBase;
+		readonly dsOrders.OrderRow myBase;
 
 		#endregion
 
@@ -23,7 +23,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.Auftrag; }
 		}
@@ -31,17 +31,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Auftrag").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Auftrag; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Auftrag"; }
 		}
@@ -67,9 +67,9 @@ namespace Products.Model.Entities
 		public decimal Roherloes { get { return this.myBase.Roherloes; } }
 		public string eMail { get { return this.Kunde.Hauptkontakt.E_Mail; } }
 
-		public bool Geliefert { get { return this.myBase.OffeneLieferung == "0" ? true : false; } }
+		public bool Geliefert { get { return this.myBase.OffeneLieferung == "0"; } }
 
-		public bool Berechnet { get { return this.myBase.OffeneRechnung == "0" ? true : false; } }
+		public bool Berechnet { get { return this.myBase.OffeneRechnung == "0"; } }
 
 		public string Bearbeiter
 		{

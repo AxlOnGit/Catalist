@@ -790,9 +790,13 @@ namespace Products.Common.Views
 
 		#endregion
 
-		private void lnkDummy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		void lnkDummy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			var pcv = new Views.ProductCategoryView();
+		}
+
+		void btnTest_Click(object sender, EventArgs e)
+		{
+			var pcv = new ProductCategoryView();
 			pcv.Show();
 		}
 	}

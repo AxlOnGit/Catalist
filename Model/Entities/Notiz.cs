@@ -14,9 +14,9 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsNotes.NoteRow myBase;
-		private SortableBindingList<FileLink> myDateilinkList = null;
-	
+		readonly dsNotes.NoteRow myBase;
+		//SortableBindingList<FileLink> myDateilinkList;
+
 		#endregion
 
 		#region public properties
@@ -26,7 +26,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.myBase.UID; }
 		}
@@ -34,17 +34,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Notiz").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return this.myBase.Subject; }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Notiz"; }
 		}
@@ -211,7 +211,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				object[] meta = new object[6] 
+				object[] meta = 
 				{
 					Environment.NewLine,						    //0
 					this.AssignedTo.UserName.ToUpper(), //1
@@ -293,65 +293,7 @@ namespace Products.Model.Entities
 
 		#endregion
 
-		#region event handler
-
-		void ModelService_OnLinkedFileDeleted(object sender, EventSystem.DateilinkDeletedEventArgs e)
-		{
-			// Überprüfen, ob die interne Liste mit Dateiverknüpfungen auf die gelöschte
-			// Datei verweist und ggf. die Dateiverknüpfung aus der Auflistung entfernen.
-			if (this.myDateilinkList != null && this.myDateilinkList.Count > 0) this.myDateilinkList = null;
-		}
-	
-		#endregion
-
 		#region public procedures
-
-		/// <summary>
-		/// Fügt dieser Notiz eine neue Dateiverknüpfung hinzu.
-		/// </summary>
-		/// <param name="fileName"></param>
-		/// <param name="keepOriginal"></param>
-		//public void AddFileLink(string fileName, bool keepOriginal)
-		//{
-		//  try
-		//  {
-
-		//    FileLink newFileLink = Model.ModelManager.ModelService.AddFileLink(this, fileName);
-		//    if (newFileLink != null)
-		//    {
-		//      string filename = System.IO.Path.GetFileName(fileName);
-		//      if (filename.Length > 45) filename = filename.Substring(0, 45);
-
-		//      newFileLink.LinkedItemType = ModelManager.SharedItemsService.GetLinkTypeByName("Notiz");
-		//      newFileLink.FileTitle = filename;
-		//      newFileLink.Description = filename;
-		//      this.Dateilinks.Add(newFileLink);
-		//      if (keepOriginal)
-		//      {
-		//        {
-		//          System.IO.File.Delete(fileName);
-		//        }
-		//      }
-		//      ModelManager.ModelService.UpdateDateilinks();
-		//    }
-		//  }
-		//  catch (Exception)
-		//  {
-		//    throw;
-		//  }
-		//}
-
-		///// <summary>
-		///// Entfernt die angegebene Dateiverknüpfung.
-		///// </summary>
-		///// <param name="completeRemove">Wenn True, werden alle Verknüpfungen zu dieser Datei
-		///// entfernt und die Datei anschließend aus dem Server Repository gelöscht.</param>
-		///// <param name="fileLink"></param>
-		//public void RemoveFileLink(FileLink fileLink, bool completeRemove) 
-		//{
-		//  this.Dateilinks.Remove(fileLink);
-		//  ModelManager.ModelService.RemoveDateilink(fileLink.LinkedItemId, fileLink.DateiMitPfad, completeRemove);
-		//}
 
 		/// <summary>
 		/// Prüft, ob diese Notiz gelöscht werden kann.

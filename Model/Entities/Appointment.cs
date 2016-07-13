@@ -40,12 +40,12 @@ namespace Products.Model.Entities
 
 		#region ILinkedItem
 
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return this.FullName; }
 		}
 
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Termin").UID; }
 		}
@@ -53,7 +53,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Bezeichnung des verknüpften Elements zurück.
 		/// </summary>
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return string.Format("{0} [{1}]", this.myMsgItem2Base.Subject, this.OwnerName); }
 		}
@@ -61,7 +61,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Bezeichnung des Linktyps zurück.
 		/// </summary>
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Termin"; }
 		}
@@ -270,7 +270,7 @@ namespace Products.Model.Entities
 		{
 			get 
 			{
-				string folder = ((int)this.GetFieldValue(DavidFieldEnum.CreatedBy)).ToString("X");
+				var folder = ((int)this.GetFieldValue(DavidFieldEnum.CreatedBy)).ToString("X");
 				return ModelManager.UserService.GetUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder); 
 			}
 		}
@@ -345,8 +345,8 @@ namespace Products.Model.Entities
 				sb.AppendLine(string.Format("{0}", this.Location));
 				sb.AppendLine();
 				sb.AppendLine(string.Format("{0}: {1} ({2})", this.ResponsibleName, this.Subject, this.AppointmentType));
-				if (this.GetLinkedItemsList().Count > 0) sb.AppendLine();
-				foreach (var item in this.GetLinkedItemsList())
+				if (ModelManager.AppointmentService.GetLinkedItemsList(this).Count > 0) sb.AppendLine();
+				foreach (var item in ModelManager.AppointmentService.GetLinkedItemsList(this))
 				{
 					sb.AppendLine("______________________________");
 					sb.AppendLine(string.Format("{0}{1}{2}", item.LinkTypBezeichnung, ev, item.ItemName));
@@ -396,7 +396,7 @@ namespace Products.Model.Entities
 			return sb.ToString();
 		}
 
-		public SBList<ILinkedItem> GetLinkedItemsList()
+		internal SBList<ILinkedItem> GetLinkedItemsList()
 		{
 			return ModelManager.AppointmentService.GetLinkedItemsList(this);
 		}
@@ -409,7 +409,7 @@ namespace Products.Model.Entities
 			var sb = new StringBuilder();
 			for (int i = 0; i < 149; i++)
 			{
-				DvApi32.Field field = ((DvApi32.Fields)this.myMsgItem2Base.Fields).Item(i);
+				var field = ((DvApi32.Fields)this.myMsgItem2Base.Fields).Item(i);
 				sb.AppendLine(string.Format("Feld {0}:\t{1}\t=> {2} ({3})", i, field.Name, field.Value.ToString(), field.GetType().ToString()));
 			}
 			return sb.ToString();

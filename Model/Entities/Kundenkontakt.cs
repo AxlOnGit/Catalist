@@ -25,7 +25,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		string ILinkedItem.Key
+		public string Key
 		{
 			get { return string.Format("{0}{1}", this.myBase.Kundennummer, this.myBase.Nummer); }
 		}
@@ -33,17 +33,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		string ILinkedItem.LinkTypeId
+		public string LinkTypeId
 		{
 			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Kundenkontakt").UID; }
 		}
 
-		string ILinkedItem.ItemName
+		public string ItemName
 		{
 			get { return string.Format("{0} ({1})", myBase.Name, this.Kundennummer.Substring(0,5)); }
 		}
 
-		string ILinkedItem.LinkTypBezeichnung
+		public string LinkTypBezeichnung
 		{
 			get { return "Kundenkontakt"; }
 		}
@@ -99,7 +99,7 @@ namespace Products.Model.Entities
 				{
 					return false;
 				}
-				int dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
+				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
 				return (dec & (int)Common.Global.SendInfoTypes.SendEmail) == (int)Global.SendInfoTypes.SendEmail;
 			} 
 		}
@@ -112,7 +112,7 @@ namespace Products.Model.Entities
 				{
 					return false;
 				}
-				int dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
+				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
 				return (dec & (int)Common.Global.SendInfoTypes.SendFax) == (int)Global.SendInfoTypes.SendFax;
 			}
 		}
@@ -125,7 +125,7 @@ namespace Products.Model.Entities
 				{
 					return false;
 				}
-				int dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
+				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
 				return (dec & (int)Common.Global.SendInfoTypes.SendLetter) == (int)Global.SendInfoTypes.SendLetter;
 			}
 		}
@@ -202,7 +202,7 @@ namespace Products.Model.Entities
 			{
 				if (!contact.Equals(this))
 				{
-					Type contactType = contact.GetType();
+					var contactType = contact.GetType();
 					foreach (PropertyInfo prop in contactType.GetProperties())
 					{
 						if (prop.Name == emailField)
