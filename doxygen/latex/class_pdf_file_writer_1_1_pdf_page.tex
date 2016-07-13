@@ -1,0 +1,250 @@
+\hypertarget{class_pdf_file_writer_1_1_pdf_page}{}\section{Pdf\+File\+Writer.\+Pdf\+Page Class Reference}
+\label{class_pdf_file_writer_1_1_pdf_page}\index{Pdf\+File\+Writer.\+Pdf\+Page@{Pdf\+File\+Writer.\+Pdf\+Page}}
+
+
+P\+DF page class  
+
+
+Inheritance diagram for Pdf\+File\+Writer.\+Pdf\+Page\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_pdf_file_writer_1_1_pdf_page}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_page_ad82bbe682f7a6245b1087cbefd0f9a80}{Pdf\+Page} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document)
+\begin{DoxyCompactList}\small\item\em Default constructor \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_page_ab43af23bba9ac318f84f6532e2be5860}{Pdf\+Page} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document, \hyperlink{class_pdf_file_writer_1_1_size_d}{SizeD} Page\+Size)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_page_af98e8034f9c368ef4cc0102efffbe0c6}{Pdf\+Page} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document, \hyperlink{namespace_pdf_file_writer_a75284a02a7aac96778d2e1f95f406dfb}{Paper\+Type} \hyperlink{namespace_pdf_file_writer_a75284a02a7aac96778d2e1f95f406dfb}{Paper\+Type}, Boolean Landscape)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_page_ab84caf005de5b7bab126f3a527b38df0}{Pdf\+Page} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document, Double Width, Double Height)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_page_a0b19b9cf02fc44c6e3af41030c3ba918}{Add\+Contents} (\hyperlink{class_pdf_file_writer_1_1_pdf_contents}{Pdf\+Contents} Contents)
+\begin{DoxyCompactList}\small\item\em Add existing contents to page \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_contents}{Pdf\+Contents} \hyperlink{class_pdf_file_writer_1_1_pdf_page_a2026859d1078fc9b0db7ecbee51c19b6}{Get\+Current\+Contents} ()
+\begin{DoxyCompactList}\small\item\em Gets the current contents of this page \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_page_a6da394f2ddba2f0e1079034f33a579b7}{Add\+Web\+Link} (Double Left\+Pos, Double Bottom\+Pos, Double Right\+Pos, Double Top\+Pos, String Web\+Link)
+\begin{DoxyCompactList}\small\item\em Add weblink to this page \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_page_a0e4965aa744e389ca73c4c7f56f7dfaa}{Add\+Web\+Link} (\hyperlink{class_pdf_file_writer_1_1_pdf_rectangle}{Pdf\+Rectangle} Weblink\+Area, String Web\+Link\+Str)
+\begin{DoxyCompactList}\small\item\em Add weblink to this page \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_page_a297ae1562ea479b08c4957a54b1cc485}{Add\+Screen\+Action} (\hyperlink{class_pdf_file_writer_1_1_pdf_rectangle}{Pdf\+Rectangle} Rect, String File\+Name, Int32 Width\+Pix=0, Int32 Height\+Pix=0, String Mime\+Type=null)
+\begin{DoxyCompactList}\small\item\em Add rendering screen action to page \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+DF page class 
+
+P\+DF page class represent one page in the document. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Pdf\+Page@{Pdf\+Page}}
+\index{Pdf\+Page@{Pdf\+Page}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Pdf\+Page(\+Pdf\+Document Document)}{PdfPage(PdfDocument Document)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Page.\+Pdf\+Page (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_ad82bbe682f7a6245b1087cbefd0f9a80}{}\label{class_pdf_file_writer_1_1_pdf_page_ad82bbe682f7a6245b1087cbefd0f9a80}
+
+
+Default constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Parent P\+DF document object\\
+\hline
+\end{DoxyParams}
+
+
+Page size is taken from \hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} \index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Pdf\+Page@{Pdf\+Page}}
+\index{Pdf\+Page@{Pdf\+Page}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Pdf\+Page(\+Pdf\+Document Document, Size\+D Page\+Size)}{PdfPage(PdfDocument Document, SizeD PageSize)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Page.\+Pdf\+Page (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{{\bf SizeD}}]{Page\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_ab43af23bba9ac318f84f6532e2be5860}{}\label{class_pdf_file_writer_1_1_pdf_page_ab43af23bba9ac318f84f6532e2be5860}
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Parent P\+DF document object\\
+\hline
+{\em Page\+Size} & Paper size for this page\\
+\hline
+\end{DoxyParams}
+
+
+Page\+Size override the default page size \index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Pdf\+Page@{Pdf\+Page}}
+\index{Pdf\+Page@{Pdf\+Page}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Pdf\+Page(\+Pdf\+Document Document, Paper\+Type Paper\+Type, Boolean Landscape)}{PdfPage(PdfDocument Document, PaperType PaperType, Boolean Landscape)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Page.\+Pdf\+Page (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{{\bf Paper\+Type}}]{Paper\+Type, }
+\item[{Boolean}]{Landscape}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_af98e8034f9c368ef4cc0102efffbe0c6}{}\label{class_pdf_file_writer_1_1_pdf_page_af98e8034f9c368ef4cc0102efffbe0c6}
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Parent P\+DF document object\\
+\hline
+{\em Paper\+Type} & Paper type\\
+\hline
+{\em Landscape} & If Lanscape is true, width and height are swapped.\\
+\hline
+\end{DoxyParams}
+
+
+Paper\+Type and orientation override the default page size. \index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Pdf\+Page@{Pdf\+Page}}
+\index{Pdf\+Page@{Pdf\+Page}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Pdf\+Page(\+Pdf\+Document Document, Double Width, Double Height)}{PdfPage(PdfDocument Document, Double Width, Double Height)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Page.\+Pdf\+Page (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{Double}]{Width, }
+\item[{Double}]{Height}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_ab84caf005de5b7bab126f3a527b38df0}{}\label{class_pdf_file_writer_1_1_pdf_page_ab84caf005de5b7bab126f3a527b38df0}
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Parent P\+DF document object\\
+\hline
+{\em Width} & Page width\\
+\hline
+{\em Height} & Page height\\
+\hline
+\end{DoxyParams}
+
+
+Width and Height override the default page size 
+
+\subsection{Member Function Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Add\+Contents@{Add\+Contents}}
+\index{Add\+Contents@{Add\+Contents}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Add\+Contents(\+Pdf\+Contents Contents)}{AddContents(PdfContents Contents)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Page.\+Add\+Contents (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Contents}}]{Contents}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_a0b19b9cf02fc44c6e3af41030c3ba918}{}\label{class_pdf_file_writer_1_1_pdf_page_a0b19b9cf02fc44c6e3af41030c3ba918}
+
+
+Add existing contents to page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Contents} & Contents object\\
+\hline
+\end{DoxyParams}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Add\+Screen\+Action@{Add\+Screen\+Action}}
+\index{Add\+Screen\+Action@{Add\+Screen\+Action}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Add\+Screen\+Action(\+Pdf\+Rectangle Rect, String File\+Name, Int32 Width\+Pix=0, Int32 Height\+Pix=0, String Mime\+Type=null)}{AddScreenAction(PdfRectangle Rect, String FileName, Int32 WidthPix=0, Int32 HeightPix=0, String MimeType=null)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Page.\+Add\+Screen\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Rectangle}}]{Rect, }
+\item[{String}]{File\+Name, }
+\item[{Int32}]{Width\+Pix = {\ttfamily 0}, }
+\item[{Int32}]{Height\+Pix = {\ttfamily 0}, }
+\item[{String}]{Mime\+Type = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_a297ae1562ea479b08c4957a54b1cc485}{}\label{class_pdf_file_writer_1_1_pdf_page_a297ae1562ea479b08c4957a54b1cc485}
+
+
+Add rendering screen action to page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rect} & Annotation rectangle\\
+\hline
+{\em File\+Name} & Media file name\\
+\hline
+{\em Width\+Pix} & Video width in pixels\\
+\hline
+{\em Height\+Pix} & Video height in pixels\\
+\hline
+{\em Mime\+Type} & Media file Mime type\\
+\hline
+\end{DoxyParams}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Add\+Web\+Link@{Add\+Web\+Link}}
+\index{Add\+Web\+Link@{Add\+Web\+Link}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Add\+Web\+Link(\+Double Left\+Pos, Double Bottom\+Pos, Double Right\+Pos, Double Top\+Pos, String Web\+Link)}{AddWebLink(Double LeftPos, Double BottomPos, Double RightPos, Double TopPos, String WebLink)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Page.\+Add\+Web\+Link (
+\begin{DoxyParamCaption}
+\item[{Double}]{Left\+Pos, }
+\item[{Double}]{Bottom\+Pos, }
+\item[{Double}]{Right\+Pos, }
+\item[{Double}]{Top\+Pos, }
+\item[{String}]{Web\+Link}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_a6da394f2ddba2f0e1079034f33a579b7}{}\label{class_pdf_file_writer_1_1_pdf_page_a6da394f2ddba2f0e1079034f33a579b7}
+
+
+Add weblink to this page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Left\+Pos} & Left position of weblink area\\
+\hline
+{\em Bottom\+Pos} & Bottom position of weblink area\\
+\hline
+{\em Right\+Pos} & Right position of weblink area\\
+\hline
+{\em Top\+Pos} & Top position of weblink area\\
+\hline
+{\em Web\+Link} & Hyperlink string\\
+\hline
+\end{DoxyParams}
+
+
+The four position arguments are in relation to the bottom left corner of the paper. If web link is empty, ignore this call. 
+
+For more information go to \href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#WeblinkSupport}{\tt 2.\+7 Web Link Support} \index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Add\+Web\+Link@{Add\+Web\+Link}}
+\index{Add\+Web\+Link@{Add\+Web\+Link}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Add\+Web\+Link(\+Pdf\+Rectangle Weblink\+Area, String Web\+Link\+Str)}{AddWebLink(PdfRectangle WeblinkArea, String WebLinkStr)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Page.\+Add\+Web\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Rectangle}}]{Weblink\+Area, }
+\item[{String}]{Web\+Link\+Str}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_a0e4965aa744e389ca73c4c7f56f7dfaa}{}\label{class_pdf_file_writer_1_1_pdf_page_a0e4965aa744e389ca73c4c7f56f7dfaa}
+
+
+Add weblink to this page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Weblink\+Area} & Weblink area\\
+\hline
+{\em Web\+Link\+Str} & Hyperlink string\\
+\hline
+\end{DoxyParams}
+
+
+The four position arguments are in relation to the bottom left corner of the paper. If web link is empty, ignore this call. 
+
+For more information go to \href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#WeblinkSupport}{\tt 2.\+7 Web Link Support} \index{Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}!Get\+Current\+Contents@{Get\+Current\+Contents}}
+\index{Get\+Current\+Contents@{Get\+Current\+Contents}!Pdf\+File\+Writer\+::\+Pdf\+Page@{Pdf\+File\+Writer\+::\+Pdf\+Page}}
+\subsubsection[{\texorpdfstring{Get\+Current\+Contents()}{GetCurrentContents()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pdf\+Contents} Pdf\+File\+Writer.\+Pdf\+Page.\+Get\+Current\+Contents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_page_a2026859d1078fc9b0db7ecbee51c19b6}{}\label{class_pdf_file_writer_1_1_pdf_page_a2026859d1078fc9b0db7ecbee51c19b6}
+
+
+Gets the current contents of this page 
+
+\begin{DoxyReturn}{Returns}
+Page\textquotesingle{}s current contents
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Pdf\+Page.\+cs\end{DoxyCompactItemize}

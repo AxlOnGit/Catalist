@@ -1,0 +1,55 @@
+\hypertarget{class_pdf_file_writer_1_1_deflate_tree}{}\section{Pdf\+File\+Writer.\+Deflate\+Tree Class Reference}
+\label{class_pdf_file_writer_1_1_deflate_tree}\index{Pdf\+File\+Writer.\+Deflate\+Tree@{Pdf\+File\+Writer.\+Deflate\+Tree}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Deflate\+Tree} (Write\+Bits Write\+Bits, Int32 Min\+Codes, Int32 Max\+Codes, Int32 Max\+Bit\+Length)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a9516370003996e778f598ed6cb489aed}{}\label{class_pdf_file_writer_1_1_deflate_tree_a9516370003996e778f598ed6cb489aed}
+
+\item 
+void {\bfseries Reset} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a3f5db2ff58b580f6d481ec595a3368f4}{}\label{class_pdf_file_writer_1_1_deflate_tree_a3f5db2ff58b580f6d481ec595a3368f4}
+
+\item 
+void {\bfseries Write\+Symbol} (Int32 code)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a3f8a418ab913ef6488b70d8f51a9650d}{}\label{class_pdf_file_writer_1_1_deflate_tree_a3f8a418ab913ef6488b70d8f51a9650d}
+
+\item 
+void {\bfseries Set\+Static\+Codes} (U\+Int16\mbox{[}$\,$\mbox{]} Static\+Codes, Byte\mbox{[}$\,$\mbox{]} Static\+Length)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a7971a3037e709e3d5cffcb3af98f25e2}{}\label{class_pdf_file_writer_1_1_deflate_tree_a7971a3037e709e3d5cffcb3af98f25e2}
+
+\item 
+void {\bfseries Build\+Tree} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_ae20dd2a497bdc8fda240108ca8b446d1}{}\label{class_pdf_file_writer_1_1_deflate_tree_ae20dd2a497bdc8fda240108ca8b446d1}
+
+\item 
+void {\bfseries Adjust\+Nodes} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a35a0eb3d0338957fde2143ae2a9f9977}{}\label{class_pdf_file_writer_1_1_deflate_tree_a35a0eb3d0338957fde2143ae2a9f9977}
+
+\item 
+void {\bfseries Build\+Codes} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_ae0c094bb781eea84a38b2686cf075309}{}\label{class_pdf_file_writer_1_1_deflate_tree_ae0c094bb781eea84a38b2686cf075309}
+
+\item 
+Int32 {\bfseries Get\+Encoded\+Length} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a30879eee6f75a6b3118e169570b77d70}{}\label{class_pdf_file_writer_1_1_deflate_tree_a30879eee6f75a6b3118e169570b77d70}
+
+\item 
+Int32 {\bfseries Max\+Used\+Codes\+Bit\+Length} ()\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a06c2ce6521b67ae0468e8e843994d43e}{}\label{class_pdf_file_writer_1_1_deflate_tree_a06c2ce6521b67ae0468e8e843994d43e}
+
+\item 
+void {\bfseries Write\+Bit\+Length\+Code\+Length} (Int32 bl\+Tree\+Codes)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_ac8b9bb28c383e3ec8a408ad6801d7e67}{}\label{class_pdf_file_writer_1_1_deflate_tree_ac8b9bb28c383e3ec8a408ad6801d7e67}
+
+\item 
+Int32 \hyperlink{class_pdf_file_writer_1_1_deflate_tree_aff930d0c5233e4bcf17d8ff919c40a28}{Calc\+B\+L\+Freq} (\hyperlink{class_pdf_file_writer_1_1_deflate_tree}{Deflate\+Tree} bl\+Tree)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_aff930d0c5233e4bcf17d8ff919c40a28}{}\label{class_pdf_file_writer_1_1_deflate_tree_aff930d0c5233e4bcf17d8ff919c40a28}
+
+\begin{DoxyCompactList}\small\item\em 0 -\/ 15\+: Represent code lengths of 0 -\/ 15 \end{DoxyCompactList}\item 
+void {\bfseries Write\+Tree} (\hyperlink{class_pdf_file_writer_1_1_deflate_tree}{Deflate\+Tree} bl\+Tree)\hypertarget{class_pdf_file_writer_1_1_deflate_tree_a0fe4f1582536c00617a6d7c134b2372a}{}\label{class_pdf_file_writer_1_1_deflate_tree_a0fe4f1582536c00617a6d7c134b2372a}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Int32\mbox{[}$\,$\mbox{]} {\bfseries Code\+Freq}\hypertarget{class_pdf_file_writer_1_1_deflate_tree_aa039c34831bd532b6a55a0dfb735d979}{}\label{class_pdf_file_writer_1_1_deflate_tree_aa039c34831bd532b6a55a0dfb735d979}
+
+\item 
+Int32 {\bfseries Max\+Used\+Codes}\hypertarget{class_pdf_file_writer_1_1_deflate_tree_ae160652f8d60f0166e19a771d7b81c59}{}\label{class_pdf_file_writer_1_1_deflate_tree_ae160652f8d60f0166e19a771d7b81c59}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Deflate\+Method.\+cs\end{DoxyCompactItemize}

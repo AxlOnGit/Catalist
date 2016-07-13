@@ -1,0 +1,1244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC1B5101-29DF-4142-8E9C-EF83A5C883F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Products.Common</RootNamespace>
+    <AssemblyName>Catalist.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\CPM-DC\Software\Catalist\Setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://www.cut-print.de</SupportUrl>
+    <ProductName>Catalist</ProductName>
+    <PublisherName>CPM</PublisherName>
+    <SuiteName>Catalist Suite</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationVersion>1.2.17.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\binaries\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\binaries\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cpm.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>47AEF9783135AC978F4F6E82984C9A5654ABA895</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Products.UI_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AnalogClockControl">
+      <HintPath>..\ThirdParty\AnalogClockControl\AnalogClockControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Calendar.DayView">
+      <HintPath>..\ThirdParty\CalendarDayView\Calendar.DayView.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ControlLib">
+      <HintPath>..\..\..\AREA51\Ullrich\ControlLib\bin\Release\ControlLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="HtmlRenderer">
+      <HintPath>..\ThirdParty\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MSDN.HtmlEditorControl, Version=4.0.5764.15145, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\HTMLEditor\MSDN.HtmlEditorControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.3.3.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ShaperRater, Version=1.0.5711.24398, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\ShaperRater\ShaperRater.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Transitions">
+      <HintPath>..\ThirdParty\Transitions\Transitions.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\NullableDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LogService.cs" />
+    <Compile Include="Panel\pnlAngebote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlAngebote.Designer.cs">
+      <DependentUpon>pnlAngebote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlAngebotsdetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlAngebotsdetail.Designer.cs">
+      <DependentUpon>pnlAngebotsdetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlArtikeldetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlArtikeldetail.Designer.cs">
+      <DependentUpon>pnlArtikeldetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlArtikelpreise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlArtikelpreise.Designer.cs">
+      <DependentUpon>pnlArtikelpreise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlAuftraege.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlAuftraege.Designer.cs">
+      <DependentUpon>pnlAuftraege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlFinanzen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlFinanzen.Designer.cs">
+      <DependentUpon>pnlFinanzen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlKontakte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlKontakte.Designer.cs">
+      <DependentUpon>pnlKontakte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlKundeStart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlKundeStart.designer.cs">
+      <DependentUpon>pnlKundeStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlMaschinen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlMaschinen.Designer.cs">
+      <DependentUpon>pnlMaschinen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlMaschinendetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlMaschinendetail.Designer.cs">
+      <DependentUpon>pnlMaschinendetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlNotiz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlNotiz.Designer.cs">
+      <DependentUpon>pnlNotiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlNotizen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlNotizen.Designer.cs">
+      <DependentUpon>pnlNotizen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlSlider.designer.cs">
+      <DependentUpon>pnlSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlSoftware.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlSoftware.Designer.cs">
+      <DependentUpon>pnlSoftware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel\pnlSoftwareliste.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlSoftwareliste.Designer.cs">
+      <DependentUpon>pnlSoftwareliste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UI.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceManager.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UiService.cs" />
+    <Compile Include="ViewController\CalendarViewController.cs" />
+    <Compile Include="Views\AppointmentListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AppointmentListView.Designer.cs">
+      <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtikelDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ArtikelDetailView.Designer.cs">
+      <DependentUpon>ArtikelDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtikelstammView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ArtikelstammView.Designer.cs">
+      <DependentUpon>ArtikelstammView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AuftraegeProArtikelView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AuftraegeProArtikelView.Designer.cs">
+      <DependentUpon>AuftraegeProArtikelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AuswahlDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AuswahlDialog.Designer.cs">
+      <DependentUpon>AuswahlDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AxelsVerwaltungsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AxelsVerwaltungsView.Designer.cs">
+      <DependentUpon>AxelsVerwaltungsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BestellungListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BestellungListView.Designer.cs">
+      <DependentUpon>BestellungListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalcRollView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalcRollView.Designer.cs">
+      <DependentUpon>CalcRollView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalcItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalcItemView.designer.cs">
+      <DependentUpon>CalcItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalendarDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalendarDetailView.Designer.cs">
+      <DependentUpon>CalendarDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalendarSettingsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalendarSettingsView.Designer.cs">
+      <DependentUpon>CalendarSettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ContactListView.Designer.cs">
+      <DependentUpon>ContactListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ContactSearchView.Designer.cs">
+      <DependentUpon>ContactSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CpmMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CpmMainView.Designer.cs">
+      <DependentUpon>CpmMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerDetailView.Designer.cs">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView.Designer.cs">
+      <DependentUpon>CustomerSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView1.Designer.cs">
+      <DependentUpon>CustomerSearchView1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerSearchView2.Designer.cs">
+      <DependentUpon>CustomerSearchView2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmailView.Designer.cs">
+      <DependentUpon>EmailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InteressentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InteressentView.Designer.cs">
+      <DependentUpon>InteressentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KalenderListeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KalenderListeView.Designer.cs">
+      <DependentUpon>KalenderListeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KalenderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KalenderView.Designer.cs">
+      <DependentUpon>KalenderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KatalogIndexView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KatalogIndexView.Designer.cs">
+      <DependentUpon>KatalogIndexView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KundeMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KundeMainView.Designer.cs">
+      <DependentUpon>KundeMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KundenmaschineSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KundenmaschineSearchView.Designer.cs">
+      <DependentUpon>KundenmaschineSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KundenmaschineSearchView2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KundenmaschineSearchView2.Designer.cs">
+      <DependentUpon>KundenmaschineSearchView2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LieferantenListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LieferantenListView.Designer.cs">
+      <DependentUpon>LieferantenListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LieferantenStaffelpreisView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LieferantenStaffelpreisView.Designer.cs">
+      <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaschinenmodellView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaschinenmodellView.Designer.cs">
+      <DependentUpon>MaschinenmodellView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotizView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NotizView.Designer.cs">
+      <DependentUpon>NotizView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LagerbestandView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LagerbestandView.Designer.cs">
+      <DependentUpon>LagerbestandView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductCategoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductCategoryView.Designer.cs">
+      <DependentUpon>ProductCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductSearchView.Designer.cs">
+      <DependentUpon>ProductSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PresetListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PresetListView.Designer.cs">
+      <DependentUpon>PresetListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductDetailView.Designer.cs">
+      <DependentUpon>ProductDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecentCustomerListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RecentCustomerListView.Designer.cs">
+      <DependentUpon>RecentCustomerListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReminderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReminderView.Designer.cs">
+      <DependentUpon>ReminderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectPresetView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SelectPresetView.Designer.cs">
+      <DependentUpon>SelectPresetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectUsersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SelectUsersView.Designer.cs">
+      <DependentUpon>SelectUsersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SettingsView.Designer.cs">
+      <DependentUpon>SettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SonderpreisView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SonderpreisView.designer.cs">
+      <DependentUpon>SonderpreisView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TaskDetailView.Designer.cs">
+      <DependentUpon>TaskDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TaskListView.Designer.cs">
+      <DependentUpon>TaskListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TintenListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TintenListView.Designer.cs">
+      <DependentUpon>TintenListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TourkundenDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TourkundenDetailView.Designer.cs">
+      <DependentUpon>TourkundenDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TourKundenView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TourKundenView.Designer.cs">
+      <DependentUpon>TourKundenView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TourListenView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TourListenView.Designer.cs">
+      <DependentUpon>TourListenView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionListView.Designer.cs">
+      <DependentUpon>TransactionListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpsShippingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpsShippingView.Designer.cs">
+      <DependentUpon>UpsShippingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserDetailView.Designer.cs">
+      <DependentUpon>UserDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserSearchView.Designer.cs">
+      <DependentUpon>UserSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerwaltungsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VerwaltungsView.Designer.cs">
+      <DependentUpon>VerwaltungsView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Panel\pnlAngebote.resx">
+      <DependentUpon>pnlAngebote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlAngebotsdetail.resx">
+      <DependentUpon>pnlAngebotsdetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlArtikeldetail.resx">
+      <DependentUpon>pnlArtikeldetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlArtikelpreise.resx">
+      <DependentUpon>pnlArtikelpreise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlAuftraege.resx">
+      <DependentUpon>pnlAuftraege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlFinanzen.resx">
+      <DependentUpon>pnlFinanzen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlKontakte.resx">
+      <DependentUpon>pnlKontakte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlKundeStart.resx">
+      <DependentUpon>pnlKundeStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlMaschinen.resx">
+      <DependentUpon>pnlMaschinen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlMaschinendetail.resx">
+      <DependentUpon>pnlMaschinendetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlNotiz.resx">
+      <DependentUpon>pnlNotiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlNotizen.resx">
+      <DependentUpon>pnlNotizen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlSlider.resx">
+      <DependentUpon>pnlSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlSoftware.resx">
+      <DependentUpon>pnlSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlSoftwareliste.resx">
+      <DependentUpon>pnlSoftwareliste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UI.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppointmentListView.resx">
+      <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ArtikelDetailView.resx">
+      <DependentUpon>ArtikelDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ArtikelstammView.resx">
+      <DependentUpon>ArtikelstammView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AuftraegeProArtikelView.resx">
+      <DependentUpon>AuftraegeProArtikelView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AuswahlDialog.resx">
+      <DependentUpon>AuswahlDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AxelsVerwaltungsView.resx">
+      <DependentUpon>AxelsVerwaltungsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BestellungListView.resx">
+      <DependentUpon>BestellungListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalcRollView.resx">
+      <DependentUpon>CalcRollView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalcItemView.resx">
+      <DependentUpon>CalcItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalendarDetailView.resx">
+      <DependentUpon>CalendarDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalendarSettingsView.resx">
+      <DependentUpon>CalendarSettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ContactListView.resx">
+      <DependentUpon>ContactListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ContactSearchView.resx">
+      <DependentUpon>ContactSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CpmMainView.resx">
+      <DependentUpon>CpmMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerDetailView.resx">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerSearchView.resx">
+      <DependentUpon>CustomerSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerSearchView1.resx">
+      <DependentUpon>CustomerSearchView1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerSearchView2.resx">
+      <DependentUpon>CustomerSearchView2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailView.resx">
+      <DependentUpon>EmailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InteressentView.resx">
+      <DependentUpon>InteressentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KalenderListeView.resx">
+      <DependentUpon>KalenderListeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KalenderView.resx">
+      <DependentUpon>KalenderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KatalogIndexView.resx">
+      <DependentUpon>KatalogIndexView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KundeMainView.resx">
+      <DependentUpon>KundeMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KundenmaschineSearchView.resx">
+      <DependentUpon>KundenmaschineSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KundenmaschineSearchView2.resx">
+      <DependentUpon>KundenmaschineSearchView2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LieferantenListView.resx">
+      <DependentUpon>LieferantenListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LieferantenStaffelpreisView.resx">
+      <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaschinenmodellView.resx">
+      <DependentUpon>MaschinenmodellView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NotizView.resx">
+      <DependentUpon>NotizView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LagerbestandView.resx">
+      <DependentUpon>LagerbestandView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductCategoryView.resx">
+      <DependentUpon>ProductCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductSearchView.resx">
+      <DependentUpon>ProductSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PresetListView.resx">
+      <DependentUpon>PresetListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductDetailView.resx">
+      <DependentUpon>ProductDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecentCustomerListView.resx">
+      <DependentUpon>RecentCustomerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReminderView.resx">
+      <DependentUpon>ReminderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SelectPresetView.resx">
+      <DependentUpon>SelectPresetView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SelectUsersView.resx">
+      <DependentUpon>SelectUsersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsView.resx">
+      <DependentUpon>SettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SonderpreisView.resx">
+      <DependentUpon>SonderpreisView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TaskDetailView.resx">
+      <DependentUpon>TaskDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TaskListView.resx">
+      <DependentUpon>TaskListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TintenListView.resx">
+      <DependentUpon>TintenListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TourkundenDetailView.resx">
+      <DependentUpon>TourkundenDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TourKundenView.resx">
+      <DependentUpon>TourKundenView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TourListenView.resx">
+      <DependentUpon>TourListenView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TransactionListView.resx">
+      <DependentUpon>TransactionListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpsShippingView.resx">
+      <DependentUpon>UpsShippingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserDetailView.resx">
+      <DependentUpon>UserDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserSearchView.resx">
+      <DependentUpon>UserSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VerwaltungsView.resx">
+      <DependentUpon>VerwaltungsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Diagramme\CalendarView.cd" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Products.UI_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Agfeo\Agfeo.csproj">
+      <Project>{0CD206FB-1891-4010-9958-329AABD272CF}</Project>
+      <Name>Agfeo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Products.Common.csproj">
+      <Project>{B45CC3C0-5C84-4534-B1EA-BFEF5822CD30}</Project>
+      <Name>Products.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Products.Data.csproj">
+      <Project>{AEB80186-12CE-45F2-AB35-801BC192DBC2}</Project>
+      <Name>Products.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\David\David.csproj">
+      <Project>{D387D11B-0F86-4E9E-B542-25931128462B}</Project>
+      <Name>David</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocxCreator\Products.DocxCreator.csproj">
+      <Project>{77DE98FF-8A5B-4305-9033-036C53905289}</Project>
+      <Name>Products.DocxCreator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Products.Model.csproj">
+      <Project>{7EE96D66-A04C-46E8-BDAC-9FD37C92B483}</Project>
+      <Name>Products.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PdfMaker\Products.PdfMaker.csproj">
+      <Project>{CFFFB656-BE8A-4877-BB8D-E74CA7BAA454}</Project>
+      <Name>Products.PdfMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Products.Contracts\Products.Contracts.csproj">
+      <Project>{66A8E88B-430B-4B17-A328-9D0E068A68FD}</Project>
+      <Name>Products.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cpm.ico" />
+    <Content Include="CPM_gray.ico" />
+    <Content Include="modern.catalist.ico" />
+    <None Include="Resources\notes_48_metrowhite.png" />
+    <None Include="Resources\open_16_metrogray.png" />
+    <None Include="Resources\move_32_metroblue.png" />
+    <None Include="Resources\move_16_metroblue.png" />
+    <None Include="Resources\garbage_16_metroblue.png" />
+    <None Include="Resources\calLink_32_metrogreen.png" />
+    <None Include="Resources\calLink_16_metrogreen.png" />
+    <None Include="Resources\neu_32_metropurple.png" />
+    <None Include="Resources\catalog_48_metrowhite.png" />
+    <None Include="Resources\admin_48_metrowhite.png" />
+    <None Include="Resources\neu_metrored.png" />
+    <None Include="Resources\Touren_48_metrowhite.png" />
+    <None Include="Resources\open_16_metroyellow.png" />
+    <None Include="Resources\open_32_metromagenta1.png" />
+    <None Include="Resources\neu_metrored1.png" />
+    <None Include="Resources\open_32_metrosilver.png" />
+    <None Include="Resources\neu_32_metrosilver.png" />
+    <None Include="Resources\forward_32_metroyellow.png" />
+    <None Include="Resources\telefon_16_metroyellow.png" />
+    <None Include="Resources\email_16_metroyellow.png" />
+    <None Include="Resources\kunde_32_metrored.png" />
+    <None Include="Resources\poweroff_48_metrowhite.png" />
+    <None Include="Resources\editdoc_32_metrosilver.png" />
+    <None Include="Resources\editdoc_32_metroyellow.png" />
+    <None Include="Resources\editdoc_32_metroorange.png" />
+    <None Include="Resources\editdoc_16_metroyellow.png" />
+    <None Include="Resources\neu_16_metroyellow.png" />
+    <None Include="Resources\garbage_32_metroorange.png" />
+    <None Include="Resources\garbage_32_metroyellow.png" />
+    <None Include="Resources\garbage_32_metrored.png" />
+    <None Include="Resources\notiz_32_metroorange.png" />
+    <None Include="Resources\edit_32_metroorange.png" />
+    <None Include="Resources\edit_32_metrosilver.png" />
+    <None Include="Resources\edit_32_metroyellow.png" />
+    <None Include="Resources\neu_32_metrored.png" />
+    <None Include="Resources\edit_32_metrored.png" />
+    <None Include="Resources\screwdriver_32_metroblue.png" />
+    <None Include="Resources\screwdriver_32_metrolime.png" />
+    <None Include="Resources\open_32_metrored.png" />
+    <None Include="Resources\calendarAdd_32_metroyellow.png" />
+    <None Include="Resources\calendarAdd_32_metrored.png" />
+    <None Include="Resources\garbage_32_metropurple.png" />
+    <None Include="Resources\open_32_metropurple.png" />
+    <None Include="Resources\open_32_metromagenta.png" />
+    <None Include="Resources\download_32_metrored.png" />
+    <None Include="Resources\add_16_metrored.png" />
+    <None Include="Resources\delete_16_metrored.png" />
+    <None Include="Resources\download_16_metrored.png" />
+    <None Include="Resources\open_16_metrored.png" />
+    <None Include="Resources\garbage_16_metroyellow.png" />
+    <None Include="Resources\move_16_metroyellow.png" />
+    <None Include="Resources\bing_16.png" />
+    <None Include="Resources\tour_16_metrowhite.png" />
+    <None Include="Resources\tour_16_metroyellow.png" />
+    <None Include="Resources\mail_32_metrogreen.png" />
+    <None Include="Resources\mail_16_metrolime.png" />
+    <None Include="Resources\email_16_metrogreen.png" />
+    <None Include="Resources\email_32_metrogreen.png" />
+    <None Include="Resources\sendmail_32_metrored.png" />
+    <None Include="Resources\task_48_metrogray.png" />
+    <None Include="Resources\alarm_32_metrolime.png" />
+    <None Include="Resources\alarm_32_metrogreen.png" />
+    <None Include="Resources\open_16_metroorange.png" />
+    <None Include="Resources\add_16_metroorange.png" />
+    <None Include="Resources\delete_16_metroorange.png" />
+    <None Include="Resources\active_16_metroorange.png" />
+    <None Include="Resources\discount_16_metrored.png" />
+    <None Include="Resources\purchase_16_metrored.png" />
+    <None Include="Resources\supplier_48_metrowhite.png" />
+    <None Include="Resources\backward_24_metrowhite.png" />
+    <None Include="Resources\forward_24_metrowhite.png" />
+    <None Include="Resources\today_24_metrowhite.png" />
+    <None Include="Resources\arrowup_16_metrolime.png" />
+    <None Include="Resources\arrowdown_16_metrolime.png" />
+    <None Include="Resources\settings_a_16_metroorange.png" />
+    <None Include="Resources\settings_b_16_metroorange.png" />
+    <None Include="Resources\settings_24_metroorange.png" />
+    <None Include="Resources\info_32_metroorange.png" />
+    <None Include="Resources\calendar_16_metroyellow.png" />
+    <None Include="Resources\calendar_32_metroblue.png" />
+    <None Include="Resources\liste_48_metrolime.png" />
+    <None Include="Resources\liste_48_metrosilver.png" />
+    <None Include="Resources\arrowleft_24_metrowhite.png" />
+    <None Include="Resources\arrowright_24_metrowhite.png" />
+    <None Include="Resources\iexplore_16_metrosilver.png" />
+    <None Include="Resources\auftrag_16_metrogreen.png" />
+    <None Include="Resources\purchase_32_metrored.png" />
+    <None Include="Resources\neu_32_metroteal.png" />
+    <None Include="Resources\open_32_metroteal.png" />
+    <None Include="Resources\add_16_metroteal.png" />
+    <None Include="Resources\garbage_16_metroteal.png" />
+    <None Include="Resources\open_16_metroteal.png" />
+    <None Include="Resources\garbage_32_metroteal.png" />
+    <None Include="Resources\search_16_metroblack.png" />
+    <Content Include="Windows 8.ico" />
+    <None Include="Resources\filter_16_metrolime.png" />
+    <None Include="Resources\frage_32_metroyellow.png" />
+    <None Include="Resources\frage_32_metropink.png" />
+    <None Include="Resources\frage_32_metroorange.png" />
+    <None Include="Resources\frage_32_metrolime.png" />
+    <None Include="Resources\frage_32_metrogreen.png" />
+    <None Include="Resources\frage_32_metroblue.png" />
+    <None Include="Resources\frage_32_metrored.png" />
+    <None Include="Resources\calendar_32_metrolime.png" />
+    <None Include="Resources\telefon_32_metrogreen.png" />
+    <None Include="Resources\telefon_32_metrogray.png" />
+    <None Include="Resources\topmost_32_metrored.png" />
+    <None Include="Resources\topmost_32_metrogray.png" />
+    <None Include="Resources\topmost_24_metrored.png" />
+    <None Include="Resources\topmost_24_metrogray.png" />
+    <None Include="Resources\presets_16_metrored.png" />
+    <None Include="Resources\presets_32_metrored.png" />
+    <None Include="Resources\presets_48_metrogray.png" />
+    <None Include="Resources\presets_48_metrowhite.png" />
+    <None Include="Resources\a7_16_metrolime.png" />
+    <None Include="Resources\a5_16_metrolime.png" />
+    <None Include="Resources\a1_16_metrolime.png" />
+    <None Include="Resources\ups_48_metrowhite.png" />
+    <None Include="Resources\notizen_48_metrowhite.png" />
+    <None Include="Resources\auftrag_48_metrowhite.png" />
+    <None Include="Resources\artikel_48_metrowhite1.png" />
+    <None Include="Resources\kontakte_48_metrogray.png" />
+    <None Include="Resources\catalog_48_metrogray.png" />
+    <None Include="Resources\calendar_48_metrowhite.png" />
+    <None Include="Resources\artikel_48_metrowhite.png" />
+    <None Include="Resources\software_48_metrowhite.png" />
+    <None Include="Resources\software_48_metrogray.png" />
+    <None Include="Resources\maschine_metrogray.png" />
+    <None Include="Resources\notizen_48_metrogray.png" />
+    <None Include="Resources\angebot_48_metrogray1.png" />
+    <None Include="Resources\angebot_48_metrogray.png" />
+    <None Include="Resources\euro_48_metrogray.png" />
+    <None Include="Resources\artikel_48_metrogray.png" />
+    <None Include="Resources\kontakt_48_metrogray.png" />
+    <None Include="Resources\auftrag_48_metrogray.png" />
+    <None Include="Resources\service_48_metrogray.png" />
+    <None Include="Resources\kalender_48_metrowhite.png" />
+    <None Include="Resources\kalender_48_metroblack.png" />
+    <None Include="Resources\artikel_48_metrolime.png" />
+    <None Include="Resources\heute_16_metrolime.png" />
+    <None Include="Resources\7_16_metrolime.png" />
+    <None Include="Resources\5_16_metrolime.png" />
+    <None Include="Resources\1_16_metrolime.png" />
+    <None Include="Resources\service_16_metrolime.png" />
+    <None Include="Resources\7_32_metrolime.png" />
+    <None Include="Resources\5_32_metrolime.png" />
+    <None Include="Resources\1_32_metrolime.png" />
+    <None Include="Resources\heute_32_metrolime.png" />
+    <None Include="Resources\calc_16_metrolime.png" />
+    <None Include="Resources\print_16_metrolime.png" />
+    <None Include="Resources\garbage_16_metrolime.png" />
+    <None Include="Resources\print_32_metrolime.png" />
+    <None Include="Resources\calc_32_metrolime.png" />
+    <None Include="Resources\open_16_metrolime.png" />
+    <None Include="Resources\neu_32_metroyellow.png" />
+    <None Include="Resources\open_32_metroyellow.png" />
+    <None Include="Resources\neu_32_metroorange.png" />
+    <None Include="Resources\open_32_metroorange.png" />
+    <None Include="Resources\forward_32_metroorange.png" />
+    <None Include="Resources\open_16_metroblue.png" />
+    <None Include="Resources\calendar_16_metroblue.png" />
+    <None Include="Resources\add_16_metroblue.png" />
+    <None Include="Resources\open_32_metroblue.png" />
+    <None Include="Resources\open_32_metrolime.png" />
+    <None Include="Resources\clip_32_metrolime.png" />
+    <None Include="Resources\neu_metrolime.png" />
+    <None Include="Resources\garbage_32_metrolime.png" />
+    <None Include="Resources\lager_32_metrored.png" />
+    <None Include="Resources\details_32_metrored.png" />
+    <None Include="Resources\calc_32_metrored.png" />
+    <None Include="Resources\lager_16_metrored.png" />
+    <None Include="Resources\euro_16_metrored.png" />
+    <None Include="Resources\details_16_metrored.png" />
+    <None Include="Resources\calc_16_metrored.png" />
+    <None Include="Resources\paste_16_metrored.png" />
+    <None Include="Resources\copy_16_metrored.png" />
+    <None Include="Resources\preset_32_metrored.png" />
+    <None Include="Resources\i_metrored.png" />
+    <None Include="Resources\h_metrored.png" />
+    <None Include="Resources\g_metrored.png" />
+    <None Include="Resources\f_metrored.png" />
+    <None Include="Resources\e_metrored.png" />
+    <None Include="Resources\d_metrored.png" />
+    <None Include="Resources\c_metrored.png" />
+    <None Include="Resources\b_metrored.png" />
+    <None Include="Resources\a_metrored.png" />
+    <None Include="Resources\neu_48_metroblue.png" />
+    <None Include="Resources\neu_metroblue.png" />
+    <None Include="Resources\start_metroblack.png" />
+    <None Include="Resources\next_metroblack.png" />
+    <None Include="Resources\back_metroblack.png" />
+    <None Include="Resources\mail_metroblack.png" />
+    <None Include="Resources\fon_metroblack.png" />
+    <None Include="Resources\maschine_metrowhite.png" />
+    <None Include="Resources\printer_metrowhite.png" />
+    <None Include="Resources\auftrag_metrowhite.png" />
+    <None Include="Resources\angebot_metrowhite.png" />
+    <None Include="Resources\people_metrowhite.png" />
+    <None Include="Resources\kalender_metrowhite.png" />
+    <None Include="Resources\Software_metrowhite.png" />
+    <None Include="Resources\ups_48_.metroblack.png" />
+    <None Include="Resources\ups_48_.png" />
+    <None Include="Resources\ups_48.png" />
+    <None Include="Resources\Product_metrowhite.png" />
+    <None Include="Resources\Euro_metrowhite.png" />
+    <None Include="Resources\Tile_Wide.png" />
+    <None Include="Resources\maschine_24_metrogray.png" />
+    <None Include="Resources\details_48_metrogreen.png" />
+    <None Include="Resources\Rechner_48_metroblue.png" />
+    <None Include="Resources\euro_24_metrogreen.png" />
+    <None Include="Resources\lager_24_metroyellow.png" />
+    <None Include="Resources\details_24_metrogreen.png" />
+    <None Include="Resources\calculator_24_metroblue.png" />
+    <None Include="Resources\calc_24_metroblue.png" />
+    <None Include="Resources\Euro_metrogreen.png" />
+    <None Include="Resources\Garbage-metrogreen.png" />
+    <None Include="Resources\Add-metrogblue.png" />
+    <None Include="Resources\Add-metrogreen.png" />
+    <None Include="Resources\Clip-metrogreen.png" />
+    <None Include="Resources\cpm_24.png" />
+    <None Include="Resources\Arrow Up_metroblack.png" />
+    <None Include="Resources\settings_24_metrogray.png" />
+    <None Include="Resources\settings_24_metrogray.ico" />
+    <None Include="Resources\Lager_48_metroyellow.png" />
+    <None Include="Resources\exit_24_metrored.png" />
+    <None Include="Resources\exit_metrored.png" />
+    <None Include="Resources\settings_32_metrogray.png" />
+    <None Include="Resources\settings_metrogray.png" />
+    <None Include="Resources\cpm_32.png" />
+    <None Include="Resources\Rechner_metroblue.png" />
+    <None Include="Resources\x_24_metrogray.png" />
+    <None Include="Resources\x_24_metroblue.png" />
+    <None Include="Resources\I_24_metroblue.png" />
+    <None Include="Resources\H_24_metroblue.png" />
+    <None Include="Resources\G_24_metroblue.png" />
+    <None Include="Resources\F_24_metroblue.png" />
+    <None Include="Resources\E_24_metroblue.png" />
+    <None Include="Resources\D_24_metroblue.png" />
+    <None Include="Resources\C_24_metroblue.png" />
+    <None Include="Resources\B_24_metroblue.png" />
+    <None Include="Resources\A_24_metroblue.png" />
+    <None Include="Resources\A_metroblue.png" />
+    <None Include="Resources\Presets_metroblue.png" />
+    <None Include="Resources\Kalender_metrogray1.png" />
+    <None Include="Resources\Presets_metroblack.png" />
+    <None Include="Resources\Katalog_metroblack.png" />
+    <None Include="Resources\Telefon_metrogreen.png" />
+    <None Include="Resources\Product_metrolime.png" />
+    <None Include="Resources\Topmost_metrored.png" />
+    <None Include="Resources\Topmost_metrogreen.png" />
+    <None Include="Resources\Phone_metrored.png" />
+    <None Include="Resources\Phone_metrogreen.png" />
+    <None Include="Resources\Heute_metrored.png" />
+    <None Include="Resources\Sieben_metrored.png" />
+    <None Include="Resources\Fuenf_metrored.png" />
+    <None Include="Resources\Calendar_metrored.png" />
+    <None Include="Resources\Eins_metrored.png" />
+    <None Include="Resources\Maschine_metroblue.png" />
+    <None Include="Resources\Liste2_metrogreen.png" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\Neu.png" />
+    <None Include="Resources\calc.png" />
+    <None Include="Resources\Garbage.png" />
+    <None Include="Resources\Print_blue1.png" />
+    <None Include="Resources\Print_blue.png" />
+    <None Include="Resources\Pin_red_32.png" />
+    <None Include="Resources\Power - Switch User.png" />
+    <None Include="Resources\Contacts_red.png" />
+    <None Include="Resources\Contacts_green1.png" />
+    <None Include="Resources\Contacts_green.png" />
+    <None Include="Resources\Contacts_green.ico" />
+    <None Include="Resources\MustNichTunFisch1.jpg" />
+    <None Include="Resources\MustNichTunFisch.jpg" />
+    <None Include="Resources\euro-icon.gif" />
+    <None Include="Resources\Products_red_48.png" />
+    <None Include="Resources\Products_green_48.png" />
+    <None Include="Resources\cpm_green_48.png" />
+    <None Include="Resources\cpm_red_48.png" />
+    <None Include="Resources\cpm_48.png" />
+    <None Include="Resources\Offer_red_48.png" />
+    <None Include="Resources\Customers_481.png" />
+    <None Include="Resources\Offer_green_48.png" />
+    <None Include="Resources\Customers_green_48.png" />
+    <None Include="Resources\Customers_48.png" />
+    <None Include="Resources\Search_green_48.png" />
+    <None Include="Resources\Pin_green_32.png" />
+    <None Include="Resources\Pin_gray_32.png" />
+    <None Include="Resources\Ok_green_16.png" />
+    <None Include="Resources\New_16.png" />
+    <None Include="Resources\New_32.png" />
+    <None Include="Resources\CustomerSwitchOn_48.png" />
+    <None Include="Resources\CustomerSwitchOff_48.png" />
+    <None Include="Resources\PanelSwitchOn_48.png" />
+    <None Include="Resources\PanelSwitch_48.png" />
+    <None Include="Resources\phone_32.png" />
+    <None Include="Resources\ups_32.png" />
+    <None Include="Resources\Inventory_64.png" />
+    <None Include="Resources\Inventory_32.png" />
+    <None Include="Resources\Presets_64.png" />
+    <None Include="Resources\Presets.png" />
+    <None Include="Resources\ProductDetails_64.png" />
+    <None Include="Resources\ProductDetails.png" />
+    <None Include="Resources\Calculator1.png" />
+    <None Include="Resources\Power - Shut Down.ico" />
+    <None Include="Resources\Configure alt 3.ico" />
+    <None Include="Resources\Desktop.ico" />
+    <None Include="Resources\products_small.png" />
+    <None Include="Resources\products_64.png" />
+    <None Include="Resources\products_icon.ico" />
+    <None Include="Resources\products_32.png" />
+    <None Include="Resources\Audacity_Gray.ico" />
+    <None Include="Resources\Audacity_Green.ico" />
+    <None Include="Resources\Audacity.ico" />
+    <None Include="Resources\exclamation_32.ico" />
+    <None Include="Resources\sage_32.ico" />
+    <None Include="Resources\sage.jpg" />
+    <None Include="Resources\people.png" />
+    <None Include="Resources\ausrufezeichen01.gif" />
+    <None Include="Resources\euro-icon.png" />
+    <None Include="Resources\tool.png" />
+    <None Include="Resources\openfolderHS.png" />
+    <None Include="Resources\PrintHS.png" />
+    <None Include="Resources\077_AddFile_16x16_72.png" />
+    <None Include="Resources\305_Close_16x16_72.png" />
+    <None Include="Resources\smallfail.gif" />
+    <None Include="Resources\Offer.png" />
+    <None Include="Resources\Pin_activated.png" />
+    <None Include="Resources\Pin_deactivated.png" />
+    <None Include="Resources\Pin.png" />
+    <None Include="Resources\catalog.png" />
+    <None Include="Resources\products.png" />
+    <None Include="Resources\customers.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\productlist.png" />
+    <None Include="Resources\Details.png" />
+    <None Include="Resources\Calculator.png" />
+    <None Include="Resources\logo_catalist.gif" />
+    <None Include="Resources\Eye.png" />
+    <None Include="Resources\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="MySql.Data">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DvApi32">
+      <Guid>{065025EE-34E0-4172-B215-90E5BB3B1178}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

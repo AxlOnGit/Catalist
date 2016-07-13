@@ -1,0 +1,95 @@
+ 
+
+SELECT 
+	k.Kundennummer, 
+	a.USER_Katalogartikel, 
+	a.Artikel, 
+	a.Artikelgruppe, 
+	a.FesterLieferant, 
+	a.Matchcode, 
+	a.Hersteller, 
+	a.Bezeichnung1, 
+	a.Bezeichnung2, 
+	a.Mengeneinheit, 
+	l.EK, a.Verkaufspreis1, 
+	a.Verkaufspreis1 * ((100 - s.Rabatt) / 100) AS Kundenpreis, 
+	s.Rabatt AS Prozent, 
+	cpm_katalog.SectionName AS Katalog, 
+	artikel_cpm.CheckedFlag, 
+	artikel_cpm.ChangeUser
+FROM 
+			artikel a LEFT OUTER JOIN kundenartikelsonderpreise s ON	a.Artikelgruppe = s.Artikelgruppe 
+	LEFT OUTER JOIN kunden k ON s.Kundennummer = k.Kundennummer 
+	LEFT OUTER JOIN artikel_cpm ON a.Artikel = artikel_cpm.Artikel 
+	LEFT OUTER JOIN cpm_katalog ON artikel_cpm.Category = cpm_katalog.Numbering 
+	LEFT OUTER JOIN (SELECT 
+										Artikel, 
+										MAX(Einkaufspreis) AS EK
+									 FROM 
+										artikellieferanten
+                   GROUP BY Artikel) l 
+									 ON a.Artikel = l.Artikel
+WHERE  
+	(k.Kundennummer = @Kunde) AND (a.USER_Katalogartikel = '1') AND (a.Statuskennzeichen <> 'Ja')
+UNION
+
+SELECT 
+	s_1.Kundennummer, 
+	a.USER_Katalogartikel, 
+	a.Artikel, 
+	a.Artikelgruppe, 
+	a.FesterLieferant, 
+	a.Matchcode, 
+	a.Hersteller, 
+	a.Bezeichnung1, 
+	a.Bezeichnung2, 
+	a.Mengeneinheit, 
+	l_1.EK, 
+	a.Verkaufspreis1, 
+	a.Verkaufspreis1 AS Kundenpreis, 
+	'0.00' AS Prozent, 
+	cpm_katalog_1.SectionName AS Katalog, 
+	artikel_cpm_1.CheckedFlag, 
+	artikel_cpm_1.ChangeUser
+FROM 
+	artikel a LEFT OUTER JOIN kundenartikelsonderpreise s ON a.Artikelgruppe = s.Artikelgruppe 
+	LEFT OUTER JOIN kunden k ON s.Kundennummer = k.Kundennummer 
+	LEFT OUTER JOIN artikel_cpm artikel_cpm_1 ON a.Artikel = artikel_cpm_1.Artikel 
+	LEFT OUTER JOIN cpm_katalog cpm_katalog_1 ON artikel_cpm_1.Category = cpm_katalog_1.Numbering 
+	LEFT OUTER JOIN (SELECT Kundennummer, Artikelgruppe
+                   FROM kundenartikelsonderpreise
+									 WHERE (Kundennummer = @Kunde)) s_1 ON a.Artikelgruppe = s_1.Artikelgruppe 
+									 LEFT OUTER JOIN (SELECT Artikel, MAX(Einkaufspreis) AS EK
+									 FROM artikellieferanten artikellieferanten_1
+									 GROUP BY Artikel) l_1 ON a.Artikel = l_1.Artikel
+WHERE 
+	(s_1.Artikelgruppe IS NULL) AND (a.Statuskennzeichen <> 'Ja') AND (a.USER_Katalogartikel = '1')
+	
+	
+	II. Vorgänge
+	
+SELECT 
+	Vorgang, 
+	Nummer, 
+	Auftrag, 
+	Datum, 
+	Drucksperre, 
+	Kundennummer, 
+	Name1, 
+	Name2, 
+	Strasse_Postfach, 
+	Adresszusatz, 
+	Postleitzahl, 
+	Ort, 
+	Laendercode, 
+	Land, 
+	SummeZKD1_USt_1, 
+	Bruttosumme, 
+	Gesamtrabatt, 
+	E_Mail
+FROM 
+	auftraege
+WHERE 
+	(Kundennummer = @Kunde) AND (TO_DAYS(CURDATE()) - TO_DAYS(Datum) < 365)
+ORDER BY 
+	Nummer DESC

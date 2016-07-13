@@ -1,0 +1,151 @@
+\hypertarget{class_pdf_file_writer_1_1_barcode}{}\section{Pdf\+File\+Writer.\+Barcode Class Reference}
+\label{class_pdf_file_writer_1_1_barcode}\index{Pdf\+File\+Writer.\+Barcode@{Pdf\+File\+Writer.\+Barcode}}
+
+
+One dimension barcode base class  
+
+
+Inheritance diagram for Pdf\+File\+Writer.\+Barcode\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.196581cm]{class_pdf_file_writer_1_1_barcode}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Int32 \hyperlink{class_pdf_file_writer_1_1_barcode_adf11f62c74801b9d146c4eb430f7ba25}{Bar\+Width} (Int32 Index)
+\begin{DoxyCompactList}\small\item\em Width of single bar code at indexed position expressed in narrow bar units. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_pdf_file_writer_1_1_barcode_box}{Barcode\+Box} \hyperlink{class_pdf_file_writer_1_1_barcode_ae0798dea7667ca7e9c29bd894574bd44}{Get\+Barcode\+Box} (Double \hyperlink{class_pdf_file_writer_1_1_barcode_adf11f62c74801b9d146c4eb430f7ba25}{Bar\+Width}, Double Barcode\+Height, \hyperlink{class_pdf_file_writer_1_1_pdf_font}{Pdf\+Font} Text\+Font, Double Font\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate total barcode height including text \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pdf_file_writer_1_1_barcode_a364bb4883e4eafd7ecabb57edca8541e}{Barcode} ()
+\begin{DoxyCompactList}\small\item\em Protected barcode constructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Int32\mbox{[}$\,$\mbox{]} \hyperlink{class_pdf_file_writer_1_1_barcode_a4e907e1c98d1b9fe5ca19b6221169a60}{Code\+Array}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a copy of Code\+Array \end{DoxyCompactList}\item 
+String \hyperlink{class_pdf_file_writer_1_1_barcode_a1fe2157662e4a1b52264823a382fde3f}{Text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Text String \end{DoxyCompactList}\item 
+Int32 \hyperlink{class_pdf_file_writer_1_1_barcode_a748eca8ece577f3e6608289d9a07987c}{Bar\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Total number of black and white bars \end{DoxyCompactList}\item 
+Int32 \hyperlink{class_pdf_file_writer_1_1_barcode_a7390066c4c5a6d1dc8e0fd93c9eb8214}{Total\+Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Total barcode width in narrow bar units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+One dimension barcode base class 
+
+For more information go to \href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#BarcodeSupport}{\tt 2.\+5 Barcode Support} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Barcode@{Barcode}}
+\index{Barcode@{Barcode}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Barcode()}{Barcode()}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Barcode.\+Barcode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_pdf_file_writer_1_1_barcode_a364bb4883e4eafd7ecabb57edca8541e}{}\label{class_pdf_file_writer_1_1_barcode_a364bb4883e4eafd7ecabb57edca8541e}
+
+
+Protected barcode constructor 
+
+This class cannot be instantiated by itself.
+
+\subsection{Member Function Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Bar\+Width@{Bar\+Width}}
+\index{Bar\+Width@{Bar\+Width}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Bar\+Width(\+Int32 Index)}{BarWidth(Int32 Index)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Int32 Pdf\+File\+Writer.\+Barcode.\+Bar\+Width (
+\begin{DoxyParamCaption}
+\item[{Int32}]{Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_pdf_file_writer_1_1_barcode_adf11f62c74801b9d146c4eb430f7ba25}{}\label{class_pdf_file_writer_1_1_barcode_adf11f62c74801b9d146c4eb430f7ba25}
+
+
+Width of single bar code at indexed position expressed in narrow bar units. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index} & Bar\textquotesingle{}s index number.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bar\textquotesingle{}s width in narrow bar units.
+\end{DoxyReturn}
+
+
+This virtual function must be implemented by derived class Index range is 0 to Bar\+Count -\/ 1
+
+Reimplemented in \hyperlink{class_pdf_file_writer_1_1_barcode_interleaved2of5_ae5dcb81d228b62e575d1be5ae7a2a3cf}{Pdf\+File\+Writer.\+Barcode\+Interleaved2of5}, \hyperlink{class_pdf_file_writer_1_1_barcode_e_a_n13_a892909c8d067b663d89306d6fc4705ec}{Pdf\+File\+Writer.\+Barcode\+E\+A\+N13}, \hyperlink{class_pdf_file_writer_1_1_barcode39_a1a9e163d65af7de251f4cc711e2a0ddb}{Pdf\+File\+Writer.\+Barcode39}, and \hyperlink{class_pdf_file_writer_1_1_barcode128_a7eecad8aefc9b8ea2c51902d5ed3ecfb}{Pdf\+File\+Writer.\+Barcode128}.
+
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Get\+Barcode\+Box@{Get\+Barcode\+Box}}
+\index{Get\+Barcode\+Box@{Get\+Barcode\+Box}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Get\+Barcode\+Box(\+Double Bar\+Width, Double Barcode\+Height, Pdf\+Font Text\+Font, Double Font\+Size)}{GetBarcodeBox(Double BarWidth, Double BarcodeHeight, PdfFont TextFont, Double FontSize)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Barcode\+Box} Pdf\+File\+Writer.\+Barcode.\+Get\+Barcode\+Box (
+\begin{DoxyParamCaption}
+\item[{Double}]{Bar\+Width, }
+\item[{Double}]{Barcode\+Height, }
+\item[{{\bf Pdf\+Font}}]{Text\+Font, }
+\item[{Double}]{Font\+Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_pdf_file_writer_1_1_barcode_ae0798dea7667ca7e9c29bd894574bd44}{}\label{class_pdf_file_writer_1_1_barcode_ae0798dea7667ca7e9c29bd894574bd44}
+
+
+Calculate total barcode height including text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Bar\+Width} & Narrow bar width\\
+\hline
+{\em Barcode\+Height} & \hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} height\\
+\hline
+{\em Text\+Font} & Text font\\
+\hline
+{\em Font\+Size} & Text font size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_pdf_file_writer_1_1_barcode_box}{Barcode\+Box} result
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_pdf_file_writer_1_1_barcode_e_a_n13_a765121df0b785c75a9c570bad7a2074e}{Pdf\+File\+Writer.\+Barcode\+E\+A\+N13}.
+
+
+
+\subsection{Property Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Bar\+Count@{Bar\+Count}}
+\index{Bar\+Count@{Bar\+Count}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Bar\+Count}{BarCount}}]{\setlength{\rightskip}{0pt plus 5cm}Int32 Pdf\+File\+Writer.\+Barcode.\+Bar\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\hypertarget{class_pdf_file_writer_1_1_barcode_a748eca8ece577f3e6608289d9a07987c}{}\label{class_pdf_file_writer_1_1_barcode_a748eca8ece577f3e6608289d9a07987c}
+
+
+Total number of black and white bars 
+
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Code\+Array@{Code\+Array}}
+\index{Code\+Array@{Code\+Array}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Code\+Array}{CodeArray}}]{\setlength{\rightskip}{0pt plus 5cm}Int32 \mbox{[}$\,$\mbox{]} Pdf\+File\+Writer.\+Barcode.\+Code\+Array\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_barcode_a4e907e1c98d1b9fe5ca19b6221169a60}{}\label{class_pdf_file_writer_1_1_barcode_a4e907e1c98d1b9fe5ca19b6221169a60}
+
+
+Gets a copy of Code\+Array 
+
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Text@{Text}}
+\index{Text@{Text}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Text}{Text}}]{\setlength{\rightskip}{0pt plus 5cm}String Pdf\+File\+Writer.\+Barcode.\+Text\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\hypertarget{class_pdf_file_writer_1_1_barcode_a1fe2157662e4a1b52264823a382fde3f}{}\label{class_pdf_file_writer_1_1_barcode_a1fe2157662e4a1b52264823a382fde3f}
+
+
+Text String 
+
+\index{Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}!Total\+Width@{Total\+Width}}
+\index{Total\+Width@{Total\+Width}!Pdf\+File\+Writer\+::\+Barcode@{Pdf\+File\+Writer\+::\+Barcode}}
+\subsubsection[{\texorpdfstring{Total\+Width}{TotalWidth}}]{\setlength{\rightskip}{0pt plus 5cm}Int32 Pdf\+File\+Writer.\+Barcode.\+Total\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\hypertarget{class_pdf_file_writer_1_1_barcode_a7390066c4c5a6d1dc8e0fd93c9eb8214}{}\label{class_pdf_file_writer_1_1_barcode_a7390066c4c5a6d1dc8e0fd93c9eb8214}
+
+
+Total barcode width in narrow bar units. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Barcode.\+cs\end{DoxyCompactItemize}

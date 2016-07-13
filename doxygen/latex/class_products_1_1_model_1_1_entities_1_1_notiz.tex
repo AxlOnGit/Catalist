@@ -1,0 +1,299 @@
+\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz}{}\section{Products.\+Model.\+Entities.\+Notiz Class Reference}
+\label{class_products_1_1_model_1_1_entities_1_1_notiz}\index{Products.\+Model.\+Entities.\+Notiz@{Products.\+Model.\+Entities.\+Notiz}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a720fd2cb505fe5f096dfdc912bbff98c}{Notiz} (\hyperlink{class_products_1_1_data_1_1ds_sage_1_1_notiz_row}{Data.\+ds\+Sage.\+Notiz\+Row} base\+Row, object parent, string link\+Id=null)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Instanz der \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} Klasse. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a21e02ed088193b3b766e138fa271c359}{Add\+File\+Link} (string file\+Name, bool delete\+Original)
+\begin{DoxyCompactList}\small\item\em Fügt dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} eine neue Dateiverknüpfung hinzu. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_aab0b39db46404403796ade3ba244f9ab}{Remove\+File\+Link} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} file\+Link, bool complete\+Remove)
+\begin{DoxyCompactList}\small\item\em Entfernt die angegebene Dateiverknüpfung. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_ab9eb4bc50bbd6f51a1e362d5bab180ef}{Can\+Delete} ()
+\begin{DoxyCompactList}\small\item\em Prüft, ob diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} gelöscht werden kann. False, wenn es mit dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} verknüpfte Elemente (z. B. Dateilinks) gibt. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a4e46f3783817104a64aadd27356180f9}{Update\+Dateilinks} ()
+\begin{DoxyCompactList}\small\item\em Speichert Änderungen an der \hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} Tabelle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a41e2e6af043d8ecdb6b64c02800630e5}{U\+ID}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Primärschlüssel dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a0923c0995a3c7103a53dd06734c2fad2}{Inaktiv\+Flag}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt True zurück, wenn diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} inaktiv ist. \end{DoxyCompactList}\item 
+string {\bfseries Interessenten\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aa8862188b0fe6d4b283bd1d476641710}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aa8862188b0fe6d4b283bd1d476641710}
+
+\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_interessent}{Interessent} \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a8edd17546d3c1e9efa5bcaf2fa7f1732}{Interessent}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt den Interessenten zurück, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a1dca63fdabb5a1d023ead81c9a628d7b}{Kundennummer}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Kundennummer des Kunden, dem die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_ace6e198bcd8675da7b18e0f3143745cc}{Kunde}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt den Kunden zurück, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a2abb7d925401c63a07c6a23e0d88e5a6}{Kontaktnummer}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Nummer des Kundenkontakts, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenkontakt}{Kundenkontakt} \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_aa31db98a057738b3144ff1df4348ee5c}{Kontaktperson}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt den zugeordneten Ansprechpartner dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zurück, wenn es einen gibt. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_aeb7c1d598ed2869ffd90f8878935ade8}{Link\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Primärschlüssel des Elements, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. $<$remarks\+A$>$ Notizen können diesen Elementen zugeordnet werden\+: Telefonaten, Maschinen, Aufträgen, Angeboten, ein-\/ und ausgehenden E-\/\+Mails, Bestellungen, Rechnungen und Direktrechnungen, Lieferungen, Reparaturen, Wartungen, Fernwartungen, Hardwareangeboten und Hardwarebestellungen. $<$/remarks\+A$>$ \end{DoxyCompactList}\item 
+string {\bfseries Linked\+Element\+Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a3dbedc09ba45aacbdffadcbb7862924e}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a3dbedc09ba45aacbdffadcbb7862924e}
+
+\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_ab1ffa41c63b7812dd9a834341ce234b8}{Linktyp\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Primärschlüssel des Verknüpfungstyps. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_af7524a25e0f19c34bef9530f6cd01f7b}{Erfasser\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Primärschlüssel des Mitarbeiters, der diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt hat. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_acef1ae96499d47660d071660da25179c}{Erfasser}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Die Instanz des Users, der die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt hat. \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_af97261ebbaa09fe2e3d5741830c07569}{Erfassungsdatum}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Datum und Uhrzeit, an dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt wurde. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a3b9a0be05c2a33d8d6d60b0ecf7f1599}{Delegierter\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Der Primärschlüssel des Mitarbeiters, der für diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zuständig ist. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_adde831628d37eb8807d78eec35fe552f}{Delegierter}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt die \hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} Instanz zurück, an den die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} delegiert wurde. \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_aac420f36e934138f3a0e9074ae83c053}{Delegationsdatum}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt Datum und Uhrzeit der Delegation zurück. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a32133706d08a49289851a6e12cce0dbf}{Thema}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Das Thema dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a7714b196daa4265a4dbeefdcb1d8c237}{Notiztext}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Der Text der \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_ade0317b474c065d96c400cc0d69c086f}{Erledigt\+Flag}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt True zurück, wenn die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erledigt ist. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_aa091b8ee0e95b8507d2646844dcec5d9}{Has\+Dateilinks}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True, wenn die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} Dateiverknüpfungen enthält. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} $>$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz_a8a9cd5a42a8323a307e6586c1731d9c0}{Dateilinks}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste der mit dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} verknüpften Dateien zurück. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Notiz@{Notiz}}
+\index{Notiz@{Notiz}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Notiz(\+Data.\+ds\+Sage.\+Notiz\+Row base\+Row, object parent, string link\+Id=null)}{Notiz(Data.dsSage.NotizRow baseRow, object parent, string linkId=null)}}]{\setlength{\rightskip}{0pt plus 5cm}Products.\+Model.\+Entities.\+Notiz.\+Notiz (
+\begin{DoxyParamCaption}
+\item[{{\bf Data.\+ds\+Sage.\+Notiz\+Row}}]{base\+Row, }
+\item[{object}]{parent, }
+\item[{string}]{link\+Id = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a720fd2cb505fe5f096dfdc912bbff98c}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a720fd2cb505fe5f096dfdc912bbff98c}
+
+
+Erstellt eine neue Instanz der \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} Klasse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+Row} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Add\+File\+Link@{Add\+File\+Link}}
+\index{Add\+File\+Link@{Add\+File\+Link}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Add\+File\+Link(string file\+Name, bool delete\+Original)}{AddFileLink(string fileName, bool deleteOriginal)}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Entities.\+Notiz.\+Add\+File\+Link (
+\begin{DoxyParamCaption}
+\item[{string}]{file\+Name, }
+\item[{bool}]{delete\+Original}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a21e02ed088193b3b766e138fa271c359}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a21e02ed088193b3b766e138fa271c359}
+
+
+Fügt dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} eine neue Dateiverknüpfung hinzu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+{\em delete\+Original} & \\
+\hline
+\end{DoxyParams}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Can\+Delete@{Can\+Delete}}
+\index{Can\+Delete@{Can\+Delete}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Can\+Delete()}{CanDelete()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Entities.\+Notiz.\+Can\+Delete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_ab9eb4bc50bbd6f51a1e362d5bab180ef}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_ab9eb4bc50bbd6f51a1e362d5bab180ef}
+
+
+Prüft, ob diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} gelöscht werden kann. False, wenn es mit dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} verknüpfte Elemente (z. B. Dateilinks) gibt. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Remove\+File\+Link@{Remove\+File\+Link}}
+\index{Remove\+File\+Link@{Remove\+File\+Link}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Remove\+File\+Link(\+Dateilink file\+Link, bool complete\+Remove)}{RemoveFileLink(Dateilink fileLink, bool completeRemove)}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Entities.\+Notiz.\+Remove\+File\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf Dateilink}}]{file\+Link, }
+\item[{bool}]{complete\+Remove}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aab0b39db46404403796ade3ba244f9ab}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aab0b39db46404403796ade3ba244f9ab}
+
+
+Entfernt die angegebene Dateiverknüpfung. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em complete\+Remove} & Wenn True, werden alle Verknüpfungen zu dieser Datei entfernt und die Datei anschließend aus dem Server Repository gelöscht.\\
+\hline
+{\em file\+Link} & \\
+\hline
+\end{DoxyParams}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Update\+Dateilinks@{Update\+Dateilinks}}
+\index{Update\+Dateilinks@{Update\+Dateilinks}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Update\+Dateilinks()}{UpdateDateilinks()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Entities.\+Notiz.\+Update\+Dateilinks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a4e46f3783817104a64aadd27356180f9}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a4e46f3783817104a64aadd27356180f9}
+
+
+Speichert Änderungen an der \hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} Tabelle. 
+
+
+
+\subsection{Property Documentation}
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Dateilinks@{Dateilinks}}
+\index{Dateilinks@{Dateilinks}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Dateilinks}{Dateilinks}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Dateilink}$>$ Products.\+Model.\+Entities.\+Notiz.\+Dateilinks\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a8a9cd5a42a8323a307e6586c1731d9c0}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a8a9cd5a42a8323a307e6586c1731d9c0}
+
+
+Gibt eine sortierbare Liste der mit dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} verknüpften Dateien zurück. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Delegationsdatum@{Delegationsdatum}}
+\index{Delegationsdatum@{Delegationsdatum}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Delegationsdatum}{Delegationsdatum}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Products.\+Model.\+Entities.\+Notiz.\+Delegationsdatum\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aac420f36e934138f3a0e9074ae83c053}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aac420f36e934138f3a0e9074ae83c053}
+
+
+Gibt Datum und Uhrzeit der Delegation zurück. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Delegierter@{Delegierter}}
+\index{Delegierter@{Delegierter}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Delegierter}{Delegierter}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} Products.\+Model.\+Entities.\+Notiz.\+Delegierter\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_adde831628d37eb8807d78eec35fe552f}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_adde831628d37eb8807d78eec35fe552f}
+
+
+Gibt die \hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} Instanz zurück, an den die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} delegiert wurde. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Delegierter\+Id@{Delegierter\+Id}}
+\index{Delegierter\+Id@{Delegierter\+Id}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Delegierter\+Id}{DelegierterId}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Delegierter\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a3b9a0be05c2a33d8d6d60b0ecf7f1599}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a3b9a0be05c2a33d8d6d60b0ecf7f1599}
+
+
+Der Primärschlüssel des Mitarbeiters, der für diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zuständig ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Erfasser@{Erfasser}}
+\index{Erfasser@{Erfasser}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Erfasser}{Erfasser}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} Products.\+Model.\+Entities.\+Notiz.\+Erfasser\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_acef1ae96499d47660d071660da25179c}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_acef1ae96499d47660d071660da25179c}
+
+
+Die Instanz des Users, der die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt hat. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Erfasser\+Id@{Erfasser\+Id}}
+\index{Erfasser\+Id@{Erfasser\+Id}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Erfasser\+Id}{ErfasserId}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Erfasser\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_af7524a25e0f19c34bef9530f6cd01f7b}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_af7524a25e0f19c34bef9530f6cd01f7b}
+
+
+Primärschlüssel des Mitarbeiters, der diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt hat. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Erfassungsdatum@{Erfassungsdatum}}
+\index{Erfassungsdatum@{Erfassungsdatum}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Erfassungsdatum}{Erfassungsdatum}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Products.\+Model.\+Entities.\+Notiz.\+Erfassungsdatum\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_af97261ebbaa09fe2e3d5741830c07569}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_af97261ebbaa09fe2e3d5741830c07569}
+
+
+Datum und Uhrzeit, an dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erstellt wurde. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Erledigt\+Flag@{Erledigt\+Flag}}
+\index{Erledigt\+Flag@{Erledigt\+Flag}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Erledigt\+Flag}{ErledigtFlag}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Entities.\+Notiz.\+Erledigt\+Flag\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_ade0317b474c065d96c400cc0d69c086f}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_ade0317b474c065d96c400cc0d69c086f}
+
+
+Gibt True zurück, wenn die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} erledigt ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Has\+Dateilinks@{Has\+Dateilinks}}
+\index{Has\+Dateilinks@{Has\+Dateilinks}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Has\+Dateilinks}{HasDateilinks}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Entities.\+Notiz.\+Has\+Dateilinks\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aa091b8ee0e95b8507d2646844dcec5d9}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aa091b8ee0e95b8507d2646844dcec5d9}
+
+
+True, wenn die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} Dateiverknüpfungen enthält. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Inaktiv\+Flag@{Inaktiv\+Flag}}
+\index{Inaktiv\+Flag@{Inaktiv\+Flag}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Inaktiv\+Flag}{InaktivFlag}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Entities.\+Notiz.\+Inaktiv\+Flag\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a0923c0995a3c7103a53dd06734c2fad2}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a0923c0995a3c7103a53dd06734c2fad2}
+
+
+Gibt True zurück, wenn diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} inaktiv ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Interessent@{Interessent}}
+\index{Interessent@{Interessent}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Interessent}{Interessent}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interessent} Products.\+Model.\+Entities.\+Notiz.\+Interessent\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a8edd17546d3c1e9efa5bcaf2fa7f1732}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a8edd17546d3c1e9efa5bcaf2fa7f1732}
+
+
+Gibt den Interessenten zurück, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Kontaktnummer@{Kontaktnummer}}
+\index{Kontaktnummer@{Kontaktnummer}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Kontaktnummer}{Kontaktnummer}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Kontaktnummer\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a2abb7d925401c63a07c6a23e0d88e5a6}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a2abb7d925401c63a07c6a23e0d88e5a6}
+
+
+Nummer des Kundenkontakts, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Kontaktperson@{Kontaktperson}}
+\index{Kontaktperson@{Kontaktperson}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Kontaktperson}{Kontaktperson}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kundenkontakt} Products.\+Model.\+Entities.\+Notiz.\+Kontaktperson\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aa31db98a057738b3144ff1df4348ee5c}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aa31db98a057738b3144ff1df4348ee5c}
+
+
+Gibt den zugeordneten Ansprechpartner dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zurück, wenn es einen gibt. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Kunde@{Kunde}}
+\index{Kunde@{Kunde}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Kunde}{Kunde}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kunde} Products.\+Model.\+Entities.\+Notiz.\+Kunde\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_ace6e198bcd8675da7b18e0f3143745cc}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_ace6e198bcd8675da7b18e0f3143745cc}
+
+
+Gibt den Kunden zurück, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Kundennummer@{Kundennummer}}
+\index{Kundennummer@{Kundennummer}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Kundennummer}{Kundennummer}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Kundennummer\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a1dca63fdabb5a1d023ead81c9a628d7b}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a1dca63fdabb5a1d023ead81c9a628d7b}
+
+
+Kundennummer des Kunden, dem die \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Link\+Id@{Link\+Id}}
+\index{Link\+Id@{Link\+Id}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Link\+Id}{LinkId}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Link\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_aeb7c1d598ed2869ffd90f8878935ade8}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_aeb7c1d598ed2869ffd90f8878935ade8}
+
+
+Primärschlüssel des Elements, dem diese \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} zugeordnet ist. $<$remarks\+A$>$ Notizen können diesen Elementen zugeordnet werden\+: Telefonaten, Maschinen, Aufträgen, Angeboten, ein-\/ und ausgehenden E-\/\+Mails, Bestellungen, Rechnungen und Direktrechnungen, Lieferungen, Reparaturen, Wartungen, Fernwartungen, Hardwareangeboten und Hardwarebestellungen. $<$/remarks\+A$>$ 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Linktyp\+Id@{Linktyp\+Id}}
+\index{Linktyp\+Id@{Linktyp\+Id}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Linktyp\+Id}{LinktypId}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Linktyp\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_ab1ffa41c63b7812dd9a834341ce234b8}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_ab1ffa41c63b7812dd9a834341ce234b8}
+
+
+Primärschlüssel des Verknüpfungstyps. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Notiztext@{Notiztext}}
+\index{Notiztext@{Notiztext}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Notiztext}{Notiztext}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Notiztext\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a7714b196daa4265a4dbeefdcb1d8c237}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a7714b196daa4265a4dbeefdcb1d8c237}
+
+
+Der Text der \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!Thema@{Thema}}
+\index{Thema@{Thema}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{Thema}{Thema}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+Thema\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a32133706d08a49289851a6e12cce0dbf}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a32133706d08a49289851a6e12cce0dbf}
+
+
+Das Thema dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. 
+
+\index{Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}!U\+ID@{U\+ID}}
+\index{U\+ID@{U\+ID}!Products\+::\+Model\+::\+Entities\+::\+Notiz@{Products\+::\+Model\+::\+Entities\+::\+Notiz}}
+\subsubsection[{\texorpdfstring{U\+ID}{UID}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Entities.\+Notiz.\+U\+ID\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_entities_1_1_notiz_a41e2e6af043d8ecdb6b64c02800630e5}{}\label{class_products_1_1_model_1_1_entities_1_1_notiz_a41e2e6af043d8ecdb6b64c02800630e5}
+
+
+Primärschlüssel dieser \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz}. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Model/\+Entities/Notiz.\+cs\end{DoxyCompactItemize}

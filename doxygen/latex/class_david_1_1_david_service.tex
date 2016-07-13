@@ -1,0 +1,190 @@
+\hypertarget{class_david_1_1_david_service}{}\section{David.\+David\+Service Class Reference}
+\label{class_david_1_1_david_service}\index{David.\+David\+Service@{David.\+David\+Service}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_david_1_1_david_service_a096415c82fdf64887fe387832cf6df7f}{David\+Service} ()
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Instanz der Post\+Service Klasse. \end{DoxyCompactList}\item 
+Dv\+Api32.\+Message\+Items2 \hyperlink{class_david_1_1_david_service_abc536b5c1b0a1173d73fbbe80a3ccc4d}{Get\+Calendar\+Items} (string for\+Archive, Date\+Time?from\+Date=null)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Termine aus dem angegebenen Archiv zurück. \end{DoxyCompactList}\item 
+Calendar\+Item \hyperlink{class_david_1_1_david_service_af453f2d226fe56533cbd4d28c30aeddc}{Get\+Calendar\+Item} (string filename)
+\begin{DoxyCompactList}\small\item\em Gibt den mit dem angegebenen Dateinamen verknüpften Kalendereintrag des angegebenen Benutzers zurück. \end{DoxyCompactList}\item 
+Message\+Item2 \hyperlink{class_david_1_1_david_service_ad45d68a8cbd42b94d6ab93af90c04d47}{Get\+Message\+Item2} (string filename)
+\begin{DoxyCompactList}\small\item\em Gibt den Kalendereintrag für den angegebenen Dateinamen als Message\+Item2 Instanz zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_david_1_1_create_msg_itm2_params}{Create\+Msg\+Itm2\+Params} \hyperlink{class_david_1_1_david_service_a3ef3aeba0ec6d403bbb13e395def777b}{Create\+Calendar\+Item} (Date\+Time start, Date\+Time end, string in\+Archive)
+\begin{DoxyCompactList}\small\item\em Erstellt einen neuen Termin für den derzeit angemeldeten Benutzer. \end{DoxyCompactList}\item 
+string \hyperlink{class_david_1_1_david_service_acb83aa08ec8c9cb55db653a65a576aba}{Create\+Servicetermin} (Date\+Time start, Date\+Time end, string in\+Archive, string subject, string kunden\+Adresse)
+\begin{DoxyCompactList}\small\item\em Erstellt im \hyperlink{namespace_david}{David} einen neuen Servicetermin. \end{DoxyCompactList}\item 
+bool \hyperlink{class_david_1_1_david_service_a87660cc04c3ef0895c07e0ec92ac518b}{Save\+Calendar\+Item} (Dv\+Api32.\+Calendar\+Item c\+Item, string filename)
+\begin{DoxyCompactList}\small\item\em Speichert das mitgelieferte Calendar\+Item im Kalender des angemeldeten Benutzers. \end{DoxyCompactList}\item 
+Dv\+Api32.\+Address\+Item {\bfseries Finde\+Kundenadresse} (string kunden\+Nr)\hypertarget{class_david_1_1_david_service_a35f4c93828ce4d755b2c3988f5f78448}{}\label{class_david_1_1_david_service_a35f4c93828ce4d755b2c3988f5f78448}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_david_1_1_david_service_a3117ddeadc100eadc1fbf4a5f20998f3}{Connected}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gibt F\+A\+L\+SE zurück, wenn keine Verbindung zum D\+A\+V\+ID Server besteht. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!David\+Service@{David\+Service}}
+\index{David\+Service@{David\+Service}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{David\+Service()}{DavidService()}}]{\setlength{\rightskip}{0pt plus 5cm}David.\+David\+Service.\+David\+Service (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_a096415c82fdf64887fe387832cf6df7f}{}\label{class_david_1_1_david_service_a096415c82fdf64887fe387832cf6df7f}
+
+
+Erstellt eine neue Instanz der Post\+Service Klasse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em active\+User} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Create\+Calendar\+Item@{Create\+Calendar\+Item}}
+\index{Create\+Calendar\+Item@{Create\+Calendar\+Item}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Create\+Calendar\+Item(\+Date\+Time start, Date\+Time end, string in\+Archive)}{CreateCalendarItem(DateTime start, DateTime end, string inArchive)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Create\+Msg\+Itm2\+Params} David.\+David\+Service.\+Create\+Calendar\+Item (
+\begin{DoxyParamCaption}
+\item[{Date\+Time}]{start, }
+\item[{Date\+Time}]{end, }
+\item[{string}]{in\+Archive}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_a3ef3aeba0ec6d403bbb13e395def777b}{}\label{class_david_1_1_david_service_a3ef3aeba0ec6d403bbb13e395def777b}
+
+
+Erstellt einen neuen Termin für den derzeit angemeldeten Benutzer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Datum und Uhrzeit des Terminbeginns.\\
+\hline
+{\em end} & Datum und Uhrzeit des Terminendes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Create\+Servicetermin@{Create\+Servicetermin}}
+\index{Create\+Servicetermin@{Create\+Servicetermin}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Create\+Servicetermin(\+Date\+Time start, Date\+Time end, string in\+Archive, string subject, string kunden\+Adresse)}{CreateServicetermin(DateTime start, DateTime end, string inArchive, string subject, string kundenAdresse)}}]{\setlength{\rightskip}{0pt plus 5cm}string David.\+David\+Service.\+Create\+Servicetermin (
+\begin{DoxyParamCaption}
+\item[{Date\+Time}]{start, }
+\item[{Date\+Time}]{end, }
+\item[{string}]{in\+Archive, }
+\item[{string}]{subject, }
+\item[{string}]{kunden\+Adresse}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_acb83aa08ec8c9cb55db653a65a576aba}{}\label{class_david_1_1_david_service_acb83aa08ec8c9cb55db653a65a576aba}
+
+
+Erstellt im \hyperlink{namespace_david}{David} einen neuen Servicetermin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Anfangsdatum und -\/zeit des Termins\\
+\hline
+{\em end} & Ende des Termins\\
+\hline
+{\em in\+Archive} & Pfad zum Archiv, in dem der Termin erstellt werden soll.\\
+\hline
+{\em subject} & Terminbezeichnung\\
+\hline
+{\em kunden\+Adresse} & Straße, P\+LZ und Ort des Termins\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Get\+Calendar\+Item@{Get\+Calendar\+Item}}
+\index{Get\+Calendar\+Item@{Get\+Calendar\+Item}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Calendar\+Item(string filename)}{GetCalendarItem(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Calendar\+Item David.\+David\+Service.\+Get\+Calendar\+Item (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_af453f2d226fe56533cbd4d28c30aeddc}{}\label{class_david_1_1_david_service_af453f2d226fe56533cbd4d28c30aeddc}
+
+
+Gibt den mit dem angegebenen Dateinamen verknüpften Kalendereintrag des angegebenen Benutzers zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Cal\+Archive} & Pfad zum Archiv des Benutzers.\\
+\hline
+{\em filename} & Dateiname des Kalendereintrags.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Die Instanz eines Dv\+Api32.\+Message\+Item2 Objekts.
+\end{DoxyReturn}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Get\+Calendar\+Items@{Get\+Calendar\+Items}}
+\index{Get\+Calendar\+Items@{Get\+Calendar\+Items}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Calendar\+Items(string for\+Archive, Date\+Time?from\+Date=null)}{GetCalendarItems(string forArchive, DateTime?fromDate=null)}}]{\setlength{\rightskip}{0pt plus 5cm}Dv\+Api32.\+Message\+Items2 David.\+David\+Service.\+Get\+Calendar\+Items (
+\begin{DoxyParamCaption}
+\item[{string}]{for\+Archive, }
+\item[{Date\+Time?}]{from\+Date = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_abc536b5c1b0a1173d73fbbe80a3ccc4d}{}\label{class_david_1_1_david_service_abc536b5c1b0a1173d73fbbe80a3ccc4d}
+
+
+Gibt eine Liste aller Termine aus dem angegebenen Archiv zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Get\+Message\+Item2@{Get\+Message\+Item2}}
+\index{Get\+Message\+Item2@{Get\+Message\+Item2}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Message\+Item2(string filename)}{GetMessageItem2(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Message\+Item2 David.\+David\+Service.\+Get\+Message\+Item2 (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_ad45d68a8cbd42b94d6ab93af90c04d47}{}\label{class_david_1_1_david_service_ad45d68a8cbd42b94d6ab93af90c04d47}
+
+
+Gibt den Kalendereintrag für den angegebenen Dateinamen als Message\+Item2 Instanz zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Vollständiger Pfad + Dateiname des Kalendereintrags im \hyperlink{namespace_david}{David} Dateisystem.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ein Message\+Item2 Objekt.
+\end{DoxyReturn}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Save\+Calendar\+Item@{Save\+Calendar\+Item}}
+\index{Save\+Calendar\+Item@{Save\+Calendar\+Item}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Save\+Calendar\+Item(\+Dv\+Api32.\+Calendar\+Item c\+Item, string filename)}{SaveCalendarItem(DvApi32.CalendarItem cItem, string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}bool David.\+David\+Service.\+Save\+Calendar\+Item (
+\begin{DoxyParamCaption}
+\item[{Dv\+Api32.\+Calendar\+Item}]{c\+Item, }
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_david_1_1_david_service_a87660cc04c3ef0895c07e0ec92ac518b}{}\label{class_david_1_1_david_service_a87660cc04c3ef0895c07e0ec92ac518b}
+
+
+Speichert das mitgelieferte Calendar\+Item im Kalender des angemeldeten Benutzers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Item} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\index{David\+::\+David\+Service@{David\+::\+David\+Service}!Connected@{Connected}}
+\index{Connected@{Connected}!David\+::\+David\+Service@{David\+::\+David\+Service}}
+\subsubsection[{\texorpdfstring{Connected}{Connected}}]{\setlength{\rightskip}{0pt plus 5cm}bool David.\+David\+Service.\+Connected\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_david_1_1_david_service_a3117ddeadc100eadc1fbf4a5f20998f3}{}\label{class_david_1_1_david_service_a3117ddeadc100eadc1fbf4a5f20998f3}
+
+
+Gibt F\+A\+L\+SE zurück, wenn keine Verbindung zum D\+A\+V\+ID Server besteht. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+David/David\+Service.\+cs\end{DoxyCompactItemize}

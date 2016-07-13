@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7EE96D66-A04C-46E8-BDAC-9FD37C92B483}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Products.Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\binaries\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\binaries\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Calendar.DayView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ThirdParty\CalendarDayView\Calendar.DayView.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Quartz, Version=2.3.3.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\FileLinkBuilder.cs" />
+    <Compile Include="Builder\NoteBuilder.cs" />
+    <Compile Include="Builder\TerminBuilder.cs" />
+    <Compile Include="Entities\Appointment.cs" />
+    <Compile Include="Entities\BestellDetail.cs" />
+    <Compile Include="Entities\Bestellung.cs" />
+    <Compile Include="Entities\CalendarFileLink.cs" />
+    <Compile Include="Entities\CalendarOpenParams.cs" />
+    <Compile Include="Entities\CalendarSettings.cs" />
+    <Compile Include="Entities\CatalogEntry.cs" />
+    <Compile Include="Entities\AppointmentType.cs" />
+    <Compile Include="Entities\Kunde.cs" />
+    <Compile Include="Entities\Kundenkontakt.cs" />
+    <Compile Include="Entities\FileLink.cs" />
+    <Compile Include="Entities\Hersteller.cs" />
+    <Compile Include="Entities\Interessent.cs" />
+    <Compile Include="Entities\Kundenmaschine.cs" />
+    <Compile Include="Entities\KundenMonatsumsatz.cs" />
+    <Compile Include="Entities\Lieferant.cs" />
+    <Compile Include="Entities\LieferantenKontakt.cs" />
+    <Compile Include="Entities\LieferantenRabatt.cs" />
+    <Compile Include="Entities\Linktyp.cs" />
+    <Compile Include="Entities\Maschinenmodell.cs" />
+    <Compile Include="Entities\Maschinenserie.cs" />
+    <Compile Include="Entities\Maschinentyp.cs" />
+    <Compile Include="Entities\Notiz.cs" />
+    <Compile Include="Entities\Offer.cs" />
+    <Compile Include="Entities\OfferDetail.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
+    <Compile Include="Entities\PhoneNote.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Kundensoftware.cs" />
+    <Compile Include="Entities\Reminder.cs" />
+    <Compile Include="Entities\Software.cs" />
+    <Compile Include="Entities\Suchkunde.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\Tinte.cs" />
+    <Compile Include="Entities\Tour.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Versandstaffelpreis.cs" />
+    <Compile Include="EventSystem\DateilinkDeletedEventArgs.cs" />
+    <Compile Include="EventSystem\MachineDeletedEventArgs.cs" />
+    <Compile Include="ModelManager.cs" />
+    <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\CatalogService.cs" />
+    <Compile Include="Services\ContactService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\FileLinkService.cs" />
+    <Compile Include="Services\MachineService.cs" />
+    <Compile Include="Services\ModelService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\NotesService.cs" />
+    <Compile Include="Services\OfferService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\ProspectService.cs" />
+    <Compile Include="Services\ReminderService.cs" />
+    <Compile Include="Services\SalesForceService.cs" />
+    <Compile Include="Services\SalesService.cs" />
+    <Compile Include="Services\Scheduler.cs" />
+    <Compile Include="Services\SharedItemsService.cs" />
+    <Compile Include="Services\SoftwareService.cs" />
+    <Compile Include="Services\SortableBindingList.cs" />
+    <Compile Include="Services\SupplierService.cs" />
+    <Compile Include="Services\TaskService.cs" />
+    <Compile Include="Services\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Agfeo\Agfeo.csproj">
+      <Project>{0CD206FB-1891-4010-9958-329AABD272CF}</Project>
+      <Name>Agfeo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Products.Common.csproj">
+      <Project>{B45CC3C0-5C84-4534-B1EA-BFEF5822CD30}</Project>
+      <Name>Products.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Products.Data.csproj">
+      <Project>{AEB80186-12CE-45F2-AB35-801BC192DBC2}</Project>
+      <Name>Products.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\David\David.csproj">
+      <Project>{D387D11B-0F86-4E9E-B542-25931128462B}</Project>
+      <Name>David</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Products.Contracts\Products.Contracts.csproj">
+      <Project>{66A8E88B-430B-4B17-A328-9D0E068A68FD}</Project>
+      <Name>Products.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Diagramme\Appointments.cd" />
+    <None Include="Diagramme\ModelService.cd" />
+    <None Include="Entities\Diagramme\Kunde.cd" />
+    <None Include="Entities\Diagramme\Produkte_Sonderpreise.cd" />
+    <None Include="Entities\Diagramme\TaskAndReminder.cd" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DvApi32">
+      <Guid>{065025EE-34E0-4172-B215-90E5BB3B1178}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

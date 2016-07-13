@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Products.Data.DataManager" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.DataService" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>LLj4/Ju7bhl2/2NUjMqb20YKatnnf2G1R+8a/+2taoY=</HashCode>
+      <FileName>DataService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSage" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Products.Data.dsSage.OfferDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenmaschineRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenumsatzBasisDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.NotizRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourInteressentXrefRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.CustomizedPriceRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundeRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.LinktypRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UserRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenumsatzDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InteressentDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundeMaschineXrefRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourKundeXrefRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinentypRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerSalesDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.LinktypRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.SupplierContactRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.TaskDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TerminLinkXrefRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.kontaktemailDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenArtikelSonderpreiseRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InvoiceRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ReminderDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenArtikelSonderpreiseRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.KundenumsatzRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ProductRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DavidItemRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OfferRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenumsatzRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TinteRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.TransactionRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.TerminLinkXrefDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinenmodellRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DateilinkRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SoftwareRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SuchkundeRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UpsShippingRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.PresetRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.DateilinkRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.OfferDetailDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.HistorieDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CatalogRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.DavidItemRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.OpDebitorenRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.HerstellerDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.PresetRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.AuftragProArtikelDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.kontaktemailRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.KundensoftwareRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.CatalogRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InteressentRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.LinktypRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.MaschinentypRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.UnpaidItemDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SoftwareRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.HistorieRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TinteDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.KundenumsatzBasisRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.OffenePostenRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ServiceterminDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TransactionRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ReminderRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TerminLinkXrefRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CatalogDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.ProductTextRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.InteressentRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundensoftwareDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UpsShippingDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TerminLinkXrefRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UnpaidItemRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TaskRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourInteressentXrefRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.cpm_kontaktemailRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OffenePostenRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TinteRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.CustomerSalesRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.KontaktnummerRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundenmaschineRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerSalesRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinenserieRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InteressentRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.InvoiceRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.MaschinenserieRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.SoftwareRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.OpDebitorenDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DateilinkDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OpDebitorenRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OrderRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductTextRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinentypRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.OrderDetailRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundenumsatzBasisRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductDetailDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DavidItemDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductSalesRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TourInteressentXrefRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.HerstellerRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.SuchkundeDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.kontaktemailRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TaskRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.UnpaidItemRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KontaktnummerRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductDetailRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.cpm_kontaktemailDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ArtikelDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.ServiceterminRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.CustomerRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenmaschineDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.HerstellerRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DavidItemRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KontaktnummerDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SoftwareDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.cpm_kontaktemailRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.OfferRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.UpsShippingRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenumsatzRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.CustomerContactRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ProductSalesDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourKundeXrefDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OffenePostenDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.VersandkostenstaffelDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TinteRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OfferDetailRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SupplierContactDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.SuchkundeRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.OrderRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ProductSalesRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.OfferDetailRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ProductDetailRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InvoiceDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OrderDetailRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OpDebitorenRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.UnpaidItemRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.OrderDetailRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.NotizDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.HistorieRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.CustomerRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.ReminderRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ServiceterminRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinenmodellDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenArtikelSonderpreiseDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.PresetDataTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>dsSage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Products.Data.dsSage.OrderRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TransactionDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TourKundeXrefRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.VersandkostenstaffelRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.SupplierContactRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundensoftwareRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerContactDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.cpm_kontaktemailRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundeDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ReminderRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.ArtikelRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundeMaschineXrefRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.InvoiceRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.VersandkostenstaffelRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinenmodellRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TourKundeXrefRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.ProductDetailRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.CustomizedPriceDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundensoftwareRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.kontaktemailRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OfferRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SupplierContactRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductTextDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomizedPriceRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TransactionRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OfferDetailRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerSalesRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.TourRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.MaschinenmodellRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.NotizRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.HerstellerRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundeRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.CatalogRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ArtikelRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomizedPriceRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.SuchkundeRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.VersandkostenstaffelRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.KundeRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.KundeMaschineXrefRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KontaktnummerRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.ProductRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.AuftragProArtikelRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UserDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.HistorieRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinenserieDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.UserRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.TaskRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.ProductSalesRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.PresetRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.KundenumsatzBasisRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.KundenArtikelSonderpreiseRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.TourInteressentXrefDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerContactRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.UserRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.UpsShippingRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.OffenePostenRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ServiceterminRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.DateilinkRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.AuftragProArtikelRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OrderDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.NotizRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.KundeMaschineXrefDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.MaschinentypDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.OrderDetailDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.CustomerContactRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.AuftragProArtikelRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.ProductDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Products.Data.dsSage.KundenmaschineRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="Products.Data.dsSage.MaschinenserieRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Products.Data.dsSage.LinktypDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ProductTextRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Products.Data.dsSage.ArtikelRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UBn3y5zw4zOVlbJdlt4O2jw55ohP1zmW2vBVj5e15Z8=</HashCode>
+      <FileName>dsSage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taUnpaidItem" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taProductDetail" Collapsed="true">
+    <Position X="6.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taProduct" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taCustomizedPrice" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taCustomer" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAAACAAAdAIAAAAAAAACAICAAAAAAAAAAARBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taCatalog" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taPreset" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taCustomerContact" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taSupplierContact" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taCustomerSales" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taOrder" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcEIAAAEAAAACIICAAAAAAAAAABBBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taOrderDetail" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAEAAAACIICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taOffer" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.taOfferDetail" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.dsSageTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="11" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gQA4OGAYwIBAzkEBBAsKsoAqgoCiggBhYCSCQAkULgY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Products.Data.Properties.Settings" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAEAAAAMAAAAACBCAAAAAAAAAAACAI=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,1176 @@
+\hypertarget{class_products_1_1_model_1_1_model_service}{}\section{Products.\+Model.\+Model\+Service Class Reference}
+\label{class_products_1_1_model_1_1_model_service}\index{Products.\+Model.\+Model\+Service@{Products.\+Model.\+Model\+Service}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenkontakt}{Kundenkontakt} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_af281c8ff9449031f251191502d0047f8}{Get\+Customer\+Contacts} (string customer\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a list of contacts associated with the given customer. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_model_service_ad9cf5692491c9129e3bb003973f28fd1}{Model\+Service} ()
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the \hyperlink{class_products_1_1_model_1_1_model_service}{Model\+Service} class. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_product}{Product} \hyperlink{class_products_1_1_model_1_1_model_service_a5d2528c4e3669b6c49cb3e7c16307f49}{Get\+Product} (string cust\+Nbr, string product\+Id, bool refresh)
+\begin{DoxyCompactList}\small\item\em Returns the Product instance for the product with the given product id. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_order}{Order} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ac24d4f576bf4b189abc38a60d36053d3}{Get\+Orders} (string cust\+Nbr)
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste der Aufträge für den angegebenen Kunden zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} \hyperlink{class_products_1_1_model_1_1_model_service_a8f47a2df875f4bdc1a27eb81f54a8723}{Neuer\+Dateilink} (object lnk\+Item, string original\+File)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Verknüpfung zwischen angegebener Datei und angegebenem Element. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_dateilink}{Dateilink} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a2a185507d0605a07160182f815dae3b2}{Get\+Dateilinks} (object for\+Linked\+Item)
+\begin{DoxyCompactList}\small\item\em Gibt alle Dateien zurück, die mit dem angegebenen Element verknüpft sind. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a8aa15e34a246e15ade7dfae12e520873}{Delete\+Dateilink} (string linked\+File\+Uid)
+\begin{DoxyCompactList}\small\item\em Löscht den angegebenen Dateilink aus der Tabelle Dateilink. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a35cd9352d37ede720108517399d674d3}{Update\+Dateilinks} ()
+\begin{DoxyCompactList}\small\item\em Speichert Änderungen an der Tabelle Dateilink. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_versandstaffelpreis}{Versandstaffelpreis} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_abaa2483cab687111e75416e61cd20e59}{Get\+Frachtfreigrenzen} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} kunde)
+\begin{DoxyCompactList}\small\item\em Gibt die Liste der Versandkostenstaffeln zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_linktyp}{Linktyp} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a22546c98639062d12fef4238095235cf}{Get\+Linktypen} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller im System vorhandenen Verknüpfungstypen zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ad4d1c2f5ccdc97a98098eef5a2364892}{Get\+Notizen\+Per\+Kunde} (string kundennummer)
+\begin{DoxyCompactList}\small\item\em Liefert eine Liste aller Notizen für den angegebenen Kunden. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ac0ad4ec684c8d644d9c2980a06babfb4}{Get\+Notizen\+Per\+Interessent} (string interessenten\+Id)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Notizen für den angegebenen Interessenten zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a46231427eb26bbff9b48cc9af3c23308}{Get\+Notizen\+Per\+Maschine} (string machine\+U\+ID)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Notizen für die angegebene Maschine zurück. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a28300ea5061fa4af055347c760a0086b}{Update\+Notizen} ()
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Notiz für die angegebene Kundenmaschine. \end{DoxyCompactList}\item 
+object \hyperlink{class_products_1_1_model_1_1_model_service_a752c4567416f83af060a5cac69455514}{Get\+Interessent\+By\+Id} (string prospect\+Id)
+\begin{DoxyCompactList}\small\item\em Gibt die Instanz des Interessenten mit dem angegebenen Primärschlüssel zurück. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a740ae0b94090f6e0cfd89a3ad51ee36f}{Update\+Interessenten} ()
+\begin{DoxyCompactList}\small\item\em Aktualisiert die Tabelle Interessent. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} \hyperlink{class_products_1_1_model_1_1_model_service_a9567df27fec83df4f6f13792c1d7fac2}{Get\+User\+By\+David\+Filename} (string file\+Name)
+\begin{DoxyCompactList}\small\item\em Sucht einen Benutzer anhand des übergebenen Dateipfades, der die \hyperlink{namespace_david}{David} ID des Benutzers enthält. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_model_service_a4395d48db4325f0477dda75968a566d2}{Update\+Calendar\+Item} (Dv\+Api32.\+Calendar\+Item cal\+Item, string filename)
+\begin{DoxyCompactList}\small\item\em Speichert ein neues oder geändertes Calendar\+Items. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} \hyperlink{class_products_1_1_model_1_1_model_service_aa3ccbd580ad725b8970fe8c4b5f768e3}{Get\+Customer\+By\+Id} (string cust\+Nbr)
+\begin{DoxyCompactList}\small\item\em Returns the customer with the given customer id. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_suchkunde}{Suchkunde} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a9fc5ea19c405904e5a1196751c1f23de}{Suchkunden} (string search\+For)
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste mit Suchkunden zurück, die dem angegebenen Suchkriterium entsprechen. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Products.\+Common.\+Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_af4140900909314a5c531b99ca9e8bc53}{Get\+Customers\+By\+Any} (string search\+String)
+\begin{DoxyCompactList}\small\item\em Returns the customer that matches \end{DoxyCompactList}\item 
+int \hyperlink{class_products_1_1_model_1_1_model_service_a904e3a2bb9afecaf9d22b1b2efb6451e}{Update\+Kunden} ()
+\begin{DoxyCompactList}\small\item\em Aktualisiert Änderungen an der Tabelle Kunde. \end{DoxyCompactList}\item 
+string \hyperlink{class_products_1_1_model_1_1_model_service_ab68f34539660324d85f7c0dfb1801e9a}{Get\+Link\+Type\+Uid} (\hyperlink{namespace_products_1_1_model_a0ea8a130b9a610541b442971b91cbc31}{Link\+Typ} for\+Type)
+\begin{DoxyCompactList}\small\item\em Gibt den G\+U\+ID des angegebenen Linktypen zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} \hyperlink{class_products_1_1_model_1_1_model_service_a32038c578fa59a85e5483a171b9d7443}{Get\+Customer\+Machine\+By\+U\+ID} (string machine\+Uid)
+\begin{DoxyCompactList}\small\item\em Gibt die Instanz der Maschine mit dem angegebenen G\+U\+ID zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_adf9f734fcaa1106202c223cc3ed271cd}{Kundenmaschinen} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} customer)
+\begin{DoxyCompactList}\small\item\em Gibt die Kundenmaschinen für den angegebenen Kunden zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} \hyperlink{class_products_1_1_model_1_1_model_service_a92b6804ae609d312007ee9ef56434aa6}{Neue\+Kundenmaschine} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} customer)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Kundenmaschine für den angegebenen Kunden. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_hersteller}{Hersteller} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_af7d975c7e36b74be5f5336e255b674b7}{Hersteller} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste mit allen Herstellern zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_maschinentyp}{Maschinentyp} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ab3e139eda287d85f54f51f5feb65d1a0}{Maschinentypen} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Maschinentypen im System zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_maschinenmodell}{Maschinenmodell} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a39c4c6e35a63159c33769ceef3a49f51}{Maschinenmodelle} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Maschinenmodelle im System zurück. \end{DoxyCompactList}\item 
+void {\bfseries Neues\+Maschinenmodell} ()\hypertarget{class_products_1_1_model_1_1_model_service_a0ebeb8583da3e349045a11a75c9c465b}{}\label{class_products_1_1_model_1_1_model_service_a0ebeb8583da3e349045a11a75c9c465b}
+
+\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_tintentyp}{Tintentyp} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a47daf4d803aa50d2e6b1cda1552fe4d3}{Tintentypen} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Tintentypen im System zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_servicetermin}{Servicetermin} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ac409691b725b364c8b8b2b9d327ac8be}{Servicetermine} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Servicetermine im System zurück. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a07a07e1d3239d340f8560941e3f08056}{Move\+Maschine} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} kunden\+Maschine, string neue\+Kunden\+Nr)
+\begin{DoxyCompactList}\small\item\em Verschiebt die angegebene Maschine zu einem anderen Kunden. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_af624fc25550a7158ad29ee1b3f555796}{Reset\+Maschinen} ()
+\begin{DoxyCompactList}\small\item\em Lädt die Maschinentabelle neu und löst das Ereignis aus, dass wir das getan haben. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_ab0553fb07e526f6ea15b77428d3e2976}{Update\+Kundenmaschinen} ()
+\begin{DoxyCompactList}\small\item\em Überträgt Änderungen an Kundenmaschinen an die Datenbank. \end{DoxyCompactList}\item 
+void {\bfseries Update\+Maschinenmodelle} ()\hypertarget{class_products_1_1_model_1_1_model_service_a9af7954aa3fdf56e6a32600c6d4106c3}{}\label{class_products_1_1_model_1_1_model_service_a9af7954aa3fdf56e6a32600c6d4106c3}
+
+\item 
+bool \hyperlink{class_products_1_1_model_1_1_model_service_aca035be2633b2a31c67051595aa43ffa}{Delete\+Notiz} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_notiz}{Notiz} notiz)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Notiz für den angegebenen Kunden. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_servicetermin}{Servicetermin} \hyperlink{class_products_1_1_model_1_1_model_service_a558a7a4e4b2a669a15e35aadd390ce83}{Neuer\+Servicetermin} (\hyperlink{class_products_1_1_common_1_1_parameters_1_1_create_servicetermin_params}{Common.\+Parameters.\+Create\+Servicetermin\+Params} parms)
+\begin{DoxyCompactList}\small\item\em Erstellt aus den übergebenen Parametern einen neuen Servicetermin. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_servicetermin}{Servicetermin} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ad4b6756926f2f69a3f1eeb4a4be30ffe}{Get\+Servicetermine} (object parent\+Item)
+\begin{DoxyCompactList}\small\item\em Gibt die Servicetermine für den angegebenen Kunden zurück. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_ae10ee64975cda02766b56da7a6980387}{Update\+Servicetermine} ()
+\begin{DoxyCompactList}\small\item\em Aktualisiert die Tabelle Servicetermine. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundensoftware}{Kundensoftware} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a66c0c4c484d85adb24f0d0381fdc6d8c}{Get\+Kundensoftware} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} customer)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste der Software des angegebenen Kunden zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundensoftware}{Kundensoftware} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a25aa9ffb4a1196ceb47a65fe08ec54d2}{Get\+Kundensoftware} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} customer, \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} maschine)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste der Software für den angegebenen Kunden und die angegebene Maschine zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_kundensoftware}{Kundensoftware} \hyperlink{class_products_1_1_model_1_1_model_service_aecc875dd0da85f7a63bbb60f2fa423a5}{Add\+Kunden\+Software} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} customer, \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenmaschine}{Kundenmaschine} kundenmaschine=null)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Instanz eines Kundensoftware Objekts. \end{DoxyCompactList}\item 
+object \hyperlink{class_products_1_1_model_1_1_model_service_af8a203d7b4f6f8203d881e2a389e68f1}{Softwareliste} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Softwareprogramme zurück. \end{DoxyCompactList}\item 
+void \hyperlink{class_products_1_1_model_1_1_model_service_a13852f2d31959e3b2d71fb00db01a3a7}{Update\+Kundensoftware} ()
+\begin{DoxyCompactList}\small\item\em Speichert alle Änderungen an der Kundensoftware Tabelle. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_termin}{Termin} \hyperlink{class_products_1_1_model_1_1_model_service_ad0e7d421f3e8f6d70bc4d53657be478d}{Add\+Termin} (Date\+Time start, Date\+Time end, \hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{Model.\+Entities.\+User} for\+User)
+\begin{DoxyCompactList}\small\item\em Erstellt eine neue Instanz der Termin Klasse und gibt diese zurück. \end{DoxyCompactList}\item 
+void {\bfseries Set\+Xref\+U\+ID} (Dv\+Api32.\+Message\+Item2 c\+Item)\hypertarget{class_products_1_1_model_1_1_model_service_a9612cd007116a36043df2ffaa3a57f08}{}\label{class_products_1_1_model_1_1_model_service_a9612cd007116a36043df2ffaa3a57f08}
+
+\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_termin}{Termin} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_ada09135e0d1808d8808b698417ecf4c9}{Get\+Termine} (string for\+Link\+Id, \hyperlink{namespace_products_1_1_model_a0ea8a130b9a610541b442971b91cbc31}{Link\+Typ} termin\+Typ)
+\begin{DoxyCompactList}\small\item\em Gibt eine Liste aller Termine des angegebenen Benutzers zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_termin}{Termin} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a8bbac419debecf92d2144efad343174b}{Get\+Besuchstermine} (string kundennummer)
+\begin{DoxyCompactList}\small\item\em Gibt alle Besuchstermine des angegebenen Kunden zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_tintentyp}{Tintentyp} {\bfseries Neue\+Tinte} ()\hypertarget{class_products_1_1_model_1_1_model_service_a9e77ec5740819cf194b481131177465d}{}\label{class_products_1_1_model_1_1_model_service_a9e77ec5740819cf194b481131177465d}
+
+\item 
+void {\bfseries Update\+Tinten} ()\hypertarget{class_products_1_1_model_1_1_model_service_ab396d760d808654c73c33d6f77ba43cc}{}\label{class_products_1_1_model_1_1_model_service_ab396d760d808654c73c33d6f77ba43cc}
+
+\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_tour}{Tour} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a88b7bd84f60f0e33daecd256ad1fedbe}{Get\+Alle\+Touren} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste aller Touren im System zurück. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_affe72e69d5ef4c9eff6602746e4c8e8a}{Get\+Kunden\+Per\+Tour} (string tour\+Id)
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste aller Kunden zurück, die zur Tour mit dem angegebenen Primärschlüssel gehören. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_interessent}{Interessent} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_aae65874b0774cfe7b3fab8acd5536bc7}{Get\+Interessenten\+Per\+Tour} (string tour\+Id)
+\begin{DoxyCompactList}\small\item\em Gibt die sortierbare Liste aller Interessenten zurück, die dieser Tour zugeordnet sind. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_model_service_a4e85b399319326391d67dc6a150ca907}{Add\+Tour\+Kunde} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_tour}{Tour} tour, \hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} kunde)
+\begin{DoxyCompactList}\small\item\em Fügt den Kunden mit der angegebenen Kundennummer zur angegebenen Tour zu. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_interessent}{Interessent} \hyperlink{class_products_1_1_model_1_1_model_service_a9508b0742c985d6b6e84c6b62aaca37a}{Add\+Interessent} ()
+\begin{DoxyCompactList}\small\item\em Fügt dem System einen neuen Interessenten hinzu. \end{DoxyCompactList}\item 
+bool \hyperlink{class_products_1_1_model_1_1_model_service_acaef0ee60122ff078ad7839ccd91f7d1}{Add\+Tour\+Interessent} (\hyperlink{class_products_1_1_model_1_1_entities_1_1_tour}{Tour} tour, string interessent\+Id)
+\begin{DoxyCompactList}\small\item\em Fügt einer Tour einen neuen Interessenten hinzu. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{Model.\+Entities.\+User} \hyperlink{class_products_1_1_model_1_1_model_service_a46d44a1b993062662c1d9510c4b0563b}{Get\+Current\+User} ()
+\begin{DoxyCompactList}\small\item\em Returns the user who currently is logged into this windows machine. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} \hyperlink{class_products_1_1_model_1_1_model_service_ab814f682670cbd2640e6fa5aa3b2ad29}{Get\+User\+By\+U\+ID} (string uid)
+\begin{DoxyCompactList}\small\item\em Returns the user instance with the specified U\+ID. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} \hyperlink{class_products_1_1_model_1_1_model_service_a396e29e34ef218dce26e806423ad9827}{Get\+User\+By\+David\+User\+Folder} (string user\+Folder)
+\begin{DoxyCompactList}\small\item\em Gibt den \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a7af0d16283100e365285dbcc4550d8f9}{Get\+Techniker} ()
+\begin{DoxyCompactList}\small\item\em Gibt eine sortierbare Liste der bei uns arbeitenden Techniker zurück. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kunde}{Kunde} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_a6bc595a6db4806b4dc3f37437204ab3b}{Customers}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns a sortable list of all customers. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_kundenkontakt}{Kundenkontakt} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_acb1111cbb862c9e2587105bb089cffd3}{Customer\+Contacts}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns a sortable list of all customer contacts. \end{DoxyCompactList}\item 
+\hyperlink{class_products_1_1_common_1_1_sortable_binding_list}{Sortable\+Binding\+List}$<$ \hyperlink{class_products_1_1_model_1_1_entities_1_1_user}{User} $>$ \hyperlink{class_products_1_1_model_1_1_model_service_add1e4b44389974fbc5bfbf77f65d502f}{Users}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns a sortable list of all users. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler {\bfseries On\+Reset\+Maschinen}\hypertarget{class_products_1_1_model_1_1_model_service_a05564a6400c555cf86826d792f9d0509}{}\label{class_products_1_1_model_1_1_model_service_a05564a6400c555cf86826d792f9d0509}
+
+\item 
+Event\+Handler$<$ \hyperlink{class_products_1_1_model_1_1_event_system_1_1_machine_deleted_event_args}{Event\+System.\+Machine\+Deleted\+Event\+Args} $>$ {\bfseries On\+Machine\+Deleted}\hypertarget{class_products_1_1_model_1_1_model_service_a72e45bf49c249cf072b49839097c4636}{}\label{class_products_1_1_model_1_1_model_service_a72e45bf49c249cf072b49839097c4636}
+
+\item 
+Event\+Handler$<$ \hyperlink{class_products_1_1_model_1_1_event_system_1_1_dateilink_deleted_event_args}{Event\+System.\+Dateilink\+Deleted\+Event\+Args} $>$ {\bfseries On\+Linked\+File\+Deleted}\hypertarget{class_products_1_1_model_1_1_model_service_a7a8b462d0f1ea4b76a12d70de800b792}{}\label{class_products_1_1_model_1_1_model_service_a7a8b462d0f1ea4b76a12d70de800b792}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Model\+Service@{Model\+Service}}
+\index{Model\+Service@{Model\+Service}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Model\+Service()}{ModelService()}}]{\setlength{\rightskip}{0pt plus 5cm}Products.\+Model.\+Model\+Service.\+Model\+Service (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ad9cf5692491c9129e3bb003973f28fd1}{}\label{class_products_1_1_model_1_1_model_service_ad9cf5692491c9129e3bb003973f28fd1}
+
+
+Creates a new instance of the \hyperlink{class_products_1_1_model_1_1_model_service}{Model\+Service} class. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Add\+Interessent@{Add\+Interessent}}
+\index{Add\+Interessent@{Add\+Interessent}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Add\+Interessent()}{AddInteressent()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interessent} Products.\+Model.\+Model\+Service.\+Add\+Interessent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a9508b0742c985d6b6e84c6b62aaca37a}{}\label{class_products_1_1_model_1_1_model_service_a9508b0742c985d6b6e84c6b62aaca37a}
+
+
+Fügt dem System einen neuen Interessenten hinzu. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Add\+Kunden\+Software@{Add\+Kunden\+Software}}
+\index{Add\+Kunden\+Software@{Add\+Kunden\+Software}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Add\+Kunden\+Software(\+Kunde customer, Kundenmaschine kundenmaschine=null)}{AddKundenSoftware(Kunde customer, Kundenmaschine kundenmaschine=null)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kundensoftware} Products.\+Model.\+Model\+Service.\+Add\+Kunden\+Software (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{customer, }
+\item[{{\bf Kundenmaschine}}]{kundenmaschine = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_aecc875dd0da85f7a63bbb60f2fa423a5}{}\label{class_products_1_1_model_1_1_model_service_aecc875dd0da85f7a63bbb60f2fa423a5}
+
+
+Erstellt eine neue Instanz eines Kundensoftware Objekts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Der Kunde, dem die Software zugeordnet werden soll.\\
+\hline
+{\em kundenmaschine} & Wenn nicht null, wird die Software dieser Maschine zugeordnet.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Add\+Termin@{Add\+Termin}}
+\index{Add\+Termin@{Add\+Termin}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Add\+Termin(\+Date\+Time start, Date\+Time end, Model.\+Entities.\+User for\+User)}{AddTermin(DateTime start, DateTime end, Model.Entities.User forUser)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Termin} Products.\+Model.\+Model\+Service.\+Add\+Termin (
+\begin{DoxyParamCaption}
+\item[{Date\+Time}]{start, }
+\item[{Date\+Time}]{end, }
+\item[{{\bf Model.\+Entities.\+User}}]{for\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ad0e7d421f3e8f6d70bc4d53657be478d}{}\label{class_products_1_1_model_1_1_model_service_ad0e7d421f3e8f6d70bc4d53657be478d}
+
+
+Erstellt eine neue Instanz der Termin Klasse und gibt diese zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Add\+Tour\+Interessent@{Add\+Tour\+Interessent}}
+\index{Add\+Tour\+Interessent@{Add\+Tour\+Interessent}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Add\+Tour\+Interessent(\+Tour tour, string interessent\+Id)}{AddTourInteressent(Tour tour, string interessentId)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Model\+Service.\+Add\+Tour\+Interessent (
+\begin{DoxyParamCaption}
+\item[{{\bf Tour}}]{tour, }
+\item[{string}]{interessent\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_acaef0ee60122ff078ad7839ccd91f7d1}{}\label{class_products_1_1_model_1_1_model_service_acaef0ee60122ff078ad7839ccd91f7d1}
+
+
+Fügt einer Tour einen neuen Interessenten hinzu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Die Tour.\\
+\hline
+{\em interessent\+Id} & Der Primärschlüssel des Interessenten (G\+U\+ID).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Add\+Tour\+Kunde@{Add\+Tour\+Kunde}}
+\index{Add\+Tour\+Kunde@{Add\+Tour\+Kunde}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Add\+Tour\+Kunde(\+Tour tour, Kunde kunde)}{AddTourKunde(Tour tour, Kunde kunde)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Model\+Service.\+Add\+Tour\+Kunde (
+\begin{DoxyParamCaption}
+\item[{{\bf Tour}}]{tour, }
+\item[{{\bf Kunde}}]{kunde}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a4e85b399319326391d67dc6a150ca907}{}\label{class_products_1_1_model_1_1_model_service_a4e85b399319326391d67dc6a150ca907}
+
+
+Fügt den Kunden mit der angegebenen Kundennummer zur angegebenen Tour zu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Die Tour.\\
+\hline
+{\em kunde} & Der Kunde.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Delete\+Dateilink@{Delete\+Dateilink}}
+\index{Delete\+Dateilink@{Delete\+Dateilink}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Delete\+Dateilink(string linked\+File\+Uid)}{DeleteDateilink(string linkedFileUid)}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Delete\+Dateilink (
+\begin{DoxyParamCaption}
+\item[{string}]{linked\+File\+Uid}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a8aa15e34a246e15ade7dfae12e520873}{}\label{class_products_1_1_model_1_1_model_service_a8aa15e34a246e15ade7dfae12e520873}
+
+
+Löscht den angegebenen Dateilink aus der Tabelle Dateilink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linked\+File\+Uid} & \\
+\hline
+\end{DoxyParams}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Delete\+Notiz@{Delete\+Notiz}}
+\index{Delete\+Notiz@{Delete\+Notiz}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Delete\+Notiz(\+Notiz notiz)}{DeleteNotiz(Notiz notiz)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Model\+Service.\+Delete\+Notiz (
+\begin{DoxyParamCaption}
+\item[{{\bf Notiz}}]{notiz}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_aca035be2633b2a31c67051595aa43ffa}{}\label{class_products_1_1_model_1_1_model_service_aca035be2633b2a31c67051595aa43ffa}
+
+
+Erstellt eine neue Notiz für den angegebenen Kunden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Selected\+Kunde} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Alle\+Touren@{Get\+Alle\+Touren}}
+\index{Get\+Alle\+Touren@{Get\+Alle\+Touren}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Alle\+Touren()}{GetAlleTouren()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Tour}$>$ Products.\+Model.\+Model\+Service.\+Get\+Alle\+Touren (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a88b7bd84f60f0e33daecd256ad1fedbe}{}\label{class_products_1_1_model_1_1_model_service_a88b7bd84f60f0e33daecd256ad1fedbe}
+
+
+Gibt eine sortierbare Liste aller Touren im System zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Besuchstermine@{Get\+Besuchstermine}}
+\index{Get\+Besuchstermine@{Get\+Besuchstermine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Besuchstermine(string kundennummer)}{GetBesuchstermine(string kundennummer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Termin}$>$ Products.\+Model.\+Model\+Service.\+Get\+Besuchstermine (
+\begin{DoxyParamCaption}
+\item[{string}]{kundennummer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a8bbac419debecf92d2144efad343174b}{}\label{class_products_1_1_model_1_1_model_service_a8bbac419debecf92d2144efad343174b}
+
+
+Gibt alle Besuchstermine des angegebenen Kunden zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kundennummer} & Kundennummer des Kunden.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Current\+User@{Get\+Current\+User}}
+\index{Get\+Current\+User@{Get\+Current\+User}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Current\+User()}{GetCurrentUser()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model.\+Entities.\+User} Products.\+Model.\+Model\+Service.\+Get\+Current\+User (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a46d44a1b993062662c1d9510c4b0563b}{}\label{class_products_1_1_model_1_1_model_service_a46d44a1b993062662c1d9510c4b0563b}
+
+
+Returns the user who currently is logged into this windows machine. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Customer\+By\+Id@{Get\+Customer\+By\+Id}}
+\index{Get\+Customer\+By\+Id@{Get\+Customer\+By\+Id}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Customer\+By\+Id(string cust\+Nbr)}{GetCustomerById(string custNbr)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kunde} Products.\+Model.\+Model\+Service.\+Get\+Customer\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{cust\+Nbr}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_aa3ccbd580ad725b8970fe8c4b5f768e3}{}\label{class_products_1_1_model_1_1_model_service_aa3ccbd580ad725b8970fe8c4b5f768e3}
+
+
+Returns the customer with the given customer id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust\+Nbr} & The customers\textquotesingle{} id (Kundennummer).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Customer instance.
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Customer\+Contacts@{Get\+Customer\+Contacts}}
+\index{Get\+Customer\+Contacts@{Get\+Customer\+Contacts}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Customer\+Contacts(string customer\+Id)}{GetCustomerContacts(string customerId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kundenkontakt}$>$ Products.\+Model.\+Model\+Service.\+Get\+Customer\+Contacts (
+\begin{DoxyParamCaption}
+\item[{string}]{customer\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_af281c8ff9449031f251191502d0047f8}{}\label{class_products_1_1_model_1_1_model_service_af281c8ff9449031f251191502d0047f8}
+
+
+Returns a list of contacts associated with the given customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customers\textquotesingle{} unique id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An I\+Enumerable$<$\+Customer\+Contact$>$$<$/\+Customer\+Contact$>$
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Customer\+Machine\+By\+U\+ID@{Get\+Customer\+Machine\+By\+U\+ID}}
+\index{Get\+Customer\+Machine\+By\+U\+ID@{Get\+Customer\+Machine\+By\+U\+ID}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Customer\+Machine\+By\+U\+I\+D(string machine\+Uid)}{GetCustomerMachineByUID(string machineUid)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kundenmaschine} Products.\+Model.\+Model\+Service.\+Get\+Customer\+Machine\+By\+U\+ID (
+\begin{DoxyParamCaption}
+\item[{string}]{machine\+Uid}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a32038c578fa59a85e5483a171b9d7443}{}\label{class_products_1_1_model_1_1_model_service_a32038c578fa59a85e5483a171b9d7443}
+
+
+Gibt die Instanz der Maschine mit dem angegebenen G\+U\+ID zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em machine\+Uid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Customers\+By\+Any@{Get\+Customers\+By\+Any}}
+\index{Get\+Customers\+By\+Any@{Get\+Customers\+By\+Any}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Customers\+By\+Any(string search\+String)}{GetCustomersByAny(string searchString)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Products.\+Common.\+Sortable\+Binding\+List}$<${\bf Kunde}$>$ Products.\+Model.\+Model\+Service.\+Get\+Customers\+By\+Any (
+\begin{DoxyParamCaption}
+\item[{string}]{search\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_af4140900909314a5c531b99ca9e8bc53}{}\label{class_products_1_1_model_1_1_model_service_af4140900909314a5c531b99ca9e8bc53}
+
+
+Returns the customer that matches 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+Es wird in den Feldern Kunden-\/\+Nr., Matchcode, Bezeichnung 1, Bezeichnung 2, und nach Namen in der Kunden-\/\+Ansprechpartnerliste gesucht.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Dateilinks@{Get\+Dateilinks}}
+\index{Get\+Dateilinks@{Get\+Dateilinks}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Dateilinks(object for\+Linked\+Item)}{GetDateilinks(object forLinkedItem)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Dateilink}$>$ Products.\+Model.\+Model\+Service.\+Get\+Dateilinks (
+\begin{DoxyParamCaption}
+\item[{object}]{for\+Linked\+Item}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a2a185507d0605a07160182f815dae3b2}{}\label{class_products_1_1_model_1_1_model_service_a2a185507d0605a07160182f815dae3b2}
+
+
+Gibt alle Dateien zurück, die mit dem angegebenen Element verknüpft sind. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em for\+Linked\+Item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Frachtfreigrenzen@{Get\+Frachtfreigrenzen}}
+\index{Get\+Frachtfreigrenzen@{Get\+Frachtfreigrenzen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Frachtfreigrenzen(\+Kunde kunde)}{GetFrachtfreigrenzen(Kunde kunde)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Versandstaffelpreis}$>$ Products.\+Model.\+Model\+Service.\+Get\+Frachtfreigrenzen (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{kunde}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_abaa2483cab687111e75416e61cd20e59}{}\label{class_products_1_1_model_1_1_model_service_abaa2483cab687111e75416e61cd20e59}
+
+
+Gibt die Liste der Versandkostenstaffeln zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kunde} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Interessent\+By\+Id@{Get\+Interessent\+By\+Id}}
+\index{Get\+Interessent\+By\+Id@{Get\+Interessent\+By\+Id}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Interessent\+By\+Id(string prospect\+Id)}{GetInteressentById(string prospectId)}}]{\setlength{\rightskip}{0pt plus 5cm}object Products.\+Model.\+Model\+Service.\+Get\+Interessent\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{prospect\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a752c4567416f83af060a5cac69455514}{}\label{class_products_1_1_model_1_1_model_service_a752c4567416f83af060a5cac69455514}
+
+
+Gibt die Instanz des Interessenten mit dem angegebenen Primärschlüssel zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prospect\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Interessenten\+Per\+Tour@{Get\+Interessenten\+Per\+Tour}}
+\index{Get\+Interessenten\+Per\+Tour@{Get\+Interessenten\+Per\+Tour}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Interessenten\+Per\+Tour(string tour\+Id)}{GetInteressentenPerTour(string tourId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Interessent}$>$ Products.\+Model.\+Model\+Service.\+Get\+Interessenten\+Per\+Tour (
+\begin{DoxyParamCaption}
+\item[{string}]{tour\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_aae65874b0774cfe7b3fab8acd5536bc7}{}\label{class_products_1_1_model_1_1_model_service_aae65874b0774cfe7b3fab8acd5536bc7}
+
+
+Gibt die sortierbare Liste aller Interessenten zurück, die dieser Tour zugeordnet sind. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Kunden\+Per\+Tour@{Get\+Kunden\+Per\+Tour}}
+\index{Get\+Kunden\+Per\+Tour@{Get\+Kunden\+Per\+Tour}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Kunden\+Per\+Tour(string tour\+Id)}{GetKundenPerTour(string tourId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kunde}$>$ Products.\+Model.\+Model\+Service.\+Get\+Kunden\+Per\+Tour (
+\begin{DoxyParamCaption}
+\item[{string}]{tour\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_affe72e69d5ef4c9eff6602746e4c8e8a}{}\label{class_products_1_1_model_1_1_model_service_affe72e69d5ef4c9eff6602746e4c8e8a}
+
+
+Gibt eine sortierbare Liste aller Kunden zurück, die zur Tour mit dem angegebenen Primärschlüssel gehören. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Kundensoftware@{Get\+Kundensoftware}}
+\index{Get\+Kundensoftware@{Get\+Kundensoftware}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Kundensoftware(\+Kunde customer)}{GetKundensoftware(Kunde customer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kundensoftware}$>$ Products.\+Model.\+Model\+Service.\+Get\+Kundensoftware (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{customer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a66c0c4c484d85adb24f0d0381fdc6d8c}{}\label{class_products_1_1_model_1_1_model_service_a66c0c4c484d85adb24f0d0381fdc6d8c}
+
+
+Gibt eine Liste der Software des angegebenen Kunden zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Kundensoftware@{Get\+Kundensoftware}}
+\index{Get\+Kundensoftware@{Get\+Kundensoftware}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Kundensoftware(\+Kunde customer, Kundenmaschine maschine)}{GetKundensoftware(Kunde customer, Kundenmaschine maschine)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kundensoftware}$>$ Products.\+Model.\+Model\+Service.\+Get\+Kundensoftware (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{customer, }
+\item[{{\bf Kundenmaschine}}]{maschine}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a25aa9ffb4a1196ceb47a65fe08ec54d2}{}\label{class_products_1_1_model_1_1_model_service_a25aa9ffb4a1196ceb47a65fe08ec54d2}
+
+
+Gibt eine Liste der Software für den angegebenen Kunden und die angegebene Maschine zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+{\em maschine} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Linktypen@{Get\+Linktypen}}
+\index{Get\+Linktypen@{Get\+Linktypen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Linktypen()}{GetLinktypen()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Linktyp}$>$ Products.\+Model.\+Model\+Service.\+Get\+Linktypen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a22546c98639062d12fef4238095235cf}{}\label{class_products_1_1_model_1_1_model_service_a22546c98639062d12fef4238095235cf}
+
+
+Gibt eine Liste aller im System vorhandenen Verknüpfungstypen zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Link\+Type\+Uid@{Get\+Link\+Type\+Uid}}
+\index{Get\+Link\+Type\+Uid@{Get\+Link\+Type\+Uid}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Link\+Type\+Uid(\+Link\+Typ for\+Type)}{GetLinkTypeUid(LinkTyp forType)}}]{\setlength{\rightskip}{0pt plus 5cm}string Products.\+Model.\+Model\+Service.\+Get\+Link\+Type\+Uid (
+\begin{DoxyParamCaption}
+\item[{{\bf Link\+Typ}}]{for\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ab68f34539660324d85f7c0dfb1801e9a}{}\label{class_products_1_1_model_1_1_model_service_ab68f34539660324d85f7c0dfb1801e9a}
+
+
+Gibt den G\+U\+ID des angegebenen Linktypen zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em for\+Type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Notizen\+Per\+Interessent@{Get\+Notizen\+Per\+Interessent}}
+\index{Get\+Notizen\+Per\+Interessent@{Get\+Notizen\+Per\+Interessent}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Notizen\+Per\+Interessent(string interessenten\+Id)}{GetNotizenPerInteressent(string interessentenId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Notiz}$>$ Products.\+Model.\+Model\+Service.\+Get\+Notizen\+Per\+Interessent (
+\begin{DoxyParamCaption}
+\item[{string}]{interessenten\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ac0ad4ec684c8d644d9c2980a06babfb4}{}\label{class_products_1_1_model_1_1_model_service_ac0ad4ec684c8d644d9c2980a06babfb4}
+
+
+Gibt eine Liste aller Notizen für den angegebenen Interessenten zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interessenten\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Notizen\+Per\+Kunde@{Get\+Notizen\+Per\+Kunde}}
+\index{Get\+Notizen\+Per\+Kunde@{Get\+Notizen\+Per\+Kunde}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Notizen\+Per\+Kunde(string kundennummer)}{GetNotizenPerKunde(string kundennummer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Notiz}$>$ Products.\+Model.\+Model\+Service.\+Get\+Notizen\+Per\+Kunde (
+\begin{DoxyParamCaption}
+\item[{string}]{kundennummer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ad4d1c2f5ccdc97a98098eef5a2364892}{}\label{class_products_1_1_model_1_1_model_service_ad4d1c2f5ccdc97a98098eef5a2364892}
+
+
+Liefert eine Liste aller Notizen für den angegebenen Kunden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kundennummer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Notizen\+Per\+Maschine@{Get\+Notizen\+Per\+Maschine}}
+\index{Get\+Notizen\+Per\+Maschine@{Get\+Notizen\+Per\+Maschine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Notizen\+Per\+Maschine(string machine\+U\+I\+D)}{GetNotizenPerMaschine(string machineUID)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Notiz}$>$ Products.\+Model.\+Model\+Service.\+Get\+Notizen\+Per\+Maschine (
+\begin{DoxyParamCaption}
+\item[{string}]{machine\+U\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a46231427eb26bbff9b48cc9af3c23308}{}\label{class_products_1_1_model_1_1_model_service_a46231427eb26bbff9b48cc9af3c23308}
+
+
+Gibt eine Liste aller Notizen für die angegebene Maschine zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em machine\+U\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Orders@{Get\+Orders}}
+\index{Get\+Orders@{Get\+Orders}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Orders(string cust\+Nbr)}{GetOrders(string custNbr)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Order}$>$ Products.\+Model.\+Model\+Service.\+Get\+Orders (
+\begin{DoxyParamCaption}
+\item[{string}]{cust\+Nbr}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ac24d4f576bf4b189abc38a60d36053d3}{}\label{class_products_1_1_model_1_1_model_service_ac24d4f576bf4b189abc38a60d36053d3}
+
+
+Gibt eine sortierbare Liste der Aufträge für den angegebenen Kunden zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust\+Nbr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Product@{Get\+Product}}
+\index{Get\+Product@{Get\+Product}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Product(string cust\+Nbr, string product\+Id, bool refresh)}{GetProduct(string custNbr, string productId, bool refresh)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Product} Products.\+Model.\+Model\+Service.\+Get\+Product (
+\begin{DoxyParamCaption}
+\item[{string}]{cust\+Nbr, }
+\item[{string}]{product\+Id, }
+\item[{bool}]{refresh}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a5d2528c4e3669b6c49cb3e7c16307f49}{}\label{class_products_1_1_model_1_1_model_service_a5d2528c4e3669b6c49cb3e7c16307f49}
+
+
+Returns the Product instance for the product with the given product id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust\+Nbr} & The customers\textquotesingle{} id.\\
+\hline
+{\em product\+Id} & The product id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Product instance.
+\end{DoxyReturn}
+
+
+This instance contains all the customer specific properties of the product like e.\+g. the customers\textquotesingle{} price.\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Servicetermine@{Get\+Servicetermine}}
+\index{Get\+Servicetermine@{Get\+Servicetermine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Servicetermine(object parent\+Item)}{GetServicetermine(object parentItem)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Servicetermin}$>$ Products.\+Model.\+Model\+Service.\+Get\+Servicetermine (
+\begin{DoxyParamCaption}
+\item[{object}]{parent\+Item}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ad4b6756926f2f69a3f1eeb4a4be30ffe}{}\label{class_products_1_1_model_1_1_model_service_ad4b6756926f2f69a3f1eeb4a4be30ffe}
+
+
+Gibt die Servicetermine für den angegebenen Kunden zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Techniker@{Get\+Techniker}}
+\index{Get\+Techniker@{Get\+Techniker}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Techniker()}{GetTechniker()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf User}$>$ Products.\+Model.\+Model\+Service.\+Get\+Techniker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a7af0d16283100e365285dbcc4550d8f9}{}\label{class_products_1_1_model_1_1_model_service_a7af0d16283100e365285dbcc4550d8f9}
+
+
+Gibt eine sortierbare Liste der bei uns arbeitenden Techniker zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+Termine@{Get\+Termine}}
+\index{Get\+Termine@{Get\+Termine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+Termine(string for\+Link\+Id, Link\+Typ termin\+Typ)}{GetTermine(string forLinkId, LinkTyp terminTyp)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Termin}$>$ Products.\+Model.\+Model\+Service.\+Get\+Termine (
+\begin{DoxyParamCaption}
+\item[{string}]{for\+Link\+Id, }
+\item[{{\bf Link\+Typ}}]{termin\+Typ}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ada09135e0d1808d8808b698417ecf4c9}{}\label{class_products_1_1_model_1_1_model_service_ada09135e0d1808d8808b698417ecf4c9}
+
+
+Gibt eine Liste aller Termine des angegebenen Benutzers zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Gibt alle Termine für das angegebene verknüpfte Element und den angegebenen Termintyp zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em for\+Link\+Id} & Primärschlüssel des verknüpften Elements.\\
+\hline
+{\em termin\+Typ} & Typ des Termins.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+User\+By\+David\+Filename@{Get\+User\+By\+David\+Filename}}
+\index{Get\+User\+By\+David\+Filename@{Get\+User\+By\+David\+Filename}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+User\+By\+David\+Filename(string file\+Name)}{GetUserByDavidFilename(string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} Products.\+Model.\+Model\+Service.\+Get\+User\+By\+David\+Filename (
+\begin{DoxyParamCaption}
+\item[{string}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a9567df27fec83df4f6f13792c1d7fac2}{}\label{class_products_1_1_model_1_1_model_service_a9567df27fec83df4f6f13792c1d7fac2}
+
+
+Sucht einen Benutzer anhand des übergebenen Dateipfades, der die \hyperlink{namespace_david}{David} ID des Benutzers enthält. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+User\+By\+David\+User\+Folder@{Get\+User\+By\+David\+User\+Folder}}
+\index{Get\+User\+By\+David\+User\+Folder@{Get\+User\+By\+David\+User\+Folder}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+User\+By\+David\+User\+Folder(string user\+Folder)}{GetUserByDavidUserFolder(string userFolder)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} Products.\+Model.\+Model\+Service.\+Get\+User\+By\+David\+User\+Folder (
+\begin{DoxyParamCaption}
+\item[{string}]{user\+Folder}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a396e29e34ef218dce26e806423ad9827}{}\label{class_products_1_1_model_1_1_model_service_a396e29e34ef218dce26e806423ad9827}
+
+
+Gibt den 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Folder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Get\+User\+By\+U\+ID@{Get\+User\+By\+U\+ID}}
+\index{Get\+User\+By\+U\+ID@{Get\+User\+By\+U\+ID}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Get\+User\+By\+U\+I\+D(string uid)}{GetUserByUID(string uid)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User} Products.\+Model.\+Model\+Service.\+Get\+User\+By\+U\+ID (
+\begin{DoxyParamCaption}
+\item[{string}]{uid}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ab814f682670cbd2640e6fa5aa3b2ad29}{}\label{class_products_1_1_model_1_1_model_service_ab814f682670cbd2640e6fa5aa3b2ad29}
+
+
+Returns the user instance with the specified U\+ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Hersteller@{Hersteller}}
+\index{Hersteller@{Hersteller}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Hersteller()}{Hersteller()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Hersteller}$>$ Products.\+Model.\+Model\+Service.\+Hersteller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_af7d975c7e36b74be5f5336e255b674b7}{}\label{class_products_1_1_model_1_1_model_service_af7d975c7e36b74be5f5336e255b674b7}
+
+
+Gibt eine Liste mit allen Herstellern zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Kundenmaschinen@{Kundenmaschinen}}
+\index{Kundenmaschinen@{Kundenmaschinen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Kundenmaschinen(\+Kunde customer)}{Kundenmaschinen(Kunde customer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kundenmaschine}$>$ Products.\+Model.\+Model\+Service.\+Kundenmaschinen (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{customer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_adf9f734fcaa1106202c223cc3ed271cd}{}\label{class_products_1_1_model_1_1_model_service_adf9f734fcaa1106202c223cc3ed271cd}
+
+
+Gibt die Kundenmaschinen für den angegebenen Kunden zurück. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Maschinenmodelle@{Maschinenmodelle}}
+\index{Maschinenmodelle@{Maschinenmodelle}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Maschinenmodelle()}{Maschinenmodelle()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Maschinenmodell}$>$ Products.\+Model.\+Model\+Service.\+Maschinenmodelle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a39c4c6e35a63159c33769ceef3a49f51}{}\label{class_products_1_1_model_1_1_model_service_a39c4c6e35a63159c33769ceef3a49f51}
+
+
+Gibt eine Liste aller Maschinenmodelle im System zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Maschinentypen@{Maschinentypen}}
+\index{Maschinentypen@{Maschinentypen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Maschinentypen()}{Maschinentypen()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Maschinentyp}$>$ Products.\+Model.\+Model\+Service.\+Maschinentypen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ab3e139eda287d85f54f51f5feb65d1a0}{}\label{class_products_1_1_model_1_1_model_service_ab3e139eda287d85f54f51f5feb65d1a0}
+
+
+Gibt eine Liste aller Maschinentypen im System zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Move\+Maschine@{Move\+Maschine}}
+\index{Move\+Maschine@{Move\+Maschine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Move\+Maschine(\+Kundenmaschine kunden\+Maschine, string neue\+Kunden\+Nr)}{MoveMaschine(Kundenmaschine kundenMaschine, string neueKundenNr)}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Move\+Maschine (
+\begin{DoxyParamCaption}
+\item[{{\bf Kundenmaschine}}]{kunden\+Maschine, }
+\item[{string}]{neue\+Kunden\+Nr}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a07a07e1d3239d340f8560941e3f08056}{}\label{class_products_1_1_model_1_1_model_service_a07a07e1d3239d340f8560941e3f08056}
+
+
+Verschiebt die angegebene Maschine zu einem anderen Kunden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kunden\+Maschine} & Die zu verschiebende Maschine.\\
+\hline
+{\em neue\+Kunden\+Nr} & Die Kundennummer des neuen Kunden.\\
+\hline
+\end{DoxyParams}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Neue\+Kundenmaschine@{Neue\+Kundenmaschine}}
+\index{Neue\+Kundenmaschine@{Neue\+Kundenmaschine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Neue\+Kundenmaschine(\+Kunde customer)}{NeueKundenmaschine(Kunde customer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kundenmaschine} Products.\+Model.\+Model\+Service.\+Neue\+Kundenmaschine (
+\begin{DoxyParamCaption}
+\item[{{\bf Kunde}}]{customer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a92b6804ae609d312007ee9ef56434aa6}{}\label{class_products_1_1_model_1_1_model_service_a92b6804ae609d312007ee9ef56434aa6}
+
+
+Erstellt eine neue Kundenmaschine für den angegebenen Kunden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Neuer\+Dateilink@{Neuer\+Dateilink}}
+\index{Neuer\+Dateilink@{Neuer\+Dateilink}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Neuer\+Dateilink(object lnk\+Item, string original\+File)}{NeuerDateilink(object lnkItem, string originalFile)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dateilink} Products.\+Model.\+Model\+Service.\+Neuer\+Dateilink (
+\begin{DoxyParamCaption}
+\item[{object}]{lnk\+Item, }
+\item[{string}]{original\+File}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a8f47a2df875f4bdc1a27eb81f54a8723}{}\label{class_products_1_1_model_1_1_model_service_a8f47a2df875f4bdc1a27eb81f54a8723}
+
+
+Erstellt eine neue Verknüpfung zwischen angegebener Datei und angegebenem Element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lnk\+Item} & Element, mit dem die Datei verknüpft werden soll.\\
+\hline
+{\em original\+File} & Der Originaldateiname der zu verknüpfenden Datei.\\
+\hline
+\end{DoxyParams}
+
+
+Der Methode wird die Originaldatei übergeben, die dann in Kopie auf dem Server gespeichert wird. Der Benutzer kann die Originaldatei nach erfolgreichem Kopieren wahlweise löschen. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Neuer\+Servicetermin@{Neuer\+Servicetermin}}
+\index{Neuer\+Servicetermin@{Neuer\+Servicetermin}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Neuer\+Servicetermin(\+Common.\+Parameters.\+Create\+Servicetermin\+Params parms)}{NeuerServicetermin(Common.Parameters.CreateServiceterminParams parms)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Servicetermin} Products.\+Model.\+Model\+Service.\+Neuer\+Servicetermin (
+\begin{DoxyParamCaption}
+\item[{{\bf Common.\+Parameters.\+Create\+Servicetermin\+Params}}]{parms}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a558a7a4e4b2a669a15e35aadd390ce83}{}\label{class_products_1_1_model_1_1_model_service_a558a7a4e4b2a669a15e35aadd390ce83}
+
+
+Erstellt aus den übergebenen Parametern einen neuen Servicetermin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parms} & Parametersammlung vom Typ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_products_1_1_common_1_1_parameters_1_1_create_servicetermin_params}{Common.\+Parameters.\+Create\+Servicetermin\+Params}
+
+
+\end{DoxySeeAlso}
+.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Reset\+Maschinen@{Reset\+Maschinen}}
+\index{Reset\+Maschinen@{Reset\+Maschinen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Reset\+Maschinen()}{ResetMaschinen()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Reset\+Maschinen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_af624fc25550a7158ad29ee1b3f555796}{}\label{class_products_1_1_model_1_1_model_service_af624fc25550a7158ad29ee1b3f555796}
+
+
+Lädt die Maschinentabelle neu und löst das Ereignis aus, dass wir das getan haben. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Servicetermine@{Servicetermine}}
+\index{Servicetermine@{Servicetermine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Servicetermine()}{Servicetermine()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Servicetermin}$>$ Products.\+Model.\+Model\+Service.\+Servicetermine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ac409691b725b364c8b8b2b9d327ac8be}{}\label{class_products_1_1_model_1_1_model_service_ac409691b725b364c8b8b2b9d327ac8be}
+
+
+Gibt eine Liste aller Servicetermine im System zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Softwareliste@{Softwareliste}}
+\index{Softwareliste@{Softwareliste}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Softwareliste()}{Softwareliste()}}]{\setlength{\rightskip}{0pt plus 5cm}object Products.\+Model.\+Model\+Service.\+Softwareliste (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_af8a203d7b4f6f8203d881e2a389e68f1}{}\label{class_products_1_1_model_1_1_model_service_af8a203d7b4f6f8203d881e2a389e68f1}
+
+
+Gibt eine Liste aller Softwareprogramme zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Suchkunden@{Suchkunden}}
+\index{Suchkunden@{Suchkunden}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Suchkunden(string search\+For)}{Suchkunden(string searchFor)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Suchkunde}$>$ Products.\+Model.\+Model\+Service.\+Suchkunden (
+\begin{DoxyParamCaption}
+\item[{string}]{search\+For}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a9fc5ea19c405904e5a1196751c1f23de}{}\label{class_products_1_1_model_1_1_model_service_a9fc5ea19c405904e5a1196751c1f23de}
+
+
+Gibt eine sortierbare Liste mit Suchkunden zurück, die dem angegebenen Suchkriterium entsprechen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+For} & Danach wird gesucht.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sortierbare Liste mit Suchkunde Instanzen.
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Tintentypen@{Tintentypen}}
+\index{Tintentypen@{Tintentypen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Tintentypen()}{Tintentypen()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Tintentyp}$>$ Products.\+Model.\+Model\+Service.\+Tintentypen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a47daf4d803aa50d2e6b1cda1552fe4d3}{}\label{class_products_1_1_model_1_1_model_service_a47daf4d803aa50d2e6b1cda1552fe4d3}
+
+
+Gibt eine Liste aller Tintentypen im System zurück. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Calendar\+Item@{Update\+Calendar\+Item}}
+\index{Update\+Calendar\+Item@{Update\+Calendar\+Item}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Calendar\+Item(\+Dv\+Api32.\+Calendar\+Item cal\+Item, string filename)}{UpdateCalendarItem(DvApi32.CalendarItem calItem, string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Products.\+Model.\+Model\+Service.\+Update\+Calendar\+Item (
+\begin{DoxyParamCaption}
+\item[{Dv\+Api32.\+Calendar\+Item}]{cal\+Item, }
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a4395d48db4325f0477dda75968a566d2}{}\label{class_products_1_1_model_1_1_model_service_a4395d48db4325f0477dda75968a566d2}
+
+
+Speichert ein neues oder geändertes Calendar\+Items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cal\+Item} & \\
+\hline
+\end{DoxyParams}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Dateilinks@{Update\+Dateilinks}}
+\index{Update\+Dateilinks@{Update\+Dateilinks}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Dateilinks()}{UpdateDateilinks()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Dateilinks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a35cd9352d37ede720108517399d674d3}{}\label{class_products_1_1_model_1_1_model_service_a35cd9352d37ede720108517399d674d3}
+
+
+Speichert Änderungen an der Tabelle Dateilink. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Interessenten@{Update\+Interessenten}}
+\index{Update\+Interessenten@{Update\+Interessenten}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Interessenten()}{UpdateInteressenten()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Interessenten (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a740ae0b94090f6e0cfd89a3ad51ee36f}{}\label{class_products_1_1_model_1_1_model_service_a740ae0b94090f6e0cfd89a3ad51ee36f}
+
+
+Aktualisiert die Tabelle Interessent. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Kunden@{Update\+Kunden}}
+\index{Update\+Kunden@{Update\+Kunden}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Kunden()}{UpdateKunden()}}]{\setlength{\rightskip}{0pt plus 5cm}int Products.\+Model.\+Model\+Service.\+Update\+Kunden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a904e3a2bb9afecaf9d22b1b2efb6451e}{}\label{class_products_1_1_model_1_1_model_service_a904e3a2bb9afecaf9d22b1b2efb6451e}
+
+
+Aktualisiert Änderungen an der Tabelle Kunde. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Kundenmaschinen@{Update\+Kundenmaschinen}}
+\index{Update\+Kundenmaschinen@{Update\+Kundenmaschinen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Kundenmaschinen()}{UpdateKundenmaschinen()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Kundenmaschinen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ab0553fb07e526f6ea15b77428d3e2976}{}\label{class_products_1_1_model_1_1_model_service_ab0553fb07e526f6ea15b77428d3e2976}
+
+
+Überträgt Änderungen an Kundenmaschinen an die Datenbank. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Kundensoftware@{Update\+Kundensoftware}}
+\index{Update\+Kundensoftware@{Update\+Kundensoftware}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Kundensoftware()}{UpdateKundensoftware()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Kundensoftware (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a13852f2d31959e3b2d71fb00db01a3a7}{}\label{class_products_1_1_model_1_1_model_service_a13852f2d31959e3b2d71fb00db01a3a7}
+
+
+Speichert alle Änderungen an der Kundensoftware Tabelle. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Notizen@{Update\+Notizen}}
+\index{Update\+Notizen@{Update\+Notizen}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Notizen()}{UpdateNotizen()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Notizen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_a28300ea5061fa4af055347c760a0086b}{}\label{class_products_1_1_model_1_1_model_service_a28300ea5061fa4af055347c760a0086b}
+
+
+Erstellt eine neue Notiz für die angegebene Kundenmaschine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kunden\+Maschine} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Aktualisiert Notizen. \index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Update\+Servicetermine@{Update\+Servicetermine}}
+\index{Update\+Servicetermine@{Update\+Servicetermine}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Update\+Servicetermine()}{UpdateServicetermine()}}]{\setlength{\rightskip}{0pt plus 5cm}void Products.\+Model.\+Model\+Service.\+Update\+Servicetermine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_products_1_1_model_1_1_model_service_ae10ee64975cda02766b56da7a6980387}{}\label{class_products_1_1_model_1_1_model_service_ae10ee64975cda02766b56da7a6980387}
+
+
+Aktualisiert die Tabelle Servicetermine. 
+
+
+
+\subsection{Property Documentation}
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Customer\+Contacts@{Customer\+Contacts}}
+\index{Customer\+Contacts@{Customer\+Contacts}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Customer\+Contacts}{CustomerContacts}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kundenkontakt}$>$ Products.\+Model.\+Model\+Service.\+Customer\+Contacts\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_model_service_acb1111cbb862c9e2587105bb089cffd3}{}\label{class_products_1_1_model_1_1_model_service_acb1111cbb862c9e2587105bb089cffd3}
+
+
+Returns a sortable list of all customer contacts. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Customers@{Customers}}
+\index{Customers@{Customers}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Customers}{Customers}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf Kunde}$>$ Products.\+Model.\+Model\+Service.\+Customers\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_model_service_a6bc595a6db4806b4dc3f37437204ab3b}{}\label{class_products_1_1_model_1_1_model_service_a6bc595a6db4806b4dc3f37437204ab3b}
+
+
+Returns a sortable list of all customers. 
+
+\index{Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}!Users@{Users}}
+\index{Users@{Users}!Products\+::\+Model\+::\+Model\+Service@{Products\+::\+Model\+::\+Model\+Service}}
+\subsubsection[{\texorpdfstring{Users}{Users}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sortable\+Binding\+List}$<${\bf User}$>$ Products.\+Model.\+Model\+Service.\+Users\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_products_1_1_model_1_1_model_service_add1e4b44389974fbc5bfbf77f65d502f}{}\label{class_products_1_1_model_1_1_model_service_add1e4b44389974fbc5bfbf77f65d502f}
+
+
+Returns a sortable list of all users. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Model/Model\+Service.\+cs\end{DoxyCompactItemize}

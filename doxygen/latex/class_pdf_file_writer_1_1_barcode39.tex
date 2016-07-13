@@ -1,0 +1,188 @@
+\hypertarget{class_pdf_file_writer_1_1_barcode39}{}\section{Pdf\+File\+Writer.\+Barcode39 Class Reference}
+\label{class_pdf_file_writer_1_1_barcode39}\index{Pdf\+File\+Writer.\+Barcode39@{Pdf\+File\+Writer.\+Barcode39}}
+
+
+\hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 class  
+
+
+Inheritance diagram for Pdf\+File\+Writer.\+Barcode39\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pdf_file_writer_1_1_barcode39}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override Int32 \hyperlink{class_pdf_file_writer_1_1_barcode39_a1a9e163d65af7de251f4cc711e2a0ddb}{Bar\+Width} (Int32 Index)
+\begin{DoxyCompactList}\small\item\em Bar width as function of position in the barcode 39 \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_barcode39_aa21f79bcde00e5c7ccfe0d6c68ec819b}{Barcode39} (String \hyperlink{class_pdf_file_writer_1_1_barcode_a1fe2157662e4a1b52264823a382fde3f}{Text})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 constructor \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_barcode39_a8b7f93f3cc76357f1ecf392cd2c12fb3}{Barcode39} (Int32\mbox{[}$\,$\mbox{]} \+\_\+\+Code\+Array)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 constructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Int32 \hyperlink{class_pdf_file_writer_1_1_barcode39_a707b4e705e1f5ffd2a1fb48fdde8421a}{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS} = 10
+\begin{DoxyCompactList}\small\item\em Each code39 code is encoded as 5 black bars and 5 white bars. \end{DoxyCompactList}\item 
+const Int32 \hyperlink{class_pdf_file_writer_1_1_barcode39_a39d2b92ae23e401f41641ca3dc9d2cfb}{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH} = 16
+\begin{DoxyCompactList}\small\item\em Total length expressed in narrow bar units. \end{DoxyCompactList}\item 
+const Int32 \hyperlink{class_pdf_file_writer_1_1_barcode39_a73c79a713ce1bc450b695c2e1a406cc6}{S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE} = 43
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pdf_file_writer_1_1_barcode39}{Barcode39} start and stop character (normally displayed as $\ast$). \end{DoxyCompactList}\item 
+const String \hyperlink{class_pdf_file_writer_1_1_barcode39_a79a89513dba2fec56706df4bd7a009e1}{Char\+Set} = \char`\"{}0123456789\+A\+B\+C\+D\+E\+F\+G\+H\+I\+J\+K\+L\+M\+N\+O\+P\+Q\+R\+S\+T\+U\+V\+W\+X\+Y\+Z-\/. \$/+\%$\ast$\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pdf_file_writer_1_1_barcode39}{Barcode39} supported characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Byte\mbox{[},\mbox{]} \hyperlink{class_pdf_file_writer_1_1_barcode39_a7f4ebbab26f4b6ee21066c7aed85a738}{Code\+Table}
+\begin{DoxyCompactList}\small\item\em Code table for barcode 39 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 class 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!Barcode39@{Barcode39}}
+\index{Barcode39@{Barcode39}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{Barcode39(\+String Text)}{Barcode39(String Text)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Barcode39.\+Barcode39 (
+\begin{DoxyParamCaption}
+\item[{String}]{Text}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_barcode39_aa21f79bcde00e5c7ccfe0d6c68ec819b}{}\label{class_pdf_file_writer_1_1_barcode39_aa21f79bcde00e5c7ccfe0d6c68ec819b}
+
+
+\hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Text} & \hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} text\\
+\hline
+\end{DoxyParams}
+
+
+The constructor converts the text into code. 
+
+Valid characters are\+: 
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*1{|X[-1]}|}
+\hline
+Digits 0 to 9 \\\cline{1-1}
+Capital Letters A to Z \\\cline{1-1}
+Dash \textquotesingle{}-\/\textquotesingle{} \\\cline{1-1}
+Period \textquotesingle{}.\textquotesingle{} \\\cline{1-1}
+Space \textquotesingle{} \textquotesingle{} \\\cline{1-1}
+Dollar \textquotesingle{}\$\textquotesingle{} \\\cline{1-1}
+Slash \textquotesingle{}/\textquotesingle{} \\\cline{1-1}
+Plus \textquotesingle{}+\textquotesingle{} \\\cline{1-1}
+Percent \textquotesingle{}\textquotesingle{} \\\cline{1-1}
+Asterisk \textquotesingle{}$\ast$\textquotesingle{} (This is the start and stop character. It cannot be in the middle of the text). \\\cline{1-1}
+\end{longtabu}
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!Barcode39@{Barcode39}}
+\index{Barcode39@{Barcode39}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{Barcode39(\+Int32[] \+\_\+\+Code\+Array)}{Barcode39(Int32[] _CodeArray)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Barcode39.\+Barcode39 (
+\begin{DoxyParamCaption}
+\item[{Int32\mbox{[}$\,$\mbox{]}}]{\+\_\+\+Code\+Array}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_barcode39_a8b7f93f3cc76357f1ecf392cd2c12fb3}{}\label{class_pdf_file_writer_1_1_barcode39_a8b7f93f3cc76357f1ecf392cd2c12fb3}
+
+
+\hyperlink{class_pdf_file_writer_1_1_barcode}{Barcode} 39 constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Code\+Array} & Code array\\
+\hline
+\end{DoxyParams}
+
+
+Sets code array and converts to equivalent text. 
+
+If the code array is missing the start and/or stop characters, the constructor will add them. 
+
+Valid codes are\+: 
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+0 to 9&Digits 0 to 9 \\\cline{1-2}
+10 to 35&Capital Letters A to Z \\\cline{1-2}
+36&Dash \textquotesingle{}-\/\textquotesingle{} \\\cline{1-2}
+37&Period \textquotesingle{}.\textquotesingle{} \\\cline{1-2}
+38&Space \textquotesingle{} \textquotesingle{} \\\cline{1-2}
+39&Dollar \textquotesingle{}\$\textquotesingle{} \\\cline{1-2}
+40&Slash \textquotesingle{}/\textquotesingle{} \\\cline{1-2}
+41&Plus \textquotesingle{}+\textquotesingle{} \\\cline{1-2}
+42&Percent \textquotesingle{}\textquotesingle{} \\\cline{1-2}
+43&Asterisk \textquotesingle{}$\ast$\textquotesingle{} (This is the start and stop character. It cannot be in the middle of the text) \\\cline{1-2}
+\end{longtabu}
+
+
+\subsection{Member Function Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!Bar\+Width@{Bar\+Width}}
+\index{Bar\+Width@{Bar\+Width}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{Bar\+Width(\+Int32 Index)}{BarWidth(Int32 Index)}}]{\setlength{\rightskip}{0pt plus 5cm}override Int32 Pdf\+File\+Writer.\+Barcode39.\+Bar\+Width (
+\begin{DoxyParamCaption}
+\item[{Int32}]{Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_pdf_file_writer_1_1_barcode39_a1a9e163d65af7de251f4cc711e2a0ddb}{}\label{class_pdf_file_writer_1_1_barcode39_a1a9e163d65af7de251f4cc711e2a0ddb}
+
+
+Bar width as function of position in the barcode 39 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index} & Array index.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Width of one bar
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_pdf_file_writer_1_1_barcode_adf11f62c74801b9d146c4eb430f7ba25}{Pdf\+File\+Writer.\+Barcode}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!Char\+Set@{Char\+Set}}
+\index{Char\+Set@{Char\+Set}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{Char\+Set}{CharSet}}]{\setlength{\rightskip}{0pt plus 5cm}const String Pdf\+File\+Writer.\+Barcode39.\+Char\+Set = \char`\"{}0123456789\+A\+B\+C\+D\+E\+F\+G\+H\+I\+J\+K\+L\+M\+N\+O\+P\+Q\+R\+S\+T\+U\+V\+W\+X\+Y\+Z-\/. \$/+\%$\ast$\char`\"{}}\hypertarget{class_pdf_file_writer_1_1_barcode39_a79a89513dba2fec56706df4bd7a009e1}{}\label{class_pdf_file_writer_1_1_barcode39_a79a89513dba2fec56706df4bd7a009e1}
+
+
+\hyperlink{class_pdf_file_writer_1_1_barcode39}{Barcode39} supported characters. 
+
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS@{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS}}
+\index{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS@{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS}{CODE_CHAR_BARS}}]{\setlength{\rightskip}{0pt plus 5cm}const Int32 Pdf\+File\+Writer.\+Barcode39.\+C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+B\+A\+RS = 10}\hypertarget{class_pdf_file_writer_1_1_barcode39_a707b4e705e1f5ffd2a1fb48fdde8421a}{}\label{class_pdf_file_writer_1_1_barcode39_a707b4e705e1f5ffd2a1fb48fdde8421a}
+
+
+Each code39 code is encoded as 5 black bars and 5 white bars. 
+
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH@{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH}}
+\index{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH@{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH}{CODE_CHAR_WIDTH}}]{\setlength{\rightskip}{0pt plus 5cm}const Int32 Pdf\+File\+Writer.\+Barcode39.\+C\+O\+D\+E\+\_\+\+C\+H\+A\+R\+\_\+\+W\+I\+D\+TH = 16}\hypertarget{class_pdf_file_writer_1_1_barcode39_a39d2b92ae23e401f41641ca3dc9d2cfb}{}\label{class_pdf_file_writer_1_1_barcode39_a39d2b92ae23e401f41641ca3dc9d2cfb}
+
+
+Total length expressed in narrow bar units. 
+
+\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!Code\+Table@{Code\+Table}}
+\index{Code\+Table@{Code\+Table}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{Code\+Table}{CodeTable}}]{\setlength{\rightskip}{0pt plus 5cm}readonly Byte \mbox{[},\mbox{]} Pdf\+File\+Writer.\+Barcode39.\+Code\+Table\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_pdf_file_writer_1_1_barcode39_a7f4ebbab26f4b6ee21066c7aed85a738}{}\label{class_pdf_file_writer_1_1_barcode39_a7f4ebbab26f4b6ee21066c7aed85a738}
+
+
+Code table for barcode 39 
+
+Array size \mbox{[}44, 10\mbox{]}\index{Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}!S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE@{S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE}}
+\index{S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE@{S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE}!Pdf\+File\+Writer\+::\+Barcode39@{Pdf\+File\+Writer\+::\+Barcode39}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE}{START_STOP_CODE}}]{\setlength{\rightskip}{0pt plus 5cm}const Int32 Pdf\+File\+Writer.\+Barcode39.\+S\+T\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+C\+O\+DE = 43}\hypertarget{class_pdf_file_writer_1_1_barcode39_a73c79a713ce1bc450b695c2e1a406cc6}{}\label{class_pdf_file_writer_1_1_barcode39_a73c79a713ce1bc450b695c2e1a406cc6}
+
+
+\hyperlink{class_pdf_file_writer_1_1_barcode39}{Barcode39} start and stop character (normally displayed as $\ast$). 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Barcode.\+cs\end{DoxyCompactItemize}

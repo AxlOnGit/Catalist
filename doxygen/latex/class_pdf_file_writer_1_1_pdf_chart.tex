@@ -1,0 +1,309 @@
+\hypertarget{class_pdf_file_writer_1_1_pdf_chart}{}\section{Pdf\+File\+Writer.\+Pdf\+Chart Class Reference}
+\label{class_pdf_file_writer_1_1_pdf_chart}\index{Pdf\+File\+Writer.\+Pdf\+Chart@{Pdf\+File\+Writer.\+Pdf\+Chart}}
+
+
+P\+DF chart resource class  
+
+
+Inheritance diagram for Pdf\+File\+Writer.\+Pdf\+Chart\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_pdf_file_writer_1_1_pdf_chart}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_chart_ae820eb79429c5447eb2f994f297e1795}{Pdf\+Chart} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document, \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}{Chart} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}{Chart}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa948dfd08bf85fb6d1e5d1376d18d922}{Resolution}=0.\+0)
+\begin{DoxyCompactList}\small\item\em P\+DF chart constructor \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a47736a8d42232d870b2f3e77fdcb6eb7}{Save\+To\+Pdf\+File} (Boolean Dispose\+Chart=true)
+\begin{DoxyCompactList}\small\item\em Save chart to P\+DF output file \end{DoxyCompactList}\item 
+Font \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa19a6349d6edefd228243bb286020389}{Create\+Font} (String Font\+Family\+Name, Font\+Style Font\+Style, Double Font\+Size, \hyperlink{namespace_pdf_file_writer_adf167276d483eb5d597fed4e3297ba17}{Font\+Size\+Unit} Unit)
+\begin{DoxyCompactList}\small\item\em Helper method to create a font for chart drawing. \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_size_d}{SizeD} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a78959dc9b7f5cf29bbf798912a189602}{Image\+Size} (\hyperlink{class_pdf_file_writer_1_1_size_d}{SizeD} Input\+Size)
+\begin{DoxyCompactList}\small\item\em Calculates chart size to preserve aspect ratio. \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_size_d}{SizeD} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_adbcdc2103a19db0c31ff315c40bfc438}{Image\+Size} (Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}{Width}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}{Height})
+\begin{DoxyCompactList}\small\item\em Calculates chart size to preserve aspect ratio. \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_rectangle}{Pdf\+Rectangle} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_ac40c53d40c4dd96ed14ab439102b5dc8}{Image\+Size\+Position} (\hyperlink{class_pdf_file_writer_1_1_size_d}{SizeD} Input\+Size, Content\+Alignment Alignment)
+\begin{DoxyCompactList}\small\item\em Calculates chart size to preserve aspect ratio and sets position. \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_rectangle}{Pdf\+Rectangle} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aab91db8a44792301d6ae76d906df4076}{Image\+Size\+Position} (Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}{Width}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}{Height}, Content\+Alignment Alignment)
+\begin{DoxyCompactList}\small\item\em Calculates chart size to preserve aspect ratio and sets position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}{Chart} \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a2dc2a57aa19ff53fbe21889e82e64d2f}{Create\+Chart} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} Document, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}{Width}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}{Height}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa948dfd08bf85fb6d1e5d1376d18d922}{Resolution}=0.\+0)
+\begin{DoxyCompactList}\small\item\em Static method to create .N\+ET Chart object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Chart \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}{Chart}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart object (.N\+ET). \end{DoxyCompactList}\item 
+Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}{Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart width in user units. \end{DoxyCompactList}\item 
+Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}{Height}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart height in user units. \end{DoxyCompactList}\item 
+Double \hyperlink{class_pdf_file_writer_1_1_pdf_chart_aa948dfd08bf85fb6d1e5d1376d18d922}{Resolution}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart resolution in pixels per inch. \end{DoxyCompactList}\item 
+Int32 \hyperlink{class_pdf_file_writer_1_1_pdf_chart_ace6927c84e4d0a2fee7b5afd9536bec4}{Width\+Pix}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart width in pixels. \end{DoxyCompactList}\item 
+Int32 \hyperlink{class_pdf_file_writer_1_1_pdf_chart_a69b29f5c270465945d945b120b56b4e9}{Height\+Pix}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Chart height in pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+DF chart resource class 
+
+For more information go to \href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#ChartingSupport}{\tt 2.\+10 Charting Support} 
+
+\href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#DrawChart}{\tt For example of drawing image see 3.\+11. Draw Pie Chart} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Pdf\+Chart@{Pdf\+Chart}}
+\index{Pdf\+Chart@{Pdf\+Chart}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Pdf\+Chart(\+Pdf\+Document Document, Chart Chart, Double Resolution=0.\+0)}{PdfChart(PdfDocument Document, Chart Chart, Double Resolution=0.0)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Chart.\+Pdf\+Chart (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{{\bf Chart}}]{Chart, }
+\item[{Double}]{Resolution = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_ae820eb79429c5447eb2f994f297e1795}{}\label{class_pdf_file_writer_1_1_pdf_chart_ae820eb79429c5447eb2f994f297e1795}
+
+
+P\+DF chart constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Document object parent of this chart.\\
+\hline
+{\em Chart} & .N\+ET Chart object.\\
+\hline
+{\em Resolution} & Resolution in pixels per inch (optional argument)\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Create\+Chart@{Create\+Chart}}
+\index{Create\+Chart@{Create\+Chart}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Create\+Chart(\+Pdf\+Document Document, Double Width, Double Height, Double Resolution=0.\+0)}{CreateChart(PdfDocument Document, Double Width, Double Height, Double Resolution=0.0)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Chart} Pdf\+File\+Writer.\+Pdf\+Chart.\+Create\+Chart (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{Double}]{Width, }
+\item[{Double}]{Height, }
+\item[{Double}]{Resolution = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a2dc2a57aa19ff53fbe21889e82e64d2f}{}\label{class_pdf_file_writer_1_1_pdf_chart_a2dc2a57aa19ff53fbe21889e82e64d2f}
+
+
+Static method to create .N\+ET Chart object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Current document object.\\
+\hline
+{\em Width} & Chart width in user units.\\
+\hline
+{\em Height} & Chart height in user units.\\
+\hline
+{\em Resolution} & Resolution in pixels per inch (optional argument).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.N\+ET Chart object
+\end{DoxyReturn}
+
+
+The returned chart has the correct width and height in pixels. \index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Create\+Font@{Create\+Font}}
+\index{Create\+Font@{Create\+Font}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Create\+Font(\+String Font\+Family\+Name, Font\+Style Font\+Style, Double Font\+Size, Font\+Size\+Unit Unit)}{CreateFont(String FontFamilyName, FontStyle FontStyle, Double FontSize, FontSizeUnit Unit)}}]{\setlength{\rightskip}{0pt plus 5cm}Font Pdf\+File\+Writer.\+Pdf\+Chart.\+Create\+Font (
+\begin{DoxyParamCaption}
+\item[{String}]{Font\+Family\+Name, }
+\item[{Font\+Style}]{Font\+Style, }
+\item[{Double}]{Font\+Size, }
+\item[{{\bf Font\+Size\+Unit}}]{Unit}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_aa19a6349d6edefd228243bb286020389}{}\label{class_pdf_file_writer_1_1_pdf_chart_aa19a6349d6edefd228243bb286020389}
+
+
+Helper method to create a font for chart drawing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Font\+Family\+Name} & Font family name.\\
+\hline
+{\em Font\+Style} & Font style.\\
+\hline
+{\em Font\+Size} & Font size per unit argument.\\
+\hline
+{\em Unit} & Font size unit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+.N\+ET font
+\end{DoxyReturn}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Image\+Size@{Image\+Size}}
+\index{Image\+Size@{Image\+Size}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Image\+Size(\+Size\+D Input\+Size)}{ImageSize(SizeD InputSize)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf SizeD} Pdf\+File\+Writer.\+Pdf\+Chart.\+Image\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf SizeD}}]{Input\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a78959dc9b7f5cf29bbf798912a189602}{}\label{class_pdf_file_writer_1_1_pdf_chart_a78959dc9b7f5cf29bbf798912a189602}
+
+
+Calculates chart size to preserve aspect ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Input\+Size} & Chart display area.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adjusted chart display area.
+\end{DoxyReturn}
+
+
+Calculates best fit to preserve aspect ratio. \index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Image\+Size@{Image\+Size}}
+\index{Image\+Size@{Image\+Size}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Image\+Size(\+Double Width, Double Height)}{ImageSize(Double Width, Double Height)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf SizeD} Pdf\+File\+Writer.\+Pdf\+Chart.\+Image\+Size (
+\begin{DoxyParamCaption}
+\item[{Double}]{Width, }
+\item[{Double}]{Height}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_adbcdc2103a19db0c31ff315c40bfc438}{}\label{class_pdf_file_writer_1_1_pdf_chart_adbcdc2103a19db0c31ff315c40bfc438}
+
+
+Calculates chart size to preserve aspect ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Width} & Chart display width.\\
+\hline
+{\em Height} & Chart display height.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adjusted chart display area.
+\end{DoxyReturn}
+
+
+Calculates best fit to preserve aspect ratio. \index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Image\+Size\+Position@{Image\+Size\+Position}}
+\index{Image\+Size\+Position@{Image\+Size\+Position}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Image\+Size\+Position(\+Size\+D Input\+Size, Content\+Alignment Alignment)}{ImageSizePosition(SizeD InputSize, ContentAlignment Alignment)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pdf\+Rectangle} Pdf\+File\+Writer.\+Pdf\+Chart.\+Image\+Size\+Position (
+\begin{DoxyParamCaption}
+\item[{{\bf SizeD}}]{Input\+Size, }
+\item[{Content\+Alignment}]{Alignment}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_ac40c53d40c4dd96ed14ab439102b5dc8}{}\label{class_pdf_file_writer_1_1_pdf_chart_ac40c53d40c4dd96ed14ab439102b5dc8}
+
+
+Calculates chart size to preserve aspect ratio and sets position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Input\+Size} & Chart display area\\
+\hline
+{\em Alignment} & Content alignment\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adjusted chart size and position within area.
+\end{DoxyReturn}
+
+
+Calculates best fit to preserve aspect ratio and adjust position according to content alignment argument. \index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Image\+Size\+Position@{Image\+Size\+Position}}
+\index{Image\+Size\+Position@{Image\+Size\+Position}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Image\+Size\+Position(\+Double Width, Double Height, Content\+Alignment Alignment)}{ImageSizePosition(Double Width, Double Height, ContentAlignment Alignment)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pdf\+Rectangle} Pdf\+File\+Writer.\+Pdf\+Chart.\+Image\+Size\+Position (
+\begin{DoxyParamCaption}
+\item[{Double}]{Width, }
+\item[{Double}]{Height, }
+\item[{Content\+Alignment}]{Alignment}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_aab91db8a44792301d6ae76d906df4076}{}\label{class_pdf_file_writer_1_1_pdf_chart_aab91db8a44792301d6ae76d906df4076}
+
+
+Calculates chart size to preserve aspect ratio and sets position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Width} & Chart display width.\\
+\hline
+{\em Height} & Chart display height.\\
+\hline
+{\em Alignment} & Content alignment\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adjusted chart size and position within area.
+\end{DoxyReturn}
+
+
+Calculates best fit to preserve aspect ratio and adjust position according to content alignment argument. \index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Save\+To\+Pdf\+File@{Save\+To\+Pdf\+File}}
+\index{Save\+To\+Pdf\+File@{Save\+To\+Pdf\+File}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Save\+To\+Pdf\+File(\+Boolean Dispose\+Chart=true)}{SaveToPdfFile(Boolean DisposeChart=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Chart.\+Save\+To\+Pdf\+File (
+\begin{DoxyParamCaption}
+\item[{Boolean}]{Dispose\+Chart = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a47736a8d42232d870b2f3e77fdcb6eb7}{}\label{class_pdf_file_writer_1_1_pdf_chart_a47736a8d42232d870b2f3e77fdcb6eb7}
+
+
+Save chart to P\+DF output file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dispose\+Chart} & Dispose .N\+ET chart object (see remarks.)\\
+\hline
+\end{DoxyParams}
+
+
+Call this method after chart is fully constructed. Calling this method flush the resource to the output file. It reduces the unmanaged memory requirements. If method is not called, the resource will be sent to the output file when Document.\+Create\+File() method is called. 
+
+If Dispose\+Chart is true (by default it is true), this method will call .N\+ET Chart.\+Dispose() method to free unmanaged resources. If Dispose\+Chart is false, it is the responsibility of the caller to free the resources. 
+
+\subsection{Property Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Chart@{Chart}}
+\index{Chart@{Chart}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Chart}{Chart}}]{\setlength{\rightskip}{0pt plus 5cm}Chart Pdf\+File\+Writer.\+Pdf\+Chart.\+Chart\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}{}\label{class_pdf_file_writer_1_1_pdf_chart_aa08931d631c7d005f289c4960423a305}
+
+
+Chart object (.N\+ET). 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Height@{Height}}
+\index{Height@{Height}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Height}{Height}}]{\setlength{\rightskip}{0pt plus 5cm}Double Pdf\+File\+Writer.\+Pdf\+Chart.\+Height\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}{}\label{class_pdf_file_writer_1_1_pdf_chart_a4216487a4cf01f891007685a128bd328}
+
+
+Chart height in user units. 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Height\+Pix@{Height\+Pix}}
+\index{Height\+Pix@{Height\+Pix}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Height\+Pix}{HeightPix}}]{\setlength{\rightskip}{0pt plus 5cm}Int32 Pdf\+File\+Writer.\+Pdf\+Chart.\+Height\+Pix\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a69b29f5c270465945d945b120b56b4e9}{}\label{class_pdf_file_writer_1_1_pdf_chart_a69b29f5c270465945d945b120b56b4e9}
+
+
+Chart height in pixels. 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Resolution@{Resolution}}
+\index{Resolution@{Resolution}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Resolution}{Resolution}}]{\setlength{\rightskip}{0pt plus 5cm}Double Pdf\+File\+Writer.\+Pdf\+Chart.\+Resolution\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_aa948dfd08bf85fb6d1e5d1376d18d922}{}\label{class_pdf_file_writer_1_1_pdf_chart_aa948dfd08bf85fb6d1e5d1376d18d922}
+
+
+Chart resolution in pixels per inch. 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Width@{Width}}
+\index{Width@{Width}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Width}{Width}}]{\setlength{\rightskip}{0pt plus 5cm}Double Pdf\+File\+Writer.\+Pdf\+Chart.\+Width\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}{}\label{class_pdf_file_writer_1_1_pdf_chart_a2bbac5f243d2593a15a68c17283765de}
+
+
+Chart width in user units. 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}!Width\+Pix@{Width\+Pix}}
+\index{Width\+Pix@{Width\+Pix}!Pdf\+File\+Writer\+::\+Pdf\+Chart@{Pdf\+File\+Writer\+::\+Pdf\+Chart}}
+\subsubsection[{\texorpdfstring{Width\+Pix}{WidthPix}}]{\setlength{\rightskip}{0pt plus 5cm}Int32 Pdf\+File\+Writer.\+Pdf\+Chart.\+Width\+Pix\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_pdf_file_writer_1_1_pdf_chart_ace6927c84e4d0a2fee7b5afd9536bec4}{}\label{class_pdf_file_writer_1_1_pdf_chart_ace6927c84e4d0a2fee7b5afd9536bec4}
+
+
+Chart width in pixels. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Pdf\+Chart.\+cs\end{DoxyCompactItemize}

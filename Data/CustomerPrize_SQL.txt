@@ -1,0 +1,47 @@
+SELECT 
+	k.Kundennummer, 
+	a.USER_Katalogartikel, 
+	a.Artikel, 
+	a.Artikelgruppe, 
+	a.FesterLieferant, 
+	a.Matchcode, 
+	a.Hersteller, 
+	a.Bezeichnung1, 
+	a.Bezeichnung2, 
+	a.Mengeneinheit,
+	l.EK, a.Verkaufspreis1, 
+	a.Verkaufspreis1 * ((100 - s.Rabatt) / 100) AS Kundenpreis, 
+	s.Rabatt AS Prozent
+FROM 
+	artikel a INNER JOIN kundenartikelsonderpreise s ON a.Artikelgruppe = s.Artikelgruppe 
+INNER JOIN kunden k ON s.Kundennummer = k.Kundennummer LEFT OUTER JOIN
+                             (SELECT Artikel, MAX(Einkaufspreis) AS EK
+                               FROM artikellieferanten
+                               GROUP BY Artikel) l ON a.Artikel = l.Artikel
+WHERE 
+	(k.Kundennummer = @Kunde) AND (a.USER_Katalogartikel = '1') AND (a.Statuskennzeichen <> 'Ja')
+UNION
+SELECT 
+	s_1.Kundennummer, 
+	a.USER_Katalogartikel, 
+	a.Artikel, 
+	a.Artikelgruppe, 
+	a.FesterLieferant, 
+	a.Matchcode, 
+	a.Hersteller, 
+	a.Bezeichnung1, 
+	a.Bezeichnung2, 
+	a.Mengeneinheit, 
+	l_1.EK, 
+	a.Verkaufspreis1, 
+	a.Verkaufspreis1 AS Kundenpreis, 
+	'0.00' AS Prozent
+FROM 
+	artikel a LEFT OUTER JOIN (SELECT Kundennummer, Artikelgruppe
+                                   FROM kundenartikelsonderpreise
+                               	   WHERE (Kundennummer = @Kunde)) s_1 ON a.Artikelgruppe = s_1.Artikelgruppe 
+LEFT OUTER JOIN			  (SELECT Artikel, MAX(Einkaufspreis) AS EK
+                               	   FROM artikellieferanten artikellieferanten_1
+                               	   GROUP BY Artikel) l_1 ON a.Artikel = l_1.Artikel
+WHERE 
+	(s_1.Artikelgruppe IS NULL) AND (a.Statuskennzeichen <> 'Ja') AND (a.USER_Katalogartikel = '1')

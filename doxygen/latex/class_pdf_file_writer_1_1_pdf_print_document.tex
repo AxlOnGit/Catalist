@@ -1,0 +1,160 @@
+\hypertarget{class_pdf_file_writer_1_1_pdf_print_document}{}\section{Pdf\+File\+Writer.\+Pdf\+Print\+Document Class Reference}
+\label{class_pdf_file_writer_1_1_pdf_print_document}\index{Pdf\+File\+Writer.\+Pdf\+Print\+Document@{Pdf\+File\+Writer.\+Pdf\+Print\+Document}}
+
+
+P\+DF print document class  
+
+
+Inheritance diagram for Pdf\+File\+Writer.\+Pdf\+Print\+Document\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pdf_file_writer_1_1_pdf_print_document}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a21a54826dabb01f4678a4b68d05eea2a}{Pdf\+Print\+Document} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_aedc2e1a562b0933d302df93071aa4bc8}{Document})
+\begin{DoxyCompactList}\small\item\em P\+DF print document constructor \end{DoxyCompactList}\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a2861d898fa797ad2a578a135f2a7cd0f}{Pdf\+Print\+Document} (\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_aedc2e1a562b0933d302df93071aa4bc8}{Document}, Double \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a6597d5ffcf16bdcac7f7551b0c1be9b3}{Resolution})
+\begin{DoxyCompactList}\small\item\em P\+DF print document constructor \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a40d189a7e85ea9e1c25cbf5090554052}{Set\+Margins} (Double Left\+Margin, Double Top\+Margin, Double Right\+Margin, Double Bottom\+Margin)
+\begin{DoxyCompactList}\small\item\em Sets margins in user units. \end{DoxyCompactList}\item 
+void \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a360e6ebf5e8e210a904145467b9f9cc7}{Add\+Pages\+To\+Pdf\+Document} ()
+\begin{DoxyCompactList}\small\item\em Add pages to P\+DF document \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pdf_file_writer_1_1_pdf_document}{Pdf\+Document} \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_aedc2e1a562b0933d302df93071aa4bc8}{Document}
+\begin{DoxyCompactList}\small\item\em Current P\+DF document \end{DoxyCompactList}\item 
+Double \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a6597d5ffcf16bdcac7f7551b0c1be9b3}{Resolution}
+\begin{DoxyCompactList}\small\item\em Image resolution \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+RectangleF \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_ac82c4ca7b2fb84417c42096c78e67cbe}{Crop\+Rect}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Crop rectangle \end{DoxyCompactList}\item 
+Boolean \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a9a1890a59a82d20315fc5806558ed17c}{Document\+In\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a9a1890a59a82d20315fc5806558ed17c}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a9a1890a59a82d20315fc5806558ed17c}
+
+\begin{DoxyCompactList}\small\item\em Gets or sets Document\+In\+Color flag. \end{DoxyCompactList}\item 
+Margins \hyperlink{class_pdf_file_writer_1_1_pdf_print_document_a108470bbd07939ed46c322041c3788de}{Get\+Margins}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a108470bbd07939ed46c322041c3788de}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a108470bbd07939ed46c322041c3788de}
+
+\begin{DoxyCompactList}\small\item\em Gets margins in 100th of an inch \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+DF print document class 
+
+It is a derived class of Print\+Document. The class converts the metafile output of Print\+Document to an image. The image is displayed in the P\+DF document. 
+
+For more information go to \href{http://www.codeproject.com/Articles/570682/PDF-File-Writer-Csharp-Class-Library-Version#PrintDocumentSupport}{\tt 2.\+11 Print Document Support} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Pdf\+Print\+Document@{Pdf\+Print\+Document}}
+\index{Pdf\+Print\+Document@{Pdf\+Print\+Document}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Pdf\+Print\+Document(\+Pdf\+Document Document)}{PdfPrintDocument(PdfDocument Document)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Pdf\+Print\+Document (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a21a54826dabb01f4678a4b68d05eea2a}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a21a54826dabb01f4678a4b68d05eea2a}
+
+
+P\+DF print document constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Current P\+DF document\\
+\hline
+\end{DoxyParams}
+
+
+Set resolution to 96 pixels per inch \index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Pdf\+Print\+Document@{Pdf\+Print\+Document}}
+\index{Pdf\+Print\+Document@{Pdf\+Print\+Document}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Pdf\+Print\+Document(\+Pdf\+Document Document, Double Resolution)}{PdfPrintDocument(PdfDocument Document, Double Resolution)}}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Pdf\+Print\+Document (
+\begin{DoxyParamCaption}
+\item[{{\bf Pdf\+Document}}]{Document, }
+\item[{Double}]{Resolution}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a2861d898fa797ad2a578a135f2a7cd0f}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a2861d898fa797ad2a578a135f2a7cd0f}
+
+
+P\+DF print document constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Document} & Current P\+DF document\\
+\hline
+{\em Resolution} & Image resolution\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Add\+Pages\+To\+Pdf\+Document@{Add\+Pages\+To\+Pdf\+Document}}
+\index{Add\+Pages\+To\+Pdf\+Document@{Add\+Pages\+To\+Pdf\+Document}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Add\+Pages\+To\+Pdf\+Document()}{AddPagesToPdfDocument()}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Add\+Pages\+To\+Pdf\+Document (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a360e6ebf5e8e210a904145467b9f9cc7}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a360e6ebf5e8e210a904145467b9f9cc7}
+
+
+Add pages to P\+DF document 
+
+The \hyperlink{namespace_pdf_file_writer_a10f216f5352bb45a6ed502a96ccdf5d7a13dba24862cf9128167a59100e154c8d}{Print\+Doc.\+Print} method will call Begin\+Print method, next it will call multiple times Print\+Page method and finally it will call End\+Print method. \index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Set\+Margins@{Set\+Margins}}
+\index{Set\+Margins@{Set\+Margins}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Set\+Margins(\+Double Left\+Margin, Double Top\+Margin, Double Right\+Margin, Double Bottom\+Margin)}{SetMargins(Double LeftMargin, Double TopMargin, Double RightMargin, Double BottomMargin)}}]{\setlength{\rightskip}{0pt plus 5cm}void Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Set\+Margins (
+\begin{DoxyParamCaption}
+\item[{Double}]{Left\+Margin, }
+\item[{Double}]{Top\+Margin, }
+\item[{Double}]{Right\+Margin, }
+\item[{Double}]{Bottom\+Margin}
+\end{DoxyParamCaption}
+)}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a40d189a7e85ea9e1c25cbf5090554052}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a40d189a7e85ea9e1c25cbf5090554052}
+
+
+Sets margins in user units. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Left\+Margin} & Left margin\\
+\hline
+{\em Top\+Margin} & Top margin\\
+\hline
+{\em Right\+Margin} & Right margin\\
+\hline
+{\em Bottom\+Margin} & Bottom margin\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Document@{Document}}
+\index{Document@{Document}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Document}{Document}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pdf\+Document} Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Document\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_aedc2e1a562b0933d302df93071aa4bc8}{}\label{class_pdf_file_writer_1_1_pdf_print_document_aedc2e1a562b0933d302df93071aa4bc8}
+
+
+Current P\+DF document 
+
+\index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Resolution@{Resolution}}
+\index{Resolution@{Resolution}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Resolution}{Resolution}}]{\setlength{\rightskip}{0pt plus 5cm}Double Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Resolution\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_a6597d5ffcf16bdcac7f7551b0c1be9b3}{}\label{class_pdf_file_writer_1_1_pdf_print_document_a6597d5ffcf16bdcac7f7551b0c1be9b3}
+
+
+Image resolution 
+
+
+
+\subsection{Property Documentation}
+\index{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}!Crop\+Rect@{Crop\+Rect}}
+\index{Crop\+Rect@{Crop\+Rect}!Pdf\+File\+Writer\+::\+Pdf\+Print\+Document@{Pdf\+File\+Writer\+::\+Pdf\+Print\+Document}}
+\subsubsection[{\texorpdfstring{Crop\+Rect}{CropRect}}]{\setlength{\rightskip}{0pt plus 5cm}RectangleF Pdf\+File\+Writer.\+Pdf\+Print\+Document.\+Crop\+Rect\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_pdf_file_writer_1_1_pdf_print_document_ac82c4ca7b2fb84417c42096c78e67cbe}{}\label{class_pdf_file_writer_1_1_pdf_print_document_ac82c4ca7b2fb84417c42096c78e67cbe}
+
+
+Crop rectangle 
+
+Dimensions are in user units. The origin is top left corner. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Axel/\+Projekte/\+Catalist/\+Third\+Party/\+Pdf\+File\+Writer/Pdf\+Print\+Document.\+cs\end{DoxyCompactItemize}
