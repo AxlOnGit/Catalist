@@ -807,6 +807,7 @@
 			this.Padding = new System.Windows.Forms.Padding(20);
 			this.Size = new System.Drawing.Size(1288, 776);
 			this.Style = MetroFramework.MetroColorStyle.Orange;
+			this.Leave += new System.EventHandler(this.pnlKundenMaschine_Leave);
 			this.mctxTree.ResumeLayout(false);
 			this.mctxGrid.ResumeLayout(false);
 			this.mtabProperties.ResumeLayout(false);

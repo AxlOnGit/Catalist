@@ -84,7 +84,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public SortableBindingList<Kundensoftware> GetCustomersSoftware(Kunde kunde)
 		{
-			SortableBindingList<Kundensoftware> list = new SortableBindingList<Kundensoftware>();
+			var list = new SortableBindingList<Kundensoftware>();
 			foreach (dsSoftware.KundenSoftwareRow sRow in DataManager.SoftwareDataService.GetCustomerSoftwareRows(kunde.CustomerId))
 			{
 				var sw = this.myKundensoftwareList.FirstOrDefault(s => s.UID == sRow.UID);
@@ -105,7 +105,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public SBList<Kundensoftware> GetMachinesSoftware(Kundenmaschine machine)
 		{
-			SBList<Kundensoftware> list = new SBList<Kundensoftware>();
+			var list = new SBList<Kundensoftware>();
 			foreach (dsSoftware.KundenSoftwareRow sRow in DataManager.SoftwareDataService.GetMachineSoftwareRows(machine.UID))
 			{
 				var sw = this.myKundensoftwareList.FirstOrDefault(s => s.UID == sRow.UID);

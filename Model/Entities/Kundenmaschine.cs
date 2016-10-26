@@ -127,7 +127,8 @@ namespace Products.Model.Entities
 			{
 				if (!this.myBase.Seriennummer.Equals(value, StringComparison.CurrentCultureIgnoreCase))
 				{
-					if (value.Contains(nl)) this.myBase.Seriennummer = value.Replace(nl, string.Empty);
+					if (value.Contains(nl)) value = value.Replace(nl, string.Empty);
+					this.myBase.Seriennummer = value;
 				}
 			}
 		}
@@ -442,7 +443,11 @@ namespace Products.Model.Entities
 		public string Dateipfad
 		{
 			get { return this.myBase.IsDateipfadNull() ? string.Empty : this.myBase.Dateipfad; }
-			set { if (!this.myBase.Dateipfad.Equals(value, StringComparison.CurrentCultureIgnoreCase)) this.myBase.Dateipfad = value; }
+			set
+			{
+				if (!this.myBase.Dateipfad.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+					this.myBase.Dateipfad = value;
+			}
 		}
 
 		/// <summary>

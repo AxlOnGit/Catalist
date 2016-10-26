@@ -141,6 +141,18 @@ namespace Products.Common.Panel
 
 		#endregion SOFTWARE EVENTS
 
+		#region FINISHING EVENTS
+
+		void pnlKundenMaschine_Leave(object sender, EventArgs e)
+		{
+			if (this.myMachine == null) return;
+			ModelManager.MachineService.UpdateMachines();
+			ModelManager.FileLinkService.Update();
+			ModelManager.SoftwareService.UpdateKundenSoftware();
+		}
+
+		#endregion FINISHING EVENTS
+
 		#endregion EVENT HANDLER
 
 		#region private procedures
@@ -213,7 +225,9 @@ namespace Products.Common.Panel
 
 				// Ordner für die Maschine zusammenbauen. Schema: "Modell +_+ Seriennummer + (Kundenmatchcode)"
 				var sn = this.myMachine.Seriennummer.Replace("/", "_");
-				var ordnerMaschine = $"{this.myMachine.Modellbezeichnung}_{sn} ({this.myMachine.CurrentOwner.Matchcode.Replace("/", "_")})";
+				var model = this.myMachine.Modellbezeichnung;
+				var owner = this.myMachine.CurrentOwner.Matchcode.Replace("/", "_");
+				var ordnerMaschine = $"{model}_{sn} ({owner})";
 
 				// Den Maschinenordner im Dateisystem erstellen
 				try
@@ -226,7 +240,7 @@ namespace Products.Common.Panel
 				catch (Exception ex)
 				{
 					var nl = Environment.NewLine;
-					MetroFramework.MetroMessageBox.Show(this, "Fehler beim Anlegen des Maschinenordners", $"{nl}{ex.Message}{nl}Sehr wahrscheinlich enthält die Seriennummer ein Kackzeichen, das garnicht geht!",
+					MetroMessageBox.Show(this, "Fehler beim Anlegen des Maschinenordners", $"{nl}{ex.Message}{nl}Sehr wahrscheinlich enthält die Seriennummer ein Kackzeichen, das garnicht geht!",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
