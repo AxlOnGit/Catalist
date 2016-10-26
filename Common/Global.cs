@@ -2,7 +2,7 @@
 
 namespace Products.Common
 {
-	public class Global
+	public static class Global
 	{
 
 		#region constants
@@ -42,10 +42,12 @@ namespace Products.Common
 			SendFax = 1,
 			SendLetter = 2
 		}
-	
+
 		#endregion
 
 		#region public properties
+
+		public static string AppointmentArchivePath { get; set; }
 
 		public static string AtapiLineName { get; set; }
 		public static string BingMapsURL { get; set; }
@@ -72,62 +74,59 @@ namespace Products.Common
 			{
 				return "Axel Ullrich";
 			}
-			else if (loginName == "eduard")
+			if (loginName == "eduard")
 			{
 				return "Eduard Apelhans";
 			}
-			else if (loginName == "Eva")
+			if (loginName == "Eva")
 			{
 				return "Eva Averdiek";
 			}
-			else if (loginName == "Felix")
+			if (loginName == "Felix")
 			{
 				return "Felix Deutz";
 			}
-			else if (loginName == "Johannes")
+			if (loginName == "Johannes")
 			{
 				return "Johannes Düwel";
 			}
-			else if (loginName == "Julian")
+			if (loginName == "Julian")
 			{
 				return "Julian Zwillich";
 			}
-			else if (loginName == "Mario")
+			if (loginName == "Mario")
 			{
 				return "Mario Heidemann";
 			}
-			else if (loginName == "Markus")
+			if (loginName == "Markus")
 			{
 				return "Markus Sprehe";
 			}
-			else if (loginName == "MarkusR")
+			if (loginName == "MarkusR")
 			{
 				return "Markus Roggenkamp";
 			}
-			else if (loginName == "Matthias")
+			if (loginName == "Matthias")
 			{
 				return "Mathias Deutz";
 			}
-			else if (loginName == "Rupert")
+			if (loginName == "Rupert")
 			{
 				return "Rupert Deutz";
 			}
-			else if (loginName == "Saskia")
+			if (loginName == "Saskia")
 			{
 				return "Saskia Pollmeier";
 			}
-			else if (loginName == "Sezen")
+			if (loginName == "Sezen")
 			{
 				return "Sezen Colak";
 			}
-			else if (loginName == "Tanja")
+			if (loginName == "Tanja")
 			{
 				return "Tanja Trentmann";
 			}
-			else
-			{
-				return "Kennichnich";
-			}
+			return "Kennichnich";
 		}
 
 		public static DateTime MySqlNullDate
