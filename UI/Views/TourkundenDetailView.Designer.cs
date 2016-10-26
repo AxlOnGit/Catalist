@@ -280,13 +280,14 @@
 			this.mtxtAnmerkungen.SelectedText = "";
 			this.mtxtAnmerkungen.SelectionLength = 0;
 			this.mtxtAnmerkungen.SelectionStart = 0;
+			this.mtxtAnmerkungen.ShortcutsEnabled = true;
 			this.mtxtAnmerkungen.Size = new System.Drawing.Size(439, 83);
 			this.mtxtAnmerkungen.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.mtxtAnmerkungen.TabIndex = 1;
 			this.mtxtAnmerkungen.UseSelectable = true;
 			this.mtxtAnmerkungen.UseStyleColors = true;
 			this.mtxtAnmerkungen.WaterMark = "Generelle Informationen zu diesem Kunden";
-			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAnmerkungen.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtCompetition
@@ -315,12 +316,13 @@
 			this.mtxtCompetition.SelectedText = "";
 			this.mtxtCompetition.SelectionLength = 0;
 			this.mtxtCompetition.SelectionStart = 0;
+			this.mtxtCompetition.ShortcutsEnabled = true;
 			this.mtxtCompetition.Size = new System.Drawing.Size(312, 23);
 			this.mtxtCompetition.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.mtxtCompetition.TabIndex = 3;
 			this.mtxtCompetition.UseSelectable = true;
 			this.mtxtCompetition.WaterMark = "Wettbewerber";
-			this.mtxtCompetition.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtCompetition.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtCompetition.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// TourkundenDetailView
@@ -333,7 +335,7 @@
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.dgvTourkunden);
 			this.Name = "TourkundenDetailView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Kundendetails";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TourkundenDetailView_FormClosing);

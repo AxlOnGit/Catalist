@@ -88,7 +88,7 @@ namespace Products.Data.Services
 		/// <returns></returns>
 		public dsCustomer.KundeRow AddKundeRow(string kundePK)
 		{
-			dsCustomer.KundeRow kRow = this.myCustomerDS.Kunde.NewKundeRow();
+			var kRow = this.myCustomerDS.Kunde.NewKundeRow();
 			kRow.Kundennummer = kundePK;
 			kRow.Anmerkungen = "";
 			kRow.Besuchsintervall = 6;
@@ -119,6 +119,17 @@ namespace Products.Data.Services
 		{
 			this.AssureKundeInitialized();
 			return this.myCustomerDS.Kunde;
+		}
+
+		public void SetAddressCoordinates(string customerId, double lat, double lon)
+		{
+			var kRow = this.myCustomerDS.Kunde.FirstOrDefault(k => k.Kundennummer == customerId);
+			if (kRow != null)
+			{
+				kRow.Latitude = lat;
+				kRow.Longitude = lon;
+				this.myKundeAdapter.Update(kRow);
+			}
 		}
 
 		/// <summary>

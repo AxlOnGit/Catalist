@@ -6,7 +6,8 @@ namespace David
 
 		#region members
 
-		static DavidService davidService;
+		static bool myWithAppointmentListener;
+		static DavidService myDavidService;
 
 		#endregion
 
@@ -19,15 +20,20 @@ namespace David
 		{
 			get
 			{
-				if (davidService == null)
+				if (myDavidService == null)
 				{
-					davidService = new DavidService();
+					myDavidService = new DavidService(myWithAppointmentListener);
 				}
-				return davidService;
+				return myDavidService;
 			}
 		}
 	
 		#endregion
+
+		public static void SetAppointmentListener(bool setListener)
+		{
+			myWithAppointmentListener = setListener;
+		}
 
 	}
 }

@@ -42,7 +42,7 @@ namespace Products.Common.Views
 
 		void TaskListView_MouseEnter(object sender, EventArgs e)
 		{
-			this.Focus();
+			//this.Focus();
 		}
 
 		void dgvTasks_RowEnter(object sender, DataGridViewCellEventArgs e)

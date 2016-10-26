@@ -53,7 +53,7 @@ namespace Products.Model.Services
 		{
 			get
 			{
-				User user = this.myUsersList.FirstOrDefault(u => u.LoginWindows.ToUpper() == Environment.UserName.ToUpper());
+				var user = this.myUsersList.FirstOrDefault(u => u.LoginWindows.ToUpper() == Environment.UserName.ToUpper());
 				if (user != null) return user;
 				return this.myUsersList.FirstOrDefault(u => u.LoginWindows.ToLower() == "axel");
 			}
@@ -100,7 +100,7 @@ namespace Products.Model.Services
 		/// <param name="searchFor">Die Zeichenfolge anhand der gesucht wird.</param>
 		/// <param name="searchType">Der Typ der Suche.</param>
 		/// <returns></returns>
-		public User GetUser(string searchFor, UserSearchParamType searchType)
+		public User FindUser(string searchFor, UserSearchParamType searchType)
 		{
 			switch (searchType)
 			{
@@ -126,10 +126,10 @@ namespace Products.Model.Services
 					return this.myUsersList.FirstOrDefault(u => u.DavidLoginName.ToUpper() == ((string)searchFor).ToUpper());
 
 				case UserSearchParamType.DavidFileName:
-					string[] arr = ((string)searchFor).Split(new char[] { '\\' });
+					var arr = ((string)searchFor).Split(new char[] { '\\' });
 					foreach (var str in arr)
 					{
-						User user = this.GetUser(str, UserSearchParamType.DavidUserFolder);
+						var user = this.FindUser(str, UserSearchParamType.DavidUserFolder);
 						if (user != null) return user;
 					}
 					return null;
@@ -151,27 +151,27 @@ namespace Products.Model.Services
 			switch (userType)
 			{
 				case SpecialUserType.Technicien:
-					list.Add(this.GetUser("Felix", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("Matthias", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("Johannes", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("MarkusR", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("Axel", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Felix", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Matthias", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Johannes", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("MarkusR", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Axel", UserSearchParamType.WindowsLoginName));
 					return list;
 
 				case SpecialUserType.SalesAndMarketing:
-					list.Add(this.GetUser("Markus", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("Tanja", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Markus", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Tanja", UserSearchParamType.WindowsLoginName));
 					return list;
 
 				case SpecialUserType.Accounting:
-					list.Add(this.GetUser("Eva", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("Margret", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Eva", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("Margret", UserSearchParamType.WindowsLoginName));
 					return list;
 
 				case SpecialUserType.Warehouse:
-					list.Add(this.GetUser("eduard", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("JulianZ", UserSearchParamType.WindowsLoginName));
-					list.Add(this.GetUser("MarkusR", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("eduard", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("JulianZ", UserSearchParamType.WindowsLoginName));
+					list.Add(this.FindUser("MarkusR", UserSearchParamType.WindowsLoginName));
 					return list;
 
 				default:
@@ -188,11 +188,11 @@ namespace Products.Model.Services
 
 		#region private procedures
 
-		private void InitializeUserList()
+		void InitializeUserList()
 		{
 			this.myUsersList = new SBList<User>();
 			this.myActiveUsersList = new SBList<User>();
-			foreach (var uRow in Data.DataManager.UserDataService.GetAllUserRows())
+			foreach (var uRow in DataManager.UserDataService.GetAllUserRows())
 			{
 				var user = new User(uRow);
 				this.myUsersList.Add(user);
@@ -203,7 +203,7 @@ namespace Products.Model.Services
 			tanja.CalendarSettings.SetTargetUser(markus);
 		}
 
-		private void InitializeReminders()
+		void InitializeReminders()
 		{
 			Debug.Print("Initializing Reminders ...");
 		}

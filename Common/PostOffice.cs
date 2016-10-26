@@ -28,7 +28,7 @@ namespace Products.Common
 		public PostOffice(string username, string pw, string userEmailAddress)
 		{
 			myClient = new SmtpClient(Global.SmtpServer, Global.SmtpPort);
-			NetworkCredential nc = new NetworkCredential(username, pw);
+			var nc = new NetworkCredential(username, pw);
 			myClient.Credentials = nc;
 			this.mySender = userEmailAddress;
 		}
@@ -54,7 +54,7 @@ namespace Products.Common
 		{
 			try
 			{
-				MailMessage msg = new MailMessage(mySender, to, subject, body);
+				var msg = new MailMessage(mySender, to, subject, body);
 				if (msg != null)
 				{
 					// Attach file if one's available
@@ -109,7 +109,7 @@ namespace Products.Common
 		{
 			try
 			{
-				MailMessage msg = new MailMessage(mySender, to, subject, body);
+				var msg = new MailMessage(mySender, to, subject, body);
 				if (msg != null)
 				{
 					// Attach file if one's available
@@ -141,7 +141,7 @@ namespace Products.Common
 		/// <param name="body">Nachrichtentext</param>
 		public void SendMailViaDefaultMailer(string to, string subject = "Betreff", string body = "Nachrichtentext")
 		{
-			string mailto = string.Format("mailto:{0}?Subject={1}&Body={2}", to, subject, body);
+			var mailto = string.Format("mailto:{0}?Subject={1}&Body={2}", to, subject, body);
 			System.Diagnostics.Process.Start(mailto);
 		}
 

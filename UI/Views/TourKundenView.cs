@@ -4,21 +4,20 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using MetroFramework.Forms;
+using MetroFramework;
 using MetroFramework.Controls;
+using MetroFramework.Forms;
 using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data.Datasets;
 using Products.Model;
 using Products.Model.Builder;
 using Products.Model.Entities;
-using MetroFramework;
 
 namespace Products.Common.Views
 {
 	public partial class TourKundenView : MetroForm
 	{
-
 		#region MEMBERS
 
 		Tour myTour;
@@ -29,7 +28,7 @@ namespace Products.Common.Views
 		FileLink mySelectedDateilink;
 		MetroGrid activeGrid;
 
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .CTOR ###
 
@@ -47,7 +46,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .CTOR ###
 
 		#region EVENT HANDLER
 
@@ -111,7 +110,7 @@ namespace Products.Common.Views
 			this.mySelectedDateilink = this.dgvDateilinks.Rows[e.RowIndex].DataBoundItem as Model.Entities.FileLink;
 		}
 
-		#endregion
+		#endregion GRIDS
 
 		#region BUTTONS
 
@@ -184,7 +183,7 @@ namespace Products.Common.Views
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				var msg = string.Format("Gut, ich verknüpfe Datei\n{0}\nund kopiere sie auf den Server.\n\nSoll die Originaldatei anschließend gelöscht werden?", ofd.FileName);
-				switch (MessageBox.Show(msg, "Dateiverknüpfungen", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+				switch (MetroMessageBox.Show(this, msg, "Dateiverknüpfungen", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
 				{
 					case DialogResult.No:
 						this.AddFileLink(ofd.FileName, true);
@@ -206,7 +205,7 @@ namespace Products.Common.Views
 				var file = new FileInfo(this.mySelectedDateilink.FullName);
 				string fileAndPath = this.mySelectedDateilink.FullName;
 				ILinkedItem linkedItem = this.mySelectedNote;
-				if (MetroMessageBox.Show(this,msg, "Datei löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (MetroMessageBox.Show(this, msg, "Datei löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					ModelManager.FileLinkService.DeleteFileLink(file, linkedItem, true);
 				}
@@ -233,7 +232,7 @@ namespace Products.Common.Views
 			this.mtxtNotiztext.FontSize += 1;
 		}
 
-		#endregion
+		#endregion BUTTONS
 
 		#region CONTEXT MENU
 
@@ -274,8 +273,8 @@ namespace Products.Common.Views
 
 			// Neuer Tour zuordnen
 			tour.AddKunde(kunde);
-			string msg = string.Format("Ich habe {0} in die Tour {1} verschoben.", kunde.CompanyName1, tour.Tourname);
-			MessageBox.Show(msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			var msg = string.Format("Ich habe {0} in die Tour {1} verschoben.", kunde.CompanyName1, tour.Tourname);
+			MetroMessageBox.Show(this, msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		void xcmdAddCustomer_Click(object sender, EventArgs e)
@@ -324,7 +323,7 @@ namespace Products.Common.Views
 			this.OpenCustomer();
 		}
 
-		#endregion
+		#endregion CONTEXT MENU
 
 		#region DRAG'N DROP
 
@@ -339,7 +338,8 @@ namespace Products.Common.Views
 					foreach (string filename in filenames)
 					{
 						this.AddFileLink(filename, true);
-						// Kleinet Päusken, damit der Butzemann in Ruhe kopieren kann. 1 Sekunde sollte reichen ...
+						// Kleinet Päusken, damit der Butzemann in Ruhe kopieren kann. 1 Sekunde
+						// sollte reichen ...
 						System.Threading.Thread.Sleep(750);
 					}
 				}
@@ -369,7 +369,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion DRAG'N DROP
 
 		#region FORM
 
@@ -378,7 +378,7 @@ namespace Products.Common.Views
 			ModelManager.NotesService.UpdateNotes();
 		}
 
-		#endregion
+		#endregion FORM
 
 		void mtoggleShowInactive_CheckedChanged(object sender, EventArgs e)
 		{
@@ -410,14 +410,12 @@ namespace Products.Common.Views
 			}
 		}
 
-
-		#endregion
+		#endregion EVENT HANDLER
 
 		#region PRIVATE
 
 		void InitializeData()
 		{
-
 			this.dgvTourKunden.AutoGenerateColumns = false;
 			this.dgvInteressenten.AutoGenerateColumns = false;
 			this.dgvNotizen.AutoGenerateColumns = false;
@@ -426,7 +424,6 @@ namespace Products.Common.Views
 			this.dgvTourKunden.DataSource = myTour.Tourkunden.Sort("CompanyName1");
 			this.dgvInteressenten.DataSource = myTour.TourInteressenten.Sort("Firmenname");
 			this.dgvDateilinks.DataSource = this.mySelectedNote != null ? this.mySelectedNote.Dateilinks : null;
-
 		}
 
 		void OpenCustomer()
@@ -445,7 +442,6 @@ namespace Products.Common.Views
 				var kmv = new KundeMainView(mySelectedKunde);
 				kmv.Show();
 			}
-
 		}
 
 		void AddCustomer()
@@ -507,7 +503,7 @@ namespace Products.Common.Views
 				if (this.mySelectedKunde != null)
 				{
 					builder = new NoteBuilder(this.mySelectedKunde, this.mySelectedKunde, this.mySelectedKunde.Kontaktlist.FirstOrDefault(k => k.MainContactFlag == true).Nummer);
-					Notiz note = ModelManager.NotesService.AddNote(builder);
+					var note = ModelManager.NotesService.AddNote(builder);
 					var nv = new NotizView(note, mySelectedKunde);
 					nv.ShowDialog(this);
 				}
@@ -515,7 +511,7 @@ namespace Products.Common.Views
 			else if (this.activeGrid == this.dgvInteressenten && this.mySelectedProspect != null)
 			{
 				builder = new NoteBuilder(this.mySelectedProspect, this.mySelectedProspect);
-				Notiz note = ModelManager.NotesService.AddNote(builder);
+				var note = ModelManager.NotesService.AddNote(builder);
 				var nv = new NotizView(note, this.mySelectedProspect);
 				nv.ShowDialog(this);
 			}
@@ -559,7 +555,7 @@ namespace Products.Common.Views
 		{
 			if (this.mySelectedNote == null) return;
 			var noteAsLink = this.mySelectedNote as ILinkedItem;
-			this.mySelectedDateilink = ModelManager.FileLinkService.AddFileLink(new FileInfo(fileName), noteAsLink, Global.LinkedFilesPath, keepSourceFile);
+			this.mySelectedDateilink = ModelManager.FileLinkService.AddFileLink(new FileInfo(fileName), noteAsLink, keepSourceFile);
 		}
 
 		void AddAppointment(object customerOrProspect)
@@ -572,8 +568,8 @@ namespace Products.Common.Views
 
 		void RemoveCustomerFromTour()
 		{
-			string msg = string.Format("{0} wirklich aus dieser Tour entfernen?", this.mySelectedKunde.CompanyName1);
-			if (MessageBox.Show(msg, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+			var msg = string.Format("{0} wirklich aus dieser Tour entfernen?", this.mySelectedKunde.CompanyName1);
+			if (MetroMessageBox.Show(this, msg, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				try
 				{
@@ -581,7 +577,7 @@ namespace Products.Common.Views
 				}
 				catch (Exception)
 				{
-					MessageBox.Show("Der Kunde konnte nicht entfernt werden", "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MetroMessageBox.Show(this, "Der Kunde konnte nicht entfernt werden", "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -603,7 +599,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
-
+		#endregion PRIVATE
 	}
 }

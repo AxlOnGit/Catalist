@@ -41,11 +41,11 @@
 			this.colOrt = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colTelefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.mctxGrid = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.xcmdPurchaseOrders = new System.Windows.Forms.ToolStripMenuItem();
 			this.mtxtFilter = new MetroFramework.Controls.MetroTextBox();
 			this.mbtnOk = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.mbtnCancel = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.btnChangeKunde = new System.Windows.Forms.Button();
-			this.xcmdPurchaseOrders = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
 			this.mctxGrid.SuspendLayout();
@@ -168,6 +168,14 @@
 			this.mctxGrid.Name = "mctxGrid";
 			this.mctxGrid.Size = new System.Drawing.Size(143, 26);
 			// 
+			// xcmdPurchaseOrders
+			// 
+			this.xcmdPurchaseOrders.Image = global::Products.Common.Properties.Resources.purchase_16_metrored;
+			this.xcmdPurchaseOrders.Name = "xcmdPurchaseOrders";
+			this.xcmdPurchaseOrders.Size = new System.Drawing.Size(142, 22);
+			this.xcmdPurchaseOrders.Text = "Bestellungen";
+			this.xcmdPurchaseOrders.Click += new System.EventHandler(this.xcmdPurchaseOrders_Click);
+			// 
 			// mtxtFilter
 			// 
 			// 
@@ -190,6 +198,7 @@
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowButton = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(413, 23);
@@ -197,7 +206,7 @@
 			this.mtxtFilter.TabIndex = 0;
 			this.mtxtFilter.UseSelectable = true;
 			this.mtxtFilter.WaterMark = "Lieferanten-Nr, Matchcode oder Firma";
-			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtFilter.ClearClicked += new MetroFramework.Controls.MetroTextBox.LUClear(this.mtxtFilter_ClearClicked);
 			this.mtxtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtFilter_KeyUp);
@@ -248,14 +257,6 @@
 			this.btnChangeKunde.UseVisualStyleBackColor = false;
 			this.btnChangeKunde.Click += new System.EventHandler(this.btnChangeKunde_Click);
 			// 
-			// xcmdPurchaseOrders
-			// 
-			this.xcmdPurchaseOrders.Image = global::Products.Common.Properties.Resources.purchase_16_metrored;
-			this.xcmdPurchaseOrders.Name = "xcmdPurchaseOrders";
-			this.xcmdPurchaseOrders.Size = new System.Drawing.Size(142, 22);
-			this.xcmdPurchaseOrders.Text = "Bestellungen";
-			this.xcmdPurchaseOrders.Click += new System.EventHandler(this.xcmdPurchaseOrders_Click);
-			// 
 			// LieferantenListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +270,7 @@
 			this.Controls.Add(this.dgvSuppliers);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "LieferantenListView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "Lieferanten";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LieferantenListView_FormClosing);

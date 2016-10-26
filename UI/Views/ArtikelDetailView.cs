@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Windows.Forms;
-using MetroFramework.Forms;
-using Products.Model.Entities;
-using Products.Model;
-using Products.Common.Collections;
 using System.Linq;
+using System.Windows.Forms;
+using MetroFramework;
+using MetroFramework.Forms;
+using Products.Common.Collections;
+using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class ArtikelDetailView : MetroForm
 	{
-
 		#region members
 
 		readonly Product myProduct;
 		readonly Kunde myKunde;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -32,7 +32,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -41,7 +41,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -52,7 +52,7 @@ namespace Products.Common.Views
 			this.Text = string.Format("Artikel {0} bei {1}", this.myProduct.Artikelnummer, this.myKunde.Matchcode);
 			this.mlblArtikelgruppe.Text = this.myProduct.Artikelgruppe;
 			this.mlblArtikelnummer.Text = this.myProduct.Artikelnummer;
-			this.mlblBezeichnung1.Text = this.myProduct.Bezeichnung1;
+			this.mlblBezeichnung1.Text = this.myProduct.Bezeichnung2;
 			this.mlblBezeichnung2.Text = this.myProduct.Bezeichnung2;
 			var lieferant = ModelManager.SupplierService.GetSupplier(this.myProduct.Lieferant);
 			this.mlblLieferant.Text = lieferant.Matchcode;
@@ -86,10 +86,9 @@ namespace Products.Common.Views
 
 		void dgvBestellungen_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			MessageBox.Show(ServiceManager.UiService.GetControlMetrics(this.dgvBestellungen));
+			MetroMessageBox.Show(this, ServiceManager.UiService.GetControlMetrics(this.dgvBestellungen));
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -69,7 +69,7 @@
 			this.Name = "AuswahlDialog";
 			this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
 			this.Resizable = false;
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

@@ -47,6 +47,8 @@ namespace Products.Common
 
 		#region public properties
 
+		public static string CmdArgs { get; set; }
+
 		public static string AppointmentArchivePath { get; set; }
 
 		public static string AtapiLineName { get; set; }

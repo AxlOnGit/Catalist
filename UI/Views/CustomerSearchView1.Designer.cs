@@ -33,6 +33,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dgvSuchkunden = new MetroFramework.Controls.MetroGrid();
+			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.colTyp = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colFund = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colKundennummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +67,7 @@
 			this.dgvSuchkunden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvSuchkunden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSuchkunden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colInactive,
             this.colTyp,
             this.colFund,
             this.colKundennummer,
@@ -106,11 +108,19 @@
 			this.dgvSuchkunden.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuchkunden_RowEnter);
 			this.dgvSuchkunden.DoubleClick += new System.EventHandler(this.dgvSuchkunden_DoubleClick);
 			// 
+			// colInactive
+			// 
+			this.colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colInactive.DataPropertyName = "Inactive";
+			this.colInactive.FillWeight = 7F;
+			this.colInactive.HeaderText = "Inaktiv";
+			this.colInactive.Name = "colInactive";
+			// 
 			// colTyp
 			// 
 			this.colTyp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colTyp.DataPropertyName = "Typ";
-			this.colTyp.FillWeight = 10F;
+			this.colTyp.FillWeight = 7F;
 			this.colTyp.HeaderText = "Typ";
 			this.colTyp.Name = "colTyp";
 			// 
@@ -118,7 +128,7 @@
 			// 
 			this.colFund.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colFund.DataPropertyName = "Fund";
-			this.colFund.FillWeight = 30F;
+			this.colFund.FillWeight = 28F;
 			this.colFund.HeaderText = "Gefunden";
 			this.colFund.Name = "colFund";
 			// 
@@ -134,7 +144,7 @@
 			// 
 			this.colFirma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colFirma.DataPropertyName = "Firma";
-			this.colFirma.FillWeight = 30F;
+			this.colFirma.FillWeight = 28F;
 			this.colFirma.HeaderText = "Firma";
 			this.colFirma.Name = "colFirma";
 			// 
@@ -193,7 +203,7 @@
 			this.Controls.Add(this.mbtnOk);
 			this.Controls.Add(this.dgvSuchkunden);
 			this.Name = "CustomerSearchView1";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.Text = "Kundensuche";
 			((System.ComponentModel.ISupportInitialize)(this.dgvSuchkunden)).EndInit();
@@ -204,13 +214,14 @@
 		#endregion
 
 		private MetroFramework.Controls.MetroGrid dgvSuchkunden;
+		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnOk;
+		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnClose;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colTyp;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colFund;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colKundennummer;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colFirma;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colPLZ;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colOrt;
-		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnOk;
-		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnClose;
 	}
 }

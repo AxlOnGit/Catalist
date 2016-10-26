@@ -1,24 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Products.Model.Entities;
-using Products.Model;
-using System.Collections.Generic;
+using MetroFramework;
 using Products.Common.Views;
+using Products.Model;
+using Products.Model.Entities;
 using Products.PdfMaker;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlAngebotsdetail : pnlSlider
 	{
-
 		#region members
 
 		readonly KundeMainView myParent;
 		readonly Offer myOffer;
 		OfferDetail myCurrentOfferDetail;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -38,7 +38,7 @@ namespace Products.Common.Panel
 			this.OnClosed += pnlAngebotsdetail_OnClosed;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -55,7 +55,7 @@ namespace Products.Common.Panel
 
 		void dgvOfferDetails_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			myCurrentOfferDetail = dgvOfferDetails.Rows[e.RowIndex].DataBoundItem as Model.Entities.OfferDetail;
+			myCurrentOfferDetail = dgvOfferDetails.Rows[e.RowIndex].DataBoundItem as OfferDetail;
 			if (myCurrentOfferDetail != null)
 			{
 				var loeschText = string.Format("Lösche Position {0} ({1})", myCurrentOfferDetail.Position, myCurrentOfferDetail.Artikelname);
@@ -63,7 +63,8 @@ namespace Products.Common.Panel
 				this.txtPositionsinfo.Text = myCurrentOfferDetail.Positionsinfo;
 				this.txtRowComment.DataBindings.Clear();
 				this.txtRowComment.DataBindings.Add("Text", myCurrentOfferDetail, "Artikeltext");
-				this.txtRowComment.Text = myCurrentOfferDetail.Artikeltext;
+				this.txtRowComment.Text = string.IsNullOrEmpty(this.myCurrentOfferDetail.Artikeltext) ? string.Empty : this.myCurrentOfferDetail.Artikeltext;
+				//this.txtRowComment.Text = myCurrentOfferDetail.Artikeltext;
 			}
 		}
 
@@ -149,7 +150,7 @@ namespace Products.Common.Panel
 			ModelManager.OfferService.UpdateOffers(this.myOffer.CustomerId);
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -161,7 +162,7 @@ namespace Products.Common.Panel
 				this.mchkBestellkennzeichen.DataBindings.Add("Checked", myOffer, "Bestellkennzeichen");
 				this.mtxtZahlungsbedingungen.DataBindings.Add("Text", myOffer, "Zahlungsbedingungen");
 				this.mlblTitle.Text = string.Format("Angebot Nr. {0} vom {1}, (erstellt von {2})", myOffer.OfferId, myOffer.CreateDate, myOffer.CreateUser);
-				this.dgvOfferDetails.DataSource = myOffer.OfferDetails.Sort("Position"); 
+				this.dgvOfferDetails.DataSource = myOffer.OfferDetails.Sort("Position");
 			}
 		}
 
@@ -244,29 +245,28 @@ namespace Products.Common.Panel
 			if (usv.ShowDialog() == DialogResult.OK && usv.SelectedUser != null)
 			{
 				receivingUser = usv.SelectedUser;
-				var pdfFile = PdfMaker.PdfManager.PdfService.CreateOfferDocument(this.myOffer, true);
+				var pdfFile = PdfManager.PdfService.CreateOfferDocument(this.myOffer, true);
 				var sendingUser = ModelManager.UserService.CurrentUser;
 				var subject = string.Format("Bestellung für {0} (gesendet von {1})", this.myOffer.Customer.CompanyName1, sendingUser.NameFull);
-				var body = string.Format("Moin {0}. Kannst Du Dich bitte um die Bestellung für {1} im Anhang kümmern? \n\nBesten Dank\n{2}", 
+				var body = string.Format("Moin {0}. Kannst Du Dich bitte um die Bestellung für {1} im Anhang kümmern? \n\nBesten Dank\n{2}",
 					receivingUser.NameFirst,
 					this.myOffer.Customer.CompanyName1,
 					sendingUser.NameFirst);
 				ModelManager.PostBuedel.SendEmail(receivingUser.EmailWork, subject, body, pdfFile, new List<string> { sendingUser.EmailWork });
 
 				var msg = string.Format("Die Bestellung für {0} wurde an {1} gesendet", this.myOffer.Customer.CompanyName1, receivingUser.NameFull);
-				MessageBox.Show(msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MetroMessageBox.Show(this, msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				this.myOffer.SetPrintDateOrder();
 			}
 		}
 
 		void ShowCalculator()
 		{
-			var calc= new Process();
+			var calc = new Process();
 			calc.StartInfo = new ProcessStartInfo("calc.exe");
 			calc.Start();
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -139,7 +139,7 @@ namespace Products.Model.Entities
 			{
 				if (myVertreter == null)
 				{
-					myVertreter = ModelManager.UserService.GetUser(myBase.VertreterId, Services.UserService.UserSearchParamType.PrimaryKey);
+					myVertreter = ModelManager.UserService.FindUser(myBase.VertreterId, Services.UserService.UserSearchParamType.PrimaryKey);
 				}
 				return myVertreter;
 			}

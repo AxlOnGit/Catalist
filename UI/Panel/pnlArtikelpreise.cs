@@ -1,27 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
+using MetroFramework;
+using Products.Common.Collections;
+using Products.Common.Interfaces;
+using Products.Common.Views;
+using Products.Data;
 using Products.Model;
 using Products.Model.Entities;
-using Products.Data;
-using Products.Common.Views;
-using Products.Common.Collections;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlArtikelpreise : pnlSlider
 	{
-
 		#region members
 
 		readonly KundeMainView myParent;
 		readonly Kunde myKunde;
 		Product mySelectedProduct;
 
-		#endregion
-
-		#region properties
-
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -46,7 +46,7 @@ namespace Products.Common.Panel
 			this.mtxtFilter.Focus();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -149,7 +149,7 @@ namespace Products.Common.Panel
 			(this.dgvProducts.DataSource as SBList<Product>).Filter = "KatalogFlag == true";
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -240,12 +240,27 @@ namespace Products.Common.Panel
 				if (spv.ShowDialog(this) == DialogResult.OK)
 				{
 					ModelManager.ProductService.UpdateProducts(this.myKunde);
-					MessageBox.Show("Der neue Sonderpreis wurde gespeichert.", "Da sacht der Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MetroMessageBox.Show(this, "Der neue Sonderpreis wurde gespeichert.", "Da sacht der Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 		}
 
-		#endregion
+		#endregion private procedures
 
+		// static int counter = 1;
+
+		void mbtnExport_Click(object sender, EventArgs e)
+		{
+			var pedv = new ProductExportDetailsView(this.myKunde, (IEnumerable<Product>)this.dgvProducts.DataSource);
+			pedv.ShowDialog();
+
+			//var now = DateTime.Today;
+			//var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			//var filename = $"{now.ToString("yyyy")}-{now.ToString("MM")}-{now.ToString("dd")} - Artikelpreise_{this.myKunde.Matchcode} ({counter}).xlsx";
+			//var fullName = Path.Combine(documents, filename);
+			//OfficeBridge.ServiceManager.ExcelService.ExportToWorkbook((IEnumerable<Product>)this.dgvProducts.DataSource, fullName, this.myKunde.Matchcode);
+			//counter += 1;
+			//MetroMessageBox.Show(this, "Alle Artikel exportiert ...");
+		}
 	}
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 using Products.Model;
 using Products.Model.Entities;
@@ -14,13 +15,12 @@ namespace Products.Common.Views
 {
 	public partial class ReminderView : MetroForm
 	{
-
 		#region members
 
 		readonly Reminder myReminder;
 		Task myTask;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -35,7 +35,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
@@ -65,7 +65,7 @@ namespace Products.Common.Views
 			this.mlblDescription.Text = this.myReminder.Description;
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region event handler
 
@@ -75,7 +75,7 @@ namespace Products.Common.Views
 			{
 				this.Close();
 			}
-			else MessageBox.Show("Ich konnte die neue Erinnerungszeit nicht setzen.", "Wecker", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else MetroMessageBox.Show(this, "Ich konnte die neue Erinnerungszeit nicht setzen.", "Wecker", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		void mbtnShowTask_Click(object sender, EventArgs e)
@@ -90,7 +90,6 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
-
+		#endregion event handler
 	}
 }

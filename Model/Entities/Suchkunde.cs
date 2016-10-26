@@ -11,12 +11,13 @@ namespace Products.Model.Entities
 
 		#region members
 
-		private dsCustomer.KundenSucheRow myBase = null;
+		readonly dsCustomer.KundenSucheRow myBase;
 
 		#endregion
 
 		#region public properties
 
+		public bool Inactive { get { return this.myBase.Statuskennzeichen.ToLower() == "ja"; } }
 		public string Typ { get { return this.myBase.Typ; } }
 		public string Fund { get { return !this.myBase.IsFundNull() ? this.myBase.Fund : string.Empty; } }
 		public string Kundennummer { get { return this.myBase.Kundennummer; } }

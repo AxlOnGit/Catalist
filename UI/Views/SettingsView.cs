@@ -2,24 +2,23 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 
 namespace Products.Common.Views
 {
 	public partial class SettingsView : MetroForm
 	{
-
 		#region members
 
 		bool myDirty;
 
-		#endregion
+		#endregion members
 
 		public SettingsView()
 		{
 			InitializeComponent();
 			Properties.Settings.Default.SettingChanging += Default_SettingChanging;
-
 		}
 
 		#region event handler
@@ -139,7 +138,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion Datei- und Pfadauswahl
 
 		#region Textfelderaktualisierung
 
@@ -153,7 +152,7 @@ namespace Products.Common.Views
 			else
 			{
 				e.Cancel = true;
-				MessageBox.Show("Hier sind nur Ziffern erlaubt, mit einem Komma als Dezimalseparator.", "So geht's nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MetroMessageBox.Show(this, "Hier sind nur Ziffern erlaubt, mit einem Komma als Dezimalseparator.", "So geht's nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 		}
 
@@ -217,9 +216,9 @@ namespace Products.Common.Views
 			Global.Signature = this.mtxtSignature.Text;
 		}
 
-		#endregion
+		#endregion Textfelderaktualisierung
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -237,7 +236,6 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

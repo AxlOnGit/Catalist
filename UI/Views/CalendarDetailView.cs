@@ -1,25 +1,24 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
-using Products.Model.Entities;
 using Products.Common.Interfaces;
 using Products.Model;
-using System.IO;
-using MetroFramework;
-using System.Diagnostics;
+using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class CalendarDetailView : MetroForm
 	{
-
 		#region MEMBERS
 
 		Appointment myAppointment;
 		ILinkedItem mySelectedLinkedItem;
 		User myCurrentUser;
 
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .CTOR ###
 
@@ -43,7 +42,7 @@ namespace Products.Common.Views
 			this.xcmdDeleteLinkedItem.Enabled = this.mbtnRemoveLinkedItem.Enabled;
 		}
 
-		#endregion
+		#endregion ### .CTOR ###
 
 		#region EVENT HANDLER
 
@@ -116,6 +115,7 @@ namespace Products.Common.Views
 		void mbtnSetAutoProperties_Click(object sender, EventArgs e)
 		{
 			Kunde customer = null;
+			Lieferant supplier = null;
 			Kundenkontakt contact = null;
 			Kundenmaschine machine = null;
 
@@ -139,11 +139,15 @@ namespace Products.Common.Views
 				{
 					machine = lItem as Kundenmaschine;
 				}
+				else if (lItem is Lieferant)
+				{
+					supplier = lItem as Lieferant;
+				}
 			}
 
-			if (customer == null)
+			if (customer == null && supplier == null)
 			{
-				msg = "Bitte vorher den Termin zumindest mit einem Kunden verknüpfen.";
+				msg = "Bitte vorher den Termin zumindest mit einem Kunden oder einem Lieferanten verknüpfen.";
 				MetroMessageBox.Show(this, msg, msgBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
@@ -153,7 +157,6 @@ namespace Products.Common.Views
 
 			switch (this.myAppointment.AppointmentType)
 			{
-
 				case "Kundenbesuch":
 					if (customer != null)
 					{
@@ -165,8 +168,16 @@ namespace Products.Common.Views
 					}
 					break;
 
+				case "Schulung":
+					if (supplier != null)
+					{
+						subject = string.Format("{0}: Schulung", supplier.Matchcode);
+						location = string.Format("{0}, {1} {2}", supplier.Strasse, supplier.Postleitzahl, supplier.Ort);
+					}
+					break;
+
 				case "Wartungstermin":
-					if (machine != null) subject = string.Format("{0}: Wartung {1} ({2})", customer.Matchcode, machine.Maschinenmodell, machine.Seriennummer);
+					if (machine != null) subject = string.Format("{0}: Wartung {1} ({2})", customer.Matchcode, machine.Modellbezeichnung, machine.Seriennummer);
 					else subject = string.Format("{0}: Wartung ", customer.Matchcode);
 
 					if (myCurrentUser.CalendarSettings.AddCustomerAddress) location = string.Format("{0}, {1} {2}", customer.Street, customer.ZipCode, customer.City);
@@ -176,7 +187,7 @@ namespace Products.Common.Views
 					break;
 
 				case "Servicetermin":
-					if (machine != null) subject = string.Format("{0}: Service {1} ({2})", customer.Matchcode, machine.Maschinenmodell, machine.Seriennummer);
+					if (machine != null) subject = string.Format("{0}: Service {1} ({2})", customer.Matchcode, machine.Modellbezeichnung, machine.Seriennummer);
 					else subject = string.Format("{0}: Wartung ", customer.Matchcode);
 
 					if (myCurrentUser.CalendarSettings.AddCustomerAddress) location = string.Format("{0}, {1} {2}", customer.Street, customer.ZipCode, customer.City);
@@ -192,7 +203,7 @@ namespace Products.Common.Views
 					break;
 
 				case "Maschinenlieferung":
-					if (machine != null) subject = string.Format("{0}: Auslieferung {1} ({2})", customer.Matchcode, machine.Maschinenmodell, machine.Seriennummer);
+					if (machine != null) subject = string.Format("{0}: Auslieferung {1} ({2})", customer.Matchcode, machine.Modellbezeichnung, machine.Seriennummer);
 					else subject = string.Format("{0}: Auslieferung ", customer.Matchcode);
 
 					if (myCurrentUser.CalendarSettings.AddCustomerAddress) location = string.Format("{0}, {1} {2}", customer.Street, customer.ZipCode, customer.City);
@@ -202,7 +213,7 @@ namespace Products.Common.Views
 					break;
 
 				case "Maschinenabholung":
-					if (machine != null) subject = string.Format("{0}: Abholung {1} ({2})", customer.Matchcode, machine.Maschinenmodell, machine.Seriennummer);
+					if (machine != null) subject = string.Format("{0}: Abholung {1} ({2})", customer.Matchcode, machine.Modellbezeichnung, machine.Seriennummer);
 					else subject = string.Format("{0}: Auslieferung ", customer.Matchcode);
 					location = "Technik CPM";
 					if (myCurrentUser.CalendarSettings.AddCustomerInfo) body = customer.GetCustomerInfoHtml(contact);
@@ -227,7 +238,7 @@ namespace Products.Common.Views
 					break;
 
 				case "Demo":
-					if (machine != null) subject = string.Format("{0}: Abholung {1} ({2})", customer.Matchcode, machine.Maschinenmodell, machine.Seriennummer);
+					if (machine != null) subject = string.Format("{0}: Abholung {1} ({2})", customer.Matchcode, machine.Modellbezeichnung, machine.Seriennummer);
 					else subject = string.Format("{0}: Demo ", customer.Matchcode);
 					if (myCurrentUser.CalendarSettings.AddCustomerInfo) body = customer.GetCustomerInfoHtml(contact);
 					if (myCurrentUser.CalendarSettings.AddCustomerNotes) body += customer.GetNotesHtml();
@@ -315,7 +326,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion EVENT HANDLER
 
 		#region PRIVATE PROCEDURES
 
@@ -405,10 +416,10 @@ namespace Products.Common.Views
 				var cuSv = new CustomerSearchView("Kunden für den Termin auswählen", false);
 				cuSv.ShowDialog();
 				var cRow = cuSv.SelectedCustomer;
-				if (cuSv.DialogResult == System.Windows.Forms.DialogResult.OK && cuSv.SelectedCustomer != null)
+				if (cuSv.DialogResult == DialogResult.OK && cuSv.SelectedCustomer != null)
 				{
-					var msg = string.Format("Ich verknüpfe den Termin mit der Firma '{0}'", cRow.Name1);
-					MessageBox.Show(msg, "Verknüpfen mit Kunde", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					var msg = string.Format("Ich verknüpfe den Termin mit '{0}'", cRow.Name1);
+					MetroMessageBox.Show(this, msg, "Termin mit Kunden verknüpfen", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, cRow.Kundennummer, "Kunde");
 				}
 			}
@@ -421,38 +432,51 @@ namespace Products.Common.Views
 		void AddLinkToContact()
 		{
 			var coSv = new ContactSearchView();
-			if ((coSv.ShowDialog() == DialogResult.OK) && (coSv.SelectedContactRow != null))
+			if ((coSv.ShowDialog() == DialogResult.OK) && (coSv.SelectedContact != null))
 			{
-				var row = coSv.SelectedContactRow;
-				var msg = string.Format("Ich verknüpfe den Termin mit dem Kontakt '{0}'", row.Kontaktname);
-				var contactPK = string.Format("{0}{1}", row.Kundennummer, row.Nummer);
-				MessageBox.Show(msg, "Verknüpfen mit Ansprechpartner", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				var contact = ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, contactPK, "Kundenkontakt");
-
-				// Kunden hinzufügen, wenn dieser noch nicht hinzugefügt wurde.
-				var kunde = ModelManager.CustomerService.GetKunde((contact as Kundenkontakt).Kundennummer, true);
-				if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde as ILinkedItem))
+				var contact = coSv.SelectedContact;
+				if (contact != null)
 				{
-					this.AddLinkToCustomer(kunde);
+					var msg = string.Format("Ich verknüpfe den Termin mit '{0}'", contact.Kontaktname);
+					MetroMessageBox.Show(this, msg, "Verknüpfen mit Ansprechpartner", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, contact.Key, contact.LinkTypBezeichnung);
+
+					// Wenn der Kunde noch nicht hinzugefügt wurde, das jetzt direkt miterledigen.
+					var kunde = contact.Kunde;
+					if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde))
+					{
+						this.AddLinkToCustomer(kunde);
+					}
 				}
 			}
 		}
 
 		void AddLinkToCustomerMachine()
 		{
-			var kmsv = new KundenmaschineSearchView2();
+			Kunde kunde = null;
+			foreach (var item in ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment))
+			{
+				if (item is Kunde)
+				{
+					kunde = (Kunde)item;
+				}
+			}
+			var kmsv = new KundenmaschineSearchView2(kunde);
 			if ((kmsv.ShowDialog() == DialogResult.OK) && kmsv.SelectedMachine != null)
 			{
 				var mRow = kmsv.SelectedMachine;
 				var msg = string.Format("Ich verknüpfe den Termin mit Maschine '{0}' von '{1}'", mRow.Maschine, mRow.Firma);
-				MessageBox.Show(msg, "Verknüpfen mit Maschine", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MetroMessageBox.Show(this, msg, "Verknüpfen mit Maschine", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				var machine = ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, mRow.UID, "Kundenmaschine");
 
 				// Den Eigentümer der Maschine hinzufügen, wenn er noch nicht verknüpft wurde.
-				var kunde = ModelManager.CustomerService.GetKunde((machine as Kundenmaschine).Kundennummer, true);
-				if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde as ILinkedItem))
+				if (kunde == null)
 				{
-					this.AddLinkToCustomer(kunde);
+					kunde = ModelManager.CustomerService.GetKunde((machine as Kundenmaschine).Kundennummer, true);
+					if (kunde != null && !ModelManager.AppointmentService.GetLinkedItemsList(this.myAppointment).Contains(kunde as ILinkedItem))
+					{
+						this.AddLinkToCustomer(kunde);
+					}
 				}
 			}
 		}
@@ -460,11 +484,11 @@ namespace Products.Common.Views
 		void AddLinkToSupplier()
 		{
 			var llv = new LieferantenListView();
-			if (llv.ShowDialog() == System.Windows.Forms.DialogResult.OK && llv.SelectedLieferant != null)
+			if (llv.ShowDialog() == DialogResult.OK && llv.SelectedLieferant != null)
 			{
 				var lieferant = llv.SelectedLieferant;
 				var msg = string.Format("Ich verknüpfe den Termin mit Lieferant '{0}'", lieferant.Name1);
-				MessageBox.Show(msg, "Verknüpfen mit Lieferant", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MetroMessageBox.Show(this, msg, "Verknüpfen mit Lieferant", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, lieferant.Lieferantennummer, "Lieferant");
 			}
 		}
@@ -472,11 +496,11 @@ namespace Products.Common.Views
 		void AddLinkToUser()
 		{
 			var usv = new UserSearchView();
-			if (usv.ShowDialog() == System.Windows.Forms.DialogResult.OK && usv.SelectedUser != null)
+			if (usv.ShowDialog() == DialogResult.OK && usv.SelectedUser != null)
 			{
 				var user = usv.SelectedUser;
 				var msg = string.Format("Ich verknüpfe den Termin mit '{0}'.", user.NameFull);
-				MessageBox.Show(msg, "Verknüpfen mit Mitarbeiter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MetroMessageBox.Show(this, msg, "Verknüpfen mit Mitarbeiter", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, user.UID, "Mitarbeiter");
 			}
 		}
@@ -487,14 +511,18 @@ namespace Products.Common.Views
 			ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			ofd.Multiselect = true;
 			ofd.Filter = "Alle Dateien|*.*|CSV-Dateien (*.csv)|*.csv|PDF (*.pdf)|*.pdf|Excel (*.xls*)|*.xls*|Word (*.doc*)|*.doc*|Text (*.txt)|*.txt";
-			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				var files = ofd.FileNames;
+				var counter = 0;
 				foreach (var file in files)
 				{
 					var newFilename = ModelManager.FileLinkService.CopyFileToServerLinkFolder(file);
 					ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, newFilename.FullName, "Datei");
+					counter += 1;
 				}
+				var msg = string.Format("Ich habe {0} Dateien mit diesem Termin verknüpft und auf den Server kopiert.", counter);
+				MetroMessageBox.Show(this, msg, "Termin mit Dateien verknüpfen", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 
@@ -503,7 +531,7 @@ namespace Products.Common.Views
 			if (this.mySelectedLinkedItem != null)
 			{
 				var msg = string.Format("Ich entferne die Verknüpfung mit '{0}'", this.mySelectedLinkedItem.ItemName);
-				if (MessageBox.Show(msg, "Verknüpfung", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
+				if (MetroMessageBox.Show(this, msg, "Verknüpfung", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
 				{
 					ModelManager.AppointmentService.RemoveLinkedItemFromAppointment(this.myAppointment, this.mySelectedLinkedItem);
 				}
@@ -517,7 +545,6 @@ namespace Products.Common.Views
 			csv.ShowDialog();
 		}
 
-		#endregion
-
+		#endregion PRIVATE PROCEDURES
 	}
 }

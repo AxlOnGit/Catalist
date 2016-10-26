@@ -4,21 +4,21 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 using Products.Common.ViewController;
 using Products.Model;
 using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
-	public partial class KalenderView : Form
+	public partial class KalenderView : MetroForm
 	{
-
 		#region members
 
 		CalendarViewController myController;
 		static bool toolTipSet;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -36,7 +36,7 @@ namespace Products.Common.Views
 			this.DateSelector.DateChanged += DateSelector_DateChanged;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -81,8 +81,9 @@ namespace Products.Common.Views
 					this.myController.AddUserCalendar(user as User);
 				}
 				this.mlblActiveUsers.Text = this.myController.ActiveUserNames;
-				
-				// Wenn der Kalender des in den CalendarSettings eingestellte TargetUser nicht angezeigt wird ...
+
+				// Wenn der Kalender des in den CalendarSettings eingestellte TargetUser nicht
+				// angezeigt wird ...
 				var currentUser = ModelManager.UserService.CurrentUser;
 				if (!this.myController.ActiveUsersList.Contains(currentUser.CalendarSettings.TargetUser))
 				{
@@ -98,11 +99,10 @@ namespace Products.Common.Views
 		{
 			var left = this.DayViewMain.Left;
 			var width = this.DayViewMain.Width;
-			var widthButton = (int)Math.Round((decimal)(width - 112) / 2 , 0, MidpointRounding.AwayFromZero);
+			var widthButton = (int)Math.Round((decimal)(width - 112) / 2, 0, MidpointRounding.AwayFromZero);
 
 			this.mbtnBackOneWeek.Left = left;
 			this.mbtnForwardOneWeek.Left = left + 112 + widthButton;
-
 
 			this.mbtnToday.Left = left + widthButton + 6;
 
@@ -214,12 +214,28 @@ namespace Products.Common.Views
 			this.ShowCalendarSettings();
 		}
 
+		void DayViewMain_AppointmentMove(object sender, Calendar.AppointmentEventArgs e)
+		{
+			var termin = e.Appointment as Appointment;
+			if (termin != null && termin.IsDirty)
+			{
+				termin.Update();
+			}
+		}
+
+		void btnRefreshAppointments_Click(object sender, EventArgs e)
+		{
+			this.Cursor = Cursors.WaitCursor;
+			ModelManager.AppointmentService.RefreshAppointmentList();
+			this.Cursor = Cursors.Default;
+		}
+
 		void mcmdClose_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -242,7 +258,7 @@ namespace Products.Common.Views
 			var start = this.DayViewMain.SelectionStart;
 			var end = this.DayViewMain.SelectionEnd;
 			User forUser = ModelManager.UserService.CurrentUser.CalendarSettings.TargetUser;
-			var newAppointment = ModelManager.AppointmentService.AddAppointment(forUser, start, end, "Undefiniert", null);
+			var newAppointment = ModelManager.AppointmentService.AddAppointment(forUser, start, end, "Undefiniert");
 			this.myController.SelectedAppointment = newAppointment;
 
 			// Verknüpfte Elemente zum Termin hinzufügen ...
@@ -262,7 +278,6 @@ namespace Products.Common.Views
 			var cdv = new CalendarDetailView(this.myController.SelectedAppointment);
 			cdv.FormClosed += cdv_FormClosed;
 			cdv.Show();
-
 		}
 
 		void DeleteAppointment()
@@ -301,8 +316,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
-
-
+		#endregion private procedures
 	}
 }

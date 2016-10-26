@@ -42,6 +42,9 @@
 			this.mtoolTip = new MetroFramework.Components.MetroToolTip();
 			this.btnRemoveLink = new System.Windows.Forms.Button();
 			this.dgvDateilinks = new MetroFramework.Controls.MetroGrid();
+			this.colFileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnOpenFileLink = new System.Windows.Forms.Button();
 			this.btnAddFileLink = new System.Windows.Forms.Button();
 			this.mlblDateilinks = new MetroFramework.Controls.MetroLabel();
@@ -50,16 +53,13 @@
 			this.mdtpCreatedAt = new MetroFramework.Controls.MetroDateTime();
 			this.mcmbKontakt = new MetroFramework.Controls.MetroComboBox();
 			this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-			this.colFileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colExtension = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDateilinks)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblErfassung
 			// 
 			this.lblErfassung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.lblErfassung.FontSize = MetroFramework.MetroLabelSize.Small;
 			this.lblErfassung.Location = new System.Drawing.Point(184, 546);
 			this.lblErfassung.Name = "lblErfassung";
@@ -80,8 +80,8 @@
 			// txtNotiztext
 			// 
 			this.txtNotiztext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -107,11 +107,12 @@
 			this.txtNotiztext.SelectedText = "";
 			this.txtNotiztext.SelectionLength = 0;
 			this.txtNotiztext.SelectionStart = 0;
+			this.txtNotiztext.ShortcutsEnabled = true;
 			this.txtNotiztext.Size = new System.Drawing.Size(726, 362);
 			this.txtNotiztext.TabIndex = 2;
 			this.txtNotiztext.UseSelectable = true;
 			this.txtNotiztext.WaterMark = "Notizentext";
-			this.txtNotiztext.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtNotiztext.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtNotiztext.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mbtnClose
@@ -131,7 +132,7 @@
 			// mtxtThema
 			// 
 			this.mtxtThema.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -155,11 +156,12 @@
 			this.mtxtThema.SelectedText = "";
 			this.mtxtThema.SelectionLength = 0;
 			this.mtxtThema.SelectionStart = 0;
+			this.mtxtThema.ShortcutsEnabled = true;
 			this.mtxtThema.Size = new System.Drawing.Size(684, 23);
 			this.mtxtThema.TabIndex = 1;
 			this.mtxtThema.UseSelectable = true;
 			this.mtxtThema.WaterMark = "Worum geht\'s?";
-			this.mtxtThema.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtThema.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtThema.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// btnDelegiereMich
@@ -216,7 +218,7 @@
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvDateilinks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvDateilinks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvDateilinks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvDateilinks.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvDateilinks.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -231,9 +233,9 @@
 			this.dgvDateilinks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvDateilinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvDateilinks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colFileTitle,
-            this.colDescription,
-            this.colExtension});
+						this.colFileTitle,
+						this.colDescription,
+						this.colExtension});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -268,6 +270,30 @@
 			this.mtoolTip.SetToolTip(this.dgvDateilinks, "Liste der mit dieser Notiz verknüpften Dateien");
 			this.dgvDateilinks.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDateilinks_RowEnter);
 			this.dgvDateilinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDateilinks_MouseDoubleClick);
+			// 
+			// colFileTitle
+			// 
+			this.colFileTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colFileTitle.DataPropertyName = "FileTitle";
+			this.colFileTitle.FillWeight = 30F;
+			this.colFileTitle.HeaderText = "Dateititel";
+			this.colFileTitle.Name = "colFileTitle";
+			// 
+			// colDescription
+			// 
+			this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colDescription.DataPropertyName = "Description";
+			this.colDescription.FillWeight = 60F;
+			this.colDescription.HeaderText = "Beschreibung";
+			this.colDescription.Name = "colDescription";
+			// 
+			// colExtension
+			// 
+			this.colExtension.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colExtension.DataPropertyName = "Extension";
+			this.colExtension.FillWeight = 10F;
+			this.colExtension.HeaderText = "Typ";
+			this.colExtension.Name = "colExtension";
 			// 
 			// btnOpenFileLink
 			// 
@@ -367,30 +393,6 @@
 			this.metroLabel2.TabIndex = 140;
 			this.metroLabel2.Text = "Kontakt:";
 			// 
-			// colFileTitle
-			// 
-			this.colFileTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colFileTitle.DataPropertyName = "FileTitle";
-			this.colFileTitle.FillWeight = 30F;
-			this.colFileTitle.HeaderText = "Dateititel";
-			this.colFileTitle.Name = "colFileTitle";
-			// 
-			// colDescription
-			// 
-			this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colDescription.DataPropertyName = "Description";
-			this.colDescription.FillWeight = 60F;
-			this.colDescription.HeaderText = "Beschreibung";
-			this.colDescription.Name = "colDescription";
-			// 
-			// colExtension
-			// 
-			this.colExtension.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colExtension.DataPropertyName = "Extension";
-			this.colExtension.FillWeight = 10F;
-			this.colExtension.HeaderText = "Typ";
-			this.colExtension.Name = "colExtension";
-			// 
 			// NotizView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,7 +417,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "NotizView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.SystemShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Orange;
 			this.Text = "Thema der Notiz";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotizView_FormClosing);

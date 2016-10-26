@@ -45,6 +45,7 @@
 			this.mbtnToday = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.mbtnForwardOneWeek = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.mbtnBackOneWeek = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
+			this.btnRefreshAppointments = new System.Windows.Forms.Button();
 			this.htipHtml = new MetroFramework.Drawing.Html.HtmlToolTip();
 			this.mcmdClose = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.metroTextButton1 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
@@ -72,7 +73,7 @@
 			this.DayViewMain.Name = "DayViewMain";
 			this.DayViewMain.SelectionEnd = new System.DateTime(((long)(0)));
 			this.DayViewMain.SelectionStart = new System.DateTime(((long)(0)));
-			this.DayViewMain.Size = new System.Drawing.Size(1139, 700);
+			this.DayViewMain.Size = new System.Drawing.Size(1139, 702);
 			this.DayViewMain.StartDate = new System.DateTime(2016, 3, 14, 0, 0, 0, 0);
 			this.DayViewMain.StartHour = 7;
 			this.DayViewMain.TabIndex = 0;
@@ -81,10 +82,12 @@
 			this.DayViewMain.WorkingMinuteEnd = 0;
 			this.DayViewMain.WorkingMinuteStart = 0;
 			this.DayViewMain.SelectionChanged += new System.EventHandler(this.DayViewMain_SelectionChanged);
+			this.DayViewMain.AppointmentMove += new System.EventHandler<Calendar.AppointmentEventArgs>(this.DayViewMain_AppointmentMove);
 			this.DayViewMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DayViewMain_MouseDoubleClick);
 			// 
 			// mctxCalendar
 			// 
+			this.mctxCalendar.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.mctxCalendar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xcmdShowAppointment,
             this.xcmdNewAppointment,
@@ -92,14 +95,14 @@
             this.toolStripMenuItem1,
             this.xcmdCalendarSettings});
 			this.mctxCalendar.Name = "mctxCalendar";
-			this.mctxCalendar.Size = new System.Drawing.Size(156, 98);
+			this.mctxCalendar.Size = new System.Drawing.Size(164, 130);
 			this.mctxCalendar.Opening += new System.ComponentModel.CancelEventHandler(this.mctxCalendar_Opening);
 			// 
 			// xcmdShowAppointment
 			// 
 			this.xcmdShowAppointment.Image = global::Products.Common.Properties.Resources.open_16_metroorange;
 			this.xcmdShowAppointment.Name = "xcmdShowAppointment";
-			this.xcmdShowAppointment.Size = new System.Drawing.Size(155, 22);
+			this.xcmdShowAppointment.Size = new System.Drawing.Size(163, 30);
 			this.xcmdShowAppointment.Text = "Öffnen";
 			this.xcmdShowAppointment.Click += new System.EventHandler(this.xcmdShowAppointment_Click);
 			// 
@@ -107,7 +110,7 @@
 			// 
 			this.xcmdNewAppointment.Image = global::Products.Common.Properties.Resources.add_16_metroorange;
 			this.xcmdNewAppointment.Name = "xcmdNewAppointment";
-			this.xcmdNewAppointment.Size = new System.Drawing.Size(155, 22);
+			this.xcmdNewAppointment.Size = new System.Drawing.Size(163, 30);
 			this.xcmdNewAppointment.Text = "Neuer Termin";
 			this.xcmdNewAppointment.Click += new System.EventHandler(this.xcmdNewAppointment_Click);
 			// 
@@ -115,26 +118,26 @@
 			// 
 			this.xcmdDeleteAppointment.Image = global::Products.Common.Properties.Resources.delete_16_metroorange;
 			this.xcmdDeleteAppointment.Name = "xcmdDeleteAppointment";
-			this.xcmdDeleteAppointment.Size = new System.Drawing.Size(155, 22);
+			this.xcmdDeleteAppointment.Size = new System.Drawing.Size(163, 30);
 			this.xcmdDeleteAppointment.Text = "Termin löschen";
 			this.xcmdDeleteAppointment.Click += new System.EventHandler(this.xcmdDeleteAppointment_Click);
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 6);
 			// 
 			// xcmdCalendarSettings
 			// 
 			this.xcmdCalendarSettings.Image = global::Products.Common.Properties.Resources.settings_a_16_metroorange;
 			this.xcmdCalendarSettings.Name = "xcmdCalendarSettings";
-			this.xcmdCalendarSettings.Size = new System.Drawing.Size(155, 22);
+			this.xcmdCalendarSettings.Size = new System.Drawing.Size(163, 30);
 			this.xcmdCalendarSettings.Text = "Einstellungen";
 			this.xcmdCalendarSettings.Click += new System.EventHandler(this.xcmdCalendarSettings_Click);
 			// 
 			// DateSelector
 			// 
-			this.DateSelector.CalendarDimensions = new System.Drawing.Size(1, 5);
+			this.DateSelector.CalendarDimensions = new System.Drawing.Size(1, 3);
 			this.DateSelector.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
 			this.DateSelector.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.DateSelector.Location = new System.Drawing.Point(34, 120);
@@ -151,7 +154,7 @@
 			// mlblActiveUsers
 			// 
 			this.mlblActiveUsers.AutoSize = true;
-			this.mlblActiveUsers.Location = new System.Drawing.Point(367, 83);
+			this.mlblActiveUsers.Location = new System.Drawing.Point(416, 83);
 			this.mlblActiveUsers.Name = "mlblActiveUsers";
 			this.mlblActiveUsers.Size = new System.Drawing.Size(111, 19);
 			this.mlblActiveUsers.TabIndex = 2;
@@ -222,6 +225,22 @@
 			this.mbtnBackOneWeek.UseVisualStyleBackColor = true;
 			this.mbtnBackOneWeek.Click += new System.EventHandler(this.mbtnBackOneWeek_Click);
 			// 
+			// btnRefreshAppointments
+			// 
+			this.btnRefreshAppointments.BackColor = System.Drawing.Color.Transparent;
+			this.btnRefreshAppointments.BackgroundImage = global::Products.Common.Properties.Resources.refresh_32_metroorange;
+			this.btnRefreshAppointments.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.btnRefreshAppointments.FlatAppearance.BorderSize = 0;
+			this.btnRefreshAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnRefreshAppointments.Location = new System.Drawing.Point(224, 72);
+			this.btnRefreshAppointments.Margin = new System.Windows.Forms.Padding(3, 10, 10, 10);
+			this.btnRefreshAppointments.Name = "btnRefreshAppointments";
+			this.btnRefreshAppointments.Size = new System.Drawing.Size(36, 36);
+			this.btnRefreshAppointments.TabIndex = 15;
+			this.tipAppointmentInfo.SetToolTip(this.btnRefreshAppointments, "David-Termine neu einlesen ...");
+			this.btnRefreshAppointments.UseVisualStyleBackColor = false;
+			this.btnRefreshAppointments.Click += new System.EventHandler(this.btnRefreshAppointments_Click);
+			// 
 			// htipHtml
 			// 
 			this.htipHtml.OwnerDraw = true;
@@ -230,7 +249,7 @@
 			// 
 			this.mcmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mcmdClose.Image = null;
-			this.mcmdClose.Location = new System.Drawing.Point(1272, 871);
+			this.mcmdClose.Location = new System.Drawing.Point(1272, 873);
 			this.mcmdClose.Name = "mcmdClose";
 			this.mcmdClose.Size = new System.Drawing.Size(100, 26);
 			this.mcmdClose.Style = MetroFramework.MetroColorStyle.Orange;
@@ -243,7 +262,8 @@
 			// metroTextButton1
 			// 
 			this.metroTextButton1.Image = null;
-			this.metroTextButton1.Location = new System.Drawing.Point(224, 76);
+			this.metroTextButton1.Location = new System.Drawing.Point(273, 77);
+			this.metroTextButton1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.metroTextButton1.Name = "metroTextButton1";
 			this.metroTextButton1.Size = new System.Drawing.Size(137, 26);
 			this.metroTextButton1.Style = MetroFramework.MetroColorStyle.Orange;
@@ -258,9 +278,9 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(1395, 920);
+			this.ClientSize = new System.Drawing.Size(1395, 911);
 			this.ContextMenuStrip = this.mctxCalendar;
+			this.Controls.Add(this.btnRefreshAppointments);
 			this.Controls.Add(this.metroTextButton1);
 			this.Controls.Add(this.mbtnSettings);
 			this.Controls.Add(this.mcmdClose);
@@ -272,7 +292,8 @@
 			this.Controls.Add(this.DayViewMain);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "KalenderView";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+			this.Style = MetroFramework.MetroColorStyle.Orange;
 			this.Text = "Kalender";
 			this.SizeChanged += new System.EventHandler(this.KalenderView_SizeChanged);
 			this.mctxCalendar.ResumeLayout(false);
@@ -300,5 +321,6 @@
 		private MetroFramework.Controls.MetroButton mbtnSettings;
 		private System.Windows.Forms.ToolStripMenuItem xcmdDeleteAppointment;
 		private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton1;
+		private System.Windows.Forms.Button btnRefreshAppointments;
 	}
 }

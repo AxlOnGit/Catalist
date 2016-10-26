@@ -12,7 +12,7 @@ namespace Products.Data.Services
 
 		#region members
 
-		private string myCurrentUserPK = null;
+		string myCurrentUserPK;
 
 		readonly dsSales myDS = new dsSales();
 		readonly taSales mySalesAdapter = new taSales();
@@ -20,6 +20,9 @@ namespace Products.Data.Services
 		readonly taVersandkostenstaffel myVersandkostenAdapter = new taVersandkostenstaffel();
 		readonly taSalesStats mySalesStatsAdapter = new taSalesStats();
 		readonly taQueries myQueriesAdapter = new taQueries();
+		taAngebotSage myAngebotSageAdapter;
+		taAngebotSagePosition myAngebotSagePositionAdapter;
+		taSystemMemo mySystemMemoAdapter;
 
 		readonly Dictionary<string, dsSales.SalesStatsDataTable> mySalesStatsDictionary = new Dictionary<string, dsSales.SalesStatsDataTable>();
 
@@ -96,6 +99,85 @@ namespace Products.Data.Services
 			}
 			return this.mySalesStatsDictionary[customerPK];
 		}
+
+		#region SAGE-ANGEBOTE
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Sage-Angeboten im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsSales.AngebotSageDataTable GetAngebotSageTable()
+		{
+			if (this.myAngebotSageAdapter == null)
+			{
+				this.myDS.EnforceConstraints = false;
+				this.myAngebotSageAdapter = new taAngebotSage();
+				this.myAngebotSageAdapter.Fill(this.myDS.AngebotSage);
+			}
+			return this.myDS.AngebotSage;
+		}
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Sage-Angebotspositionen im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		internal dsSales.AngebotSagePositionDataTable GetAngebotSagePositionTable()
+		{
+			if (this.myAngebotSagePositionAdapter == null)
+			{
+				this.myAngebotSagePositionAdapter = new taAngebotSagePosition();
+				this.myAngebotSagePositionAdapter.Fill(this.myDS.AngebotSagePosition);
+			}
+			return this.myDS.AngebotSagePosition;
+		}
+
+		/// <summary>
+		/// Gibt die Tabelle mit den Systemmemos zurück.
+		/// </summary>
+		/// <returns></returns>
+		internal dsSales.SystemMemoDataTable GetSystemMemoTable()
+		{
+			if (this.mySystemMemoAdapter == null)
+			{
+				this.mySystemMemoAdapter = new taSystemMemo();
+				this.mySystemMemoAdapter.Fill(this.myDS.SystemMemo);
+			}
+			return this.myDS.SystemMemo;
+		}
+
+		/// <summary>
+		/// Gibt die SystemMemoRow mit der angegebenen ID zurück.
+		/// </summary>
+		/// <param name="forID"></param>
+		/// <returns></returns>
+		public dsSales.SystemMemoRow GetSystemMemoRow(int forID)
+		{
+			return this.GetSystemMemoTable().FirstOrDefault(s => s.ID == forID);
+		}
+
+		/// <summary>
+		/// Gibt alle Angebote für den angegebenen Kunden zurück.
+		/// </summary>
+		/// <param name="kundePK">Kundennummer des Kunden, dessen Angebote gesucht werden.</param>
+		/// <returns></returns>
+		public IEnumerable<dsSales.AngebotSageRow> GetAngebotSageRows(string kundePK)
+		{
+			return this.GetAngebotSageTable().Where(a => a.Kundennummer == kundePK);
+		}
+
+		/// <summary>
+		/// Gibt alle Positionen für das angegebene Angebot zurück.
+		/// </summary>
+		/// <param name="angebotPK"></param>
+		/// <returns></returns>
+		public IEnumerable<dsSales.AngebotSagePositionRow> GetAngebotSagePositionRows(string angebotPK)
+		{
+			return this.GetAngebotSagePositionTable().Where(p => p.VorgangsnummerTemporaer == angebotPK);
+		}
+
+		
+
+		#endregion
 
 		#region QUERIES
 

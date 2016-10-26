@@ -4,11 +4,10 @@ namespace Products.Common
 {
 	public static class SequentialGuid
 	{
-
 		#region API
 
 		[System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
-		private struct GUIDDATA
+		struct GUIDDATA
 		{
 			public int Data1;
 			public short Data2;
@@ -21,32 +20,28 @@ namespace Products.Common
 		[System.Runtime.InteropServices.DllImport("rpcrt4.dll")]
 		static extern int UuidCreateSequential(out GUIDDATA Uuid);
 
-		#endregion
+		#endregion API
 
 		//---------------------------------------------------------------------
 		/// <summary>
 		/// Erstellt eine GUID
 		/// </summary>
-		/// <returns>
-		/// GUID
-		/// </returns>
+		/// <returns>GUID</returns>
 		public static Guid NewID()
 		{
 			return Guid.NewGuid();
 		}
+
 		//---------------------------------------------------------------------
 		/// <summary>
-		/// Erstellt eine GUID die größer ist als alle bisher auf dieser 
-		/// Maschine erstellten GUIDs
+		/// Erstellt eine GUID die größer ist als alle bisher auf dieser Maschine erstellten GUIDs
 		/// </summary>
-		/// <returns>
-		/// GUID
-		/// </returns>
+		/// <returns>GUID</returns>
 		public static Guid NewSequentialGuid()
 		{
 			GUIDDATA guiddata;
 
-			if ((UuidCreateSequential(out guiddata) & 0x80000000) != 0) // FAILED(hr)  
+			if ((UuidCreateSequential(out guiddata) & 0x80000000) != 0) // FAILED(hr)
 				throw new InvalidOperationException();
 
 			return new System.Guid(
@@ -55,7 +50,5 @@ namespace Products.Common
 				guiddata.Data3,
 				guiddata.Data4);
 		}
-
 	}
-
 }

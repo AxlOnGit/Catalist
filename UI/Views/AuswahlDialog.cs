@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
 
@@ -50,7 +51,8 @@ namespace Products.Common.Views
 		{
 			var button = sender as MetroFramework.Controls.MetroButton;
 			this.selectedOption = (int)(button).Tag;
-			button.DialogResult = System.Windows.Forms.DialogResult.OK;
+			//button.DialogResult = DialogResult.OK;
+			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
 

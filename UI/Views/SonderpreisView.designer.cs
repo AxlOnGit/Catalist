@@ -120,11 +120,12 @@
 			this.txtDiscountPercent.SelectedText = "";
 			this.txtDiscountPercent.SelectionLength = 0;
 			this.txtDiscountPercent.SelectionStart = 0;
+			this.txtDiscountPercent.ShortcutsEnabled = true;
 			this.txtDiscountPercent.Size = new System.Drawing.Size(93, 23);
 			this.txtDiscountPercent.TabIndex = 1;
 			this.txtDiscountPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtDiscountPercent.UseSelectable = true;
-			this.txtDiscountPercent.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtDiscountPercent.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtDiscountPercent.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// lblHeading
@@ -196,11 +197,12 @@
 			this.txtNewPrice.SelectedText = "";
 			this.txtNewPrice.SelectionLength = 0;
 			this.txtNewPrice.SelectionStart = 0;
+			this.txtNewPrice.ShortcutsEnabled = true;
 			this.txtNewPrice.Size = new System.Drawing.Size(93, 22);
 			this.txtNewPrice.TabIndex = 0;
 			this.txtNewPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtNewPrice.UseSelectable = true;
-			this.txtNewPrice.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtNewPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtNewPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label4
@@ -250,12 +252,13 @@
 			this.txtMenge1.SelectedText = "";
 			this.txtMenge1.SelectionLength = 0;
 			this.txtMenge1.SelectionStart = 0;
+			this.txtMenge1.ShortcutsEnabled = true;
 			this.txtMenge1.Size = new System.Drawing.Size(93, 22);
 			this.txtMenge1.TabIndex = 2;
 			this.txtMenge1.Text = "0";
 			this.txtMenge1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtMenge1.UseSelectable = true;
-			this.txtMenge1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtMenge1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtMenge1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label6
@@ -293,12 +296,13 @@
 			this.txtRabatt1.SelectedText = "";
 			this.txtRabatt1.SelectionLength = 0;
 			this.txtRabatt1.SelectionStart = 0;
+			this.txtRabatt1.ShortcutsEnabled = true;
 			this.txtRabatt1.Size = new System.Drawing.Size(82, 23);
 			this.txtRabatt1.TabIndex = 4;
 			this.txtRabatt1.Text = "0";
 			this.txtRabatt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabatt1.UseSelectable = true;
-			this.txtRabatt1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabatt1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabatt1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label7
@@ -336,12 +340,13 @@
 			this.txtRabatt2.SelectedText = "";
 			this.txtRabatt2.SelectionLength = 0;
 			this.txtRabatt2.SelectionStart = 0;
+			this.txtRabatt2.ShortcutsEnabled = true;
 			this.txtRabatt2.Size = new System.Drawing.Size(82, 23);
 			this.txtRabatt2.TabIndex = 9;
 			this.txtRabatt2.Text = "0";
 			this.txtRabatt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabatt2.UseSelectable = true;
-			this.txtRabatt2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabatt2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabatt2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// txtMenge2
@@ -369,12 +374,13 @@
 			this.txtMenge2.SelectedText = "";
 			this.txtMenge2.SelectionLength = 0;
 			this.txtMenge2.SelectionStart = 0;
+			this.txtMenge2.ShortcutsEnabled = true;
 			this.txtMenge2.Size = new System.Drawing.Size(93, 22);
 			this.txtMenge2.TabIndex = 7;
 			this.txtMenge2.Text = "0";
 			this.txtMenge2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtMenge2.UseSelectable = true;
-			this.txtMenge2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtMenge2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtMenge2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label8
@@ -434,12 +440,13 @@
 			this.txtRabatt3.SelectedText = "";
 			this.txtRabatt3.SelectionLength = 0;
 			this.txtRabatt3.SelectionStart = 0;
+			this.txtRabatt3.ShortcutsEnabled = true;
 			this.txtRabatt3.Size = new System.Drawing.Size(82, 23);
 			this.txtRabatt3.TabIndex = 12;
 			this.txtRabatt3.Text = "0";
 			this.txtRabatt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabatt3.UseSelectable = true;
-			this.txtRabatt3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabatt3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabatt3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// txtMenge3
@@ -467,12 +474,13 @@
 			this.txtMenge3.SelectedText = "";
 			this.txtMenge3.SelectionLength = 0;
 			this.txtMenge3.SelectionStart = 0;
+			this.txtMenge3.ShortcutsEnabled = true;
 			this.txtMenge3.Size = new System.Drawing.Size(93, 22);
 			this.txtMenge3.TabIndex = 10;
 			this.txtMenge3.Text = "0";
 			this.txtMenge3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtMenge3.UseSelectable = true;
-			this.txtMenge3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtMenge3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtMenge3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label11
@@ -532,12 +540,13 @@
 			this.txtRabatt4.SelectedText = "";
 			this.txtRabatt4.SelectionLength = 0;
 			this.txtRabatt4.SelectionStart = 0;
+			this.txtRabatt4.ShortcutsEnabled = true;
 			this.txtRabatt4.Size = new System.Drawing.Size(82, 23);
 			this.txtRabatt4.TabIndex = 15;
 			this.txtRabatt4.Text = "0";
 			this.txtRabatt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabatt4.UseSelectable = true;
-			this.txtRabatt4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabatt4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabatt4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// txtMenge4
@@ -565,12 +574,13 @@
 			this.txtMenge4.SelectedText = "";
 			this.txtMenge4.SelectionLength = 0;
 			this.txtMenge4.SelectionStart = 0;
+			this.txtMenge4.ShortcutsEnabled = true;
 			this.txtMenge4.Size = new System.Drawing.Size(93, 22);
 			this.txtMenge4.TabIndex = 13;
 			this.txtMenge4.Text = "0";
 			this.txtMenge4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtMenge4.UseSelectable = true;
-			this.txtMenge4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtMenge4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtMenge4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label14
@@ -652,12 +662,13 @@
 			this.txtRabattPreis1.SelectedText = "";
 			this.txtRabattPreis1.SelectionLength = 0;
 			this.txtRabattPreis1.SelectionStart = 0;
+			this.txtRabattPreis1.ShortcutsEnabled = true;
 			this.txtRabattPreis1.Size = new System.Drawing.Size(67, 23);
 			this.txtRabattPreis1.TabIndex = 3;
 			this.txtRabattPreis1.Text = "0";
 			this.txtRabattPreis1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabattPreis1.UseSelectable = true;
-			this.txtRabattPreis1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabattPreis1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabattPreis1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel1
@@ -696,12 +707,13 @@
 			this.txtRabattPreis2.SelectedText = "";
 			this.txtRabattPreis2.SelectionLength = 0;
 			this.txtRabattPreis2.SelectionStart = 0;
+			this.txtRabattPreis2.ShortcutsEnabled = true;
 			this.txtRabattPreis2.Size = new System.Drawing.Size(67, 23);
 			this.txtRabattPreis2.TabIndex = 8;
 			this.txtRabattPreis2.Text = "0";
 			this.txtRabattPreis2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabattPreis2.UseSelectable = true;
-			this.txtRabattPreis2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabattPreis2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabattPreis2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel2
@@ -740,12 +752,13 @@
 			this.txtRabattPreis3.SelectedText = "";
 			this.txtRabattPreis3.SelectionLength = 0;
 			this.txtRabattPreis3.SelectionStart = 0;
+			this.txtRabattPreis3.ShortcutsEnabled = true;
 			this.txtRabattPreis3.Size = new System.Drawing.Size(67, 23);
 			this.txtRabattPreis3.TabIndex = 11;
 			this.txtRabattPreis3.Text = "0";
 			this.txtRabattPreis3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabattPreis3.UseSelectable = true;
-			this.txtRabattPreis3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabattPreis3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabattPreis3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel3
@@ -784,12 +797,13 @@
 			this.txtRabattPreis4.SelectedText = "";
 			this.txtRabattPreis4.SelectionLength = 0;
 			this.txtRabattPreis4.SelectionStart = 0;
+			this.txtRabattPreis4.ShortcutsEnabled = true;
 			this.txtRabattPreis4.Size = new System.Drawing.Size(67, 23);
 			this.txtRabattPreis4.TabIndex = 14;
 			this.txtRabattPreis4.Text = "0";
 			this.txtRabattPreis4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtRabattPreis4.UseSelectable = true;
-			this.txtRabattPreis4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtRabattPreis4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtRabattPreis4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel4
@@ -915,7 +929,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "SonderpreisView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "Sonderpreis";

@@ -1111,7 +1111,7 @@ namespace Products.Data.Datasets {
                 this.columnProductId.AllowDBNull = false;
                 this.columnProductId.MaxLength = 20;
                 this.columnProductName.AllowDBNull = false;
-                this.columnProductName.MaxLength = 40;
+                this.columnProductName.MaxLength = 50;
                 this.columnUnit.AllowDBNull = false;
                 this.columnUnit.MaxLength = 4;
                 this.columnQuantitiy.AllowDBNull = false;
@@ -3061,21 +3061,21 @@ WHERE        (a.CustomerId = @CustomerPK)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(dsOffers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taOfferDetail != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.OfferDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._taOfferDetail.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._taOffer != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Offer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._taOffer.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._taOfferDetail != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.OfferDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taOfferDetail.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3089,19 +3089,19 @@ WHERE        (a.CustomerId = @CustomerPK)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(dsOffers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taOfferDetail != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.OfferDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._taOfferDetail.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._taOffer != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Offer.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._taOffer.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._taOfferDetail != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.OfferDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taOfferDetail.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3115,19 +3115,19 @@ WHERE        (a.CustomerId = @CustomerPK)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsOffers dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._taOffer != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Offer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._taOffer.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._taOfferDetail != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.OfferDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._taOfferDetail.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taOffer != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Offer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taOffer.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Device.Location;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Products.Common;
+using Products.Common.Collections;
 using Products.Common.Extensions;
+using Products.Common.Geocoding;
 using Products.Common.Interfaces;
 using Products.Data;
-using Products.Model.Services;
 using Products.Data.Datasets;
-using Products.Common.Collections;
 
 namespace Products.Model.Entities
 {
 	public class Kunde : ILinkedItem
 	{
-
 		#region members
 
 		dsCustomer.CustomerRow myBase;
 		dsCustomer.KundeRow myKundeRow;
 		SBList<Tour> myTourList;
 		Kundenkontakt myHauptKontakt;
+		Kunde myReferenzkunde;
 		readonly string newLine = Environment.NewLine;
 		readonly DateTime today = DateTime.Today;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -59,11 +59,19 @@ namespace Products.Model.Entities
 			get { return "Kunde"; }
 		}
 
-		#endregion
+		#endregion ILinkedItem
 
 		#region skalare
 
 		#region Basics
+
+		/// <summary>
+		/// Gibt True zurück, wenn der Kunde inaktiv ist.
+		/// </summary>
+		public bool Inactive
+		{
+			get { return this.myBase.Statuskennzeichen.ToLower() == "ja"; }
+		}
 
 		/// <summary>
 		/// Returns the CustomerRow on which this customer is based on.
@@ -93,7 +101,14 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den Matchcode dieses Kunden zurück.
 		/// </summary>
-		public string Matchcode { get { return myBase.Kurzbezeichnung; } }
+		public string Matchcode
+		{
+			get
+			{
+				if (this.CustomerId.Equals("1000000000", StringComparison.CurrentCultureIgnoreCase)) return "CPM";
+				return myBase.Kurzbezeichnung;
+			}
+		}
 
 		/// <summary>
 		/// Returns the company's street.
@@ -113,16 +128,16 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Telefonnummer des Hauptkontakts zurück.
 		/// </summary>
-		public string Telefon 
-		{ 
-			get 
+		public string Telefon
+		{
+			get
 			{
 				if (this.Hauptkontakt != null)
 				{
 					return this.Hauptkontakt.Telefon;
 				}
-				return string.Empty; 
-			} 
+				return string.Empty;
+			}
 		}
 
 		/// <summary>
@@ -172,8 +187,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Returns a flag indicating whether the customer is marked
-		/// for a dunning letter or already has received one.
+		/// Returns a flag indicating whether the customer is marked for a dunning letter or already
+		/// has received one.
 		/// </summary>
 		public bool DunningFlag { get { return myBase.Sperrvermerk1 == "1"; } }
 
@@ -193,8 +208,8 @@ namespace Products.Model.Entities
 		public short ZahlungenTageNetto { get { return myBase.Zahlungskond_1_TageNetto; } }
 
 		/// <summary>
-		/// Gibt das Zahlungsziel in Tagen an, bis zu dem vom Rechnungsbetrag Skonto gezogen werden darf.
-		/// Der Skontosatz ergibt sich aus ZahlungenProzent.
+		/// Gibt das Zahlungsziel in Tagen an, bis zu dem vom Rechnungsbetrag Skonto gezogen werden
+		/// darf. Der Skontosatz ergibt sich aus ZahlungenProzent.
 		/// </summary>
 		public short ZahlungenTageSkonto { get { return myBase.Zahlungskond_1_TageSkonto1; } }
 
@@ -218,7 +233,7 @@ namespace Products.Model.Entities
 		/// Kurzform der Zahlungsbedingungen.
 		/// </summary>
 		/// <returns></returns>
-		private string PaymentTermsShort()
+		string PaymentTermsShort()
 		{
 			return string.Format("{0} Tage netto, {1} Tage {2:N0}% Skonto", this.ZahlungenTageNetto, this.ZahlungenTageSkonto, this.ZahlungenProzent);
 		}
@@ -231,7 +246,7 @@ namespace Products.Model.Entities
 			get
 			{
 				return 0;
-				//return this.Kundenmaschinenliste.Count; 
+				//return this.Kundenmaschinenliste.Count;
 			}
 		}
 
@@ -243,7 +258,7 @@ namespace Products.Model.Entities
 			get
 			{
 				return 0;
-				//return this.Auftragsliste.Count(a => a.Vorgang == "A"); 
+				//return this.Auftragsliste.Count(a => a.Vorgang == "A");
 			}
 		}
 
@@ -264,10 +279,10 @@ namespace Products.Model.Entities
 		/// </summary>
 		public int AnzahlAngebote
 		{
-			get 
+			get
 			{
 				return 0;
-				//return this.Angebotsliste.Count; 
+				//return this.Angebotsliste.Count;
 			}
 		}
 
@@ -276,10 +291,10 @@ namespace Products.Model.Entities
 		/// </summary>
 		public int AnzahlKontakte
 		{
-			get 			
+			get
 			{
 				return 0;
-				//return this.Kontaktlist.Count; 
+				//return this.Kontaktlist.Count;
 			}
 		}
 
@@ -300,7 +315,7 @@ namespace Products.Model.Entities
 			get
 			{
 				return 0;
-				//return this.Softwareliste.Count; 
+				//return this.Softwareliste.Count;
 			}
 		}
 
@@ -376,13 +391,13 @@ namespace Products.Model.Entities
 		/// </summary>
 		public DateTime? NaechsterBesuchstermin
 		{
-			get 
+			get
 			{
 				if (this.KundenRow.IsNaechsterBesuchsterminNull())
 				{
 					return null;
 				}
-				return this.KundenRow.NaechsterBesuchstermin; 
+				return this.KundenRow.NaechsterBesuchstermin;
 			}
 			set
 			{
@@ -394,7 +409,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion Basics
 
 		#region Umsätze
 
@@ -485,9 +500,9 @@ namespace Products.Model.Entities
 			return liste.Median();
 		}
 
-		#endregion
+		#endregion Umsatzstatistiken
 
-		#endregion
+		#endregion Umsätze
 
 		#region cpm_kunde
 
@@ -514,10 +529,10 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die normalerweise veranschlagte Besuchszeit bei diesem Kunden zurück.
 		/// </summary>
-		public int Besuchszeit 
-		{ 
-			get { return this.KundenRow.Besuchszeit; } 
-			set { this.KundenRow.Besuchszeit = value; } 
+		public int Besuchszeit
+		{
+			get { return this.KundenRow.Besuchszeit; }
+			set { this.KundenRow.Besuchszeit = value; }
 		}
 
 		/// <summary>
@@ -525,8 +540,8 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool MitAnmeldungFlag
 		{
-			get{return (this.KundenRow.MitAnmeldungFlag == 1); }
-			set{  this.KundenRow.MitAnmeldungFlag = (value == true) ? 1 : 0; }
+			get { return (this.KundenRow.MitAnmeldungFlag == 1); }
+			set { this.KundenRow.MitAnmeldungFlag = (value == true) ? 1 : 0; }
 		}
 
 		/// <summary>
@@ -589,7 +604,7 @@ namespace Products.Model.Entities
 		public string Wettbewerber
 		{
 			get { return this.KundenRow.Wettbewerber; }
-			set { this.KundenRow.Wettbewerber = value;	}
+			set { this.KundenRow.Wettbewerber = value; }
 		}
 
 		/// <summary>
@@ -601,9 +616,67 @@ namespace Products.Model.Entities
 			set { this.KundenRow.AktuellerHinweis = value; }
 		}
 
-		#endregion
+		#endregion cpm_kunde
 
-		#endregion
+		#region Geo-Koordinaten
+
+		/// <summary>
+		/// Gibt den Kunden zurück, zu dem die Entfernung gemessen wird, die von der Eigenschaft
+		/// 'EntfernungZuReferenzkunde' zurückgegeben wird.
+		/// </summary>
+		public Kunde Referenzkunde
+		{
+			get
+			{
+				return this.myReferenzkunde;
+			}
+			set
+			{
+				if (!this.myReferenzkunde.Equals(value))
+				{
+					this.myReferenzkunde = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gibt Längen- und Breitengrad der Kundenadresse zurück.
+		/// </summary>
+		public GeoCoordinate Adresskoordinaten
+		{
+			get
+			{
+				GeoCoordinate result = null;
+				if (!this.KundenRow.IsLatitudeNull() && !this.KundenRow.IsLongitudeNull())
+				{
+					result = new GeoCoordinate(this.myKundeRow.Latitude, this.myKundeRow.Longitude);
+				}
+				return result;
+			}
+		}
+
+		/// <summary>
+		/// Gibt die Entfernung in Kilometern zwischen der Adresse dieses Kunden und dem in der
+		/// Eigenschaft 'Referenzkunde' gespeicherten Kunden zurück.
+		/// </summary>
+		public double EntfernungZuReferenzkunde
+		{
+			get
+			{
+				if (this.myReferenzkunde == null) this.myReferenzkunde = ModelManager.CustomerService.GetKunde("1000000000", false);
+				if (this.Referenzkunde.Adresskoordinaten == null) ModelManager.CustomerService.GetAdresskoordinaten(this.Referenzkunde);
+				if (this.Adresskoordinaten != null)
+				{
+					var luftlinie = GeoData.GetDistance(this.Adresskoordinaten.Latitude, this.Adresskoordinaten.Longitude, this.Referenzkunde.Adresskoordinaten.Latitude, this.Referenzkunde.Adresskoordinaten.Longitude);
+					return luftlinie * 1.3;
+				}
+				return 0.0;
+			}
+		}
+
+		#endregion Geo-Koordinaten
+
+		#endregion skalare
 
 		#region entities
 
@@ -717,19 +790,20 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion entities
 
-		#endregion
+		#endregion public properties
 
 		#region private properties
 
-		private dsCustomer.KundeRow KundenRow
+		dsCustomer.KundeRow KundenRow
 		{
 			get
 			{
 				if (this.myKundeRow == null)
 				{
-					// Gibt die entsprechende Zeile aus der Tabelle Kunde zurück oder legt ggf. eine neue Zeile an.
+					// Gibt die entsprechende Zeile aus der Tabelle Kunde zurück oder legt ggf. eine
+					// neue Zeile an.
 					myKundeRow = DataManager.CustomerDataService.GetKunde(this.CustomerId);
 					if (this.myKundeRow == null)
 					{
@@ -740,7 +814,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion private properties
 
 		#region ### .ctor ###
 
@@ -755,7 +829,7 @@ namespace Products.Model.Entities
 			//ModelManager.NotesService.NoteDeliting += new EventHandler<NotesService.NoteDeletedEventArgs>(NotesService_NoteDeleted);
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -775,7 +849,7 @@ namespace Products.Model.Entities
 		//	}
 		//}
 
-		#endregion
+		#endregion event handler
 
 		#region public procedures
 
@@ -1001,9 +1075,9 @@ namespace Products.Model.Entities
 		//	throw new NotImplementedException();
 		//}
 
-		#endregion
+		#endregion MUSS UMGESCHRIEBEN WERDEN
 
-		#endregion
+		#endregion HTML
 
 		#region TXT
 
@@ -1027,25 +1101,24 @@ namespace Products.Model.Entities
 		//	throw new NotImplementedException();
 		//}
 
-		#endregion
+		#endregion TXT
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
-		private List<string> GetMaschinenListeText()
+		List<string> GetMaschinenListeText()
 		{
 			var list = new List<string>();
 			var mList = ModelManager.MachineService.GetKundenMaschineList(this.CustomerId);
-		
-			foreach (var machine in mList.Sort("Maschinenmodell"))
+
+			foreach (var machine in mList.Sort("Modellbezeichnung"))
 			{
-				list.Add(string.Format("{0} ({1})", machine.Maschinenmodell, machine.Seriennummer));
+				list.Add(string.Format("{0} ({1})", machine.Maschinenmodell.Modellbezeichnung, machine.Seriennummer));
 			}
 			return list;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

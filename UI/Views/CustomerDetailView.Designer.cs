@@ -92,10 +92,11 @@
 			this.mtxtBesuchsintervall.SelectedText = "";
 			this.mtxtBesuchsintervall.SelectionLength = 0;
 			this.mtxtBesuchsintervall.SelectionStart = 0;
+			this.mtxtBesuchsintervall.ShortcutsEnabled = true;
 			this.mtxtBesuchsintervall.Size = new System.Drawing.Size(33, 23);
 			this.mtxtBesuchsintervall.TabIndex = 3;
 			this.mtxtBesuchsintervall.UseSelectable = true;
-			this.mtxtBesuchsintervall.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtBesuchsintervall.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtBesuchsintervall.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel1
@@ -160,10 +161,11 @@
 			this.mtxtBesuchszeit.SelectedText = "";
 			this.mtxtBesuchszeit.SelectionLength = 0;
 			this.mtxtBesuchszeit.SelectionStart = 0;
+			this.mtxtBesuchszeit.ShortcutsEnabled = true;
 			this.mtxtBesuchszeit.Size = new System.Drawing.Size(33, 23);
 			this.mtxtBesuchszeit.TabIndex = 4;
 			this.mtxtBesuchszeit.UseSelectable = true;
-			this.mtxtBesuchszeit.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtBesuchszeit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtBesuchszeit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mchkMitAnmeldung
@@ -309,7 +311,7 @@
 			// mtxtAktuellerHinweis
 			// 
 			this.mtxtAktuellerHinweis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -334,17 +336,18 @@
 			this.mtxtAktuellerHinweis.SelectedText = "";
 			this.mtxtAktuellerHinweis.SelectionLength = 0;
 			this.mtxtAktuellerHinweis.SelectionStart = 0;
+			this.mtxtAktuellerHinweis.ShortcutsEnabled = true;
 			this.mtxtAktuellerHinweis.Size = new System.Drawing.Size(541, 23);
 			this.mtxtAktuellerHinweis.TabIndex = 2;
 			this.mtxtAktuellerHinweis.UseSelectable = true;
 			this.mtxtAktuellerHinweis.WaterMark = "Aktueller Hinweis";
-			this.mtxtAktuellerHinweis.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAktuellerHinweis.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAktuellerHinweis.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtAnmerkungen
 			// 
 			this.mtxtAnmerkungen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -370,11 +373,12 @@
 			this.mtxtAnmerkungen.SelectedText = "";
 			this.mtxtAnmerkungen.SelectionLength = 0;
 			this.mtxtAnmerkungen.SelectionStart = 0;
+			this.mtxtAnmerkungen.ShortcutsEnabled = true;
 			this.mtxtAnmerkungen.Size = new System.Drawing.Size(272, 297);
 			this.mtxtAnmerkungen.TabIndex = 12;
 			this.mtxtAnmerkungen.UseSelectable = true;
 			this.mtxtAnmerkungen.WaterMark = "Anmerkungen";
-			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAnmerkungen.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel8
@@ -415,7 +419,7 @@
 			this.Controls.Add(this.mbtnClose);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "CustomerDetailView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Kunde";
 			this.TopMost = true;

@@ -1,18 +1,18 @@
 ﻿using System.Windows.Forms;
+using MetroFramework;
 using Products.Model;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlSoftwareliste : pnlSlider
 	{
-
 		#region members
 
 		Views.KundeMainView myParent = null;
 		Model.Entities.Kunde myKunde = null;
 		Model.Entities.Kundensoftware mySelectedSoftware = null;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -29,7 +29,7 @@ namespace Products.Common.Panel
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -56,7 +56,7 @@ namespace Products.Common.Panel
 			this.DeleteSoftware();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -100,10 +100,9 @@ namespace Products.Common.Panel
 
 		void CustomerMissingError()
 		{
-			MessageBox.Show("Aus nicht bekanntem Grund fehlt der Kunde.", "Fehler beim Hinzufügen der Software", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MetroMessageBox.Show(this, "Aus nicht bekanntem Grund fehlt der Kunde.", "Fehler beim Hinzufügen der Software", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

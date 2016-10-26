@@ -32,12 +32,31 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\binaries\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Calendar.DayView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\ThirdParty\CalendarDayView\Calendar.DayView.dll</HintPath>
     </Reference>
-    <Reference Include="DocX, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.0.0.18\lib\net40\DocX.dll</HintPath>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

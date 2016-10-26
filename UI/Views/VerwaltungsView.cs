@@ -29,7 +29,7 @@ namespace Products.Common.Views
 		{
 			if (!this.Focused)
 			{
-				this.Focus();
+				//this.Focus();
 			}
 		}
 
@@ -53,16 +53,12 @@ namespace Products.Common.Views
 
 		void mtileMaschinenmodelle_Click(object sender, System.EventArgs e)
 		{
-			this.Cursor = Cursors.WaitCursor;
 			this.ShowMaschinenmodelleView();
-			this.Cursor = Cursors.Default;
 		}
 
 		void mtileKataloginhalt_Click(object sender, System.EventArgs e)
 		{
-			this.Cursor = Cursors.WaitCursor;
 			this.ShowCatalogView();
-			this.Cursor = Cursors.Default;
 		}
 
 		void mtileTinte_Click(object sender, System.EventArgs e)
@@ -94,7 +90,7 @@ namespace Products.Common.Views
 		void mtileUserSettings_Click(object sender, System.EventArgs e)
 		{
 			var udv = new UserDetailView(ModelManager.UserService.CurrentUser);
-			udv.ShowDialog(this);
+			udv.Show(this);
 		}
 
 		#endregion
@@ -109,27 +105,26 @@ namespace Products.Common.Views
 
 		void ShowMaschinenmodelleView()
 		{
-			var mmv = new MaschinenmodellView();
-			mmv.ShowDialog();
+			var mmv = new ModellListView();
+			mmv.Show(this);
 		}
 
 		void ShowPresetsView()
 		{
 			var plv = new PresetListView();
-			plv.ShowDialog();
+			plv.Show(this);
 		}
 
 		void ShowCatalogView()
 		{
 			var kv = new KatalogIndexView();
-			kv.ShowDialog();
-			kv.Dispose();
+			kv.Show(this);
 		}
 
 		void ShowTintenListView()
 		{
 			var tlv = new TintenListView(ModelManager.SharedItemsService.TinteList);
-			tlv.ShowDialog(this);
+			tlv.Show(this);
 		}
 
 		void ShowTourenListenView()

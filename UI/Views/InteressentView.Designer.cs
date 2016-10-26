@@ -213,11 +213,12 @@
 			this.mtxtFirmenname.SelectedText = "";
 			this.mtxtFirmenname.SelectionLength = 0;
 			this.mtxtFirmenname.SelectionStart = 0;
+			this.mtxtFirmenname.ShortcutsEnabled = true;
 			this.mtxtFirmenname.Size = new System.Drawing.Size(366, 23);
 			this.mtxtFirmenname.TabIndex = 14;
 			this.mtxtFirmenname.UseSelectable = true;
 			this.mtxtFirmenname.WaterMark = "Name der Firma";
-			this.mtxtFirmenname.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFirmenname.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFirmenname.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtFirmenzusatz
@@ -243,11 +244,12 @@
 			this.mtxtFirmenzusatz.SelectedText = "";
 			this.mtxtFirmenzusatz.SelectionLength = 0;
 			this.mtxtFirmenzusatz.SelectionStart = 0;
+			this.mtxtFirmenzusatz.ShortcutsEnabled = true;
 			this.mtxtFirmenzusatz.Size = new System.Drawing.Size(366, 23);
 			this.mtxtFirmenzusatz.TabIndex = 15;
 			this.mtxtFirmenzusatz.UseSelectable = true;
 			this.mtxtFirmenzusatz.WaterMark = "Zusätzliche Angaben zur Firma";
-			this.mtxtFirmenzusatz.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFirmenzusatz.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFirmenzusatz.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtStrasse
@@ -273,11 +275,12 @@
 			this.mtxtStrasse.SelectedText = "";
 			this.mtxtStrasse.SelectionLength = 0;
 			this.mtxtStrasse.SelectionStart = 0;
+			this.mtxtStrasse.ShortcutsEnabled = true;
 			this.mtxtStrasse.Size = new System.Drawing.Size(366, 23);
 			this.mtxtStrasse.TabIndex = 16;
 			this.mtxtStrasse.UseSelectable = true;
 			this.mtxtStrasse.WaterMark = "Straßenname";
-			this.mtxtStrasse.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtStrasse.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtStrasse.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtAdresszusatz
@@ -303,11 +306,12 @@
 			this.mtxtAdresszusatz.SelectedText = "";
 			this.mtxtAdresszusatz.SelectionLength = 0;
 			this.mtxtAdresszusatz.SelectionStart = 0;
+			this.mtxtAdresszusatz.ShortcutsEnabled = true;
 			this.mtxtAdresszusatz.Size = new System.Drawing.Size(366, 23);
 			this.mtxtAdresszusatz.TabIndex = 17;
 			this.mtxtAdresszusatz.UseSelectable = true;
 			this.mtxtAdresszusatz.WaterMark = "Adresszusatz";
-			this.mtxtAdresszusatz.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAdresszusatz.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAdresszusatz.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtPlz
@@ -333,11 +337,12 @@
 			this.mtxtPlz.SelectedText = "";
 			this.mtxtPlz.SelectionLength = 0;
 			this.mtxtPlz.SelectionStart = 0;
+			this.mtxtPlz.ShortcutsEnabled = true;
 			this.mtxtPlz.Size = new System.Drawing.Size(366, 23);
 			this.mtxtPlz.TabIndex = 18;
 			this.mtxtPlz.UseSelectable = true;
 			this.mtxtPlz.WaterMark = "Postleitzahl";
-			this.mtxtPlz.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtPlz.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtPlz.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtOrt
@@ -363,11 +368,12 @@
 			this.mtxtOrt.SelectedText = "";
 			this.mtxtOrt.SelectionLength = 0;
 			this.mtxtOrt.SelectionStart = 0;
+			this.mtxtOrt.ShortcutsEnabled = true;
 			this.mtxtOrt.Size = new System.Drawing.Size(366, 23);
 			this.mtxtOrt.TabIndex = 19;
 			this.mtxtOrt.UseSelectable = true;
 			this.mtxtOrt.WaterMark = "Ort";
-			this.mtxtOrt.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtOrt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtOrt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtKontakt
@@ -393,11 +399,12 @@
 			this.mtxtKontakt.SelectedText = "";
 			this.mtxtKontakt.SelectionLength = 0;
 			this.mtxtKontakt.SelectionStart = 0;
+			this.mtxtKontakt.ShortcutsEnabled = true;
 			this.mtxtKontakt.Size = new System.Drawing.Size(366, 23);
 			this.mtxtKontakt.TabIndex = 20;
 			this.mtxtKontakt.UseSelectable = true;
 			this.mtxtKontakt.WaterMark = "Name des Ansprechpartners";
-			this.mtxtKontakt.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtKontakt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtKontakt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtTelefon
@@ -423,11 +430,12 @@
 			this.mtxtTelefon.SelectedText = "";
 			this.mtxtTelefon.SelectionLength = 0;
 			this.mtxtTelefon.SelectionStart = 0;
+			this.mtxtTelefon.ShortcutsEnabled = true;
 			this.mtxtTelefon.Size = new System.Drawing.Size(366, 23);
 			this.mtxtTelefon.TabIndex = 21;
 			this.mtxtTelefon.UseSelectable = true;
 			this.mtxtTelefon.WaterMark = "Telefonnummer";
-			this.mtxtTelefon.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtTelefon.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtTelefon.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtFax
@@ -453,11 +461,12 @@
 			this.mtxtFax.SelectedText = "";
 			this.mtxtFax.SelectionLength = 0;
 			this.mtxtFax.SelectionStart = 0;
+			this.mtxtFax.ShortcutsEnabled = true;
 			this.mtxtFax.Size = new System.Drawing.Size(366, 23);
 			this.mtxtFax.TabIndex = 22;
 			this.mtxtFax.UseSelectable = true;
 			this.mtxtFax.WaterMark = "Faxnummer";
-			this.mtxtFax.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFax.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFax.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtMobil
@@ -483,11 +492,12 @@
 			this.mtxtMobil.SelectedText = "";
 			this.mtxtMobil.SelectionLength = 0;
 			this.mtxtMobil.SelectionStart = 0;
+			this.mtxtMobil.ShortcutsEnabled = true;
 			this.mtxtMobil.Size = new System.Drawing.Size(366, 23);
 			this.mtxtMobil.TabIndex = 23;
 			this.mtxtMobil.UseSelectable = true;
 			this.mtxtMobil.WaterMark = "Mobilfunknummer";
-			this.mtxtMobil.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtMobil.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtMobil.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtEmail
@@ -513,11 +523,12 @@
 			this.mtxtEmail.SelectedText = "";
 			this.mtxtEmail.SelectionLength = 0;
 			this.mtxtEmail.SelectionStart = 0;
+			this.mtxtEmail.ShortcutsEnabled = true;
 			this.mtxtEmail.Size = new System.Drawing.Size(366, 23);
 			this.mtxtEmail.TabIndex = 24;
 			this.mtxtEmail.UseSelectable = true;
 			this.mtxtEmail.WaterMark = "name@domain.de";
-			this.mtxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtWebsite
@@ -543,11 +554,12 @@
 			this.mtxtWebsite.SelectedText = "";
 			this.mtxtWebsite.SelectionLength = 0;
 			this.mtxtWebsite.SelectionStart = 0;
+			this.mtxtWebsite.ShortcutsEnabled = true;
 			this.mtxtWebsite.Size = new System.Drawing.Size(366, 23);
 			this.mtxtWebsite.TabIndex = 25;
 			this.mtxtWebsite.UseSelectable = true;
 			this.mtxtWebsite.WaterMark = "Internetadresse";
-			this.mtxtWebsite.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtWebsite.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtWebsite.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtHerkunft
@@ -573,11 +585,12 @@
 			this.mtxtHerkunft.SelectedText = "";
 			this.mtxtHerkunft.SelectionLength = 0;
 			this.mtxtHerkunft.SelectionStart = 0;
+			this.mtxtHerkunft.ShortcutsEnabled = true;
 			this.mtxtHerkunft.Size = new System.Drawing.Size(366, 23);
 			this.mtxtHerkunft.TabIndex = 26;
 			this.mtxtHerkunft.UseSelectable = true;
 			this.mtxtHerkunft.WaterMark = "Woher stammt der Kontakt/die Empfehlung?";
-			this.mtxtHerkunft.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtHerkunft.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtHerkunft.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtAnmerkungen
@@ -604,11 +617,12 @@
 			this.mtxtAnmerkungen.SelectedText = "";
 			this.mtxtAnmerkungen.SelectionLength = 0;
 			this.mtxtAnmerkungen.SelectionStart = 0;
+			this.mtxtAnmerkungen.ShortcutsEnabled = true;
 			this.mtxtAnmerkungen.Size = new System.Drawing.Size(593, 118);
 			this.mtxtAnmerkungen.TabIndex = 27;
 			this.mtxtAnmerkungen.UseSelectable = true;
 			this.mtxtAnmerkungen.WaterMark = "Zusätzliche Anmerkungen zu dieser Firma";
-			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAnmerkungen.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAnmerkungen.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel15
@@ -707,7 +721,7 @@
 			this.Controls.Add(this.metroLabel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "InteressentView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Lime;
 			this.Text = "Interessent";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InteressentView_FormClosing);

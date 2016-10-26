@@ -2,31 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Products.Common;
+using Products.Common.Collections;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Data.Datasets.dsSharedTableAdapters;
 using Products.Model.Entities;
-using Products.Common;
-using Products.Common.Collections;
 
 namespace Products.Model.Services
 {
 	public class SoftwareService
 	{
-
 		#region members
 
-		readonly dsSoftware myDS = new Data.Datasets.dsSoftware();
-		readonly List<Kundensoftware> mySoftwareCache = new List<Kundensoftware>();
+		readonly dsSoftware myDS = new dsSoftware();
+		readonly List<Kundensoftware> myKundensoftwareList = new List<Kundensoftware>();
 		SortableBindingList<Software> mySoftwareList;
 
-		#endregion
-
-		#region public properties
-		#endregion
-
-		#region ### .ctor ###
-		#endregion
+		#endregion members
 
 		#region public procedures
 
@@ -60,27 +53,26 @@ namespace Products.Model.Services
 			DataManager.SoftwareDataService.UpdateSoftware();
 		}
 
-		#endregion
+		#endregion Software
 
-		#region Kundensoftware
-
-		#endregion
 		/// <summary>
 		/// Erstellt eine neue Software für den angegebenen Kunden und optional die angegebene Kundenmaschine.
 		/// </summary>
 		/// <param name="kunde">Der Kunde, für den die neue Software erfasst wird.</param>
-		/// <param name="kundenmaschine">Optional, die Kundenmaschine, der die neue Software zugeordnet werden soll.</param>
+		/// <param name="kundenmaschine">
+		/// Optional, die Kundenmaschine, der die neue Software zugeordnet werden soll.
+		/// </param>
 		/// <returns></returns>
 		public Kundensoftware AddKundenSoftware(Kunde kunde, Kundenmaschine kundenmaschine = null)
 		{
 			string machinePK = "";
-			if(kundenmaschine != null) 
+			if (kundenmaschine != null)
 			{
 				machinePK = kundenmaschine.UID;
 			}
 			var sRow = DataManager.SoftwareDataService.AddKundenSoftwareRow(kunde.CustomerId, machinePK);
 			var sw = new Kundensoftware(sRow, kunde, kundenmaschine);
-			this.mySoftwareCache.Add(sw);
+			this.myKundensoftwareList.Add(sw);
 
 			return sw;
 		}
@@ -93,13 +85,13 @@ namespace Products.Model.Services
 		public SortableBindingList<Kundensoftware> GetCustomersSoftware(Kunde kunde)
 		{
 			SortableBindingList<Kundensoftware> list = new SortableBindingList<Kundensoftware>();
-			foreach (dsSoftware.KundenSoftwareRow sRow in DataManager.SoftwareDataService.GetCustomerSoftwareRows(kunde.CustomerId)) 
+			foreach (dsSoftware.KundenSoftwareRow sRow in DataManager.SoftwareDataService.GetCustomerSoftwareRows(kunde.CustomerId))
 			{
-				var sw = this.mySoftwareCache.FirstOrDefault(s => s.UID == sRow.UID);
+				var sw = this.myKundensoftwareList.FirstOrDefault(s => s.UID == sRow.UID);
 				if (sw == null)
 				{
 					sw = new Kundensoftware(sRow, kunde);
-					this.mySoftwareCache.Add(sw);
+					this.myKundensoftwareList.Add(sw);
 				}
 				list.Add(sw);
 			}
@@ -116,11 +108,11 @@ namespace Products.Model.Services
 			SBList<Kundensoftware> list = new SBList<Kundensoftware>();
 			foreach (dsSoftware.KundenSoftwareRow sRow in DataManager.SoftwareDataService.GetMachineSoftwareRows(machine.UID))
 			{
-				var sw = this.mySoftwareCache.FirstOrDefault(s => s.UID == sRow.UID);
+				var sw = this.myKundensoftwareList.FirstOrDefault(s => s.UID == sRow.UID);
 				if (sw == null)
 				{
 					sw = new Kundensoftware(sRow, machine.CurrentOwner, machine);
-					this.mySoftwareCache.Add(sw);
+					this.myKundensoftwareList.Add(sw);
 				}
 				list.Add(sw);
 			}
@@ -133,7 +125,7 @@ namespace Products.Model.Services
 		/// <param name="software"></param>
 		public void DeleteKundenSoftware(Kundensoftware software)
 		{
-			if (this.mySoftwareCache.Contains(software)) this.mySoftwareCache.Remove(software);
+			if (this.myKundensoftwareList.Contains(software)) this.myKundensoftwareList.Remove(software);
 			DataManager.SoftwareDataService.DeleteKundenSoftwareRow(software.UID);
 		}
 
@@ -145,10 +137,27 @@ namespace Products.Model.Services
 			DataManager.SoftwareDataService.UpdateKundenSoftware();
 		}
 
-		#endregion
+		/// <summary>
+		/// Transferiert die einer Kundenmaschine zugeordnete Software zu einem anderen Kunden.
+		/// </summary>
+		/// <param name="forMachine"></param>
+		/// <param name="toCustomerPK"></param>
+		/// <remarks>
+		/// Letztlich wird dabei lediglich das Feld Kundennummer in Tabelle cpm_kundensoftware
+		/// aktualisiert. Feld KundenMaschinenId bleibt unverändert, da die Software derselben
+		/// Maschine zugeordnet bleibt.
+		/// </remarks>
+		internal void TransferSoftware(Kundenmaschine forMachine, string toCustomerPK)
+		{
+			var list = this.GetMachinesSoftware(forMachine);
+			if (list == null || list.Count == 0) return;
+			foreach (var software in list)
+			{
+				software.Kundennummer = toCustomerPK;
+			}
+			this.UpdateKundenSoftware();
+		}
 
-		#region private procedures
-		#endregion
-
+		#endregion public procedures
 	}
 }

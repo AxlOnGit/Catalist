@@ -8,7 +8,6 @@ namespace Products.Common
 
 		static UiService myUiService;
 		static PostOffice myPostOffice;
-		static LogService myLogService;
 	
 		#endregion
 
@@ -35,25 +34,13 @@ namespace Products.Common
 		/// <param name="user">The David SMTP username.</param>
 		/// <param name="password">That user's password.</param>
 		/// <returns></returns>
-		public static Products.Common.PostOffice PostOffice(string user, string password)
+		public static PostOffice PostOffice(string user, string password)
 		{
 			if (myPostOffice == null)
 			{
 				myPostOffice = new PostOffice(user, password, Model.ModelManager.UserService.CurrentUser.EmailWork);
 			}
 			return myPostOffice;
-		}
-
-		internal static LogService Logger
-		{
-			get
-			{
-				if (myLogService == null)
-				{
-					myLogService = new LogService();
-				}
-				return myLogService;
-			}
 		}
 
 		#endregion

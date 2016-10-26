@@ -32,8 +32,28 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\binaries\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net40\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -72,10 +92,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomer.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\dsFileLinks1.Designer.cs">
+    <Compile Include="Datasets\dsDavid.cs">
+      <DependentUpon>dsDavid.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsDavid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDavid.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsFileLinks.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFileLinks.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsMachines.cs">
+      <DependentUpon>dsMachines.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datasets\dsMachines.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,7 +141,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProspects.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datasets\dsSales.Designer.cs">
+    <Compile Include="Datasets\dsSales1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSales.xsd</DependentUpon>
@@ -140,6 +171,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsTasks.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\dsTechnik.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTechnik.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\dsUser.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +200,7 @@
     <Compile Include="Services\CatalogDataService.cs" />
     <Compile Include="Services\ContactDataService.cs" />
     <Compile Include="Services\CustomerDataService.cs" />
+    <Compile Include="Services\DavidDataService.cs" />
     <Compile Include="Services\FileLinkDataService.cs" />
     <Compile Include="Services\MachineDataService.cs" />
     <Compile Include="Services\NotesDataService.cs" />
@@ -177,6 +214,7 @@
     <Compile Include="Services\SoftwareDataService.cs" />
     <Compile Include="Services\SupplierDataService.cs" />
     <Compile Include="Services\TaskDataService.cs" />
+    <Compile Include="Services\TechnikDataService.cs" />
     <Compile Include="Services\UserDataService.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
@@ -231,13 +269,24 @@
     <None Include="Datasets\dsDateiLinks.xsc">
       <DependentUpon>dsFileLinks.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\dsDavid.xsc">
+      <DependentUpon>dsDavid.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsDavid.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDavid.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\dsDavid.xss">
+      <DependentUpon>dsDavid.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\dsFileLinks.xsc">
       <DependentUpon>dsFileLinks.xsd</DependentUpon>
     </None>
     <None Include="Datasets\dsFileLinks.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsFileLinks1.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsFileLinks.Designer.cs</LastGenOutput>
     </None>
     <None Include="Datasets\dsDateiLinks.xss">
       <DependentUpon>dsFileLinks.xsd</DependentUpon>
@@ -317,7 +366,7 @@
     <None Include="Datasets\dsSales.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsSales.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsSales1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Datasets\dsSales.xss">
       <DependentUpon>dsSales.xsd</DependentUpon>
@@ -377,6 +426,17 @@
     <None Include="Datasets\dsTasks.xss">
       <DependentUpon>dsTasks.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\dsTechnik.xsc">
+      <DependentUpon>dsTechnik.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsTechnik.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTechnik.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\dsTechnik.xss">
+      <DependentUpon>dsTechnik.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\dsUser.xsc">
       <DependentUpon>dsUser.xsd</DependentUpon>
     </None>
@@ -400,6 +460,7 @@
     <None Include="dsSage.xss">
       <DependentUpon>dsSage.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

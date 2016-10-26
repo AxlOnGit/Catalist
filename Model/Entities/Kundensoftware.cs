@@ -6,7 +6,6 @@ namespace Products.Model.Entities
 {
 	public class Kundensoftware
 	{
-
 		#region members
 
 		readonly dsSoftware.KundenSoftwareRow myBase;
@@ -14,168 +13,173 @@ namespace Products.Model.Entities
 		private Kundenmaschine myMachine;
 		readonly DateTime noDate = new DateTime(100, 1, 1, 0, 0, 0);
 
-		#endregion
+		#endregion members
 
 		#region private properties
 
 		public string UID { get { return myBase.UID; } }
 
-		public string Kundennummer { get { return myBase.Kundennummer; } private set { myBase.Kundennummer = value; } }
+		public string Kundennummer
+		{
+			get { return myBase.Kundennummer; }
+			set
+			{
+				if (this.myBase.Kundennummer.Equals(value)) return;
+				myBase.Kundennummer = value;
+			}
+		}
 
-		public string KundenmaschineId 
-		{ 
-			get 
+		public string KundenmaschineId
+		{
+			get
 			{
 				if (myBase.IsKundenMaschineIdNull())
 				{
 					return null;
 				}
-				else return myBase.KundenMaschineId; 
-			} 
-			set 
+				return myBase.KundenMaschineId;
+			}
+			set
 			{
-				if (value == null)
-				{
-					myBase.SetKundenMaschineIdNull();
-				}
-				else myBase.KundenMaschineId = value; 
-			} 
+				if (value == null) myBase.SetKundenMaschineIdNull();
+				else myBase.KundenMaschineId = value;
+			}
 		}
 
-		public string SoftwareId 
-		{ 
-			get 
+		public string SoftwareId
+		{
+			get
 			{
 				if (myBase.IsSoftwareIdNull())
 				{
 					return null;
 				}
-				else return myBase.SoftwareId; 
-			} 
-			set 
+				else return myBase.SoftwareId;
+			}
+			set
 			{
 				if (value == null)
 				{
 					myBase.SetSoftwareIdNull();
 				}
-				else myBase.SoftwareId = value; 
-			} 
+				else myBase.SoftwareId = value;
+			}
 		}
 
-		public string Softwarename 
-		{ 
-			get 
+		public string Softwarename
+		{
+			get
 			{
 				if (this.SoftwareId == null) return string.Empty;
 				return ModelManager.SoftwareService.GetSoftware(this.SoftwareId).Softwarename;
-			} 
+			}
 		}
 
-		public string Lizenzschluessel 
-		{ 
-			get 
+		public string Lizenzschluessel
+		{
+			get
 			{
 				if (myBase.IsLizenzschluesselNull())
 				{
 					return null;
 				}
-				else return myBase.Lizenzschluessel; 
-			} 
-			set 
+				else return myBase.Lizenzschluessel;
+			}
+			set
 			{
 				if (value == null)
 				{
 					myBase.SetLizenzschluesselNull();
 				}
-				else myBase.Lizenzschluessel = value; 
-			} 
+				else myBase.Lizenzschluessel = value;
+			}
 		}
 
-		public string Anmerkungen 
-		{ 
-			get 
+		public string Anmerkungen
+		{
+			get
 			{
 				if (myBase.IsAnmerkungenNull())
 				{
 					return null;
 				}
-				return myBase.Anmerkungen; 
-			} 
-			set 
+				return myBase.Anmerkungen;
+			}
+			set
 			{
 				if (value == null)
 				{
 					myBase.SetAnmerkungenNull();
 				}
-				else myBase.Anmerkungen = value; 
-			} 
+				else myBase.Anmerkungen = value;
+			}
 		}
 
-		public DateTime? Installationsdatum 
-		{ 
-			get 
+		public DateTime? Installationsdatum
+		{
+			get
 			{
 				if (!myBase.Installationsdatum.Equals(noDate))
 				{
 					return myBase.Installationsdatum;
 				}
 				else return null;
-			} 
-			set 
+			}
+			set
 			{
 				if (value.HasValue)
 				{
 					myBase.Installationsdatum = value.Value;
 				}
-				else myBase.Installationsdatum = noDate; 
+				else myBase.Installationsdatum = noDate;
 			}
 		}
 
-		public string Computer 
-		{ 
-			get 
+		public string Computer
+		{
+			get
 			{
 				if (myBase.IsComputerNull())
 				{
 					return null;
 				}
-				else return myBase.Computer; 
-			} 
-			set 
+				else return myBase.Computer;
+			}
+			set
 			{
 				if (value == null)
 				{
 					myBase.SetComputerNull();
 				}
-				else myBase.Computer = value; 
-			} 
+				else myBase.Computer = value;
+			}
 		}
 
-		public string Hauptbenutzer 
-		{ 
-			get 
+		public string Hauptbenutzer
+		{
+			get
 			{
 				if (myBase.IsHauptbenutzerNull())
 				{
 					return null;
 				}
-				return myBase.Hauptbenutzer; 
-			} 
-			set 
+				return myBase.Hauptbenutzer;
+			}
+			set
 			{
 				if (value == null)
 				{
 					myBase.SetHauptbenutzerNull();
 				}
-				else myBase.Hauptbenutzer = value;	
-			} 
+				else myBase.Hauptbenutzer = value;
+			}
 		}
 
-		public Kunde Kunde { get { return myCustomer; } }
+		public Kunde Kunde { get { return ModelManager.CustomerService.GetKunde(this.Kundennummer, false); } }
 
 		public Kundenmaschine Maschine { get { return myMachine; } }
-	
-		#endregion
+
+		#endregion private properties
 
 		#region ### .ctor ###
 
@@ -189,8 +193,8 @@ namespace Products.Model.Entities
 			myCustomer = customer;
 			myMachine = machine;
 		}
-	
-		#endregion
+
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -207,7 +211,6 @@ namespace Products.Model.Entities
 		//  ModelManager.SoftwareService.Update();
 		//}
 
-		#endregion
-
+		#endregion public procedures
 	}
 }

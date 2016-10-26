@@ -14,13 +14,12 @@ namespace Products.Common.Views
 {
 	public partial class TaskDetailView : MetroForm
 	{
-
 		#region members
 
 		readonly Task myTask;
 		readonly User myUser;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -36,13 +35,13 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
 		void TaskDetailView_MouseEnter(object sender, EventArgs e)
 		{
-			this.Focus();
+			//this.Focus();
 		}
 
 		void mbtnShowReminder_Click(object sender, EventArgs e)
@@ -69,7 +68,7 @@ namespace Products.Common.Views
 			ModelManager.TaskService.UpdateTasksAndReminders();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -78,17 +77,17 @@ namespace Products.Common.Views
 			this.DataBindings.Add("Text", this.myTask, "Taskname");
 			this.mtxtTaskname.DataBindings.Add("Text", this.myTask, "Taskname");
 			this.ndtpStartsAt.DataBindings.Add("Value", this.myTask, "StartsAt");
-			Binding dueAtBinding = this.ndtpDueAt.DataBindings.Add("Value", this.myTask, "DueAt", true);
+			var dueAtBinding = this.ndtpDueAt.DataBindings.Add("Value", this.myTask, "DueAt", true);
 			dueAtBinding.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
 
 			this.mcmbPriority.ValueMember = "Key";
 			this.mcmbPriority.DisplayMember = "Priority";
-			this.mcmbPriority.DataSource = Model.ModelManager.ModelService.PriorityList;
+			this.mcmbPriority.DataSource = ModelManager.ModelService.PriorityList;
 			this.mcmbPriority.DataBindings.Add("SelectedValue", this.myTask, "Priority");
 
 			this.mcmbStatus.ValueMember = "Key";
 			this.mcmbStatus.DisplayMember = "Status";
-			this.mcmbStatus.DataSource = Model.ModelManager.ModelService.StatusList;
+			this.mcmbStatus.DataSource = ModelManager.ModelService.StatusList;
 			this.mcmbStatus.DataBindings.Add("SelectedValue", this.myTask, "Status");
 
 			this.mtxtDescription.DataBindings.Add("Text", this.myTask, "Description");
@@ -111,7 +110,6 @@ namespace Products.Common.Views
 			this.FormClosing += TaskDetailView_FormClosing;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

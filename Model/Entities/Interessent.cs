@@ -143,7 +143,7 @@ namespace Products.Model.Entities
 			{
 				if (this.myAcquiredBy == null && !string.IsNullOrEmpty(myBase.AkquiseDurch))
 				{
-					this.myAcquiredBy = ModelManager.UserService.GetUser(myBase.AkquiseDurch, UserService.UserSearchParamType.PrimaryKey);
+					this.myAcquiredBy = ModelManager.UserService.FindUser(myBase.AkquiseDurch, UserService.UserSearchParamType.PrimaryKey);
 				}
 				return this.myAcquiredBy;
 			}

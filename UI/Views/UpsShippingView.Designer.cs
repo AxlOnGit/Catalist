@@ -40,9 +40,9 @@
 			this.colKg = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colTrackingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.coleMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.mbtnClose = new MetroFramework.Controls.MetroButton();
 			this.mctxUPS = new MetroFramework.Controls.MetroContextMenu(this.components);
 			this.xcmdTracking = new System.Windows.Forms.ToolStripMenuItem();
+			this.mbtnClose = new MetroFramework.Controls.MetroButton();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSendungen)).BeginInit();
 			this.mctxUPS.SuspendLayout();
 			this.SuspendLayout();
@@ -158,19 +158,6 @@
 			this.coleMail.Name = "coleMail";
 			this.coleMail.ReadOnly = true;
 			// 
-			// mbtnClose
-			// 
-			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnClose.Location = new System.Drawing.Point(742, 569);
-			this.mbtnClose.Name = "mbtnClose";
-			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
-			this.mbtnClose.Style = MetroFramework.MetroColorStyle.Silver;
-			this.mbtnClose.TabIndex = 71;
-			this.mbtnClose.Text = "Schließen";
-			this.mbtnClose.UseSelectable = true;
-			this.mbtnClose.UseStyleColors = true;
-			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
-			// 
 			// mctxUPS
 			// 
 			this.mctxUPS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,6 +174,19 @@
 			this.xcmdTracking.Text = "Tracking";
 			this.xcmdTracking.Click += new System.EventHandler(this.xcmdTracking_Click);
 			// 
+			// mbtnClose
+			// 
+			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnClose.Location = new System.Drawing.Point(742, 569);
+			this.mbtnClose.Name = "mbtnClose";
+			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
+			this.mbtnClose.Style = MetroFramework.MetroColorStyle.Silver;
+			this.mbtnClose.TabIndex = 71;
+			this.mbtnClose.Text = "Schließen";
+			this.mbtnClose.UseSelectable = true;
+			this.mbtnClose.UseStyleColors = true;
+			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
+			// 
 			// UpsShippingView
 			// 
 			this.AllowDrop = true;
@@ -198,7 +198,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UpsShippingView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.Style = MetroFramework.MetroColorStyle.Silver;
 			this.Text = "UPS Sendungen für ";

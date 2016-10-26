@@ -5,21 +5,20 @@ using System.Linq;
 using System.Text;
 using Novacode;
 using Products.Common;
-using Products.Data.Datasets;
-using Products.Model.Entities;
 using Products.Data;
+using Products.Data.Datasets;
 using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.DocxCreator
 {
 	public class DocXService
 	{
-
 		#region members
 
 		private Data.Datasets.dsCatalog.CatalogDataTable catalogTable;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -31,7 +30,7 @@ namespace Products.DocxCreator
 			this.catalogTable = catTable;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -40,85 +39,87 @@ namespace Products.DocxCreator
 		/// </summary>
 		/// <param name="serviceTermin"></param>
 		/// <returns></returns>
-		public string CreateServiceReportCJV30(Model.Entities.Appointment serviceTermin)
+		public string CreateServiceReportCJV30(Appointment serviceTermin)
 		{
 			try
 			{
-				// APPT: DocXService -> CreateServiceReportCJV30
-				// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+				// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze Nummer muss
+				// noch einmal überdacht werden.
 
-				// Kunde kunde = serviceTermin.Kunde;
-				// string reportFilename = string.Format("{0:yyyy-MM-dd_mmss}_{1}_{2}.docx", serviceTermin.StartsAt, serviceTermin.Kundennummer.Substring(0, 5), serviceTermin.Techniker.NameFirst);
+				// Kunde kunde = serviceTermin.Kunde; string reportFilename =
+				// string.Format("{0:yyyy-MM-dd_mmss}_{1}_{2}.docx", serviceTermin.StartsAt,
+				// serviceTermin.Kundennummer.Substring(0, 5), serviceTermin.Techniker.NameFirst);
 				// string reportFilePath = System.IO.Path.Combine(Common.Global.LinkedFilesPath, reportFilename);
-				string templateFilePath = System.IO.Path.Combine(Common.Global.TemplatePath, "sb_cjv30.docx");
+				var templateFilePath = Path.Combine(Global.TemplatePath, "sb_cjv30.docx");
 
 				using (DocX doc = DocX.Load(templateFilePath))
 				{
 					foreach (Paragraph p in doc.Paragraphs)
 					{
-						Bookmark adresseTelefon = p.GetBookmarks().FirstOrDefault(b => b.Name == "Addresse_Telefon");
+						var adresseTelefon = p.GetBookmarks().FirstOrDefault(b => b.Name == "Addresse_Telefon");
 						if (adresseTelefon != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
-							// adresseTelefon.Paragraph.InsertText(string.Format("{0}-{1}\n{2}", kunde.Street, kunde.ZipCode + kunde.City, kunde.Kontaktlist[0].Telefon));
+							// adresseTelefon.Paragraph.InsertText(string.Format("{0}-{1}\n{2}",
+							// kunde.Street, kunde.ZipCode + kunde.City, kunde.Kontaktlist[0].Telefon));
 						}
-						Bookmark annahmeDurch = p.GetBookmarks().FirstOrDefault(b => b.Name == "Annahme_durch");
+						var annahmeDurch = p.GetBookmarks().FirstOrDefault(b => b.Name == "Annahme_durch");
 						if (annahmeDurch != null)
 						{
 							annahmeDurch.Paragraph.InsertText(serviceTermin.OwnerName);
 						}
-						Bookmark datumService = p.GetBookmarks().FirstOrDefault(b => b.Name == "Datum_Service");
+						var datumService = p.GetBookmarks().FirstOrDefault(b => b.Name == "Datum_Service");
 						if (datumService != null)
 						{
 							datumService.Paragraph.InsertText(string.Format("{0:dd.MM.yyyy}", serviceTermin.StartsAt));
 						}
-						Bookmark firmenName = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Firmenname");
+						var firmenName = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Firmenname");
 						if (firmenName != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							//firmenName.Paragraph.InsertText(kunde.CompanyName1);
 						}
-						Bookmark modell = p.GetBookmarks().FirstOrDefault(b => b.Name == "Maschine_Modell");
+						var modell = p.GetBookmarks().FirstOrDefault(b => b.Name == "Maschine_Modell");
 						if (modell != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							// modell.Paragraph.InsertText(serviceTermin.Maschinenmodell);
 						}
-						Bookmark kundenNummer = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Nummer");
+						var kundenNummer = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Nummer");
 						if (kundenNummer != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							// kundenNummer.Paragraph.InsertText(kunde.CustomerId.Substring(0, 5));
 						}
-						Bookmark sn = p.GetBookmarks().FirstOrDefault(b => b.Name == "Maschine_Seriennummer");
+						var sn = p.GetBookmarks().FirstOrDefault(b => b.Name == "Maschine_Seriennummer");
 						if (sn != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							// sn.Paragraph.InsertText(serviceTermin.Maschine.Seriennummer);
 						}
-						Bookmark kontakt = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Ansprechpartner");
+						var kontakt = p.GetBookmarks().FirstOrDefault(b => b.Name == "Kunde_Ansprechpartner");
 						if (kontakt != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							// kontakt.Paragraph.InsertText(kunde.Kontaktlist[0].Kontaktname);
 						}
-						Bookmark techniker = p.GetBookmarks().FirstOrDefault(b => b.Name == "Name_Techniker");
+						var techniker = p.GetBookmarks().FirstOrDefault(b => b.Name == "Name_Techniker");
 						if (techniker != null)
 						{
-							// APPT: DocXService -> CreateServiceReportCJV30
-							// Ich denke, diese ganze Nummer muss noch einmal überdacht werden.
+							// APPT: DocXService -> CreateServiceReportCJV30 Ich denke, diese ganze
+							// Nummer muss noch einmal überdacht werden.
 
 							// techniker.Paragraph.InsertText(serviceTermin.Technikername);
 						}
@@ -130,7 +131,7 @@ namespace Products.DocxCreator
 					//serviceTermin.AddFileLink(reportFilePath, deleteSourceFile: false);
 				}
 				//return reportFilePath;
-				throw new NotImplementedException();
+				throw new ApplicationException("Sorry, die Funktion gibt's noch nicht.");
 			}
 			catch (Exception)
 			{
@@ -147,16 +148,16 @@ namespace Products.DocxCreator
 			var kunde = ModelManager.CustomerService.GetKunde(customer.Kundennummer, true);
 			if (kunde == null) return string.Empty;
 
-			string catFileName = string.Format("{0:yyyy-MM-dd_mmss}_({1})_{2}.docx", DateTime.Now, kunde.KundenNrCpm, kunde.Matchcode);
-			string catCompleteFilePath = string.Format("{0}{1}", catalogPath, catFileName);
+			var catFileName = string.Format("{0:yyyy-MM-dd_mmss}_({1})_{2}.docx", DateTime.Now, kunde.KundenNrCpm, kunde.Matchcode);
+			var catCompleteFilePath = string.Format("{0}{1}", catalogPath, catFileName);
 
 			using (DocX doc = DocX.Load(Global.CatalogTemplateFilePath))
 			{
 				// Firmenname und Kundennummer einfügen
-				string companyAndNumber = string.Format(@"{0} - [Ihre Kd.-Nr.: {1}]", kunde.CompanyName1, kunde.KundenNrCpm);
+				var companyAndNumber = string.Format(@"{0} - [Ihre Kd.-Nr.: {1}]", kunde.CompanyName1, kunde.KundenNrCpm);
 				foreach (Paragraph p in doc.Paragraphs)
 				{
-					Bookmark cbm = p.GetBookmarks().FirstOrDefault(bookmark => bookmark.Name == "Firmenname");
+					var cbm = p.GetBookmarks().FirstOrDefault(bookmark => bookmark.Name == "Firmenname");
 					if (cbm != null)
 					{
 						cbm.Paragraph.InsertText(companyAndNumber);
@@ -174,13 +175,12 @@ namespace Products.DocxCreator
 					{
 						if (!product.InactiveFlag)
 						{
-							// Find 
+							// Find
 							foreach (Paragraph p in doc.Paragraphs)
 							{
-								Bookmark b = p.GetBookmarks().FirstOrDefault(bm => bm.Name == cRow.Numbering);
+								var b = p.GetBookmarks().FirstOrDefault(bm => bm.Name == cRow.Numbering);
 								if (b != null)
 								{
-
 									if (cRow.Numbering == "J00")
 									{
 										System.Threading.Thread.Sleep(100);
@@ -197,7 +197,7 @@ namespace Products.DocxCreator
 									}
 									if (t != null)
 									{
-										Paragraph pi = b.Paragraph.InsertParagraphBeforeSelf(string.Empty);
+										var pi = b.Paragraph.InsertParagraphBeforeSelf(string.Empty);
 										pi.InsertTableBeforeSelf(t);
 									}
 								}
@@ -211,21 +211,21 @@ namespace Products.DocxCreator
 			}
 		}
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
-		private Table NewShortDocTable(DocX doc, Product product)
+		Table NewShortDocTable(DocX doc, Product product)
 		{
 			Paragraph pProductName = null;
-			Table newTable = doc.AddTable(1, 3);
+			var newTable = doc.AddTable(1, 3);
 			foreach (Paragraph p in newTable.Paragraphs)
 			{
 				p.StyleName = "KeepTogether";
 			}
 			// Productname
 			pProductName = newTable.Rows[0].Cells[0].Paragraphs[0];
-			pProductName.Append(product.Bezeichnung1);
+			pProductName.Append(product.Bezeichnung2);
 			pProductName.StyleName = "ArtikelnameKurz";
 
 			// Insert customer price string
@@ -248,7 +248,7 @@ namespace Products.DocxCreator
 			}
 
 			// Set the border
-			Border border = new Border(BorderStyle.Tcbs_single, BorderSize.one, 0, System.Drawing.Color.Gray);
+			var border = new Border(BorderStyle.Tcbs_single, BorderSize.one, 0, System.Drawing.Color.Gray);
 			newTable.SetBorder(TableBorderType.Left, border);
 			newTable.SetBorder(TableBorderType.Right, border);
 			newTable.SetBorder(TableBorderType.Top, border);
@@ -259,7 +259,7 @@ namespace Products.DocxCreator
 			return newTable;
 		}
 
-		private Table NewDocTable(DocX doc, Product product)
+		Table NewDocTable(DocX doc, Product product)
 		{
 			Paragraph pProductName = null;
 			Paragraph pDescription = null;
@@ -270,7 +270,7 @@ namespace Products.DocxCreator
 			Image productImage = null;
 			Picture manufacturerPicture = null;
 			Picture productPicture = null;
-			int picWidth = DocxCreator.Properties.Settings.Default.PictureWidth;
+			int picWidth = Properties.Settings.Default.PictureWidth;
 
 			if (product.Herstellerlogo == null)
 			{
@@ -289,10 +289,10 @@ namespace Products.DocxCreator
 				productImage = doc.AddImage(Global.ProductPicturePath + product.ProkuktbildPfad);
 			}
 
-			Dictionary<string, string> props = GetProperties(product);			
+			var props = GetProperties(product);
 			if (props.Count > 0)
 			{
-				Table nt = doc.AddTable(props.Count + 1, 3);
+				var nt = doc.AddTable(props.Count + 1, 3);
 
 				foreach (Paragraph p in nt.Paragraphs)
 				{
@@ -358,10 +358,10 @@ namespace Products.DocxCreator
 				int counter = 0;
 				foreach (var property in props)
 				{
-					nt.Rows[counter].Cells[1].Paragraphs[0].Append(property.Key).StyleName = "KeepTogether"; 
-					nt.Rows[counter].Cells[1].Paragraphs[0].SetLineSpacing(LineSpacingType.After, 0F); 
+					nt.Rows[counter].Cells[1].Paragraphs[0].Append(property.Key).StyleName = "KeepTogether";
+					nt.Rows[counter].Cells[1].Paragraphs[0].SetLineSpacing(LineSpacingType.After, 0F);
 					nt.Rows[counter].Cells[1].Width = 80;
-					nt.Rows[counter].Cells[2].Paragraphs[0].Append(property.Value).StyleName = "KeepTogether"; 
+					nt.Rows[counter].Cells[2].Paragraphs[0].Append(property.Value).StyleName = "KeepTogether";
 					nt.Rows[counter].Cells[2].Paragraphs[0].SetLineSpacing(LineSpacingType.After, 0F);
 					counter += 1;
 				}
@@ -384,7 +384,7 @@ namespace Products.DocxCreator
 				}
 
 				// Set the border
-				Border border = new Border(BorderStyle.Tcbs_single, BorderSize.one, 0, System.Drawing.Color.Gray);
+				var border = new Border(BorderStyle.Tcbs_single, BorderSize.one, 0, System.Drawing.Color.Gray);
 				nt.SetBorder(TableBorderType.Left, border);
 				nt.SetBorder(TableBorderType.Right, border);
 				nt.SetBorder(TableBorderType.Top, border);
@@ -400,7 +400,7 @@ namespace Products.DocxCreator
 		private string PreisUndStaffelpreisText(Product product)
 		{
 			//nt.Rows[counter].Cells[1].Paragraphs[0].Append("Preis");
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append("Preis");
 			if (product.SonderpreisMenge1 >= 0.01m && product.SonderpreisRabatt1 >= 0.01m)
 			{
@@ -428,7 +428,7 @@ namespace Products.DocxCreator
 		private string PreisUndStaffelpreise(Product product)
 		{
 			//nt.Rows[counter].Cells[2].Paragraphs[0].Append(string.Format("{0:C2}/{1}",productRow.KundenpreisRow.Kundenpreis, productRow.KundenpreisRow.Mengeneinheit));
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			decimal rabattPreis = 0.00m;
 
 			sb.AppendFormat("{0:C2} / {1}", product.Kundenpreis, product.Mengeneinheit);
@@ -460,9 +460,9 @@ namespace Products.DocxCreator
 			return sb.ToString();
 		}
 
-		private Dictionary<string, string> GetProperties(Product product)
+		Dictionary<string, string> GetProperties(Product product)
 		{
-			Dictionary<string, string> propList = new Dictionary<string, string>();
+			var propList = new Dictionary<string, string>();
 
 			if (!string.IsNullOrEmpty(product.Eigenschaft1) && !string.IsNullOrEmpty(product.Wert1)) propList.Add(product.Eigenschaft1, product.Wert1);
 			if (!string.IsNullOrEmpty(product.Eigenschaft2) && !string.IsNullOrEmpty(product.Wert2)) propList.Add(product.Eigenschaft2, product.Wert2);
@@ -482,7 +482,6 @@ namespace Products.DocxCreator
 			return propList;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

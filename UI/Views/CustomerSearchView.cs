@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Products.Data;
-using System.Diagnostics;
 using Products.Data.Datasets;
 using Products.Model;
 
@@ -11,14 +11,13 @@ namespace Products.Common.Views
 {
 	public partial class CustomerSearchView : MetroForm
 	{
-
 		#region members
 
 		dsCustomer.CustomerRow mySelectedCustomerRow;
 		readonly BindingSource bs = new BindingSource();
 		bool setSelectedCustomerAsCurrent;
-	
-		#endregion
+
+		#endregion members
 
 		#region public properties
 
@@ -33,7 +32,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region private properties
 
@@ -45,7 +44,7 @@ namespace Products.Common.Views
 		//  }
 		//}
 
-		#endregion
+		#endregion private properties
 
 		#region ### .ctor ###
 
@@ -71,8 +70,8 @@ namespace Products.Common.Views
 		}
 
 		/// <summary>
-		/// Creates a new instance of the CustomerSearchView class and shows just the
-		/// customers contained in the given list.
+		/// Creates a new instance of the CustomerSearchView class and shows just the customers
+		/// contained in the given list.
 		/// </summary>
 		/// <param name="customerList"></param>
 		public CustomerSearchView(Products.Common.SortableBindingList<Model.Entities.Kunde> customerList)
@@ -89,7 +88,7 @@ namespace Products.Common.Views
 			//this.sourceIsSortableList = true;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -102,8 +101,8 @@ namespace Products.Common.Views
 
 		void txtFilter_KeyUp(object sender, KeyEventArgs e)
 		{
-			string outputInfo = string.Empty;
-			string[] keyWords = mtxtFilter.Text.Split();
+			var outputInfo = string.Empty;
+			var keyWords = mtxtFilter.Text.Split();
 
 			foreach (string word in keyWords)
 			{
@@ -143,22 +142,10 @@ namespace Products.Common.Views
 			}
 		}
 
-		void chkKeepOpen_CheckStateChanged(object sender, EventArgs e)
-		{
-			//if (this.chkKeepOpen.CheckState == CheckState.Checked)
-			//{
-			//  this.chkKeepOpen.Image = global::Products.Common.Properties.Resources.Pin_green_32;
-			//}
-			//else
-			//{
-			//  this.chkKeepOpen.Image = global::Products.Common.Properties.Resources.Pin_gray_32;
-			//}
-		}
-
 		void mbtnOK_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = System.Windows.Forms.DialogResult.OK;
-			if(this.setSelectedCustomerAsCurrent) SelectCurrentCustomerAndClose();
+			if (this.setSelectedCustomerAsCurrent) SelectCurrentCustomerAndClose();
 		}
 
 		void mbtnCancel_Click(object sender, EventArgs e)
@@ -168,7 +155,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -187,7 +174,6 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

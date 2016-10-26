@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Products.Data.Datasets;
 using Products.Model.Entities;
 using Products.Data;
 using Products.Common.Collections;
+using Products.Common;
 
 namespace Products.Model.Services
 {
@@ -61,7 +61,7 @@ namespace Products.Model.Services
 
 					if (vRow.AbWert1 > 0)
 					{
-						Versandstaffelpreis p1 = new Versandstaffelpreis();
+						var p1 = new Versandstaffelpreis();
 						p1.Kundennummer = customerPK;
 						p1.AbWert = vRow.AbWert1;
 						p1.Versandkosten = vRow.VKosten1;
@@ -69,7 +69,7 @@ namespace Products.Model.Services
 					}
 					if (vRow.AbWert2 > 0)
 					{
-						Versandstaffelpreis p2 = new Versandstaffelpreis();
+						var p2 = new Versandstaffelpreis();
 						p2.Kundennummer = customerPK;
 						p2.AbWert = vRow.AbWert2;
 						p2.Versandkosten = vRow.VKosten2;
@@ -77,7 +77,7 @@ namespace Products.Model.Services
 					}
 					if (vRow.AbWert3 > 0)
 					{
-						Versandstaffelpreis p3 = new Versandstaffelpreis();
+						var p3 = new Versandstaffelpreis();
 						p3.Kundennummer = customerPK;
 						p3.AbWert = vRow.AbWert3;
 						p3.Versandkosten = vRow.VKosten3;
@@ -85,7 +85,7 @@ namespace Products.Model.Services
 					}
 					if (vRow.AbWert4 > 0)
 					{
-						Versandstaffelpreis p4 = new Versandstaffelpreis();
+						var p4 = new Versandstaffelpreis();
 						p4.Kundennummer = customerPK;
 						p4.AbWert = vRow.AbWert4;
 						p4.Versandkosten = vRow.VKosten4;
@@ -126,6 +126,48 @@ namespace Products.Model.Services
 				this.mySalesStatsDictionary.Add(kunde.CustomerId, sList);
 			}
 			return this.mySalesStatsDictionary[kunde.CustomerId];
+		}
+
+		/// <summary>
+		/// Gibt eine sortierbare Liste mit allen Angeboten im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		public SBList<Angebot> GetAngeboteSageList()
+		{
+			var list = new SBList<Angebot>();
+			foreach (var aRow in DataManager.SalesDataService.GetAngebotSageTable())
+			{
+				list.Add(new Angebot(aRow));
+			}
+			return list;
+		}
+
+		/// <summary>
+		/// Gibt eine sortierbare Liste aller Sage Angebote für den angegebenen Kunden zurück.
+		/// </summary>
+		/// <param name="kundePK">10-stellige Kundennummer.</param>
+		/// <returns></returns>
+		public SBList<Angebot> GetAngeboteSageList(string kundePK)
+		{
+			var list = new SBList<Angebot>();
+			foreach (var aRow in DataManager.SalesDataService.GetAngebotSageTable().Where(a => a.Kundennummer == kundePK))
+			{
+				list.Add(new Entities.Angebot(aRow));
+			}
+			return list;
+		}
+
+		public SortableBindingList<AngebotsDetail> GetAngebotsDetails(Angebot angebot)
+		{
+			var list = new SortableBindingList<AngebotsDetail>();
+			var dRows = DataManager.SalesDataService.GetAngebotSagePositionRows(angebot.Nummer);
+			foreach (var dRow in dRows)
+			{
+				var detail = new AngebotsDetail(dRow);
+				if (detail != null && detail.Typ == "Artikel") list.Add(detail);
+			}
+
+			return list.Sort("Sequence");
 		}
 
 		#endregion

@@ -105,6 +105,7 @@
 			this.dgvContacts.Style = MetroFramework.MetroColorStyle.Orange;
 			this.dgvContacts.TabIndex = 1;
 			this.dgvContacts.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContacts_RowEnter);
+			this.dgvContacts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvContacts_MouseDoubleClick);
 			// 
 			// colKundennummer
 			// 
@@ -184,6 +185,7 @@
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowButton = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(366, 23);
@@ -191,7 +193,7 @@
 			this.mtxtFilter.TabIndex = 0;
 			this.mtxtFilter.UseSelectable = true;
 			this.mtxtFilter.WaterMark = "Kontaktname, Firma, Kundennummer, Plz oder Ort";
-			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtFilter_KeyUp);
 			// 
@@ -234,7 +236,7 @@
 			this.Controls.Add(this.mtxtFilter);
 			this.Controls.Add(this.dgvContacts);
 			this.Name = "ContactSearchView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.Orange;
 			this.Text = "Kundenkontakte - Suche";

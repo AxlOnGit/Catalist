@@ -50,5 +50,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=192.168.0.101;user id=root;password=@Admin4711;persistsecurityinfo=True;port=4135;database=sagecl_mandant001;allowuservariables=True</Value>
     </Setting>
+    <Setting Name="conEidamoLive" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Dsn=EIDAMO_ODBC32;uid=admin;pwd=eiDamo13&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Dsn=EIDAMO_ODBC32;uid=admin;pwd=eiDamo13</Value>
+    </Setting>
+    <Setting Name="sagecl_mandant001ConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=192.168.0.101;user id=root;persistsecurityinfo=True;port=4135;database=sagecl_mandant001&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=192.168.0.101;user id=root;persistsecurityinfo=True;port=4135;database=sagecl_mandant001</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

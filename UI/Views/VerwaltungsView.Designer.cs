@@ -29,6 +29,8 @@
 		void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerwaltungsView));
+			this.mtileMaschinenwartung = new MetroFramework.Controls.MetroTile();
+			this.mtileUserSettings = new MetroFramework.Controls.MetroTile();
 			this.mtileClose = new MetroFramework.Controls.MetroTile();
 			this.mtileLieferanten = new MetroFramework.Controls.MetroTile();
 			this.mtileArtikelstamm = new MetroFramework.Controls.MetroTile();
@@ -38,8 +40,42 @@
 			this.mtileMaschinenmodelle = new MetroFramework.Controls.MetroTile();
 			this.mtilePresets = new MetroFramework.Controls.MetroTile();
 			this.mtileTinte = new MetroFramework.Controls.MetroTile();
-			this.mtileUserSettings = new MetroFramework.Controls.MetroTile();
 			this.SuspendLayout();
+			// 
+			// mtileMaschinenwartung
+			// 
+			this.mtileMaschinenwartung.ActiveControl = null;
+			this.mtileMaschinenwartung.Location = new System.Drawing.Point(24, 415);
+			this.mtileMaschinenwartung.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.mtileMaschinenwartung.Name = "mtileMaschinenwartung";
+			this.mtileMaschinenwartung.Size = new System.Drawing.Size(208, 100);
+			this.mtileMaschinenwartung.Style = MetroFramework.MetroColorStyle.Green;
+			this.mtileMaschinenwartung.TabIndex = 18;
+			this.mtileMaschinenwartung.Text = "Maschinenwartung";
+			this.mtileMaschinenwartung.TileImage = global::Products.Common.Properties.Resources.tools_48_metrowhite;
+			this.mtileMaschinenwartung.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.mtileMaschinenwartung.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+			this.mtileMaschinenwartung.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.mtileMaschinenwartung.UseSelectable = true;
+			this.mtileMaschinenwartung.UseTileImage = true;
+			// 
+			// mtileUserSettings
+			// 
+			this.mtileUserSettings.ActiveControl = null;
+			this.mtileUserSettings.Location = new System.Drawing.Point(456, 305);
+			this.mtileUserSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.mtileUserSettings.Name = "mtileUserSettings";
+			this.mtileUserSettings.Size = new System.Drawing.Size(208, 100);
+			this.mtileUserSettings.Style = MetroFramework.MetroColorStyle.Purple;
+			this.mtileUserSettings.TabIndex = 17;
+			this.mtileUserSettings.Text = "Benutzereinstellungen";
+			this.mtileUserSettings.TileImage = global::Products.Common.Properties.Resources.maschine_metrowhite;
+			this.mtileUserSettings.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.mtileUserSettings.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+			this.mtileUserSettings.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.mtileUserSettings.UseSelectable = true;
+			this.mtileUserSettings.UseTileImage = true;
+			this.mtileUserSettings.Click += new System.EventHandler(this.mtileUserSettings_Click);
 			// 
 			// mtileClose
 			// 
@@ -203,29 +239,12 @@
 			this.mtileTinte.UseTileImage = true;
 			this.mtileTinte.Click += new System.EventHandler(this.mtileTinte_Click);
 			// 
-			// mtileUserSettings
-			// 
-			this.mtileUserSettings.ActiveControl = null;
-			this.mtileUserSettings.Location = new System.Drawing.Point(456, 305);
-			this.mtileUserSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.mtileUserSettings.Name = "mtileUserSettings";
-			this.mtileUserSettings.Size = new System.Drawing.Size(208, 100);
-			this.mtileUserSettings.Style = MetroFramework.MetroColorStyle.Purple;
-			this.mtileUserSettings.TabIndex = 17;
-			this.mtileUserSettings.Text = "Benutzereinstellungen";
-			this.mtileUserSettings.TileImage = global::Products.Common.Properties.Resources.maschine_metrowhite;
-			this.mtileUserSettings.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.mtileUserSettings.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
-			this.mtileUserSettings.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.mtileUserSettings.UseSelectable = true;
-			this.mtileUserSettings.UseTileImage = true;
-			this.mtileUserSettings.Click += new System.EventHandler(this.mtileUserSettings_Click);
-			// 
 			// VerwaltungsView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(688, 540);
+			this.Controls.Add(this.mtileMaschinenwartung);
 			this.Controls.Add(this.mtileUserSettings);
 			this.Controls.Add(this.mtileClose);
 			this.Controls.Add(this.mtileLieferanten);
@@ -241,7 +260,7 @@
 			this.MinimizeBox = false;
 			this.Name = "VerwaltungsView";
 			this.Padding = new System.Windows.Forms.Padding(20, 80, 20, 20);
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Purple;
 			this.Text = "Administration";
 			this.MouseEnter += new System.EventHandler(this.VerwaltungsView_MouseEnter);
@@ -261,6 +280,6 @@
 		private MetroFramework.Controls.MetroTile mtileLieferanten;
 		private MetroFramework.Controls.MetroTile mtileClose;
 		private MetroFramework.Controls.MetroTile mtileUserSettings;
-
+		private MetroFramework.Controls.MetroTile mtileMaschinenwartung;
 	}
 }

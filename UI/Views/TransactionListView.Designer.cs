@@ -199,7 +199,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TransactionListView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.Text = "Vorgangsliste für Artikel ...";

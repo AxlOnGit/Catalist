@@ -271,7 +271,7 @@ namespace Products.Model.Entities
 			get 
 			{
 				var folder = ((int)this.GetFieldValue(DavidFieldEnum.CreatedBy)).ToString("X");
-				return ModelManager.UserService.GetUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder); 
+				return ModelManager.UserService.FindUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder); 
 			}
 		}
 
@@ -294,7 +294,7 @@ namespace Products.Model.Entities
 			get
 			{
 				var folder = ((int)this.GetFieldValue(DavidFieldEnum.Owner)).ToString("X");
-				return ModelManager.UserService.GetUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder);
+				return ModelManager.UserService.FindUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder);
 			}
 		}
 
@@ -316,7 +316,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return ModelManager.UserService.GetUser(this.FullName, Services.UserService.UserSearchParamType.DavidFileName);
+				return ModelManager.UserService.FindUser(this.FullName, Services.UserService.UserSearchParamType.DavidFileName);
 			}
 		}
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Products.Common
 {
@@ -14,7 +16,7 @@ namespace Products.Common
 
 		#region members
 
-		private static File_CRC32 fileCrc32 = new File_CRC32();
+		readonly static File_CRC32 fileCrc32 = new File_CRC32();
 
 		#endregion
 
@@ -64,7 +66,7 @@ namespace Products.Common
 		/// <returns></returns>
 		public static string GetQuarterString(QuarterType quarterType)
 		{
-			int currentQuarter = GetQuarter(DateTime.Today);
+			var currentQuarter = GetQuarter(DateTime.Today);
 
 			switch (quarterType)
 			{
@@ -135,7 +137,7 @@ namespace Products.Common
 		/// <returns></returns>
 		public static DateTime GetLastOfMonth(DateTime forDate)
 		{
-			DateTime lastOfMonth = forDate.AddDays(32);
+			var lastOfMonth = forDate.AddDays(32);
 			return lastOfMonth.AddDays(-lastOfMonth.Day);
 		}
 
@@ -151,7 +153,7 @@ namespace Products.Common
 
 		public static DateTime GetFirstOfThisQuarter(DateTime forDate)
 		{
-			int quarter = GetQuarter(forDate);
+			var quarter = GetQuarter(forDate);
 
 			switch (quarter)
 			{
@@ -171,7 +173,7 @@ namespace Products.Common
 
 		public static DateTime GetLastOfThisQuarter(DateTime forDate)
 		{
-			int quarter = GetQuarter(forDate);
+			var quarter = GetQuarter(forDate);
 
 			switch (quarter)
 			{
@@ -191,7 +193,7 @@ namespace Products.Common
 
 		public static DateTime GetFirstOfPreviousQuarter(DateTime forDate)
 		{
-			int quarter = GetQuarter(forDate);
+			var quarter = GetQuarter(forDate);
 
 			switch (quarter)
 			{
@@ -211,7 +213,7 @@ namespace Products.Common
 
 		public static DateTime GetLastOfPreviousQuarter(DateTime forDate)
 		{
-			int quarter = GetQuarter(forDate);
+			var quarter = GetQuarter(forDate);
 
 			switch (quarter)
 			{
@@ -238,6 +240,18 @@ namespace Products.Common
 		public static string GetCRC32(string filename)
 		{
 			return fileCrc32.GetCRC32(filename).ToString("X");
+		}
+
+		/// <summary>
+		/// Öffnet das angegebene Verzeichnis im Datei Explorer.
+		/// </summary>
+		/// <param name="filePath">Das anzuzeigende Verzeichnis.</param>
+		public static void OpenInExplorer(string filePath)
+		{
+			if (Directory.Exists(filePath))
+			{
+				Process.Start("explorer.exe", filePath);
+			}
 		}
 
 		#endregion

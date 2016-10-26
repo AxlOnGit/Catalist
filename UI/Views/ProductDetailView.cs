@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
-using Products.Data.Datasets;
 using Products.Data;
+using Products.Data.Datasets;
 using Products.Model;
 using Products.Model.Entities;
 
@@ -12,13 +13,12 @@ namespace Products.Common.Views
 {
 	public partial class ProductDetailView : MetroForm
 	{
-
 		#region members
 
 		readonly Product myProduct;
 		readonly Kunde myKunde;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -37,12 +37,12 @@ namespace Products.Common.Views
 		/// <param name="product">A dsSage.CustomizedPriceRow instance.</param>
 		public ProductDetailView(Kunde kunde, Product product) : this(kunde)
 		{
-			this.myProduct  = product;
-			this.Text = string.Format("{0} [{1}]", product.Bezeichnung1, product.Artikelnummer);
+			this.myProduct = product;
+			this.Text = string.Format("{0} [{1}]", product.Bezeichnung2, product.Artikelnummer);
 			this.InitBindings();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -256,10 +256,10 @@ namespace Products.Common.Views
 
 		void mtxtFilter_KeyUp(object sender, KeyEventArgs e)
 		{
-			string outputInfo = string.Empty;
-			string[] keyWords = this.txtFilter.Text.Split();
+			var outputInfo = string.Empty;
+			var keyWords = this.txtFilter.Text.Split();
 
-			foreach (string word in keyWords)
+			foreach (var word in keyWords)
 			{
 				if (outputInfo.Length == 0)
 				{
@@ -284,7 +284,7 @@ namespace Products.Common.Views
 			(this.cmbCategory.DataSource as DataView).RowFilter = string.Empty;
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -302,99 +302,99 @@ namespace Products.Common.Views
 				this.txtDescription.DataBindings.Add("Text", this.myProduct, "Beschreibung");
 				this.lblME.DataBindings.Add("Text", this.myProduct, "Mengeneinheit");
 
-				Binding bind = this.lblPreisProME.DataBindings.Add("Text", this.myProduct, "Kundenpreis");
+				var bind = this.lblPreisProME.DataBindings.Add("Text", this.myProduct, "Kundenpreis");
 				bind.Format += bind_Format;
 
-				Binding bndProp1 = txtProperty1.DataBindings.Add("Text", this.myProduct, "Eigenschaft1");
+				var bndProp1 = txtProperty1.DataBindings.Add("Text", this.myProduct, "Eigenschaft1");
 				bndProp1.NullValue = string.Empty;
-				Binding bndVal1 = txtValue1.DataBindings.Add("Text", this.myProduct, "Wert1");
+				var bndVal1 = txtValue1.DataBindings.Add("Text", this.myProduct, "Wert1");
 				bndVal1.NullValue = string.Empty;
 
-				Binding bndProp2 = txtProperty2.DataBindings.Add("Text", this.myProduct, "Eigenschaft2");
+				var bndProp2 = txtProperty2.DataBindings.Add("Text", this.myProduct, "Eigenschaft2");
 				bndProp2.NullValue = string.Empty;
-				Binding bndVal2 = txtValue2.DataBindings.Add("Text", this.myProduct, "Wert2");
+				var bndVal2 = txtValue2.DataBindings.Add("Text", this.myProduct, "Wert2");
 				bndVal2.NullValue = string.Empty;
 
-				Binding bndProp3 = txtProperty3.DataBindings.Add("Text", this.myProduct, "Eigenschaft3");
+				var bndProp3 = txtProperty3.DataBindings.Add("Text", this.myProduct, "Eigenschaft3");
 				bndProp3.NullValue = string.Empty;
-				Binding bndVal3 = txtValue3.DataBindings.Add("Text", this.myProduct, "Wert3");
+				var bndVal3 = txtValue3.DataBindings.Add("Text", this.myProduct, "Wert3");
 				bndVal3.NullValue = string.Empty;
 
-				Binding bndProp4 = txtProperty4.DataBindings.Add("Text", this.myProduct, "Eigenschaft4");
+				var bndProp4 = txtProperty4.DataBindings.Add("Text", this.myProduct, "Eigenschaft4");
 				bndProp4.NullValue = string.Empty;
-				Binding bndVal4 = txtValue4.DataBindings.Add("Text", this.myProduct, "Wert4");
+				var bndVal4 = txtValue4.DataBindings.Add("Text", this.myProduct, "Wert4");
 				bndVal4.NullValue = string.Empty;
 
-				Binding bndProp5 = txtProperty5.DataBindings.Add("Text", this.myProduct, "Eigenschaft5");
+				var bndProp5 = txtProperty5.DataBindings.Add("Text", this.myProduct, "Eigenschaft5");
 				bndProp5.NullValue = string.Empty;
-				Binding bndVal5 = txtValue5.DataBindings.Add("Text", this.myProduct, "Wert5");
+				var bndVal5 = txtValue5.DataBindings.Add("Text", this.myProduct, "Wert5");
 				bndVal5.NullValue = string.Empty;
 
-				Binding bndProp6 = txtProperty6.DataBindings.Add("Text", this.myProduct, "Eigenschaft6");
+				var bndProp6 = txtProperty6.DataBindings.Add("Text", this.myProduct, "Eigenschaft6");
 				bndProp6.NullValue = string.Empty;
-				Binding bndVal6 = txtValue6.DataBindings.Add("Text", this.myProduct, "Wert6");
+				var bndVal6 = txtValue6.DataBindings.Add("Text", this.myProduct, "Wert6");
 				bndVal6.NullValue = string.Empty;
 
-				Binding bndProp7 = txtProperty7.DataBindings.Add("Text", this.myProduct, "Eigenschaft7");
+				var bndProp7 = txtProperty7.DataBindings.Add("Text", this.myProduct, "Eigenschaft7");
 				bndProp7.NullValue = string.Empty;
-				Binding bndVal7 = txtValue7.DataBindings.Add("Text", this.myProduct, "Wert7");
+				var bndVal7 = txtValue7.DataBindings.Add("Text", this.myProduct, "Wert7");
 				bndVal7.NullValue = string.Empty;
 
-				Binding bndProp8 = txtProperty8.DataBindings.Add("Text", this.myProduct, "Eigenschaft8");
+				var bndProp8 = txtProperty8.DataBindings.Add("Text", this.myProduct, "Eigenschaft8");
 				bndProp8.NullValue = string.Empty;
-				Binding bndVal8 = txtValue8.DataBindings.Add("Text", this.myProduct, "Wert8");
+				var bndVal8 = txtValue8.DataBindings.Add("Text", this.myProduct, "Wert8");
 				bndVal8.NullValue = string.Empty;
 
-				Binding bndProp9 = txtProperty9.DataBindings.Add("Text", this.myProduct, "Eigenschaft9");
+				var bndProp9 = txtProperty9.DataBindings.Add("Text", this.myProduct, "Eigenschaft9");
 				bndProp9.NullValue = string.Empty;
-				Binding bndVal9 = txtValue9.DataBindings.Add("Text", this.myProduct, "Wert9");
+				var bndVal9 = txtValue9.DataBindings.Add("Text", this.myProduct, "Wert9");
 				bndVal9.NullValue = string.Empty;
 
-				Binding bndProp10 = txtProperty10.DataBindings.Add("Text", this.myProduct, "Eigenschaft10");
+				var bndProp10 = txtProperty10.DataBindings.Add("Text", this.myProduct, "Eigenschaft10");
 				bndProp10.NullValue = string.Empty;
-				Binding bndVal10 = txtValue10.DataBindings.Add("Text", this.myProduct, "Wert10");
+				var bndVal10 = txtValue10.DataBindings.Add("Text", this.myProduct, "Wert10");
 				bndVal10.NullValue = string.Empty;
 
-				Binding bndProp11 = txtProperty11.DataBindings.Add("Text", this.myProduct, "Eigenschaft11");
+				var bndProp11 = txtProperty11.DataBindings.Add("Text", this.myProduct, "Eigenschaft11");
 				bndProp11.NullValue = string.Empty;
-				Binding bndVal11 = txtValue11.DataBindings.Add("Text", this.myProduct, "Wert11");
+				var bndVal11 = txtValue11.DataBindings.Add("Text", this.myProduct, "Wert11");
 				bndVal11.NullValue = string.Empty;
 
-				Binding bndProp12 = txtProperty12.DataBindings.Add("Text", this.myProduct, "Eigenschaft12");
+				var bndProp12 = txtProperty12.DataBindings.Add("Text", this.myProduct, "Eigenschaft12");
 				bndProp12.NullValue = string.Empty;
-				Binding bndVal12 = txtValue12.DataBindings.Add("Text", this.myProduct, "Wert12");
+				var bndVal12 = txtValue12.DataBindings.Add("Text", this.myProduct, "Wert12");
 				bndVal12.NullValue = string.Empty;
 
-				Binding bndProp13 = txtProperty13.DataBindings.Add("Text", this.myProduct, "Eigenschaft13");
+				var bndProp13 = txtProperty13.DataBindings.Add("Text", this.myProduct, "Eigenschaft13");
 				bndProp13.NullValue = string.Empty;
-				Binding bndVal13 = txtValue13.DataBindings.Add("Text", this.myProduct, "Wert13");
+				var bndVal13 = txtValue13.DataBindings.Add("Text", this.myProduct, "Wert13");
 				bndVal13.NullValue = string.Empty;
 
-				Binding bndProp14 = txtProperty14.DataBindings.Add("Text", this.myProduct, "Eigenschaft14");
+				var bndProp14 = txtProperty14.DataBindings.Add("Text", this.myProduct, "Eigenschaft14");
 				bndProp14.NullValue = string.Empty;
-				Binding bndVal14 = txtValue14.DataBindings.Add("Text", this.myProduct, "Wert14");
+				var bndVal14 = txtValue14.DataBindings.Add("Text", this.myProduct, "Wert14");
 				bndVal14.NullValue = string.Empty;
 
-				Binding bndManufacturerLogo = this.txtManufacturerLogo.DataBindings.Add("Text", this.myProduct, "HerstellerlogoPfad");
+				var bndManufacturerLogo = this.txtManufacturerLogo.DataBindings.Add("Text", this.myProduct, "HerstellerlogoPfad");
 				bndManufacturerLogo.NullValue = string.Empty;
 
-				Binding bndProductLogo = this.txtProductLogo.DataBindings.Add("Text", this.myProduct, "ProduktlogoPfad");
+				var bndProductLogo = this.txtProductLogo.DataBindings.Add("Text", this.myProduct, "ProduktlogoPfad");
 				bndProductLogo.NullValue = string.Empty;
 
-				Binding bndProductPicture = this.txtProductPicture.DataBindings.Add("Text", this.myProduct, "ProduktbildPfad");
+				var bndProductPicture = this.txtProductPicture.DataBindings.Add("Text", this.myProduct, "ProduktbildPfad");
 				bndProductPicture.NullValue = string.Empty;
 
-				Binding bndCheckedFlag = this.mchkChecked.DataBindings.Add("Checked", this.myProduct, "CheckedFlag");
+				var bndCheckedFlag = this.mchkChecked.DataBindings.Add("Checked", this.myProduct, "CheckedFlag");
 			}
 		}
 
 		static void ChoosePreset(ProductDetailView instance)
 		{
 			var spv = new SelectPresetView();
-			if (spv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			if (spv.ShowDialog() == DialogResult.OK)
 			{
 				string msg = "Wenn Du jetzt auf Ok klickst, werden die bereits vorhandenen Namen der Eigenschaften (linke Spalte) überschrieben!";
-				if (MessageBox.Show(msg, "Catalist - Preset", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (MetroMessageBox.Show(instance, msg, "Catalist - Preset", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					dsShared.PresetRow preset = spv.SelectedPreset;
 
@@ -472,7 +472,7 @@ namespace Products.Common.Views
 				else
 				{
 					string msg1 = "Sollen alle vorhandenen Bezeichnungen der Eigenschaften gelöscht werden?";
-					if (MessageBox.Show(msg1, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					if (MetroMessageBox.Show(instance, msg1, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 					{
 						instance.txtProperty1.Text = string.Empty;
 						instance.txtProperty2.Text = string.Empty;
@@ -500,7 +500,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

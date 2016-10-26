@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using DvApi32;
-using System.Runtime.ExceptionServices;
 using System.IO;
+using System.Runtime.ExceptionServices;
+using System.Runtime.InteropServices;
+using David.API;
+using DvApi32;
+using Products.Common;
 
 namespace David
 {
-
 	#region public enums
 
 	/// <summary>
@@ -34,6 +35,8 @@ namespace David
 		CreatedBy = 53,
 		EndsAt = 51,
 		FileName = 58,
+		To = 56,
+		From = 57,
 		ChangedAt = 38,
 		Location = 70,
 		BodyAscii = 132,
@@ -45,18 +48,24 @@ namespace David
 		Subject = 59
 	}
 
-	#endregion
+	#endregion public enums
 
 	public class DavidService
 	{
+		#region public events
+
+		public event EventHandler<ItemNotificationEventArgs> NewAppointmentMailEvent;
+
+		#endregion public events
 
 		#region members
 
 		IApplication myDavidApp = new DavidAPIClass();
 		Account myAccount;
+		ArchiveNotification myNotification;
 		bool myConnected;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -71,35 +80,63 @@ namespace David
 			}
 		}
 
-		#endregion
+		/// <summary>
+		/// True, wenn die Anwendung mit dem Schalter "AppointmentListener" gestartet wurde.
+		/// </summary>
+		public bool WithAppointmentListener { get; private set; }
+
+		#endregion public properties
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Erstellt eine neue Instanz der PostService Klasse.
 		/// </summary>
-		public DavidService()
+		public DavidService(bool withAppointmentListener)
 		{
 			try
 			{
 				myDavidApp.LoginOptions = DvLoginOptions.DvLoginForceAsyncDuplicate;
 				myAccount = myDavidApp.Logon("", "", "", "", "", "AUTH");
 				this.myConnected = true;
+				this.WithAppointmentListener = withAppointmentListener;
 			}
-			catch (System.Runtime.InteropServices.COMException)
+			catch (COMException)
 			{
 				this.myConnected = false;
+				this.WithAppointmentListener = false;
+			}
+			// Wenn die Anwendung mit dem Schalter "AppointmentListener" gestartet wird, registrieren
+			// wir die Notifications des DAVID-Ordners, in dem Terminanfragen eingehen
+			// (Global.AppointmentArchivePath). Derzeit ist das der Ordner "\\david\david\archive\group\b".
+			if (this.WithAppointmentListener)
+			{
+				var appointmentArchive = this.myAccount.GetArchive(Global.AppointmentArchivePath);
+				if (appointmentArchive != null)
+				{
+					this.myNotification = new ArchiveNotification();
+					this.myNotification.ItemNewEvent += MyNotification_ItemNewEvent;
+					this.myNotification.AddArchive(appointmentArchive);
+				}
 			}
 		}
 
-		#endregion
+		// Wird ausgelöst, wenn auf dem DAVID Server eine neue Terminanforderung eintrifft.
+		void MyNotification_ItemNewEvent(object sender, ItemNotificationEventArgs e)
+		{
+			this.NewAppointmentMailEvent?.Invoke(this, e);
+		}
+
+		#endregion ### .ctor ###
 
 		#region public procedures
 
 		/// <summary>
 		/// Gibt eine Liste aller Termine aus dem angegebenen Archiv zurück.
 		/// </summary>
-		/// <param name="forArchive">Kompletter Pfad zum entsprechenden Archiv des Users. Z. B. "\\DAVID\David\Archive\USER\1003C010"</param>
+		/// <param name="forArchive">
+		/// Kompletter Pfad zum entsprechenden Archiv des Users. Z. B. "\\DAVID\David\Archive\USER\1003C010"
+		/// </param>
 		/// <param name="fromDate">Untere Grenze des Datumsbereichs.</param>
 		/// <returns></returns>
 		[HandleProcessCorruptedStateExceptions]
@@ -117,11 +154,14 @@ namespace David
 				}
 
 				//string filter = string.Format("OnlyEMail StatusTime=\"{0} - 12-31-2200 23:59:59\"", fromDate.Value.ToString("M-d-yyyy H:m:s"));
-
 				var calArchive = myAccount.GetArchive(forArchive);
 				if (calArchive == null) throw new ApplicationException(string.Format("Der angegebene Kalenderordner '{0}' existiert nicht.", forArchive));
-				var filter = string.Format("OnlyEMail StatusTime=\"{0} - {1}\"", fromDate.Value.ToString("M-d-yyyy H:m:s"), toDate.Value.ToString("M-d-yyyy H:m:s"));
+				//var filter = string.Format(@"OnlyEMail StatusTime=\"{0} - {1}\"", fromDate.Value.ToString("M-d-yyyy H:m:s"), toDate.Value.ToString("M-d-yyyy H:m:s"));
+				var from = fromDate.Value.ToString("M-d-yyyy H:m:s");
+				var to = toDate.Value.ToString("M-d-yyyy H:m:s");
+				var filter = $"OnlyEMail StatusTime=\"{from} - {to}\"{char.MinValue}";
 				var items = calArchive.GetArchiveEntries(filter);
+				//var items = calArchive.GetArchiveEntries(DvItemFilterBits.DvFilterAll);
 				return items;
 			}
 			catch (AccessViolationException accEx)
@@ -135,7 +175,8 @@ namespace David
 		}
 
 		/// <summary>
-		/// Gibt den mit dem angegebenen Dateinamen verknüpften Kalendereintrag des angegebenen Benutzers zurück.
+		/// Gibt den mit dem angegebenen Dateinamen verknüpften Kalendereintrag des angegebenen
+		/// Benutzers zurück.
 		/// </summary>
 		/// <param name="filename">Dateiname des Kalendereintrags.</param>
 		/// <returns>Die Instanz eines DvApi32.MessageItem2 Objekts.</returns>
@@ -143,7 +184,7 @@ namespace David
 		{
 			try
 			{
-				if (System.IO.File.Exists(filename))
+				if (File.Exists(filename))
 				{
 					var archive = Path.GetDirectoryName(filename);
 					var kalender = myAccount.GetArchive(archive);
@@ -161,7 +202,9 @@ namespace David
 		/// <summary>
 		/// Gibt den Kalendereintrag für den angegebenen Dateinamen als MessageItem2 Instanz zurück.
 		/// </summary>
-		/// <param name="filename">Vollständiger Pfad + Dateiname des Kalendereintrags im David Dateisystem.</param>
+		/// <param name="filename">
+		/// Vollständiger Pfad + Dateiname des Kalendereintrags im David Dateisystem.
+		/// </param>
 		/// <returns>Ein MessageItem2 Objekt.</returns>
 		public MessageItem2 GetMessageItem2(string filename)
 		{
@@ -169,7 +212,7 @@ namespace David
 			{
 				if (File.Exists(filename))
 				{
-					var archive = System.IO.Path.GetDirectoryName(filename);
+					var archive = Path.GetDirectoryName(filename);
 					var kalender = myAccount.GetArchive(archive);
 					var mItem2 = kalender.GetArchiveEntryByID(filename);
 					return mItem2;
@@ -188,7 +231,7 @@ namespace David
 		/// <param name="msgItem2">Die MessageItem2 Instanz.</param>
 		/// <param name="field">Ein Element der <seealso cref="David.DavidFieldEnum"/> Auflistung.</param>
 		/// <returns></returns>
-		public object GetFieldValue(MessageItem2 msgItem2, DavidFieldEnum field) 
+		public object GetFieldValue(MessageItem2 msgItem2, DavidFieldEnum field)
 		{
 			var fields = msgItem2.Fields as Fields;
 			if (fields != null)
@@ -217,7 +260,7 @@ namespace David
 			fields.Item(138).Value = "<p>Text</p>"; // HTML Text
 			fields.Item(70).Value = "Terminort"; // Terminort
 			fields.Item(78).Value = -1; // ReminderTime
-			Guid uid = this.CreateGuidField(newItem2); // Benutzerdefiniertes Feld "GUID" erstellen und mit einem GUID füllen.
+			var uid = this.CreateGuidField(newItem2); // Benutzerdefiniertes Feld "GUID" erstellen und mit einem GUID füllen.
 			newItem2.Save();
 			var fileName = string.Format("{0}.001", ((Fields)newItem2.Fields).Item(58).Value);
 			return new CreateMsgItm2Params(newItem2, fileName, uid);
@@ -237,7 +280,7 @@ namespace David
 		/// Speichert das mitgelieferte CalendarItem im Kalender des angemeldeten Benutzers.
 		/// </summary>
 		/// <param name="cItem"></param>
-		public bool SaveCalendarItem(DvApi32.CalendarItem cItem, string filename)
+		public bool SaveCalendarItem(CalendarItem cItem, string filename)
 		{
 			try
 			{
@@ -264,7 +307,76 @@ namespace David
 			}
 		}
 
-		//public DvApi32.AddressItem GetCustomerAddress(string kundenNr) 
+		/// <summary>
+		/// Gibt eine Liste von FileInfo Instanzen mit allen Attachments des angegebenen David
+		/// Archivs zurück.
+		/// </summary>
+		/// <param name="whatArchive"></param>
+		/// <returns></returns>
+		public List<FileInfo> GetAttachments(string whatArchive, string filter = "Subject Like %20160001183%")
+		{
+			// string filter = "default"
+			var archive = this.myAccount.GetArchive(whatArchive);
+			if (archive != null)
+			{
+				var list = new List<FileInfo>();
+				var fileName = string.Empty;
+				var fullName = string.Empty;
+				foreach (var email in archive.GetArchiveEntries(filter))
+				{
+					if (email is MessageItem)
+					{
+						var msg = email as MessageItem;
+						for (int i = 0; i < msg.Attachments.Count; i++)
+						{
+							try
+							{
+								var attachment = msg.Attachments.Item(i);
+								fileName = attachment.FileName;
+								fullName = Path.Combine(@"C:\Temp\Attachments", fileName);
+								if (!File.Exists(fullName)) attachment.CopyOut(@"C:\Temp\Attachments");
+								list.Add(new FileInfo(fullName));
+							}
+							catch (Exception ex)
+							{
+								var logEntry = string.Format("{0}{1}{2}", ex.Message, Environment.NewLine, fullName);
+							}
+						}
+					}
+				}
+				return list;
+			}
+			return null;
+		}
+
+		public List<FileInfo> GetAttachmentList(string fullName)
+		{
+			var list = new List<FileInfo>();
+			var fi = new FileInfo(fullName);
+			if (fi.Exists)
+			{
+				var archive = this.myAccount.GetArchive(fi.DirectoryName);
+				if (archive != null)
+				{
+					var mi2 = archive.GetArchiveEntryByID(fullName) as MessageItem2;
+					if (mi2 != null)
+					{
+						for (int i = 0; i < mi2.Attachments.Count; i++)
+						{
+							var temp = Path.GetTempPath();
+							var attachment = mi2.Attachments.Item(i);
+							var fileName = attachment.FileName;
+							var fileAndPath = Path.Combine(temp, fileName);
+							if (!File.Exists(fileAndPath)) attachment.CopyOut(temp, fileName);
+							list.Add(new FileInfo(fileAndPath));
+						}
+					}
+				}
+			}
+			return list;
+		}
+
+		//public DvApi32.AddressItem GetCustomerAddress(string kundenNr)
 		//{
 		//  DvApi32.Archive kundenAdressen = myAccount.GetArchive(@"\\david\david\archive\address\kunden");
 		//  foreach (var adresse in kundenAdressen.AddressBook)
@@ -280,11 +392,18 @@ namespace David
 		//  return null;
 		//}
 
-		#endregion
+		public void Shutdown()
+		{
+			if (!this.myConnected) return;
+			if (this.myNotification != null) this.myNotification.ClearAll(this.myAccount);
+			this.myAccount.Logoff();
+		}
+
+		#endregion public procedures
 
 		#region private procedures
 
-		Guid CreateGuidField(DvApi32.MessageItem2 forMessageItem2)
+		Guid CreateGuidField(MessageItem2 forMessageItem2)
 		{
 			var fields = (Fields)forMessageItem2.Fields;
 			if (fields.UserFields.Count == 0)
@@ -297,7 +416,6 @@ namespace David
 			return Guid.Empty;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

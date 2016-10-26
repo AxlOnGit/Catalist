@@ -93,10 +93,11 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "SelectPresetView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Preset-Auswahl";
+			this.Theme = MetroFramework.MetroThemeStyle.Default;
 			this.TopMost = true;
 			this.ResumeLayout(false);
 

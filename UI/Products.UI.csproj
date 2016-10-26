@@ -30,9 +30,9 @@
     <PublisherName>CPM</PublisherName>
     <SuiteName>Catalist Suite</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.2.17.%2a</ApplicationVersion>
-    <UseApplicationTrust>true</UseApplicationTrust>
+    <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -41,11 +41,12 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>..\binaries\debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -92,12 +93,12 @@
     <Reference Include="Calendar.DayView">
       <HintPath>..\ThirdParty\CalendarDayView\Calendar.DayView.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Common.Logging.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ControlLib">
@@ -109,14 +110,20 @@
     <Reference Include="HtmlRenderer">
       <HintPath>..\ThirdParty\HtmlRenderer.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.dll</HintPath>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\ThirdParty\DotNetZip\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework.Design, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Design.dll</HintPath>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="MetroFramework.Fonts, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
@@ -125,8 +132,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ThirdParty\HTMLEditor\MSDN.HtmlEditorControl.dll</HintPath>
     </Reference>
-    <Reference Include="Quartz, Version=2.3.3.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ShaperRater, Version=1.0.5711.24398, Culture=neutral, processorArchitecture=MSIL">
@@ -136,6 +143,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Device" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -157,7 +165,6 @@
     <Compile Include="Controls\NullableDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LogService.cs" />
     <Compile Include="Panel\pnlAngebote.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,17 +207,23 @@
     <Compile Include="Panel\pnlKontakte.Designer.cs">
       <DependentUpon>pnlKontakte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panel\pnlKundenMaschine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panel\pnlKundenMaschine.Designer.cs">
+      <DependentUpon>pnlKundenMaschine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panel\pnlKundeStart.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panel\pnlKundeStart.designer.cs">
       <DependentUpon>pnlKundeStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlMaschinen.cs">
+    <Compile Include="Panel\pnlMaschinenListe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlMaschinen.Designer.cs">
-      <DependentUpon>pnlMaschinen.cs</DependentUpon>
+    <Compile Include="Panel\pnlMaschinenListe.Designer.cs">
+      <DependentUpon>pnlMaschinenListe.cs</DependentUpon>
     </Compile>
     <Compile Include="Panel\pnlMaschinendetail.cs">
       <SubType>UserControl</SubType>
@@ -262,6 +275,12 @@
     <Compile Include="Settings.cs" />
     <Compile Include="UiService.cs" />
     <Compile Include="ViewController\CalendarViewController.cs" />
+    <Compile Include="Views\AngeboteListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AngeboteListView.Designer.cs">
+      <DependentUpon>AngeboteListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AppointmentListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,11 +389,29 @@
     <Compile Include="Views\CustomerSearchView2.Designer.cs">
       <DependentUpon>CustomerSearchView2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmailListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmailListView.Designer.cs">
+      <DependentUpon>EmailListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmailView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\EmailView.Designer.cs">
       <DependentUpon>EmailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileExplorerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FileExplorerView.Designer.cs">
+      <DependentUpon>FileExplorerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FileSearchView.Designer.cs">
+      <DependentUpon>FileSearchView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InteressentView.cs">
       <SubType>Form</SubType>
@@ -430,11 +467,29 @@
     <Compile Include="Views\LieferantenStaffelpreisView.Designer.cs">
       <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MaschinenmodellView.cs">
+    <Compile Include="Views\ModellListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MaschinenmodellView.Designer.cs">
-      <DependentUpon>MaschinenmodellView.cs</DependentUpon>
+    <Compile Include="Views\ModellListView.Designer.cs">
+      <DependentUpon>ModellListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModellserieListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModellserieListView.Designer.cs">
+      <DependentUpon>ModellserieListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModellserieView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModellserieView.Designer.cs">
+      <DependentUpon>ModellserieView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModellView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModellView.Designer.cs">
+      <DependentUpon>ModellView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\NotizView.cs">
       <SubType>Form</SubType>
@@ -453,6 +508,12 @@
     </Compile>
     <Compile Include="Views\ProductCategoryView.Designer.cs">
       <DependentUpon>ProductCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductExportDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductExportDetailsView.Designer.cs">
+      <DependentUpon>ProductExportDetailsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductSearchView.cs">
       <SubType>Form</SubType>
@@ -522,6 +583,12 @@
     <Compile Include="Views\TaskListView.Designer.cs">
       <DependentUpon>TaskListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TestView.Designer.cs">
+      <DependentUpon>TestView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TintenListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -576,6 +643,12 @@
     <Compile Include="Views\VerwaltungsView.Designer.cs">
       <DependentUpon>VerwaltungsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\WartungsvorschlagView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WartungsvorschlagView.Designer.cs">
+      <DependentUpon>WartungsvorschlagView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Panel\pnlAngebote.resx">
       <DependentUpon>pnlAngebote.cs</DependentUpon>
     </EmbeddedResource>
@@ -597,11 +670,14 @@
     <EmbeddedResource Include="Panel\pnlKontakte.resx">
       <DependentUpon>pnlKontakte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panel\pnlKundenMaschine.resx">
+      <DependentUpon>pnlKundenMaschine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panel\pnlKundeStart.resx">
       <DependentUpon>pnlKundeStart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlMaschinen.resx">
-      <DependentUpon>pnlMaschinen.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\pnlMaschinenListe.resx">
+      <DependentUpon>pnlMaschinenListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panel\pnlMaschinendetail.resx">
       <DependentUpon>pnlMaschinendetail.cs</DependentUpon>
@@ -625,6 +701,9 @@
     <EmbeddedResource Include="Resources\UI.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AngeboteListView.resx">
+      <DependentUpon>AngeboteListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AppointmentListView.resx">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
@@ -681,8 +760,17 @@
     <EmbeddedResource Include="Views\CustomerSearchView2.resx">
       <DependentUpon>CustomerSearchView2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailListView.resx">
+      <DependentUpon>EmailListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmailView.resx">
       <DependentUpon>EmailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FileExplorerView.resx">
+      <DependentUpon>FileExplorerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FileSearchView.resx">
+      <DependentUpon>FileSearchView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InteressentView.resx">
       <DependentUpon>InteressentView.cs</DependentUpon>
@@ -711,8 +799,17 @@
     <EmbeddedResource Include="Views\LieferantenStaffelpreisView.resx">
       <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MaschinenmodellView.resx">
-      <DependentUpon>MaschinenmodellView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ModellListView.resx">
+      <DependentUpon>ModellListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModellserieListView.resx">
+      <DependentUpon>ModellserieListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModellserieView.resx">
+      <DependentUpon>ModellserieView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModellView.resx">
+      <DependentUpon>ModellView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NotizView.resx">
       <DependentUpon>NotizView.cs</DependentUpon>
@@ -722,6 +819,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductCategoryView.resx">
       <DependentUpon>ProductCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductExportDetailsView.resx">
+      <DependentUpon>ProductExportDetailsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductSearchView.resx">
       <DependentUpon>ProductSearchView.cs</DependentUpon>
@@ -761,6 +861,9 @@
     <EmbeddedResource Include="Views\TaskListView.resx">
       <DependentUpon>TaskListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestView.resx">
+      <DependentUpon>TestView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TintenListView.resx">
       <DependentUpon>TintenListView.cs</DependentUpon>
     </EmbeddedResource>
@@ -787,6 +890,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VerwaltungsView.resx">
       <DependentUpon>VerwaltungsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WartungsvorschlagView.resx">
+      <DependentUpon>WartungsvorschlagView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -831,6 +937,10 @@
     <ProjectReference Include="..\Model\Products.Model.csproj">
       <Project>{7EE96D66-A04C-46E8-BDAC-9FD37C92B483}</Project>
       <Name>Products.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeBridge\OfficeBridge.csproj">
+      <Project>{c4fdde47-d445-4b2c-a315-f6cc44f7821e}</Project>
+      <Name>OfficeBridge</Name>
     </ProjectReference>
     <ProjectReference Include="..\PdfMaker\Products.PdfMaker.csproj">
       <Project>{CFFFB656-BE8A-4877-BB8D-E74CA7BAA454}</Project>
@@ -939,6 +1049,23 @@
     <None Include="Resources\open_16_metroteal.png" />
     <None Include="Resources\garbage_32_metroteal.png" />
     <None Include="Resources\search_16_metroblack.png" />
+    <None Include="Resources\rename_16_metroorange.png" />
+    <None Include="Resources\move_32_metroorange.png" />
+    <None Include="Resources\asana_favicon.png" />
+    <None Include="Resources\zip_32_metroorange.png" />
+    <None Include="Resources\zip_16_metrored.png" />
+    <None Include="Resources\zip_32_metrored.png" />
+    <None Include="Resources\Search_32_metrored.png" />
+    <None Include="Resources\search_16_metrored.png" />
+    <None Include="Resources\admin_32_metrored.png" />
+    <None Include="Resources\refresh_32_metroorange.png" />
+    <None Include="Resources\createfolder_16_metroyellow.png" />
+    <None Include="Resources\serie_32_metroblue.png" />
+    <None Include="Resources\tools_48_metrowhite.png" />
+    <None Include="Resources\newfolder_16_metroyellow.png" />
+    <None Include="Resources\edit_32_metrogreen.png" />
+    <None Include="Resources\excelexport_32_metrored.png" />
+    <None Include="Resources\excelexport_32.png" />
     <Content Include="Windows 8.ico" />
     <None Include="Resources\filter_16_metrolime.png" />
     <None Include="Resources\frage_32_metroyellow.png" />

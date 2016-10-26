@@ -100,20 +100,20 @@
 			// 
 			this.dgvNotizen.AllowUserToDeleteRows = false;
 			this.dgvNotizen.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(244, 244, 244);
 			this.dgvNotizen.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvNotizen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvNotizen.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvNotizen.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvNotizen.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvNotizen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvNotizen.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(187)))), ((int)(((byte)(153)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvNotizen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvNotizen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,16 +123,16 @@
             this.dataGridViewTextBoxColumn8});
 			this.dgvNotizen.ContextMenuStrip = this.mctxNotes;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(187)))), ((int)(((byte)(153)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvNotizen.DefaultCellStyle = dataGridViewCellStyle4;
 			this.dgvNotizen.EnableHeadersVisualStyles = false;
 			this.dgvNotizen.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvNotizen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvNotizen.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvNotizen.HighLightPercentage = 0.99F;
 			this.dgvNotizen.Location = new System.Drawing.Point(23, 127);
 			this.dgvNotizen.Margin = new System.Windows.Forms.Padding(3, 3, 3, 26);
@@ -142,9 +142,9 @@
 			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(187)))), ((int)(((byte)(153)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvNotizen.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvNotizen.RowHeadersVisible = false;

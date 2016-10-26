@@ -5,29 +5,23 @@ namespace Products.Model.Entities
 {
 	public class CatalogEntry
 	{
-
 		#region members
 
-		dsCatalog.CatalogRow myBase;
+		readonly dsCatalog.CatalogRow myBase;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		#region integrals
 
 		public string Numbering { get { return myBase.Numbering; } set { myBase.Numbering = value; } }
+
 		public string SectionName { get { return myBase.SectionName; } set { myBase.SectionName = value; } }
 
-		#endregion
+		#endregion integrals
 
-		#region entities
-
-
-
-		#endregion
-
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -40,7 +34,6 @@ namespace Products.Model.Entities
 			myBase = baseRow;
 		}
 
-		#endregion
-
+		#endregion ### .ctor ###
 	}
 }

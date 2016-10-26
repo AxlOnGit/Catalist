@@ -137,7 +137,7 @@
 			this.Controls.Add(this.mbtRemindAgain);
 			this.Controls.Add(this.mlblDescription);
 			this.Name = "ReminderView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.Style = MetroFramework.MetroColorStyle.Green;
 			this.Text = "So, ist 12.00 Uhr jetzt!";

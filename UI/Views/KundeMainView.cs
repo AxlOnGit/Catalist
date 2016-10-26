@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using System.Diagnostics;
-using Products.Model.Entities;
 using Products.Common.Interfaces;
 using Products.Common.Panel;
+using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class KundeMainView : MetroForm
 	{
-
 		#region members
 
 		readonly Model.Entities.Kunde myKunde;
@@ -28,17 +27,17 @@ namespace Products.Common.Views
 		pnlAuftraege myAuftragsPanel;
 		pnlAngebote myAngebotsPanel;
 		pnlFinanzen myFinanzPanel;
-		pnlMaschinen myMmaschinenPanel;
+		pnlMaschinenListe myMmaschinenPanel;
 		pnlSoftwareliste mySoftwarePanel;
 		pnlNotizen myNotizenPanel;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		public Kunde CurrentCustomer { get { return this.myKunde; } }
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -70,7 +69,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -86,10 +85,10 @@ namespace Products.Common.Views
 
 		void KundeMainView_MouseEnter(object sender, EventArgs e)
 		{
-			if (!this.Focused)
-			{
-				this.Focus();
-			}
+			//if (!this.Focused)
+			//{
+			//	this.Focus();
+			//}
 		}
 
 		void xcmdBingMaps_Click(object sender, EventArgs e)
@@ -143,7 +142,7 @@ namespace Products.Common.Views
 			ClearPanels();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region internal procedures
 
@@ -174,7 +173,7 @@ namespace Products.Common.Views
 		{
 			if (this.myAngebotsPanel == null)
 			{
-				this.myAngebotsPanel = new pnlAngebote(this, myKunde,true);
+				this.myAngebotsPanel = new pnlAngebote(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(myActivePanel);
 			myActivePanel.Swipe(false);
@@ -251,7 +250,7 @@ namespace Products.Common.Views
 		{
 			if (this.myMmaschinenPanel == null)
 			{
-				this.myMmaschinenPanel = new pnlMaschinen(this, this.myKunde, true);
+				this.myMmaschinenPanel = new pnlMaschinenListe(this, this.myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -271,7 +270,7 @@ namespace Products.Common.Views
 			this.mySoftwarePanel.Swipe(true);
 			this.myActivePanel = mySoftwarePanel;
 			this.ToggleCloseButton();
-			}
+		}
 
 		internal void LoadOrShowNotizen()
 		{
@@ -286,13 +285,15 @@ namespace Products.Common.Views
 			this.ToggleCloseButton();
 		}
 
-		#endregion
+		#endregion LOAD OR SHOW
 
 		#region JUST SHOW
 
-		internal pnlMaschinendetail ShowMaschine(Kundenmaschine kundenmaschine)
+		//internal pnlMaschinendetail ShowMaschine(Kundenmaschine kundenmaschine)
+		internal pnlKundenMaschine ShowMaschine(Kundenmaschine kundenmaschine)
 		{
-			var detailPanel = new pnlMaschinendetail(this, kundenmaschine, true);
+			//var detailPanel = new pnlMaschinendetail(this, kundenmaschine, true);
+			var detailPanel = new pnlKundenMaschine(this, kundenmaschine);
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
 			detailPanel.Swipe(true);
@@ -321,9 +322,9 @@ namespace Products.Common.Views
 			this.ToggleCloseButton();
 		}
 
-		#endregion
+		#endregion JUST SHOW
 
-		#endregion
+		#endregion internal procedures
 
 		#region private procedures
 
@@ -394,7 +395,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

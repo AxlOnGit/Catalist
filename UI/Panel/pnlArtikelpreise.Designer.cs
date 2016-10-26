@@ -51,6 +51,8 @@
 			this.dgvProducts = new MetroFramework.Controls.MetroGrid();
 			this.mlblTitel = new MetroFramework.Controls.MetroLabel();
 			this.mtxtFilter = new MetroFramework.Controls.MetroTextBox();
+			this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+			this.mbtnExport = new MetroFramework.Controls.MetroButton();
 			this.mbtnLagerbestand = new MetroFramework.Controls.MetroButton();
 			this.mbtnArtikeldetails = new MetroFramework.Controls.MetroButton();
 			this.mbtnKalkulation = new MetroFramework.Controls.MetroButton();
@@ -82,13 +84,13 @@
 			// ctxGrid
 			// 
 			this.ctxGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuDetails,
-            this.cmnuCalc,
-            this.toolStripSeparator2,
-            this.cmnuSpecialPrice,
-            this.toolStripSeparator1,
-            this.cmnuInventory,
-            this.xcmdLieferantenRabatt});
+						this.cmnuDetails,
+						this.cmnuCalc,
+						this.toolStripSeparator2,
+						this.cmnuSpecialPrice,
+						this.toolStripSeparator1,
+						this.cmnuInventory,
+						this.xcmdLieferantenRabatt});
 			this.ctxGrid.Name = "ctxGrid";
 			this.ctxGrid.Size = new System.Drawing.Size(206, 126);
 			// 
@@ -172,8 +174,8 @@
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -188,17 +190,17 @@
 			this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colArtikel,
-            this.colBezeichnung1,
-            this.colArtikelgruppe,
-            this.colMengeneinheit,
-            this.colEinkaufspreis,
-            this.colStandardpreis,
-            this.colKundenpreis,
-            this.colRabatt,
-            this.colKatalogsektion,
-            this.colChecked,
-            this.colChangeUser});
+						this.colArtikel,
+						this.colBezeichnung1,
+						this.colArtikelgruppe,
+						this.colMengeneinheit,
+						this.colEinkaufspreis,
+						this.colStandardpreis,
+						this.colKundenpreis,
+						this.colRabatt,
+						this.colKatalogsektion,
+						this.colChecked,
+						this.colChangeUser});
 			this.dgvProducts.ContextMenuStrip = this.ctxGrid;
 			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -269,6 +271,7 @@
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowButton = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(271, 23);
@@ -276,10 +279,36 @@
 			this.mtxtFilter.TabIndex = 1;
 			this.mtxtFilter.UseSelectable = true;
 			this.mtxtFilter.WaterMark = "Art.-Nr., Matchcode oder Bezeichnung";
-			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtFilter.ClearClicked += new MetroFramework.Controls.MetroTextBox.LUClear(this.mtxtFilter_ClearClicked);
 			this.mtxtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtFilter_KeyUp);
+			// 
+			// metroLabel4
+			// 
+			this.metroLabel4.AutoSize = true;
+			this.metroLabel4.Location = new System.Drawing.Point(566, 79);
+			this.metroLabel4.Name = "metroLabel4";
+			this.metroLabel4.Size = new System.Drawing.Size(48, 19);
+			this.metroLabel4.TabIndex = 91;
+			this.metroLabel4.Text = "Export";
+			// 
+			// mbtnExport
+			// 
+			this.mbtnExport.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnExport.BackgroundImage = global::Products.Common.Properties.Resources.excelexport_32;
+			this.mbtnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnExport.FontSize = MetroFramework.MetroButtonSize.Tall;
+			this.mbtnExport.FontWeight = MetroFramework.MetroButtonWeight.Light;
+			this.mbtnExport.Location = new System.Drawing.Point(572, 40);
+			this.mbtnExport.Margin = new System.Windows.Forms.Padding(3, 20, 40, 3);
+			this.mbtnExport.Name = "mbtnExport";
+			this.mbtnExport.Size = new System.Drawing.Size(36, 36);
+			this.mbtnExport.TabIndex = 90;
+			this.mbtnExport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.mbtnExport.UseCustomBackColor = true;
+			this.mbtnExport.UseSelectable = true;
+			this.mbtnExport.Click += new System.EventHandler(this.mbtnExport_Click);
 			// 
 			// mbtnLagerbestand
 			// 
@@ -419,9 +448,9 @@
 			// colKatalogsektion
 			// 
 			this.colKatalogsektion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colKatalogsektion.DataPropertyName = "Katalogsektion";
+			this.colKatalogsektion.DataPropertyName = "StaffelpreisInfo";
 			this.colKatalogsektion.FillWeight = 7F;
-			this.colKatalogsektion.HeaderText = "Katolog";
+			this.colKatalogsektion.HeaderText = "Staffelpreise";
 			this.colKatalogsektion.Name = "colKatalogsektion";
 			this.colKatalogsektion.ReadOnly = true;
 			// 
@@ -448,6 +477,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.metroLabel4);
+			this.Controls.Add(this.mbtnExport);
 			this.Controls.Add(this.mtxtFilter);
 			this.Controls.Add(this.metroLabel3);
 			this.Controls.Add(this.metroLabel2);
@@ -490,16 +521,18 @@
 		MetroFramework.Controls.MetroButton mbtnKalkulation;
 		MetroFramework.Controls.MetroTextBox mtxtFilter;
 		System.Windows.Forms.ToolStripMenuItem xcmdLieferantenRabatt;
-		System.Windows.Forms.DataGridViewTextBoxColumn colArtikel;
-		System.Windows.Forms.DataGridViewTextBoxColumn colBezeichnung1;
-		System.Windows.Forms.DataGridViewTextBoxColumn colArtikelgruppe;
-		System.Windows.Forms.DataGridViewTextBoxColumn colMengeneinheit;
-		System.Windows.Forms.DataGridViewTextBoxColumn colEinkaufspreis;
-		System.Windows.Forms.DataGridViewTextBoxColumn colStandardpreis;
-		System.Windows.Forms.DataGridViewTextBoxColumn colKundenpreis;
-		System.Windows.Forms.DataGridViewTextBoxColumn colRabatt;
-		System.Windows.Forms.DataGridViewTextBoxColumn colKatalogsektion;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colChecked;
-		System.Windows.Forms.DataGridViewTextBoxColumn colChangeUser;
+		private MetroFramework.Controls.MetroButton mbtnExport;
+		private MetroFramework.Controls.MetroLabel metroLabel4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colArtikel;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colBezeichnung1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colArtikelgruppe;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colMengeneinheit;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colEinkaufspreis;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colStandardpreis;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colKundenpreis;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colRabatt;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colKatalogsektion;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colChecked;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colChangeUser;
 	}
 }

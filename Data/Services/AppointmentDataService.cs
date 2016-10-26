@@ -72,6 +72,15 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
+		/// Gibt die Tabelle mit den XRefs von Terminen und verküpften Elementen zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsAppointments.AppointmentLinkXrefDataTable GetAppointmentLinkXrefTable()
+		{
+			return this.myDS.AppointmentLinkXref;
+		}
+
+		/// <summary>
 		/// Erstellt eine neue AppointmentXrefRow.
 		/// </summary>
 		/// <param name="fileName">Dateiname zur David Kalenderdatei auf dem David-Server.</param>
@@ -140,6 +149,26 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
+		/// Löscht alle Einträge in Tabelle AppointmentLinkXref mit dem
+		/// in fullName angegebenen Primärschlüssel.
+		/// </summary>
+		/// <param name="fullName"></param>
+		/// <returns></returns>
+		public int DeleteAppointmentLinkXRefs(string fullName)
+		{
+			var xRows = this.myDS.AppointmentLinkXref.Where(x => x.FullName == fullName);
+			if (xRows != null)
+			{
+				foreach (var xRow in xRows)
+				{
+					xRow.Delete();
+				}
+				return this.myAppointmentLinkXrefAdapter.Update(this.myDS.AppointmentLinkXref);
+			}
+			return 0;
+		}
+
+		/// <summary>
 		/// Aktualisiert alle neuen, geänderten und gelöschten AppointmentXrefRows, AppointmentTypeRows und LocationRows.
 		/// </summary>
 		/// <returns></returns>
@@ -171,7 +200,7 @@ namespace Products.Data.Services
 
 		#region private procedures
 
-		private void InitializeData()
+		void InitializeData()
 		{
 			this.myAppointmentXrefAdapter.Fill(this.myDS.AppointmentXref);
 			this.myAppointmentLinkXrefAdapter.Fill(this.myDS.AppointmentLinkXref);
@@ -179,7 +208,7 @@ namespace Products.Data.Services
 			this.myLocationAdapter.Fill(this.myDS.Location);
 		}
 
-		private dsAppointments.AppointmentXrefRow CreateAppointmentXrefRow(string fileName, string appointmentType = "Undefiniert")
+		dsAppointments.AppointmentXrefRow CreateAppointmentXrefRow(string fileName, string appointmentType = "Undefiniert")
 		{
 			var xRow = this.myDS.AppointmentXref.NewAppointmentXrefRow();
 			xRow.FullName = fileName;

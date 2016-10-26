@@ -42,6 +42,7 @@
 			this.mchkSetAddCustomerNotes = new MetroFramework.Controls.MetroCheckBox();
 			this.mlblAppointmentColor = new MetroFramework.Controls.MetroLabel();
 			this.mchkSetAddCustomerPriceList = new MetroFramework.Controls.MetroCheckBox();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.SuspendLayout();
 			// 
 			// mbtnOk
@@ -89,7 +90,7 @@
 			this.mtxtForUser.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtForUser.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtForUser.Lines = new string[0];
-			this.mtxtForUser.Location = new System.Drawing.Point(23, 118);
+			this.mtxtForUser.Location = new System.Drawing.Point(23, 122);
 			this.mtxtForUser.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.mtxtForUser.MaxLength = 32767;
 			this.mtxtForUser.Name = "mtxtForUser";
@@ -98,11 +99,12 @@
 			this.mtxtForUser.SelectedText = "";
 			this.mtxtForUser.SelectionLength = 0;
 			this.mtxtForUser.SelectionStart = 0;
+			this.mtxtForUser.ShortcutsEnabled = true;
 			this.mtxtForUser.Size = new System.Drawing.Size(252, 23);
 			this.mtxtForUser.TabIndex = 0;
 			this.mtxtForUser.UseSelectable = true;
 			this.mtxtForUser.WaterMark = "Mitarbeiter, für den Termine erstellt werden";
-			this.mtxtForUser.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtForUser.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtForUser.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mchkCustomerInfo
@@ -137,7 +139,7 @@
 			this.mbtnSetForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.mbtnSetForUser.FontSize = MetroFramework.MetroButtonSize.Medium;
 			this.mbtnSetForUser.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-			this.mbtnSetForUser.Location = new System.Drawing.Point(281, 118);
+			this.mbtnSetForUser.Location = new System.Drawing.Point(281, 122);
 			this.mbtnSetForUser.Name = "mbtnSetForUser";
 			this.mbtnSetForUser.Size = new System.Drawing.Size(23, 23);
 			this.mbtnSetForUser.Style = MetroFramework.MetroColorStyle.Silver;
@@ -215,11 +217,21 @@
 			this.mchkSetAddCustomerPriceList.Text = "Kunden-Sonderpreise einfügen";
 			this.mchkSetAddCustomerPriceList.UseSelectable = true;
 			// 
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.Location = new System.Drawing.Point(23, 100);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(166, 19);
+			this.metroLabel1.TabIndex = 12;
+			this.metroLabel1.Text = "Neue Termine erstellen für:";
+			// 
 			// CalendarSettingsView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(324, 497);
+			this.Controls.Add(this.metroLabel1);
 			this.Controls.Add(this.mchkSetAddCustomerPriceList);
 			this.Controls.Add(this.mlblAppointmentColor);
 			this.Controls.Add(this.mchkSetAddCustomerNotes);
@@ -232,6 +244,7 @@
 			this.Controls.Add(this.metroTextButton1);
 			this.Controls.Add(this.mbtnOk);
 			this.Name = "CalendarSettingsView";
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Silver;
 			this.Text = "Kalendereinstellungen";
 			this.ResumeLayout(false);
@@ -254,5 +267,6 @@
 		private MetroFramework.Controls.MetroCheckBox mchkSetAddCustomerNotes;
 		private MetroFramework.Controls.MetroLabel mlblAppointmentColor;
 		private MetroFramework.Controls.MetroCheckBox mchkSetAddCustomerPriceList;
+		private MetroFramework.Controls.MetroLabel metroLabel1;
 	}
 }

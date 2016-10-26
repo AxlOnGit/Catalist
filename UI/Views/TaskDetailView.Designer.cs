@@ -73,7 +73,7 @@
 			// mtxtTaskname
 			// 
 			this.mtxtTaskname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -96,20 +96,21 @@
 			this.mtxtTaskname.SelectedText = "";
 			this.mtxtTaskname.SelectionLength = 0;
 			this.mtxtTaskname.SelectionStart = 0;
+			this.mtxtTaskname.ShortcutsEnabled = true;
 			this.mtxtTaskname.Size = new System.Drawing.Size(868, 23);
 			this.mtxtTaskname.Style = MetroFramework.MetroColorStyle.Lime;
 			this.mtxtTaskname.TabIndex = 0;
 			this.mtxtTaskname.UseSelectable = true;
 			this.mtxtTaskname.UseStyleColors = true;
 			this.mtxtTaskname.WaterMark = "Aufgabe";
-			this.mtxtTaskname.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtTaskname.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtTaskname.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtDescription
 			// 
 			this.mtxtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -133,13 +134,14 @@
 			this.mtxtDescription.SelectedText = "";
 			this.mtxtDescription.SelectionLength = 0;
 			this.mtxtDescription.SelectionStart = 0;
+			this.mtxtDescription.ShortcutsEnabled = true;
 			this.mtxtDescription.Size = new System.Drawing.Size(867, 326);
 			this.mtxtDescription.Style = MetroFramework.MetroColorStyle.Lime;
 			this.mtxtDescription.TabIndex = 8;
 			this.mtxtDescription.UseSelectable = true;
 			this.mtxtDescription.UseStyleColors = true;
 			this.mtxtDescription.WaterMark = "Beschreibung";
-			this.mtxtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel1
@@ -231,11 +233,11 @@
 			this.mcmbCompleted.FormattingEnabled = true;
 			this.mcmbCompleted.ItemHeight = 19;
 			this.mcmbCompleted.Items.AddRange(new object[] {
-            "0",
-            "25",
-            "50",
-            "75",
-            "100"});
+						"0",
+						"25",
+						"50",
+						"75",
+						"100"});
 			this.mcmbCompleted.Location = new System.Drawing.Point(553, 249);
 			this.mcmbCompleted.Name = "mcmbCompleted";
 			this.mcmbCompleted.Size = new System.Drawing.Size(70, 25);
@@ -382,7 +384,7 @@
 			this.Controls.Add(this.btnClose);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TaskDetailView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Lime;
 			this.Text = "Aufgabe ...";
 			this.MouseEnter += new System.EventHandler(this.TaskDetailView_MouseEnter);

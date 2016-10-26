@@ -6,35 +6,34 @@ namespace Products.Common.Panel
 {
 	public partial class pnlSoftware : pnlSlider
 	{
-
 		#region members
 
-		private Views.KundeMainView myParent = null;
-		private Model.Entities.Kundensoftware mySoftware = null;
-		private Model.Entities.Kunde myKunde = null;
+		Views.KundeMainView myParent;
+		Model.Entities.Kundensoftware mySoftware;
+		Model.Entities.Kunde myKunde;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
 		public pnlSoftware(ContainerControl parentCtrl, Model.Entities.Kundensoftware software, bool keepLoaded) : base(parentCtrl, keepLoaded)
 		{
 			InitializeComponent();
-			myParent = parentCtrl as Views.KundeMainView;
-			mySoftware = software;
-			myKunde = software.Kunde;
+			this.myParent = parentCtrl as Views.KundeMainView;
+			this.mySoftware = software;
+			this.myKunde = software.Kunde;
 
-			InitializeData();
-			this.OnClosed += new EventHandler(pnlSoftware_OnClosed);
+			this.InitializeData();
+			this.OnClosed += pnlSoftware_OnClosed;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
 		void dtpInstallationsdatum_ValueChanged(object sender, EventArgs e)
 		{
-			mySoftware.Installationsdatum = dtpInstallationsdatum.Value as DateTime?;
+			this.mySoftware.Installationsdatum = dtpInstallationsdatum.Value as DateTime?;
 		}
 
 		void pnlSoftware_OnClosed(object sender, EventArgs e)
@@ -42,32 +41,31 @@ namespace Products.Common.Panel
 			ModelManager.SoftwareService.UpdateKundenSoftware();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
 		void InitializeData()
 		{
-			mcmbSoftware.DataSource = ModelManager.SoftwareService.GetSoftwareList().Sort("Softwarename");
-			mcmbSoftware.ValueMember = "UID";
-			mcmbSoftware.DisplayMember = "Softwarename";
-			mcmbSoftware.DataBindings.Add("SelectedValue", mySoftware, "SoftwareId");
+			this.mcmbSoftware.DataSource = ModelManager.SoftwareService.GetSoftwareList().Sort("Softwarename");
+			this.mcmbSoftware.ValueMember = "UID";
+			this.mcmbSoftware.DisplayMember = "ItemName";
+			this.mcmbSoftware.DataBindings.Add("SelectedValue", mySoftware, "SoftwareId");
 
-			mtxtLizenzschluessel.DataBindings.Add("Text", mySoftware, "Lizenzschluessel");
+			this.mtxtLizenzschluessel.DataBindings.Add("Text", mySoftware, "Lizenzschluessel");
 
-			dtpInstallationsdatum.Value = mySoftware.Installationsdatum;
+			this.dtpInstallationsdatum.Value = mySoftware.Installationsdatum;
 
-			mcmbKundenmaschine.DataSource = ModelManager.MachineService.GetKundenMaschineList(this.myKunde.CustomerId);
-			mcmbKundenmaschine.ValueMember = "UID";
-			mcmbKundenmaschine.DisplayMember = "Seriennummer";
-			mcmbKundenmaschine.DataBindings.Add("SelectedValue", mySoftware, "KundenmaschineId");
+			this.mcmbKundenmaschine.DataSource = ModelManager.MachineService.GetKundenMaschineList(this.myKunde.CustomerId);
+			this.mcmbKundenmaschine.ValueMember = "UID";
+			this.mcmbKundenmaschine.DisplayMember = "ItemName";
+			this.mcmbKundenmaschine.DataBindings.Add("SelectedValue", mySoftware, "KundenmaschineId");
 
-			mtxtComputer.DataBindings.Add("Text", mySoftware, "Computer");
-			mtxtHauptbenutzer.DataBindings.Add("Text", mySoftware, "Hauptbenutzer");
-			mtxtAnmerkungen.DataBindings.Add("Text", mySoftware, "Anmerkungen");
+			this.mtxtComputer.DataBindings.Add("Text", mySoftware, "Computer");
+			this.mtxtHauptbenutzer.DataBindings.Add("Text", mySoftware, "Hauptbenutzer");
+			this.mtxtAnmerkungen.DataBindings.Add("Text", mySoftware, "Anmerkungen");
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -7,26 +7,38 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using MetroFramework;
 using Products.Common.Views;
-using Products.Model.Entities;
 using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.Common
 {
 	static class Program
 	{
-
 		/// <summary>
 		/// Der Haupteinstiegspunkt für die Anwendung.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		static void Main(string[] args)
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.ThreadException += Application_ThreadException;
-			//Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 			Application.ApplicationExit += Application_ApplicationExit;
+			Application.ThreadException += Application_ThreadException;
+
+			if (args.Length > 0)
+			{
+				if (args[0] == "NoErrorHandling")
+				{
+					Application.ThreadException -= Application_ThreadException;
+				}
+				else if (args[0] == "AppointmentListener")
+				{
+					David.DavidManager.SetAppointmentListener(true);
+				}
+				Global.CmdArgs = args[0];
+			}
 			try
 			{
 				InitSettings();
@@ -45,12 +57,12 @@ namespace Products.Common
 #if (MAILTEST)
 
 			ServiceManager.PostOffice(Model.ModelManager.ModelService.GetCurrentUser().DavidLoginName, Common.Global.SenderPW).SendEmail("a_ullrich@msn.com", "Anmeldung", "Axel hat sich gerade angemeldet und schickt die Mail auch außer Haus. Geil.");
- 
+
 #endif
 
 #if (ADMINTEST == true)
 		{
-			//if (user == "Felix Deutz" || user == "Matthias Deutz" | user == "Johannes Düwel") //user == "Axel Ullrich" || 
+			//if (user == "Felix Deutz" || user == "Matthias Deutz" | user == "Johannes Düwel") //user == "Axel Ullrich" ||
 			if (user == "Axel Ullrich" || user == "Felix Deutz" || user == "Matthias Deutz" | user == "Johannes Düwel")
 			{
 				Application.Run(new AdminCCView());
@@ -61,9 +73,8 @@ namespace Products.Common
 			}
 		}
 #else
-		Application.Run(new CpmMainView()); 		
+			Application.Run(new CpmMainView());
 #endif
-
 		}
 
 		#region static procedures
@@ -79,17 +90,22 @@ namespace Products.Common
 				}
 				var myLog = new EventLog();
 				myLog.Source = "Application Error";
-				myLog.WriteEntry("Catalist application error. " + ex.Message + "\n\nStack Trace:\n" + ex.StackTrace, EventLogEntryType.Error);
-				ServiceManager.Logger.WriteLogEntry(DateTime.Now + ": " + ex.Message);
+				var msg = string.Format("{0} - Error: {1}\n\nStack Trace:\n{2}", DateTime.Now, ex.Message, ex.StackTrace);
+				myLog.WriteEntry(msg, EventLogEntryType.Error);
+				Services.LogService.WriteLogEntry(msg);
 			}
 			catch (Exception exc)
 			{
 				try
 				{
-					MessageBox.Show("Fatal Non-UI Error. Couldn't write the error to the event log. Reason: " + exc.Message, "Fatal Non-UI Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+					var dummyForm = new Form();
+					dummyForm.Size = new System.Drawing.Size(800, 600);
+					dummyForm.StartPosition = FormStartPosition.CenterScreen;
+					MetroMessageBox.Show(dummyForm, "Fatal Non-UI Error. Couldn't write the error to the event log. Reason: " + exc.Message, "Fatal Non-UI Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				}
 				finally
 				{
+					David.DavidManager.DavidService.Shutdown();
 					Application.Exit();
 				}
 			}
@@ -107,7 +123,7 @@ namespace Products.Common
 					break;
 				}
 			}
-			if (kv == null)	// Kalender ist noch nicht geöffnet.
+			if (kv == null) // Kalender ist noch nicht geöffnet.
 			{
 				User currentUser = ModelManager.UserService.CurrentUser;
 				kv = new KalenderView(new ViewController.CalendarViewController(currentUser));
@@ -120,54 +136,54 @@ namespace Products.Common
 			kv.Focus();
 		}
 
-		#endregion
+		#endregion static procedures
 
 		#region event handler
 
 		static void Application_ApplicationExit(object sender, EventArgs e)
 		{
-			// Shutdown the TapiManager.
+			// Shutdown des TapiManager, ReminderService und der David-Notifications.
+			David.DavidManager.DavidService.Shutdown();
 			Agfeo.FonManager.FonService.Shutdown();
-			Model.ModelManager.ReminderService.ShutdownScheduler();
+			ModelManager.ReminderService.ShutdownScheduler();
 		}
-	
-		#endregion
+
+		#endregion event handler
 
 		#region private procedures
 
-		private static void InitSettings()
+		static void InitSettings()
 		{
-			Products.Common.Global.AtapiLineName = Properties.Settings.Default.ATAPI_Line;
-			Products.Common.Global.CatalogTemplateFilePath = Properties.Settings.Default.CatalogTemplateFilePath;
-			Products.Common.Global.CustomerCatalogPath = Properties.Settings.Default.CatalogPath;
-			Products.Common.Global.ManufacturerPicturePath = Properties.Settings.Default.ManufacturerPicturePath;
-			Products.Common.Global.OfferFilePath = Properties.Settings.Default.OfferFilePath;
-			Products.Common.Global.PicturePath = Properties.Settings.Default.PicturePath;
-			Products.Common.Global.ProductPicturePath = Properties.Settings.Default.ProductPicturePath;
-			Products.Common.Global.SageExePath = Properties.Settings.Default.Sage_ExePath;
-			Products.Common.Global.SageUser = Properties.Settings.Default.UserInSage;
+			Global.AppointmentArchivePath = @"\\david\david\archive\group\b";
+			Global.AtapiLineName = Properties.Settings.Default.ATAPI_Line;
+			Global.CatalogTemplateFilePath = Properties.Settings.Default.CatalogTemplateFilePath;
+			Global.CustomerCatalogPath = Properties.Settings.Default.CatalogPath;
+			Global.ManufacturerPicturePath = Properties.Settings.Default.ManufacturerPicturePath;
+			Global.OfferFilePath = Properties.Settings.Default.OfferFilePath;
+			Global.PicturePath = Properties.Settings.Default.PicturePath;
+			Global.ProductPicturePath = Properties.Settings.Default.ProductPicturePath;
+			Global.SageExePath = Properties.Settings.Default.Sage_ExePath;
+			Global.SageUser = Properties.Settings.Default.UserInSage;
 			decimal taxRate;
 			if (decimal.TryParse(Properties.Settings.Default.TaxRate, out taxRate))
 			{
-				Products.Common.Global.TaxRateMultiplier = taxRate;
+				Global.TaxRateMultiplier = taxRate;
 			}
 			else
 			{
-				Products.Common.Global.TaxRateMultiplier = 1.19m;
+				Global.TaxRateMultiplier = 1.19m;
 			}
-			Products.Common.Global.BingMapsURL = Properties.Settings.Default.BingMapsUrl;
-			Products.Common.Global.SmtpServer = Properties.Settings.Default.SmtpServer;
-			Products.Common.Global.SmtpPort = int.Parse(Properties.Settings.Default.SmtpPort);
-			Products.Common.Global.SenderEmailAddress = Properties.Settings.Default.SenderEmailAddress;
-			Products.Common.Global.SenderPW = Properties.Settings.Default.SenderPW;
-			Products.Common.Global.DavidArchivePath = Properties.Settings.Default.DavidArchivePath;
-			Products.Common.Global.LinkedFilesPath = Properties.Settings.Default.LinkedFilesPath;
-			Products.Common.Global.TemplatePath = Properties.Settings.Default.TemplatePath;
-			Products.Common.Global.Signature = Properties.Settings.Default.Signature;
+			Global.BingMapsURL = Properties.Settings.Default.BingMapsUrl;
+			Global.SmtpServer = Properties.Settings.Default.SmtpServer;
+			Global.SmtpPort = int.Parse(Properties.Settings.Default.SmtpPort);
+			Global.SenderEmailAddress = Properties.Settings.Default.SenderEmailAddress;
+			Global.SenderPW = Properties.Settings.Default.SenderPW;
+			Global.DavidArchivePath = Properties.Settings.Default.DavidArchivePath;
+			Global.LinkedFilesPath = Properties.Settings.Default.LinkedFilesPath;
+			Global.TemplatePath = Properties.Settings.Default.TemplatePath;
+			Global.Signature = Properties.Settings.Default.Signature;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
-
 }

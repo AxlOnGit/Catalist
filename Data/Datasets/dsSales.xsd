@@ -67,12 +67,30 @@ GROUP BY
             <MainSource>
               <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        IFNULL(Kundennummer, 'Total') AS Kundennummer, AbWert1, VKosten1, AbWert2, VKosten2, AbWert3, VKosten3, AbWert4, VKosten4
-FROM            (SELECT        Nummer AS Kundennummer, MAX(AbVergleichswert1 / 119) AS AbWert1, MAX(ZuBerechnenderPreis1) AS VKosten1, MAX(AbVergleichswert2 / 119) AS AbWert2, MAX(ZuBerechnenderPreis2) 
-                                                    AS VKosten2, MAX(AbVergleichswert3 / 119) AS AbWert3, MAX(ZuBerechnenderPreis3) AS VKosten3, MAX(AbVergleichswert4 / 119) AS AbWert4, MAX(ZuBerechnenderPreis4) AS VKosten4
-                          FROM            kundenversandkostenstaffeln
-                          GROUP BY Nummer WITH ROLLUP) AS Versandkosten</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+IFNULL(Kundennummer, 'Total') AS Kundennummer, 
+AbWert1, 
+VKosten1, 
+AbWert2, 
+VKosten2, 
+AbWert3, 
+VKosten3, 
+AbWert4, 
+VKosten4
+FROM 
+(SELECT 
+Nummer AS Kundennummer, 
+MAX(AbVergleichswert1 / 119) AS AbWert1, 
+MAX(ZuBerechnenderPreis1) AS VKosten1, 
+MAX(AbVergleichswert2 / 119) AS AbWert2, 
+MAX(ZuBerechnenderPreis2) AS VKosten2, 
+MAX(AbVergleichswert3 / 119) AS AbWert3, 
+MAX(ZuBerechnenderPreis3) AS VKosten3, 
+MAX(AbVergleichswert4 / 119) AS AbWert4, 
+MAX(ZuBerechnenderPreis4) AS VKosten4
+FROM kundenversandkostenstaffeln
+GROUP BY Nummer WITH ROLLUP) AS Versandkosten</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -242,6 +260,83 @@ WHERE Kundennummer = @Kundennummer</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taAngebotSage" GeneratorDataComponentClassName="taAngebotSage" Name="AngebotSage" UserDataComponentName="taAngebotSage">
+            <MainSource>
+              <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectName="sagecl_mandant001.angebote" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Nummer, Datum, Kundennummer, Vertreter1, Rechnung AS Rechnungskunde, SummeZKD1_USt_1, SummeZKD2_USt_1, Bruttosumme, Roherloes, Gesamtrabatt, Ansprechpartnernummer, SteuersatzSumme1, Timestamp_Datum, Timestamp_Zeit FROM angebote WHERE Nummer &lt;&gt; ''</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nummer" DataSetColumn="Nummer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+              <Mapping SourceColumn="Kundennummer" DataSetColumn="Kundennummer" />
+              <Mapping SourceColumn="Vertreter1" DataSetColumn="Vertreter1" />
+              <Mapping SourceColumn="Rechnungskunde" DataSetColumn="Rechnungskunde" />
+              <Mapping SourceColumn="SummeZKD1_USt_1" DataSetColumn="SummeZKD1_USt_1" />
+              <Mapping SourceColumn="SummeZKD2_USt_1" DataSetColumn="SummeZKD2_USt_1" />
+              <Mapping SourceColumn="Bruttosumme" DataSetColumn="Bruttosumme" />
+              <Mapping SourceColumn="Roherloes" DataSetColumn="Roherloes" />
+              <Mapping SourceColumn="Gesamtrabatt" DataSetColumn="Gesamtrabatt" />
+              <Mapping SourceColumn="Ansprechpartnernummer" DataSetColumn="Ansprechpartnernummer" />
+              <Mapping SourceColumn="SteuersatzSumme1" DataSetColumn="SteuersatzSumme1" />
+              <Mapping SourceColumn="Timestamp_Datum" DataSetColumn="Timestamp_Datum" />
+              <Mapping SourceColumn="Timestamp_Zeit" DataSetColumn="Timestamp_Zeit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taAngebotSagePosition" GeneratorDataComponentClassName="taAngebotSagePosition" Name="AngebotSagePosition" UserDataComponentName="taAngebotSagePosition">
+            <MainSource>
+              <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectName="sagecl_mandant001.angebotepositionen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Sequence, VorgangsnummerTemporaer, Positionstyp, Positionsart, Artikelnummer, Stuecklistennummer, Bezeichnung1, Bezeichnung2, Hersteller, Menge / POWER(10, MengeNachkommastellen) AS Menge, Einheitspreis AS Einzelpreis, Gesamtpreis, Mengeneinheit, Langtext, Anker_RTFMemo, Zwischensumme FROM angebotepositionen</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Sequence" DataSetColumn="Sequence" />
+              <Mapping SourceColumn="VorgangsnummerTemporaer" DataSetColumn="VorgangsnummerTemporaer" />
+              <Mapping SourceColumn="Positionstyp" DataSetColumn="Positionstyp" />
+              <Mapping SourceColumn="Positionsart" DataSetColumn="Positionsart" />
+              <Mapping SourceColumn="Artikelnummer" DataSetColumn="Artikelnummer" />
+              <Mapping SourceColumn="Stuecklistennummer" DataSetColumn="Stuecklistennummer" />
+              <Mapping SourceColumn="Bezeichnung1" DataSetColumn="Bezeichnung1" />
+              <Mapping SourceColumn="Bezeichnung2" DataSetColumn="Bezeichnung2" />
+              <Mapping SourceColumn="Hersteller" DataSetColumn="Hersteller" />
+              <Mapping SourceColumn="Menge" DataSetColumn="Menge" />
+              <Mapping SourceColumn="Einzelpreis" DataSetColumn="Einzelpreis" />
+              <Mapping SourceColumn="Gesamtpreis" DataSetColumn="Gesamtpreis" />
+              <Mapping SourceColumn="Mengeneinheit" DataSetColumn="Mengeneinheit" />
+              <Mapping SourceColumn="Langtext" DataSetColumn="Langtext" />
+              <Mapping SourceColumn="Anker_RTFMemo" DataSetColumn="Anker_RTFMemo" />
+              <Mapping SourceColumn="Zwischensumme" DataSetColumn="Zwischensumme" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taSystemMemo" GeneratorDataComponentClassName="taSystemMemo" Name="SystemMemo" UserDataComponentName="taSystemMemo">
+            <MainSource>
+              <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectName="sagecl_mandant001.systemmemo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, Content FROM systemmemo WHERE Dateiname = 'A10202.VDT'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Content" DataSetColumn="Content" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources>
           <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetSalesTotal" MethodsParameterType="CLR" Modifier="Public" Name="GetSalesTotal" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetSalesTotal">
@@ -265,7 +360,7 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
   <xs:element name="dsSales" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSales" msprop:Generator_UserDSName="dsSales">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_UserTableName="Sales" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_RowEvArgName="SalesRowChangeEvent" msprop:Generator_RowClassName="SalesRow">
+        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_RowClassName="SalesRow" msprop:Generator_UserTableName="Sales" msprop:Generator_RowEvArgName="SalesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Artikel" msprop:Generator_ColumnVarNameInTable="columnArtikel" msprop:Generator_ColumnPropNameInRow="Artikel" msprop:Generator_ColumnPropNameInTable="ArtikelColumn" msprop:Generator_UserColumnName="Artikel">
@@ -288,7 +383,7 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Versandkostenstaffel" msprop:Generator_TableClassName="VersandkostenstaffelDataTable" msprop:Generator_TableVarName="tableVersandkostenstaffel" msprop:Generator_RowChangedName="VersandkostenstaffelRowChanged" msprop:Generator_TablePropName="Versandkostenstaffel" msprop:Generator_RowDeletingName="VersandkostenstaffelRowDeleting" msprop:Generator_RowChangingName="VersandkostenstaffelRowChanging" msprop:Generator_RowEvHandlerName="VersandkostenstaffelRowChangeEventHandler" msprop:Generator_RowDeletedName="VersandkostenstaffelRowDeleted" msprop:Generator_RowClassName="VersandkostenstaffelRow" msprop:Generator_UserTableName="Versandkostenstaffel" msprop:Generator_RowEvArgName="VersandkostenstaffelRowChangeEvent">
+        <xs:element name="Versandkostenstaffel" msprop:Generator_TableClassName="VersandkostenstaffelDataTable" msprop:Generator_TableVarName="tableVersandkostenstaffel" msprop:Generator_TablePropName="Versandkostenstaffel" msprop:Generator_RowDeletingName="VersandkostenstaffelRowDeleting" msprop:Generator_RowChangingName="VersandkostenstaffelRowChanging" msprop:Generator_RowEvHandlerName="VersandkostenstaffelRowChangeEventHandler" msprop:Generator_RowDeletedName="VersandkostenstaffelRowDeleted" msprop:Generator_UserTableName="Versandkostenstaffel" msprop:Generator_RowChangedName="VersandkostenstaffelRowChanged" msprop:Generator_RowEvArgName="VersandkostenstaffelRowChangeEvent" msprop:Generator_RowClassName="VersandkostenstaffelRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
@@ -310,7 +405,7 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OffenePosten" msprop:Generator_TableClassName="OffenePostenDataTable" msprop:Generator_TableVarName="tableOffenePosten" msprop:Generator_TablePropName="OffenePosten" msprop:Generator_RowDeletingName="OffenePostenRowDeleting" msprop:Generator_RowChangingName="OffenePostenRowChanging" msprop:Generator_RowEvHandlerName="OffenePostenRowChangeEventHandler" msprop:Generator_RowDeletedName="OffenePostenRowDeleted" msprop:Generator_UserTableName="OffenePosten" msprop:Generator_RowChangedName="OffenePostenRowChanged" msprop:Generator_RowEvArgName="OffenePostenRowChangeEvent" msprop:Generator_RowClassName="OffenePostenRow">
+        <xs:element name="OffenePosten" msprop:Generator_TableClassName="OffenePostenDataTable" msprop:Generator_TableVarName="tableOffenePosten" msprop:Generator_RowChangedName="OffenePostenRowChanged" msprop:Generator_TablePropName="OffenePosten" msprop:Generator_RowDeletingName="OffenePostenRowDeleting" msprop:Generator_RowChangingName="OffenePostenRowChanging" msprop:Generator_RowEvHandlerName="OffenePostenRowChangeEventHandler" msprop:Generator_RowDeletedName="OffenePostenRowDeleted" msprop:Generator_RowClassName="OffenePostenRow" msprop:Generator_UserTableName="OffenePosten" msprop:Generator_RowEvArgName="OffenePostenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
@@ -344,7 +439,7 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SalesStatsBase" msprop:Generator_TableClassName="SalesStatsBaseDataTable" msprop:Generator_TableVarName="tableSalesStatsBase" msprop:Generator_RowChangedName="SalesStatsBaseRowChanged" msprop:Generator_TablePropName="SalesStatsBase" msprop:Generator_RowDeletingName="SalesStatsBaseRowDeleting" msprop:Generator_RowChangingName="SalesStatsBaseRowChanging" msprop:Generator_RowEvHandlerName="SalesStatsBaseRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesStatsBaseRowDeleted" msprop:Generator_RowClassName="SalesStatsBaseRow" msprop:Generator_UserTableName="SalesStatsBase" msprop:Generator_RowEvArgName="SalesStatsBaseRowChangeEvent">
+        <xs:element name="SalesStatsBase" msprop:Generator_TableClassName="SalesStatsBaseDataTable" msprop:Generator_TableVarName="tableSalesStatsBase" msprop:Generator_TablePropName="SalesStatsBase" msprop:Generator_RowDeletingName="SalesStatsBaseRowDeleting" msprop:Generator_RowChangingName="SalesStatsBaseRowChanging" msprop:Generator_RowEvHandlerName="SalesStatsBaseRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesStatsBaseRowDeleted" msprop:Generator_UserTableName="SalesStatsBase" msprop:Generator_RowChangedName="SalesStatsBaseRowChanged" msprop:Generator_RowEvArgName="SalesStatsBaseRowChangeEvent" msprop:Generator_RowClassName="SalesStatsBaseRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Jahr" msprop:Generator_ColumnVarNameInTable="columnJahr" msprop:Generator_ColumnPropNameInRow="Jahr" msprop:Generator_ColumnPropNameInTable="JahrColumn" msprop:Generator_UserColumnName="Jahr" type="xs:int" />
@@ -406,7 +501,7 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SalesStats" msprop:Generator_TableClassName="SalesStatsDataTable" msprop:Generator_TableVarName="tableSalesStats" msprop:Generator_RowChangedName="SalesStatsRowChanged" msprop:Generator_TablePropName="SalesStats" msprop:Generator_RowDeletingName="SalesStatsRowDeleting" msprop:Generator_RowChangingName="SalesStatsRowChanging" msprop:Generator_RowEvHandlerName="SalesStatsRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesStatsRowDeleted" msprop:Generator_RowClassName="SalesStatsRow" msprop:Generator_UserTableName="SalesStats" msprop:Generator_RowEvArgName="SalesStatsRowChangeEvent">
+        <xs:element name="SalesStats" msprop:Generator_TableClassName="SalesStatsDataTable" msprop:Generator_TableVarName="tableSalesStats" msprop:Generator_TablePropName="SalesStats" msprop:Generator_RowDeletingName="SalesStatsRowDeleting" msprop:Generator_RowChangingName="SalesStatsRowChanging" msprop:Generator_RowEvHandlerName="SalesStatsRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesStatsRowDeleted" msprop:Generator_UserTableName="SalesStats" msprop:Generator_RowChangedName="SalesStatsRowChanged" msprop:Generator_RowEvArgName="SalesStatsRowChangeEvent" msprop:Generator_RowClassName="SalesStatsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
@@ -424,11 +519,153 @@ WHERE (Kontonummer = @CustomerId) AND (Belegdatum BETWEEN @FromDate AND @ToDate)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="AngebotSage" msprop:Generator_TableClassName="AngebotSageDataTable" msprop:Generator_TableVarName="tableAngebotSage" msprop:Generator_TablePropName="AngebotSage" msprop:Generator_RowDeletingName="AngebotSageRowDeleting" msprop:Generator_RowChangingName="AngebotSageRowChanging" msprop:Generator_RowEvHandlerName="AngebotSageRowChangeEventHandler" msprop:Generator_RowDeletedName="AngebotSageRowDeleted" msprop:Generator_UserTableName="AngebotSage" msprop:Generator_RowChangedName="AngebotSageRowChanged" msprop:Generator_RowEvArgName="AngebotSageRowChangeEvent" msprop:Generator_RowClassName="AngebotSageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nummer" msprop:Generator_ColumnVarNameInTable="columnNummer" msprop:Generator_ColumnPropNameInRow="Nummer" msprop:Generator_ColumnPropNameInTable="NummerColumn" msprop:Generator_UserColumnName="Nummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" />
+              <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Vertreter1" msprop:Generator_ColumnVarNameInTable="columnVertreter1" msprop:Generator_ColumnPropNameInRow="Vertreter1" msprop:Generator_ColumnPropNameInTable="Vertreter1Column" msprop:Generator_UserColumnName="Vertreter1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rechnungskunde" msprop:Generator_ColumnVarNameInTable="columnRechnungskunde" msprop:Generator_ColumnPropNameInRow="Rechnungskunde" msprop:Generator_ColumnPropNameInTable="RechnungskundeColumn" msprop:Generator_UserColumnName="Rechnungskunde">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SummeZKD1_USt_1" msprop:Generator_ColumnVarNameInTable="columnSummeZKD1_USt_1" msprop:Generator_ColumnPropNameInRow="SummeZKD1_USt_1" msprop:Generator_ColumnPropNameInTable="SummeZKD1_USt_1Column" msprop:Generator_UserColumnName="SummeZKD1_USt_1" type="xs:decimal" />
+              <xs:element name="SummeZKD2_USt_1" msprop:Generator_ColumnVarNameInTable="columnSummeZKD2_USt_1" msprop:Generator_ColumnPropNameInRow="SummeZKD2_USt_1" msprop:Generator_ColumnPropNameInTable="SummeZKD2_USt_1Column" msprop:Generator_UserColumnName="SummeZKD2_USt_1" type="xs:decimal" />
+              <xs:element name="Bruttosumme" msprop:Generator_ColumnVarNameInTable="columnBruttosumme" msprop:Generator_ColumnPropNameInRow="Bruttosumme" msprop:Generator_ColumnPropNameInTable="BruttosummeColumn" msprop:Generator_UserColumnName="Bruttosumme" type="xs:decimal" />
+              <xs:element name="Roherloes" msprop:Generator_ColumnVarNameInTable="columnRoherloes" msprop:Generator_ColumnPropNameInRow="Roherloes" msprop:Generator_ColumnPropNameInTable="RoherloesColumn" msprop:Generator_UserColumnName="Roherloes" type="xs:decimal" />
+              <xs:element name="Gesamtrabatt" msprop:Generator_ColumnVarNameInTable="columnGesamtrabatt" msprop:Generator_ColumnPropNameInRow="Gesamtrabatt" msprop:Generator_ColumnPropNameInTable="GesamtrabattColumn" msprop:Generator_UserColumnName="Gesamtrabatt" type="xs:decimal" />
+              <xs:element name="Ansprechpartnernummer" msprop:Generator_ColumnVarNameInTable="columnAnsprechpartnernummer" msprop:Generator_ColumnPropNameInRow="Ansprechpartnernummer" msprop:Generator_ColumnPropNameInTable="AnsprechpartnernummerColumn" msprop:Generator_UserColumnName="Ansprechpartnernummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SteuersatzSumme1" msprop:Generator_ColumnVarNameInTable="columnSteuersatzSumme1" msprop:Generator_ColumnPropNameInRow="SteuersatzSumme1" msprop:Generator_ColumnPropNameInTable="SteuersatzSumme1Column" msprop:Generator_UserColumnName="SteuersatzSumme1" type="xs:decimal" />
+              <xs:element name="Timestamp_Datum" msprop:Generator_ColumnVarNameInTable="columnTimestamp_Datum" msprop:Generator_ColumnPropNameInRow="Timestamp_Datum" msprop:Generator_ColumnPropNameInTable="Timestamp_DatumColumn" msprop:Generator_UserColumnName="Timestamp_Datum" type="xs:dateTime" />
+              <xs:element name="Timestamp_Zeit" msprop:Generator_ColumnVarNameInTable="columnTimestamp_Zeit" msprop:Generator_ColumnPropNameInRow="Timestamp_Zeit" msprop:Generator_ColumnPropNameInTable="Timestamp_ZeitColumn" msprop:Generator_UserColumnName="Timestamp_Zeit" type="xs:duration" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AngebotSagePosition" msprop:Generator_TableClassName="AngebotSagePositionDataTable" msprop:Generator_TableVarName="tableAngebotSagePosition" msprop:Generator_TablePropName="AngebotSagePosition" msprop:Generator_RowDeletingName="AngebotSagePositionRowDeleting" msprop:Generator_RowChangingName="AngebotSagePositionRowChanging" msprop:Generator_RowEvHandlerName="AngebotSagePositionRowChangeEventHandler" msprop:Generator_RowDeletedName="AngebotSagePositionRowDeleted" msprop:Generator_UserTableName="AngebotSagePosition" msprop:Generator_RowChangedName="AngebotSagePositionRowChanged" msprop:Generator_RowEvArgName="AngebotSagePositionRowChangeEvent" msprop:Generator_RowClassName="AngebotSagePositionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sequence" msprop:Generator_ColumnVarNameInTable="columnSequence" msprop:Generator_ColumnPropNameInRow="Sequence" msprop:Generator_ColumnPropNameInTable="SequenceColumn" msprop:Generator_UserColumnName="Sequence" type="xs:decimal" />
+              <xs:element name="VorgangsnummerTemporaer" msprop:Generator_ColumnVarNameInTable="columnVorgangsnummerTemporaer" msprop:Generator_ColumnPropNameInRow="VorgangsnummerTemporaer" msprop:Generator_ColumnPropNameInTable="VorgangsnummerTemporaerColumn" msprop:Generator_UserColumnName="VorgangsnummerTemporaer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Positionstyp" msprop:Generator_ColumnVarNameInTable="columnPositionstyp" msprop:Generator_ColumnPropNameInRow="Positionstyp" msprop:Generator_ColumnPropNameInTable="PositionstypColumn" msprop:Generator_UserColumnName="Positionstyp" type="xs:short" />
+              <xs:element name="Positionsart" msprop:Generator_ColumnVarNameInTable="columnPositionsart" msprop:Generator_ColumnPropNameInRow="Positionsart" msprop:Generator_ColumnPropNameInTable="PositionsartColumn" msprop:Generator_UserColumnName="Positionsart">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Artikelnummer" msprop:Generator_ColumnVarNameInTable="columnArtikelnummer" msprop:Generator_ColumnPropNameInRow="Artikelnummer" msprop:Generator_ColumnPropNameInTable="ArtikelnummerColumn" msprop:Generator_UserColumnName="Artikelnummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stuecklistennummer" msprop:Generator_ColumnVarNameInTable="columnStuecklistennummer" msprop:Generator_ColumnPropNameInRow="Stuecklistennummer" msprop:Generator_ColumnPropNameInTable="StuecklistennummerColumn" msprop:Generator_UserColumnName="Stuecklistennummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bezeichnung1" msprop:Generator_ColumnVarNameInTable="columnBezeichnung1" msprop:Generator_ColumnPropNameInRow="Bezeichnung1" msprop:Generator_ColumnPropNameInTable="Bezeichnung1Column" msprop:Generator_UserColumnName="Bezeichnung1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bezeichnung2" msprop:Generator_ColumnVarNameInTable="columnBezeichnung2" msprop:Generator_ColumnPropNameInRow="Bezeichnung2" msprop:Generator_ColumnPropNameInTable="Bezeichnung2Column" msprop:Generator_UserColumnName="Bezeichnung2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hersteller" msprop:Generator_ColumnVarNameInTable="columnHersteller" msprop:Generator_ColumnPropNameInRow="Hersteller" msprop:Generator_ColumnPropNameInTable="HerstellerColumn" msprop:Generator_UserColumnName="Hersteller">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Menge" msprop:Generator_ColumnVarNameInTable="columnMenge" msprop:Generator_ColumnPropNameInRow="Menge" msprop:Generator_ColumnPropNameInTable="MengeColumn" msprop:Generator_UserColumnName="Menge" type="xs:double" minOccurs="0" />
+              <xs:element name="Einzelpreis" msprop:Generator_ColumnVarNameInTable="columnEinzelpreis" msprop:Generator_ColumnPropNameInRow="Einzelpreis" msprop:Generator_ColumnPropNameInTable="EinzelpreisColumn" msprop:Generator_UserColumnName="Einzelpreis" type="xs:decimal" />
+              <xs:element name="Gesamtpreis" msprop:Generator_ColumnVarNameInTable="columnGesamtpreis" msprop:Generator_ColumnPropNameInRow="Gesamtpreis" msprop:Generator_ColumnPropNameInTable="GesamtpreisColumn" msprop:Generator_UserColumnName="Gesamtpreis" type="xs:decimal" />
+              <xs:element name="Mengeneinheit" msprop:Generator_ColumnVarNameInTable="columnMengeneinheit" msprop:Generator_ColumnPropNameInRow="Mengeneinheit" msprop:Generator_ColumnPropNameInTable="MengeneinheitColumn" msprop:Generator_UserColumnName="Mengeneinheit">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Langtext" msprop:Generator_ColumnVarNameInTable="columnLangtext" msprop:Generator_ColumnPropNameInRow="Langtext" msprop:Generator_ColumnPropNameInTable="LangtextColumn" msprop:Generator_UserColumnName="Langtext">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Anker_RTFMemo" msprop:Generator_ColumnVarNameInTable="columnAnker_RTFMemo" msprop:Generator_ColumnPropNameInRow="Anker_RTFMemo" msprop:Generator_ColumnPropNameInTable="Anker_RTFMemoColumn" msprop:Generator_UserColumnName="Anker_RTFMemo" type="xs:int" />
+              <xs:element name="Zwischensumme" msprop:Generator_ColumnVarNameInTable="columnZwischensumme" msprop:Generator_ColumnPropNameInRow="Zwischensumme" msprop:Generator_ColumnPropNameInTable="ZwischensummeColumn" msprop:Generator_UserColumnName="Zwischensumme" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SystemMemo" msprop:Generator_TableClassName="SystemMemoDataTable" msprop:Generator_TableVarName="tableSystemMemo" msprop:Generator_TablePropName="SystemMemo" msprop:Generator_RowDeletingName="SystemMemoRowDeleting" msprop:Generator_RowChangingName="SystemMemoRowChanging" msprop:Generator_RowEvHandlerName="SystemMemoRowChangeEventHandler" msprop:Generator_RowDeletedName="SystemMemoRowDeleted" msprop:Generator_UserTableName="SystemMemo" msprop:Generator_RowChangedName="SystemMemoRowChanged" msprop:Generator_RowEvArgName="SystemMemoRowChangeEvent" msprop:Generator_RowClassName="SystemMemoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Content" msprop:Generator_ColumnVarNameInTable="columnContent" msprop:Generator_ColumnPropNameInRow="Content" msprop:Generator_ColumnPropNameInTable="ContentColumn" msprop:Generator_UserColumnName="Content" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Sales" />
       <xs:field xpath="mstns:Artikel" />
+    </xs:unique>
+    <xs:unique name="AngebotSage_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AngebotSage" />
+      <xs:field xpath="mstns:Nummer" />
+    </xs:unique>
+    <xs:unique name="SystemMemo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SystemMemo" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

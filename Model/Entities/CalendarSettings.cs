@@ -175,7 +175,7 @@ namespace Products.Model.Entities
 
 		#region private procedures
 
-		private void Initialize()
+		void Initialize()
 		{
 			this.SetAddCustomerAddress(true)
 				.SetAddCustomerInfo(true)

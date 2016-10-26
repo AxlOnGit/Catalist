@@ -47,32 +47,32 @@
 			this.dgvCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvCustomers.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvCustomers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCustomers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(0, ((int)(((byte)(174)))), 219);
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(0, ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvCustomers.ColumnHeadersHeight = 16;
 			this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMatchcode});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(0, ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvCustomers.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvCustomers.EnableHeadersVisualStyles = false;
 			this.dgvCustomers.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvCustomers.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvCustomers.HighLightPercentage = 1.2F;
 			this.dgvCustomers.Location = new System.Drawing.Point(23, 100);
 			this.dgvCustomers.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
@@ -80,11 +80,11 @@
 			this.dgvCustomers.ReadOnly = true;
 			this.dgvCustomers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(0, ((int)(((byte)(174)))), 219);
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(0, ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvCustomers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dgvCustomers.RowHeadersVisible = false;

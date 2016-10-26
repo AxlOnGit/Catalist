@@ -1,6 +1,5 @@
 ﻿using Products.Common;
 using Products.Model.Services;
-using Products.Data;
 
 namespace Products.Model
 {
@@ -9,28 +8,31 @@ namespace Products.Model
 
 		#region members
 
-		static AppointmentService myAppointmentSvc = null;
-		static CatalogService myCatalogSvc = null;
-		static ContactService myContactSvc = null;
-		static CustomerService myCustomerSvc = null;
-		static FileLinkService myFileLinkSvc = null;
-		static MachineService myMachineSvc = null;
-		static ModelService myModelSvc = null;
-		static NotesService myNotesSvc = null;
-		static OfferService myOfferSvc = null;
-		static OrderService myOrderSvc = null;
-		static Common.PostOffice myPostSvc = null;
-		static ProductService myProductSvc = null;
-		static ProspectService myProspectSvc = null;
-		static ReminderService myReminderSvc = null;
-		static SalesService mySalesSvc = null;
-		static SalesForceService mySalesForceSvc = null;
-		static Scheduler myScheduler = null;
-		static SharedItemsService mySharedItemsSvc = null;
-		static SoftwareService mySoftwareSvc = null;
-		static SupplierService mySupplierSvc = null;
-		static TaskService myTaskSvc = null;
-		static UserService myUserSvc = null;
+		static AppointmentService myAppointmentSvc;
+		static CatalogService myCatalogSvc;
+		static ContactService myContactSvc;
+		static CustomerService myCustomerSvc;
+		static DavidService myDavidSvc;
+		static FileLinkService myFileLinkSvc;
+		static FileSystemService myFileSystemSvc;
+		static MachineService myMachineSvc;
+		static ModelService myModelSvc;
+		static NotesService myNotesSvc;
+		static OfferService myOfferSvc;
+		static OrderService myOrderSvc;
+		static PostOffice myPostSvc;
+		static ProductService myProductSvc;
+		static ProspectService myProspectSvc;
+		static ReminderService myReminderSvc;
+		static SalesService mySalesSvc;
+		static SalesForceService mySalesForceSvc;
+		static Scheduler myScheduler;
+		static SharedItemsService mySharedItemsSvc;
+		static SoftwareService mySoftwareSvc;
+		static SupplierService mySupplierSvc;
+		static TaskService myTaskSvc;
+		static TechnikService myTechnikSvc;
+		static UserService myUserSvc;
 
 		#endregion
 
@@ -102,6 +104,21 @@ namespace Products.Model
 		}
 
 		/// <summary>
+		/// Gibt den statischen singleton DavidService des Systems zurück.
+		/// </summary>
+		public static DavidService DavidService
+		{
+			get
+			{
+				if (myDavidSvc == null)
+				{
+					myDavidSvc = new DavidService();
+				}
+				return myDavidSvc;
+			}
+		}
+
+		/// <summary>
 		/// Gibt den statischen singeleton FileLinkService des Systems zurück.
 		/// </summary>
 		public static FileLinkService FileLinkService
@@ -113,6 +130,21 @@ namespace Products.Model
 					myFileLinkSvc = new FileLinkService();
 				}
 				return myFileLinkSvc;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton FileSystemService des Systems zurück.
+		/// </summary>
+		public static FileSystemService FileSystemService
+		{
+			get
+			{
+				if (myFileSystemSvc == null)
+				{
+					myFileSystemSvc = new FileSystemService();
+				}
+				return myFileSystemSvc;
 			}
 		}
 
@@ -353,6 +385,21 @@ namespace Products.Model
 					myTaskSvc = new TaskService(ModelManager.UserService.CurrentUser.UID);
 				}
 				return myTaskSvc;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton TechnikService des Systems zurück.
+		/// </summary>
+		public static TechnikService TechnikService
+		{
+			get
+			{
+				if (myTechnikSvc == null)
+				{
+					myTechnikSvc = new TechnikService();
+				}
+				return myTechnikSvc;
 			}
 		}
 

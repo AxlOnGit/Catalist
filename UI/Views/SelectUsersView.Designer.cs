@@ -106,7 +106,7 @@
 			this.Controls.Add(this.mbtnOk);
 			this.Controls.Add(this.chkListUsers);
 			this.Name = "SelectUsersView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.Orange;

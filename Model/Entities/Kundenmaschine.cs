@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Products.Common;
+using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data;
+using Products.Data.Datasets;
 using Products.Model;
 using Products.Model.Services;
-using Products.Data.Datasets;
-using Products.Common.Collections;
 
 namespace Products.Model.Entities
 {
 	public class Kundenmaschine : ILinkedItem
 	{
-
 		#region members
 
 		dsMachines.KundenMaschineRow myBase;
 		Dictionary<DateTime, Kunde> myOwnerList;
 		readonly DateTime noDate = new DateTime(100, 1, 1);
+		readonly string nl = Environment.NewLine;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -44,7 +44,7 @@ namespace Products.Model.Entities
 
 		public string ItemName
 		{
-			get { return string.Format("{0} [{1}]", this.Maschinenmodell, this.Seriennummer); }
+			get { return string.Format("{0} [{1}]", this.Modellbezeichnung, this.Seriennummer); }
 		}
 
 		public string LinkTypBezeichnung
@@ -52,7 +52,7 @@ namespace Products.Model.Entities
 			get { return "Kundenmaschine"; }
 		}
 
-		#endregion
+		#endregion ILinkedItem
 
 		/// <summary>
 		/// Gibt den Primärschlüssel (GUID) dieser Kundenmaschine zurück.
@@ -66,7 +66,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt die Kundennummer des Kunden zurück, dem diese Kundenmaschine zugeordnet ist oder legt sie fest.
+		/// Gibt die Kundennummer des Kunden zurück, dem diese Kundenmaschine zugeordnet ist oder
+		/// legt sie fest.
 		/// </summary>
 		public string Kundennummer
 		{
@@ -95,22 +96,39 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.MaschinenmodellId = value;
+				if (!this.myBase.MaschinenmodellId.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+				{
+					var serieOriginal = this.Maschinenserie;
+					this.myBase.MaschinenmodellId = value;
+
+					// Wenn das neu zugewiesene Modell zu einer anderen Serie gehört, wird das
+					// Wartungsintervall der neuen Serie bei dieser Maschine eingetragen.
+					var serieNeu = this.Maschinenserie;
+					if (!serieOriginal.Equals(serieNeu))
+					{
+						this.Wartungsintervall = serieNeu.Wartungsintervall;
+					}
+				}
 			}
 		}
 
 		/// <summary>
 		/// Gibt dieSeriennummer der Kundenmaschine zurück oder legt sie fest.
 		/// </summary>
-		public String Seriennummer
+		public string Seriennummer
 		{
 			get
 			{
+				var sn = this.myBase.Seriennummer;
+				if (sn.Contains(nl)) this.myBase.Seriennummer = sn.Replace(sn, string.Empty);
 				return myBase.Seriennummer;
 			}
 			set
 			{
-				myBase.Seriennummer = value;
+				if (!this.myBase.Seriennummer.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+				{
+					if (value.Contains(nl)) this.myBase.Seriennummer = value.Replace(nl, string.Empty);
+				}
 			}
 		}
 
@@ -125,7 +143,7 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.Firmware = value;
+				if (!this.myBase.Firmware.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Firmware = value;
 			}
 		}
 
@@ -140,12 +158,32 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.VerkauftDurch = value;
+				if (!this.myBase.VerkauftDurch.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.VerkauftDurch = value;
 			}
 		}
 
 		/// <summary>
-		/// Gibt das Kaufdatum zurück oder legt es fest.
+		/// Gibt das Auftragsdatum in Sage zurück oder legt es fest.
+		/// </summary>
+		public DateTime? Auftragsdatum
+		{
+			get
+			{
+				if (this.myBase.Auftragsdatum.Equals(noDate))
+				{
+					return null;
+				}
+				return this.myBase.Auftragsdatum;
+			}
+			set
+			{
+				value = value.HasValue ? value : noDate;
+				myBase.Auftragsdatum = value.Value;
+			}
+		}
+
+		/// <summary>
+		/// Gibt das Kauf- bzw. Lieferdatum in Sage zurück oder legt es fest.
 		/// </summary>
 		public DateTime? Kaufdatum
 		{
@@ -165,14 +203,22 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt die Auftragsnummer für diese Maschine in 
-		/// unserer Auftragsverarbeitung (Sage NCL) zurück.
-		/// Zumindest, wenn sich einer erbarmt hat, die zu pflegen ...
+		/// Gibt die Auftragsnummer für diese Maschine in unserer Auftragsverarbeitung (Sage NCL)
+		/// zurück. Zumindest, wenn sich einer erbarmt hat, die zu pflegen ...
 		/// </summary>
 		public string AuftragsnummerSage
 		{
 			get { return myBase.AuftragsnummerSage; }
-			set { myBase.AuftragsnummerSage = value; }
+			set { if (!this.myBase.AuftragsnummerSage.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.AuftragsnummerSage = value; }
+		}
+
+		/// <summary>
+		/// Gibt die Rechnungs- oder Lieferscheinnummer in Sage zurück oder legt sie fest.
+		/// </summary>
+		public string RechnungsnummerSage
+		{
+			get { return this.myBase.RechnungsnummerSage; }
+			set { if (!this.myBase.RechnungsnummerSage.Equals(value, StringComparison.CurrentCultureIgnoreCase)) this.myBase.RechnungsnummerSage = value; }
 		}
 
 		/// <summary>
@@ -191,8 +237,7 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt das Datum zurück, an dem die 
-		/// Finanzierung endet.
+		/// Gibt das Datum zurück, an dem die Finanzierung endet.
 		/// </summary>
 		public DateTime? Finanzierungsende
 		{
@@ -227,8 +272,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt das Kennzeichen zurück, ob wir nach Ablauf des
-		/// Leasing Vertrags das Recht zur Erstverwertung haben.
+		/// Gibt das Kennzeichen zurück, ob wir nach Ablauf des Leasing Vertrags das Recht zur
+		/// Erstverwertung haben.
 		/// </summary>
 		public bool ErstverwertungsFlag
 		{
@@ -243,13 +288,15 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt den Namen der Gesellschaft/Firma zurück, 
-		/// über die die Maschine finanziert wurde.
+		/// Gibt den Namen der Gesellschaft/Firma zurück, über die die Maschine finanziert wurde.
 		/// </summary>
 		public string Finanzierungsgesellschaft
 		{
 			get { return myBase.Finanzierungsgesellschaft; }
-			set { myBase.Finanzierungsgesellschaft = value; }
+			set
+			{
+				if (!this.myBase.Finanzierungsgesellschaft.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Finanzierungsgesellschaft = value;
+			}
 		}
 
 		/// <summary>
@@ -263,7 +310,7 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.Anmerkungen = value;
+				if (!this.myBase.Anmerkungen.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Anmerkungen = value;
 			}
 		}
 
@@ -278,7 +325,7 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.TintenId = value;
+				if (!this.myBase.TintenId.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.TintenId = value;
 			}
 		}
 
@@ -293,7 +340,7 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.FarbenSet = value;
+				if (!this.myBase.FarbenSet.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.FarbenSet = value;
 			}
 		}
 
@@ -310,13 +357,32 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt das Maschinenmodell zurück.
+		/// Gibt das <seealso cref="Maschinenmodell"/> dieser Maschine zurück.
 		/// </summary>
-		public string Maschinenmodell
+		public Maschinenmodell Maschinenmodell
 		{
 			get
 			{
-				return ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId).Modellbezeichnung;
+				return ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId);
+			}
+		}
+
+		/// <summary>
+		/// Gibt die Modellbezeichnung dieser Maschine zurück.
+		/// </summary>
+		public string Modellbezeichnung
+		{
+			get { return this.Maschinenmodell.Modellbezeichnung; }
+		}
+
+		/// <summary>
+		/// Gibt die <seealso cref="Maschinenserie"/> dieser Maschine zurück.
+		/// </summary>
+		public Maschinenserie Maschinenserie
+		{
+			get
+			{
+				return ModelManager.SharedItemsService.GetModellSerie(this.Maschinenmodell.ModellSerieId);
 			}
 		}
 
@@ -334,7 +400,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den Namen der Herstellerfirma zurück.
 		/// </summary>
-		public string Hersteller
+		public string Herstellername
 		{
 			get
 			{
@@ -343,7 +409,20 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt das Wartungsintervall für diese Maschine in Monaten zurück.
+		/// Gibt True zurück, wenn diese Maschine zu einer Serie gehört, die herkömmlicher Weise
+		/// gewartet wird.
+		/// </summary>
+		/// <remarks>
+		/// Dieses Kennzeichen sagt nichts darüber aus, ob diese Maschine tatsächlich regelmäßig
+		/// gewartet wird. Das ergibt sich vielmehr aus dem Wartungsintervall. Ist dies &gt; 0, wird
+		/// die Maschine gewartet, und zwar alle "Wartungsintervall" Monate.
+		/// </remarks>
+		public bool Wartungskennzeichen { get { return this.Maschinenserie.Wartungskennzeichen; } }
+
+		/// <summary>
+		/// Gibt das Wartungsintervall für diese Maschine in Monaten zurück. Ist dies auf einen Wert
+		/// &gt; 0 festgelegt, findet für diese Maschine eine periodische Wartung statt, zumindest
+		/// theoretisch ... :-|.
 		/// </summary>
 		public int Wartungsintervall
 		{
@@ -353,8 +432,26 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				myBase.Wartungsintervall = value;
+				if (!this.myBase.Wartungsintervall.Equals(value)) myBase.Wartungsintervall = value;
 			}
+		}
+
+		/// <summary>
+		/// Gibt den Dateipfad für diese Maschine im Technikordner auf der NASE82002 zurück.
+		/// </summary>
+		public string Dateipfad
+		{
+			get { return this.myBase.IsDateipfadNull() ? string.Empty : this.myBase.Dateipfad; }
+			set { if (!this.myBase.Dateipfad.Equals(value, StringComparison.CurrentCultureIgnoreCase)) this.myBase.Dateipfad = value; }
+		}
+
+		/// <summary>
+		/// Sonderausstattung der Maschine, z. B. Heizung, Zusatzlüfter etc.
+		/// </summary>
+		public string Sonderausstattlung
+		{
+			get { return this.myBase.Sonderausstattung; }
+			set { if (!this.myBase.Sonderausstattung.Equals(value)) this.myBase.Sonderausstattung = value; }
 		}
 
 		/// <summary>
@@ -380,7 +477,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -395,7 +492,7 @@ namespace Products.Model.Entities
 			//ModelManager.NotesService.NoteCreated += new EventHandler<NotesService.NoteCreatedEventArgs>(NotesService_NoteCreated);
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -406,7 +503,7 @@ namespace Products.Model.Entities
 		/// <param name="deleteSourceFile">Soll die Originaldatei gelöscht werden?</param>
 		public void AddFileLink(string pathAndName, bool deleteSourceFile)
 		{
-			ModelManager.FileLinkService.AddFileLink(new System.IO.FileInfo(pathAndName), this, Global.LinkedFilesPath, deleteSourceFile);
+			ModelManager.FileLinkService.AddFileLink(new System.IO.FileInfo(pathAndName), this, deleteSourceFile);
 		}
 
 		/// <summary>
@@ -438,11 +535,6 @@ namespace Products.Model.Entities
 			ModelManager.NotesService.UpdateNotes();
 		}
 
-		#endregion
-
-		#region private procedures
-
-		#endregion
-
+		#endregion public procedures
 	}
 }

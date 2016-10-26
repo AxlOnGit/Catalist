@@ -877,6 +877,7 @@
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowButton = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(345, 23);
@@ -884,7 +885,7 @@
 			this.mtxtFilter.TabIndex = 0;
 			this.mtxtFilter.UseSelectable = true;
 			this.mtxtFilter.WaterMark = "Artikel-Nr. oder Artikelbezeichnung";
-			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtFilter.ClearClicked += new MetroFramework.Controls.MetroTextBox.LUClear(this.mtxtFilter_ClearClicked);
 			this.mtxtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtFilter_KeyUp);
@@ -914,7 +915,7 @@
 			this.Controls.Add(this.dgvBestellungen);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "BestellungListView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Green;
 			this.Text = "Bestellungen - <Lieferant>";
 			((System.ComponentModel.ISupportInitialize)(this.dgvBestellungen)).EndInit();

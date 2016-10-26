@@ -53,8 +53,8 @@
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvTouren.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvTouren.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-						| System.Windows.Forms.AnchorStyles.Left) 
-						| System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvTouren.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvTouren.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvTouren.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -63,20 +63,20 @@
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(179)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(168)))));
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvTouren.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvTouren.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTouren.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-						this.colTourname,
-						this.colVertreter,
-						this.colTourSage});
+            this.colTourname,
+            this.colVertreter,
+            this.colTourSage});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(179)))));
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(168)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvTouren.DefaultCellStyle = dataGridViewCellStyle3;
@@ -93,7 +93,7 @@
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(179)))));
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(168)))));
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvTouren.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -137,7 +137,7 @@
 			// ctxGrid
 			// 
 			this.ctxGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-						this.ctxCmdOpen});
+            this.ctxCmdOpen});
 			this.ctxGrid.Name = "ctxGrid";
 			this.ctxGrid.Size = new System.Drawing.Size(112, 26);
 			// 
@@ -189,7 +189,7 @@
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.dgvTouren);
 			this.Name = "TourListenView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Außendienst-Touren";
 			((System.ComponentModel.ISupportInitialize)(this.dgvTouren)).EndInit();

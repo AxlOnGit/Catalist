@@ -258,7 +258,7 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="serienBezeichnung">Optional. Die Bezeichnung der Serie.</param>
 		/// <returns></returns>
-		public dsShared.MaschinenSerieRow AddMaschinenSerieRow(string serienBezeichnung = "Bezeichnung") 
+		public dsShared.MaschinenSerieRow AddMaschinenSerieRow(string serienBezeichnung = "*Serie*") 
 		{
 			this.AssureMaschinenSerieInitialized();
 
@@ -269,6 +269,7 @@ namespace Products.Data.Services
 			mRow.MaschinentypId = "00000000-0000-0000-0000-000000000000";
 			mRow.LetzteFirmware = "-";
 			mRow.Markteinfuehrung = DateTime.Now.Year;
+			mRow.Dateipfad = @"\\NASE82002\technik\Service Maschinen\";
 
 			this.mySharedDS.MaschinenSerie.AddMaschinenSerieRow(mRow);
 			this.UpdateMaschinenSerie(mRow);
@@ -334,11 +335,17 @@ namespace Products.Data.Services
 		/// <param name="mRow"></param>
 		public int UpdateMaschinenSerie(dsShared.MaschinenSerieRow mRow = null)
 		{
-			if (mRow != null)
+			if (mRow != null && mRow.RowState != System.Data.DataRowState.Unchanged)
 			{
 				return this.myMaschinenSerieAdapter.Update(mRow);
 			}
-			return this.myMaschinenSerieAdapter.Update(this.mySharedDS.MaschinenSerie);
+
+			if (this.mySharedDS.MaschinenSerie.GetChanges() != null)
+			{
+				return this.myMaschinenSerieAdapter.Update(this.mySharedDS.MaschinenSerie);
+			}
+
+			return 0;
 		}
 
 		#endregion

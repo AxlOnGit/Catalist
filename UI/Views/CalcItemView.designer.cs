@@ -145,12 +145,13 @@
 			this.txtVK.SelectedText = "";
 			this.txtVK.SelectionLength = 0;
 			this.txtVK.SelectionStart = 0;
+			this.txtVK.ShortcutsEnabled = true;
 			this.txtVK.Size = new System.Drawing.Size(60, 29);
 			this.txtVK.TabIndex = 11;
 			this.txtVK.Text = "0,00";
 			this.txtVK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtVK.UseSelectable = true;
-			this.txtVK.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtVK.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtVK.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.txtVK.TextChanged += new System.EventHandler(this.txtVK_TextChanged);
 			// 
@@ -180,12 +181,13 @@
 			this.txtEK.SelectedText = "";
 			this.txtEK.SelectionLength = 0;
 			this.txtEK.SelectionStart = 0;
+			this.txtEK.ShortcutsEnabled = true;
 			this.txtEK.Size = new System.Drawing.Size(60, 29);
 			this.txtEK.TabIndex = 9;
 			this.txtEK.Text = "0,00";
 			this.txtEK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtEK.UseSelectable = true;
-			this.txtEK.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtEK.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtEK.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.txtEK.TextChanged += new System.EventHandler(this.txtEK_TextChanged);
 			// 
@@ -216,12 +218,13 @@
 			this.txtUnit.SelectedText = "";
 			this.txtUnit.SelectionLength = 0;
 			this.txtUnit.SelectionStart = 0;
+			this.txtUnit.ShortcutsEnabled = true;
 			this.txtUnit.Size = new System.Drawing.Size(60, 29);
 			this.txtUnit.TabIndex = 8;
 			this.txtUnit.Text = "Stck.";
 			this.txtUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtUnit.UseSelectable = true;
-			this.txtUnit.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtUnit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtUnit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// pnlSummary
@@ -532,12 +535,13 @@
 			this.txtQuantity.SelectedText = "";
 			this.txtQuantity.SelectionLength = 0;
 			this.txtQuantity.SelectionStart = 0;
+			this.txtQuantity.ShortcutsEnabled = true;
 			this.txtQuantity.Size = new System.Drawing.Size(60, 29);
 			this.txtQuantity.TabIndex = 10;
 			this.txtQuantity.Text = "0,00";
 			this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtQuantity.UseSelectable = true;
-			this.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtQuantity.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
 			// 
@@ -566,12 +570,13 @@
 			this.txtSalesPerPeriod.SelectedText = "";
 			this.txtSalesPerPeriod.SelectionLength = 0;
 			this.txtSalesPerPeriod.SelectionStart = 0;
+			this.txtSalesPerPeriod.ShortcutsEnabled = true;
 			this.txtSalesPerPeriod.Size = new System.Drawing.Size(79, 29);
 			this.txtSalesPerPeriod.TabIndex = 0;
 			this.txtSalesPerPeriod.TabStop = false;
 			this.txtSalesPerPeriod.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtSalesPerPeriod.UseSelectable = true;
-			this.txtSalesPerPeriod.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtSalesPerPeriod.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtSalesPerPeriod.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// txtGrossSales
@@ -599,15 +604,16 @@
 			this.txtGrossSales.SelectedText = "";
 			this.txtGrossSales.SelectionLength = 0;
 			this.txtGrossSales.SelectionStart = 0;
+			this.txtGrossSales.ShortcutsEnabled = true;
 			this.txtGrossSales.Size = new System.Drawing.Size(79, 29);
 			this.txtGrossSales.TabIndex = 1;
 			this.txtGrossSales.TabStop = false;
 			this.txtGrossSales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtGrossSales.UseSelectable = true;
-			this.txtGrossSales.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtGrossSales.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtGrossSales.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
-			// txtFreeHomeDelivery
+			// txtFOC
 			// 
 			// 
 			// 
@@ -626,18 +632,19 @@
 			this.txtFOC.Lines = new string[0];
 			this.txtFOC.Location = new System.Drawing.Point(167, 192);
 			this.txtFOC.MaxLength = 32767;
-			this.txtFOC.Name = "txtFreeHomeDelivery";
+			this.txtFOC.Name = "txtFOC";
 			this.txtFOC.PasswordChar = '\0';
 			this.txtFOC.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.txtFOC.SelectedText = "";
 			this.txtFOC.SelectionLength = 0;
 			this.txtFOC.SelectionStart = 0;
+			this.txtFOC.ShortcutsEnabled = true;
 			this.txtFOC.Size = new System.Drawing.Size(79, 29);
 			this.txtFOC.TabIndex = 2;
 			this.txtFOC.TabStop = false;
 			this.txtFOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.txtFOC.UseSelectable = true;
-			this.txtFOC.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.txtFOC.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.txtFOC.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// label1
@@ -718,7 +725,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "CalcItemView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

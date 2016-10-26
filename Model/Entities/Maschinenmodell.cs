@@ -69,14 +69,22 @@ namespace Products.Model.Entities
 			} 
 		}
 
-		public string ModellSerieId { get { return this.myBase.MaschinenserieId; } }
+		public string ModellSerieId
+		{
+			get { return this.myBase.MaschinenserieId; }
+			set
+			{
+				if (!this.myBase.MaschinenserieId.Equals(value, System.StringComparison.CurrentCultureIgnoreCase))
+					this.myBase.MaschinenserieId = value;
+			}
+		}
 
 		/// <summary>
 		/// Gibt die Bezeichnung der Serie zurück, zu der dieses Maschinenmodell gehört
 		/// </summary>
 		public string ModellSerie
 		{
-			get { return ModelManager.SharedItemsService.GetModellSerie(seriePK: this.ModellSerieId).Serienname; }
+			get { return ModelManager.SharedItemsService.GetModellSerie(this.ModellSerieId).Serienname; }
 		}
 
 		public string MaschinentypId { get { return myBase.MaschinenTypId; } set { myBase.MaschinenTypId = value; } }

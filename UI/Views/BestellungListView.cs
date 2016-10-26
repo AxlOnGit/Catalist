@@ -1,19 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Forms;
-using MetroFramework.Forms;
-using Products.Model.Entities;
-using Products.Model;
-using Products.Model.Builder;
-using Products.Common.Interfaces;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
+using MetroFramework;
+using MetroFramework.Forms;
+using Products.Common.Interfaces;
+using Products.Model;
+using Products.Model.Builder;
+using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class BestellungListView : MetroForm
 	{
-
 		#region members
 
 		readonly Lieferant myLieferant;
@@ -23,13 +23,13 @@ namespace Products.Common.Views
 		Notiz mySelectedNote;
 		FileLink mySelectedFileLink;
 
-		#endregion
+		#endregion members
 
 		#region private properties
 
 		private string Filter { get; set; }
 
-		#endregion
+		#endregion private properties
 
 		#region ### .ctor ###
 
@@ -45,7 +45,7 @@ namespace Products.Common.Views
 			Application.Idle += this.Application_Idle;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -188,7 +188,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -242,12 +242,12 @@ namespace Products.Common.Views
 				}
 				else
 				{
-					MessageBox.Show("Die Datei ist auf dem Server offenbar gelöscht worden.", "Fehler beim Öffnen der Datei", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MetroMessageBox.Show(this, "Die Datei ist auf dem Server offenbar gelöscht worden.", "Fehler beim Öffnen der Datei", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region DRAG'N DROP
 
@@ -283,7 +283,7 @@ namespace Products.Common.Views
 				{
 					foreach (var filename in filenames)
 					{
-						this.AddFileLink(filename, true);	// Ohne Shift-Taste: Kopieren
+						this.AddFileLink(filename, true); // Ohne Shift-Taste: Kopieren
 						System.Threading.Thread.Sleep(750);
 					}
 				}
@@ -293,10 +293,9 @@ namespace Products.Common.Views
 		void AddFileLink(string fileName, bool keepSourceFile = true)
 		{
 			var fi = new FileInfo(fileName);
-			ModelManager.FileLinkService.AddFileLink(fi, this.mySelectedNote, Global.LinkedFilesPath, keepSourceFile);
+			ModelManager.FileLinkService.AddFileLink(fi, this.mySelectedNote, keepSourceFile);
 		}
 
-		#endregion
-
+		#endregion DRAG'N DROP
 	}
 }

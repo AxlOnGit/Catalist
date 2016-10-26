@@ -373,11 +373,12 @@
 			this.mtxtSignature.SelectedText = "";
 			this.mtxtSignature.SelectionLength = 0;
 			this.mtxtSignature.SelectionStart = 0;
+			this.mtxtSignature.ShortcutsEnabled = true;
 			this.mtxtSignature.Size = new System.Drawing.Size(382, 179);
 			this.mtxtSignature.TabIndex = 73;
 			this.mtxtSignature.Text = global::Products.Common.Properties.Settings.Default.Signature;
 			this.mtxtSignature.UseSelectable = true;
-			this.mtxtSignature.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSignature.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSignature.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtSignature.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtSignature_Validating);
 			// 
@@ -408,12 +409,13 @@
 			this.mtxtTaxRateFactor.SelectedText = "";
 			this.mtxtTaxRateFactor.SelectionLength = 0;
 			this.mtxtTaxRateFactor.SelectionStart = 0;
+			this.mtxtTaxRateFactor.ShortcutsEnabled = true;
 			this.mtxtTaxRateFactor.Size = new System.Drawing.Size(42, 23);
 			this.mtxtTaxRateFactor.TabIndex = 71;
 			this.mtxtTaxRateFactor.Text = global::Products.Common.Properties.Settings.Default.TaxRate;
 			this.mtxtTaxRateFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.mtxtTaxRateFactor.UseSelectable = true;
-			this.mtxtTaxRateFactor.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtTaxRateFactor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtTaxRateFactor.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtTaxRateFactor.Validating += new System.ComponentModel.CancelEventHandler(this.TaxRate_Validating);
 			// 
@@ -444,11 +446,12 @@
 			this.mtxtSmtpPassword.SelectedText = "";
 			this.mtxtSmtpPassword.SelectionLength = 0;
 			this.mtxtSmtpPassword.SelectionStart = 0;
+			this.mtxtSmtpPassword.ShortcutsEnabled = true;
 			this.mtxtSmtpPassword.Size = new System.Drawing.Size(170, 23);
 			this.mtxtSmtpPassword.TabIndex = 70;
 			this.mtxtSmtpPassword.Text = global::Products.Common.Properties.Settings.Default.SenderPW;
 			this.mtxtSmtpPassword.UseSelectable = true;
-			this.mtxtSmtpPassword.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSmtpPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSmtpPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtSmtpPort
@@ -478,11 +481,12 @@
 			this.mtxtSmtpPort.SelectedText = "";
 			this.mtxtSmtpPort.SelectionLength = 0;
 			this.mtxtSmtpPort.SelectionStart = 0;
+			this.mtxtSmtpPort.ShortcutsEnabled = true;
 			this.mtxtSmtpPort.Size = new System.Drawing.Size(170, 23);
 			this.mtxtSmtpPort.TabIndex = 69;
 			this.mtxtSmtpPort.Text = global::Products.Common.Properties.Settings.Default.SmtpPort;
 			this.mtxtSmtpPort.UseSelectable = true;
-			this.mtxtSmtpPort.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSmtpPort.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSmtpPort.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtSmtpServer
@@ -512,11 +516,12 @@
 			this.mtxtSmtpServer.SelectedText = "";
 			this.mtxtSmtpServer.SelectionLength = 0;
 			this.mtxtSmtpServer.SelectionStart = 0;
+			this.mtxtSmtpServer.ShortcutsEnabled = true;
 			this.mtxtSmtpServer.Size = new System.Drawing.Size(170, 23);
 			this.mtxtSmtpServer.TabIndex = 68;
 			this.mtxtSmtpServer.Text = global::Products.Common.Properties.Settings.Default.SmtpServer;
 			this.mtxtSmtpServer.UseSelectable = true;
-			this.mtxtSmtpServer.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSmtpServer.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSmtpServer.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtAtapiLeitung
@@ -546,11 +551,12 @@
 			this.mtxtAtapiLeitung.SelectedText = "";
 			this.mtxtAtapiLeitung.SelectionLength = 0;
 			this.mtxtAtapiLeitung.SelectionStart = 0;
+			this.mtxtAtapiLeitung.ShortcutsEnabled = true;
 			this.mtxtAtapiLeitung.Size = new System.Drawing.Size(170, 23);
 			this.mtxtAtapiLeitung.TabIndex = 67;
 			this.mtxtAtapiLeitung.Text = global::Products.Common.Properties.Settings.Default.ATAPI_Line;
 			this.mtxtAtapiLeitung.UseSelectable = true;
-			this.mtxtAtapiLeitung.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAtapiLeitung.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAtapiLeitung.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtAtapiLeitung.Validating += new System.ComponentModel.CancelEventHandler(this.Atapi_Leitung_Validating);
 			// 
@@ -581,11 +587,12 @@
 			this.mtxtSageBenutzer.SelectedText = "";
 			this.mtxtSageBenutzer.SelectionLength = 0;
 			this.mtxtSageBenutzer.SelectionStart = 0;
+			this.mtxtSageBenutzer.ShortcutsEnabled = true;
 			this.mtxtSageBenutzer.Size = new System.Drawing.Size(170, 23);
 			this.mtxtSageBenutzer.TabIndex = 66;
 			this.mtxtSageBenutzer.Text = global::Products.Common.Properties.Settings.Default.UserInSage;
 			this.mtxtSageBenutzer.UseSelectable = true;
-			this.mtxtSageBenutzer.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSageBenutzer.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSageBenutzer.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtSageBenutzer.Validating += new System.ComponentModel.CancelEventHandler(this.SageBenutzer_Validating);
 			// 
@@ -617,11 +624,12 @@
 			this.mtxtDateilinksPfad.SelectedText = "";
 			this.mtxtDateilinksPfad.SelectionLength = 0;
 			this.mtxtDateilinksPfad.SelectionStart = 0;
+			this.mtxtDateilinksPfad.ShortcutsEnabled = true;
 			this.mtxtDateilinksPfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtDateilinksPfad.TabIndex = 65;
 			this.mtxtDateilinksPfad.Text = global::Products.Common.Properties.Settings.Default.LinkedFilesPath;
 			this.mtxtDateilinksPfad.UseSelectable = true;
-			this.mtxtDateilinksPfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtDateilinksPfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtDateilinksPfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtDateilinksPfad.Validating += new System.ComponentModel.CancelEventHandler(this.DateilinkPfad_Validating);
 			// 
@@ -654,11 +662,12 @@
 			this.mtxtHerstellerlogoPfad.SelectedText = "";
 			this.mtxtHerstellerlogoPfad.SelectionLength = 0;
 			this.mtxtHerstellerlogoPfad.SelectionStart = 0;
+			this.mtxtHerstellerlogoPfad.ShortcutsEnabled = true;
 			this.mtxtHerstellerlogoPfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtHerstellerlogoPfad.TabIndex = 64;
 			this.mtxtHerstellerlogoPfad.Text = global::Products.Common.Properties.Settings.Default.ManufacturerPicturePath;
 			this.mtxtHerstellerlogoPfad.UseSelectable = true;
-			this.mtxtHerstellerlogoPfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtHerstellerlogoPfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtHerstellerlogoPfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtHerstellerlogoPfad.Validating += new System.ComponentModel.CancelEventHandler(this.HerstellerlogoPfad_Validating);
 			// 
@@ -691,11 +700,12 @@
 			this.mtxtProduktbilderPfad.SelectedText = "";
 			this.mtxtProduktbilderPfad.SelectionLength = 0;
 			this.mtxtProduktbilderPfad.SelectionStart = 0;
+			this.mtxtProduktbilderPfad.ShortcutsEnabled = true;
 			this.mtxtProduktbilderPfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtProduktbilderPfad.TabIndex = 63;
 			this.mtxtProduktbilderPfad.Text = global::Products.Common.Properties.Settings.Default.ProductPicturePath;
 			this.mtxtProduktbilderPfad.UseSelectable = true;
-			this.mtxtProduktbilderPfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtProduktbilderPfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtProduktbilderPfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtProduktbilderPfad.Validating += new System.ComponentModel.CancelEventHandler(this.ProduktbilderPfad_Validating);
 			// 
@@ -728,11 +738,12 @@
 			this.mtxtBilderPfad.SelectedText = "";
 			this.mtxtBilderPfad.SelectionLength = 0;
 			this.mtxtBilderPfad.SelectionStart = 0;
+			this.mtxtBilderPfad.ShortcutsEnabled = true;
 			this.mtxtBilderPfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtBilderPfad.TabIndex = 62;
 			this.mtxtBilderPfad.Text = global::Products.Common.Properties.Settings.Default.PicturePath;
 			this.mtxtBilderPfad.UseSelectable = true;
-			this.mtxtBilderPfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtBilderPfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtBilderPfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtBilderPfad.Validating += new System.ComponentModel.CancelEventHandler(this.BilderPfad_Validating);
 			// 
@@ -765,11 +776,12 @@
 			this.mtxtKatalogvorlagePfad.SelectedText = "";
 			this.mtxtKatalogvorlagePfad.SelectionLength = 0;
 			this.mtxtKatalogvorlagePfad.SelectionStart = 0;
+			this.mtxtKatalogvorlagePfad.ShortcutsEnabled = true;
 			this.mtxtKatalogvorlagePfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtKatalogvorlagePfad.TabIndex = 61;
 			this.mtxtKatalogvorlagePfad.Text = global::Products.Common.Properties.Settings.Default.CatalogTemplateFilePath;
 			this.mtxtKatalogvorlagePfad.UseSelectable = true;
-			this.mtxtKatalogvorlagePfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtKatalogvorlagePfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtKatalogvorlagePfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtKatalogvorlagePfad.Validating += new System.ComponentModel.CancelEventHandler(this.KatalogvorlagePfad_Validating);
 			// 
@@ -802,11 +814,12 @@
 			this.mtxtKatalogPfad.SelectedText = "";
 			this.mtxtKatalogPfad.SelectionLength = 0;
 			this.mtxtKatalogPfad.SelectionStart = 0;
+			this.mtxtKatalogPfad.ShortcutsEnabled = true;
 			this.mtxtKatalogPfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtKatalogPfad.TabIndex = 60;
 			this.mtxtKatalogPfad.Text = global::Products.Common.Properties.Settings.Default.CatalogPath;
 			this.mtxtKatalogPfad.UseSelectable = true;
-			this.mtxtKatalogPfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtKatalogPfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtKatalogPfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtKatalogPfad.Validating += new System.ComponentModel.CancelEventHandler(this.KatalogPfad_Validating);
 			// 
@@ -839,11 +852,12 @@
 			this.mtxtSageExePfad.SelectedText = "";
 			this.mtxtSageExePfad.SelectionLength = 0;
 			this.mtxtSageExePfad.SelectionStart = 0;
+			this.mtxtSageExePfad.ShortcutsEnabled = true;
 			this.mtxtSageExePfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtSageExePfad.TabIndex = 59;
 			this.mtxtSageExePfad.Text = global::Products.Common.Properties.Settings.Default.Sage_ExePath;
 			this.mtxtSageExePfad.UseSelectable = true;
-			this.mtxtSageExePfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSageExePfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSageExePfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtSageExePfad.Validating += new System.ComponentModel.CancelEventHandler(this.SageExePfad_Validating);
 			// 
@@ -876,11 +890,12 @@
 			this.mtxtAngebotspfad.SelectedText = "";
 			this.mtxtAngebotspfad.SelectionLength = 0;
 			this.mtxtAngebotspfad.SelectionStart = 0;
+			this.mtxtAngebotspfad.ShortcutsEnabled = true;
 			this.mtxtAngebotspfad.Size = new System.Drawing.Size(382, 23);
 			this.mtxtAngebotspfad.TabIndex = 58;
 			this.mtxtAngebotspfad.Text = global::Products.Common.Properties.Settings.Default.OfferFilePath;
 			this.mtxtAngebotspfad.UseSelectable = true;
-			this.mtxtAngebotspfad.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtAngebotspfad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAngebotspfad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtAngebotspfad.Validating += new System.ComponentModel.CancelEventHandler(this.AngebotsPfad_Validating);
 			// 
@@ -911,11 +926,12 @@
 			this.mtxtSenderEmailAddress.SelectedText = "";
 			this.mtxtSenderEmailAddress.SelectionLength = 0;
 			this.mtxtSenderEmailAddress.SelectionStart = 0;
+			this.mtxtSenderEmailAddress.ShortcutsEnabled = true;
 			this.mtxtSenderEmailAddress.Size = new System.Drawing.Size(170, 23);
 			this.mtxtSenderEmailAddress.TabIndex = 75;
 			this.mtxtSenderEmailAddress.Text = global::Products.Common.Properties.Settings.Default.SenderEmailAddress;
 			this.mtxtSenderEmailAddress.UseSelectable = true;
-			this.mtxtSenderEmailAddress.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSenderEmailAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSenderEmailAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtSenderEmailAddress.Validated += new System.EventHandler(this.mtxtSenderEmailAddress_Validated);
 			// 
@@ -992,7 +1008,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "SettingsView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.Style = MetroFramework.MetroColorStyle.Silver;
 			this.Text = "Einstellungen";

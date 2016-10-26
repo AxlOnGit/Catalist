@@ -2,10 +2,6 @@
 using System.IO;
 using Products.Common;
 using Products.Common.Interfaces;
-using Products.Data;
-using System.Collections;
-using System.Linq;
-using Products.Model.Services;
 using Products.Data.Datasets;
 using System.Runtime.InteropServices;
 using Products.Common.Collections;
@@ -326,32 +322,32 @@ namespace Products.Model.Entities
 			switch (folderType)
 			{
 				case Global.DavidArchiveTypes.Adressen:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "address");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "address");
 
 				case Global.DavidArchiveTypes.Aufgaben:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "todo");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "todo");
 
 				case Global.DavidArchiveTypes.Postausgang:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "out");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "out");
 
 				case Global.DavidArchiveTypes.Posteingang:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "in");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "in");
 
 				case Global.DavidArchiveTypes.Kalender:
 					if (this.UserName.ToLower() == "urlaub")
 					{
 						return @"\\david\david\archive\group\urlaub";
 					}
-					else return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "cal");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "cal");
 
 				case Global.DavidArchiveTypes.Kalenderarchiv:
-					return Path.Combine(GetDavidArchivePath(Common.Global.DavidArchiveTypes.Kalender), myBase.DavidCalArchive);
+					return Path.Combine(GetDavidArchivePath(Global.DavidArchiveTypes.Kalender), myBase.DavidCalArchive);
 
 				case Global.DavidArchiveTypes.Wiedervorlagen:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "$remind$");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "$remind$");
 
 				default:
-					return Path.Combine(Common.Global.DavidArchivePath, myBase.UserFolderDavid, "in");
+					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "in");
 
 			}
 		}

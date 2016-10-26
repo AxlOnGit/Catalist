@@ -1,13 +1,10 @@
 ﻿using Products.Common;
 using Products.Data;
-using Products.Model;
 using Products.Model.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Products.Data.Datasets;
 using Products.Common.Interfaces;
+using System;
 
 namespace Products.Model.Services
 {
@@ -15,13 +12,13 @@ namespace Products.Model.Services
 	{
 
 		#region members
-		
-		private SortableBindingList<Linktyp> myLinkTypList = new SortableBindingList<Linktyp>();
-		private SortableBindingList<Hersteller> myHerstellerList = null;
-		private SortableBindingList<Maschinenmodell> myMaschinenModellList = null;
-		private SortableBindingList<Maschinenserie> myMaschinenSerieList = null;
-		private SortableBindingList<Maschinentyp> myMaschinenTypList = null;
-		private SortableBindingList<Tinte> myTinteList = null;
+
+		readonly SortableBindingList<Linktyp> myLinkTypList = new SortableBindingList<Linktyp>();
+		SortableBindingList<Hersteller> myHerstellerList;
+		SortableBindingList<Maschinenmodell> myMaschinenModellList;
+		SortableBindingList<Maschinenserie> myMaschinenSerieList;
+		SortableBindingList<Maschinentyp> myMaschinenTypList;
+		SortableBindingList<Tinte> myTinteList;
 
 		#endregion
 
@@ -88,6 +85,11 @@ namespace Products.Model.Services
 				}
 				return this.myMaschinenSerieList;
 			}
+		}
+
+		public void UpdateMaschinenSerien()
+		{
+			DataManager.SharedDataService.UpdateMaschinenSerie();
 		}
 
 		/// <summary>
@@ -187,7 +189,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public Hersteller AddHersteller(string firma = "Firmenname")
 		{
-			Hersteller hersteller = new Hersteller(DataManager.SharedDataService.AddHerstellerRow(firma));
+			var hersteller = new Hersteller(DataManager.SharedDataService.AddHerstellerRow(firma));
 			this.HerstellerList.Add(hersteller);
 
 			return hersteller;
@@ -212,7 +214,7 @@ namespace Products.Model.Services
 		/// </summary>
 		public Maschinenmodell AddMaschinenModell()
 		{
-			Maschinenmodell modell = new Maschinenmodell(DataManager.SharedDataService.AddMaschinenModellRow());
+			var modell = new Maschinenmodell(DataManager.SharedDataService.AddMaschinenModellRow());
 			this.MaschinenModellList.Add(modell);
 
 			return modell;
@@ -235,7 +237,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		internal SortableBindingList<Maschinenmodell> GetMaschinenModellList(Maschinenserie maschinenserie)
 		{
-			SortableBindingList<Maschinenmodell> list = new SortableBindingList<Maschinenmodell>();
+			var list = new SortableBindingList<Maschinenmodell>();
 			foreach (var modell in this.MaschinenModellList.Where(m => m.ModellSerieId == maschinenserie.UID))
 			{
 				list.Add(modell);
@@ -262,7 +264,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public Maschinenserie AddMaschinenSerie()
 		{
-			Maschinenserie serie = new Maschinenserie(DataManager.SharedDataService.AddMaschinenSerieRow());
+			var serie = new Maschinenserie(DataManager.SharedDataService.AddMaschinenSerieRow());
 			if (serie != null) this.MaschinenSerieList.Add(serie);
 
 			return serie;
@@ -273,7 +275,7 @@ namespace Products.Model.Services
 		/// </summary>
 		/// <param name="seriePK"></param>
 		/// <returns></returns>
-		internal Maschinenserie GetModellSerie(string seriePK)
+		public Maschinenserie GetModellSerie(string seriePK)
 		{
 			return this.MaschinenSerieList.FirstOrDefault(s => s.UID == seriePK);
 		}
@@ -289,7 +291,7 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public Maschinentyp AddMaschinenTyp(string bezeichnung = "Bezeichnung")
 		{
-			Maschinentyp typ = new Maschinentyp(DataManager.SharedDataService.AddMaschinenTypRow(bezeichnung));
+			var typ = new Maschinentyp(DataManager.SharedDataService.AddMaschinenTypRow(bezeichnung));
 			this.MaschinenTypList.Add(typ);
 
 			return typ;
@@ -315,10 +317,10 @@ namespace Products.Model.Services
 		/// <returns></returns>
 		public Tinte AddTinte()
 		{
-			dsShared.TinteRow tRow = DataManager.SharedDataService.AddTinteRow();
+			var tRow = DataManager.SharedDataService.AddTinteRow();
 			if (tRow != null)
 			{
-				Tinte newTinte = new Tinte(tRow);
+				var newTinte = new Tinte(tRow);
 				if (newTinte != null)
 				{
 					this.TinteList.Add(newTinte);

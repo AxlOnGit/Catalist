@@ -275,13 +275,10 @@ namespace Products.Common.ViewController
 
 		void NotifyPropertyChanged(string propertyName)
 		{
-			if (this.PropertyChanged != null)
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		private DateTime GetPrecedingMonday(DateTime forDate)
+		DateTime GetPrecedingMonday(DateTime forDate)
 		{
 			switch (forDate.DayOfWeek)
 			{
@@ -296,7 +293,7 @@ namespace Products.Common.ViewController
 			}
 		}
 
-		private int GetDaysToShow(DateTime startDate, int selectedDays)
+		int GetDaysToShow(DateTime startDate, int selectedDays)
 		{
 			switch (startDate.DayOfWeek)
 			{

@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:KundenSuche" ZOrder="4" X="40" Y="33" Height="54" Width="157" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="159" SplitterPosition="24" />
     <Shape ID="DesignTable:CustomerInfo" ZOrder="3" X="228" Y="33" Height="54" Width="147" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="159" SplitterPosition="24" />
     <Shape ID="DesignTable:Customer" ZOrder="2" X="408" Y="32" Height="54" Width="205" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="330" SplitterPosition="24" />
-    <Shape ID="DesignTable:Kunde" ZOrder="1" X="653" Y="32" Height="54" Width="199" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="311" SplitterPosition="24" />
+    <Shape ID="DesignTable:Kunde" ZOrder="1" X="653" Y="32" Height="54" Width="199" AdapterExpanded="false" DataTableExpanded="false" OldAdapterHeight="45" OldDataTableHeight="349" SplitterPosition="24" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

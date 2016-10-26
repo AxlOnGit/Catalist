@@ -49,20 +49,6 @@ namespace Products.Common.Panel
 			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
 			this.mlblTitle = new MetroLabel();
 			this.dgvOfferDetails = new MetroGrid();
-			this.colActive = new DataGridViewCheckBoxColumn();
-			this.colPosIndex = new DataGridViewTextBoxColumn();
-			this.colProductId = new DataGridViewTextBoxColumn();
-			this.colProductName = new DataGridViewTextBoxColumn();
-			this.colQuantity = new DataGridViewTextBoxColumn();
-			this.colUnit = new DataGridViewTextBoxColumn();
-			this.colEK = new DataGridViewTextBoxColumn();
-			this.colUnitPrice = new DataGridViewTextBoxColumn();
-			this.colRabattbetrag = new DataGridViewTextBoxColumn();
-			this.colDiscountPercent = new DataGridViewTextBoxColumn();
-			this.colUnitPriceCustomer = new DataGridViewTextBoxColumn();
-			this.colRowTotal = new DataGridViewTextBoxColumn();
-			this.colKatalogHeader = new DataGridViewTextBoxColumn();
-			this.colNeueSeite = new DataGridViewCheckBoxColumn();
 			this.ctxGrid = new MetroContextMenu(this.components);
 			this.ccmdNewDetail = new ToolStripMenuItem();
 			this.ccmdDeleteDetail = new ToolStripMenuItem();
@@ -89,6 +75,20 @@ namespace Products.Common.Panel
 			this.mlblPositionstext = new MetroLabel();
 			this.mtxtZahlungsbedingungen = new MetroTextBox();
 			this.mlblZahlungsbedingungen = new MetroLabel();
+			this.colActive = new DataGridViewCheckBoxColumn();
+			this.colPosIndex = new DataGridViewTextBoxColumn();
+			this.colProductId = new DataGridViewTextBoxColumn();
+			this.colProductName = new DataGridViewTextBoxColumn();
+			this.colQuantity = new DataGridViewTextBoxColumn();
+			this.colUnit = new DataGridViewTextBoxColumn();
+			this.colEK = new DataGridViewTextBoxColumn();
+			this.colUnitPrice = new DataGridViewTextBoxColumn();
+			this.colRabattbetrag = new DataGridViewTextBoxColumn();
+			this.colDiscountPercent = new DataGridViewTextBoxColumn();
+			this.colUnitPriceCustomer = new DataGridViewTextBoxColumn();
+			this.colRowTotal = new DataGridViewTextBoxColumn();
+			this.colKatalogHeader = new DataGridViewTextBoxColumn();
+			this.colNeueSeite = new DataGridViewCheckBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dgvOfferDetails)).BeginInit();
 			this.ctxGrid.SuspendLayout();
 			this.ctxForm.SuspendLayout();
@@ -97,7 +97,7 @@ namespace Products.Common.Panel
 			// mlblTitle
 			// 
 			this.mlblTitle.AutoSize = true;
-			this.mlblTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
+			this.mlblTitle.FontSize = MetroLabelSize.Tall;
 			this.mlblTitle.Location = new Point(23, 20);
 			this.mlblTitle.Name = "mlblTitle";
 			this.mlblTitle.Size = new Size(132, 25);
@@ -111,7 +111,9 @@ namespace Products.Common.Panel
 			this.dgvOfferDetails.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
 			this.dgvOfferDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.dgvOfferDetails.Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left) | AnchorStyles.Right);
+			this.dgvOfferDetails.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom) 
+						| AnchorStyles.Left) 
+						| AnchorStyles.Right)));
 			this.dgvOfferDetails.BackgroundColor = Color.FromArgb(255, 255, 255);
 			this.dgvOfferDetails.BorderStyle = BorderStyle.None;
 			this.dgvOfferDetails.CellBorderStyle = DataGridViewCellBorderStyle.None;
@@ -126,20 +128,20 @@ namespace Products.Common.Panel
 			this.dgvOfferDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvOfferDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvOfferDetails.Columns.AddRange(new DataGridViewColumn[] {
-            this.colActive,
-            this.colPosIndex,
-            this.colProductId,
-            this.colProductName,
-            this.colQuantity,
-            this.colUnit,
-            this.colEK,
-            this.colUnitPrice,
-            this.colRabattbetrag,
-            this.colDiscountPercent,
-            this.colUnitPriceCustomer,
-            this.colRowTotal,
-            this.colKatalogHeader,
-            this.colNeueSeite});
+						this.colActive,
+						this.colPosIndex,
+						this.colProductId,
+						this.colProductName,
+						this.colQuantity,
+						this.colUnit,
+						this.colEK,
+						this.colUnitPrice,
+						this.colRabattbetrag,
+						this.colDiscountPercent,
+						this.colUnitPriceCustomer,
+						this.colRowTotal,
+						this.colKatalogHeader,
+						this.colNeueSeite});
 			this.dgvOfferDetails.ContextMenuStrip = this.ctxGrid;
 			dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle11.BackColor = Color.FromArgb(255, 255, 255);
@@ -169,9 +171,361 @@ namespace Products.Common.Panel
 			this.dgvOfferDetails.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvOfferDetails.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			this.dgvOfferDetails.Size = new Size(1234, 321);
-			this.dgvOfferDetails.Style = MetroFramework.MetroColorStyle.Lime;
+			this.dgvOfferDetails.Style = MetroColorStyle.Lime;
 			this.dgvOfferDetails.TabIndex = 0;
 			this.dgvOfferDetails.RowEnter += new DataGridViewCellEventHandler(this.dgvOfferDetails_RowEnter);
+			// 
+			// ctxGrid
+			// 
+			this.ctxGrid.BackColor = Color.White;
+			this.ctxGrid.Items.AddRange(new ToolStripItem[] {
+						this.ccmdNewDetail,
+						this.ccmdDeleteDetail,
+						this.ccmdPrint2,
+						this.nachObenToolStripMenuItem,
+						this.xcmdMoveUp,
+						this.xcmdMoveDown,
+						this.toolStripMenuItem2,
+						this.ccmdTaschenrechner});
+			this.ctxGrid.Name = "ctxGrid";
+			this.ctxGrid.Size = new Size(202, 148);
+			// 
+			// ccmdNewDetail
+			// 
+			this.ccmdNewDetail.Image = Properties.Resources.neu_metrolime;
+			this.ccmdNewDetail.Name = "ccmdNewDetail";
+			this.ccmdNewDetail.ShortcutKeyDisplayString = "(Strg+N)";
+			this.ccmdNewDetail.ShortcutKeys = ((Keys)((Keys.Control | Keys.N)));
+			this.ccmdNewDetail.Size = new Size(201, 22);
+			this.ccmdNewDetail.Text = "Neue Position";
+			this.ccmdNewDetail.Click += new System.EventHandler(this.ccmdNewDetail_Click);
+			// 
+			// ccmdDeleteDetail
+			// 
+			this.ccmdDeleteDetail.Image = Properties.Resources.garbage_16_metrolime;
+			this.ccmdDeleteDetail.Name = "ccmdDeleteDetail";
+			this.ccmdDeleteDetail.ShortcutKeyDisplayString = "";
+			this.ccmdDeleteDetail.Size = new Size(201, 22);
+			this.ccmdDeleteDetail.Text = "Position löschen";
+			this.ccmdDeleteDetail.Click += new System.EventHandler(this.ccmdDeleteDetail_Click);
+			// 
+			// ccmdPrint2
+			// 
+			this.ccmdPrint2.Image = Properties.Resources.print_16_metrolime;
+			this.ccmdPrint2.Name = "ccmdPrint2";
+			this.ccmdPrint2.ShortcutKeyDisplayString = "(Strg+P)";
+			this.ccmdPrint2.ShortcutKeys = ((Keys)((Keys.Control | Keys.P)));
+			this.ccmdPrint2.Size = new Size(201, 22);
+			this.ccmdPrint2.Text = "Drucken";
+			this.ccmdPrint2.Click += new System.EventHandler(this.ccmdPrint2_Click);
+			// 
+			// nachObenToolStripMenuItem
+			// 
+			this.nachObenToolStripMenuItem.Name = "nachObenToolStripMenuItem";
+			this.nachObenToolStripMenuItem.Size = new Size(198, 6);
+			// 
+			// xcmdMoveUp
+			// 
+			this.xcmdMoveUp.Image = Properties.Resources.arrowup_16_metrolime;
+			this.xcmdMoveUp.Name = "xcmdMoveUp";
+			this.xcmdMoveUp.Size = new Size(201, 22);
+			this.xcmdMoveUp.Text = "Rauf";
+			this.xcmdMoveUp.Click += new System.EventHandler(this.xcmdMoveUp_Click);
+			// 
+			// xcmdMoveDown
+			// 
+			this.xcmdMoveDown.Image = Properties.Resources.arrowdown_16_metrolime;
+			this.xcmdMoveDown.Name = "xcmdMoveDown";
+			this.xcmdMoveDown.Size = new Size(201, 22);
+			this.xcmdMoveDown.Text = "Runter";
+			this.xcmdMoveDown.Click += new System.EventHandler(this.xcmdMoveDown_Click);
+			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new Size(198, 6);
+			// 
+			// ccmdTaschenrechner
+			// 
+			this.ccmdTaschenrechner.Image = Properties.Resources.calc_16_metrolime;
+			this.ccmdTaschenrechner.Name = "ccmdTaschenrechner";
+			this.ccmdTaschenrechner.Size = new Size(201, 22);
+			this.ccmdTaschenrechner.Text = "Taschenrechner";
+			this.ccmdTaschenrechner.Click += new System.EventHandler(this.ccmdTaschenrechner_Click);
+			// 
+			// mToolTip
+			// 
+			this.mToolTip.Style = MetroColorStyle.Green;
+			this.mToolTip.StyleManager = null;
+			this.mToolTip.Theme = MetroThemeStyle.Default;
+			this.mToolTip.UseAnimation = false;
+			this.mToolTip.UseFading = false;
+			// 
+			// mchkBestellkennzeichen
+			// 
+			this.mchkBestellkennzeichen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			this.mchkBestellkennzeichen.AutoSize = true;
+			this.mchkBestellkennzeichen.FontSize = MetroCheckBoxSize.Medium;
+			this.mchkBestellkennzeichen.FontWeight = MetroCheckBoxWeight.Light;
+			this.mchkBestellkennzeichen.Location = new Point(845, 466);
+			this.mchkBestellkennzeichen.Name = "mchkBestellkennzeichen";
+			this.mchkBestellkennzeichen.Size = new Size(217, 19);
+			this.mchkBestellkennzeichen.TabIndex = 6;
+			this.mchkBestellkennzeichen.Text = "als Bestellung drucken/versenden";
+			this.mToolTip.SetToolTip(this.mchkBestellkennzeichen, "Dieses Angebot als Bestellung kennzeichnen");
+			this.mchkBestellkennzeichen.UseSelectable = true;
+			// 
+			// btnMailToUser
+			// 
+			this.btnMailToUser.BackColor = Color.Transparent;
+			this.btnMailToUser.FlatAppearance.BorderSize = 0;
+			this.btnMailToUser.FlatStyle = FlatStyle.Flat;
+			this.btnMailToUser.Image = Properties.Resources.mail_32_metrogreen;
+			this.btnMailToUser.Location = new Point(217, 100);
+			this.btnMailToUser.Margin = new Padding(3, 20, 20, 3);
+			this.btnMailToUser.Name = "btnMailToUser";
+			this.btnMailToUser.Size = new Size(36, 36);
+			this.btnMailToUser.TabIndex = 65;
+			this.btnMailToUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnMailToUser, "Sendet das Angebot als Bestellung an einen Kollegen");
+			this.btnMailToUser.UseVisualStyleBackColor = false;
+			this.btnMailToUser.Click += new System.EventHandler(this.btnMailToUser_Click);
+			// 
+			// btnMailToCustomer
+			// 
+			this.btnMailToCustomer.BackColor = Color.Transparent;
+			this.btnMailToCustomer.FlatAppearance.BorderSize = 0;
+			this.btnMailToCustomer.FlatStyle = FlatStyle.Flat;
+			this.btnMailToCustomer.Image = Properties.Resources.email_32_metrogreen;
+			this.btnMailToCustomer.Location = new Point(158, 100);
+			this.btnMailToCustomer.Margin = new Padding(3, 20, 20, 3);
+			this.btnMailToCustomer.Name = "btnMailToCustomer";
+			this.btnMailToCustomer.Size = new Size(36, 36);
+			this.btnMailToCustomer.TabIndex = 64;
+			this.btnMailToCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnMailToCustomer, "Sendet das Angebot als E-Mail Anhang an den Kunden");
+			this.btnMailToCustomer.UseVisualStyleBackColor = false;
+			this.btnMailToCustomer.Click += new System.EventHandler(this.btnMailToCustomer_Click);
+			// 
+			// btnRechner
+			// 
+			this.btnRechner.BackColor = Color.Transparent;
+			this.btnRechner.FlatAppearance.BorderSize = 0;
+			this.btnRechner.FlatStyle = FlatStyle.Flat;
+			this.btnRechner.Image = Properties.Resources.calc_32_metrolime;
+			this.btnRechner.Location = new Point(276, 100);
+			this.btnRechner.Margin = new Padding(3, 20, 20, 3);
+			this.btnRechner.Name = "btnRechner";
+			this.btnRechner.Size = new Size(36, 36);
+			this.btnRechner.TabIndex = 5;
+			this.btnRechner.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnRechner, "Taschenrechner");
+			this.btnRechner.UseVisualStyleBackColor = false;
+			this.btnRechner.Click += new System.EventHandler(this.btnRechner_Click);
+			// 
+			// btnDrucken
+			// 
+			this.btnDrucken.BackColor = Color.Transparent;
+			this.btnDrucken.FlatAppearance.BorderSize = 0;
+			this.btnDrucken.FlatStyle = FlatStyle.Flat;
+			this.btnDrucken.Image = Properties.Resources.print_32_metrolime;
+			this.btnDrucken.Location = new Point(99, 100);
+			this.btnDrucken.Margin = new Padding(3, 20, 20, 3);
+			this.btnDrucken.Name = "btnDrucken";
+			this.btnDrucken.Size = new Size(36, 36);
+			this.btnDrucken.TabIndex = 4;
+			this.btnDrucken.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnDrucken, "Angebot drucken");
+			this.btnDrucken.UseVisualStyleBackColor = false;
+			this.btnDrucken.Click += new System.EventHandler(this.btnDrucken_Click);
+			// 
+			// btnPositionLoeschen
+			// 
+			this.btnPositionLoeschen.BackColor = Color.Transparent;
+			this.btnPositionLoeschen.FlatAppearance.BorderSize = 0;
+			this.btnPositionLoeschen.FlatStyle = FlatStyle.Flat;
+			this.btnPositionLoeschen.Image = Properties.Resources.garbage_32_metrolime;
+			this.btnPositionLoeschen.Location = new Point(1204, 100);
+			this.btnPositionLoeschen.Margin = new Padding(3, 20, 20, 3);
+			this.btnPositionLoeschen.Name = "btnPositionLoeschen";
+			this.btnPositionLoeschen.Size = new Size(36, 36);
+			this.btnPositionLoeschen.TabIndex = 3;
+			this.btnPositionLoeschen.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnPositionLoeschen, "Position löschen");
+			this.btnPositionLoeschen.UseVisualStyleBackColor = false;
+			this.btnPositionLoeschen.Click += new System.EventHandler(this.btnPositionLoeschen_Click);
+			// 
+			// btnNeuePosition
+			// 
+			this.btnNeuePosition.BackColor = Color.Transparent;
+			this.btnNeuePosition.FlatAppearance.BorderSize = 0;
+			this.btnNeuePosition.FlatStyle = FlatStyle.Flat;
+			this.btnNeuePosition.Image = Properties.Resources.neu_metrolime;
+			this.btnNeuePosition.Location = new Point(40, 100);
+			this.btnNeuePosition.Margin = new Padding(20, 20, 20, 3);
+			this.btnNeuePosition.Name = "btnNeuePosition";
+			this.btnNeuePosition.Size = new Size(36, 36);
+			this.btnNeuePosition.TabIndex = 2;
+			this.btnNeuePosition.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.mToolTip.SetToolTip(this.btnNeuePosition, "Neue Position");
+			this.btnNeuePosition.UseVisualStyleBackColor = false;
+			this.btnNeuePosition.Click += new System.EventHandler(this.btnNeuePosition_Click);
+			// 
+			// ctxForm
+			// 
+			this.ctxForm.Items.AddRange(new ToolStripItem[] {
+						this.ccmdPrint,
+						this.mcmdMailToCustomer,
+						this.mcmdMailToUser});
+			this.ctxForm.Name = "ctxForm";
+			this.ctxForm.Size = new Size(249, 70);
+			// 
+			// ccmdPrint
+			// 
+			this.ccmdPrint.Image = Properties.Resources.print_16_metrolime;
+			this.ccmdPrint.Name = "ccmdPrint";
+			this.ccmdPrint.ShortcutKeyDisplayString = "(Strg+P)";
+			this.ccmdPrint.Size = new Size(248, 22);
+			this.ccmdPrint.Text = "Drucken";
+			this.ccmdPrint.Click += new System.EventHandler(this.ccmdPrint_Click);
+			// 
+			// mcmdMailToCustomer
+			// 
+			this.mcmdMailToCustomer.Image = Properties.Resources.email_16_metrogreen;
+			this.mcmdMailToCustomer.Name = "mcmdMailToCustomer";
+			this.mcmdMailToCustomer.Size = new Size(248, 22);
+			this.mcmdMailToCustomer.Text = "Per E-Mail zum Kunden";
+			this.mcmdMailToCustomer.Click += new System.EventHandler(this.mcmdMailToCustomer_Click);
+			// 
+			// mcmdMailToUser
+			// 
+			this.mcmdMailToUser.Image = Properties.Resources.mail_16_metrolime;
+			this.mcmdMailToUser.Name = "mcmdMailToUser";
+			this.mcmdMailToUser.Size = new Size(248, 22);
+			this.mcmdMailToUser.Text = "Als Bestellung zu einem Kollegen";
+			this.mcmdMailToUser.Click += new System.EventHandler(this.mcmdMailToUser_Click);
+			// 
+			// txtPositionsinfo
+			// 
+			this.txtPositionsinfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			// 
+			// 
+			// 
+			this.txtPositionsinfo.CustomButton.Image = null;
+			this.txtPositionsinfo.CustomButton.Location = new Point(149, 2);
+			this.txtPositionsinfo.CustomButton.Name = "";
+			this.txtPositionsinfo.CustomButton.Size = new Size(259, 259);
+			this.txtPositionsinfo.CustomButton.Style = MetroColorStyle.Blue;
+			this.txtPositionsinfo.CustomButton.TabIndex = 1;
+			this.txtPositionsinfo.CustomButton.Theme = MetroThemeStyle.Light;
+			this.txtPositionsinfo.CustomButton.UseSelectable = true;
+			this.txtPositionsinfo.CustomButton.Visible = false;
+			this.txtPositionsinfo.Enabled = false;
+			this.txtPositionsinfo.FontWeight = MetroTextBoxWeight.Light;
+			this.txtPositionsinfo.Lines = new string[0];
+			this.txtPositionsinfo.Location = new Point(845, 491);
+			this.txtPositionsinfo.MaxLength = 32767;
+			this.txtPositionsinfo.Multiline = true;
+			this.txtPositionsinfo.Name = "txtPositionsinfo";
+			this.txtPositionsinfo.PasswordChar = '\0';
+			this.txtPositionsinfo.ScrollBars = ScrollBars.None;
+			this.txtPositionsinfo.SelectedText = "";
+			this.txtPositionsinfo.SelectionLength = 0;
+			this.txtPositionsinfo.SelectionStart = 0;
+			this.txtPositionsinfo.Size = new Size(411, 264);
+			this.txtPositionsinfo.TabIndex = 7;
+			this.txtPositionsinfo.TabStop = false;
+			this.txtPositionsinfo.UseSelectable = true;
+			this.txtPositionsinfo.WaterMarkColor = Color.FromArgb((109), (109), (109));
+			this.txtPositionsinfo.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+			// 
+			// txtRowComment
+			// 
+			this.txtRowComment.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
+			// 
+			// 
+			// 
+			this.txtRowComment.CustomButton.Image = null;
+			this.txtRowComment.CustomButton.Location = new Point(429, 1);
+			this.txtRowComment.CustomButton.Name = "";
+			this.txtRowComment.CustomButton.Size = new Size(163, 163);
+			this.txtRowComment.CustomButton.Style = MetroColorStyle.Blue;
+			this.txtRowComment.CustomButton.TabIndex = 1;
+			this.txtRowComment.CustomButton.Theme = MetroThemeStyle.Light;
+			this.txtRowComment.CustomButton.UseSelectable = true;
+			this.txtRowComment.CustomButton.Visible = false;
+			this.txtRowComment.FontWeight = MetroTextBoxWeight.Light;
+			this.txtRowComment.Lines = new string[0];
+			this.txtRowComment.Location = new Point(23, 488);
+			this.txtRowComment.Margin = new Padding(3, 3, 15, 3);
+			this.txtRowComment.MaxLength = 2000;
+			this.txtRowComment.Multiline = true;
+			this.txtRowComment.Name = "txtRowComment";
+			this.txtRowComment.PasswordChar = '\0';
+			this.txtRowComment.ScrollBars = ScrollBars.Both;
+			this.txtRowComment.SelectedText = "";
+			this.txtRowComment.SelectionLength = 0;
+			this.txtRowComment.SelectionStart = 0;
+			this.txtRowComment.Size = new Size(593, 165);
+			this.txtRowComment.TabIndex = 1;
+			this.txtRowComment.UseSelectable = true;
+			this.txtRowComment.WaterMarkColor = Color.FromArgb((109), (109), (109));
+			this.txtRowComment.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+			// 
+			// mlblPositionstext
+			// 
+			this.mlblPositionstext.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			this.mlblPositionstext.AutoSize = true;
+			this.mlblPositionstext.Location = new Point(23, 466);
+			this.mlblPositionstext.Name = "mlblPositionstext";
+			this.mlblPositionstext.Size = new Size(80, 19);
+			this.mlblPositionstext.TabIndex = 63;
+			this.mlblPositionstext.Text = "Positionstext";
+			// 
+			// mtxtZahlungsbedingungen
+			// 
+			this.mtxtZahlungsbedingungen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			// 
+			// 
+			// 
+			this.mtxtZahlungsbedingungen.CustomButton.Image = null;
+			this.mtxtZahlungsbedingungen.CustomButton.Location = new Point(531, 2);
+			this.mtxtZahlungsbedingungen.CustomButton.Name = "";
+			this.mtxtZahlungsbedingungen.CustomButton.Size = new Size(59, 59);
+			this.mtxtZahlungsbedingungen.CustomButton.Style = MetroColorStyle.Blue;
+			this.mtxtZahlungsbedingungen.CustomButton.TabIndex = 1;
+			this.mtxtZahlungsbedingungen.CustomButton.Theme = MetroThemeStyle.Light;
+			this.mtxtZahlungsbedingungen.CustomButton.UseSelectable = true;
+			this.mtxtZahlungsbedingungen.CustomButton.Visible = false;
+			this.mtxtZahlungsbedingungen.FontSize = MetroTextBoxSize.Medium;
+			this.mtxtZahlungsbedingungen.FontWeight = MetroTextBoxWeight.Light;
+			this.mtxtZahlungsbedingungen.Lines = new string[] {
+				"Zahlungsbedingungen"};
+			this.mtxtZahlungsbedingungen.Location = new Point(23, 691);
+			this.mtxtZahlungsbedingungen.MaxLength = 250;
+			this.mtxtZahlungsbedingungen.Multiline = true;
+			this.mtxtZahlungsbedingungen.Name = "mtxtZahlungsbedingungen";
+			this.mtxtZahlungsbedingungen.PasswordChar = '\0';
+			this.mtxtZahlungsbedingungen.ScrollBars = ScrollBars.None;
+			this.mtxtZahlungsbedingungen.SelectedText = "";
+			this.mtxtZahlungsbedingungen.SelectionLength = 0;
+			this.mtxtZahlungsbedingungen.SelectionStart = 0;
+			this.mtxtZahlungsbedingungen.Size = new Size(593, 64);
+			this.mtxtZahlungsbedingungen.TabIndex = 66;
+			this.mtxtZahlungsbedingungen.Text = "Zahlungsbedingungen";
+			this.mtxtZahlungsbedingungen.UseSelectable = true;
+			this.mtxtZahlungsbedingungen.WaterMarkColor = Color.FromArgb((109), (109), (109));
+			this.mtxtZahlungsbedingungen.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+			// 
+			// mlblZahlungsbedingungen
+			// 
+			this.mlblZahlungsbedingungen.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
+			this.mlblZahlungsbedingungen.AutoSize = true;
+			this.mlblZahlungsbedingungen.Location = new Point(23, 669);
+			this.mlblZahlungsbedingungen.Name = "mlblZahlungsbedingungen";
+			this.mlblZahlungsbedingungen.Size = new Size(138, 19);
+			this.mlblZahlungsbedingungen.TabIndex = 67;
+			this.mlblZahlungsbedingungen.Text = "Zahlungsbedingungen";
 			// 
 			// colActive
 			// 
@@ -201,6 +555,7 @@ namespace Products.Common.Panel
 			this.colProductId.FillWeight = 15F;
 			this.colProductId.HeaderText = "Art.-Nr.";
 			this.colProductId.Name = "colProductId";
+			this.colProductId.ReadOnly = true;
 			// 
 			// colProductName
 			// 
@@ -323,357 +678,6 @@ namespace Products.Common.Panel
 			this.colNeueSeite.Name = "colNeueSeite";
 			this.colNeueSeite.ToolTipText = "Druckt diese Position auf einer neuen Seite";
 			// 
-			// ctxGrid
-			// 
-			this.ctxGrid.BackColor = System.Drawing.Color.White;
-			this.ctxGrid.Items.AddRange(new ToolStripItem[] {
-            this.ccmdNewDetail,
-            this.ccmdDeleteDetail,
-            this.ccmdPrint2,
-            this.nachObenToolStripMenuItem,
-            this.xcmdMoveUp,
-            this.xcmdMoveDown,
-            this.toolStripMenuItem2,
-            this.ccmdTaschenrechner});
-			this.ctxGrid.Name = "ctxGrid";
-			this.ctxGrid.Size = new System.Drawing.Size(202, 170);
-			// 
-			// ccmdNewDetail
-			// 
-			this.ccmdNewDetail.Image = Properties.Resources.neu_metrolime;
-			this.ccmdNewDetail.Name = "ccmdNewDetail";
-			this.ccmdNewDetail.ShortcutKeyDisplayString = "(Strg+N)";
-			this.ccmdNewDetail.ShortcutKeys = ((Keys)((Keys.Control | Keys.N)));
-			this.ccmdNewDetail.Size = new System.Drawing.Size(201, 22);
-			this.ccmdNewDetail.Text = "Neue Position";
-			this.ccmdNewDetail.Click += new System.EventHandler(this.ccmdNewDetail_Click);
-			// 
-			// ccmdDeleteDetail
-			// 
-			this.ccmdDeleteDetail.Image = Properties.Resources.garbage_16_metrolime;
-			this.ccmdDeleteDetail.Name = "ccmdDeleteDetail";
-			this.ccmdDeleteDetail.ShortcutKeyDisplayString = "";
-			this.ccmdDeleteDetail.Size = new System.Drawing.Size(201, 22);
-			this.ccmdDeleteDetail.Text = "Position löschen";
-			this.ccmdDeleteDetail.Click += new System.EventHandler(this.ccmdDeleteDetail_Click);
-			// 
-			// ccmdPrint2
-			// 
-			this.ccmdPrint2.Image = Properties.Resources.print_16_metrolime;
-			this.ccmdPrint2.Name = "ccmdPrint2";
-			this.ccmdPrint2.ShortcutKeyDisplayString = "(Strg+P)";
-			this.ccmdPrint2.ShortcutKeys = (Keys.Control | Keys.P);
-			this.ccmdPrint2.Size = new Size(201, 22);
-			this.ccmdPrint2.Text = "Drucken";
-			this.ccmdPrint2.Click += new System.EventHandler(this.ccmdPrint2_Click);
-			// 
-			// nachObenToolStripMenuItem
-			// 
-			this.nachObenToolStripMenuItem.Name = "nachObenToolStripMenuItem";
-			this.nachObenToolStripMenuItem.Size = new System.Drawing.Size(198, 6);
-			// 
-			// xcmdMoveUp
-			// 
-			this.xcmdMoveUp.Image = Properties.Resources.arrowup_16_metrolime;
-			this.xcmdMoveUp.Name = "xcmdMoveUp";
-			this.xcmdMoveUp.Size = new Size(201, 22);
-			this.xcmdMoveUp.Text = "Rauf";
-			this.xcmdMoveUp.Click += new System.EventHandler(this.xcmdMoveUp_Click);
-			// 
-			// xcmdMoveDown
-			// 
-			this.xcmdMoveDown.Image = Properties.Resources.arrowdown_16_metrolime;
-			this.xcmdMoveDown.Name = "xcmdMoveDown";
-			this.xcmdMoveDown.Size = new Size(201, 22);
-			this.xcmdMoveDown.Text = "Runter";
-			this.xcmdMoveDown.Click += new System.EventHandler(this.xcmdMoveDown_Click);
-			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new Size(198, 6);
-			// 
-			// ccmdTaschenrechner
-			// 
-			this.ccmdTaschenrechner.Image = Properties.Resources.calc_16_metrolime;
-			this.ccmdTaschenrechner.Name = "ccmdTaschenrechner";
-			this.ccmdTaschenrechner.Size = new Size(201, 22);
-			this.ccmdTaschenrechner.Text = "Taschenrechner";
-			this.ccmdTaschenrechner.Click += new System.EventHandler(this.ccmdTaschenrechner_Click);
-			// 
-			// mToolTip
-			// 
-			this.mToolTip.Style = MetroFramework.MetroColorStyle.Green;
-			this.mToolTip.StyleManager = null;
-			this.mToolTip.Theme = MetroFramework.MetroThemeStyle.Default;
-			this.mToolTip.UseAnimation = false;
-			this.mToolTip.UseFading = false;
-			// 
-			// mchkBestellkennzeichen
-			// 
-			this.mchkBestellkennzeichen.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-			this.mchkBestellkennzeichen.AutoSize = true;
-			this.mchkBestellkennzeichen.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-			this.mchkBestellkennzeichen.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
-			this.mchkBestellkennzeichen.Location = new Point(845, 466);
-			this.mchkBestellkennzeichen.Name = "mchkBestellkennzeichen";
-			this.mchkBestellkennzeichen.Size = new Size(217, 19);
-			this.mchkBestellkennzeichen.TabIndex = 6;
-			this.mchkBestellkennzeichen.Text = "als Bestellung drucken/versenden";
-			this.mToolTip.SetToolTip(this.mchkBestellkennzeichen, "Dieses Angebot als Bestellung kennzeichnen");
-			this.mchkBestellkennzeichen.UseSelectable = true;
-			// 
-			// btnMailToUser
-			// 
-			this.btnMailToUser.BackColor = Color.Transparent;
-			this.btnMailToUser.FlatAppearance.BorderSize = 0;
-			this.btnMailToUser.FlatStyle = FlatStyle.Flat;
-			this.btnMailToUser.Image = Properties.Resources.mail_32_metrogreen;
-			this.btnMailToUser.Location = new Point(217, 100);
-			this.btnMailToUser.Margin = new Padding(3, 20, 20, 3);
-			this.btnMailToUser.Name = "btnMailToUser";
-			this.btnMailToUser.Size = new Size(36, 36);
-			this.btnMailToUser.TabIndex = 65;
-			this.btnMailToUser.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnMailToUser, "Sendet das Angebot als Bestellung an einen Kollegen");
-			this.btnMailToUser.UseVisualStyleBackColor = false;
-			this.btnMailToUser.Click += new System.EventHandler(this.btnMailToUser_Click);
-			// 
-			// btnMailToCustomer
-			// 
-			this.btnMailToCustomer.BackColor = Color.Transparent;
-			this.btnMailToCustomer.FlatAppearance.BorderSize = 0;
-			this.btnMailToCustomer.FlatStyle = FlatStyle.Flat;
-			this.btnMailToCustomer.Image = Properties.Resources.email_32_metrogreen;
-			this.btnMailToCustomer.Location = new Point(158, 100);
-			this.btnMailToCustomer.Margin = new Padding(3, 20, 20, 3);
-			this.btnMailToCustomer.Name = "btnMailToCustomer";
-			this.btnMailToCustomer.Size = new Size(36, 36);
-			this.btnMailToCustomer.TabIndex = 64;
-			this.btnMailToCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnMailToCustomer, "Sendet das Angebot als E-Mail Anhang an den Kunden");
-			this.btnMailToCustomer.UseVisualStyleBackColor = false;
-			this.btnMailToCustomer.Click += new System.EventHandler(this.btnMailToCustomer_Click);
-			// 
-			// btnRechner
-			// 
-			this.btnRechner.BackColor = Color.Transparent;
-			this.btnRechner.FlatAppearance.BorderSize = 0;
-			this.btnRechner.FlatStyle = FlatStyle.Flat;
-			this.btnRechner.Image = Properties.Resources.calc_32_metrolime;
-			this.btnRechner.Location = new Point(276, 100);
-			this.btnRechner.Margin = new Padding(3, 20, 20, 3);
-			this.btnRechner.Name = "btnRechner";
-			this.btnRechner.Size = new Size(36, 36);
-			this.btnRechner.TabIndex = 5;
-			this.btnRechner.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnRechner, "Taschenrechner");
-			this.btnRechner.UseVisualStyleBackColor = false;
-			this.btnRechner.Click += new System.EventHandler(this.btnRechner_Click);
-			// 
-			// btnDrucken
-			// 
-			this.btnDrucken.BackColor = Color.Transparent;
-			this.btnDrucken.FlatAppearance.BorderSize = 0;
-			this.btnDrucken.FlatStyle = FlatStyle.Flat;
-			this.btnDrucken.Image = Properties.Resources.print_32_metrolime;
-			this.btnDrucken.Location = new Point(99, 100);
-			this.btnDrucken.Margin = new Padding(3, 20, 20, 3);
-			this.btnDrucken.Name = "btnDrucken";
-			this.btnDrucken.Size = new Size(36, 36);
-			this.btnDrucken.TabIndex = 4;
-			this.btnDrucken.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnDrucken, "Angebot drucken");
-			this.btnDrucken.UseVisualStyleBackColor = false;
-			this.btnDrucken.Click += new System.EventHandler(this.btnDrucken_Click);
-			// 
-			// btnPositionLoeschen
-			// 
-			this.btnPositionLoeschen.BackColor = Color.Transparent;
-			this.btnPositionLoeschen.FlatAppearance.BorderSize = 0;
-			this.btnPositionLoeschen.FlatStyle = FlatStyle.Flat;
-			this.btnPositionLoeschen.Image = Properties.Resources.garbage_32_metrolime;
-			this.btnPositionLoeschen.Location = new System.Drawing.Point(1204, 100);
-			this.btnPositionLoeschen.Margin = new Padding(3, 20, 20, 3);
-			this.btnPositionLoeschen.Name = "btnPositionLoeschen";
-			this.btnPositionLoeschen.Size = new Size(36, 36);
-			this.btnPositionLoeschen.TabIndex = 3;
-			this.btnPositionLoeschen.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnPositionLoeschen, "Position löschen");
-			this.btnPositionLoeschen.UseVisualStyleBackColor = false;
-			this.btnPositionLoeschen.Click += new System.EventHandler(this.btnPositionLoeschen_Click);
-			// 
-			// btnNeuePosition
-			// 
-			this.btnNeuePosition.BackColor = Color.Transparent;
-			this.btnNeuePosition.FlatAppearance.BorderSize = 0;
-			this.btnNeuePosition.FlatStyle = FlatStyle.Flat;
-			this.btnNeuePosition.Image = Properties.Resources.neu_metrolime;
-			this.btnNeuePosition.Location = new Point(40, 100);
-			this.btnNeuePosition.Margin = new Padding(20, 20, 20, 3);
-			this.btnNeuePosition.Name = "btnNeuePosition";
-			this.btnNeuePosition.Size = new Size(36, 36);
-			this.btnNeuePosition.TabIndex = 2;
-			this.btnNeuePosition.TextImageRelation = TextImageRelation.ImageBeforeText;
-			this.mToolTip.SetToolTip(this.btnNeuePosition, "Neue Position");
-			this.btnNeuePosition.UseVisualStyleBackColor = false;
-			this.btnNeuePosition.Click += new System.EventHandler(this.btnNeuePosition_Click);
-			// 
-			// ctxForm
-			// 
-			this.ctxForm.Items.AddRange(new ToolStripItem[] {
-            this.ccmdPrint,
-            this.mcmdMailToCustomer,
-            this.mcmdMailToUser});
-			this.ctxForm.Name = "ctxForm";
-			this.ctxForm.Size = new Size(249, 70);
-			// 
-			// ccmdPrint
-			// 
-			this.ccmdPrint.Image = Properties.Resources.print_16_metrolime;
-			this.ccmdPrint.Name = "ccmdPrint";
-			this.ccmdPrint.ShortcutKeyDisplayString = "(Strg+P)";
-			this.ccmdPrint.Size = new Size(248, 22);
-			this.ccmdPrint.Text = "Drucken";
-			this.ccmdPrint.Click += new System.EventHandler(this.ccmdPrint_Click);
-			// 
-			// mcmdMailToCustomer
-			// 
-			this.mcmdMailToCustomer.Image = Properties.Resources.email_16_metrogreen;
-			this.mcmdMailToCustomer.Name = "mcmdMailToCustomer";
-			this.mcmdMailToCustomer.Size = new Size(248, 22);
-			this.mcmdMailToCustomer.Text = "Per E-Mail zum Kunden";
-			this.mcmdMailToCustomer.Click += new System.EventHandler(this.mcmdMailToCustomer_Click);
-			// 
-			// mcmdMailToUser
-			// 
-			this.mcmdMailToUser.Image = Properties.Resources.mail_16_metrolime;
-			this.mcmdMailToUser.Name = "mcmdMailToUser";
-			this.mcmdMailToUser.Size = new Size(248, 22);
-			this.mcmdMailToUser.Text = "Als Bestellung zu einem Kollegen";
-			this.mcmdMailToUser.Click += new System.EventHandler(this.mcmdMailToUser_Click);
-			// 
-			// txtPositionsinfo
-			// 
-			this.txtPositionsinfo.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-			// 
-			// 
-			// 
-			this.txtPositionsinfo.CustomButton.Image = null;
-			this.txtPositionsinfo.CustomButton.Location = new Point(149, 2);
-			this.txtPositionsinfo.CustomButton.Name = "";
-			this.txtPositionsinfo.CustomButton.Size = new Size(259, 259);
-			this.txtPositionsinfo.CustomButton.Style = MetroColorStyle.Blue;
-			this.txtPositionsinfo.CustomButton.TabIndex = 1;
-			this.txtPositionsinfo.CustomButton.Theme = MetroThemeStyle.Light;
-			this.txtPositionsinfo.CustomButton.UseSelectable = true;
-			this.txtPositionsinfo.CustomButton.Visible = false;
-			this.txtPositionsinfo.Enabled = false;
-			this.txtPositionsinfo.FontWeight = MetroTextBoxWeight.Light;
-			this.txtPositionsinfo.Lines = new string[0];
-			this.txtPositionsinfo.Location = new Point(845, 491);
-			this.txtPositionsinfo.MaxLength = 32767;
-			this.txtPositionsinfo.Multiline = true;
-			this.txtPositionsinfo.Name = "txtPositionsinfo";
-			this.txtPositionsinfo.PasswordChar = '\0';
-			this.txtPositionsinfo.ScrollBars = ScrollBars.None;
-			this.txtPositionsinfo.SelectedText = "";
-			this.txtPositionsinfo.SelectionLength = 0;
-			this.txtPositionsinfo.SelectionStart = 0;
-			this.txtPositionsinfo.Size = new Size(411, 264);
-			this.txtPositionsinfo.TabIndex = 7;
-			this.txtPositionsinfo.TabStop = false;
-			this.txtPositionsinfo.UseSelectable = true;
-			this.txtPositionsinfo.WaterMarkColor = Color.FromArgb(109, 109, 109);
-			this.txtPositionsinfo.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-			// 
-			// txtRowComment
-			// 
-			this.txtRowComment.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-			// 
-			// 
-			// 
-			this.txtRowComment.CustomButton.Image = null;
-			this.txtRowComment.CustomButton.Location = new Point(429, 1);
-			this.txtRowComment.CustomButton.Name = "";
-			this.txtRowComment.CustomButton.Size = new Size(163, 163);
-			this.txtRowComment.CustomButton.Style = MetroColorStyle.Blue;
-			this.txtRowComment.CustomButton.TabIndex = 1;
-			this.txtRowComment.CustomButton.Theme = MetroThemeStyle.Light;
-			this.txtRowComment.CustomButton.UseSelectable = true;
-			this.txtRowComment.CustomButton.Visible = false;
-			this.txtRowComment.FontWeight = MetroTextBoxWeight.Light;
-			this.txtRowComment.Lines = new string[0];
-			this.txtRowComment.Location = new Point(23, 488);
-			this.txtRowComment.Margin = new Padding(3, 3, 15, 3);
-			this.txtRowComment.MaxLength = 2000;
-			this.txtRowComment.Multiline = true;
-			this.txtRowComment.Name = "txtRowComment";
-			this.txtRowComment.PasswordChar = '\0';
-			this.txtRowComment.ScrollBars = ScrollBars.Both;
-			this.txtRowComment.SelectedText = "";
-			this.txtRowComment.SelectionLength = 0;
-			this.txtRowComment.SelectionStart = 0;
-			this.txtRowComment.Size = new Size(593, 165);
-			this.txtRowComment.TabIndex = 1;
-			this.txtRowComment.UseSelectable = true;
-			this.txtRowComment.WaterMarkColor = Color.FromArgb(109, 109, 109);
-			this.txtRowComment.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-			// 
-			// mlblPositionstext
-			// 
-			this.mlblPositionstext.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-			this.mlblPositionstext.AutoSize = true;
-			this.mlblPositionstext.Location = new Point(23, 466);
-			this.mlblPositionstext.Name = "mlblPositionstext";
-			this.mlblPositionstext.Size = new Size(80, 19);
-			this.mlblPositionstext.TabIndex = 63;
-			this.mlblPositionstext.Text = "Positionstext";
-			// 
-			// mtxtZahlungsbedingungen
-			// 
-			this.mtxtZahlungsbedingungen.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Left)));
-			// 
-			// 
-			// 
-			this.mtxtZahlungsbedingungen.CustomButton.Image = null;
-			this.mtxtZahlungsbedingungen.CustomButton.Location = new Point(531, 2);
-			this.mtxtZahlungsbedingungen.CustomButton.Name = "";
-			this.mtxtZahlungsbedingungen.CustomButton.Size = new Size(59, 59);
-			this.mtxtZahlungsbedingungen.CustomButton.Style = MetroColorStyle.Blue;
-			this.mtxtZahlungsbedingungen.CustomButton.TabIndex = 1;
-			this.mtxtZahlungsbedingungen.CustomButton.Theme = MetroThemeStyle.Light;
-			this.mtxtZahlungsbedingungen.CustomButton.UseSelectable = true;
-			this.mtxtZahlungsbedingungen.CustomButton.Visible = false;
-			this.mtxtZahlungsbedingungen.FontSize = MetroTextBoxSize.Medium;
-			this.mtxtZahlungsbedingungen.FontWeight = MetroTextBoxWeight.Light;
-			this.mtxtZahlungsbedingungen.Lines = new string[] { "Zahlungsbedingungen" };
-			this.mtxtZahlungsbedingungen.Location = new Point(23, 691);
-			this.mtxtZahlungsbedingungen.MaxLength = 250;
-			this.mtxtZahlungsbedingungen.Multiline = true;
-			this.mtxtZahlungsbedingungen.Name = "mtxtZahlungsbedingungen";
-			this.mtxtZahlungsbedingungen.PasswordChar = '\0';
-			this.mtxtZahlungsbedingungen.ScrollBars = ScrollBars.None;
-			this.mtxtZahlungsbedingungen.SelectedText = "";
-			this.mtxtZahlungsbedingungen.SelectionLength = 0;
-			this.mtxtZahlungsbedingungen.SelectionStart = 0;
-			this.mtxtZahlungsbedingungen.Size = new Size(593, 64);
-			this.mtxtZahlungsbedingungen.TabIndex = 66;
-			this.mtxtZahlungsbedingungen.Text = "Zahlungsbedingungen";
-			this.mtxtZahlungsbedingungen.UseSelectable = true;
-			this.mtxtZahlungsbedingungen.WaterMarkColor = Color.FromArgb(109, 109, 109);
-			this.mtxtZahlungsbedingungen.WaterMarkFont = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-			// 
-			// mlblZahlungsbedingungen
-			// 
-			this.mlblZahlungsbedingungen.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-			this.mlblZahlungsbedingungen.AutoSize = true;
-			this.mlblZahlungsbedingungen.Location = new Point(23, 669);
-			this.mlblZahlungsbedingungen.Name = "mlblZahlungsbedingungen";
-			this.mlblZahlungsbedingungen.Size = new Size(138, 19);
-			this.mlblZahlungsbedingungen.TabIndex = 67;
-			this.mlblZahlungsbedingungen.Text = "Zahlungsbedingungen";
-			// 
 			// pnlAngebotsdetail
 			// 
 			this.AutoScaleDimensions = new SizeF(6F, 13F);
@@ -731,23 +735,23 @@ namespace Products.Common.Panel
 		Button btnMailToUser;
 		MetroTextBox mtxtZahlungsbedingungen;
 		MetroLabel mlblZahlungsbedingungen;
-		DataGridViewCheckBoxColumn colActive;
-		DataGridViewTextBoxColumn colPosIndex;
-		DataGridViewTextBoxColumn colProductId;
-		DataGridViewTextBoxColumn colProductName;
-		DataGridViewTextBoxColumn colQuantity;
-		DataGridViewTextBoxColumn colUnit;
-		DataGridViewTextBoxColumn colEK;
-		DataGridViewTextBoxColumn colUnitPrice;
-		DataGridViewTextBoxColumn colRabattbetrag;
-		DataGridViewTextBoxColumn colDiscountPercent;
-		DataGridViewTextBoxColumn colUnitPriceCustomer;
-		DataGridViewTextBoxColumn colRowTotal;
-		DataGridViewTextBoxColumn colKatalogHeader;
-		DataGridViewCheckBoxColumn colNeueSeite;
 		ToolStripSeparator nachObenToolStripMenuItem;
 		ToolStripMenuItem xcmdMoveUp;
 		ToolStripMenuItem xcmdMoveDown;
 		ToolStripSeparator toolStripMenuItem2;
+		private DataGridViewCheckBoxColumn colActive;
+		private DataGridViewTextBoxColumn colPosIndex;
+		private DataGridViewTextBoxColumn colProductId;
+		private DataGridViewTextBoxColumn colProductName;
+		private DataGridViewTextBoxColumn colQuantity;
+		private DataGridViewTextBoxColumn colUnit;
+		private DataGridViewTextBoxColumn colEK;
+		private DataGridViewTextBoxColumn colUnitPrice;
+		private DataGridViewTextBoxColumn colRabattbetrag;
+		private DataGridViewTextBoxColumn colDiscountPercent;
+		private DataGridViewTextBoxColumn colUnitPriceCustomer;
+		private DataGridViewTextBoxColumn colRowTotal;
+		private DataGridViewTextBoxColumn colKatalogHeader;
+		private DataGridViewCheckBoxColumn colNeueSeite;
 	}
 }

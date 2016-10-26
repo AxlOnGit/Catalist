@@ -97,6 +97,7 @@
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowButton = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(339, 23);
@@ -104,7 +105,7 @@
 			this.mtxtFilter.TabIndex = 0;
 			this.mtxtFilter.UseSelectable = true;
 			this.mtxtFilter.WaterMark = "Modell, Firma oder Seriennummer";
-			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtFilter_KeyUp);
 			// 
@@ -112,8 +113,8 @@
 			// 
 			this.dgvMachines.AllowUserToResizeRows = false;
 			this.dgvMachines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvMachines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvMachines.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvMachines.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -128,12 +129,12 @@
 			this.dgvMachines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvMachines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMachines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaschine,
-            this.colSeriennummer,
-            this.colZuordnung,
-            this.colKundennummer,
-            this.colKundenname,
-            this.colOrt});
+						this.colMaschine,
+						this.colSeriennummer,
+						this.colZuordnung,
+						this.colKundennummer,
+						this.colKundenname,
+						this.colOrt});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -227,7 +228,7 @@
 			this.Controls.Add(this.mbtnOk);
 			this.Controls.Add(this.mbtnCancel);
 			this.Name = "KundenmaschineSearchView2";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Kundenmaschinen - Suche";
 			this.TopMost = true;

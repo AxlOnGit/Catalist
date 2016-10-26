@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Data;
 using System;
-namespace Products.Data 
+namespace Products.Data
 {
 
 	public partial class dsSage
@@ -15,13 +15,13 @@ namespace Products.Data
 		{
 			try
 			{
-				FieldInfo fieldInfo = taQueries.GetType().GetField("_commandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
-				MethodInfo mInfo = GetType().GetMethod("InitCommandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
-				MethodInfo methodInfo = fieldInfo.GetType().GetMethod("InitCommandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
+				var fieldInfo = taQueries.GetType().GetField("_commandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
+				var mInfo = GetType().GetMethod("InitCommandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
+				var methodInfo = fieldInfo.GetType().GetMethod("InitCommandCollection", BindingFlags.GetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
 				if (fieldInfo != null && mInfo != null)
 				{
 					mInfo.Invoke(taQueries, null);
-					IDbCommand[] commandCollection = (IDbCommand[])fieldInfo.GetValue(taQueries);
+					var commandCollection = (IDbCommand[])fieldInfo.GetValue(taQueries);
 
 					foreach (MySql.Data.MySqlClient.MySqlCommand cmd in commandCollection)
 					{
@@ -42,11 +42,4 @@ namespace Products.Data
 		}
 
 	}
-}
-
-namespace Products.Data.dsSageTableAdapters {
-		
-		
-		public partial class taSuchkunde {
-		}
 }

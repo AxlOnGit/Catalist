@@ -31,7 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AxelsVerwaltungsView));
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.metroButton2 = new MetroFramework.Controls.MetroButton();
-			this.metroButton1 = new MetroFramework.Controls.MetroButton();
+			this.mbtnCleanTerminXRefs = new MetroFramework.Controls.MetroButton();
 			this.mbtnKundenumsatzAktualisieren = new MetroFramework.Controls.MetroButton();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.mbtnClose = new MetroFramework.Controls.MetroButton();
@@ -42,7 +42,7 @@
 			// metroPanel1
 			// 
 			this.metroPanel1.Controls.Add(this.metroButton2);
-			this.metroPanel1.Controls.Add(this.metroButton1);
+			this.metroPanel1.Controls.Add(this.mbtnCleanTerminXRefs);
 			this.metroPanel1.Controls.Add(this.mbtnKundenumsatzAktualisieren);
 			this.metroPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -73,19 +73,20 @@
 			this.metroButton2.UseSelectable = true;
 			this.metroButton2.UseStyleColors = true;
 			// 
-			// metroButton1
+			// mbtnCleanTerminXRefs
 			// 
-			this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Medium;
-			this.metroButton1.FontWeight = MetroFramework.MetroButtonWeight.Light;
-			this.metroButton1.Location = new System.Drawing.Point(13, 55);
-			this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-			this.metroButton1.Name = "metroButton1";
-			this.metroButton1.Size = new System.Drawing.Size(260, 29);
-			this.metroButton1.Style = MetroFramework.MetroColorStyle.Black;
-			this.metroButton1.TabIndex = 3;
-			this.metroButton1.Text = "Noch nicht belegt";
-			this.metroButton1.UseSelectable = true;
-			this.metroButton1.UseStyleColors = true;
+			this.mbtnCleanTerminXRefs.FontSize = MetroFramework.MetroButtonSize.Medium;
+			this.mbtnCleanTerminXRefs.FontWeight = MetroFramework.MetroButtonWeight.Light;
+			this.mbtnCleanTerminXRefs.Location = new System.Drawing.Point(13, 55);
+			this.mbtnCleanTerminXRefs.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.mbtnCleanTerminXRefs.Name = "mbtnCleanTerminXRefs";
+			this.mbtnCleanTerminXRefs.Size = new System.Drawing.Size(260, 29);
+			this.mbtnCleanTerminXRefs.Style = MetroFramework.MetroColorStyle.Black;
+			this.mbtnCleanTerminXRefs.TabIndex = 3;
+			this.mbtnCleanTerminXRefs.Text = "Terminverknüpfungen bereinigen";
+			this.mbtnCleanTerminXRefs.UseSelectable = true;
+			this.mbtnCleanTerminXRefs.UseStyleColors = true;
+			this.mbtnCleanTerminXRefs.Click += new System.EventHandler(this.mbtnCleanTerminXRefs_Click);
 			// 
 			// mbtnKundenumsatzAktualisieren
 			// 
@@ -152,7 +153,7 @@
 			this.Controls.Add(this.metroPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AxelsVerwaltungsView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Text = "Finger weg! Hier kommt nur Axel klar ...";
 			this.metroPanel1.ResumeLayout(false);
@@ -166,7 +167,7 @@
 		private MetroFramework.Controls.MetroPanel metroPanel1;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
 		private MetroFramework.Controls.MetroButton metroButton2;
-		private MetroFramework.Controls.MetroButton metroButton1;
+		private MetroFramework.Controls.MetroButton mbtnCleanTerminXRefs;
 		private MetroFramework.Controls.MetroButton mbtnKundenumsatzAktualisieren;
 		private MetroFramework.Controls.MetroButton mbtnClose;
 		private MetroFramework.Controls.MetroButton mbtnLieferanten;

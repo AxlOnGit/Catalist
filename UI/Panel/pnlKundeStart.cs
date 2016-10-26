@@ -1,27 +1,27 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Agfeo;
+using MetroFramework;
 using MetroFramework.Interfaces;
-using System.Data;
+using Products.Common.Interfaces;
 using Products.Common.Views;
 using Products.Data.Datasets;
-using Products.Model.Entities;
 using Products.Model;
-using Products.Common.Interfaces;
-using Agfeo;
+using Products.Model.Entities;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlKundeStart : Panel.pnlSlider, IMetroControl
 	{
-
 		#region members
 
 		readonly KundeMainView myParent;
 		readonly Kunde myKunde;
 		dsSales.SalesRow currentSalesRow;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -40,7 +40,7 @@ namespace Products.Common.Panel
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -60,9 +60,22 @@ namespace Products.Common.Panel
 
 		void mtileAngebote_Click(object sender, EventArgs e)
 		{
-			this.Cursor = Cursors.WaitCursor;
-			this.myParent.LoadOrShowAngebote();
-			this.Cursor = Cursors.Default;
+			var optionen = new string[] { "Catalist Angebote", "SAGE Angebote" };
+			var adg = new AuswahlDialog("Welcher Typ Angebot soll's denn werden?", optionen, MetroFramework.MetroColorStyle.Green);
+			if (adg.ShowDialog() == DialogResult.OK)
+			{
+				switch (adg.SelectedOption)
+				{
+					case 1:
+						var alv = new AngeboteListView(this.myKunde);
+						alv.ShowDialog();
+						break;
+
+					default:
+						this.myParent.LoadOrShowAngebote();
+						break;
+				}
+			}
 		}
 
 		void mlnkTelefon_Click(object sender, EventArgs e)
@@ -93,9 +106,7 @@ namespace Products.Common.Panel
 
 		void mtileMaschinen_Click(object sender, EventArgs e)
 		{
-			this.Cursor = Cursors.WaitCursor;
 			this.myParent.LoadOrShowMaschinen();
-			this.Cursor = Cursors.Default;
 		}
 
 		void mtileServicetermine_Click(object sender, EventArgs e)
@@ -108,7 +119,7 @@ namespace Products.Common.Panel
 		void ShowTerminListe()
 		{
 			var kundeAsLink = this.myKunde as ILinkedItem;
-			var aList = ModelManager.AppointmentService.GetAppointmentList(kundeAsLink.Key, kundeAsLink.LinkTypeId, kundeAsLink.LinkTypBezeichnung);
+			var aList = ModelManager.AppointmentService.GetAppointmentList(kundeAsLink.Key, kundeAsLink.LinkTypeId);
 			var alv = new AppointmentListView(aList, this.myKunde.CompanyName1);
 			alv.Show();
 		}
@@ -139,7 +150,7 @@ namespace Products.Common.Panel
 		{
 			if (!David.DavidManager.DavidService.Connected)
 			{
-				MessageBox.Show("Der DAVID Server steht im Augenblick nicht zur Verfügung");
+				MetroMessageBox.Show(this, "Der Server steht im Augenblick nicht zur Verfügung", "Irgendwatt mit dem David-Server", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
 			ServiceManager.UiService.ShowCalendar();
@@ -166,15 +177,22 @@ namespace Products.Common.Panel
 			this.myParent.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
 		void InitializeData()
 		{
+			if (this.myKunde.Inactive)
+			{
+				this.mlblKundennummer.ForeColor = System.Drawing.Color.DarkRed;
+				this.mlblInactive.ForeColor = System.Drawing.Color.DarkRed;
+				this.mlblInactive.Text = "Kunde ist inaktiv!";
+			}
 			this.mlblKundennummer.Text = string.Format("[{0}] - {1}", myKunde.CustomerId.Substring(0, 5), myKunde.CompanyName1.Replace("&", "&&"));
 			this.mlblStrasse.Text = myKunde.Street;
 			this.mlblPlzOrt.Text = string.Format("{0} {1}", myKunde.ZipCode, myKunde.City);
+			this.mlblEntfernung.Text = string.Format("{0} Kilometer ungefähr von uns entfernt", this.myKunde.EntfernungZuReferenzkunde);
 			var hauptKontakt = myKunde.Kontaktlist.FirstOrDefault(k => k.MainContactFlag == true);
 			this.mlblFrachtfreigrenze.Text = myKunde.FocText;
 			if (hauptKontakt != null)
@@ -190,10 +208,8 @@ namespace Products.Common.Panel
 			this.dgvTop10b.AutoGenerateColumns = false;
 			this.dgvTop10b.DataSource = ModelManager.SalesService.GetSalesTable(this.myKunde.CustomerId);
 			this.dgvTop10b.Sort(colDatumZuletzt, System.ComponentModel.ListSortDirection.Descending);
-
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -94,11 +94,12 @@
 			this.mtxtMenge1.SelectedText = "";
 			this.mtxtMenge1.SelectionLength = 0;
 			this.mtxtMenge1.SelectionStart = 0;
+			this.mtxtMenge1.ShortcutsEnabled = true;
 			this.mtxtMenge1.Size = new System.Drawing.Size(80, 23);
 			this.mtxtMenge1.TabIndex = 2;
 			this.mtxtMenge1.Text = "metroTextBox1";
 			this.mtxtMenge1.UseSelectable = true;
-			this.mtxtMenge1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtMenge1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtMenge1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel1
@@ -146,11 +147,12 @@
 			this.mtxtPreis1.SelectedText = "";
 			this.mtxtPreis1.SelectionLength = 0;
 			this.mtxtPreis1.SelectionStart = 0;
+			this.mtxtPreis1.ShortcutsEnabled = true;
 			this.mtxtPreis1.Size = new System.Drawing.Size(80, 23);
 			this.mtxtPreis1.TabIndex = 4;
 			this.mtxtPreis1.Text = "metroTextBox1";
 			this.mtxtPreis1.UseSelectable = true;
-			this.mtxtPreis1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtPreis1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtPreis1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel3
@@ -188,11 +190,12 @@
 			this.mtxtRabatt1.SelectedText = "";
 			this.mtxtRabatt1.SelectionLength = 0;
 			this.mtxtRabatt1.SelectionStart = 0;
+			this.mtxtRabatt1.ShortcutsEnabled = true;
 			this.mtxtRabatt1.Size = new System.Drawing.Size(80, 23);
 			this.mtxtRabatt1.TabIndex = 6;
 			this.mtxtRabatt1.Text = "metroTextBox2";
 			this.mtxtRabatt1.UseSelectable = true;
-			this.mtxtRabatt1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRabatt1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRabatt1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel4
@@ -230,11 +233,12 @@
 			this.mtxtRabatt2.SelectedText = "";
 			this.mtxtRabatt2.SelectionLength = 0;
 			this.mtxtRabatt2.SelectionStart = 0;
+			this.mtxtRabatt2.ShortcutsEnabled = true;
 			this.mtxtRabatt2.Size = new System.Drawing.Size(80, 23);
 			this.mtxtRabatt2.TabIndex = 12;
 			this.mtxtRabatt2.Text = "metroTextBox3";
 			this.mtxtRabatt2.UseSelectable = true;
-			this.mtxtRabatt2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRabatt2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRabatt2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel5
@@ -272,11 +276,12 @@
 			this.mtxtPreis2.SelectedText = "";
 			this.mtxtPreis2.SelectionLength = 0;
 			this.mtxtPreis2.SelectionStart = 0;
+			this.mtxtPreis2.ShortcutsEnabled = true;
 			this.mtxtPreis2.Size = new System.Drawing.Size(80, 23);
 			this.mtxtPreis2.TabIndex = 10;
 			this.mtxtPreis2.Text = "metroTextBox4";
 			this.mtxtPreis2.UseSelectable = true;
-			this.mtxtPreis2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtPreis2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtPreis2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel6
@@ -314,11 +319,12 @@
 			this.mtxtMenge2.SelectedText = "";
 			this.mtxtMenge2.SelectionLength = 0;
 			this.mtxtMenge2.SelectionStart = 0;
+			this.mtxtMenge2.ShortcutsEnabled = true;
 			this.mtxtMenge2.Size = new System.Drawing.Size(80, 23);
 			this.mtxtMenge2.TabIndex = 8;
 			this.mtxtMenge2.Text = "metroTextBox1";
 			this.mtxtMenge2.UseSelectable = true;
-			this.mtxtMenge2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtMenge2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtMenge2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel7
@@ -356,11 +362,12 @@
 			this.mtxtRabatt3.SelectedText = "";
 			this.mtxtRabatt3.SelectionLength = 0;
 			this.mtxtRabatt3.SelectionStart = 0;
+			this.mtxtRabatt3.ShortcutsEnabled = true;
 			this.mtxtRabatt3.Size = new System.Drawing.Size(80, 23);
 			this.mtxtRabatt3.TabIndex = 18;
 			this.mtxtRabatt3.Text = "metroTextBox6";
 			this.mtxtRabatt3.UseSelectable = true;
-			this.mtxtRabatt3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRabatt3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRabatt3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel8
@@ -398,11 +405,12 @@
 			this.mtxtPreis3.SelectedText = "";
 			this.mtxtPreis3.SelectionLength = 0;
 			this.mtxtPreis3.SelectionStart = 0;
+			this.mtxtPreis3.ShortcutsEnabled = true;
 			this.mtxtPreis3.Size = new System.Drawing.Size(80, 23);
 			this.mtxtPreis3.TabIndex = 16;
 			this.mtxtPreis3.Text = "metroTextBox7";
 			this.mtxtPreis3.UseSelectable = true;
-			this.mtxtPreis3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtPreis3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtPreis3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel9
@@ -441,11 +449,12 @@
 			this.mtxtMenge3.SelectedText = "";
 			this.mtxtMenge3.SelectionLength = 0;
 			this.mtxtMenge3.SelectionStart = 0;
+			this.mtxtMenge3.ShortcutsEnabled = true;
 			this.mtxtMenge3.Size = new System.Drawing.Size(80, 23);
 			this.mtxtMenge3.TabIndex = 14;
 			this.mtxtMenge3.Text = "metroTextBox1";
 			this.mtxtMenge3.UseSelectable = true;
-			this.mtxtMenge3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtMenge3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtMenge3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel10
@@ -483,11 +492,12 @@
 			this.mtxtRabatt4.SelectedText = "";
 			this.mtxtRabatt4.SelectionLength = 0;
 			this.mtxtRabatt4.SelectionStart = 0;
+			this.mtxtRabatt4.ShortcutsEnabled = true;
 			this.mtxtRabatt4.Size = new System.Drawing.Size(80, 23);
 			this.mtxtRabatt4.TabIndex = 24;
 			this.mtxtRabatt4.Text = "metroTextBox9";
 			this.mtxtRabatt4.UseSelectable = true;
-			this.mtxtRabatt4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRabatt4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRabatt4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel11
@@ -525,11 +535,12 @@
 			this.mtxtPreis4.SelectedText = "";
 			this.mtxtPreis4.SelectionLength = 0;
 			this.mtxtPreis4.SelectionStart = 0;
+			this.mtxtPreis4.ShortcutsEnabled = true;
 			this.mtxtPreis4.Size = new System.Drawing.Size(80, 23);
 			this.mtxtPreis4.TabIndex = 22;
 			this.mtxtPreis4.Text = "metroTextBox10";
 			this.mtxtPreis4.UseSelectable = true;
-			this.mtxtPreis4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtPreis4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtPreis4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// metroLabel12
@@ -567,11 +578,12 @@
 			this.mtxtMenge4.SelectedText = "";
 			this.mtxtMenge4.SelectionLength = 0;
 			this.mtxtMenge4.SelectionStart = 0;
+			this.mtxtMenge4.ShortcutsEnabled = true;
 			this.mtxtMenge4.Size = new System.Drawing.Size(80, 23);
 			this.mtxtMenge4.TabIndex = 20;
 			this.mtxtMenge4.Text = "metroTextBox1";
 			this.mtxtMenge4.UseSelectable = true;
-			this.mtxtMenge4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtMenge4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtMenge4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mbtnCancel
@@ -633,7 +645,7 @@
 			this.Controls.Add(this.mtxtMenge1);
 			this.Controls.Add(this.mlblArtikel);
 			this.Name = "LieferantenStaffelpreisView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Orange;
 			this.Text = "Lieferanten Staffelpreis";
 			this.ResumeLayout(false);

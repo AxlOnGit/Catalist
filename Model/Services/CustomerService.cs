@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Products.Common;
+using Products.Common.Geocoding;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Model.Entities;
@@ -9,19 +10,18 @@ namespace Products.Model.Services
 {
 	public class CustomerService
 	{
-
 		#region events
 
 		public event EventHandler CurrentCustomerSet;
 
-		#endregion
+		#endregion events
 
 		#region members
 
 		Dictionary<string, Kunde> myCustomerDictionary;
 		Kunde myCurrentCustomer;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -38,7 +38,7 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region public procedures
 
@@ -64,7 +64,7 @@ namespace Products.Model.Services
 			return null;
 		}
 
-		#endregion
+		#endregion Kundensuche
 
 		/// <summary>
 		/// Gibt eine neue dsCustomer.KundeRow Instanz zurück.
@@ -80,7 +80,9 @@ namespace Products.Model.Services
 		/// Gibt den Kunden mit dem angegebenen Primärschlüssel (Kundennummer) zurück.
 		/// </summary>
 		/// <param name="kundePK">Kundennummer des gesuchten Kunden.</param>
-		/// <returns>Eine <seealso cref="Products.Model.Entities.Kunde"/> Instanz oder null, wenn es diese Kundennummer nicht gibt.</returns>
+		/// <returns>
+		/// Eine <seealso cref="Kunde"/> Instanz oder null, wenn es diese Kundennummer nicht gibt.
+		/// </returns>
 		public Kunde GetKunde(string kundePK, bool setAsCurrent)
 		{
 			Kunde result = null;
@@ -91,6 +93,7 @@ namespace Products.Model.Services
 				{
 					this.myCustomerDictionary = new Dictionary<string, Kunde>();
 					this.myCustomerDictionary.Add(kundePK, kunde);
+					if (kunde.Adresskoordinaten == null) this.GetAdresskoordinaten(kunde);
 					result = kunde;
 				}
 			}
@@ -98,17 +101,35 @@ namespace Products.Model.Services
 			{
 				if (this.myCustomerDictionary.ContainsKey(kundePK))
 				{
-					return this.myCustomerDictionary[kundePK];
+					result = this.myCustomerDictionary[kundePK];
 				}
 				else
 				{
 					var kunde = new Kunde(DataManager.CustomerDataService.GetCustomerRow(kundePK));
 					this.myCustomerDictionary.Add(kundePK, kunde);
+					if (kunde.Adresskoordinaten == null) this.GetAdresskoordinaten(kunde);
 					result = kunde;
 				}
 			}
 			if (result != null && setAsCurrent) this.CurrentCustomer = result;
 			return result;
+		}
+
+		internal void GetAdresskoordinaten(Kunde kunde)
+		{
+			try
+			{
+				var adresse = string.Format("{0}, {1} {2}", kunde.Street, kunde.ZipCode, kunde.City);
+				var coords = GeoData.GetAddressCoordinates(kunde.Matchcode, adresse);
+				if (coords != null)
+				{
+					DataManager.CustomerDataService.SetAddressCoordinates(kunde.CustomerId, coords.Latitude, coords.Longitude);
+				}
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
 		}
 
 		/// <summary>
@@ -139,7 +160,6 @@ namespace Products.Model.Services
 			DataManager.CustomerDataService.UpdateKundeTabelle();
 		}
 
-		#endregion
-
+		#endregion public procedures
 	}
 }

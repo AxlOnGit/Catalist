@@ -48,7 +48,7 @@ namespace Products.Common.Views
 			this.lblUnit2.Text = product.Mengeneinheit;
 			this.lblNormalPricePRM.Text = string.Format("{0:N2} EUR", normalPrice);
 
-			this.lblArtikelname.Text = product.Bezeichnung1;
+			this.lblArtikelname.Text = product.Bezeichnung2;
 			this.lblArtikelgruppe.Text = string.Format("Artikelgruppe: {0}", product.Artikelgruppe);
 			this.txtEK.Text = string.Format("{0:N2}", ek);
 			this.txtVK.Text = string.Format("{0:N2}", customerPrice);
@@ -142,7 +142,7 @@ namespace Products.Common.Views
 				this.lblNormalPricePRM.Text = string.Format("{0:N2} EUR", this.myDefaultPrice);
 
 				// Rabattsatz
-				decimal discountPercent = Math.Round(100 - (vk * 100 / this.myDefaultPrice), 2);
+				var discountPercent = Math.Round(100 - (vk * 100 / this.myDefaultPrice), 2);
 				this.lblDiscountPercent.Text = string.Format("= ({0:N2}%)", discountPercent);
 
 				// Rechnungsbetrag in Sage

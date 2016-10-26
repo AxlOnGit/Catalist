@@ -1,15 +1,14 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using System.Diagnostics;
 using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class CalcRollView : MetroForm
 	{
-
 		#region members
 
 		Product myProduct;
@@ -17,17 +16,17 @@ namespace Products.Common.Views
 		decimal normalPrice;
 		decimal openAmt;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
 		public CalcRollView(
-			Product product, 
-			Kunde customer, 
-			decimal ek, 
+			Product product,
+			Kunde customer,
+			decimal ek,
 			decimal customerPrice,
 			decimal normalPrice,
-			decimal salesPerPeriod, 
+			decimal salesPerPeriod,
 			decimal grossSales,
 			decimal openAmount)
 		{
@@ -45,7 +44,7 @@ namespace Products.Common.Views
 			this.mlblOutstandingAmount.Text = string.Format("Offene Rechnungen (älter 31 Tage): {0:N2} EUR", openAmount);
 			this.mlblNormalPricePRM.Text = string.Format("{0:N2} EUR", normalPrice);
 
-			this.mlblArtikelname.Text = product.Bezeichnung1;
+			this.mlblArtikelname.Text = product.Bezeichnung2;
 			this.mlblArtikelgruppe.Text = string.Format("Artikelgruppe: {0}", product.Artikelgruppe);
 			this.mtxtEK.Text = string.Format("{0:N2}", ek);
 			this.mtxtVK.Text = string.Format("{0:N2}", customerPrice);
@@ -75,12 +74,12 @@ namespace Products.Common.Views
 			Application.Idle += this.IamIdle;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
 		[DebuggerStepThrough]
-		void IamIdle(object sender, EventArgs e) 
+		void IamIdle(object sender, EventArgs e)
 		{
 			decimal ek = 0.0m;
 			decimal vk = 0.0m;
@@ -143,17 +142,17 @@ namespace Products.Common.Views
 			}
 		}
 
-		void CalculateRollsSquareMeter() 
+		void CalculateRollsSquareMeter()
 		{
-			double width = 0.00d;		// Rollenbreite
-			double length = 0.00d;	// Rollenlänge
+			double width = 0.00d;   // Rollenbreite
+			double length = 0.00d;  // Rollenlänge
 			decimal ek = 0.00m;
 			decimal vk = 0.00m;
 
-			if (		decimal.TryParse(this.mtxtVK.Text, out vk) 
-					&&	double.TryParse(this.mtxtRollWidth.Text, out width)
-					&&	double.TryParse(this.mtxtRollLength.Text, out length)
-					&&	decimal.TryParse(this.mtxtEK.Text, out ek))
+			if (decimal.TryParse(this.mtxtVK.Text, out vk)
+					&& double.TryParse(this.mtxtRollWidth.Text, out width)
+					&& double.TryParse(this.mtxtRollLength.Text, out length)
+					&& decimal.TryParse(this.mtxtEK.Text, out ek))
 			{
 				// Rohmarge
 				double margin = (double)vk - (double)ek;
@@ -164,13 +163,13 @@ namespace Products.Common.Views
 				this.mlblGrossMargin.Text = string.Format("{0:N2} EUR", grossMargin);
 
 				// Normalpreis/lfdm
-				decimal normalPricePrm = Math.Round((decimal)width / 100 * this.normalPrice,2);
+				var normalPricePrm = Math.Round((decimal)width / 100 * this.normalPrice, 2);
 				this.mlblNormalPricePRM.Text = string.Format("{0:N2} EUR", normalPricePrm);
 
 				// Rabattsatz
 				//double discountPercent = 100 - Math.Round(((double)vk * 100 / (double)this.normalPrice), 2);
-				double discountPercent = Math.Round(100 - ((double)vk * 100 / (double)this.normalPrice),2);
-				this.mlblDiscountPercent.Text = string.Format("= ({0:N2}%)",discountPercent);
+				var discountPercent = Math.Round(100 - ((double)vk * 100 / (double)this.normalPrice), 2);
+				this.mlblDiscountPercent.Text = string.Format("= ({0:N2}%)", discountPercent);
 
 				// Rechnungsbetrag in Sage
 				decimal priceNoDiscount = normalPricePrm * (decimal)length;
@@ -183,20 +182,19 @@ namespace Products.Common.Views
 				this.mlblCustomerPricePRM.Text = string.Format("{0:N4} EUR", vkrm);
 
 				// Marge in Prozent
-				decimal marginPercent = ek > 0?(vk * 100 / ek) - 100:0;
-				this.mlblMarginPercent.Text = string.Format("{0:N2} %",marginPercent);
+				decimal marginPercent = ek > 0 ? (vk * 100 / ek) - 100 : 0;
+				this.mlblMarginPercent.Text = string.Format("{0:N2} %", marginPercent);
 			}
 			//else
 			//{
 			//  MessageBox.Show("Mindestens eine Eingabe enthält einen ungültigen Zahlenwert.", "Kalkulation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			//}
-
 		}
 
 		void CalculateRollsRunningMeter()
 		{
-			double width = 0.00d;		// Rollenbreite
-			double length = 0.00d;	// Rollenlänge
+			double width = 0.00d;   // Rollenbreite
+			double length = 0.00d;  // Rollenlänge
 			decimal ek = 0.00m;
 			decimal vk = 0.00m;
 
@@ -219,7 +217,7 @@ namespace Products.Common.Views
 
 				// Rabattsatz
 				//double discountPercent = 100 - Math.Round(((double)vk * 100 / (double)this.normalPrice), 2);
-				double discountPercent = Math.Round(100 - ((double)vk * 100 / (double)this.normalPrice), 2);
+				var discountPercent = Math.Round(100 - ((double)vk * 100 / (double)this.normalPrice), 2);
 				this.mlblDiscountPercent.Text = string.Format("= ({0:N2}%)", discountPercent);
 
 				// Rechnungsbetrag in Sage
@@ -237,10 +235,9 @@ namespace Products.Common.Views
 				decimal marginPercent = ek > 0 ? (vk * 100 / ek) - 100 : 0;
 				this.mlblMarginPercent.Text = string.Format("{0:N2} %", marginPercent);
 			}
-
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region event handlers
 
@@ -297,7 +294,6 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
-
+		#endregion event handlers
 	}
 }

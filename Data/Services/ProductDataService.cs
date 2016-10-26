@@ -18,8 +18,13 @@ namespace Products.Data.Services
 		readonly taProduct myProductAdapter = new taProduct();
 		readonly taProductText myProductTextAdapter = new taProductText();
 		readonly taProductCpm myProductCpmAdapter = new taProductCpm();
+		taProductCategory myProductCategoryAdapter;
 		readonly taSonderpreis mySonderpreisAdapter = new taSonderpreis();
 		readonly taProductSales myProductSalesAdapter = new taProductSales();
+		taRubrik myRubrikAdapter;
+		taBaumRubrik myBaumRubrikAdapter;
+		taBaumArtikel myBaumArtikelAdapter;
+		taArtikel myArtikelAdapter;
 
 		#endregion
 
@@ -132,6 +137,16 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
+		/// Gibt die Tabelle Artikel zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsProducts.ArtikelDataTable GetArtikelTable()
+		{
+			if (this.myArtikelAdapter == null) this.InitializeRubrikenTables();
+			return this.myDS.Artikel;
+		}
+
+		/// <summary>
 		/// Erzeugt eine neue dsProducts.SonderpreisRow.
 		/// </summary>
 		/// <param name="customerPK">Kundennummer des Kunden, für den der Sonderpreis eingerichtet wird.</param>
@@ -175,6 +190,118 @@ namespace Products.Data.Services
 			return this.myProductSalesAdapter.GetData(productPK);
 		}
 
+		#region Rubriken
+
+		/// <summary>
+		/// Gibt eine Liste aller direkten Kindelemente der BaumRubrik mit der angegebenen ID zurück.
+		/// </summary>
+		/// <param name="parentID">Primärschlüssel der übergeordneten Rubrik.</param>
+		/// <returns></returns>
+		public IEnumerable<dsProducts.BaumRubrikRow> GetBaumRubrikRows(int parentID)
+		{
+			if (this.myBaumRubrikAdapter == null)
+			{
+				this.InitializeRubrikenTables();
+			}
+			return this.myDS.BaumRubrik.Where(r => r.ParentID == parentID);
+		}
+
+		/// <summary>
+		/// Gibt eine Liste aller BaumArtikel für die BaumRubrik mit der angegebenen ID zurück.
+		/// </summary>
+		/// <param name="parentID">Primärschlüssel der BaumRubrik.</param>
+		/// <returns></returns>
+		public IEnumerable<dsProducts.BaumArtikelRow> GetBaumArtikelChildRows(int parentID)
+		{
+			if (this.myBaumArtikelAdapter == null)
+			{
+				this.InitializeRubrikenTables();
+			}
+			return this.myDS.BaumArtikel.Where(a => a.ParentID == parentID);
+		}
+
+		/// <summary>
+		/// Übersetzt die ID eines Artikels in BaumArtikel in seine Artikelnummer.
+		/// </summary>
+		/// <param name="artikelID">Primärschlüssel (ID) des Artikels in Tabelle tabArtikel.</param>
+		/// <returns></returns>
+		public string GetArtikelnummerByBaumArtikelID(int artikelID)
+		{
+			if (this.myBaumArtikelAdapter == null)
+			{
+				this.InitializeRubrikenTables();
+			}
+			return this.myDS.Artikel.FirstOrDefault(a => a.ID == artikelID).Artikelnummer;
+		}
+
+		/// <summary>
+		/// Gibt die BaumRubrik DataTable mit allen BaumRubriken des Systems zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsProducts.BaumRubrikDataTable GetBaumRubrikTable()
+		{
+			if (this.myBaumRubrikAdapter == null)
+			{
+				this.InitializeRubrikenTables();
+			}
+			return this.myDS.BaumRubrik;
+		}
+
+
+		/// <summary>
+		/// Gibt die Rubrik DataTable mit allen Rubriken des Systems zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsProducts.RubrikDataTable GetRubrikTable()
+		{
+			if (this.myRubrikAdapter == null)
+			{
+				this.InitializeRubrikenTables();
+			}
+			return this.myDS.Rubrik;
+		}
+
+		#endregion
+
+		#region ProductCategory
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Produktkategorien zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsProducts.ProductCategoryDataTable GetProductCategoryTable()
+		{
+			if (this.myProductCategoryAdapter == null)
+			{
+				this.myProductCategoryAdapter = new taProductCategory();
+				this.myProductCategoryAdapter.Fill(this.myDS.ProductCategory);
+			}
+			return this.myDS.ProductCategory;
+		}
+
+		/// <summary>
+		/// Erstellt eine neue <seealso cref="dsProducts.ProductCategoryRow"/> und fügt sie
+		/// </summary>
+		/// <param name="parentPK">Primärschlüssel der übergeordneten Kategorie.</param>
+		/// <param name="categoryName">Bezeichnung der neuen Kategorie.</param>
+		/// <returns></returns>
+		public dsProducts.ProductCategoryRow AddProductCategoryRow(string parentPK, string categoryName)
+		{
+			var cRow = this.myDS.ProductCategory.NewProductCategoryRow();
+			cRow.UID = Common.SequentialGuid.NewSequentialGuid().ToString();
+			cRow.ParentID = parentPK;
+			cRow.Category = categoryName;
+
+			this.myDS.ProductCategory.AddProductCategoryRow(cRow);
+			this.myProductCategoryAdapter.Update(cRow);
+
+			return cRow;
+		}
+
+		#endregion
+
+		#region Updating
+
 		/// <summary>
 		/// Speichert geänderte, gelöschte und neue Datensätze in der Tabelle ProductCpm.
 		/// </summary>
@@ -184,6 +311,16 @@ namespace Products.Data.Services
 			{
 				this.myProductCpmAdapter.Update(this.myDS.ProductCpm);
 			}
+		}
+
+		/// <summary>
+		/// Aktualisiert die Tabelle ProductCategory und speichert alle geänderten, neuen und
+		/// gelöschten Datensätze in der Datenbank. 
+		/// </summary>
+		/// <returns></returns>
+		public int UpdateProductCategoryTable()
+		{
+			return this.myProductCategoryAdapter.Update(this.myDS.ProductCategory);
 		}
 
 		/// <summary>
@@ -203,12 +340,27 @@ namespace Products.Data.Services
 
 		#endregion
 
+		#endregion
+
 		#region private procedures
 
 		void InitializeData()
 		{
 			this.myProductTextAdapter.Fill(this.myDS.ProductText);
 			this.myProductCpmAdapter.Fill(this.myDS.ProductCpm);
+		}
+
+		void InitializeRubrikenTables()
+		{
+			this.myBaumRubrikAdapter = new taBaumRubrik();
+			this.myRubrikAdapter = new taRubrik();
+			this.myBaumArtikelAdapter = new taBaumArtikel();
+			this.myArtikelAdapter = new taArtikel();
+
+			this.myBaumRubrikAdapter.Fill(this.myDS.BaumRubrik);
+			this.myRubrikAdapter.Fill(this.myDS.Rubrik);
+			this.myBaumArtikelAdapter.Fill(this.myDS.BaumArtikel);
+			this.myArtikelAdapter.Fill(this.myDS.Artikel);
 		}
 
 		#endregion

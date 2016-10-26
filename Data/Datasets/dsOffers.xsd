@@ -186,7 +186,7 @@ WHERE        (a.CustomerId = @CustomerPK)</CommandText>
   <xs:element name="dsOffers" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsOffers" msprop:Generator_UserDSName="dsOffers">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Offer" msprop:Generator_TableClassName="OfferDataTable" msprop:Generator_TableVarName="tableOffer" msprop:Generator_TablePropName="Offer" msprop:Generator_RowDeletingName="OfferRowDeleting" msprop:Generator_RowChangingName="OfferRowChanging" msprop:Generator_RowEvHandlerName="OfferRowChangeEventHandler" msprop:Generator_RowDeletedName="OfferRowDeleted" msprop:Generator_UserTableName="Offer" msprop:Generator_RowChangedName="OfferRowChanged" msprop:Generator_RowEvArgName="OfferRowChangeEvent" msprop:Generator_RowClassName="OfferRow">
+        <xs:element name="Offer" msprop:Generator_TableClassName="OfferDataTable" msprop:Generator_TableVarName="tableOffer" msprop:Generator_RowChangedName="OfferRowChanged" msprop:Generator_TablePropName="Offer" msprop:Generator_RowDeletingName="OfferRowDeleting" msprop:Generator_RowChangingName="OfferRowChanging" msprop:Generator_RowEvHandlerName="OfferRowChangeEventHandler" msprop:Generator_RowDeletedName="OfferRowDeleted" msprop:Generator_RowClassName="OfferRow" msprop:Generator_UserTableName="Offer" msprop:Generator_RowEvArgName="OfferRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UID" msprop:Generator_ColumnVarNameInTable="columnUID" msprop:Generator_ColumnPropNameInRow="UID" msprop:Generator_ColumnPropNameInTable="UIDColumn" msprop:Generator_UserColumnName="UID">
@@ -246,7 +246,7 @@ WHERE        (a.CustomerId = @CustomerPK)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OfferDetail" msprop:Generator_TableClassName="OfferDetailDataTable" msprop:Generator_TableVarName="tableOfferDetail" msprop:Generator_TablePropName="OfferDetail" msprop:Generator_RowDeletingName="OfferDetailRowDeleting" msprop:Generator_RowChangingName="OfferDetailRowChanging" msprop:Generator_RowEvHandlerName="OfferDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="OfferDetailRowDeleted" msprop:Generator_UserTableName="OfferDetail" msprop:Generator_RowChangedName="OfferDetailRowChanged" msprop:Generator_RowEvArgName="OfferDetailRowChangeEvent" msprop:Generator_RowClassName="OfferDetailRow">
+        <xs:element name="OfferDetail" msprop:Generator_TableClassName="OfferDetailDataTable" msprop:Generator_TableVarName="tableOfferDetail" msprop:Generator_RowChangedName="OfferDetailRowChanged" msprop:Generator_TablePropName="OfferDetail" msprop:Generator_RowDeletingName="OfferDetailRowDeleting" msprop:Generator_RowChangingName="OfferDetailRowChanging" msprop:Generator_RowEvHandlerName="OfferDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="OfferDetailRowDeleted" msprop:Generator_RowClassName="OfferDetailRow" msprop:Generator_UserTableName="OfferDetail" msprop:Generator_RowEvArgName="OfferDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UID" msprop:Generator_ColumnVarNameInTable="columnUID" msprop:Generator_ColumnPropNameInRow="UID" msprop:Generator_ColumnPropNameInTable="UIDColumn" msprop:Generator_UserColumnName="UID">
@@ -273,7 +273,7 @@ WHERE        (a.CustomerId = @CustomerPK)</CommandText>
               <xs:element name="ProductName" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

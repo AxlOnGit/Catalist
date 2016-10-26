@@ -16,31 +16,31 @@ namespace Products.Data
 
 		#region members
 
-		private const string myAxelsGuidString = "d4224429-749f-4ad0-8627-fcfb694816c7";
+		const string myAxelsGuidString = "d4224429-749f-4ad0-8627-fcfb694816c7";
 
-		private Guid myAxelsGuid = Guid.Empty;
-		private DateTime myNoDate = new DateTime(100, 1, 1, 0, 0, 0);
+		Guid myAxelsGuid = Guid.Empty;
+		DateTime myNoDate = new DateTime(100, 1, 1, 0, 0, 0);
 
 		#region table adapter
 
-		private ta_cpm_KontaktEmail ta_cpm_KontaktEmail = new ta_cpm_KontaktEmail();
-		private taArtikel taArtikel = new taArtikel();
-		private taAuftragProArtikel taAuftragProArtikel = new taAuftragProArtikel();
-		private taCustomerContact taCustomerContact = new taCustomerContact();
-		private taCustomerSales taCustomerSales = new taCustomerSales();
-		private taInvoice taInvoice = new taInvoice();
-		private taKontaktEmail taKontaktEmail = new taKontaktEmail();
-		private taKontaktnummer taKontaktnummer = new taKontaktnummer();
-		private taKundenumsatz taKundenumsatz = new taKundenumsatz();
-		private taOffenePosten taOffenePosten = new taOffenePosten();
-		private taOrder taOrder = new taOrder();
-		private taOrderDetail taOrderDetail = new taOrderDetail();
-		private taQueries taQueries = new taQueries();
-		private taSuchkunde taSuchkunde = new taSuchkunde();
-		private taTransaction taTransaction = new taTransaction();
-		private taUnpaidItem taUnpaidItem = new taUnpaidItem();
-		private taUpsShipping taUpsShipping = new taUpsShipping();
-		private taVersandkostenstaffel taVersandkostenstaffel = new taVersandkostenstaffel();
+		ta_cpm_KontaktEmail ta_cpm_KontaktEmail = new ta_cpm_KontaktEmail();
+		taArtikel taArtikel = new taArtikel();
+		taAuftragProArtikel taAuftragProArtikel = new taAuftragProArtikel();
+		taCustomerContact taCustomerContact = new taCustomerContact();
+		taCustomerSales taCustomerSales = new taCustomerSales();
+		taInvoice taInvoice = new taInvoice();
+		taKontaktEmail taKontaktEmail = new taKontaktEmail();
+		taKontaktnummer taKontaktnummer = new taKontaktnummer();
+		taKundenumsatz taKundenumsatz = new taKundenumsatz();
+		taOffenePosten taOffenePosten = new taOffenePosten();
+		taOrder taOrder = new taOrder();
+		taOrderDetail taOrderDetail = new taOrderDetail();
+		readonly taQueries taQueries = new taQueries();
+		//taSuchkunde taSuchkunde = new taSuchkunde();
+		taTransaction taTransaction = new taTransaction();
+		taUnpaidItem taUnpaidItem = new taUnpaidItem();
+		taUpsShipping taUpsShipping = new taUpsShipping();
+		taVersandkostenstaffel taVersandkostenstaffel = new taVersandkostenstaffel();
 		
 		#endregion
 
@@ -161,7 +161,7 @@ namespace Products.Data
 		/// <returns></returns>
 		public SortableBindingList<dsSage.OrderRow> GetOrderList()
 		{
-			SortableBindingList<dsSage.OrderRow> list = new SortableBindingList<dsSage.OrderRow>();
+			var list = new SortableBindingList<dsSage.OrderRow>();
 			IEnumerable<dsSage.OrderRow> oList = myDS.Order.Where(a => a.Auftrag == a.Nummer);
 			foreach (var item in oList)
 			{
@@ -178,7 +178,7 @@ namespace Products.Data
 		/// <returns></returns>
 		public SortableBindingList<dsSage.OrderRow> GetOrdersByDetailFilter(string filter)
 		{
-			SortableBindingList<dsSage.OrderRow> orderList = new SortableBindingList<dsSage.OrderRow>();
+			var orderList = new SortableBindingList<dsSage.OrderRow>();
 			foreach (dsSage.OrderDetailRow detailRow in GetTabelleOrderDetails().Where(o => o.VorgangspresetTemporaer == "D" || o.VorgangspresetTemporaer == "R"))
 			{
 				if (detailRow.Artikelnummer.ToUpperInvariant().Contains(filter.ToUpperInvariant())
@@ -221,14 +221,14 @@ namespace Products.Data
 		//  return cd;
 		//}
 
-		/// <summary>
-		/// Erfasst einen neuen kundenspezifischen Sonderpreis für den angegebenen Kunden
-		/// und die angegebene Artikelgruppe.
-		/// </summary>
-		/// <param name="kundenNummer">Die Kundennummer des betreffenden Kunden.</param>
-		/// <param name="artikelGruppe">Die betreffende Artikelgruppe.</param>
-		/// <param name="percent">Der Rabattbetrag in Prozent.</param>
-		/// <returns>Gibt 1 zurück, wenn der Preis erfolgreich gespeichert wurde.</returns>
+		///// <summary>
+		///// Erfasst einen neuen kundenspezifischen Sonderpreis für den angegebenen Kunden
+		///// und die angegebene Artikelgruppe.
+		///// </summary>
+		///// <param name="kundenNummer">Die Kundennummer des betreffenden Kunden.</param>
+		///// <param name="artikelGruppe">Die betreffende Artikelgruppe.</param>
+		///// <param name="percent">Der Rabattbetrag in Prozent.</param>
+		///// <returns>Gibt 1 zurück, wenn der Preis erfolgreich gespeichert wurde.</returns>
 		//public int CreateOrChangeSpecialCustomerPrice(string kundennummer, dsSage.CustomizedPriceRow custPriceRow)
 		//{
 		//  try
@@ -350,7 +350,7 @@ namespace Products.Data
 
 		public dsSage.kontaktemailRow AddContactEmailRow(string customerId, string contactId)
 		{
-			dsSage.kontaktemailRow newRow = myDS.kontaktemail.NewkontaktemailRow();
+			var newRow = myDS.kontaktemail.NewkontaktemailRow();
 			newRow.Preset = "A";
 			newRow.Konto = customerId;
 			newRow.AnsprechpartnernummerZumKonto = contactId;
@@ -543,21 +543,21 @@ namespace Products.Data
 			var bTable = taKundenumsatzBasis.GetData();
 			foreach (var item in bTable)
 			{
-				DateTime jan = new DateTime(item.Jahr, 1, 31);
-				DateTime feb = new DateTime(item.Jahr, 2, 28);
-				DateTime mar = new DateTime(item.Jahr, 3, 31);
-				DateTime apr = new DateTime(item.Jahr, 4, 30);
-				DateTime may = new DateTime(item.Jahr, 5, 31);
-				DateTime jun = new DateTime(item.Jahr, 6, 30);
-				DateTime jul = new DateTime(item.Jahr, 7, 31);
-				DateTime aug = new DateTime(item.Jahr, 8, 31);
-				DateTime sep = new DateTime(item.Jahr, 9, 30);
-				DateTime oct = new DateTime(item.Jahr, 10, 31);
-				DateTime nov = new DateTime(item.Jahr, 11, 30);
-				DateTime dec = new DateTime(item.Jahr, 12, 31);
+				var jan = new DateTime(item.Jahr, 1, 31);
+				var feb = new DateTime(item.Jahr, 2, 28);
+				var mar = new DateTime(item.Jahr, 3, 31);
+				var apr = new DateTime(item.Jahr, 4, 30);
+				var may = new DateTime(item.Jahr, 5, 31);
+				var jun = new DateTime(item.Jahr, 6, 30);
+				var jul = new DateTime(item.Jahr, 7, 31);
+				var aug = new DateTime(item.Jahr, 8, 31);
+				var sep = new DateTime(item.Jahr, 9, 30);
+				var oct = new DateTime(item.Jahr, 10, 31);
+				var nov = new DateTime(item.Jahr, 11, 30);
+				var dec = new DateTime(item.Jahr, 12, 31);
 
 				// Januar
-				dsSage.KundenumsatzRow uRowJan = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowJan = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowJan.Kundennummer = item.Kundennummer;
 				uRowJan.Datum = jan;
 				uRowJan.Umsatz = item.IsUmsatzJanuarNull() ? 0 : item.UmsatzJanuar;
@@ -567,7 +567,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowJan);
 
 				// Februar
-				dsSage.KundenumsatzRow uRowFeb = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowFeb = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowFeb.Kundennummer = item.Kundennummer;
 				uRowFeb.Datum = feb;
 				uRowFeb.Umsatz = item.IsUmsatzFebruarNull() ? 0 : item.UmsatzFebruar;
@@ -577,7 +577,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowFeb);
 
 				// März
-				dsSage.KundenumsatzRow uRowMar = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowMar = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowMar.Kundennummer = item.Kundennummer;
 				uRowMar.Datum = mar;
 				uRowMar.Umsatz = item.IsUmsatzMaerzNull() ? 0 : item.UmsatzMaerz;
@@ -587,7 +587,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowMar);
 
 				// April
-				dsSage.KundenumsatzRow uRowApr = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowApr = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowApr.Kundennummer = item.Kundennummer;
 				uRowApr.Datum = apr;
 				uRowApr.Umsatz = item.IsUmsatzAprilNull() ? 0 : item.UmsatzApril;
@@ -597,7 +597,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowApr);
 
 				// Mai
-				dsSage.KundenumsatzRow uRowMay = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowMay = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowMay.Kundennummer = item.Kundennummer;
 				uRowMay.Datum = may;
 				uRowMay.Umsatz = item.IsUmsatzMaiNull() ? 0 : item.UmsatzMai;
@@ -607,7 +607,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowMay);
 
 				// Juni
-				dsSage.KundenumsatzRow uRowJun = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowJun = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowJun.Kundennummer = item.Kundennummer;
 				uRowJun.Datum = jun;
 				uRowJun.Umsatz = item.IsUmsatzJuniNull() ? 0 : item.UmsatzJuni;
@@ -617,7 +617,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowJun);
 
 				// Juli
-				dsSage.KundenumsatzRow uRowJul = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowJul = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowJul.Kundennummer = item.Kundennummer;
 				uRowJul.Datum = jul;
 				uRowJul.Umsatz = item.IsUmsatzJuliNull() ? 0 : item.UmsatzJuli;
@@ -627,7 +627,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowJul);
 
 				// August
-				dsSage.KundenumsatzRow uRowAug = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowAug = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowAug.Kundennummer = item.Kundennummer;
 				uRowAug.Datum = aug;
 				uRowAug.Umsatz = item.IsUmsatzAugustNull() ? 0 : item.UmsatzAugust;
@@ -637,7 +637,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowAug);
 
 				// September
-				dsSage.KundenumsatzRow uRowSep = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowSep = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowSep.Kundennummer = item.Kundennummer;
 				uRowSep.Datum = sep;
 				uRowSep.Umsatz = item.IsUmsatzSeptemberNull() ? 0 : item.UmsatzSeptember;
@@ -647,7 +647,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowSep);
 
 				// Oktober
-				dsSage.KundenumsatzRow uRowOct = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowOct = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowOct.Kundennummer = item.Kundennummer;
 				uRowOct.Datum = oct;
 				uRowOct.Umsatz = item.IsUmsatzOktoberNull() ? 0 : item.UmsatzOktober;
@@ -657,7 +657,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowOct);
 
 				// November
-				dsSage.KundenumsatzRow uRowNov = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowNov = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowNov.Kundennummer = item.Kundennummer;
 				uRowNov.Datum = nov;
 				uRowNov.Umsatz = item.IsUmsatzNovemberNull() ? 0 : item.UmsatzNovember;
@@ -667,7 +667,7 @@ namespace Products.Data
 				this.myDS.Kundenumsatz.AddKundenumsatzRow(uRowNov);
 
 				// Dezember
-				dsSage.KundenumsatzRow uRowDec = this.myDS.Kundenumsatz.NewKundenumsatzRow();
+				var uRowDec = this.myDS.Kundenumsatz.NewKundenumsatzRow();
 				uRowDec.Kundennummer = item.Kundennummer;
 				uRowDec.Datum = dec;
 				uRowDec.Umsatz = item.IsUmsatzDezemberNull() ? 0 : item.UmsatzDezember;
@@ -716,7 +716,7 @@ namespace Products.Data
 		{
 			try
 			{
-				PingReply reply = new Ping().Send("192.168.0.101", 2000);
+				var reply = new Ping().Send("192.168.0.101", 2000);
 				if (reply.Status == IPStatus.Success)
 				{
 					return true;
@@ -757,7 +757,7 @@ namespace Products.Data
 			this.taOffenePosten.Fill(this.myDS.OffenePosten);
 			this.taVersandkostenstaffel.Fill(this.myDS.Versandkostenstaffel);
 
-			this.myDS.kontaktemail.kontaktemailRowChanged += new dsSage.kontaktemailRowChangeEventHandler(Kontaktemail_kontaktemailRowChanged);
+			// this.myDS.kontaktemail.kontaktemailRowChanged += Kontaktemail_kontaktemailRowChanged;
 		}
 
 
@@ -820,9 +820,9 @@ namespace Products.Data
 		//////////  }
 		//////////}
 
-		void Kontaktemail_kontaktemailRowChanged(object sender, dsSage.kontaktemailRowChangeEvent e)
-		{
-			throw new NotImplementedException();
+		//void Kontaktemail_kontaktemailRowChanged(object sender, dsSage.kontaktemailRowChangeEvent e)
+		//{
+		//	throw new NotImplementedException();
 			//if (e.Action == System.Data.DataRowAction.Change)
 			//{
 			//  if (e.Row.EmailKostenvoranschlag == "1")
@@ -992,7 +992,7 @@ namespace Products.Data
 
 			//  this.UpdateContactEmail();
 			//}
-		}
+		//}
 
 		#endregion
 
@@ -1004,9 +1004,9 @@ namespace Products.Data
 		/// <returns></returns>
 		public long Test()
 		{
-			string fromDate = DateTime.Today.AddYears(-1).ToString("yyy-MM-dd");
-			string toDate = DateTime.Today.ToString("yyy-MM-dd");
-			object retObject = taQueries.GetCustomerCount(fromDate, toDate);
+			var fromDate = DateTime.Today.AddYears(-1).ToString("yyy-MM-dd");
+			var toDate = DateTime.Today.ToString("yyy-MM-dd");
+			var retObject = taQueries.GetCustomerCount(fromDate, toDate);
 			return (long)retObject;
 		}
 

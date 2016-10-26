@@ -7,25 +7,27 @@ namespace Products.Data
 
 		#region members
 
-		private static AppointmentDataService myAppointmentDataSvc = null;
-		private static CatalogDataService myCatalogDataSvc = null;
-		private static ContactDataService myContactDataSvc = null;
-		private static CustomerDataService myCustomerDataSvc = null;
-		private static DataService myDataSvc = null;
-		private static FileLinkDataService myFileLinkDataSvc = null;
-		private static MachineDataService myMachineDataSvc = null;
-		private static NotesDataService myNotesDataSvc = null;
-		private static OfferDataService myOfferDataSvc = null;
-		private static OrderDataService myOrderDataSvc = null;
-		private static ProductDataService myProductDataSvc = null;
-		private static ProspectDataService myProspectDataSvc = null;
-		private static SalesDataService mySalesDataSvc = null;
-		private static SalesForceDataService mySalesForceDataSvc = null;
-		private static SharedDataService mySharedDataSvc = null;
-		private static SoftwareDataService mySoftwareDataSvc = null;
-		private static SupplierDataService mySupplierDataSvc = null;
-		private static TaskDataService myTaskDataSvc = null;
-		private static UserDataService myUserSvc = null;
+		static AppointmentDataService myAppointmentDataSvc;
+		static CatalogDataService myCatalogDataSvc;
+		static ContactDataService myContactDataSvc;
+		static CustomerDataService myCustomerDataSvc;
+		static DataService myDataSvc;
+		static DavidDataService myDavidDataSvc;
+		static FileLinkDataService myFileLinkDataSvc;
+		static MachineDataService myMachineDataSvc;
+		static NotesDataService myNotesDataSvc;
+		static OfferDataService myOfferDataSvc;
+		static OrderDataService myOrderDataSvc;
+		static ProductDataService myProductDataSvc;
+		static ProspectDataService myProspectDataSvc;
+		static SalesDataService mySalesDataSvc;
+		static SalesForceDataService mySalesForceDataSvc;
+		static SharedDataService mySharedDataSvc;
+		static SoftwareDataService mySoftwareDataSvc;
+		static SupplierDataService mySupplierDataSvc;
+		static TaskDataService myTaskDataSvc;
+		static TechnikDataService myTechnikDataSvc;
+		static UserDataService myUserSvc;
 
 		#endregion
 
@@ -109,6 +111,21 @@ namespace Products.Data
 					myCustomerDataSvc = new CustomerDataService(CurrentUserPK);
 				}
 				return myCustomerDataSvc;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton DavidDataService des Systems zurück.
+		/// </summary>
+		public static DavidDataService DavidDataService
+		{
+			get
+			{
+				if (myDavidDataSvc == null)
+				{
+					myDavidDataSvc = new DavidDataService();
+				}
+				return myDavidDataSvc;
 			}
 		}
 
@@ -304,6 +321,21 @@ namespace Products.Data
 					myTaskDataSvc = new TaskDataService(CurrentUserPK);
 				}
 				return myTaskDataSvc;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton TechnikDataService des Systems zurück.
+		/// </summary>
+		public static TechnikDataService TechnikDataService
+		{
+			get
+			{
+				if (myTechnikDataSvc == null)
+				{
+					myTechnikDataSvc = new TechnikDataService();
+				}
+				return myTechnikDataSvc;
 			}
 		}
 

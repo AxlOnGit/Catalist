@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 using Products.Data;
 
@@ -9,12 +10,11 @@ namespace Products.Common.Views
 {
 	public partial class UpsShippingView : MetroForm
 	{
-
 		#region members
 
 		dsSage.UpsShippingRow mySelectedShipment;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -27,7 +27,7 @@ namespace Products.Common.Views
 			this.dgvSendungen.AllowDrop = true;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -65,7 +65,7 @@ namespace Products.Common.Views
 				var filenames = e.Data.GetData(DataFormats.FileDrop, true) as string[];
 				foreach (string filename in filenames)
 				{
-					MessageBox.Show(filename);
+					MetroMessageBox.Show(this, filename);
 				}
 			}
 		}
@@ -92,7 +92,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		void xcmdTracking_Click(object sender, EventArgs e)
 		{
@@ -109,12 +109,11 @@ namespace Products.Common.Views
 			Process.Start(psi);
 		}
 
-		#endregion
+		#endregion private procedures
 
 		void mctxUPS_Opening(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			this.xcmdTracking.Enabled = (this.mySelectedShipment != null);
 		}
-
 	}
 }

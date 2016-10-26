@@ -168,7 +168,7 @@
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.dgvAuftraege);
 			this.Name = "AuftraegeProArtikelView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Green;
 			this.Text = "Aufträge für ";
 			((System.ComponentModel.ISupportInitialize)(this.dgvAuftraege)).EndInit();

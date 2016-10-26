@@ -248,7 +248,7 @@ namespace Products.Model.Entities
 			{
 				if (!string.IsNullOrEmpty(this.myBase.CreatedBy))
 				{
-					return ModelManager.UserService.GetUser(this.myBase.CreatedBy, Services.UserService.UserSearchParamType.PrimaryKey);
+					return ModelManager.UserService.FindUser(this.myBase.CreatedBy, Services.UserService.UserSearchParamType.PrimaryKey);
 				}
 				return null;
 			}
@@ -261,7 +261,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return ModelManager.UserService.GetUser(myBase.AssignedTo, Services.UserService.UserSearchParamType.PrimaryKey);
+				return ModelManager.UserService.FindUser(myBase.AssignedTo, Services.UserService.UserSearchParamType.PrimaryKey);
 			}
 		}
 

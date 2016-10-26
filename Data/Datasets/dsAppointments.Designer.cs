@@ -3483,24 +3483,6 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(dsAppointments dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taAppointmentXref != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.AppointmentXref.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._taAppointmentXref.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._taAppointmentLinkXref != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.AppointmentLinkXref.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._taAppointmentLinkXref.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._taAppointmentType != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.AppointmentType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -3519,6 +3501,24 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._taAppointmentXref != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AppointmentXref.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taAppointmentXref.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._taAppointmentLinkXref != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AppointmentLinkXref.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taAppointmentLinkXref.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -3529,22 +3529,6 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(dsAppointments dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taAppointmentXref != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.AppointmentXref.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._taAppointmentXref.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._taAppointmentLinkXref != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.AppointmentLinkXref.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._taAppointmentLinkXref.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._taAppointmentType != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.AppointmentType.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -3561,6 +3545,22 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._taAppointmentXref != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AppointmentXref.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taAppointmentXref.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._taAppointmentLinkXref != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AppointmentLinkXref.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taAppointmentLinkXref.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -3571,22 +3571,6 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsAppointments dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._taLocation != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._taLocation.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._taAppointmentType != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.AppointmentType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._taAppointmentType.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._taAppointmentLinkXref != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.AppointmentLinkXref.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -3600,6 +3584,22 @@ namespace Products.Data.Datasets.dsAppointmentsTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._taAppointmentXref.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taLocation != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Location.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taLocation.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taAppointmentType != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AppointmentType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taAppointmentType.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

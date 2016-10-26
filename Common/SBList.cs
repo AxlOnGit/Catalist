@@ -16,7 +16,7 @@ namespace Products.Common.Collections
 		bool myIsSorted;
 		string myFilter = "";
 		IEnumerable<ListSortDescription> myListSortDescriptors;
-		List<T> myOriginalData;
+		readonly List<T> myOriginalData;
 
 		#endregion
 
@@ -137,7 +137,7 @@ namespace Products.Common.Collections
 
 		protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
 		{
-			Type interfaceType = prop.PropertyType.GetInterface("IComparable");
+			var interfaceType = prop.PropertyType.GetInterface("IComparable");
 
 			if (interfaceType == null)
 			{
@@ -187,7 +187,7 @@ namespace Products.Common.Collections
 				foreach (var item in sorts)
 				{
 					PropertyDescriptor prop = item.PropertyDescriptor;
-					Type interfaceType = prop.PropertyType.GetInterface("IComparable");
+					var interfaceType = prop.PropertyType.GetInterface("IComparable");
 
 					if (interfaceType == null)
 					{
@@ -284,7 +284,7 @@ namespace Products.Common.Collections
 		/// <param name="item"></param>
 		public new void Add(T item)
 		{
-			base.Items.Add(item);
+			Items.Add(item);
 			this.myOriginalData.Add(item);
 		}
 
@@ -342,11 +342,11 @@ namespace Products.Common.Collections
 		{
 			if (Count > 0)
 			{
-				PropertyDescriptorCollection props = TypeDescriptor.GetProperties(Items[0]);
+				var props = TypeDescriptor.GetProperties(Items[0]);
 				PropertyDescriptor prop = props[propertyName];
 				if (prop == null)
 				{
-					string msg = string.Format("Fehler bei der Sortierung. {0}\nDie Liste enthält keine '{1}' Eigenschaft.", this.GetType().Name, propertyName);
+					var msg = string.Format("Fehler bei der Sortierung. {0}\nDie Liste enthält keine '{1}' Eigenschaft.", this.GetType().Name, propertyName);
 					throw new Exception(msg);
 				}
 				this.ApplySortCore(prop, direction);

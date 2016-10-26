@@ -2,22 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Linq.Dynamic;
 
 namespace Products.Common
 {
 	public class SortableBindingList<T> : BindingList<T>
 	{
-
-		#region events
-
-
-		#endregion
-
 		readonly Dictionary<Type, PropertyComparer<T>> comparers;
+
 		//IEnumerable<ListSortDescription> myListSortDescriptors;
 		bool myIsSorted;
+
 		ListSortDirection listSortDirection;
 		PropertyDescriptor propertyDescriptor;
 		//List<T> myOriginalData = null;
@@ -62,21 +56,21 @@ namespace Products.Common
 			get { return true; }
 		}
 
-		protected override void ApplySortCore(PropertyDescriptor property, ListSortDirection direction)
+		protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
 		{
-			List<T> itemsList = (List<T>)this.Items;
+			var itemsList = (List<T>)this.Items;
 
-			Type propertyType = property.PropertyType;
+			Type propertyType = prop.PropertyType;
 			PropertyComparer<T> comparer;
 			if (!this.comparers.TryGetValue(propertyType, out comparer))
 			{
-				comparer = new PropertyComparer<T>(property, direction);
+				comparer = new PropertyComparer<T>(prop, direction);
 				this.comparers.Add(propertyType, comparer);
 			}
-			comparer.SetPropertyAndDirection(property, direction);
+			comparer.SetPropertyAndDirection(prop, direction);
 			itemsList.Sort(comparer);
 
-			this.propertyDescriptor = property;
+			this.propertyDescriptor = prop;
 			this.listSortDirection = direction;
 			this.myIsSorted = true;
 
@@ -92,13 +86,13 @@ namespace Products.Common
 			this.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
 		}
 
-		protected override int FindCore(PropertyDescriptor property, object key)
+		protected override int FindCore(PropertyDescriptor prop, object key)
 		{
 			int count = this.Count;
 			for (int i = 0; i < count; ++i)
 			{
 				T element = this[i];
-				if (property.GetValue(element).Equals(key))
+				if (prop.GetValue(element).Equals(key))
 				{
 					return i;
 				}
@@ -116,17 +110,16 @@ namespace Products.Common
 		{
 			if (this.Count > 0)
 			{
-				System.ComponentModel.PropertyDescriptorCollection props = System.ComponentModel.TypeDescriptor.GetProperties(Items[0]);
+				var props = TypeDescriptor.GetProperties(Items[0]);
 				PropertyDescriptor prop = props[propertyName];
 				if (prop == null)
 				{
-					string msg = string.Format("Fehler bei der Sortierung. {0}\nDie Liste enthält keine '{1}' Eigenschaft.", this.GetType().Name, propertyName);
+					var msg = string.Format("Fehler bei der Sortierung. {0}\nDie Liste enthält keine '{1}' Eigenschaft.", this.GetType().Name, propertyName);
 					throw new Exception(msg);
 				}
 				this.ApplySortCore(prop, direction);
 			}
 			return this;
 		}
-
 	}
 }

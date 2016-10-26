@@ -11,8 +11,8 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsOffers.OfferDetailRow myBase;
-		string myCustomerPK;
+		readonly dsOffers.OfferDetailRow myBase;
+		readonly string myCustomerPK;
 		decimal rabattBetrag;
 
 		#endregion
@@ -308,7 +308,7 @@ namespace Products.Model.Entities
 		{
 			get 
 			{
-				StringBuilder sb = new StringBuilder();
+				var sb = new StringBuilder();
 				sb.AppendLine(string.Format("Artikelname:\t\t{0}", myBase.ProductName.ToUpper()));
 				sb.AppendLine("--------------------");
 				sb.AppendLine(string.Format("Einkaufspreis:\t\t{0:C2}", this.ProductRow.EK));

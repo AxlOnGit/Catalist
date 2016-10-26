@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Products.Common.Collections;
 using Products.Model;
 using Products.Model.Entities;
-using Products.Common.Collections;
 
 namespace Products.Common.Views
 {
 	public partial class LieferantenListView : MetroForm
 	{
-
 		#region members
 
 		Lieferant mySelectedLieferant;
 		SBList<Lieferant> myDataSource;
+		bool myFormClosing;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -34,7 +28,7 @@ namespace Products.Common.Views
 			private set { this.mySelectedLieferant = value; }
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -48,7 +42,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
@@ -59,7 +53,7 @@ namespace Products.Common.Views
 			this.dgvSuppliers.DataSource = this.myDataSource;
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region event handler
 
@@ -71,8 +65,8 @@ namespace Products.Common.Views
 				return;
 			}
 
-			string outputInfo = string.Empty;
-			string[] keyWords = this.mtxtFilter.Text.Split();
+			var outputInfo = string.Empty;
+			var keyWords = this.mtxtFilter.Text.Split();
 			foreach (string word in keyWords)
 			{
 				if (outputInfo.Length == 0)
@@ -89,6 +83,7 @@ namespace Products.Common.Views
 
 		void dgvSuppliers_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
+			if (this.myFormClosing) return;
 			if (this.dgvSuppliers.RowCount == 0)
 			{
 				this.Text = "Kein Lieferant mit dem eingegebenen Filter gefunden";
@@ -135,13 +130,14 @@ namespace Products.Common.Views
 
 		void LieferantenListView_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			this.myFormClosing = true;
 			if (this.myDataSource != null && !string.IsNullOrEmpty(this.myDataSource.Filter))
 			{
 				this.myDataSource.Filter = "";
-			} 
+			}
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -154,7 +150,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -8,30 +8,49 @@ using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Products.Data.Datasets;
+using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
 	public partial class ContactSearchView : MetroForm
 	{
-
 		#region members
 
 		readonly BindingSource bs = new BindingSource();
-		dsContacts.KundenkontaktListeRow selectedContactRow;
+		dsContacts.KundenkontaktListeRow mySelectedContactRow;
+		Kundenkontakt mySelectedContact;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		/// <summary>
 		/// Gibt die aktuell ausgewählte KundenkontaktListeRow zurück.
 		/// </summary>
-		public Data.Datasets.dsContacts.KundenkontaktListeRow SelectedContactRow
+		public dsContacts.KundenkontaktListeRow SelectedContactRow
 		{
-			get { return this.selectedContactRow; }
+			get { return this.mySelectedContactRow; }
 		}
 
-		#endregion
+		/// <summary>
+		/// Gibt die Instanz des ausgewählten Kundenkontakt zurück.
+		/// </summary>
+		public Kundenkontakt SelectedContact
+		{
+			get
+			{
+				if (this.mySelectedContactRow != null)
+				{
+					var key = string.Format("{0}{1}", this.mySelectedContactRow.Kundennummer, this.mySelectedContactRow.Nummer);
+					this.mySelectedContact = ModelManager.ContactService.GetKundenkontakt(key);
+					return this.mySelectedContact;
+				}
+				return null;
+			}
+		}
+
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -44,7 +63,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
@@ -55,19 +74,21 @@ namespace Products.Common.Views
 			this.dgvContacts.DataSource = bs;
 		}
 
+		#endregion private procedures
+
+		#region event handler
+
 		void dgvContacts_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			var row = this.dgvContacts.Rows[e.RowIndex];
 			var drv = row.DataBoundItem as DataRowView;
-			this.selectedContactRow = drv.Row as dsContacts.KundenkontaktListeRow;
+			this.mySelectedContactRow = drv.Row as dsContacts.KundenkontaktListeRow;
 		}
-
-		#endregion
 
 		void mtxtFilter_KeyUp(object sender, KeyEventArgs e)
 		{
-			string outputInfo = string.Empty;
-			string[] keyWords = this.mtxtFilter.Text.Split();
+			var outputInfo = string.Empty;
+			var keyWords = this.mtxtFilter.Text.Split();
 
 			foreach (string word in keyWords)
 			{
@@ -84,8 +105,11 @@ namespace Products.Common.Views
 			}
 		}
 
-		#region public procedures
-		#endregion
+		void dgvContacts_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			this.DialogResult = DialogResult.OK;
+		}
 
+		#endregion event handler
 	}
 }

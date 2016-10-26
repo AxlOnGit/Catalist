@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Products.Common
 {
-	internal class LogService
+	class LogService
 	{
 
 		#region members

@@ -178,7 +178,7 @@
 			this.Controls.Add(this.mbtnClose);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "AppointmentListView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Kalendereinträge für ";
 			((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();

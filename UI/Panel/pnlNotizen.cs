@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Products.Model.Builder;
-using Products.Model;
-using Products.Model.Entities;
-using Products.Common.Views;
 using MetroFramework;
+using Products.Common.Views;
+using Products.Model;
+using Products.Model.Builder;
+using Products.Model.Entities;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlNotizen : pnlSlider
 	{
-
 		#region members
 
 		readonly KundeMainView myParent;
 		readonly Kunde myKunde;
 		Notiz mySelectedNotiz;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -41,7 +40,7 @@ namespace Products.Common.Panel
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -95,7 +94,7 @@ namespace Products.Common.Panel
 			this.mtxtNotiztext.FontSize += 1;
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -128,7 +127,7 @@ namespace Products.Common.Panel
 			if (this.mySelectedNotiz != null && this.mySelectedNotiz.GetCanDelete())
 			{
 				msg = string.Format("Soll ich die Notiz '{0}' vom {1:d} endgültig löschen?", this.mySelectedNotiz.Subject, this.mySelectedNotiz.AssignedAt);
-				if (MessageBox.Show(msg, "Catalist - Notizen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				if (MetroMessageBox.Show(this, msg, "Catalist - Notizen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					ModelManager.NotesService.DeleteNote(this.mySelectedNotiz);
 				}
@@ -136,11 +135,10 @@ namespace Products.Common.Panel
 			else
 			{
 				msg = string.Format("Die Notiz '{0}' vom {1:d} kann nicht gelöscht werden, weil sie noch mit mindestens einer Datei verknüpft ist", this.mySelectedNotiz.Subject, this.mySelectedNotiz.AssignedAt);
-				MessageBox.Show(msg, "Catalist Notizen", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MetroMessageBox.Show(this, msg, "Catalist Notizen", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

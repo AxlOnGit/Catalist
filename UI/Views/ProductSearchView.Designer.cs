@@ -66,48 +66,48 @@
 			this.dgvProducts.AllowUserToAddRows = false;
 			this.dgvProducts.AllowUserToDeleteRows = false;
 			this.dgvProducts.AllowUserToResizeRows = false;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(244, 244, 244);
 			this.dgvProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvProducts.BackgroundColor = System.Drawing.Color.FromArgb((255), (255), (255));
 			this.dgvProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), 17, ((int)(((byte)(65)))));
 			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb((255), (255), (255));
 			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTyp,
-            this.colKatalog,
-            this.colArtikel,
-            this.colBezeichnung1,
-            this.colBezeichnung2,
-            this.colArtikelgruppe,
-            this.colMengeneinheit,
-            this.colEK,
-            this.colVerkaufspreis1,
-            this.colKundenpreis,
-            this.colProzent});
+						this.colTyp,
+						this.colKatalog,
+						this.colArtikel,
+						this.colBezeichnung1,
+						this.colBezeichnung2,
+						this.colArtikelgruppe,
+						this.colMengeneinheit,
+						this.colEK,
+						this.colVerkaufspreis1,
+						this.colKundenpreis,
+						this.colProzent});
 			this.dgvProducts.ContextMenuStrip = this.ctxGrid;
 			dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb((255), (255), (255));
 			dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
 			dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle19;
 			this.dgvProducts.EnableHeadersVisualStyles = false;
 			this.dgvProducts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvProducts.GridColor = System.Drawing.Color.FromArgb((255), (255), (255));
 			this.dgvProducts.HighLightPercentage = 1.2F;
 			this.dgvProducts.Location = new System.Drawing.Point(36, 109);
 			this.dgvProducts.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
@@ -116,11 +116,11 @@
 			this.dgvProducts.ReadOnly = true;
 			this.dgvProducts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+			dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), 17, ((int)(((byte)(65)))));
 			dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb((255), (255), (255));
 			dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
 			dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
 			this.dgvProducts.RowHeadersVisible = false;
@@ -254,8 +254,8 @@
 			// ctxGrid
 			// 
 			this.ctxGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuOk,
-            this.xcmdShowLager});
+						this.cmnuOk,
+						this.xcmdShowLager});
 			this.ctxGrid.Name = "ctxGrid";
 			this.ctxGrid.Size = new System.Drawing.Size(146, 48);
 			// 
@@ -303,7 +303,7 @@
 			this.txtProductsFilter.TabIndex = 0;
 			this.txtProductsFilter.UseSelectable = true;
 			this.txtProductsFilter.WaterMark = "Art.-Nr., Bezeichnung oder Matchcode";
-			this.txtProductsFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+			this.txtProductsFilter.WaterMarkColor = System.Drawing.Color.FromArgb((109), (109), (109));
 			this.txtProductsFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.txtProductsFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProductsFilter_KeyUp);
 			// 

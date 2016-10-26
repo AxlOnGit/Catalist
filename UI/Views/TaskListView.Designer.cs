@@ -237,13 +237,14 @@
 			this.mtxtDescription.SelectedText = "";
 			this.mtxtDescription.SelectionLength = 0;
 			this.mtxtDescription.SelectionStart = 0;
+			this.mtxtDescription.ShortcutsEnabled = true;
 			this.mtxtDescription.Size = new System.Drawing.Size(1393, 171);
 			this.mtxtDescription.Style = MetroFramework.MetroColorStyle.Lime;
 			this.mtxtDescription.TabIndex = 7;
 			this.mtxtDescription.Text = "Aufgabenbeschreibung";
 			this.mtxtDescription.UseSelectable = true;
 			this.mtxtDescription.UseStyleColors = true;
-			this.mtxtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// btnShowDetails
@@ -315,7 +316,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TaskListView";
 			this.Padding = new System.Windows.Forms.Padding(23, 69, 23, 23);
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Lime;
 			this.Text = "Meine Aufgaben";
 			this.toolTip1.SetToolTip(this, "Deine Aufgabenliste halt ...");

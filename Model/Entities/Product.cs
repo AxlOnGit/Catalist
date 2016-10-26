@@ -1,15 +1,15 @@
-﻿using Products.Data;
-using Products.Data.Datasets;
+﻿using System;
 using System.Drawing;
 using System.IO;
-using System;
+using System.Text;
 using System.Windows.Forms;
+using Products.Data;
+using Products.Data.Datasets;
 
 namespace Products.Model.Entities
 {
 	public class Product
 	{
-
 		#region members
 
 		dsProducts.ProductRow myBase;
@@ -19,24 +19,41 @@ namespace Products.Model.Entities
 		bool mySonderpreiseDirty;
 		string serverPicturePath = Common.Global.ManufacturerPicturePath;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		#region integrals
 
 		public string Typ { get { return this.myBase.Typ; } }
+
 		public string Kundennummer { get { return this.myKunde.CustomerId; } }
+
+		/// <summary>
+		/// Gibt die ArtikelID dieses Artikels in der Eidamo Tabelle tabArtikel zurück.
+		/// </summary>
+		public int ArtikelID { get { return ModelManager.ProductService.GetArtikelID(this.myBase.Artikel); } }
+
 		public string Artikelnummer { get { return this.myBase.Artikel; } }
+
 		public string Artikelgruppe { get { return this.myBase.Artikelgruppe; } }
+
 		public string Lieferant { get { return this.myBase.FesterLieferant; } }
+
 		public string Matchcode { get { return this.myBase.Matchcode; } }
+
 		public string Hersteller { get { return this.myBase.Hersteller; } }
+
 		public string Bezeichnung1 { get { return this.myBase.Bezeichnung1; } }
+
 		public string Bezeichnung2 { get { return this.myBase.Bezeichnung2; } }
+
 		public string Mengeneinheit { get { return this.myBase.Mengeneinheit; } }
+
 		public decimal Einkaufspreis { get { return this.myBase.EK; } }
+
 		public decimal Standardpreis { get { return this.myBase.Verkaufspreis1; } }
+
 		public double Bestand { get { return this.myBase.Bestand; } }
 
 		/// <summary>
@@ -68,14 +85,14 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Der gegebenenfalls rabattierte Kundenpreis.
 		/// </summary>
-		public decimal Kundenpreis 
-		{ 
-			get 
+		public decimal Kundenpreis
+		{
+			get
 			{
 				decimal defaultPrice = this.myBase.Verkaufspreis1;
 				decimal discountPercent = (this.SonderpreisBase != null) ? this.SonderpreisBase.Rabatt : 0.0m;
-				return defaultPrice - (defaultPrice * discountPercent / 100); 
-			} 
+				return defaultPrice - (defaultPrice * discountPercent / 100);
+			}
 		}
 
 		/// <summary>
@@ -159,6 +176,16 @@ namespace Products.Model.Entities
 			}
 		}
 
+		public string KatalogsektionName
+		{
+			get
+			{
+				if (!KatalogFlag || this.myProductCpmBase.IsCategoryNull() || string.IsNullOrEmpty(this.myProductCpmBase.Category)) return string.Empty;
+				var section = ModelManager.CatalogService.GetSectionName(this.myProductCpmBase.Category);
+				return section;
+			}
+		}
+
 		public string Beschreibung
 		{
 			get
@@ -178,7 +205,7 @@ namespace Products.Model.Entities
 			get
 			{
 				if (!KatalogFlag) return string.Empty;
-				return (this.myProductCpmBase.IsProperty1Null()) ? string.Empty :  this.myProductCpmBase.Property1;
+				return (this.myProductCpmBase.IsProperty1Null()) ? string.Empty : this.myProductCpmBase.Property1;
 			}
 			set
 			{
@@ -727,16 +754,17 @@ namespace Products.Model.Entities
 				{
 					return this.myProductCpmBase.ChangeDate;
 				}
-				return new DateTime(1963,12,17);
+				return new DateTime(1963, 12, 17);
 			}
 			set
 			{
-				if(this.KatalogFlag) this.myProductCpmBase.ChangeDate = value;
+				if (this.KatalogFlag) this.myProductCpmBase.ChangeDate = value;
 			}
 		}
 
 		/// <summary>
-		/// Gibt den Namen des Mitarbeiters zurück, der diesen Artikel zuletzt bearbeitet hat oder legt ihn fest.
+		/// Gibt den Namen des Mitarbeiters zurück, der diesen Artikel zuletzt bearbeitet hat oder
+		/// legt ihn fest.
 		/// </summary>
 		public string ChangeUser
 		{
@@ -754,7 +782,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion ARTIKEL_CPM
 
 		#region SONDERPREISE
 
@@ -797,6 +825,27 @@ namespace Products.Model.Entities
 			}
 		}
 
+		public string StaffelpreisInfo
+		{
+			get
+			{
+				var sb = new StringBuilder();
+
+				if (this.Sonderpreis1 > 0) sb.Append($"Ab {this.SonderpreisMenge1}: {this.Sonderpreis1} €");
+				if (this.Sonderpreis2 > 0)
+				{
+					if (sb.Length > 0)
+					{
+						sb.Append($"; ab {this.SonderpreisMenge2}: {this.Sonderpreis2} €");
+					}
+					else sb.Append($"Ab {this.SonderpreisMenge2}: {this.Sonderpreis2} €");
+				}
+
+				if (sb.Length == 0) return "-";
+				return sb.ToString();
+			}
+		}
+
 		public decimal SonderpreisMenge1
 		{
 			get
@@ -814,10 +863,10 @@ namespace Products.Model.Entities
 		public decimal SonderpreisRabatt1
 		{
 			get { return (this.SonderpreisBase != null) ? this.SonderpreisBase.Rabatt1 : 0.0m; }
-			set 
+			set
 			{
-				this.GetOrCreateSonderpreisBase().Rabatt1 = value; 
-				this.SetSonderpreiseDirty(); 
+				this.GetOrCreateSonderpreisBase().Rabatt1 = value;
+				this.SetSonderpreiseDirty();
 			}
 		}
 
@@ -969,11 +1018,11 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion SONDERPREISE
 
-		#endregion
+		#endregion integrals
 
-		#endregion
+		#endregion public properties
 
 		#region private properties
 
@@ -982,7 +1031,7 @@ namespace Products.Model.Entities
 			get { return ModelManager.ProductService.GetSonderpreisRow(this.myKunde, this.Artikelgruppe); }
 		}
 
-		#endregion
+		#endregion private properties
 
 		#region ### .ctor ###
 
@@ -991,16 +1040,16 @@ namespace Products.Model.Entities
 		/// </summary>
 		/// <param name="baseRow"></param>
 		public Product(
-			dsProducts.ProductRow baseRow, 
-			dsProducts.ProductCpmRow productCpmBaseRow, 
-			Kunde kunde) 
+			dsProducts.ProductRow baseRow,
+			dsProducts.ProductCpmRow productCpmBaseRow,
+			Kunde kunde)
 		{
 			myBase = baseRow;
 			this.myProductCpmBase = productCpmBaseRow;
 			this.myKunde = kunde;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
@@ -1028,7 +1077,6 @@ namespace Products.Model.Entities
 			this.ChangeUser = ModelManager.UserService.CurrentUser.NameFull;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

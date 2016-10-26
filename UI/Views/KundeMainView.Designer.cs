@@ -156,7 +156,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(1280, 900);
 			this.Name = "KundeMainView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.Text = "[10000] - Cut && Print Media GmbH && Co. KG";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KundeMainView_FormClosing);

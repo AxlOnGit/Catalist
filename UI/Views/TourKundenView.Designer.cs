@@ -813,7 +813,7 @@
             this.toolStripMenuItem4,
             this.xcmdDeleteNote});
 			this.mctxNotizen.Name = "mctxNotizen";
-			this.mctxNotizen.Size = new System.Drawing.Size(166, 126);
+			this.mctxNotizen.Size = new System.Drawing.Size(166, 104);
 			// 
 			// xcmdOpenNote
 			// 
@@ -900,11 +900,12 @@
 			this.mtxtNotiztext.SelectedText = "";
 			this.mtxtNotiztext.SelectionLength = 0;
 			this.mtxtNotiztext.SelectionStart = 0;
+			this.mtxtNotiztext.ShortcutsEnabled = true;
 			this.mtxtNotiztext.Size = new System.Drawing.Size(600, 130);
 			this.mtxtNotiztext.TabIndex = 16;
 			this.mtxtNotiztext.Text = "mtxtNotiztext";
 			this.mtxtNotiztext.UseSelectable = true;
-			this.mtxtNotiztext.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtNotiztext.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtNotiztext.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtoggleShowInactive
@@ -1087,7 +1088,7 @@
 			this.Controls.Add(this.dgvTourKunden);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TourKundenView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.Text = "Tour";
 			((System.ComponentModel.ISupportInitialize)(this.dgvTourKunden)).EndInit();

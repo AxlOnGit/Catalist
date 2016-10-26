@@ -36,8 +36,6 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LagerbestandView));
 			this.dgvProducts = new MetroFramework.Controls.MetroGrid();
-			this.lblIntro = new MetroFramework.Controls.MetroLabel();
-			this.mbtnClose = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.colArtikel = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBezeichnung1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBezeichnung2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +43,8 @@
 			this.colMengeneinheit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBestelldatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBestellt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lblIntro = new MetroFramework.Controls.MetroLabel();
+			this.mbtnClose = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -113,28 +113,6 @@
 			this.dgvProducts.Size = new System.Drawing.Size(948, 470);
 			this.dgvProducts.Style = MetroFramework.MetroColorStyle.Red;
 			this.dgvProducts.TabIndex = 0;
-			// 
-			// lblIntro
-			// 
-			this.lblIntro.AutoSize = true;
-			this.lblIntro.Location = new System.Drawing.Point(23, 78);
-			this.lblIntro.Name = "lblIntro";
-			this.lblIntro.Size = new System.Drawing.Size(94, 19);
-			this.lblIntro.TabIndex = 65;
-			this.lblIntro.Text = "Artikelgruppe ";
-			// 
-			// mbtnClose
-			// 
-			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnClose.Image = null;
-			this.mbtnClose.Location = new System.Drawing.Point(871, 595);
-			this.mbtnClose.Name = "mbtnClose";
-			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
-			this.mbtnClose.TabIndex = 68;
-			this.mbtnClose.Text = "Schließen";
-			this.mbtnClose.UseSelectable = true;
-			this.mbtnClose.UseVisualStyleBackColor = true;
-			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
 			// 
 			// colArtikel
 			// 
@@ -205,6 +183,28 @@
 			this.colBestellt.Name = "colBestellt";
 			this.colBestellt.ReadOnly = true;
 			// 
+			// lblIntro
+			// 
+			this.lblIntro.AutoSize = true;
+			this.lblIntro.Location = new System.Drawing.Point(23, 78);
+			this.lblIntro.Name = "lblIntro";
+			this.lblIntro.Size = new System.Drawing.Size(94, 19);
+			this.lblIntro.TabIndex = 65;
+			this.lblIntro.Text = "Artikelgruppe ";
+			// 
+			// mbtnClose
+			// 
+			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnClose.Image = null;
+			this.mbtnClose.Location = new System.Drawing.Point(871, 595);
+			this.mbtnClose.Name = "mbtnClose";
+			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
+			this.mbtnClose.TabIndex = 68;
+			this.mbtnClose.Text = "Schließen";
+			this.mbtnClose.UseSelectable = true;
+			this.mbtnClose.UseVisualStyleBackColor = true;
+			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
+			// 
 			// LagerbestandView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,7 +216,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "LagerbestandView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "Lagerbestand";

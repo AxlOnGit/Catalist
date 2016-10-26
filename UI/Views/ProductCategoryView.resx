@@ -117,15 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="mctxTree.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>109, 8</value>
+  </metadata>
   <metadata name="imgList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>18, 8</value>
   </metadata>
   <data name="imgList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADW
-        BwAAAk1TRnQBSQFMAgEBAgEAARgBAAEYAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAAVgBAAFYAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -159,6 +162,40 @@
         Ae8B7fkAAUIBTQE+BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/8BAAT/BAAE/wQABP8EAAT/
         BAAB+QP/BAAB+AL/AX8EAAH8AX8B/gE/BAAB/gE/AfwBHwQAAf8BHwH4AY8EAAH+AT8B8QHHBAAB/AF/
         AfMB5wQAAfgD/wQAAfkD/wQABP8EAAT/BAAE/wQACw==
+</value>
+  </data>
+  <metadata name="colTyp.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colArtikelnummer.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colMatchcode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colBezeichnung1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colBezeichnung2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>47</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIABxAgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAAAFz
+        UkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACBklEQVRYR+2XsU4b
+        QRCG57+zkJ3YJu5SuEBKCooUIDA0iUSeIJFooIMuRcrETgQdlQMNUop0duEOCt6AghRJTAo6ChApXLjD
+        MhQnct7J7HptjAFHkdZgKf6kvduZW3v/29nTzIIsZ9npBQZWxPHMui5hOidwKQx+f0xtHtSs1wmevpy/
+        yzxmosKNk2tAcbm88aMjb63HGUYA+2ocQNR4egDmJ7brDCPgPrlBgHqZyJfR2Yj5l33oHLMJz3JTc6Jl
+        13h6wVxMfNpftpYTBiMEaHiHzBwYTw/kMz22XWcYAfGNclViIUvL+ybe0rQgJq60bDCVGsHFZ/Oru6Ce
+        zeye5mbHrNk3BvEzvFuGAoYChgKGAu5dQLso7Ubngga85VT++z8XI/VcZlUS27wksEfW1YYJktywmVz/
+        saNt5ytQfz/zWt5qDYQJAsa6G0BzBLVV+zD5VI93LgBQr2zXICm9Kul80ZoGKYAj4Mhz3e/7HpAwBCH8
+        b9a8Rs89AHCUGX+tlK4AHpfll3MGVxrkvxhhDh/EYtVaEKR9CtMgb08PU1IAjebLReebUE5YBVnjJamo
+        QvnziiiqeIRFRWqPQRERl9bjWgL6FgIdZ73pZBekL2y/NXknzgXImx3YbhOZOELqxFptQOpI350LSMYe
+        fpHbtg5B09OFPugSbSTzP782HbfwnxSlRH8AykG1MAoO64YAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

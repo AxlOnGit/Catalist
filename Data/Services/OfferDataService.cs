@@ -99,7 +99,7 @@ namespace Products.Data.Services
 			sb.Append("_");
 			sb.Append(customerPK.Substring(0, 5));
 
-			dsOffers.OfferRow oRow = offerTable.NewOfferRow();
+			var oRow = offerTable.NewOfferRow();
 			oRow.UID = SequentialGuid.NewSequentialGuid().ToString();
 			oRow.CustomerId = customerPK;
 			oRow.CreateDate = now;

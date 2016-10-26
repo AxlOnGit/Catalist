@@ -4,18 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
-using MetroFramework.Forms;
-using System.Net.Mail;
 using MetroFramework;
+using MetroFramework.Forms;
 using Products.Model;
 
 namespace Products.Common.Views
 {
 	public partial class EmailView : MetroForm
 	{
-
 		#region members
 
 		MailMessage myMessage;
@@ -23,7 +22,7 @@ namespace Products.Common.Views
 		List<string> myCcList;
 		List<string> myBccList;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -39,7 +38,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -124,7 +123,7 @@ namespace Products.Common.Views
 			else this.myMessage.Bcc.Add(Model.ModelManager.UserService.CurrentUser.EmailWork);
 
 			ModelManager.PostBuedel.SendEmail(this.myMessage);
-			MessageBox.Show("Die E-Mail und eine Kopie an Dich selbst sind unterwegs ...", "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MetroMessageBox.Show(this, "Die E-Mail und eine Kopie an Dich selbst sind unterwegs ...", "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			this.Close();
 		}
 
@@ -133,7 +132,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -181,7 +180,6 @@ namespace Products.Common.Views
 			else this.mtxtBcc.Text = string.Empty;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

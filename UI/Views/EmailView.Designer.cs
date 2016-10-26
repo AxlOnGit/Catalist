@@ -77,8 +77,8 @@
 			// splitContainer1
 			// 
 			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
 			this.splitContainer1.Location = new System.Drawing.Point(23, 100);
 			this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
@@ -132,12 +132,13 @@
 			this.mtxtBcc.SelectedText = "";
 			this.mtxtBcc.SelectionLength = 0;
 			this.mtxtBcc.SelectionStart = 0;
+			this.mtxtBcc.ShortcutsEnabled = true;
 			this.mtxtBcc.Size = new System.Drawing.Size(784, 23);
 			this.mtxtBcc.Style = MetroFramework.MetroColorStyle.White;
 			this.mtxtBcc.TabIndex = 7;
 			this.mtxtBcc.UseSelectable = true;
 			this.mtxtBcc.UseStyleColors = true;
-			this.mtxtBcc.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtBcc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtBcc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtBcc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtBcc_KeyUp);
 			// 
@@ -157,8 +158,8 @@
 			// mtxtBody
 			// 
 			this.mtxtBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -181,13 +182,14 @@
 			this.mtxtBody.SelectedText = "";
 			this.mtxtBody.SelectionLength = 0;
 			this.mtxtBody.SelectionStart = 0;
+			this.mtxtBody.ShortcutsEnabled = true;
 			this.mtxtBody.Size = new System.Drawing.Size(830, 240);
 			this.mtxtBody.Style = MetroFramework.MetroColorStyle.White;
 			this.mtxtBody.TabIndex = 6;
 			this.mtxtBody.UseSelectable = true;
 			this.mtxtBody.UseStyleColors = true;
 			this.mtxtBody.WaterMark = "Nachrichtentext";
-			this.mtxtBody.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtBody.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtBody.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			// 
 			// mlblFrom
@@ -225,13 +227,14 @@
 			this.mtxtSubject.SelectedText = "";
 			this.mtxtSubject.SelectionLength = 0;
 			this.mtxtSubject.SelectionStart = 0;
+			this.mtxtSubject.ShortcutsEnabled = true;
 			this.mtxtSubject.Size = new System.Drawing.Size(829, 23);
 			this.mtxtSubject.Style = MetroFramework.MetroColorStyle.White;
 			this.mtxtSubject.TabIndex = 3;
 			this.mtxtSubject.UseSelectable = true;
 			this.mtxtSubject.UseStyleColors = true;
 			this.mtxtSubject.WaterMark = "Betreff";
-			this.mtxtSubject.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSubject.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSubject.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			// 
 			// mtxtCc
@@ -260,12 +263,13 @@
 			this.mtxtCc.SelectedText = "";
 			this.mtxtCc.SelectionLength = 0;
 			this.mtxtCc.SelectionStart = 0;
+			this.mtxtCc.ShortcutsEnabled = true;
 			this.mtxtCc.Size = new System.Drawing.Size(784, 23);
 			this.mtxtCc.Style = MetroFramework.MetroColorStyle.White;
 			this.mtxtCc.TabIndex = 2;
 			this.mtxtCc.UseSelectable = true;
 			this.mtxtCc.UseStyleColors = true;
-			this.mtxtCc.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtCc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtCc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtCc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtCc_KeyUp);
 			// 
@@ -294,12 +298,13 @@
 			this.mtxtTo.SelectedText = "";
 			this.mtxtTo.SelectionLength = 0;
 			this.mtxtTo.SelectionStart = 0;
+			this.mtxtTo.ShortcutsEnabled = true;
 			this.mtxtTo.Size = new System.Drawing.Size(784, 23);
 			this.mtxtTo.Style = MetroFramework.MetroColorStyle.White;
 			this.mtxtTo.TabIndex = 1;
 			this.mtxtTo.UseSelectable = true;
 			this.mtxtTo.UseStyleColors = true;
-			this.mtxtTo.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtTo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtTo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mlblCc
@@ -400,7 +405,7 @@
 			this.Controls.Add(this.splitContainer1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "EmailView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "E-Mail: Angebot für Firma";
 			this.splitContainer1.Panel1.ResumeLayout(false);

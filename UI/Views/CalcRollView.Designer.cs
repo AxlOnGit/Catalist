@@ -173,12 +173,13 @@
 			this.mtxtVK.SelectedText = "";
 			this.mtxtVK.SelectionLength = 0;
 			this.mtxtVK.SelectionStart = 0;
+			this.mtxtVK.ShortcutsEnabled = true;
 			this.mtxtVK.Size = new System.Drawing.Size(59, 29);
 			this.mtxtVK.TabIndex = 11;
 			this.mtxtVK.Text = "0,00";
 			this.mtxtVK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtVK.UseSelectable = true;
-			this.mtxtVK.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtVK.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtVK.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtVK.TextChanged += new System.EventHandler(this.txtVK_TextChanged);
 			// 
@@ -208,12 +209,13 @@
 			this.mtxtEK.SelectedText = "";
 			this.mtxtEK.SelectionLength = 0;
 			this.mtxtEK.SelectionStart = 0;
+			this.mtxtEK.ShortcutsEnabled = true;
 			this.mtxtEK.Size = new System.Drawing.Size(60, 29);
 			this.mtxtEK.TabIndex = 10;
 			this.mtxtEK.Text = "0,00";
 			this.mtxtEK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtEK.UseSelectable = true;
-			this.mtxtEK.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtEK.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtEK.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtEK.TextChanged += new System.EventHandler(this.txtEK_TextChanged);
 			// 
@@ -243,12 +245,13 @@
 			this.mtxtRollLength.SelectedText = "";
 			this.mtxtRollLength.SelectionLength = 0;
 			this.mtxtRollLength.SelectionStart = 0;
+			this.mtxtRollLength.ShortcutsEnabled = true;
 			this.mtxtRollLength.Size = new System.Drawing.Size(59, 29);
 			this.mtxtRollLength.TabIndex = 9;
 			this.mtxtRollLength.Text = "1,00";
 			this.mtxtRollLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtRollLength.UseSelectable = true;
-			this.mtxtRollLength.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRollLength.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRollLength.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtRollLength.TextChanged += new System.EventHandler(this.txtRollLength_TextChanged);
 			// 
@@ -278,12 +281,13 @@
 			this.mtxtRollWidth.SelectedText = "";
 			this.mtxtRollWidth.SelectionLength = 0;
 			this.mtxtRollWidth.SelectionStart = 0;
+			this.mtxtRollWidth.ShortcutsEnabled = true;
 			this.mtxtRollWidth.Size = new System.Drawing.Size(59, 29);
 			this.mtxtRollWidth.TabIndex = 8;
 			this.mtxtRollWidth.Text = "100";
 			this.mtxtRollWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtRollWidth.UseSelectable = true;
-			this.mtxtRollWidth.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtRollWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRollWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtRollWidth.TextChanged += new System.EventHandler(this.txtRollWidth_TextChanged);
 			// 
@@ -589,12 +593,13 @@
 			this.mtxtFreeHomeDelivery.SelectedText = "";
 			this.mtxtFreeHomeDelivery.SelectionLength = 0;
 			this.mtxtFreeHomeDelivery.SelectionStart = 0;
+			this.mtxtFreeHomeDelivery.ShortcutsEnabled = true;
 			this.mtxtFreeHomeDelivery.Size = new System.Drawing.Size(79, 29);
 			this.mtxtFreeHomeDelivery.TabIndex = 2;
 			this.mtxtFreeHomeDelivery.TabStop = false;
 			this.mtxtFreeHomeDelivery.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtFreeHomeDelivery.UseSelectable = true;
-			this.mtxtFreeHomeDelivery.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtFreeHomeDelivery.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFreeHomeDelivery.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtGrossSales
@@ -621,12 +626,13 @@
 			this.mtxtGrossSales.SelectedText = "";
 			this.mtxtGrossSales.SelectionLength = 0;
 			this.mtxtGrossSales.SelectionStart = 0;
+			this.mtxtGrossSales.ShortcutsEnabled = true;
 			this.mtxtGrossSales.Size = new System.Drawing.Size(79, 29);
 			this.mtxtGrossSales.TabIndex = 1;
 			this.mtxtGrossSales.TabStop = false;
 			this.mtxtGrossSales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtGrossSales.UseSelectable = true;
-			this.mtxtGrossSales.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtGrossSales.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtGrossSales.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtSalesPerPeriod
@@ -653,12 +659,13 @@
 			this.mtxtSalesPerPeriod.SelectedText = "";
 			this.mtxtSalesPerPeriod.SelectionLength = 0;
 			this.mtxtSalesPerPeriod.SelectionStart = 0;
+			this.mtxtSalesPerPeriod.ShortcutsEnabled = true;
 			this.mtxtSalesPerPeriod.Size = new System.Drawing.Size(79, 29);
 			this.mtxtSalesPerPeriod.TabIndex = 0;
 			this.mtxtSalesPerPeriod.TabStop = false;
 			this.mtxtSalesPerPeriod.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.mtxtSalesPerPeriod.UseSelectable = true;
-			this.mtxtSalesPerPeriod.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSalesPerPeriod.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSalesPerPeriod.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mlblFreeHomeDelivery
@@ -740,7 +747,7 @@
 			this.Controls.Add(this.mtxtRollWidth);
 			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Name = "CalcRollView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

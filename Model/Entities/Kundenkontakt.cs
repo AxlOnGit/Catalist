@@ -10,13 +10,12 @@ namespace Products.Model.Entities
 {
 	public class Kundenkontakt : ILinkedItem
 	{
-
 		#region members
 
 		dsContacts.KundenkontaktRow myBase;
 		SortableBindingList<dsSage.kontaktemailRow> contactMailList;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -40,7 +39,7 @@ namespace Products.Model.Entities
 
 		public string ItemName
 		{
-			get { return string.Format("{0} ({1})", myBase.Name, this.Kundennummer.Substring(0,5)); }
+			get { return string.Format("{0} ({1})", myBase.Name, this.Kundennummer.Substring(0, 5)); }
 		}
 
 		public string LinkTypBezeichnung
@@ -48,13 +47,13 @@ namespace Products.Model.Entities
 			get { return "Kundenkontakt"; }
 		}
 
-		#endregion
+		#endregion ILinkedItem
 
 		#region integrals
 
 		/// <summary>
-		/// Gibt den Primärschlüssel dieses Kontakts zurück, der sich aus der zusammengesetzten Zeichenfolge
-		/// von Kundennummer und Kontaktnummer ergibt.
+		/// Gibt den Primärschlüssel dieses Kontakts zurück, der sich aus der zusammengesetzten
+		/// Zeichenfolge von Kundennummer und Kontaktnummer ergibt.
 		/// </summary>
 		/// <remarks>Z.B.: 100000000000001</remarks>
 		public string PK { get { return string.Format("{0}{1}", myBase.Kundennummer, myBase.Nummer); } }
@@ -91,17 +90,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt true zurück, wenn der Kontakt Infopost per E-Mail erhalten möchte.
 		/// </summary>
-		public bool InfoPerEmail 
-		{ 
-			get 
+		public bool InfoPerEmail
+		{
+			get
 			{
 				if (string.IsNullOrEmpty(myBase.Auswertungskennzeichen))
 				{
 					return false;
 				}
 				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
-				return (dec & (int)Common.Global.SendInfoTypes.SendEmail) == (int)Global.SendInfoTypes.SendEmail;
-			} 
+				return (dec & (int)Global.SendInfoTypes.SendEmail) == (int)Global.SendInfoTypes.SendEmail;
+			}
 		}
 
 		public bool InfoPerFax
@@ -113,7 +112,7 @@ namespace Products.Model.Entities
 					return false;
 				}
 				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
-				return (dec & (int)Common.Global.SendInfoTypes.SendFax) == (int)Global.SendInfoTypes.SendFax;
+				return (dec & (int)Global.SendInfoTypes.SendFax) == (int)Global.SendInfoTypes.SendFax;
 			}
 		}
 
@@ -126,7 +125,7 @@ namespace Products.Model.Entities
 					return false;
 				}
 				var dec = Convert.ToInt32(Convert.ToInt32(myBase.Auswertungskennzeichen, 2));
-				return (dec & (int)Common.Global.SendInfoTypes.SendLetter) == (int)Global.SendInfoTypes.SendLetter;
+				return (dec & (int)Global.SendInfoTypes.SendLetter) == (int)Global.SendInfoTypes.SendLetter;
 			}
 		}
 
@@ -158,24 +157,24 @@ namespace Products.Model.Entities
 			return contactMailList;
 		}
 
-		#endregion
+		#endregion integrals
 
 		#region entities
 
 		/// <summary>
 		/// Returns the parent customer instance for this contact.
 		/// </summary>
-		Kunde Customer 
+		public Kunde Kunde
 		{
 			get
 			{
-				return ModelManager.CustomerService.GetKunde(myBase.Kundennummer, true);
+				return ModelManager.CustomerService.GetKunde(myBase.Kundennummer, false);
 			}
 		}
 
-		#endregion
+		#endregion entities
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -188,7 +187,7 @@ namespace Products.Model.Entities
 			myBase = baseRow;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -198,7 +197,7 @@ namespace Products.Model.Entities
 		/// <param name="emailField"></param>
 		public void MakeUniqueEmailRecipient(string emailField)
 		{
-			foreach (Kundenkontakt contact in this.Customer.Kontaktlist)
+			foreach (Kundenkontakt contact in this.Kunde.Kontaktlist)
 			{
 				if (!contact.Equals(this))
 				{
@@ -236,7 +235,6 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
-
+		#endregion public procedures
 	}
 }

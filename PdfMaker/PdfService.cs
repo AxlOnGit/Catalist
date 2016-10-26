@@ -42,7 +42,7 @@ namespace Products.PdfMaker
 
 		#region members
 
-		Model.Entities.Offer myOffer;
+		Offer myOffer;
 		PdfFont fontDefault;
 		PdfFont myFontBold;
 		PdfFont fontFooter;
@@ -57,21 +57,21 @@ namespace Products.PdfMaker
 
 		#region public procedures
 
-		public void PrintOffer(Model.Entities.Offer offer, bool asOrder = false)
+		public void PrintOffer(Offer offer, bool asOrder = false)
 		{
 			try
 			{
 				ResetVars();
 				myOffer = offer;
-				string fileAndPath = Path.Combine(Common.Global.OfferFilePath, offer.OfferId + ".pdf");
+				var fileAndPath = Path.Combine(Common.Global.OfferFilePath, offer.OfferId + ".pdf");
 
 				if (File.Exists(fileAndPath))
 				{
 					// Datei in das lokale TEMP Verzeichnis kopieren
-					string temp = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-					string prefix = asOrder ? "B" : "A";
-					string tempFilename = string.Format("{0}{1}.pdf", prefix, DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
-					string tempFileAndPath = Path.Combine(temp, tempFilename);
+					var temp = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					var prefix = asOrder ? "B" : "A";
+					var tempFilename = string.Format("{0}{1}.pdf", prefix, DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
+					var tempFileAndPath = Path.Combine(temp, tempFilename);
 					File.Copy(fileAndPath, tempFileAndPath);
 					var proc = new Process();
 					proc.StartInfo = new ProcessStartInfo(tempFileAndPath);
@@ -82,7 +82,7 @@ namespace Products.PdfMaker
 					CreateOfferDocument(offer, asOrder);
 				}
 			}
-			catch (System.IO.IOException ioEx)
+			catch (IOException ioEx)
 			{
 				throw ioEx;
 			}
@@ -99,7 +99,7 @@ namespace Products.PdfMaker
 			double lineSpacing;
 			double descent;
 			const double fontSize = 10.0;
-			bool isOrder = (this.myOffer.Bestellkennzeichen | asOrder);
+			bool isOffer = (this.myOffer.Bestellkennzeichen | asOrder);
 
 			string fullName = Path.Combine(Common.Global.OfferFilePath, offer.OfferId + ".pdf");
 			doc = new PdfDocument(PaperType.A4, false, UnitOfMeasure.mm, fullName);
@@ -131,7 +131,7 @@ namespace Products.PdfMaker
 			string zipCity = string.Format("{0} {1}", offer.Customer.ZipCode, offer.Customer.City);
 			content.DrawText(fontDefault, fontSize + 2, 18, pageHeight - 71, zipCity);
 
-			string vorgang = isOrder ? "Bestellung" : "Angebot";
+			string vorgang = isOffer ? "Bestellung" : "Angebot";
 			content.DrawText(fontDefault, fontSize + 2, xVLine3 + 5, pageHeight - 55, "Kunden-Nr.:");
 			content.DrawText(fontDefault, fontSize + 2, xVLine5 - 13, pageHeight - 55, offer.CustomerId.Substring(0, 5));
 			content.DrawText(fontDefault, fontSize + 2, xVLine3 + 5, pageHeight - 60, vorgang + " Nr.:");
@@ -207,14 +207,23 @@ namespace Products.PdfMaker
 
 				table.Cell[colPos].Value = offer.OfferDetails[i].Position;
 				table.Cell[colArtNr].Value = offer.OfferDetails[i].Artikelnummer;
-				PdfFileWriter.TextBox txtBezeichnung = table.Cell[colArtBez].CreateTextBox();
+				TextBox txtBezeichnung = table.Cell[colArtBez].CreateTextBox();
 				txtBezeichnung.AddText(myFontBold, 9, offer.OfferDetails[i].Artikelname);
-				if (!isOrder) txtBezeichnung.AddText(fontDefault, 9, string.Format("\n\n{0}", offer.OfferDetails[i].Artikeltext.Replace("\t", " ")));
+				if (!isOffer) txtBezeichnung.AddText(fontDefault, 9, string.Format("\n\n{0}", offer.OfferDetails[i].Artikeltext.Replace("\t", " ")));
 				table.Cell[colMenge].Value = string.Format("{0:#,##0} {1}", offer.OfferDetails[i].Menge, offer.OfferDetails[i].Einheit);
-				table.Cell[colPreis].Value = offer.OfferDetails[i].Kundenpreis;
-				table.Cell[colGesamt].Value = offer.OfferDetails[i].Zeilensumme;
+
+				if (!isOffer)
+				{
+					table.Cell[colPreis].Value = offer.OfferDetails[i].Kundenpreis;
+					table.Cell[colGesamt].Value = offer.OfferDetails[i].Zeilensumme;
+					zwischenSumme += offer.OfferDetails[i].Zeilensumme;
+				}
+				else
+				{
+					table.Cell[colPreis].Value = "-";
+					table.Cell[colGesamt].Value = "-";
+				}
 				table.DrawRow(offer.OfferDetails[i].NeueSeite);
-				zwischenSumme += offer.OfferDetails[i].Zeilensumme;
 			}
 			table.Close();
 
@@ -224,10 +233,10 @@ namespace Products.PdfMaker
 				if (File.Exists(fullName) && withPreview)
 				{
 					// Datei in das lokale TEMP Verzeichnis kopieren
-					string temp = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					var temp = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 					string prefix = asOrder ? "B" : "A";
-					string tempFilename = string.Format("{0}{1}.pdf", prefix, DateTime.Now.ToString("yyyy-MM-dd_hh.mm.ss"));
-					string tempFileAndPath = Path.Combine(temp, tempFilename);
+					var tempFilename = string.Format("{0}{1}.pdf", prefix, DateTime.Now.ToString("yyyy-MM-dd_hh.mm.ss"));
+					var tempFileAndPath = Path.Combine(temp, tempFilename);
 					File.Copy(fullName, tempFileAndPath);
 					var proc = new Process();
 					proc.StartInfo = new ProcessStartInfo(tempFileAndPath);
@@ -270,11 +279,11 @@ namespace Products.PdfMaker
 			lastPosition = TableEndPos;
 			if (!lastRow)
 			{
-				DrawSubtotal(Table.Contents);
+				if (!myOffer.Bestellkennzeichen) DrawSubtotal(Table.Contents);
 			}
 			else
 			{
-				DrawSummary(Table.Contents, myOffer);
+				if (!myOffer.Bestellkennzeichen) DrawSummary(Table.Contents, myOffer);
 			}
 			DrawFooter(Table.Contents, fontFooter);
 		}

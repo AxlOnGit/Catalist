@@ -91,11 +91,12 @@
 			this.mtxtUserName.SelectedText = "";
 			this.mtxtUserName.SelectionLength = 0;
 			this.mtxtUserName.SelectionStart = 0;
+			this.mtxtUserName.ShortcutsEnabled = true;
 			this.mtxtUserName.Size = new System.Drawing.Size(152, 23);
 			this.mtxtUserName.TabIndex = 0;
 			this.mtxtUserName.UseSelectable = true;
 			this.mtxtUserName.WaterMark = "Benutzername";
-			this.mtxtUserName.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtUserName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtUserName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtSignature
@@ -126,11 +127,12 @@
 			this.mtxtSignature.SelectedText = "";
 			this.mtxtSignature.SelectionLength = 0;
 			this.mtxtSignature.SelectionStart = 0;
+			this.mtxtSignature.ShortcutsEnabled = true;
 			this.mtxtSignature.Size = new System.Drawing.Size(339, 407);
 			this.mtxtSignature.TabIndex = 2;
 			this.mtxtSignature.UseSelectable = true;
 			this.mtxtSignature.WaterMark = "E-Mail Signatur";
-			this.mtxtSignature.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
+			this.mtxtSignature.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSignature.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
 			// mtxtOk
@@ -175,7 +177,7 @@
 			this.Controls.Add(this.lblAppointmentColor);
 			this.Controls.Add(this.mlblColorText);
 			this.Name = "UserDetailView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Purple;
 			this.Text = "Mitarbeitername";
 			this.TopMost = true;

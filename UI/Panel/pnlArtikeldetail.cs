@@ -1,26 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data;
-using System.Windows.Forms;
 using System.Diagnostics;
-using Products.Data.Datasets;
-using Products.Data;
-using Products.Model.Entities;
-using Products.Model;
+using System.Windows.Forms;
+using MetroFramework;
 using Products.Common.Views;
+using Products.Data;
+using Products.Data.Datasets;
+using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.Common.Panel
 {
 	public partial class pnlArtikeldetail : pnlSlider
 	{
-
 		#region members
 
 		readonly KundeMainView myParent;
 		readonly Kunde myKunde;
 		readonly Product myProduct;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -40,7 +40,7 @@ namespace Products.Common.Panel
 			ModelManager.ProductService.UpdateProducts(this.myKunde);
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -277,7 +277,7 @@ namespace Products.Common.Panel
 			(this.cmbCategory.DataSource as DataView).RowFilter = string.Empty;
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region procedures
 
@@ -285,7 +285,7 @@ namespace Products.Common.Panel
 		{
 			if (this.myProduct != null)
 			{
-				this.mlblTitel.Text = string.Format("{0}   [Art.-Nr: {1}]", myProduct.Bezeichnung1, myProduct.Artikelnummer);
+				this.mlblTitel.Text = string.Format("{0}   [Art.-Nr: {1}]", myProduct.Bezeichnung2, myProduct.Artikelnummer);
 				var dvCatalog = DataManager.CatalogDataService.GetCatalogTable().DefaultView;
 				dvCatalog.RowFilter = string.Empty;
 				this.cmbCategory.DataSource = dvCatalog;
@@ -390,7 +390,7 @@ namespace Products.Common.Panel
 			if (spv.ShowDialog() == DialogResult.OK)
 			{
 				var msg = "Wenn Du jetzt auf Ok klickst, werden die bereits vorhandenen Namen der Eigenschaften (linke Spalte) überschrieben!";
-				if (MessageBox.Show(msg, "Catalist - Preset", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+				if (MetroMessageBox.Show(this, msg, "Catalist - Preset", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
 					var preset = spv.SelectedPreset;
 
@@ -468,7 +468,7 @@ namespace Products.Common.Panel
 				else
 				{
 					string msg1 = "Sollen alle vorhandenen Bezeichnungen der Eigenschaften gelöscht werden?";
-					if (MessageBox.Show(msg1, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+					if (MetroMessageBox.Show(this, msg1, "Catalist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 					{
 						this.txtProperty1.Text = string.Empty;
 						this.txtProperty2.Text = string.Empty;
@@ -496,7 +496,6 @@ namespace Products.Common.Panel
 			}
 		}
 
-		#endregion
-
+		#endregion procedures
 	}
 }

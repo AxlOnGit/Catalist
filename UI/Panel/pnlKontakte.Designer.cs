@@ -34,6 +34,8 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dgvContacts = new MetroFramework.Controls.MetroGrid();
+			this.ctxGrid = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.mlblTitel = new MetroFramework.Controls.MetroLabel();
 			this.colMainContactFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.colKontaktname = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colAbteilung = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +48,6 @@
 			this.colInfoPerMail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.colInfoPerFax = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.colInfoPerBrief = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.ctxGrid = new MetroFramework.Controls.MetroContextMenu(this.components);
-			this.mlblTitel = new MetroFramework.Controls.MetroLabel();
 			((System.ComponentModel.ISupportInitialize)(this.dgvContacts)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -119,6 +119,22 @@
 			this.dgvContacts.Style = MetroFramework.MetroColorStyle.Yellow;
 			this.dgvContacts.TabIndex = 0;
 			this.dgvContacts.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContacts_RowEnter);
+			// 
+			// ctxGrid
+			// 
+			this.ctxGrid.Name = "ctxGrid";
+			this.ctxGrid.Size = new System.Drawing.Size(61, 4);
+			// 
+			// mlblTitel
+			// 
+			this.mlblTitel.AutoSize = true;
+			this.mlblTitel.FontSize = MetroFramework.MetroLabelSize.Tall;
+			this.mlblTitel.Location = new System.Drawing.Point(22, 20);
+			this.mlblTitel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.mlblTitel.Name = "mlblTitel";
+			this.mlblTitel.Size = new System.Drawing.Size(139, 25);
+			this.mlblTitel.TabIndex = 0;
+			this.mlblTitel.Text = "Ansprechpartner";
 			// 
 			// colMainContactFlag
 			// 
@@ -201,7 +217,7 @@
 			// 
 			// colInfoPerMail
 			// 
-			this.colInfoPerMail.DataPropertyName = "InfoPerMail";
+			this.colInfoPerMail.DataPropertyName = "InfoPerEmail";
 			this.colInfoPerMail.HeaderText = "InfoMail";
 			this.colInfoPerMail.Name = "colInfoPerMail";
 			this.colInfoPerMail.ReadOnly = true;
@@ -217,26 +233,10 @@
 			// 
 			// colInfoPerBrief
 			// 
-			this.colInfoPerBrief.DataPropertyName = "InfoBrief";
+			this.colInfoPerBrief.DataPropertyName = "InfoPerBrief";
 			this.colInfoPerBrief.HeaderText = "InfoBrief";
 			this.colInfoPerBrief.Name = "colInfoPerBrief";
 			this.colInfoPerBrief.ReadOnly = true;
-			// 
-			// ctxGrid
-			// 
-			this.ctxGrid.Name = "ctxGrid";
-			this.ctxGrid.Size = new System.Drawing.Size(61, 4);
-			// 
-			// mlblTitel
-			// 
-			this.mlblTitel.AutoSize = true;
-			this.mlblTitel.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblTitel.Location = new System.Drawing.Point(22, 20);
-			this.mlblTitel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.mlblTitel.Name = "mlblTitel";
-			this.mlblTitel.Size = new System.Drawing.Size(139, 25);
-			this.mlblTitel.TabIndex = 0;
-			this.mlblTitel.Text = "Ansprechpartner";
 			// 
 			// pnlKontakte
 			// 
@@ -260,18 +260,18 @@
 
 		MetroFramework.Controls.MetroLabel mlblTitel;
 		MetroFramework.Controls.MetroGrid dgvContacts;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colMainContactFlag;
-		System.Windows.Forms.DataGridViewTextBoxColumn colKontaktname;
-		System.Windows.Forms.DataGridViewTextBoxColumn colAbteilung;
-		System.Windows.Forms.DataGridViewTextBoxColumn colTelefon;
-		System.Windows.Forms.DataGridViewTextBoxColumn colTelefax;
-		System.Windows.Forms.DataGridViewTextBoxColumn colHandy;
-		System.Windows.Forms.DataGridViewTextBoxColumn colAutotelefon;
-		System.Windows.Forms.DataGridViewTextBoxColumn colE_Mail;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colWebshopkunde;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerMail;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerFax;
-		System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerBrief;
 		MetroFramework.Controls.MetroContextMenu ctxGrid;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colMainContactFlag;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colKontaktname;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colAbteilung;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colTelefon;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colTelefax;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colHandy;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colAutotelefon;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colE_Mail;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colWebshopkunde;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerMail;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerFax;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInfoPerBrief;
 	}
 }

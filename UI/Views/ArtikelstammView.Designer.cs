@@ -66,8 +66,8 @@ namespace Products.Common.Views
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvArtikel.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvArtikel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+						| System.Windows.Forms.AnchorStyles.Left) 
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvArtikel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvArtikel.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvArtikel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -82,16 +82,16 @@ namespace Products.Common.Views
 			this.dgvArtikel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvArtikel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvArtikel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTyp,
-            this.colArtikel,
-            this.colBezeichnung1,
-            this.colBezeichnung2,
-            this.colArtikelgruppe,
-            this.colMengeneinheit,
-            this.colEinkaufspreis,
-            this.colVerkaufspreis1,
-            this.colKundenpreis,
-            this.colProzent});
+						this.colTyp,
+						this.colArtikel,
+						this.colBezeichnung1,
+						this.colBezeichnung2,
+						this.colArtikelgruppe,
+						this.colMengeneinheit,
+						this.colEinkaufspreis,
+						this.colVerkaufspreis1,
+						this.colKundenpreis,
+						this.colProzent});
 			this.dgvArtikel.ContextMenuStrip = this.mctxGrid;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -211,8 +211,8 @@ namespace Products.Common.Views
 			// mctxGrid
 			// 
 			this.mctxGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mcmdAuftraege,
-            this.xcmdShowInventoryView});
+						this.mcmdAuftraege,
+						this.xcmdShowInventoryView});
 			this.mctxGrid.Name = "mctxGrid";
 			this.mctxGrid.Size = new System.Drawing.Size(146, 48);
 			// 
@@ -257,6 +257,7 @@ namespace Products.Common.Views
 			this.mtxtFilter.SelectedText = "";
 			this.mtxtFilter.SelectionLength = 0;
 			this.mtxtFilter.SelectionStart = 0;
+			this.mtxtFilter.ShortcutsEnabled = true;
 			this.mtxtFilter.ShowClearButton = true;
 			this.mtxtFilter.Size = new System.Drawing.Size(334, 23);
 			this.mtxtFilter.Style = MetroFramework.MetroColorStyle.Red;
@@ -313,7 +314,7 @@ namespace Products.Common.Views
 			this.Controls.Add(this.mtxtFilter);
 			this.Controls.Add(this.dgvArtikel);
 			this.Name = "ArtikelstammView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "Artikelstamm";
 			((System.ComponentModel.ISupportInitialize)(this.dgvArtikel)).EndInit();

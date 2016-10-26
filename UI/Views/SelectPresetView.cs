@@ -1,24 +1,23 @@
 ﻿using System.Data;
 using System.Windows.Forms;
-using Products.Data.Datasets;
-using Products.Data;
 using MetroFramework.Forms;
+using Products.Data;
+using Products.Data.Datasets;
 
 namespace Products.Common.Views
 {
 	public partial class SelectPresetView : MetroForm
 	{
-
 		#region members
 
 		readonly BindingSource bs = new BindingSource();
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		/// <summary>
-		///  Returns the selected Preset (PresetRow).
+		/// Returns the selected Preset (PresetRow).
 		/// </summary>
 		public dsShared.PresetRow SelectedPreset
 		{
@@ -29,7 +28,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -39,7 +38,7 @@ namespace Products.Common.Views
 			InitListbox();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handlers
 
@@ -53,7 +52,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handlers
 
 		#region private procedures
 
@@ -64,7 +63,6 @@ namespace Products.Common.Views
 			this.lstPresets.DisplayMember = "PresetName";
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

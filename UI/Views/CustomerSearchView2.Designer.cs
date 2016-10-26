@@ -214,7 +214,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "CustomerSearchView2";
 			this.Padding = new System.Windows.Forms.Padding(20, 100, 20, 20);
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.Text = "Ergebnis der Kundensuche";

@@ -6,6 +6,7 @@ using Products.Data;
 using Products.Data.Datasets;
 using Products.Data.Datasets.dsMachinesTableAdapters;
 using Products.Common;
+using System.Data;
 
 namespace Products.Data.Services
 {
@@ -63,13 +64,14 @@ namespace Products.Data.Services
 		public MachineBuildParams AddKundenMaschineRow(string kundePK, string createdByPK)
 		{
 			// Neue Zeile in Tabelle Kundenmaschine einfügen.
-			dsMachines.KundenMaschineRow mRow = this.myMachinesDS.KundenMaschine.NewKundenMaschineRow();
+			var mRow = this.myMachinesDS.KundenMaschine.NewKundenMaschineRow();
 			mRow.UID = SequentialGuid.NewSequentialGuid().ToString();
 			mRow.Kundennummer = kundePK;
 			mRow.MaschinenmodellId = "00000000-0000-0000-0000-000000000000";
 			mRow.Seriennummer = "-";
 			mRow.Firmware = "-";
 			mRow.VerkauftDurch = "-";
+			mRow.Auftragsdatum = DateTime.Today;
 			mRow.Kaufdatum = DateTime.Today;
 			mRow.LeasingFlag = "0";
 			mRow.MietkaufFlag = "0";
@@ -81,12 +83,15 @@ namespace Products.Data.Services
 			mRow.TintenId = "00000000-0000-0000-0000-000000000000";
 			mRow.FarbenSet = "";
 			mRow.AuftragsnummerSage = "";
+			mRow.RechnungsnummerSage = "";
 			mRow.Wartungsintervall = 12;
+			mRow.Dateipfad = "";
+			mRow.Sonderausstattung = "";
 
 			this.myMachinesDS.KundenMaschine.AddKundenMaschineRow(mRow);
 
 			// Neue Zeile in Tabelle KundenMaschineXref einfügen.
-			dsMachines.KundeMaschineXrefRow xRow = this.AddMachineXrefRow(mRow.UID, kundePK, createdByPK);
+			var xRow = this.AddMachineXrefRow(mRow.UID, kundePK, createdByPK);
 
 			this.UpdateKundenMaschinen();
 			var retParams = new MachineBuildParams(mRow, xRow); 
@@ -164,7 +169,7 @@ namespace Products.Data.Services
 			bool result = false;
 
 			// Zuordnungsende für den alten Kunden festlegen.
-			dsMachines.KundeMaschineXrefRow xRowFrom = this.GetKundenMaschineXrefRow(machinePK, fromKundePK);
+			var xRowFrom = this.GetKundenMaschineXrefRow(machinePK, fromKundePK);
 			xRowFrom.Zuordnungsende = DateTime.Now;
 			xRowFrom.AktualisiertVon = creatorPK;
 			xRowFrom.AktualisiertAm = xRowFrom.Zuordnungsende;
@@ -190,13 +195,13 @@ namespace Products.Data.Services
 		public int DeleteKundenMaschineRows(string maschinePK)
 		{
 			int result = 0;
-			dsMachines.KundenMaschineRow mRow = this.myMachinesDS.KundenMaschine.FindByUID(maschinePK);
+			var mRow = this.myMachinesDS.KundenMaschine.FindByUID(maschinePK);
 			if (mRow != null) 
 			{
 				mRow.Delete();
 				result += 1;
 			} 
-			IEnumerable<dsMachines.KundeMaschineXrefRow> xRows = this.myMachinesDS.KundeMaschineXref.Where(x => x.MaschinenId == maschinePK);
+			var xRows = this.myMachinesDS.KundeMaschineXref.Where(x => x.MaschinenId == maschinePK);
 			foreach (var xRow in xRows)
 			{
 				xRow.Delete();
@@ -234,7 +239,46 @@ namespace Products.Data.Services
 		/// <returns></returns>
 		public dsMachines.KundenmaschinenListeDataTable GetKundenmaschinenSearchList()
 		{
-			return this.myKundenmaschinenListeAdapter.GetData();
+			var result = this.myKundenmaschinenListeAdapter.GetData();
+			return result;
+			//try
+			//{
+			//	result = 
+			//	return result;
+			//}
+			//catch (ConstraintException)
+			//{
+			//	var rowErrors = this.myKundenmaschinenListeAdapter.GetData().GetErrors();
+			//	for (int i = 0; i < rowErrors.Length; i++)
+			//	{
+			//		var msg = string.Format("{0}", rowErrors[i].RowError);
+			//	}
+			//	return null;
+			//}
+		}
+
+		/// <summary>
+		/// Gibt eine Liste von aktuell zugeordneten Kundenmaschinen für den angegebenen Kunden zurück.
+		/// </summary>
+		/// <param name="kundeCpm"></param>
+		/// <returns></returns>
+		public IEnumerable<dsMachines.KundenmaschinenListeRow> GetKundenmaschinenSearchList(string kundeCpm)
+		{
+			var result = this.GetKundenmaschinenSearchList();
+			return result.Where(m => m.Kunde == kundeCpm);
+
+			//try
+			//{
+			//}
+			//catch (ConstraintException)
+			//{
+			//	var rowErrors = this.myKundenmaschinenListeAdapter.GetData().GetErrors();
+			//	for (int i = 0; i < rowErrors.Length; i++)
+			//	{
+			//		var msg = string.Format("{0}", rowErrors[i].RowError);
+			//	}
+			//	return null;
+			//}
 		}
 
 		#endregion
@@ -255,10 +299,10 @@ namespace Products.Data.Services
 			}
 		}
 
-		private dsMachines.KundeMaschineXrefRow AddMachineXrefRow(string machinePK, string kundePK, string creatorPK, DateTime? zuordnungsBeginn = null)
+		dsMachines.KundeMaschineXrefRow AddMachineXrefRow(string machinePK, string kundePK, string creatorPK, DateTime? zuordnungsBeginn = null)
 		{
 			if (!zuordnungsBeginn.HasValue) zuordnungsBeginn = DateTime.Now;
-			dsMachines.KundeMaschineXrefRow xRowTo = this.myMachinesDS.KundeMaschineXref.NewKundeMaschineXrefRow();
+			var xRowTo = this.myMachinesDS.KundeMaschineXref.NewKundeMaschineXrefRow();
 			xRowTo.UID = SequentialGuid.NewSequentialGuid().ToString();
 			xRowTo.MaschinenId = machinePK;
 			xRowTo.Kundennummer = kundePK;

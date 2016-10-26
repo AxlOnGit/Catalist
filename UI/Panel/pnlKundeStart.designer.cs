@@ -28,12 +28,12 @@
 		/// </summary>
 		void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pnlKundeStart));
 			this.mlblHauptkontakt = new MetroFramework.Controls.MetroLabel();
 			this.mlblPlzOrt = new MetroFramework.Controls.MetroLabel();
@@ -60,13 +60,15 @@
 			this.mtileAuftraege = new MetroFramework.Controls.MetroTile();
 			this.mlblFrachtfreigrenze = new MetroFramework.Controls.MetroLabel();
 			this.mTileClose = new MetroFramework.Controls.MetroTile();
+			this.mlblInactive = new MetroFramework.Controls.MetroLabel();
+			this.mlblEntfernung = new MetroFramework.Controls.MetroLabel();
 			((System.ComponentModel.ISupportInitialize)(this.dgvTop10b)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mlblHauptkontakt
 			// 
 			this.mlblHauptkontakt.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblHauptkontakt.Location = new System.Drawing.Point(698, 137);
+			this.mlblHauptkontakt.Location = new System.Drawing.Point(698, 188);
 			this.mlblHauptkontakt.Name = "mlblHauptkontakt";
 			this.mlblHauptkontakt.Size = new System.Drawing.Size(533, 25);
 			this.mlblHauptkontakt.TabIndex = 14;
@@ -75,7 +77,7 @@
 			// mlblPlzOrt
 			// 
 			this.mlblPlzOrt.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblPlzOrt.Location = new System.Drawing.Point(698, 98);
+			this.mlblPlzOrt.Location = new System.Drawing.Point(698, 122);
 			this.mlblPlzOrt.Name = "mlblPlzOrt";
 			this.mlblPlzOrt.Size = new System.Drawing.Size(533, 25);
 			this.mlblPlzOrt.TabIndex = 11;
@@ -84,7 +86,7 @@
 			// mlblStrasse
 			// 
 			this.mlblStrasse.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblStrasse.Location = new System.Drawing.Point(698, 73);
+			this.mlblStrasse.Location = new System.Drawing.Point(698, 97);
 			this.mlblStrasse.Name = "mlblStrasse";
 			this.mlblStrasse.Size = new System.Drawing.Size(533, 25);
 			this.mlblStrasse.TabIndex = 10;
@@ -96,7 +98,7 @@
 			this.mlnkEmail.FontSize = MetroFramework.MetroLinkSize.Medium;
 			this.mlnkEmail.FontWeight = MetroFramework.MetroLinkWeight.Light;
 			this.mlnkEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.mlnkEmail.Location = new System.Drawing.Point(698, 184);
+			this.mlnkEmail.Location = new System.Drawing.Point(698, 235);
 			this.mlnkEmail.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.mlnkEmail.Name = "mlnkEmail";
 			this.mlnkEmail.Size = new System.Drawing.Size(533, 23);
@@ -113,7 +115,7 @@
 			this.mlnkTelefon.FontSize = MetroFramework.MetroLinkSize.Medium;
 			this.mlnkTelefon.FontWeight = MetroFramework.MetroLinkWeight.Light;
 			this.mlnkTelefon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.mlnkTelefon.Location = new System.Drawing.Point(698, 162);
+			this.mlnkTelefon.Location = new System.Drawing.Point(698, 213);
 			this.mlnkTelefon.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.mlnkTelefon.Name = "mlnkTelefon";
 			this.mlnkTelefon.Size = new System.Drawing.Size(533, 23);
@@ -126,33 +128,35 @@
 			// mlblKundennummer
 			// 
 			this.mlblKundennummer.FontSize = MetroFramework.MetroLabelSize.Tall;
+			this.mlblKundennummer.ForeColor = System.Drawing.Color.DarkGreen;
 			this.mlblKundennummer.Location = new System.Drawing.Point(698, 38);
 			this.mlblKundennummer.Name = "mlblKundennummer";
 			this.mlblKundennummer.Size = new System.Drawing.Size(533, 25);
 			this.mlblKundennummer.TabIndex = 18;
 			this.mlblKundennummer.Text = "Kunden-Nr. - Firma";
+			this.mlblKundennummer.UseCustomForeColor = true;
 			// 
 			// dgvTop10b
 			// 
 			this.dgvTop10b.AllowUserToAddRows = false;
 			this.dgvTop10b.AllowUserToDeleteRows = false;
 			this.dgvTop10b.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-			this.dgvTop10b.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(244, 244, 244);
+			this.dgvTop10b.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
 			this.dgvTop10b.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvTop10b.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvTop10b.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvTop10b.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvTop10b.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvTop10b.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvTop10b.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(255, 0, ((int)(((byte)(148)))));
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvTop10b.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvTop10b.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTop10b.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colArtikel,
@@ -160,36 +164,36 @@
             this.colDatumZuletzt,
             this.colUmsatz,
             this.colAnzahl});
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvTop10b.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvTop10b.DefaultCellStyle = dataGridViewCellStyle11;
 			this.dgvTop10b.EnableHeadersVisualStyles = false;
 			this.dgvTop10b.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvTop10b.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvTop10b.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
 			this.dgvTop10b.HighLightPercentage = 0.9F;
-			this.dgvTop10b.Location = new System.Drawing.Point(698, 283);
+			this.dgvTop10b.Location = new System.Drawing.Point(698, 310);
 			this.dgvTop10b.Margin = new System.Windows.Forms.Padding(5, 35, 5, 5);
 			this.dgvTop10b.Name = "dgvTop10b";
 			this.dgvTop10b.ReadOnly = true;
 			this.dgvTop10b.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvTop10b.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(255, 0, ((int)(((byte)(148)))));
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvTop10b.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
 			this.dgvTop10b.RowHeadersVisible = false;
 			this.dgvTop10b.RowHeadersWidth = 21;
 			this.dgvTop10b.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvTop10b.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvTop10b.Size = new System.Drawing.Size(533, 295);
+			this.dgvTop10b.Size = new System.Drawing.Size(533, 268);
 			this.dgvTop10b.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.dgvTop10b.TabIndex = 22;
 			this.dgvTop10b.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTop10b_RowEnter);
@@ -217,9 +221,9 @@
 			// 
 			this.colDatumZuletzt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colDatumZuletzt.DataPropertyName = "Datum";
-			dataGridViewCellStyle3.Format = "d";
-			dataGridViewCellStyle3.NullValue = null;
-			this.colDatumZuletzt.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle9.Format = "d";
+			dataGridViewCellStyle9.NullValue = null;
+			this.colDatumZuletzt.DefaultCellStyle = dataGridViewCellStyle9;
 			this.colDatumZuletzt.FillWeight = 15F;
 			this.colDatumZuletzt.HeaderText = "Zuletzt am";
 			this.colDatumZuletzt.Name = "colDatumZuletzt";
@@ -229,9 +233,9 @@
 			// 
 			this.colUmsatz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colUmsatz.DataPropertyName = "Umsatz";
-			dataGridViewCellStyle4.Format = "N2";
-			dataGridViewCellStyle4.NullValue = null;
-			this.colUmsatz.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle10.Format = "N2";
+			dataGridViewCellStyle10.NullValue = null;
+			this.colUmsatz.DefaultCellStyle = dataGridViewCellStyle10;
 			this.colUmsatz.FillWeight = 15F;
 			this.colUmsatz.HeaderText = "Umsatz";
 			this.colUmsatz.Name = "colUmsatz";
@@ -425,7 +429,7 @@
 			// mlblFrachtfreigrenze
 			// 
 			this.mlblFrachtfreigrenze.AutoSize = true;
-			this.mlblFrachtfreigrenze.Location = new System.Drawing.Point(698, 240);
+			this.mlblFrachtfreigrenze.Location = new System.Drawing.Point(698, 269);
 			this.mlblFrachtfreigrenze.Name = "mlblFrachtfreigrenze";
 			this.mlblFrachtfreigrenze.Size = new System.Drawing.Size(83, 19);
 			this.mlblFrachtfreigrenze.TabIndex = 23;
@@ -447,11 +451,33 @@
 			this.mTileClose.UseTileImage = true;
 			this.mTileClose.Click += new System.EventHandler(this.mTileClose_Click);
 			// 
+			// mlblInactive
+			// 
+			this.mlblInactive.AutoSize = true;
+			this.mlblInactive.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+			this.mlblInactive.ForeColor = System.Drawing.Color.Green;
+			this.mlblInactive.Location = new System.Drawing.Point(700, 68);
+			this.mlblInactive.Name = "mlblInactive";
+			this.mlblInactive.Size = new System.Drawing.Size(107, 19);
+			this.mlblInactive.TabIndex = 25;
+			this.mlblInactive.Text = "Kunde ist aktiv";
+			this.mlblInactive.UseCustomForeColor = true;
+			// 
+			// mlblEntfernung
+			// 
+			this.mlblEntfernung.Location = new System.Drawing.Point(700, 152);
+			this.mlblEntfernung.Name = "mlblEntfernung";
+			this.mlblEntfernung.Size = new System.Drawing.Size(531, 25);
+			this.mlblEntfernung.TabIndex = 26;
+			this.mlblEntfernung.Text = "Entfernung";
+			// 
 			// pnlKundeStart
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.mlblEntfernung);
+			this.Controls.Add(this.mlblInactive);
 			this.Controls.Add(this.mTileClose);
 			this.Controls.Add(this.mlblFrachtfreigrenze);
 			this.Controls.Add(this.dgvTop10b);
@@ -511,6 +537,7 @@
 		System.Windows.Forms.DataGridViewTextBoxColumn colAnzahl;
 		MetroFramework.Controls.MetroLabel mlblFrachtfreigrenze;
 		MetroFramework.Controls.MetroTile mTileClose;
-
+		private MetroFramework.Controls.MetroLabel mlblInactive;
+		private MetroFramework.Controls.MetroLabel mlblEntfernung;
 	}
 }

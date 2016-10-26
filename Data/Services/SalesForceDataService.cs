@@ -51,7 +51,7 @@ namespace Products.Data.Services
 		public dsSalesForce.TourKundeXrefRow AddTourKundeXrefRow(string tourId, string kundePK, string creatorPK)
 		{
 			this.AssureTourKundeXrefInitialized();
-			dsSalesForce.TourKundeXrefRow xRow = this.mySalesDS.TourKundeXref.NewTourKundeXrefRow();
+			var xRow = this.mySalesDS.TourKundeXref.NewTourKundeXrefRow();
 			xRow.TourId = tourId;
 			xRow.Kundennummer = kundePK;
 			xRow.ErstelltAm = DateTime.Now;
@@ -66,7 +66,7 @@ namespace Products.Data.Services
 
 		public dsSalesForce.TourInteressentXrefRow AddTourInteressentXrefRow(string tourId, string interessentPK, string creatorPK)
 		{
-			dsSalesForce.TourInteressentXrefRow xRow = this.mySalesDS.TourInteressentXref.NewTourInteressentXrefRow();
+			var xRow = this.mySalesDS.TourInteressentXref.NewTourInteressentXrefRow();
 			xRow.TourId = tourId;
 			xRow.InteressentId = interessentPK;
 			xRow.AktualisiertAm = DateTime.Now;
@@ -139,7 +139,7 @@ namespace Products.Data.Services
 		/// <returns></returns>
 		public int RemoveKundeFromTour(string kundePK, string tourPK)
 		{
-			dsSalesForce.TourKundeXrefRow xRow = this.mySalesDS.TourKundeXref.FirstOrDefault(x => x.Kundennummer == kundePK && x.TourId == tourPK);
+			var xRow = this.mySalesDS.TourKundeXref.FirstOrDefault(x => x.Kundennummer == kundePK && x.TourId == tourPK);
 			if (xRow != null)
 			{
 				xRow.Delete();

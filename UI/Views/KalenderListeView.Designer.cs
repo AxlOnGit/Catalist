@@ -176,7 +176,7 @@
 			this.Controls.Add(this.mbtnOk);
 			this.Controls.Add(this.dgvTermine);
 			this.Name = "KalenderListeView";
-			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
 			this.Style = MetroFramework.MetroColorStyle.Red;
 			this.Text = "Terminliste";
 			((System.ComponentModel.ISupportInitialize)(this.dgvTermine)).EndInit();

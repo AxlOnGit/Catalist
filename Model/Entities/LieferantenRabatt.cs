@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Products.Data.Datasets;
+﻿using Products.Data.Datasets;
 
 namespace Products.Model.Entities
 {
@@ -11,7 +7,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		dsSuppliers.RabattstaffelRow myBase = null;
+		readonly dsSuppliers.RabattstaffelRow myBase;
 
 		#endregion
 

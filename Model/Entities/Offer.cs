@@ -126,22 +126,12 @@ namespace Products.Model.Entities
 		/// </summary>
 		public bool Bestellkennzeichen 
 		{ 
-			get 
-			{ 
-				return (myBase.Bestellkennzeichen != 0); 
-			} 
-			set 
+			get { return (myBase.Bestellkennzeichen != 0); } 
+			set
 			{
-				if (value == true)
-				{
-					myBase.Bestellkennzeichen = 1;
-				}
-				else
-				{
-					myBase.Bestellkennzeichen = 0;
-				}
+				this.myBase.Bestellkennzeichen = (ulong)((value == true) ? 1 : 0);
 				this.ChangeDate = DateTime.Now;
-			} 
+			}
 		}
 
 		/// <summary>
