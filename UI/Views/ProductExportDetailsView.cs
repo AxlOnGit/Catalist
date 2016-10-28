@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -25,7 +26,8 @@ namespace Products.Common.Views
 		public ProductExportDetailsView(Kunde kunde, IEnumerable<Product> exportList)
 		{
 			InitializeComponent();
-			this.myCriteria = new ProductExportCriteria(kunde);
+			var bmpFullname = Path.Combine(Properties.Settings.Default.PicturePath, "cpm_kopf.jpg");
+			this.myCriteria = new ProductExportCriteria(kunde, bmpFullname);
 			this.myExportList = exportList;
 			this.mlblExportInfo.Text = $"Die Excel Tabelle wird im Ordner Dokumente als\n{this.myCriteria.ExcelFilename} gespeichert.";
 			this.InitializeData();

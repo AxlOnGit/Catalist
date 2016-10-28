@@ -1066,6 +1066,10 @@
     <None Include="Resources\edit_32_metrogreen.png" />
     <None Include="Resources\excelexport_32_metrored.png" />
     <None Include="Resources\excelexport_32.png" />
+    <None Include="Resources\explorer_exe_original.png" />
+    <None Include="Resources\search_24_metroorange.png" />
+    <None Include="Resources\SageNCL_32.png" />
+    <None Include="Resources\customer_32_metrowhite.png" />
     <Content Include="Windows 8.ico" />
     <None Include="Resources\filter_16_metrolime.png" />
     <None Include="Resources\frage_32_metroyellow.png" />

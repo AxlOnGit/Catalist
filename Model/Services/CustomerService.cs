@@ -10,20 +10,35 @@ namespace Products.Model.Services
 {
 	public class CustomerService
 	{
-		#region events
+		#region EVENTS
 
 		public event EventHandler CurrentCustomerSet;
 
-		#endregion events
+		#endregion EVENTS
 
-		#region members
+		#region CONSTANTS
+
+		const string cpmPrimaryKey = "1000000000";
+
+		#endregion CONSTANTS
+
+		#region MEMBERS
 
 		Dictionary<string, Kunde> myCustomerDictionary;
 		Kunde myCurrentCustomer;
 
-		#endregion members
+		#endregion MEMBERS
 
-		#region public properties
+		#region ### .ctor ###
+
+		public CustomerService()
+		{
+			this.myCurrentCustomer = this.GetKunde(cpmPrimaryKey, true);
+		}
+
+		#endregion ### .ctor ###
+
+		#region PUBLIC PROPERTIES
 
 		public Kunde CurrentCustomer
 		{
@@ -38,9 +53,9 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion public properties
+		#endregion PUBLIC PROPERTIES
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		#region Kundensuche
 
@@ -160,6 +175,6 @@ namespace Products.Model.Services
 			DataManager.CustomerDataService.UpdateKundeTabelle();
 		}
 
-		#endregion public procedures
+		#endregion PUBLIC PROCEDURES
 	}
 }

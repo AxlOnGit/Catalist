@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Products.Model.Entities;
 using Products.Common;
-using Products.Data;
 using Products.Common.Collections;
-using Products.Data.Datasets;
+using Products.Data;
+using Products.Model.Entities;
 
 namespace Products.Model.Services
 {
 	public class OrderService
 	{
-
 		#region members
 
 		readonly Dictionary<string, SortableBindingList<Order>> myOrderDictionary = new Dictionary<string, SortableBindingList<Order>>();
@@ -20,23 +17,20 @@ namespace Products.Model.Services
 		readonly Dictionary<string, SortableBindingList<Order>> myInvoiceDictionary = new Dictionary<string, SortableBindingList<Order>>();
 		readonly Dictionary<string, SortableBindingList<OrderDetail>> myInvoiceDetailDictionary = new Dictionary<string, SortableBindingList<OrderDetail>>();
 
-		#endregion
-
-		#region ### .ctor ###
-		#endregion
+		#endregion members
 
 		#region public procedures
 
 		/// <summary>
 		/// Gibt eine sortierbare Liste aller Aufträge des angegebenen Kunden zurück.
 		/// </summary>
-		/// <param name="customerPK">Kundennummer.</param>
+		/// <param name="kunde">Kundennummer.</param>
 		/// <returns></returns>
 		public SortableBindingList<Order> GetOrderList(Kunde kunde)
 		{
 			if (!this.myOrderDictionary.ContainsKey(kunde.CustomerId))
 			{
-				SortableBindingList<Order> list = new SortableBindingList<Order>();
+				var list = new SortableBindingList<Order>();
 				foreach (var oRow in DataManager.OrderDataService.GetOrderRows(kunde.CustomerId))
 				{
 					list.Add(new Order(oRow));
@@ -51,8 +45,8 @@ namespace Products.Model.Services
 			var searchStrings = filter.Split();
 			var query = from orders in this.GetOrderList(kunde)
 									join details in this.GetOrderDetailList(kunde.CustomerId)
-									on orders.Nummer equals details.Nummer 
-									where details.Vorgang == "A" &&  (details.Artikelnummer.ToLower().Contains(filter.ToLower())
+									on orders.Nummer equals details.Nummer
+									where details.Vorgang == "A" && (details.Artikelnummer.ToLower().Contains(filter.ToLower())
 									| details.Bezeichnung1.ToLower().Contains(filter.ToLower()))
 									select orders;
 			return new SortableBindingList<Order>(query.Distinct()).Sort("Datum", System.ComponentModel.ListSortDirection.Descending);
@@ -80,7 +74,7 @@ namespace Products.Model.Services
 		/// <summary>
 		/// Gibt eine sortierbare Liste aller Rechnungen und Direktrechnungen des angegebenen Kunden zurück.
 		/// </summary>
-		/// <param name="customerPK">Kundennummer.</param>
+		/// <param name="kunde">Kunde</param>
 		/// <returns></returns>
 		public SortableBindingList<Order> GetInvoiceList(Kunde kunde)
 		{
@@ -102,9 +96,10 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt eine sortierbare Liste aller Rechnungs- und Direktrechnungspositionen des angegebenen Kunden zurück.
+		/// Gibt eine sortierbare Liste aller Rechnungs- und Direktrechnungspositionen des
+		/// angegebenen Kunden zurück.
 		/// </summary>
-		/// <param name="customerPK"></param>
+		/// <param name="kunde">Kunde</param>
 		/// <returns></returns>
 		public SortableBindingList<OrderDetail> GetInvoiceDetailList(Kunde kunde)
 		{
@@ -130,7 +125,41 @@ namespace Products.Model.Services
 			return new SortableBindingList<OrderDetail>(this.GetInvoiceDetailList(invoice.Kunde).Where(d => d.Nummer == invoice.Nummer));
 		}
 
-		#endregion
+		public string GetOrderInfoBySerialNumber(string seriennummer, string kundePK)
+		{
+			var sb = new StringBuilder();
+			var vorgangsListe = DataManager.OrderDataService.GetOrderDataBySN(seriennummer, kundePK);
+			if (vorgangsListe.Count() == 0) return $"Für die Seriennummer '{seriennummer}' gibt es keinen Auftrag.";
 
+			foreach (var row in vorgangsListe.OrderBy(o => o.Vorgang))
+			{
+				switch (row.Vorgang)
+				{
+					case "A":
+						sb.AppendLine($@"Auftrag: {row.Nummer} vom {row.Datum:d}");
+						break;
+
+					case "D":
+						sb.AppendLine($@"Direktrechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+						break;
+
+					case "R":
+						sb.AppendLine($@"Rechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: { row.Auftrag})");
+						break;
+
+					case "L":
+						sb.AppendLine($@"Lieferung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+						break;
+
+					default:
+						sb.AppendLine($@"{row.Vorgang}: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+						break;
+				}
+			}
+
+			return sb.ToString();
+		}
+
+		#endregion public procedures
 	}
 }

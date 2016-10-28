@@ -47,15 +47,15 @@
 			this.mbtnMove = new MetroFramework.Controls.MetroButton();
 			this.mbtnOpen = new MetroFramework.Controls.MetroButton();
 			this.mbtNew = new MetroFramework.Controls.MetroButton();
-			this.colGekauftBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colHersteller = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colModell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colMaschinentyp = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colSeriennummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colMaschinentyp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colHersteller = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colTinte = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colFarbset = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colKaufdatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colAnmerkungen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colGekauftBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMachines)).BeginInit();
 			this.mctxGrid.SuspendLayout();
 			this.SuspendLayout();
@@ -65,46 +65,46 @@
 			this.dgvMachines.AllowUserToAddRows = false;
 			this.dgvMachines.AllowUserToDeleteRows = false;
 			this.dgvMachines.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(244, 244, 244);
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvMachines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.dgvMachines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvMachines.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvMachines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvMachines.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvMachines.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvMachines.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvMachines.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(173)))), ((int)(((byte)(133)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvMachines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvMachines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMachines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-						this.colGekauftBei,
-						this.colHersteller,
-						this.colModell,
-						this.colMaschinentyp,
-						this.colSeriennummer,
-						this.colTinte,
-						this.colFarbset,
-						this.colKaufdatum,
-						this.colAnmerkungen});
+            this.colModell,
+            this.colSeriennummer,
+            this.colMaschinentyp,
+            this.colHersteller,
+            this.colTinte,
+            this.colFarbset,
+            this.colKaufdatum,
+            this.colAnmerkungen,
+            this.colGekauftBei});
 			this.dgvMachines.ContextMenuStrip = this.mctxGrid;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(173)))), ((int)(((byte)(133)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvMachines.DefaultCellStyle = dataGridViewCellStyle4;
 			this.dgvMachines.EnableHeadersVisualStyles = false;
 			this.dgvMachines.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvMachines.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvMachines.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvMachines.HighLightPercentage = 0.8F;
 			this.dgvMachines.Location = new System.Drawing.Point(22, 140);
 			this.dgvMachines.Margin = new System.Windows.Forms.Padding(2);
@@ -113,9 +113,9 @@
 			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(173)))), ((int)(((byte)(133)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvMachines.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvMachines.RowHeadersVisible = false;
@@ -131,12 +131,12 @@
 			// mctxGrid
 			// 
 			this.mctxGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-						this.mcmnuOpen,
-						this.mcmnuNew,
-						this.mcmnuServicetermine,
-						this.mcmnuMove,
-						this.toolStripMenuItem1,
-						this.mcmnuDelete});
+            this.mcmnuOpen,
+            this.mcmnuNew,
+            this.mcmnuServicetermine,
+            this.mcmnuMove,
+            this.toolStripMenuItem1,
+            this.mcmnuDelete});
 			this.mctxGrid.Name = "mctxGrid";
 			this.mctxGrid.Size = new System.Drawing.Size(153, 120);
 			this.mctxGrid.Opening += new System.ComponentModel.CancelEventHandler(this.mctxGrid_Opening);
@@ -246,23 +246,6 @@
 			this.mbtNew.UseSelectable = true;
 			this.mbtNew.Click += new System.EventHandler(this.mbtNeueMaschine_Click);
 			// 
-			// colGekauftBei
-			// 
-			this.colGekauftBei.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.colGekauftBei.DataPropertyName = "GekauftBei";
-			this.colGekauftBei.HeaderText = "Händler";
-			this.colGekauftBei.Name = "colGekauftBei";
-			this.colGekauftBei.Width = 71;
-			// 
-			// colHersteller
-			// 
-			this.colHersteller.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.colHersteller.DataPropertyName = "Hersteller";
-			this.colHersteller.HeaderText = "Hersteller";
-			this.colHersteller.MinimumWidth = 120;
-			this.colHersteller.Name = "colHersteller";
-			this.colHersteller.Width = 120;
-			// 
 			// colModell
 			// 
 			this.colModell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -271,6 +254,14 @@
 			this.colModell.Name = "colModell";
 			this.colModell.ReadOnly = true;
 			this.colModell.Width = 79;
+			// 
+			// colSeriennummer
+			// 
+			this.colSeriennummer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colSeriennummer.DataPropertyName = "Seriennummer";
+			this.colSeriennummer.HeaderText = "Serien-Nr.";
+			this.colSeriennummer.Name = "colSeriennummer";
+			this.colSeriennummer.Width = 81;
 			// 
 			// colMaschinentyp
 			// 
@@ -281,13 +272,14 @@
 			this.colMaschinentyp.Name = "colMaschinentyp";
 			this.colMaschinentyp.Width = 120;
 			// 
-			// colSeriennummer
+			// colHersteller
 			// 
-			this.colSeriennummer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.colSeriennummer.DataPropertyName = "Seriennummer";
-			this.colSeriennummer.HeaderText = "Serien-Nr.";
-			this.colSeriennummer.Name = "colSeriennummer";
-			this.colSeriennummer.Width = 81;
+			this.colHersteller.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colHersteller.DataPropertyName = "Herstellername";
+			this.colHersteller.HeaderText = "Hersteller";
+			this.colHersteller.MinimumWidth = 120;
+			this.colHersteller.Name = "colHersteller";
+			this.colHersteller.Width = 120;
 			// 
 			// colTinte
 			// 
@@ -309,7 +301,7 @@
 			// colKaufdatum
 			// 
 			this.colKaufdatum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.colKaufdatum.DataPropertyName = "Kaufdatum";
+			this.colKaufdatum.DataPropertyName = "Lieferdatum";
 			dataGridViewCellStyle3.Format = "d";
 			dataGridViewCellStyle3.NullValue = null;
 			this.colKaufdatum.DefaultCellStyle = dataGridViewCellStyle3;
@@ -326,7 +318,15 @@
 			this.colAnmerkungen.Name = "colAnmerkungen";
 			this.colAnmerkungen.Width = 400;
 			// 
-			// pnlMaschinen
+			// colGekauftBei
+			// 
+			this.colGekauftBei.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colGekauftBei.DataPropertyName = "Haendler";
+			this.colGekauftBei.HeaderText = "Händler";
+			this.colGekauftBei.Name = "colGekauftBei";
+			this.colGekauftBei.Width = 71;
+			// 
+			// pnlMaschinenListe
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -337,7 +337,7 @@
 			this.Controls.Add(this.mlblTitel);
 			this.DoubleBuffered = true;
 			this.Margin = new System.Windows.Forms.Padding(2);
-			this.Name = "pnlMaschinen";
+			this.Name = "pnlMaschinenListe";
 			this.Padding = new System.Windows.Forms.Padding(20);
 			this.Size = new System.Drawing.Size(1280, 723);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.pnlMaschinen_KeyUp);
@@ -363,14 +363,14 @@
 		System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		System.Windows.Forms.ToolStripMenuItem mcmnuDelete;
 		MetroFramework.Drawing.Html.HtmlToolTip mHtmlTip;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colGekauftBei;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colHersteller;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colModell;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colMaschinentyp;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colSeriennummer;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colMaschinentyp;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colHersteller;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colTinte;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colFarbset;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colKaufdatum;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colAnmerkungen;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colGekauftBei;
 	}
 }

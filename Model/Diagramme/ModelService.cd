@@ -1,45 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Products.Model.Services.ModelService">
+  <Class Name="Products.Model.Entities.Kundenmaschine">
     <Position X="0.5" Y="0.5" Width="3" />
-    <Compartments>
-      <Compartment Name="Nested Types" Collapsed="false" />
-    </Compartments>
-    <NestedTypes>
-      <Struct Name="Products.Model.Services.ModelService.TaskPriority">
-        <TypeIdentifier>
-          <NewMemberFileName>Services\ModelService.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Products.Model.Services.ModelService.TaskStatus">
-        <TypeIdentifier>
-          <NewMemberFileName>Services\ModelService.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="Products.Model.Services.ModelService.TaskPercentage">
-        <TypeIdentifier>
-          <NewMemberFileName>Services\ModelService.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>CaAJRbAgGp4XtGBZBIiA6kLAgIDpIQQSGSAEGJbHwEU=</HashCode>
-      <FileName>Services\ModelService.cs</FileName>
+      <HashCode>AXQUAQAAAAggAHxBAEAAACABCQAgIACQhBCFiAARUgg=</HashCode>
+      <FileName>Entities\Kundenmaschine.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Enum Name="Products.Model.Services.NotizParentType">
-    <Position X="6.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAA=</HashCode>
-      <FileName>Services\ModelService.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Products.Model.Services.LinkTyp">
-    <Position X="4" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAASAAQAAIAAAAAkAEAAwIAg4KAAQAACACAASQAAAAI=</HashCode>
-      <FileName>Services\ModelService.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

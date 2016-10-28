@@ -603,6 +603,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap customer_32_metrowhite {
+            get {
+                object obj = ResourceManager.GetObject("customer_32_metrowhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap d_metrored {
             get {
                 object obj = ResourceManager.GetObject("d_metrored", resourceCulture);
@@ -906,6 +916,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap exit_metrored {
             get {
                 object obj = ResourceManager.GetObject("exit_metrored", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap explorer_exe_original {
+            get {
+                object obj = ResourceManager.GetObject("explorer_exe_original", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2013,6 +2033,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SageNCL_32 {
+            get {
+                object obj = ResourceManager.GetObject("SageNCL_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap screwdriver_32_metroblue {
             get {
                 object obj = ResourceManager.GetObject("screwdriver_32_metroblue", resourceCulture);
@@ -2036,6 +2066,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap search_16_metrored {
             get {
                 object obj = ResourceManager.GetObject("search_16_metrored", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_24_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("search_24_metroorange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

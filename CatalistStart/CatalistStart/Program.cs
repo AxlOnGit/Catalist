@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 
 namespace CatalistStart
@@ -33,7 +29,7 @@ namespace CatalistStart
 					break;
 			}
 
-			 // Erstma Päusken machen ...
+			// Erstma Päusken machen ...
 			System.Threading.Thread.Sleep(delay);
 
 			// Catalist starten

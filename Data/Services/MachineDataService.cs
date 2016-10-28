@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using Products.Common;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Data.Datasets.dsMachinesTableAdapters;
-using Products.Common;
-using System.Data;
 
 namespace Products.Data.Services
 {
 	public class MachineDataService
 	{
-
 		#region events
 
 		public event EventHandler<MachineMovedEventArgs> AfterMachineMoved;
 
-		#endregion
+		#endregion events
 
 		#region members
 
@@ -30,26 +29,22 @@ namespace Products.Data.Services
 		taKundenMaschine myKundenMaschineAdapter;
 		readonly taKundenmaschinenListe myKundenmaschinenListeAdapter = new taKundenmaschinenListe();
 
-		#endregion
+		#endregion Dataset und Adapter
 
-		#endregion
+		#endregion members
 
-		#region public properties
-
-		#endregion
-
-		#region ### .ctor 
+		#region ### .ctor
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz der MachineDataService Klasse.
-		/// <param name="currentUserPK">Primärschlüssel des derzeit angemeldeten Benutzers.</param>
 		/// </summary>
+		/// <param name="currentUserPK">Primärschlüssel des derzeit angemeldeten Benutzers.</param>
 		public MachineDataService(string currentUserPK)
 		{
 			this.myCurrentUserPK = currentUserPK;
 		}
 
-		#endregion
+		#endregion ### .ctor
 
 		#region public procedures
 
@@ -58,9 +53,7 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="kundePK"></param>
 		/// <returns></returns>
-		/// <remarks>
-		/// 
-		/// </remarks>
+		/// <remarks></remarks>
 		public MachineBuildParams AddKundenMaschineRow(string kundePK, string createdByPK)
 		{
 			// Neue Zeile in Tabelle Kundenmaschine einfügen.
@@ -68,25 +61,25 @@ namespace Products.Data.Services
 			mRow.UID = SequentialGuid.NewSequentialGuid().ToString();
 			mRow.Kundennummer = kundePK;
 			mRow.MaschinenmodellId = "00000000-0000-0000-0000-000000000000";
-			mRow.Seriennummer = "-";
-			mRow.Firmware = "-";
-			mRow.VerkauftDurch = "-";
-			mRow.Auftragsdatum = DateTime.Today;
-			mRow.Kaufdatum = DateTime.Today;
+			//mRow.Seriennummer = "-";
+			//mRow.Firmware = "-";
+			//mRow.SetHaendlerNull();
+			//mRow.Auftragsdatum = DateTime.Today;
+			//mRow.Lieferdatum = DateTime.Today;
 			mRow.LeasingFlag = "0";
 			mRow.MietkaufFlag = "0";
-			mRow.Finanzierungsgesellschaft = "-";
-			mRow.Finanzierungsende = new DateTime(100, 1, 1, 0, 0, 0);
+			//mRow.Finanzierungsgesellschaft = "-";
+			//mRow.Finanzierungsende = new DateTime(100, 1, 1, 0, 0, 0);
 			mRow.ErstverwertungsFlag = "0";
 			mRow.Installationsdatum = DateTime.Today;
-			mRow.Anmerkungen = "";
+			//mRow.Anmerkungen = "";
 			mRow.TintenId = "00000000-0000-0000-0000-000000000000";
-			mRow.FarbenSet = "";
-			mRow.AuftragsnummerSage = "";
-			mRow.RechnungsnummerSage = "";
+			//mRow.FarbenSet = "";
+			//mRow.AuftragsnummerSage = "";
+			//mRow.RechnungsnummerSage = "";
 			mRow.Wartungsintervall = 12;
-			mRow.Dateipfad = "";
-			mRow.Sonderausstattung = "";
+			//mRow.Dateipfad = "";
+			//mRow.Sonderausstattung = "";
 
 			this.myMachinesDS.KundenMaschine.AddKundenMaschineRow(mRow);
 
@@ -94,7 +87,7 @@ namespace Products.Data.Services
 			var xRow = this.AddMachineXrefRow(mRow.UID, kundePK, createdByPK);
 
 			this.UpdateKundenMaschinen();
-			var retParams = new MachineBuildParams(mRow, xRow); 
+			var retParams = new MachineBuildParams(mRow, xRow);
 			return retParams;
 		}
 
@@ -126,7 +119,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt eine Liste der KundenmaschineXrefRows zurück, die alle bisherigen und den derzeitigen Eigentümer der Maschine repräsentieren.
+		/// Gibt eine Liste der KundenmaschineXrefRows zurück, die alle bisherigen und den
+		/// derzeitigen Eigentümer der Maschine repräsentieren.
 		/// </summary>
 		/// <param name="machinePK"></param>
 		/// <returns></returns>
@@ -136,8 +130,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt die KundenMaschineXrefRow für die angegebene Maschine und den angegebenen Kunden, bei
-		/// der das Zuordnungsende noch nicht erreicht ist.
+		/// Gibt die KundenMaschineXrefRow für die angegebene Maschine und den angegebenen Kunden,
+		/// bei der das Zuordnungsende noch nicht erreicht ist.
 		/// </summary>
 		/// <param name="machinePK"></param>
 		/// <param name="kundePK"></param>
@@ -148,7 +142,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt die KundeMaschineXrefRow für die angegebene Maschine zurück, die aktuell einem Kunden zugeordnet ist.
+		/// Gibt die KundeMaschineXrefRow für die angegebene Maschine zurück, die aktuell einem
+		/// Kunden zugeordnet ist.
 		/// </summary>
 		/// <param name="machinePK"></param>
 		/// <returns></returns>
@@ -196,11 +191,11 @@ namespace Products.Data.Services
 		{
 			int result = 0;
 			var mRow = this.myMachinesDS.KundenMaschine.FindByUID(maschinePK);
-			if (mRow != null) 
+			if (mRow != null)
 			{
 				mRow.Delete();
 				result += 1;
-			} 
+			}
 			var xRows = this.myMachinesDS.KundeMaschineXref.Where(x => x.MaschinenId == maschinePK);
 			foreach (var xRow in xRows)
 			{
@@ -213,8 +208,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Speichert Änderungen der angegebenen KundenMaschineRow in der Datenbank oder alle Datensätze für den angegebenen Kunden, 
-		/// falls keine KundenMaschineRow angegeben wurde.
+		/// Speichert Änderungen der angegebenen KundenMaschineRow in der Datenbank oder alle
+		/// Datensätze für den angegebenen Kunden, falls keine KundenMaschineRow angegeben wurde.
 		/// </summary>
 		/// <returns></returns>
 		public int UpdateKundenMaschinen()
@@ -243,7 +238,7 @@ namespace Products.Data.Services
 			return result;
 			//try
 			//{
-			//	result = 
+			//	result =
 			//	return result;
 			//}
 			//catch (ConstraintException)
@@ -281,9 +276,9 @@ namespace Products.Data.Services
 			//}
 		}
 
-		#endregion
+		#endregion Kundenmaschinensuche
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -307,7 +302,7 @@ namespace Products.Data.Services
 			xRowTo.MaschinenId = machinePK;
 			xRowTo.Kundennummer = kundePK;
 			xRowTo.Zuordnungsbeginn = zuordnungsBeginn.Value;
-			xRowTo.Zuordnungsende = new DateTime(9999,12,31,0,0,0);
+			xRowTo.Zuordnungsende = new DateTime(9999, 12, 31, 0, 0, 0);
 			xRowTo.ErstelltAm = xRowTo.Zuordnungsbeginn;
 			xRowTo.AktualisiertAm = xRowTo.Zuordnungsbeginn;
 			xRowTo.ErstelltVon = creatorPK;
@@ -317,7 +312,7 @@ namespace Products.Data.Services
 			return xRowTo;
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region SubClasses
 
@@ -326,9 +321,10 @@ namespace Products.Data.Services
 		/// </summary>
 		public class MachineMovedEventArgs : EventArgs
 		{
-
 			public string MachinePK { get; private set; }
+
 			public string FromKundePK { get; private set; }
+
 			public string ToKundePK { get; private set; }
 
 			public MachineMovedEventArgs(string machinePK, string fromKundePK, string toKundePK)
@@ -345,6 +341,7 @@ namespace Products.Data.Services
 		public class MachineBuildParams
 		{
 			public dsMachines.KundenMaschineRow KundenMaschineRow { get; private set; }
+
 			public dsMachines.KundeMaschineXrefRow KundenXrefRow { get; private set; }
 
 			public MachineBuildParams(dsMachines.KundenMaschineRow machineRow, dsMachines.KundeMaschineXrefRow kundenXrefRow)
@@ -354,7 +351,6 @@ namespace Products.Data.Services
 			}
 		}
 
-		#endregion
-
+		#endregion SubClasses
 	}
 }

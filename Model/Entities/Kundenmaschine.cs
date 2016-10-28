@@ -22,6 +22,21 @@ namespace Products.Model.Entities
 
 		#endregion members
 
+		#region ### .ctor ###
+
+		/// <summary>
+		/// Erstellt eine neue Instanz der Klasse Kundenmaschine.
+		/// </summary>
+		/// <param name="baseRow"></param>
+		public Kundenmaschine(dsMachines.KundenMaschineRow baseRow, Dictionary<DateTime, Kunde> ownerList)
+		{
+			this.myBase = baseRow;
+			this.myOwnerList = ownerList;
+			//ModelManager.NotesService.NoteCreated += new EventHandler<NotesService.NoteCreatedEventArgs>(NotesService_NoteCreated);
+		}
+
+		#endregion ### .ctor ###
+
 		#region public properties
 
 		#region ILinkedItem
@@ -80,10 +95,10 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den Kunden (Eigentümer/Besitzer/Leasingnehmer oder watt) dieser Maschine zurück.
 		/// </summary>
-		//public Kunde Kunde
-		//{
-		//  get { return ModelManager.CustomerService.GetKunde(this.myBase.Kundennummer); }
-		//}
+		public Kunde Kunde
+		{
+			get { return ModelManager.CustomerService.GetKunde(this.myBase.Kundennummer, false); }
+		}
 
 		/// <summary>
 		/// Gibt den Primärschlüssel (GUID) des Maschinenmodells zurück.
@@ -119,17 +134,21 @@ namespace Products.Model.Entities
 		{
 			get
 			{
+				if (this.myBase.IsSeriennummerNull()) return string.Empty;
+
 				var sn = this.myBase.Seriennummer;
 				if (sn.Contains(nl)) this.myBase.Seriennummer = sn.Replace(sn, string.Empty);
 				return myBase.Seriennummer;
 			}
 			set
 			{
-				if (!this.myBase.Seriennummer.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+				if (value == null)
 				{
-					if (value.Contains(nl)) value = value.Replace(nl, string.Empty);
-					this.myBase.Seriennummer = value;
+					this.myBase.SetSeriennummerNull();
+					return;
 				}
+				if (!this.myBase.IsSeriennummerNull() || !value.Equals(this.myBase.Seriennummer, StringComparison.CurrentCulture))
+					this.myBase.Seriennummer = value.Replace(nl, string.Empty);
 			}
 		}
 
@@ -140,26 +159,40 @@ namespace Products.Model.Entities
 		{
 			get
 			{
+				if (this.myBase.IsFirmwareNull()) return string.Empty;
 				return myBase.Firmware;
 			}
 			set
 			{
-				if (!this.myBase.Firmware.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Firmware = value;
+				if (value == null)
+				{
+					this.myBase.SetFirmwareNull();
+					return;
+				}
+				if (this.myBase.IsFirmwareNull() || !value.Equals(this.myBase.Firmware, StringComparison.CurrentCulture))
+					this.myBase.Firmware = value.Replace(nl, string.Empty);
 			}
 		}
 
 		/// <summary>
 		/// Gibt den Namen der Firma zurück, bei der die Kundenmaschine gekauft wurde oder legt ihn fest.
 		/// </summary>
-		public string GekauftBei
+		public string Haendler
 		{
 			get
 			{
-				return myBase.VerkauftDurch;
+				if (this.myBase.IsHaendlerNull()) return string.Empty;
+				return myBase.Haendler;
 			}
 			set
 			{
-				if (!this.myBase.VerkauftDurch.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.VerkauftDurch = value;
+				if (value == null)
+				{
+					this.myBase.SetHaendlerNull();
+					return;
+				}
+				if (this.myBase.IsHaendlerNull() || !value.Equals(this.myBase.Haendler, StringComparison.CurrentCulture))
+					this.myBase.Haendler = value;
 			}
 		}
 
@@ -170,7 +203,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				if (this.myBase.Auftragsdatum.Equals(noDate))
+				if (this.myBase.IsAuftragsdatumNull())
 				{
 					return null;
 				}
@@ -178,28 +211,112 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				value = value.HasValue ? value : noDate;
-				myBase.Auftragsdatum = value.Value;
+				if (!value.HasValue)
+				{
+					this.myBase.SetAuftragsdatumNull();
+					return;
+				}
+				if (this.myBase.IsAuftragsdatumNull() || !value.Equals(this.myBase.Auftragsdatum))
+					this.myBase.Auftragsdatum = value.Value;
+			}
+		}
+
+		/// <summary>
+		/// Gibt das Rechnungsdatum in Sage zurück oder legt es fest.
+		/// </summary>
+		public DateTime? Rechnungsdatum
+		{
+			get
+			{
+				if (this.myBase.IsRechnungsdatumNull())
+				{
+					return null;
+				}
+				return this.myBase.Rechnungsdatum;
+			}
+			set
+			{
+				if (!value.HasValue)
+				{
+					this.myBase.SetAuftragsdatumNull();
+					return;
+				}
+				if (this.myBase.IsRechnungsdatumNull() || !value.Equals(this.myBase.Rechnungsdatum))
+					this.myBase.Rechnungsdatum = value.Value;
 			}
 		}
 
 		/// <summary>
 		/// Gibt das Kauf- bzw. Lieferdatum in Sage zurück oder legt es fest.
 		/// </summary>
-		public DateTime? Kaufdatum
+		public DateTime? Lieferdatum
 		{
 			get
 			{
-				if (myBase.Kaufdatum.Equals(noDate))
+				if (myBase.IsLieferdatumNull() || myBase.Lieferdatum.Equals(noDate))
 				{
 					return null;
 				}
-				return myBase.Kaufdatum;
+				return myBase.Lieferdatum;
 			}
 			set
 			{
-				value = value.HasValue ? value : noDate;
-				myBase.Kaufdatum = value.Value;
+				if (!value.HasValue)
+				{
+					this.myBase.SetLieferdatumNull();
+				}
+				else
+				{
+					if (this.myBase.IsLieferdatumNull() || !value.Equals(this.myBase.Lieferdatum))
+						this.myBase.Lieferdatum = value.Value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gibt den Primärschlüssel des Users zurück, der diese Maschine installiert hat oder legt
+		/// ihn fest.
+		/// </summary>
+		public string InstallationDurchId
+		{
+			get
+			{
+				if (this.myBase.IsInstallationDurchIdNull()) return string.Empty;
+				return this.myBase.InstallationDurchId;
+			}
+			set
+			{
+				if (value == null)
+				{
+					this.myBase.SetInstallationDurchIdNull();
+					return;
+				}
+				if (this.myBase.IsInstallationDurchIdNull() || !value.Equals(this.myBase.InstallationDurchId, StringComparison.CurrentCulture))
+					this.myBase.InstallationDurchId = value;
+			}
+		}
+
+		public DateTime? Installationsdatum
+		{
+			get
+			{
+				if (myBase.IsInstallationsdatumNull())
+				{
+					return null;
+				}
+				return myBase.Installationsdatum;
+			}
+			set
+			{
+				if (!value.HasValue)
+				{
+					this.myBase.SetInstallationsdatumNull();
+				}
+				else
+				{
+					if (this.myBase.IsInstallationsdatumNull() || !value.Equals(this.myBase.Installationsdatum))
+						this.myBase.Installationsdatum = value.Value;
+				}
 			}
 		}
 
@@ -209,8 +326,21 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string AuftragsnummerSage
 		{
-			get { return myBase.AuftragsnummerSage; }
-			set { if (!this.myBase.AuftragsnummerSage.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.AuftragsnummerSage = value; }
+			get
+			{
+				if (this.myBase.IsAuftragsnummerSageNull()) return string.Empty;
+				return myBase.AuftragsnummerSage;
+			}
+			set
+			{
+				if (value == null)
+				{
+					this.myBase.SetAuftragsnummerSageNull();
+					return;
+				}
+				if (this.myBase.IsAuftragsnummerSageNull() || !value.Equals(this.myBase.AuftragsnummerSage, StringComparison.CurrentCulture))
+					this.myBase.AuftragsnummerSage = value;
+			}
 		}
 
 		/// <summary>
@@ -218,8 +348,39 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string RechnungsnummerSage
 		{
-			get { return this.myBase.RechnungsnummerSage; }
-			set { if (!this.myBase.RechnungsnummerSage.Equals(value, StringComparison.CurrentCultureIgnoreCase)) this.myBase.RechnungsnummerSage = value; }
+			get
+			{
+				if (this.myBase.IsRechnungsnummerSageNull()) return string.Empty;
+				return this.myBase.RechnungsnummerSage;
+			}
+			set
+			{
+				if (value == null)
+				{
+					this.myBase.SetRechnungsnummerSageNull();
+					return;
+				}
+				if (this.myBase.IsRechnungsdatumNull() || !value.Equals(this.myBase.RechnungsnummerSage, StringComparison.CurrentCulture))
+				{
+					if (!value.StartsWith("d-", StringComparison.CurrentCultureIgnoreCase)
+						& !value.StartsWith("r-", StringComparison.CurrentCultureIgnoreCase))
+						value = $"D-{value}";
+					this.myBase.RechnungsnummerSage = (value.Length > 13 ? value.Substring(0, 13) : value.PadRight(11, '?'));
+				}
+			}
+		}
+
+		public string LieferscheinnummerSage
+		{
+			get
+			{
+				return this.myBase.IsLieferscheinnummerSageNull() ? string.Empty : this.myBase.LieferscheinnummerSage;
+			}
+			set
+			{
+				if (this.myBase.IsLieferscheinnummerSageNull() || !value.Equals(this.LieferscheinnummerSage, StringComparison.CurrentCulture))
+					this.myBase.LieferscheinnummerSage = (value.Length > 11 ? value.Substring(0, 11) : value.PadRight(11, '?'));
+			}
 		}
 
 		/// <summary>
@@ -244,16 +405,18 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				if (myBase.Finanzierungsende.Equals(noDate))
-				{
-					return null;
-				}
-				return myBase.Finanzierungsende;
+				if (this.myBase.IsFinanzierungsendeNull()) return null;
+				return this.myBase.Finanzierungsende;
 			}
 			set
 			{
-				value = value.HasValue ? value : new DateTime(100, 1, 1);
-				myBase.Finanzierungsende = value.Value;
+				if (value == null)
+				{
+					this.myBase.SetFinanzierungsendeNull();
+					return;
+				}
+				if (this.myBase.IsFinanzierungsendeNull() || !value.Equals(this.myBase.Finanzierungsende))
+					this.myBase.Finanzierungsende = value.Value;
 			}
 		}
 
@@ -293,10 +456,20 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string Finanzierungsgesellschaft
 		{
-			get { return myBase.Finanzierungsgesellschaft; }
+			get
+			{
+				if (this.myBase.IsFinanzierungsgesellschaftNull()) return string.Empty;
+				return myBase.Finanzierungsgesellschaft;
+			}
 			set
 			{
-				if (!this.myBase.Finanzierungsgesellschaft.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Finanzierungsgesellschaft = value;
+				if (value == null)
+				{
+					this.myBase.SetFinanzierungsgesellschaftNull();
+					return;
+				}
+				if (this.myBase.IsFinanzierungsgesellschaftNull() || !value.Equals(this.myBase.Finanzierungsgesellschaft, StringComparison.CurrentCulture))
+					this.myBase.Finanzierungsgesellschaft = value;
 			}
 		}
 
@@ -307,11 +480,18 @@ namespace Products.Model.Entities
 		{
 			get
 			{
+				if (this.myBase.IsAnmerkungenNull()) return string.Empty;
 				return myBase.Anmerkungen;
 			}
 			set
 			{
-				if (!this.myBase.Anmerkungen.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.Anmerkungen = value;
+				if (value == null)
+				{
+					this.myBase.SetAnmerkungenNull();
+					return;
+				}
+				if (this.myBase.IsAnmerkungenNull() || !value.Equals(this.myBase.Anmerkungen, StringComparison.CurrentCulture))
+					this.myBase.Anmerkungen = value;
 			}
 		}
 
@@ -326,7 +506,8 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				if (!this.myBase.TintenId.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.TintenId = value;
+				if (!this.myBase.TintenId.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+					myBase.TintenId = value;
 			}
 		}
 
@@ -337,11 +518,18 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return myBase.FarbenSet;
+				if (this.myBase.IsFarbenSetNull()) return string.Empty;
+				return this.myBase.FarbenSet;
 			}
 			set
 			{
-				if (!this.myBase.FarbenSet.Equals(value, StringComparison.CurrentCultureIgnoreCase)) myBase.FarbenSet = value;
+				if (value == null)
+				{
+					this.myBase.SetFarbenSetNull();
+					return;
+				}
+				if (this.myBase.IsFarbenSetNull() || !value.Equals(this.myBase.FarbenSet, StringComparison.CurrentCulture))
+					this.myBase.FarbenSet = value;
 			}
 		}
 
@@ -433,7 +621,8 @@ namespace Products.Model.Entities
 			}
 			set
 			{
-				if (!this.myBase.Wartungsintervall.Equals(value)) myBase.Wartungsintervall = value;
+				if (!value.Equals(this.myBase.Wartungsintervall))
+					this.myBase.Wartungsintervall = value;
 			}
 		}
 
@@ -442,10 +631,19 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string Dateipfad
 		{
-			get { return this.myBase.IsDateipfadNull() ? string.Empty : this.myBase.Dateipfad; }
+			get
+			{
+				if (this.myBase.IsDateipfadNull()) return string.Empty;
+				return this.myBase.Dateipfad;
+			}
 			set
 			{
-				if (!this.myBase.Dateipfad.Equals(value, StringComparison.CurrentCultureIgnoreCase))
+				if (value == null)
+				{
+					this.myBase.SetDateipfadNull();
+					return;
+				}
+				if (this.myBase.IsDateipfadNull() || !value.Equals(this.myBase.Dateipfad, StringComparison.CurrentCulture))
 					this.myBase.Dateipfad = value;
 			}
 		}
@@ -455,8 +653,21 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string Sonderausstattlung
 		{
-			get { return this.myBase.Sonderausstattung; }
-			set { if (!this.myBase.Sonderausstattung.Equals(value)) this.myBase.Sonderausstattung = value; }
+			get
+			{
+				if (this.myBase.IsSonderausstattungNull()) return string.Empty;
+				return this.myBase.Sonderausstattung;
+			}
+			set
+			{
+				if (value == null)
+				{
+					this.myBase.SetSonderausstattungNull();
+					return;
+				}
+				if (this.myBase.IsSonderausstattungNull() || !value.Equals(this.myBase.Sonderausstattung, StringComparison.CurrentCulture))
+					this.myBase.Sonderausstattung = value;
+			}
 		}
 
 		/// <summary>
@@ -482,22 +693,20 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion public properties
-
-		#region ### .ctor ###
-
 		/// <summary>
-		/// Erstellt eine neue Instanz der Klasse Kundenmaschine.
+		/// Gibt einen Überblick über die SAGE Aufträge, Rechnungen und Lieferungen zurück, in denen
+		/// die Seriennummer dieser Maschine auftaucht.
 		/// </summary>
-		/// <param name="baseRow"></param>
-		public Kundenmaschine(dsMachines.KundenMaschineRow baseRow, Dictionary<DateTime, Kunde> ownerList)
+		public string SageOrderInfo
 		{
-			this.myBase = baseRow;
-			this.myOwnerList = ownerList;
-			//ModelManager.NotesService.NoteCreated += new EventHandler<NotesService.NoteCreatedEventArgs>(NotesService_NoteCreated);
+			get
+			{
+				if (string.IsNullOrEmpty(this.Seriennummer)) return string.Empty;
+				return ModelManager.OrderService.GetOrderInfoBySerialNumber(this.Seriennummer, this.CurrentOwner.CustomerId);
+			}
 		}
 
-		#endregion ### .ctor ###
+		#endregion public properties
 
 		#region public procedures
 

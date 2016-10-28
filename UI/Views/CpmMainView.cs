@@ -62,6 +62,7 @@ namespace Products.Common.Views
 			this.mlblVersion.Text = string.Format("Ver. {0}", Application.ProductVersion);
 			this.mtxtSearch.DataBindings.Add("Text", this, "SearchText");
 			ModelManager.CustomerService.CurrentCustomerSet += CustomerService_CurrentCustomerSet;
+			this.CustomerService_CurrentCustomerSet(this, EventArgs.Empty);
 			if (ModelManager.UserService.CurrentUser != null)
 			{
 				this.mlblCurrentUser.Text = string.Format("Tach {0}", ModelManager.UserService.CurrentUser.NameFirst);

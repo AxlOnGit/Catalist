@@ -1,21 +1,58 @@
 ﻿using System;
+using Products.Common.Interfaces;
 using Products.Data;
 using Products.Data.Datasets;
 
 namespace Products.Model.Entities
 {
-	public class Kundensoftware
+	public class Kundensoftware : ILinkedItem
 	{
 		#region members
 
 		readonly dsSoftware.KundenSoftwareRow myBase;
 		readonly Kunde myCustomer;
-		private Kundenmaschine myMachine;
+		Kundenmaschine myMachine;
 		readonly DateTime noDate = new DateTime(100, 1, 1, 0, 0, 0);
 
 		#endregion members
 
 		#region private properties
+
+		#region ILINKEDITEM
+
+		public string Key
+		{
+			get
+			{
+				return this.UID;
+			}
+		}
+
+		public string LinkTypeId
+		{
+			get
+			{
+				return ModelManager.SharedItemsService.GetLinkTypeByName("Kundensoftware").UID;
+			}
+		}
+
+		public string ItemName
+		{
+			get
+			{
+				return this.Softwarename;
+			}
+		}
+
+		public string LinkTypBezeichnung
+		{
+			get
+			{
+				return "Kundensoftware";
+			}
+		}
+
+		#endregion ILINKEDITEM
 
 		public string UID { get { return myBase.UID; } }
 

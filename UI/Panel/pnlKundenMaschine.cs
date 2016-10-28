@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using MetroFramework;
-using Products.Common;
 using Products.Common.Views;
 using Products.Model;
 using Products.Model.Builder;
@@ -20,6 +19,9 @@ namespace Products.Common.Panel
 		FileInfo mySelectedFile;
 		Notiz mySelectedNote;
 		Kundensoftware mySelectedSoftware;
+		bool myNotesInitialized;
+		bool mySoftwareInitialized;
+		bool myOrderInitialized;
 
 		#endregion members
 
@@ -45,6 +47,64 @@ namespace Products.Common.Panel
 		#endregion ### .ctor ###
 
 		#region EVENT HANDLER
+
+		#region INIT EVENTS
+
+		void mtabProperties_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//Daten der einzelnen Tabs laden
+			var ix = this.mtabProperties.SelectedIndex;
+			switch (ix)
+			{
+				case 1:   // Notizen
+					if (this.myNotesInitialized) return;
+					this.tabNotes.SuspendLayout();
+					this.dgvNotizen.DataSource = ModelManager.NotesService.GetNotesList(this.myMachine.Key, this.myMachine.LinkTypeId);
+					this.tabNotes.ResumeLayout();
+					this.myNotesInitialized = true;
+					break;
+
+				case 2:   // Software
+					if (this.mySoftwareInitialized) return;
+					// TAB SOFTWARE
+					this.tabSoftware.SuspendLayout();
+					this.dgvSoftware.DataSource = ModelManager.SoftwareService.GetMachinesSoftware(this.myMachine);
+					this.tabSoftware.ResumeLayout();
+					this.mySoftwareInitialized = true;
+					break;
+
+				case 3:   // Auftrag/Finanzierung
+					if (this.myOrderInitialized) return;
+					// TAB AUFTRÄGE
+					this.mtabProperties.SuspendLayout();
+					this.mtxtAuftrag.DataBindings.Add("Text", this.myMachine, "AuftragsnummerSage");
+					this.mtxtRechnung.DataBindings.Add("Text", this.myMachine, "RechnungsnummerSage");
+					this.mtxtLieferschein.DataBindings.Add("Text", this.myMachine, "LieferscheinnummerSage");
+					this.mtxtSageInfos.DataBindings.Add("Text", this.myMachine, "SageOrderInfo");
+					this.ndtpAuftrag.Value = this.myMachine.Auftragsdatum;
+					this.ndtpRechnung.Value = this.myMachine.Rechnungsdatum;
+					this.ndtpLieferschein.Value = this.myMachine.Lieferdatum;
+					this.ndtpInstallation.Value = this.myMachine.Installationsdatum;
+
+					this.mcmbTechniker.DisplayMember = "NameFirst";
+					this.mcmbTechniker.ValueMember = "UID";
+					this.mcmbTechniker.DataSource = ModelManager.UserService.GetSpecialUserList(Model.Services.UserService.SpecialUserType.Technicien);
+					this.mcmbTechniker.DataBindings.Add("SelectedValue", this.myMachine, "InstallationDurchId");
+
+					this.mtogglLeasing.DataBindings.Add("Checked", this.myMachine, "LeasingFlag");
+					this.mtogglMietkauf.DataBindings.Add("Checked", this.myMachine, "ErstverwertungsFlag");
+					this.mtogglErstverwertung.DataBindings.Add("Checked", this.myMachine, "ErstverwertungsFlag");
+					this.mtxtFinanzierungDurch.DataBindings.Add("Text", this.myMachine, "Finanzierungsgesellschaft");
+					this.ndtpVertragsende.Value = this.myMachine.Finanzierungsende;
+
+					this.mtabProperties.ResumeLayout();
+
+					this.myOrderInitialized = true;
+					break;
+			}
+		}
+
+		#endregion INIT EVENTS
 
 		#region FILES EVENTS
 
@@ -87,7 +147,9 @@ namespace Products.Common.Panel
 
 		void dgvNotizen_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
+			this.mtxtNoteText.Text = string.Empty;
 			this.mySelectedNote = this.dgvNotizen.Rows[e.RowIndex].DataBoundItem as Notiz;
+			this.mtxtNoteText.Text = (this.mySelectedNote != null) ? this.mySelectedNote.Body : string.Empty;
 		}
 
 		void mbtnOpenNote_Click(object sender, EventArgs e)
@@ -108,6 +170,12 @@ namespace Products.Common.Panel
 		void btnDeleteNote_Click(object sender, EventArgs e)
 		{
 			this.DeleteNote();
+		}
+
+		void mtxtNoteText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if (this.mySelectedNote == null) return;
+			this.mySelectedNote.Body = this.mtxtNoteText.Text;
 		}
 
 		#endregion NOTES EVENTS
@@ -140,6 +208,77 @@ namespace Products.Common.Panel
 		}
 
 		#endregion SOFTWARE EVENTS
+
+		#region AUFTRÄGE EVENTS
+
+		void mbtnSearchInSage_Click(object sender, EventArgs e)
+		{
+			var msg = string.Empty;
+			if (string.IsNullOrEmpty(this.myMachine.Seriennummer)) msg = "Für die Maschine wurde noch keine Seriennummer eingetragen!";
+			msg = ModelManager.OrderService.GetOrderInfoBySerialNumber(this.myMachine.Seriennummer, this.myMachine.CurrentOwner.CustomerId);
+			MetroMessageBox.Show(this, msg, "Vorgangssuche in SAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		void mbtnOpenInSage_Click(object sender, EventArgs e)
+		{
+		}
+
+		void ndtpAuftrag_Validated(object sender, EventArgs e)
+		{
+			if (this.ndtpAuftrag.Value == null)
+			{
+				this.myMachine.Auftragsdatum = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpAuftrag.Value;
+			this.myMachine.Auftragsdatum = date;
+		}
+
+		void ndtpRechnung_Validated(object sender, EventArgs e)
+		{
+			if (this.ndtpRechnung.Value == null)
+			{
+				this.myMachine.Rechnungsdatum = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpRechnung.Value;
+			this.myMachine.Rechnungsdatum = date;
+		}
+
+		void ndtpLieferschein_Validated(object sender, EventArgs e)
+		{
+			if (this.ndtpLieferschein.Value == null)
+			{
+				this.myMachine.Lieferdatum = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpLieferschein.Value;
+			this.myMachine.Lieferdatum = date;
+		}
+
+		void ndtpInstallation_Validated(object sender, EventArgs e)
+		{
+			if (this.ndtpInstallation.Value == null)
+			{
+				this.myMachine.Installationsdatum = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpInstallation.Value;
+			this.myMachine.Installationsdatum = date;
+		}
+
+		void ndtpVertragsende_Validated(object sender, EventArgs e)
+		{
+			if (ndtpVertragsende.Value == null)
+			{
+				this.myMachine.Finanzierungsende = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpVertragsende.Value;
+			this.myMachine.Finanzierungsende = date;
+		}
+
+		#endregion AUFTRÄGE EVENTS
 
 		#region FINISHING EVENTS
 
@@ -191,12 +330,6 @@ namespace Products.Common.Panel
 			rootNode.Tag = dirInfo;
 			this.AddSubNodes(rootNode);
 			this.trvFolders.SelectedNode = rootNode;
-
-			// TAB NOTIZEN
-			this.dgvNotizen.DataSource = ModelManager.NotesService.GetNotesList(this.myMachine.Key, this.myMachine.LinkTypeId);
-
-			// TAB SOFTWARE
-			this.dgvSoftware.DataSource = ModelManager.SoftwareService.GetMachinesSoftware(this.myMachine);
 
 			this.mtabProperties.SelectedIndex = 0; // Fokus auf Tab Dateien setzen
 		}

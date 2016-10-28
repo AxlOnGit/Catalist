@@ -49,7 +49,7 @@ namespace Products.Common.Panel
 		{
 			this.mcmbSoftware.DataSource = ModelManager.SoftwareService.GetSoftwareList().Sort("Softwarename");
 			this.mcmbSoftware.ValueMember = "UID";
-			this.mcmbSoftware.DisplayMember = "ItemName";
+			this.mcmbSoftware.DisplayMember = "Softwarename";
 			this.mcmbSoftware.DataBindings.Add("SelectedValue", mySoftware, "SoftwareId");
 
 			this.mtxtLizenzschluessel.DataBindings.Add("Text", mySoftware, "Lizenzschluessel");

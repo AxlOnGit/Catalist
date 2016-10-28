@@ -108,11 +108,11 @@ namespace Products.Common.Panel
 		{
 			if (this.ndtpKaufdatum.Value == null)
 			{
-				this.myMachine.Kaufdatum = null;
+				this.myMachine.Lieferdatum = null;
 			}
 			else
 			{
-				this.myMachine.Kaufdatum = DateTime.Parse(this.ndtpKaufdatum.Value.ToString());
+				this.myMachine.Lieferdatum = DateTime.Parse(this.ndtpKaufdatum.Value.ToString());
 			}
 		}
 
@@ -406,7 +406,7 @@ namespace Products.Common.Panel
 			this.cmbInkType.DisplayMember = "Tintenbezeichnung";
 			this.cmbInkType.DataBindings.Add("SelectedValue", this.myMachine, "TintenId");
 
-			this.ndtpKaufdatum.Value = this.myMachine.Kaufdatum;
+			this.ndtpKaufdatum.Value = this.myMachine.Lieferdatum;
 			this.ndtpAuftragsdatum.Value = this.myMachine.Auftragsdatum;
 			this.ndtpFinanzierungsende.Value = this.myMachine.Finanzierungsende;
 

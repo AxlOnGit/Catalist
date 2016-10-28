@@ -10,21 +10,18 @@ namespace Products.Data.Services
 {
 	public class OrderDataService
 	{
-
 		#region members
 
 		readonly string myCurrentUserPK;
 
 		readonly taOrder myOrderAdapter = new taOrder();
 		readonly taOrderDetail myOrderDetailAdapter = new taOrderDetail();
+		readonly taOrderBySN myOrderBySNAdapter = new taOrderBySN();
 
 		readonly Dictionary<string, dsOrders.OrderDataTable> myOrderDictionary = new Dictionary<string, dsOrders.OrderDataTable>();
 		readonly Dictionary<string, dsOrders.OrderDetailDataTable> myOrderDetailDictionary = new Dictionary<string, dsOrders.OrderDetailDataTable>();
 
-		#endregion
-
-		#region public properties
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -37,7 +34,7 @@ namespace Products.Data.Services
 			this.myCurrentUserPK = currentUserPK;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -91,10 +88,17 @@ namespace Products.Data.Services
 			return this.myOrderDetailDictionary[customerPK].Where(d => d.Vorgang.ToLower() == "d" | d.Vorgang.ToLower() == "r");
 		}
 
-		#endregion
+		/// <summary>
+		/// Sucht in SAGE nach Aufträgen, Rechnungen und Lieferscheinen, die Maschinen mit der
+		/// angegebenen Seriennummer enthalten.
+		/// </summary>
+		/// <param name="seriennummer"></param>
+		/// <returns></returns>
+		public IEnumerable<dsOrders.OrderBySNRow> GetOrderDataBySN(string seriennummer, string kundePK)
+		{
+			return this.myOrderBySNAdapter.GetData(seriennummer, kundePK);
+		}
 
-		#region private procedures
-		#endregion
-
+		#endregion public procedures
 	}
 }

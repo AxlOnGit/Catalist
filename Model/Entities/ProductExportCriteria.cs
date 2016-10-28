@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Text;
 
 namespace Products.Model.Entities
 {
 	public class ProductExportCriteria
 	{
-		#region members
+		#region MEMBERS
 
 		readonly Kunde myKunde;
 		readonly DateTime now = DateTime.Now;
 		readonly string myFileName;
 		readonly string myExcelFullName;
 		readonly List<ColsAndFields> myFieldList = new List<ColsAndFields>();
+		readonly string myBitmapHeaderFullName;
 
-		#endregion members
+		#endregion MEMBERS
 
-		#region enums
+		#region ENUMS
 
 		public enum TableStyles
 		{
@@ -28,11 +31,11 @@ namespace Products.Model.Entities
 			Green = 7
 		}
 
-		#endregion enums
+		#endregion ENUMS
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
-		#region flag properties
+		#region FLAG PROPERTIES
 
 		public bool KatalogFlag { get; set; } = true;
 
@@ -58,7 +61,7 @@ namespace Products.Model.Entities
 
 		public bool ShowPostExportFlag { get; set; } = true;
 
-		#endregion flag properties
+		#endregion FLAG PROPERTIES
 
 		/// <summary>
 		/// Gibt die Tabellenfarbe zurück oder legt sie fest.
@@ -121,13 +124,48 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string Matchcode { get { return this.myKunde.Matchcode; } }
 
-		#endregion public properties
+		/// <summary>
+		/// Gibt die Kundennummer in der bei uns üblichen 5-stelligen Form zurück.
+		/// </summary>
+		public string Kundennummer { get { return this.myKunde.KundenNrCpm; } }
+
+		/// <summary>
+		/// Gibt die Kundenadresse formatiert für Briefe zurück.
+		/// </summary>
+		public string Kundenadresse
+		{
+			get
+			{
+				var sb = new StringBuilder();
+				sb.AppendLine($"{this.myKunde.CompanyName1} [{this.myKunde.KundenNrCpm}]");
+				if (!string.IsNullOrEmpty(this.myKunde.CompanyName2)) sb.AppendLine($"{this.myKunde.CompanyName2}");
+				sb.AppendLine(this.myKunde.Street);
+				sb.AppendLine($"{this.myKunde.ZipCode} {this.myKunde.City}");
+				return sb.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Gibt die in der Kopfzeile anzuzeigende Bitmap zurück.
+		/// </summary>
+		public Bitmap HeaderBitmap
+		{
+			get
+			{
+				if (!File.Exists(this.myBitmapHeaderFullName)) throw new ApplicationException("Das Bild für die Kopfzeile ist auf dem Server nicht mehr vorhanden.");
+				var bmp = new Bitmap(this.myBitmapHeaderFullName);
+				return bmp;
+			}
+		}
+
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
-		public ProductExportCriteria(Kunde kunde)
+		public ProductExportCriteria(Kunde kunde, string bmpHeaderFullName)
 		{
 			this.myKunde = kunde;
+			this.myBitmapHeaderFullName = bmpHeaderFullName;
 			var userDocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			this.myFileName = $"{now.ToString("yyyy")}{now.ToString("MM")}{now.ToString("dd")}{now.ToString("HH")}{now.ToString("mm")}{now.ToString("ss")} Artikelpreise, {kunde.Matchcode}";
 			this.myExcelFullName = Path.Combine(userDocs, this.myFileName);

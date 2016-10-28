@@ -61,9 +61,9 @@
 			this.mradioArtikel = new MetroFramework.Controls.MetroRadioButton();
 			this.mradioKunden = new MetroFramework.Controls.MetroRadioButton();
 			this.mlnkCurrentCustomer = new MetroFramework.Controls.MetroLink();
-			this.mtileQuit = new MetroFramework.Controls.MetroTile();
-			this.mbtnShowRecentCustomers = new MetroFramework.Controls.MetroButton();
 			this.btnTest = new System.Windows.Forms.Button();
+			this.mtileShowRecent = new MetroFramework.Controls.MetroTile();
+			this.mtileQuit = new MetroFramework.Controls.MetroTile();
 			((System.ComponentModel.ISupportInitialize)(this.errSearch)).BeginInit();
 			this.ctxTbarIcon.SuspendLayout();
 			this.ctxView.SuspendLayout();
@@ -89,7 +89,7 @@
 				new AnalogClock.Marker("BigMarker150", 150F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
 				new AnalogClock.Marker("BigMarker120", 120F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null)};
 			this.WhatWatch.BorderStyle = AnalogClock.BorderStyles.Round;
-			this.WhatWatch.CenterPoint.Color = System.Drawing.Color.FromArgb(255, 0, ((int)(((byte)(148)))));
+			this.WhatWatch.CenterPoint.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
 			this.WhatWatch.CenterPoint.PaintAttributes = new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F);
 			this.WhatWatch.CenterPoint.RelativeRadius = 0.035F;
 			this.WhatWatch.CenterPoint.Tag = null;
@@ -201,7 +201,7 @@
 			this.mbtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mbtnMinimize.FontSize = MetroFramework.MetroButtonSize.Medium;
 			this.mbtnMinimize.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-			this.mbtnMinimize.Location = new System.Drawing.Point(246, 593);
+			this.mbtnMinimize.Location = new System.Drawing.Point(246, 626);
 			this.mbtnMinimize.Name = "mbtnMinimize";
 			this.mbtnMinimize.Size = new System.Drawing.Size(90, 30);
 			this.mbtnMinimize.TabIndex = 10;
@@ -215,7 +215,7 @@
 			// 
 			this.mlblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.mlblCurrentUser.AutoSize = true;
-			this.mlblCurrentUser.Location = new System.Drawing.Point(23, 604);
+			this.mlblCurrentUser.Location = new System.Drawing.Point(23, 637);
 			this.mlblCurrentUser.Name = "mlblCurrentUser";
 			this.mlblCurrentUser.Size = new System.Drawing.Size(81, 19);
 			this.mlblCurrentUser.TabIndex = 94;
@@ -316,7 +316,7 @@
 			this.lnkDummy.AutoSize = true;
 			this.lnkDummy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lnkDummy.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.lnkDummy.Location = new System.Drawing.Point(320, 246);
+			this.lnkDummy.Location = new System.Drawing.Point(357, 240);
 			this.lnkDummy.Name = "lnkDummy";
 			this.lnkDummy.Size = new System.Drawing.Size(18, 20);
 			this.lnkDummy.TabIndex = 0;
@@ -350,7 +350,7 @@
 			this.mtxtSearch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtSearch.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtSearch.Lines = new string[0];
-			this.mtxtSearch.Location = new System.Drawing.Point(23, 273);
+			this.mtxtSearch.Location = new System.Drawing.Point(23, 270);
 			this.mtxtSearch.MaxLength = 32767;
 			this.mtxtSearch.Name = "mtxtSearch";
 			this.mtxtSearch.PasswordChar = '\0';
@@ -358,6 +358,7 @@
 			this.mtxtSearch.SelectedText = "";
 			this.mtxtSearch.SelectionLength = 0;
 			this.mtxtSearch.SelectionStart = 0;
+			this.mtxtSearch.ShortcutsEnabled = true;
 			this.mtxtSearch.ShowButton = true;
 			this.mtxtSearch.ShowClearButton = true;
 			this.mtxtSearch.Size = new System.Drawing.Size(313, 26);
@@ -367,7 +368,7 @@
 				"t der vorangestellten Kundennummer");
 			this.mtxtSearch.UseSelectable = true;
 			this.mtxtSearch.WaterMark = "Kd-Nr, Firma, Seriennummer | STRG+Y = CPM";
-			this.mtxtSearch.WaterMarkColor = System.Drawing.Color.FromArgb((109), (109), (109));
+			this.mtxtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtSearch.ButtonClick += new MetroFramework.Controls.MetroTextBox.ButClick(this.mtxtSearch_ButtonClick);
 			this.mtxtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
@@ -378,7 +379,7 @@
 			this.btnTopMost.BackColor = System.Drawing.Color.Transparent;
 			this.btnTopMost.BackgroundImage = global::Products.Common.Properties.Resources.topmost_24_metrogray;
 			this.btnTopMost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.btnTopMost.Location = new System.Drawing.Point(23, 565);
+			this.btnTopMost.Location = new System.Drawing.Point(23, 598);
 			this.btnTopMost.Name = "btnTopMost";
 			this.btnTopMost.Size = new System.Drawing.Size(36, 36);
 			this.btnTopMost.TabIndex = 8;
@@ -393,7 +394,7 @@
 			this.btnLineOpen.BackColor = System.Drawing.Color.Transparent;
 			this.btnLineOpen.BackgroundImage = global::Products.Common.Properties.Resources.telefon_32_metrogreen;
 			this.btnLineOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.btnLineOpen.Location = new System.Drawing.Point(65, 565);
+			this.btnLineOpen.Location = new System.Drawing.Point(65, 598);
 			this.btnLineOpen.Name = "btnLineOpen";
 			this.btnLineOpen.Size = new System.Drawing.Size(36, 36);
 			this.btnLineOpen.TabIndex = 9;
@@ -405,7 +406,7 @@
 			// 
 			this.mtileVerwaltung.ActiveControl = null;
 			this.mtileVerwaltung.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileVerwaltung.Location = new System.Drawing.Point(130, 441);
+			this.mtileVerwaltung.Location = new System.Drawing.Point(130, 474);
 			this.mtileVerwaltung.Name = "mtileVerwaltung";
 			this.mtileVerwaltung.Size = new System.Drawing.Size(100, 100);
 			this.mtileVerwaltung.Style = MetroFramework.MetroColorStyle.Purple;
@@ -423,7 +424,7 @@
 			// 
 			this.mtileKatalog.ActiveControl = null;
 			this.mtileKatalog.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileKatalog.Location = new System.Drawing.Point(24, 441);
+			this.mtileKatalog.Location = new System.Drawing.Point(24, 474);
 			this.mtileKatalog.Name = "mtileKatalog";
 			this.mtileKatalog.Size = new System.Drawing.Size(100, 100);
 			this.mtileKatalog.Style = MetroFramework.MetroColorStyle.Lime;
@@ -440,7 +441,7 @@
 			// 
 			this.mtileAngebote.ActiveControl = null;
 			this.mtileAngebote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileAngebote.Location = new System.Drawing.Point(236, 335);
+			this.mtileAngebote.Location = new System.Drawing.Point(236, 368);
 			this.mtileAngebote.Name = "mtileAngebote";
 			this.mtileAngebote.Size = new System.Drawing.Size(100, 100);
 			this.mtileAngebote.Style = MetroFramework.MetroColorStyle.Lime;
@@ -458,7 +459,7 @@
 			// 
 			this.mtileKalender.ActiveControl = null;
 			this.mtileKalender.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileKalender.Location = new System.Drawing.Point(130, 335);
+			this.mtileKalender.Location = new System.Drawing.Point(130, 368);
 			this.mtileKalender.Name = "mtileKalender";
 			this.mtileKalender.Size = new System.Drawing.Size(100, 100);
 			this.mtileKalender.Style = MetroFramework.MetroColorStyle.Red;
@@ -476,7 +477,7 @@
 			// 
 			this.mtileArtikel.ActiveControl = null;
 			this.mtileArtikel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileArtikel.Location = new System.Drawing.Point(23, 335);
+			this.mtileArtikel.Location = new System.Drawing.Point(23, 368);
 			this.mtileArtikel.Name = "mtileArtikel";
 			this.mtileArtikel.Size = new System.Drawing.Size(100, 100);
 			this.mtileArtikel.Style = MetroFramework.MetroColorStyle.Yellow;
@@ -531,7 +532,7 @@
 			this.metroPanel1.HorizontalScrollbarBarColor = true;
 			this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
 			this.metroPanel1.HorizontalScrollbarSize = 10;
-			this.metroPanel1.Location = new System.Drawing.Point(23, 246);
+			this.metroPanel1.Location = new System.Drawing.Point(23, 243);
 			this.metroPanel1.Name = "metroPanel1";
 			this.metroPanel1.Size = new System.Drawing.Size(152, 21);
 			this.metroPanel1.TabIndex = 98;
@@ -570,45 +571,14 @@
 			// mlnkCurrentCustomer
 			// 
 			this.mlnkCurrentCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mlnkCurrentCustomer.Location = new System.Drawing.Point(23, 306);
+			this.mlnkCurrentCustomer.Location = new System.Drawing.Point(23, 321);
 			this.mlnkCurrentCustomer.Name = "mlnkCurrentCustomer";
-			this.mlnkCurrentCustomer.Size = new System.Drawing.Size(282, 23);
+			this.mlnkCurrentCustomer.Size = new System.Drawing.Size(247, 23);
 			this.mlnkCurrentCustomer.TabIndex = 99;
 			this.mlnkCurrentCustomer.Text = "Letzter Kunde";
-			this.mlnkCurrentCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.mlnkCurrentCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.mlnkCurrentCustomer.UseSelectable = true;
 			this.mlnkCurrentCustomer.Click += new System.EventHandler(this.mlnkCurrentCustomer_Click);
-			// 
-			// mtileQuit
-			// 
-			this.mtileQuit.ActiveControl = null;
-			this.mtileQuit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mtileQuit.Location = new System.Drawing.Point(236, 441);
-			this.mtileQuit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.mtileQuit.Name = "mtileQuit";
-			this.mtileQuit.Size = new System.Drawing.Size(100, 100);
-			this.mtileQuit.Style = MetroFramework.MetroColorStyle.Silver;
-			this.mtileQuit.TabIndex = 97;
-			this.mtileQuit.Text = "Beenden";
-			this.mtileQuit.TileImage = global::Products.Common.Properties.Resources.poweroff_48_metrowhite;
-			this.mtileQuit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.mtileQuit.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
-			this.mtileQuit.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.mtileQuit.UseSelectable = true;
-			this.mtileQuit.UseTileImage = true;
-			this.mtileQuit.Click += new System.EventHandler(this.mtileQuit_Click);
-			// 
-			// mbtnShowRecentCustomers
-			// 
-			this.mbtnShowRecentCustomers.Location = new System.Drawing.Point(311, 305);
-			this.mbtnShowRecentCustomers.Name = "mbtnShowRecentCustomers";
-			this.mbtnShowRecentCustomers.Size = new System.Drawing.Size(25, 23);
-			this.mbtnShowRecentCustomers.TabIndex = 101;
-			this.mbtnShowRecentCustomers.Text = "...";
-			this.mbtnShowRecentCustomers.UseCustomBackColor = true;
-			this.mbtnShowRecentCustomers.UseCustomForeColor = true;
-			this.mbtnShowRecentCustomers.UseSelectable = true;
-			this.mbtnShowRecentCustomers.Click += new System.EventHandler(this.mbtnShowRecentCustomers_Click);
 			// 
 			// btnTest
 			// 
@@ -628,17 +598,54 @@
 			this.btnTest.Visible = false;
 			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
 			// 
+			// mtileShowRecent
+			// 
+			this.mtileShowRecent.ActiveControl = null;
+			this.mtileShowRecent.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.mtileShowRecent.Location = new System.Drawing.Point(276, 302);
+			this.mtileShowRecent.Name = "mtileShowRecent";
+			this.mtileShowRecent.Size = new System.Drawing.Size(60, 60);
+			this.mtileShowRecent.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtileShowRecent.TabIndex = 103;
+			this.mtileShowRecent.Text = "***";
+			this.mtileShowRecent.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+			this.mtileShowRecent.TileImage = global::Products.Common.Properties.Resources.customer_32_metrowhite;
+			this.mtileShowRecent.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.mtileShowRecent.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+			this.mtileShowRecent.UseSelectable = true;
+			this.mtileShowRecent.UseTileImage = true;
+			this.mtileShowRecent.Click += new System.EventHandler(this.mbtnShowRecentCustomers_Click);
+			// 
+			// mtileQuit
+			// 
+			this.mtileQuit.ActiveControl = null;
+			this.mtileQuit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.mtileQuit.Location = new System.Drawing.Point(236, 474);
+			this.mtileQuit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.mtileQuit.Name = "mtileQuit";
+			this.mtileQuit.Size = new System.Drawing.Size(100, 100);
+			this.mtileQuit.Style = MetroFramework.MetroColorStyle.Silver;
+			this.mtileQuit.TabIndex = 97;
+			this.mtileQuit.Text = "Beenden";
+			this.mtileQuit.TileImage = global::Products.Common.Properties.Resources.poweroff_48_metrowhite;
+			this.mtileQuit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.mtileQuit.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+			this.mtileQuit.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.mtileQuit.UseSelectable = true;
+			this.mtileQuit.UseTileImage = true;
+			this.mtileQuit.Click += new System.EventHandler(this.mtileQuit_Click);
+			// 
 			// CpmMainView
 			// 
 			this.AcceptButton = this.lnkDummy;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(359, 646);
+			this.ClientSize = new System.Drawing.Size(359, 679);
 			this.ContextMenuStrip = this.ctxView;
 			this.ControlBox = false;
+			this.Controls.Add(this.mtileShowRecent);
 			this.Controls.Add(this.btnTest);
-			this.Controls.Add(this.mbtnShowRecentCustomers);
 			this.Controls.Add(this.mtxtSearch);
 			this.Controls.Add(this.mlnkCurrentCustomer);
 			this.Controls.Add(this.metroPanel1);
@@ -713,7 +720,7 @@
 		private MetroFramework.Controls.MetroRadioButton mradioKunden;
 		private MetroFramework.Controls.MetroLink mlnkCurrentCustomer;
 		private MetroFramework.Controls.MetroTextBox mtxtSearch;
-		private MetroFramework.Controls.MetroButton mbtnShowRecentCustomers;
 		private System.Windows.Forms.Button btnTest;
+		private MetroFramework.Controls.MetroTile mtileShowRecent;
 	}
 }
