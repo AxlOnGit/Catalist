@@ -1,18 +1,17 @@
-﻿using System;
-using MetroFramework.Forms;
+﻿using MetroFramework.Forms;
 using Products.Model;
 using Products.Model.Entities;
+using System;
 
 namespace Products.Common.Views
 {
 	public partial class ModellView : MetroForm
 	{
-
-		#region members
+		#region MEMBERS
 
 		Maschinenmodell myModel;
 
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -27,9 +26,9 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		void btnAddModel_Click(object sender, EventArgs e)
 		{
@@ -42,14 +41,19 @@ namespace Products.Common.Views
 			ModelManager.SharedItemsService.UpdateMaschinenModell();
 		}
 
-		void mbtnClose_Click(object sender, EventArgs e)
+		void mbtnOK_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion
+		void mbtnCancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 
-		#region private procedures
+		#endregion EVENT HANDLER
+
+		#region PRIVATE PROCEDURES
 
 		void InitializeData()
 		{
@@ -80,7 +84,6 @@ namespace Products.Common.Views
 			this.FormClosing += ModellView_FormClosing;
 		}
 
-		#endregion
-
+		#endregion PRIVATE PROCEDURES
 	}
 }

@@ -1,18 +1,18 @@
 using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 // Copyright (c) 2005 Claudio Grazioli, http://www.grazioli.ch
 //
-// This code is free software; you can redistribute it and/or modify it. However, this header must
-// remain intact and unchanged. Additional information may be appended after this header.
-// Publications based on this code must also include an appropriate reference.
+// This code is free software; you can redistribute it and/or modify it. However, this
+// header must remain intact and unchanged. Additional information may be appended after
+// this header. Publications based on this code must also include an appropriate reference.
 //
-// This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+// without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 namespace Products.UI.Controls
 {
@@ -21,7 +21,7 @@ namespace Products.UI.Controls
 	/// <b>DateTimePicker</b> control with the possibility to show empty values (null values).
 	/// </summary>
 	[ComVisible(false)]
-	public class NullableDateTimePicker : DateTimePicker
+	public class NullableDateTimePicker : MetroDateTime
 	{
 		#region Member variables
 
@@ -73,8 +73,8 @@ namespace Products.UI.Controls
 		/// <value>The DateTime value assigned to the control</value>
 		/// <remarks>
 		/// <p>
-		/// If the <b>Value</b> property has not been changed in code or by the user, it is set to
-		/// the current date and time ( <see cref="DateTime.Now"/>).
+		/// If the <b>Value</b> property has not been changed in code or by the user, it is
+		/// set to the current date and time ( <see cref="DateTime.Now"/>).
 		/// </p>
 		/// <p>If <b>Value</b> is <b>null</b>, the DateTimePicker shows <see cref="NullValue"/>.</p>
 		/// </remarks>
@@ -105,7 +105,9 @@ namespace Products.UI.Controls
 		/// <summary>
 		/// Gets or sets the format of the date and time displayed in the control.
 		/// </summary>
-		/// <value>One of the <see cref="DateTimePickerFormat"/> values. The default is <see cref="DateTimePickerFormat.Long"/>.</value>
+		/// <value>
+		/// One of the <see cref="DateTimePickerFormat"/> values. The default is <see cref="DateTimePickerFormat.Long"/>.
+		/// </value>
 		[Browsable(true)]
 		[DefaultValue(DateTimePickerFormat.Short), TypeConverter(typeof(Enum))]
 		public new DateTimePickerFormat Format
@@ -121,8 +123,9 @@ namespace Products.UI.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the custom date/time format string. <value>A string that represents the
-		/// custom date/time format. The default is a null reference ( <b>Nothing</b> in Visual Basic).</value>
+		/// Gets or sets the custom date/time format string. <value>A string that
+		/// represents the custom date/time format. The default is a null reference (
+		/// <b>Nothing</b> in Visual Basic).</value>
 		/// </summary>
 		public new string CustomFormat
 		{
@@ -170,8 +173,8 @@ namespace Products.UI.Controls
 		/// </summary>
 		void SetFormat()
 		{
-			CultureInfo ci = Thread.CurrentThread.CurrentCulture;
-			DateTimeFormatInfo dtf = ci.DateTimeFormat;
+			var ci = Thread.CurrentThread.CurrentCulture;
+			var dtf = ci.DateTimeFormat;
 			switch (myFormat)
 			{
 				case DateTimePickerFormat.Long:

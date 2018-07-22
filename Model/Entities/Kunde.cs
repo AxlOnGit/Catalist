@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Device.Location;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using Products.Common;
+﻿using Products.Common;
 using Products.Common.Collections;
 using Products.Common.Extensions;
 using Products.Common.Geocoding;
 using Products.Common.Interfaces;
 using Products.Data;
 using Products.Data.Datasets;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Device.Location;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
 
 namespace Products.Model.Entities
 {
@@ -141,6 +141,11 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
+		/// Gibt den 2-stelligen Ländercode der Kundenadresse zurück.
+		/// </summary>
+		public string Laendercode { get { return this.myBase.Laendercode; } }
+
+		/// <summary>
 		/// Gibt die E-Mail Adresse des Hauptkontakts zurück.
 		/// </summary>
 		public string Email
@@ -187,8 +192,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Returns a flag indicating whether the customer is marked for a dunning letter or already
-		/// has received one.
+		/// Returns a flag indicating whether the customer is marked for a dunning letter
+		/// or already has received one.
 		/// </summary>
 		public bool DunningFlag { get { return myBase.Sperrvermerk1 == "1"; } }
 
@@ -203,13 +208,14 @@ namespace Products.Model.Entities
 		public bool AdvancePaymentFlag { get { return myBase.Sperrvermerk3 == "1"; } }
 
 		/// <summary>
-		/// Gibt das Zahlungsziel in Tagen an, ab dem der Rechnungsbetrag ohne Skonto fällig wird.
+		/// Gibt das Zahlungsziel in Tagen an, ab dem der Rechnungsbetrag ohne Skonto
+		/// fällig wird.
 		/// </summary>
 		public short ZahlungenTageNetto { get { return myBase.Zahlungskond_1_TageNetto; } }
 
 		/// <summary>
-		/// Gibt das Zahlungsziel in Tagen an, bis zu dem vom Rechnungsbetrag Skonto gezogen werden
-		/// darf. Der Skontosatz ergibt sich aus ZahlungenProzent.
+		/// Gibt das Zahlungsziel in Tagen an, bis zu dem vom Rechnungsbetrag Skonto
+		/// gezogen werden darf. Der Skontosatz ergibt sich aus ZahlungenProzent.
 		/// </summary>
 		public short ZahlungenTageSkonto { get { return myBase.Zahlungskond_1_TageSkonto1; } }
 
@@ -225,7 +231,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return string.Format("Ihre Zahlungsbedingungen: {0} Tage netto, {1} Tage {2:N1}% Skonto", this.ZahlungenTageNetto, this.ZahlungenTageSkonto, this.ZahlungenProzent);
+				return string.Format($"Ihre Zahlungsbedingungen: {this.ZahlungenTageNetto} Tage netto, {this.ZahlungenTageSkonto} Tage {this.ZahlungenProzent:N1}% Skonto");
 			}
 		}
 
@@ -245,8 +251,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return 0;
-				//return this.Kundenmaschinenliste.Count;
+				return RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this).Count;
 			}
 		}
 
@@ -330,7 +335,7 @@ namespace Products.Model.Entities
 					{
 						return freiPreis.AbWert;
 					}
-					else return 0;
+					return 0;
 				}
 				return 0;
 			}
@@ -352,14 +357,11 @@ namespace Products.Model.Entities
 						{
 							return "Ihre Lieferungen erhalten Sie von uns immer frachtfrei.";
 						}
-						else
-						{
-							return string.Format("Wir beliefern Sie frachtfrei ab einem Bestellwert von {0:N2} EUR netto.", freiPreis.AbWert);
-						}
+						return string.Format("Wir beliefern Sie frachtfrei ab einem Bestellwert von {0:N2} EUR netto.", freiPreis.AbWert);
 					}
-					else return "Für Lieferungen unter 250,- EUR netto fällt die normale Frachtkostenpauschale i.H.v. derzeit 8,50 EUR an.";
+					return "Für Lieferungen unter 250,- EUR netto fällt die normale Frachtkostenpauschale i.H.v. derzeit 8,50 EUR an.";
 				}
-				else return "Für Lieferungen unter 250,- EUR fällt die normale Frachtkostenpauschale i.H.v. derzeit 8,50 EUR an.";
+				return "Für Lieferungen unter 250,- EUR fällt die normale Frachtkostenpauschale i.H.v. derzeit 8,50 EUR an.";
 			}
 		}
 
@@ -563,7 +565,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Kennzeichen, ob für Termine die Umsätze seit dem letztem Besuch ausgedruckt werden sollen.
+		/// Kennzeichen, ob für Termine die Umsätze seit dem letztem Besuch ausgedruckt
+		/// werden sollen.
 		/// </summary>
 		public bool UmsatzSeitLetztemBesuchFlag
 		{
@@ -608,7 +611,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Wird im Text von Terminen ganz oben als Hinweis für den Außendienst (oder wen immer) angezeigt.
+		/// Wird im Text von Terminen ganz oben als Hinweis für den Außendienst (oder wen
+		/// immer) angezeigt.
 		/// </summary>
 		public string AktuellerHinweis
 		{
@@ -621,8 +625,8 @@ namespace Products.Model.Entities
 		#region Geo-Koordinaten
 
 		/// <summary>
-		/// Gibt den Kunden zurück, zu dem die Entfernung gemessen wird, die von der Eigenschaft
-		/// 'EntfernungZuReferenzkunde' zurückgegeben wird.
+		/// Gibt den Kunden zurück, zu dem die Entfernung gemessen wird, die von der
+		/// Eigenschaft 'EntfernungZuReferenzkunde' zurückgegeben wird.
 		/// </summary>
 		public Kunde Referenzkunde
 		{
@@ -656,8 +660,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt die Entfernung in Kilometern zwischen der Adresse dieses Kunden und dem in der
-		/// Eigenschaft 'Referenzkunde' gespeicherten Kunden zurück.
+		/// Gibt die Entfernung in Kilometern zwischen der Adresse dieses Kunden und dem in
+		/// der Eigenschaft 'Referenzkunde' gespeicherten Kunden zurück.
 		/// </summary>
 		public double EntfernungZuReferenzkunde
 		{
@@ -802,8 +806,8 @@ namespace Products.Model.Entities
 			{
 				if (this.myKundeRow == null)
 				{
-					// Gibt die entsprechende Zeile aus der Tabelle Kunde zurück oder legt ggf. eine
-					// neue Zeile an.
+					// Gibt die entsprechende Zeile aus der Tabelle Kunde zurück oder legt
+					// ggf. eine neue Zeile an.
 					myKundeRow = DataManager.CustomerDataService.GetKunde(this.CustomerId);
 					if (this.myKundeRow == null)
 					{
@@ -875,7 +879,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Öffnet das Standard-Mailprogramm mit einer neuen E-Mail an den Hauptkontakt dieses Kunden.
+		/// Öffnet das Standard-Mailprogramm mit einer neuen E-Mail an den Hauptkontakt
+		/// dieses Kunden.
 		/// </summary>
 		public void MailToMainContact()
 		{
@@ -975,7 +980,7 @@ namespace Products.Model.Entities
 			}
 
 			// Maschinenliste
-			if (ModelManager.MachineService.GetKundenMaschineList(this.CustomerId).Count > 0)
+			if (RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this).Count > 0)
 			{
 				sb.Append("<div><font face=Calibri size=2><u>Maschinen</u></font></div><ul>");
 				foreach (var item in this.GetMaschinenListeText())
@@ -1110,7 +1115,7 @@ namespace Products.Model.Entities
 		List<string> GetMaschinenListeText()
 		{
 			var list = new List<string>();
-			var mList = ModelManager.MachineService.GetKundenMaschineList(this.CustomerId);
+			var mList = RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this);
 
 			foreach (var machine in mList.Sort("Modellbezeichnung"))
 			{

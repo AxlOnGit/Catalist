@@ -119,6 +119,7 @@
 			this.mbtnOk.Text = "OK";
 			this.mbtnOk.UseSelectable = true;
 			this.mbtnOk.UseVisualStyleBackColor = true;
+			this.mbtnOk.Click += new System.EventHandler(this.mbtnOk_Click);
 			// 
 			// mbtnCancel
 			// 
@@ -140,6 +141,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.mbtnCancel;
 			this.ClientSize = new System.Drawing.Size(418, 523);
+			this.ControlBox = false;
 			this.Controls.Add(this.mbtnCancel);
 			this.Controls.Add(this.mbtnOk);
 			this.Controls.Add(this.dgvUser);

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using MetroFramework.Forms;
 using Products.Model;
 using Products.Model.Entities;
@@ -8,17 +9,20 @@ namespace Products.Common.Views
 	public partial class UserSearchView : MetroForm
 	{
 
-		#region members
+		#region MEMBERS
 
-		User selectedUser;
+		User mySelectedUser;
+		List<User> mySelectedUsers = new List<User>();
 
 		#endregion
 
 		#region public properties
 
-		public User SelectedUser { get { return selectedUser; } }
+		public User SelectedUser => mySelectedUser;
 
-		#endregion
+		public List<User> SelectedUsers => this.mySelectedUsers;
+
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -29,7 +33,7 @@ namespace Products.Common.Views
 		{
 			InitializeComponent();
 			dgvUser.AutoGenerateColumns = false;
-			dgvUser.DataSource =  ModelManager.UserService.GetUserList();
+			dgvUser.DataSource = ModelManager.UserService.GetUserList();
 		}
 
 		#endregion
@@ -40,8 +44,13 @@ namespace Products.Common.Views
 		{
 			if (dgvUser.Rows.Count >= 1)
 			{
-				selectedUser = dgvUser.Rows[e.RowIndex].DataBoundItem as Model.Entities.User;
+				mySelectedUser = dgvUser.Rows[e.RowIndex].DataBoundItem as User;
 			}
+		}
+
+		private void mbtnOk_Click(object sender, System.EventArgs e)
+		{
+			this.OkAndClose();
 		}
 
 		#endregion
@@ -50,6 +59,10 @@ namespace Products.Common.Views
 
 		void OkAndClose()
 		{
+			foreach (DataGridViewRow row in this.dgvUser.SelectedRows)
+			{
+				this.mySelectedUsers.Add(row.DataBoundItem as User);
+			}
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}

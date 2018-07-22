@@ -11,15 +11,15 @@ namespace Products.Common.Views
 {
 	public partial class CustomerSearchView : MetroForm
 	{
-		#region members
+		#region MEMBERS
 
 		dsCustomer.CustomerRow mySelectedCustomerRow;
 		readonly BindingSource bs = new BindingSource();
 		bool setSelectedCustomerAsCurrent;
 
-		#endregion members
+		#endregion MEMBERS
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
 		/// <summary>
 		/// Returns the selected customer row.
@@ -32,9 +32,9 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion public properties
+		#endregion PUBLIC PROPERTIES
 
-		#region private properties
+		#region PRIVATE PROCEDURES
 
 		//private DataView GridDataView
 		//{
@@ -44,7 +44,7 @@ namespace Products.Common.Views
 		//  }
 		//}
 
-		#endregion private properties
+		#endregion PRIVATE PROCEDURES
 
 		#region ### .ctor ###
 
@@ -54,6 +54,7 @@ namespace Products.Common.Views
 		public CustomerSearchView(string titel, bool setCustomerAsCurrent)
 		{
 			InitializeComponent();
+			this.ShowInTaskbar = false;
 			this.Text = titel;
 			this.setSelectedCustomerAsCurrent = setCustomerAsCurrent;
 

@@ -8,9 +8,9 @@ namespace David.API
 
 		#region public properties
 
-		public ItemNotificationType NotificationType { get; private set; }
-		public IArchiveNotifyItems MsgItems2 { get; private set; }
-		public Archive SourceArchive { get; private set; }
+		public ItemNotificationType NotificationType { get; }
+		public IArchiveNotifyItems MsgItems2 { get; }
+		public Archive SourceArchive { get; }
 
 		#endregion
 

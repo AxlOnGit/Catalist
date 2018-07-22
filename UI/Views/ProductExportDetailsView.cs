@@ -11,31 +11,32 @@ namespace Products.Common.Views
 {
 	public partial class ProductExportDetailsView : MetroForm
 	{
-		#region members
+		#region MEMBERS
 
 		readonly ProductExportCriteria myCriteria;
-		readonly IEnumerable<Product> myExportList;
+		readonly List<Product> myExportList;
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz der <seealso cref="ProductExportDetailsView"/> Formularklasse.
 		/// </summary>
-		public ProductExportDetailsView(Kunde kunde, IEnumerable<Product> exportList)
+		public ProductExportDetailsView(Kunde kunde, List<Product> exportList)
 		{
 			InitializeComponent();
-			var bmpFullname = Path.Combine(Properties.Settings.Default.PicturePath, "cpm_kopf.jpg");
+			var bmpFullname = Path.Combine(CatalistRegistry.Application.PicturePath, "cpm_kopf.jpg");
 			this.myCriteria = new ProductExportCriteria(kunde, bmpFullname);
+			this.myCriteria.RestoreSettings();
 			this.myExportList = exportList;
-			this.mlblExportInfo.Text = $"Die Excel Tabelle wird im Ordner Dokumente als\n{this.myCriteria.ExcelFilename} gespeichert.";
+			this.mlblExportInfo.Text = $"als '{this.myCriteria.ExcelFilename}'";
 			this.InitializeData();
 		}
 
 		#endregion ### .ctor ###
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void InitializeData()
 		{
@@ -49,17 +50,45 @@ namespace Products.Common.Views
 			this.mtogglKundenpreis.DataBindings.Add("Checked", this.myCriteria, "KundenpreisFlag");
 			this.mtogglDiscountPercent.DataBindings.Add("Checked", this.myCriteria, "KundenrabattFlag");
 			this.mtogglStaffelpreis.DataBindings.Add("Checked", this.myCriteria, "StaffelpreisFlag");
-			this.mtogglDiscountedOnly.DataBindings.Add("Checked", this.myCriteria, "DiscountedOnlyFlag");
-			this.mtogglShowPostExport.DataBindings.Add("Checked", this.myCriteria, "ShowPostExportFlag");
+			this.mtogglDiscountedOnly.DataBindings.Add("Checked", this.myCriteria, "NurRabattierteFlag");
+			this.mtogglShowPostExport.DataBindings.Add("Checked", this.myCriteria, "TabelleAnzeigenFlag");
 			this.mtrackHeaderFontSize.DataBindings.Add("Value", this.myCriteria, "HeaderFontSize");
 			this.mtrackDataFontSize.DataBindings.Add("Value", this.myCriteria, "DataFontSize");
+			this.mlnkExportPfad.Text = this.myCriteria.ExportPfad;
+
+			switch (this.myCriteria.Tabellenfarbe)
+			{
+				case ProductExportCriteria.TableStyles.LightBlue:
+				this.mlblTabellenfarbe.Text = "Hellblau";
+				break;
+
+				case ProductExportCriteria.TableStyles.Orange:
+				this.mlblTabellenfarbe.Text = "Orange";
+				break;
+
+				case ProductExportCriteria.TableStyles.Gray:
+				this.mlblTabellenfarbe.Text = "Grau";
+				break;
+
+				case ProductExportCriteria.TableStyles.Yellow:
+				this.mlblTabellenfarbe.Text = "Gelb";
+				break;
+
+				case ProductExportCriteria.TableStyles.DarkBlue:
+				this.mlblTabellenfarbe.Text = "Dunkelblau";
+				break;
+
+				case ProductExportCriteria.TableStyles.Green:
+				this.mlblTabellenfarbe.Text = "Grün";
+				break;
+			}
 
 			this.mbtnExport.Click += mbtnExport_Click;
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 
-		#region event handler
+		#region EVENT HANDLER
 
 		void mtileLightBlue_Click(object sender, EventArgs e)
 		{
@@ -127,33 +156,64 @@ namespace Products.Common.Views
 			this.mtxtDataFontSize.Text = $"{this.mtrackDataFontSize.Value}";
 		}
 
+		private void mlnkExportPfad_Click(object sender, EventArgs e)
+		{
+			var fbd = new FolderBrowserDialog();
+			fbd.Description = "Bitte den Ordner auswählen, in dem ich die exportierten Dateien speichern soll.";
+			if (Directory.Exists(this.myCriteria.ExportPfad)) fbd.SelectedPath = this.myCriteria.ExportPfad;
+			if (fbd.ShowDialog() == DialogResult.OK)
+			{
+				this.myCriteria.ExportPfad = fbd.SelectedPath;
+				this.mlnkExportPfad.Text = fbd.SelectedPath;
+			}
+		}
+
 		void mbtnExport_Click(object sender, EventArgs e)
 		{
-			MetroMessageBox.Show(this, "Das wird etwas dauern. Wenn nicht nur rabattierte Artikel exportiert werden, auch etwas länger.", "Ich starte den Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			var stoppUhr = Stopwatch.StartNew();
-			OfficeBridge.ServiceManager.ExcelService.ExportProductList(this.myExportList, this.myCriteria);
-			stoppUhr.Stop();
-			var ticks = stoppUhr.ElapsedTicks;
-			var frequency = Stopwatch.Frequency;
-			var seconds = ticks / frequency;
+			var msg = string.Empty;
+			bool isEmpty = true;
+			foreach (var item in this.myExportList)
+			{
+				if (item.RabattProzent > 0)
+				{
+					isEmpty = false;
+					break;
+				}
+			}
 
-			MetroMessageBox.Show(this, $"Alle Artikel wurden in {seconds:N0} Sekunden exportiert", "So, das war's", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			if (this.mtogglDiscountedOnly.Checked && isEmpty)
+			{
+				msg = "Der Kunde hat noch keine rabattierten Artikel. Die Liste wäre also leer.\nMöchtest Du stattdessen alle Artikel in der Liste exportieren?";
+				if (MetroMessageBox.Show(this, msg, "Macht keinen Sinn", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					this.myCriteria.NurRabattierteFlag = false;
+				}
+				else return;
+			}
+			OfficeBridge.ServiceManager.ExcelService.ExportProductList(this.myExportList, this.myCriteria);
+			msg = string.Empty;
 
 			// Excel öffnen, wenn aktiviert.
 			if (this.mtogglShowPostExport.Checked)
 			{
+				msg = "Export abgeschlossen. Excel wird automatisch gestartet.";
 				var startInfo = new ProcessStartInfo();
 				startInfo.FileName = "excel.exe";
 				startInfo.Arguments = $"\"{this.myCriteria.ExcelFullName}\"";
 				Process.Start(startInfo);
+				return;
 			}
+			msg = $"Die ist im Ordner 'Dokumente' zu finden als: {Environment.NewLine}{this.myCriteria.ExcelFilename}";
+			MetroMessageBox.Show(this, msg, "So, finito carusello");
 		}
 
 		void mbtnClose_Click(object sender, EventArgs e)
 		{
+			if (!this.mtogglSaveSettings.Checked) this.myCriteria.SaveSettings();
 			this.Close();
 		}
 
 		#endregion event handler
+
 	}
 }

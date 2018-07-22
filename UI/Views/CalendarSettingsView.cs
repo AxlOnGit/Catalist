@@ -13,15 +13,11 @@ namespace Products.Common.Views
 {
 	public partial class CalendarSettingsView : MetroForm
 	{
-
 		#region members
 
 		readonly CalendarSettings myCalendarSettings;
 
-		#endregion
-
-		#region public properties
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -35,14 +31,14 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
 		void mbtnSetForUser_Click(object sender, EventArgs e)
 		{
 			var usv = new UserSearchView();
-			if (usv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			if (usv.ShowDialog() == DialogResult.OK)
 			{
 				this.myCalendarSettings.SetTargetUser(usv.SelectedUser);
 				this.mtxtForUser.Text = usv.SelectedUser.NameFull;
@@ -58,7 +54,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion event handler
 
 		void InitializeData()
 		{
@@ -70,6 +66,5 @@ namespace Products.Common.Views
 			this.mchkCreateServiceReport.DataBindings.Add("Checked", this.myCalendarSettings, "CreateServiceReport");
 			this.mlblAppointmentColor.DataBindings.Add("BackColor", this.myCalendarSettings, "AppointmentColor");
 		}
-
 	}
 }

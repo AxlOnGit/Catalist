@@ -5,38 +5,45 @@ namespace David.API
 {
 	public class ArchiveNotification : IArchiveNotification
 	{
-
-		#region delegates
+		#region DELEGATES
 
 		public delegate void ItemEventHandler(object sender, ItemNotificationEventArgs e);
+
 		public delegate void UnreadEventHandler(object sender, UnreadNotificationEventArgs e);
-		public delegate void ArchiveInfoEventHandler(object sender, Archive e);
 
-		#endregion
+		public delegate void ArchiveInfoEventHandler(object sender, ArchiveInfoEventArgs e);
 
-		#region events
+		#endregion DELEGATES
+
+		#region EVENTS
 
 		public event ItemEventHandler ItemNotificationEvent;
-		public event ItemEventHandler ItemNewEvent;
+
 		public event ItemEventHandler ItemDeletedEvent;
+
+		public event ItemEventHandler ItemNewEvent;
+
 		public event ItemEventHandler ItemModifiedEvent;
+
 		public event ArchiveInfoEventHandler RefreshEvent;
+
 		public event ArchiveInfoEventHandler RestoreEvent;
+
 		public event UnreadEventHandler UnreadEvent;
 
-		#endregion
+		#endregion EVENTS
 
-		#region members
+		#region MEMBERS
 
 		readonly List<string> myArchiveIDs = new List<string>();
 
-		#endregion
+		#endregion MEMBERS
 
 		#region public properties
 
-		List<string> ArchiveIDs { get { return this.myArchiveIDs; } }
+		List<string> ArchiveIDs => this.myArchiveIDs;
 
-		#endregion
+		#endregion public properties
 
 		#region event handler
 
@@ -60,12 +67,12 @@ namespace David.API
 
 		public void OnRefresh(Archive pArchiveSource)
 		{
-			this.RefreshEvent?.Invoke(this, pArchiveSource);
+			this.RefreshEvent?.Invoke(this, new ArchiveInfoEventArgs(pArchiveSource));
 		}
 
 		public void OnRestored(Archive pArchiveSource)
 		{
-			this.RestoreEvent?.Invoke(this, pArchiveSource);
+			this.RestoreEvent?.Invoke(this, new ArchiveInfoEventArgs(pArchiveSource));
 		}
 
 		public void OnUnreadCount(Archive pArchiveSource, int lCount)
@@ -73,7 +80,7 @@ namespace David.API
 			this.UnreadEvent?.Invoke(this, new UnreadNotificationEventArgs(lCount, pArchiveSource));
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region public procedures
 
@@ -104,7 +111,7 @@ namespace David.API
 			ArchiveIDs.Clear();
 		}
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -122,7 +129,6 @@ namespace David.API
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

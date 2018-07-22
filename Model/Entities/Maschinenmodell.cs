@@ -1,18 +1,17 @@
-﻿
+﻿using Products.Common.Interfaces;
 using Products.Data.Datasets;
-using Products.Common.Interfaces;
+
 namespace Products.Model.Entities
 {
 	public class Maschinenmodell : ILinkedItem
 	{
-
-		#region members
+		#region MEMBERS
 
 		readonly dsShared.MaschinenModellRow myBase;
 
-		#endregion
+		#endregion MEMBERS
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
 		#region ILinkedItem
 
@@ -42,33 +41,50 @@ namespace Products.Model.Entities
 			get { return "Maschinenmodell"; }
 		}
 
-		#endregion
+		#endregion ILinkedItem
 
 		public string UID { get { return myBase.UID; } }
 
-		public string HerstellerId 
-		{ 
-			get 
-			{ 
-				return myBase.HerstellerrId; 
-			} 
-			set 
-			{ 
-				myBase.HerstellerrId = value; 
-			} 
+		/// <summary>
+		/// Wird umgeleitet auf die HerstellerId der Serie.
+		/// </summary>
+		public string HerstellerId
+		{
+			get
+			{
+				return this.Maschinenserie.HerstellerId;
+			}
+			set
+			{
+				myBase.HerstellerrId = value;
+			}
+		}
+
+		/// <summary>
+		/// Wird umgebogen auf den Hersteller der Serie.
+		/// </summary>
+		public Hersteller Hersteller
+		{
+			get
+			{
+				return this.Maschinenserie.Hersteller != null ? this.Maschinenserie.Hersteller : null;
+			}
 		}
 
 		/// <summary>
 		/// Gibt den Herstellernamen zurück.
 		/// </summary>
-		public string Herstellername 
-		{ 
-			get 
+		public string Herstellername
+		{
+			get
 			{
-				return ModelManager.SharedItemsService.GetHersteller(myBase.HerstellerrId).Herstellername; 
-			} 
+				return (this.Hersteller == null) ? string.Empty : this.Hersteller.Herstellername;
+			}
 		}
 
+		/// <summary>
+		/// Gibt den Primärschlüssel der Modellserie dieses Maschinenmodells zurück.
+		/// </summary>
 		public string ModellSerieId
 		{
 			get { return this.myBase.MaschinenserieId; }
@@ -79,21 +95,53 @@ namespace Products.Model.Entities
 			}
 		}
 
+		public Maschinenserie Maschinenserie
+		{
+			get
+			{
+				return ModelManager.SharedItemsService.GetModellSerie(this.ModellSerieId);
+			}
+		}
+
 		/// <summary>
 		/// Gibt die Bezeichnung der Serie zurück, zu der dieses Maschinenmodell gehört
 		/// </summary>
-		public string ModellSerie
+		public string ModellSerienName
 		{
-			get { return ModelManager.SharedItemsService.GetModellSerie(this.ModellSerieId).Serienname; }
+			get
+			{
+				return (this.Maschinenserie == null) ? string.Empty : this.Maschinenserie.Serienname;
+			}
 		}
 
 		public string MaschinentypId { get { return myBase.MaschinenTypId; } set { myBase.MaschinenTypId = value; } }
 
-		public string Maschinentyp { get { return ModelManager.SharedItemsService.GetMaschinenTyp(myBase.MaschinenTypId).MaschinentypName; } }
+		/// <summary>
+		/// Gibt die Bezeichnung des Maschinentyps zurück.
+		/// </summary>
+		public string Maschinentyp
+		{
+			get
+			{
+				return this.Maschinenserie != null ? this.Maschinenserie.Maschinentyp.MaschinentypName : string.Empty;
+			}
+		}
 
 		public string Modellbezeichnung { get { return myBase.Modellbezeichnung; } set { myBase.Modellbezeichnung = value; } }
-	
-		#endregion
+
+		/// <summary>
+		/// Gibt True zurück, wenn es keine Kundenmaschinen dieses Maschinenmodells gibt,
+		/// sonst False.
+		/// </summary>
+		public bool CanDelete
+		{
+			get
+			{
+				return RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this).Count == 0;
+			}
+		}
+
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
@@ -105,8 +153,7 @@ namespace Products.Model.Entities
 		{
 			myBase = baseRow;
 		}
-	
-		#endregion
 
+		#endregion ### .ctor ###
 	}
 }

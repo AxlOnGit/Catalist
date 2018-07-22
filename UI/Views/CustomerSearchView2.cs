@@ -7,13 +7,12 @@ namespace Products.Common.Views
 {
 	public partial class CustomerSearchView2 : MetroForm
 	{
-
 		#region members
 
 		Model.Entities.Kunde myCurrentCustomer;
 		private bool DoNotMove;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -26,21 +25,21 @@ namespace Products.Common.Views
 			private set { this.myCurrentCustomer = value; }
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Creates a new instance of the CustomerSearchView2 class.
 		/// </summary>
-		public CustomerSearchView2(Products.Common.SortableBindingList<Model.Entities.Kunde> customers)
+		public CustomerSearchView2(SortableBindingList<Model.Entities.Kunde> customers)
 		{
 			InitializeComponent();
 			this.dgvCustomers.AutoGenerateColumns = false;
 			this.dgvCustomers.DataSource = customers;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -75,14 +74,14 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
 		void OkAndClose()
 		{
 			if (myCurrentCustomer == null) return;
-			this.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.DialogResult = DialogResult.OK;
 			this.SetCurrentCustomer(this.myCurrentCustomer);
 			this.Close();
 		}
@@ -92,7 +91,6 @@ namespace Products.Common.Views
 			Model.ModelManager.CustomerService.CurrentCustomer = kunde;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

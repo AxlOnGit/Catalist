@@ -123,6 +123,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_16_metrolime {
+            get {
+                object obj = ResourceManager.GetObject("add_16_metrolime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_16_metroorange {
             get {
                 object obj = ResourceManager.GetObject("add_16_metroorange", resourceCulture);
@@ -333,6 +343,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap autofill_32_metrogreen {
+            get {
+                object obj = ResourceManager.GetObject("autofill_32_metrogreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap b_metrored {
             get {
                 object obj = ResourceManager.GetObject("b_metrored", resourceCulture);
@@ -473,6 +493,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar_16_metrosilver {
+            get {
+                object obj = ResourceManager.GetObject("calendar_16_metrosilver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar_16_metroyellow {
             get {
                 object obj = ResourceManager.GetObject("calendar_16_metroyellow", resourceCulture);
@@ -583,6 +613,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contact_32_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("contact_32_metroorange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap copy_16_metrored {
             get {
                 object obj = ResourceManager.GetObject("copy_16_metrored", resourceCulture);
@@ -596,6 +636,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap createfolder_16_metroyellow {
             get {
                 object obj = ResourceManager.GetObject("createfolder_16_metroyellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap customer_16_metrogreen {
+            get {
+                object obj = ResourceManager.GetObject("customer_16_metrogreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -686,6 +736,26 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap discount_16_metrored {
             get {
                 object obj = ResourceManager.GetObject("discount_16_metrored", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap disks_48_metrowhite {
+            get {
+                object obj = ResourceManager.GetObject("disks_48_metrowhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap documents_16_metrolime {
+            get {
+                object obj = ResourceManager.GetObject("documents_16_metrolime", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1223,6 +1293,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap idea_16_metrosilver {
+            get {
+                object obj = ResourceManager.GetObject("idea_16_metrosilver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iexplore_16_metrosilver {
             get {
                 object obj = ResourceManager.GetObject("iexplore_16_metrosilver", resourceCulture);
@@ -1333,6 +1413,26 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap link_32_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("link_32_metroorange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap list_16_metrolime {
+            get {
+                object obj = ResourceManager.GetObject("list_16_metrolime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap liste_48_metrolime {
             get {
                 object obj = ResourceManager.GetObject("liste_48_metrolime", resourceCulture);
@@ -1366,6 +1466,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap logo_catalist {
             get {
                 object obj = ResourceManager.GetObject("logo_catalist", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap machine_16_metrogreen {
+            get {
+                object obj = ResourceManager.GetObject("machine_16_metrogreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1453,9 +1563,29 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minimize_48_metrowhite {
+            get {
+                object obj = ResourceManager.GetObject("minimize_48_metrowhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap move_16_metroblue {
             get {
                 object obj = ResourceManager.GetObject("move_16_metroblue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap move_16_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("move_16_metroorange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1883,6 +2013,36 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paste_24_metroyellow {
+            get {
+                object obj = ResourceManager.GetObject("paste_24_metroyellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pin_24_metrogreen {
+            get {
+                object obj = ResourceManager.GetObject("pin_24_metrogreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pois_16_metrosilver {
+            get {
+                object obj = ResourceManager.GetObject("pois_16_metrosilver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap poweroff_48_metrowhite {
             get {
                 object obj = ResourceManager.GetObject("poweroff_48_metrowhite", resourceCulture);
@@ -1953,6 +2113,16 @@ namespace Products.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printer_32_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("printer_32_metroorange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap printer_metrowhite {
             get {
                 object obj = ResourceManager.GetObject("printer_metrowhite", resourceCulture);
@@ -1966,6 +2136,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap PrintHS {
             get {
                 object obj = ResourceManager.GetObject("PrintHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap product_32_metrowhite {
+            get {
+                object obj = ResourceManager.GetObject("product_32_metrowhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2026,6 +2206,16 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap restore {
             get {
                 object obj = ResourceManager.GetObject("restore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SageNCL_16 {
+            get {
+                object obj = ResourceManager.GetObject("SageNCL_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2326,6 +2516,26 @@ namespace Products.Common.Properties {
         internal static System.Drawing.Bitmap Touren_48_metrowhite {
             get {
                 object obj = ResourceManager.GetObject("Touren_48_metrowhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unlink_32_metroorange {
+            get {
+                object obj = ResourceManager.GetObject("unlink_32_metroorange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unpin2_24_metrosilver {
+            get {
+                object obj = ResourceManager.GetObject("unpin2_24_metrosilver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,12 +11,12 @@ namespace Products.Common.Views
 {
 	public partial class ArtikelDetailView : MetroForm
 	{
-		#region members
+		#region MEMBERS
 
-		readonly Product myProduct;
-		readonly Kunde myKunde;
+		private readonly Product myProduct;
+		private readonly Kunde myKunde;
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -34,18 +34,18 @@ namespace Products.Common.Views
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
-		void mbtnClose_Click(object sender, EventArgs e)
+		private void mbtnClose_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
-		void InitializeData()
+		private void InitializeData()
 		{
 			this.dgvBestellungen.AutoGenerateColumns = false;
 			this.dgvProductSales.AutoGenerateColumns = false;
@@ -55,7 +55,7 @@ namespace Products.Common.Views
 			this.mlblBezeichnung1.Text = this.myProduct.Bezeichnung2;
 			this.mlblBezeichnung2.Text = this.myProduct.Bezeichnung2;
 			var lieferant = ModelManager.SupplierService.GetSupplier(this.myProduct.Lieferant);
-			this.mlblLieferant.Text = lieferant.Matchcode;
+			this.mlblLieferant.Text = (lieferant != null) ? lieferant.Matchcode : string.Empty;
 			this.mlblEinkaufspreis.Text = string.Format("{0:C2}", this.myProduct.Einkaufspreis);
 			this.mlblVerkaufspreis.Text = string.Format("{0:C2}", this.myProduct.Standardpreis);
 			this.mlblKundenpreis.Text = string.Format("{0:C2}", this.myProduct.Kundenpreis);
@@ -63,7 +63,8 @@ namespace Products.Common.Views
 
 			this.dgvBestellungen.DataSource = ModelManager.SupplierService.GetOffeneBestellungen(this.myProduct.Artikelnummer);
 			this.dgvProductSales.DataSource = ModelManager.ProductService.GetProductSales(this.myProduct.Artikelnummer);
-			this.mlblAverageSales.Text = this.GetAverageProductSales(ModelManager.ProductService.GetProductSales(this.myProduct.Artikelnummer)).ToString("F");
+			this.mlblAverageSales.Text = this.myProduct.AverageSalesCountPerSales;
+			this.mlblAverageSales12Months.Text = this.myProduct.AverageSalesCountLast12Months;
 			var llRow = ModelManager.SupplierService.GetLetzteLieferungDetail(this.myProduct.Artikelnummer);
 			var letzteLieferung = string.Empty;
 			if (llRow.HasValue)
@@ -72,11 +73,9 @@ namespace Products.Common.Views
 			}
 			else letzteLieferung = "Für diesen Artikel gibt es bisher noch keine Lieferungen";
 			this.mlblLetzteLieferung.Text = letzteLieferung;
-			//var list = ModelManager.SupplierService.GetBestellDetails(this.myProduct.Artikelnummer);
-			//this.dgvBestellungen.DataSource = list;
 		}
 
-		double GetAverageProductSales(SBList<Model.Services.ProductService.ProductSale> salesList)
+		private double GetAverageProductSales(SBList<Model.Services.ProductService.ProductSale> salesList)
 		{
 			if (salesList.Count == 0) return 0;
 			var count = salesList.Count();
@@ -84,11 +83,11 @@ namespace Products.Common.Views
 			return sum / count;
 		}
 
-		void dgvBestellungen_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void dgvBestellungen_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			MetroMessageBox.Show(this, ServiceManager.UiService.GetControlMetrics(this.dgvBestellungen));
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 	}
 }

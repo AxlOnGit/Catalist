@@ -6,6 +6,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows.Forms;
 using MetroFramework;
 using Products.Common.Views;
@@ -16,11 +17,27 @@ namespace Products.Common
 {
 	static class Program
 	{
+		#region MEMBERS
+
+		static bool firstInstance;
+
+		#endregion MEMBERS
+
 		/// <summary>
 		/// Der Haupteinstiegspunkt für die Anwendung.
 		/// </summary>
 		[STAThread]
 		static void Main(string[] args)
+		{
+			Mutex mutex = new Mutex(true, "FirstCatalist", out firstInstance);
+			if (firstInstance)
+			{
+				RunMe(args);
+			}
+			else MessageBox.Show("Läuft schon. Bitte in der Taskleiste oder das kleine Symbol rechts unten aktivieren.");
+		}
+
+		static void RunMe(string[] args)
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -38,14 +55,6 @@ namespace Products.Common
 					David.DavidManager.SetAppointmentListener(true);
 				}
 				Global.CmdArgs = args[0];
-			}
-			try
-			{
-				InitSettings();
-			}
-			catch (Exception ex)
-			{
-				throw ex;
 			}
 
 #if (HISTORYUPDATE)
@@ -77,9 +86,9 @@ namespace Products.Common
 #endif
 		}
 
-		#region static procedures
+		#region STATIC PROCEDURES
 
-		static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+		static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
 		{
 			try
 			{
@@ -136,9 +145,9 @@ namespace Products.Common
 			kv.Focus();
 		}
 
-		#endregion static procedures
+		#endregion STATIC PROCEDURES
 
-		#region event handler
+		#region EVENT HANDLER
 
 		static void Application_ApplicationExit(object sender, EventArgs e)
 		{
@@ -148,42 +157,7 @@ namespace Products.Common
 			ModelManager.ReminderService.ShutdownScheduler();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region private procedures
-
-		static void InitSettings()
-		{
-			Global.AppointmentArchivePath = @"\\david\david\archive\group\b";
-			Global.AtapiLineName = Properties.Settings.Default.ATAPI_Line;
-			Global.CatalogTemplateFilePath = Properties.Settings.Default.CatalogTemplateFilePath;
-			Global.CustomerCatalogPath = Properties.Settings.Default.CatalogPath;
-			Global.ManufacturerPicturePath = Properties.Settings.Default.ManufacturerPicturePath;
-			Global.OfferFilePath = Properties.Settings.Default.OfferFilePath;
-			Global.PicturePath = Properties.Settings.Default.PicturePath;
-			Global.ProductPicturePath = Properties.Settings.Default.ProductPicturePath;
-			Global.SageExePath = Properties.Settings.Default.Sage_ExePath;
-			Global.SageUser = Properties.Settings.Default.UserInSage;
-			decimal taxRate;
-			if (decimal.TryParse(Properties.Settings.Default.TaxRate, out taxRate))
-			{
-				Global.TaxRateMultiplier = taxRate;
-			}
-			else
-			{
-				Global.TaxRateMultiplier = 1.19m;
-			}
-			Global.BingMapsURL = Properties.Settings.Default.BingMapsUrl;
-			Global.SmtpServer = Properties.Settings.Default.SmtpServer;
-			Global.SmtpPort = int.Parse(Properties.Settings.Default.SmtpPort);
-			Global.SenderEmailAddress = Properties.Settings.Default.SenderEmailAddress;
-			Global.SenderPW = Properties.Settings.Default.SenderPW;
-			Global.DavidArchivePath = Properties.Settings.Default.DavidArchivePath;
-			Global.LinkedFilesPath = Properties.Settings.Default.LinkedFilesPath;
-			Global.TemplatePath = Properties.Settings.Default.TemplatePath;
-			Global.Signature = Properties.Settings.Default.Signature;
-		}
-
-		#endregion private procedures
 	}
 }

@@ -8,16 +8,6 @@ namespace Products.Common.Controls
 	public class axlTextbox : TextBox
 	{
 
-		#region PInvoke Helpers
-
-		static uint ECM_FIRST = 0x1500;
-		static readonly uint EM_SETCUEBANNER = ECM_FIRST + 1;
-
-		[DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-		static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, String lParam);
-
-		#endregion PInvoke Helpers
-
 		#region Watermark
 
 		string _watermark = string.Empty;
@@ -114,10 +104,25 @@ namespace Products.Common.Controls
 			// Called if a handle isn't yet created
 			if (this.IsHandleCreated)
 			{
-				SendMessage(new HandleRef(this, this.Handle), EM_SETCUEBANNER, (_showWatermarkWithFocus) ? new IntPtr(1) : IntPtr.Zero, _watermark);
+				NativeMethods.SendMessage(new HandleRef(this, this.Handle), NativeMethods.EM_SETCUEBANNER, (_showWatermarkWithFocus) ? new IntPtr(1) : IntPtr.Zero, _watermark);
 			}
 		}
 
 	}
+
+	internal static class NativeMethods
+	{
+		#region PINVOKE HELPERS
+
+		internal static uint ECM_FIRST = 0x1500;
+		internal static readonly uint EM_SETCUEBANNER = ECM_FIRST + 1;
+
+		[DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = false)]
+		internal static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, string lParam);
+
+		#endregion PInvoke Helpers
+
+	}
+
 }
 

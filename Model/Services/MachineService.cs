@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Products.Common;
-using Products.Common.Interfaces;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Model.Entities;
@@ -11,50 +10,31 @@ namespace Products.Model.Services
 {
 	public class MachineService
 	{
-		#region members
+		#region EVENTS
 
-		Dictionary<string, SortableBindingList<Kundenmaschine>> myMachineDictionary = new Dictionary<string, SortableBindingList<Kundenmaschine>>();
+		public event EventHandler<KundenmaschineDeletingEventArgs> KundenmaschineDeleting;
 
-		#endregion members
+		public event EventHandler<KundenmaschineMovedEventArgs> KundenmaschineMoved;
 
-		#region ### .ctor ###
+		#endregion EVENTS
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der MachineService Klasse.
-		/// </summary>
-		public MachineService()
-		{
-			DataManager.MachineDataService.AfterMachineMoved += this.MachineDataService_AfterMachineMoved;
-		}
+		#region MEMBERS
 
-		#endregion ### .ctor ###
+		SortableBindingList<Maschinenauftrag> myMaschinenauftragListe;
 
-		#region event handler
+		#endregion MEMBERS
 
-		void MachineDataService_AfterMachineMoved(object sender, Data.Services.MachineDataService.MachineMovedEventArgs e)
-		{
-			// Die verschobene Maschine aus der Liste des bisherigen Kunden löschen.
-			var machine = this.myMachineDictionary[e.FromKundePK].FirstOrDefault(m => m.UID == e.MachinePK);
-			if (machine != null) this.myMachineDictionary[e.FromKundePK].Remove(machine);
+		#region PUBLIC PROCEDURES
 
-			// Und der Liste des neuen Kunden hinzufügen, wenn die schon geladen wurde.
-			if (this.myMachineDictionary.ContainsKey(e.ToKundePK)) this.myMachineDictionary[e.ToKundePK].Add(machine);
-		}
-
-		#endregion event handler
-
-		#region public procedures
-
-		#region Kundenmaschinensuche
+		#region SUCHE
 
 		/// <summary>
-		/// Gibt eine schreibgeschützte Liste aller derzeit zugeordneten Kundenmaschinen zum Suchen zurück.
+		/// Gibt eine schreibgeschützte Liste aller derzeit zugeordneten Kundenmaschinen
+		/// zum Suchen zurück.
 		/// </summary>
 		/// <returns></returns>
-		public dsMachines.KundenmaschinenListeDataTable GetKundenmaschinenSearchList()
-		{
-			return DataManager.MachineDataService.GetKundenmaschinenSearchList();
-		}
+		public dsMachines.KundenmaschinenListeDataTable GetKundenmaschinenSearchList() 
+			=> DataManager.MachineDataService.GetKundenmaschinenSearchList();
 
 		/// <summary>
 		/// Gibt eine sortierbare Liste der Maschinen des angegebenen Kunden zurück.
@@ -67,128 +47,51 @@ namespace Products.Model.Services
 			return new SortableBindingList<dsMachines.KundenmaschinenListeRow>(list);
 		}
 
-		#endregion Kundenmaschinensuche
+		#endregion SUCHE
 
-		/// <summary>
-		/// Fügt den Maschinen des angegebenen Kunden eine neue Maschine hinzu.
-		/// </summary>
-		/// <param name="kundePK">Kundennummer des Kunden, dem die neue Maschine zugeordnet wird.</param>
-		/// <returns></returns>
-		public Kundenmaschine AddKundenMaschine(string kundePK)
-		{
-			var buildParams = DataManager.MachineDataService.AddKundenMaschineRow(kundePK, ModelManager.UserService.CurrentUser.UID);
-			if (this.myMachineDictionary.ContainsKey(kundePK))
-			{
-				var ownerDictionary = new Dictionary<DateTime, Kunde>();
-				ownerDictionary.Add(buildParams.KundenXrefRow.Zuordnungsbeginn, ModelManager.CustomerService.GetKunde(kundePK, false));
-				var machine = new Kundenmaschine(buildParams.KundenMaschineRow, ownerDictionary);
-				this.myMachineDictionary[kundePK].Add(machine);
-				return machine;
-			}
-			var list = new SortableBindingList<Kundenmaschine>();
-			foreach (var machineRow in DataManager.MachineDataService.GetKundenMaschineRows(kundePK))
-			{
-				var ownerDictionary = this.CreateOwnerDictionary(machineRow);
-				list.Add(new Kundenmaschine(machineRow, ownerDictionary));
-			}
-			this.myMachineDictionary.Add(kundePK, list);
-			return list.FirstOrDefault(m => m.UID == buildParams.KundenMaschineRow.UID);
-		}
-
-		Dictionary<DateTime, Kunde> CreateOwnerDictionary(dsMachines.KundenMaschineRow machineRow)
-		{
-			var ownerDictionary = new Dictionary<DateTime, Kunde>();
-			foreach (var item in DataManager.MachineDataService.GetKundenMaschineXrefRows(machineRow.UID).Where(m => m.Zuordnungsende > DateTime.Now))
-			{
-				ownerDictionary.Add(item.Zuordnungsende, ModelManager.CustomerService.GetKunde(item.Kundennummer, false));
-			}
-			return ownerDictionary;
-		}
-
-		/// <summary>
-		/// Gibt die sortierbare Liste der Maschinen des Kunden mit der angegebenen Kundennummer zurück.
-		/// </summary>
-		/// <param name="kundePK">Kundennummer des Kunden der gesuchten Maschinen.</param>
-		/// <returns></returns>
-		public SortableBindingList<Kundenmaschine> GetKundenMaschineList(string kundePK)
-		{
-			if (!this.myMachineDictionary.ContainsKey(kundePK))
-			{
-				var list = new SortableBindingList<Kundenmaschine>();
-				foreach (var kRow in DataManager.MachineDataService.GetKundenMaschineRows(kundePK))
-				{
-					var ownerList = this.CreateOwnerDictionary(kRow);
-					list.Add(new Kundenmaschine(kRow, ownerList));
-				}
-				this.myMachineDictionary.Add(kundePK, list);
-			}
-			return this.myMachineDictionary[kundePK];
-		}
-
-		/// <summary>
-		/// Gibt die Maschine mit dem angegebenen Primärschlüssel zurück.
-		/// </summary>
-		/// <param name="kunde">Kunde, dem diese Maschine zugeordnet ist.</param>
-		/// <param name="machinePK">Primärschlüssel der gesuchten Maschine.</param>
-		/// <returns></returns>
-		public Kundenmaschine GetKundenMaschine(Kunde kunde, string machinePK)
-		{
-			return this.GetKundenMaschineList(kunde.CustomerId).FirstOrDefault(m => m.UID == machinePK);
-		}
-
-		/// <summary>
-		/// Gibt die Kundenmaschine mit dem angegebenen Primärschlüssel zurück.
-		/// </summary>
-		/// <param name="machinePK">Primärschlüssel der Kundenmaschine.</param>
-		/// <returns></returns>
-		public Kundenmaschine GetKundenMaschine(string machinePK)
-		{
-			var xRow = DataManager.MachineDataService.GetKundenMaschineXrefRow(machinePK);
-			var kunde = ModelManager.CustomerService.GetKunde(xRow.Kundennummer, false);
-			return this.GetKundenMaschine(kunde, machinePK);
-		}
-
-		/// <summary>
-		/// Gibt die Anzahl der Maschinen des Kunden mit der angegebenen Kundennummer zurück.
-		/// </summary>
-		/// <param name="kundePK">Kundennummer des Kunden, dessen Maschinenanzahl gesucht wird.</param>
-		/// <returns></returns>
-		public int GetKundenMaschineCount(string kundePK)
-		{
-			return this.myMachineDictionary.ContainsKey(kundePK) ? this.myMachineDictionary[kundePK].Count : 0;
-		}
+		#region KUNDENMASCHINEN
 
 		/// <summary>
 		/// Transferiert die angegebene Maschine vom einen zum anderen Kunden.
 		/// </summary>
 		/// <param name="machine">Die zu transferierende Maschine.</param>
-		/// <param name="fromKundePK">Kundennummer des bisherigen Eigentümers.</param>
-		/// <param name="toKundePK">Kundennummer des neuen Eigentümers.</param>
-		public void TransferMachine(Kundenmaschine machine, string fromKundePK, string toKundePK)
+		/// <param name="quellKunde">Kundennummer des bisherigen Eigentümers.</param>
+		/// <param name="zielKunde">Kundennummer des neuen Eigentümers.</param>
+		public void TransferMachine(Kundenmaschine machine, Kunde quellKunde, Kunde zielKunde)
 		{
-			DataManager.MachineDataService.MoveMachineRow(machine.UID, fromKundePK, toKundePK, ModelManager.UserService.CurrentUser.UID);
+			var currentUser = ModelManager.UserService.CurrentUser;
+			DataManager.MachineDataService.MoveMachineRow(machine.UID, quellKunde.CustomerId, zielKunde.CustomerId, currentUser.UID);
+			KundenmaschineMoved(this, new KundenmaschineMovedEventArgs(machine, quellKunde, zielKunde));
 			if (ModelManager.SoftwareService.GetMachinesSoftware(machine).Count > 0)
 			{
-				ModelManager.SoftwareService.TransferSoftware(machine, toKundePK);
+				ModelManager.SoftwareService.TransferSoftware(machine, zielKunde);
 			}
 		}
 
 		/// <summary>
-		/// Löscht die angegebene KundenMaschine und alle zugehörigen Verknüpfungen in Tabelle KundenMaschineXref.
+		/// Löscht die angegebene KundenMaschine und alle zugehörigen Verknüpfungen in
+		/// Tabelle KundenMaschineXref.
 		/// </summary>
-		/// <param name="machine"></param>
-		public void DeleteKundenMachine(Kundenmaschine machine)
+		/// <param name="kundenmaschine"></param>
+		public void DeleteKundenMachine(Kundenmaschine kundenmaschine)
 		{
-			var machineAsLink = machine as ILinkedItem;
-			var appointmentList = ModelManager.AppointmentService.GetAppointmentList(machineAsLink.Key, machineAsLink.LinkTypeId);
-			var fileList = ModelManager.FileLinkService.GetFileLinkList(machine.UID);
-			var notesList = ModelManager.NotesService.GetNotesList(machineAsLink.Key, machineAsLink.LinkTypeId);
-			var softwareList = ModelManager.SoftwareService.GetMachinesSoftware(machine);
-			if (fileList.Count == 0 && notesList.Count == 0 && appointmentList.Count == 0 && softwareList.Count == 0)
+			var appointmentList = ModelManager.AppointmentService.GetAppointmentList(kundenmaschine);
+			var fileList = ModelManager.FileLinkService.GetFileLinkList(kundenmaschine.UID);
+			var notesList = ModelManager.NotesService.GetNotesList(kundenmaschine.Key, kundenmaschine.LinkTypeId);
+			var softwareList = ModelManager.SoftwareService.GetMachinesSoftware(kundenmaschine);
+			if (fileList == null && notesList.Count == 0 && appointmentList.Count == 0 && softwareList.Count == 0)
 			{
-				DataManager.MachineDataService.DeleteKundenMaschineRows(machine.UID);
+				KundenmaschineDeleting(this, new KundenmaschineDeletingEventArgs(kundenmaschine));
+				DataManager.MachineDataService.DeleteKundenMaschineRows(kundenmaschine.UID);
+			}
+			else
+			{
+				var msg = $"Die Maschine kann nicht gelöscht werden, weil es noch verknüpfte Dateien, Notizen oder Software gibt.";
+				throw new OperationCanceledException(msg);
 			}
 		}
+
+		#endregion KUNDENMASCHINEN
 
 		#region MASCHINENWARTUNG
 
@@ -198,9 +101,9 @@ namespace Products.Model.Services
 			var returnList = new SortableBindingList<Wartungsvorschlag>();
 			foreach (var item in list)
 			{
-				// Maschine und die damit verknüpften Termine ermitteln. Es werden nur Wartungs- und
-				// Servicetermine in der Vergangenheit berücksichtigt!
-				var machine = this.GetKundenMaschine(item.UID);
+				// Maschine und die damit verknüpften Termine ermitteln. Es werden nur
+				// Wartungs- und Servicetermine in der Vergangenheit berücksichtigt!
+				var machine = RepoManager.KundenmaschinenRepository.GetKundenmaschine(item.UID);
 				var appointments = ModelManager.AppointmentService.GetAppointmentList(machine).Where(
 					a => (a.AppointmentType == "Wartungstermin" | a.AppointmentType == "Servicetermin") & a.StartsAt <= DateTime.Now);
 				var letzterTermin = DateTime.MinValue;
@@ -223,13 +126,12 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt eine Liste aller Kundenmaschinen zurück, die zu einer normalerweise gewarteten Serie gehören.
+		/// Gibt eine Liste aller Kundenmaschinen zurück, die zu einer normalerweise
+		/// gewarteten Serie gehören.
 		/// </summary>
 		/// <returns></returns>
-		IEnumerable<dsMachines.KundenmaschinenListeRow> GetWartungsmaschinenListe()
-		{
-			return this.GetKundenmaschinenSearchList().Where(m => m.Wartungskennzeichen == 1);
-		}
+		IEnumerable<dsMachines.KundenmaschinenListeRow> GetWartungsmaschinenListe() 
+			=> this.GetKundenmaschinenSearchList().Where(m => m.Wartungskennzeichen == 1);
 
 		System.Data.DataTable CreateWartungsDataTable()
 		{
@@ -246,44 +148,160 @@ namespace Products.Model.Services
 
 		#endregion MASCHINENWARTUNG
 
+		#region MASCHINENAUFTRÄGE
+
+		/// <summary>
+		/// <seealso cref="SortableBindingList{T}"/> mit allen
+		/// <seealso cref="Maschinenauftrag"/> Instanzen des Systems zurück.
+		/// </summary>
+		/// <returns></returns>
+		public SortableBindingList<Maschinenauftrag> GetMaschinenauftragListe()
+		{
+			if (this.myMaschinenauftragListe == null)
+			{
+				this.myMaschinenauftragListe = new SortableBindingList<Maschinenauftrag>();
+				foreach (var aRow in DataManager.MachineDataService.GetMaschinenauftragTabelle())
+				{
+					var auftrag = new Maschinenauftrag(aRow);
+					this.myMaschinenauftragListe.Add(auftrag);
+				}
+			}
+			return this.myMaschinenauftragListe;
+		}
+
+		/// <summary>
+		/// Gibt die Liste der aktiven (Maschine noch nicht ausgeliefert) Maschinenaufträge zurück.
+		/// </summary>
+		/// <returns>
+		/// Gibt eine <seealso cref="SortableBindingList{T}"/> zurück. T ist vom Typ <seealso cref="Maschinenauftrag"/>.
+		/// </returns>
+		public SortableBindingList<Maschinenauftrag> GetMaschinenauftragAktivListe()
+		{
+			var list = this.GetMaschinenauftragListe().Where(m => m.AuftragErledigtFlag == false);
+			return new SortableBindingList<Maschinenauftrag>(list);
+		}
+
+		/// <summary>
+		/// Gibt den Maschinenauftrag für die Maschine mit dem angegebenen Primärschlüssel zurück.
+		/// </summary>
+		/// <param name="machinePK">
+		/// Primärschlüssel (GUID) der Maschine des gesuchten Maschinenauftrags.
+		/// </param>
+		/// <returns></returns>
+		public Maschinenauftrag GetMaschinenauftrag(string machinePK) 
+			=> this.GetMaschinenauftragListe().FirstOrDefault(a => a.MaschinenId == machinePK);
+
+		/// <summary>
+		/// Erzeugt einen neuen Maschinenauftrag für den angegebenen Kunden und das
+		/// angegebene Maschinenmodell.
+		/// </summary>
+		/// <param name="kunde">Der Auftragskunde.</param>
+		/// <param name="maschinenmodell">Der Primärschlüssel des Maschinenmodells.</param>
+		/// <returns></returns>
+		public Maschinenauftrag AddMaschinenauftrag(Kunde kunde, Maschinenmodell maschinenmodell)
+		{
+			// Kundenmaschine anlegen
+			var creatingUser = ModelManager.UserService.CurrentUser;
+			var newMachine = ModelManager.MachineCreatorService.CreateKundenmaschine(kunde, maschinenmodell, creatingUser, string.Empty);
+
+			// Maschinenauftrag
+			var auftragRow = DataManager.MachineDataService.CreateMaschinenauftragRow(newMachine.UID);
+			var newAuftrag = new Maschinenauftrag(auftragRow);
+			this.GetMaschinenauftragListe().Add(newAuftrag);
+			return newAuftrag;
+		}
+
+		public Maschinenauftrag AddMaschinenauftrag(Kundenmaschine kundenMaschine)
+		{
+			var mRow = DataManager.MachineDataService.CreateMaschinenauftragRow(kundenMaschine.UID);
+			if (mRow != null)
+			{
+				var newAuftrag = new Maschinenauftrag(mRow);
+				this.GetMaschinenauftragListe().Add(newAuftrag);
+				return newAuftrag;
+			}
+			return null;
+		}
+
+		#endregion MASCHINENAUFTRÄGE
+
 		/// <summary>
 		/// Speichert Änderungen an den Maschinen des angegebenen Kunden in der Datenbank.
 		/// </summary>
 		/// <returns></returns>
-		public int UpdateMachines()
+		public int UpdateMachines() => DataManager.MachineDataService.UpdateKundenMaschinen();
+
+		#endregion PUBLIC PROCEDURES
+	}
+
+	#region SUB CLASSES
+
+	public class KundenmaschineDeletingEventArgs : EventArgs
+	{
+		#region MEMBERS
+
+		public readonly Kundenmaschine DeletedMachine;
+
+		#endregion MEMBERS
+
+		#region ### .ctor ###
+
+		/// <summary>
+		/// Erzeugt eine neue Instanz der <seealso cref="KundenmaschineDeletingEventArgs"/> Klasse.
+		/// </summary>
+		/// <param name="kundenmaschine">Die gelöschte <seealso cref="Kundenmaschine"/>.</param>
+		public KundenmaschineDeletingEventArgs(Kundenmaschine kundenmaschine)
 		{
-			return DataManager.MachineDataService.UpdateKundenMaschinen();
+			this.DeletedMachine = kundenmaschine;
 		}
 
-		#endregion public procedures
+		#endregion ### .ctor ###
+	}
+
+	public class KundenmaschineMovedEventArgs : EventArgs
+	{
+		#region MEMBERS
+
+		public readonly Kundenmaschine MovedMachine;
+		public readonly Kunde FromCustomer;
+		public readonly Kunde ToCustomer;
+
+		#endregion MEMBERS
+
+		#region ### .ctor ###
+
+		public KundenmaschineMovedEventArgs(Kundenmaschine kundenmaschine, Kunde quellKunde, Kunde zielKunde)
+		{
+			this.MovedMachine = kundenmaschine;
+			this.FromCustomer = quellKunde;
+			this.ToCustomer = zielKunde;
+		}
+
+		#endregion ### .ctor ###
 	}
 
 	public class Wartungsvorschlag
 	{
-		#region public properties
+		#region PUBLIC PROPERTIES
 
 		public Kundenmaschine Maschine { get; set; }
 
-		public string Maschinenname
-		{
-			get { return this.Maschine.Maschinenmodell.Modellbezeichnung; }
-		}
+		public string Maschinenname => this.Maschine.Maschinenmodell.Modellbezeichnung;
 
-		public Kunde Kunde
-		{
-			get { return ModelManager.CustomerService.GetKunde(this.Maschine.Kundennummer, false); }
-		}
+		public Kunde Kunde => ModelManager.CustomerService.GetKunde(this.Maschine.Kundennummer, false);
 
-		public string Kundennummer { get { return this.Kunde.KundenNrCpm; } }
+		public string Kundennummer => this.Kunde.KundenNrCpm;
 
-		public string Kundenname { get { return this.Kunde.Matchcode; } }
+		public string Kundenname => this.Kunde.Matchcode;
 
-		public string Postleitzahl { get { return this.Kunde.ZipCode; } }
+		public string Postleitzahl => this.Kunde.ZipCode;
 
 		public DateTime LetzteWartung { get; set; }
 
 		public DateTime Terminvorschlag { get; set; }
 
-		#endregion public properties
+		#endregion PUBLIC PROPERTIES
 	}
+
+	#endregion SUB CLASSES
 }

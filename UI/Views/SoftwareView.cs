@@ -6,14 +6,13 @@ namespace Products.Common.Views
 {
 	public partial class SoftwareView : MetroForm
 	{
-
 		#region members
 
-		Model.Entities.Kundensoftware mySoftware;
-		Model.Entities.Kunde myCustomer;
-		Model.Entities.Kundenmaschine myMachine;
-	
-		#endregion
+		private Model.Entities.Kundensoftware mySoftware;
+		private Model.Entities.Kunde myCustomer;
+		private Model.Entities.Kundenmaschine myMachine;
+
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -29,7 +28,7 @@ namespace Products.Common.Views
 			InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region private procedures
 
@@ -54,7 +53,7 @@ namespace Products.Common.Views
 			mtxtAnmerkungen.DataBindings.Add("Text", mySoftware, "Anmerkungen");
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region event handler
 
@@ -73,7 +72,6 @@ namespace Products.Common.Views
 			mySoftware.Update();
 		}
 
-		#endregion
-
+		#endregion event handler
 	}
 }

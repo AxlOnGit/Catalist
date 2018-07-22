@@ -8,7 +8,6 @@ namespace Products.Data.Services
 {
 	public class ProductDataService
 	{
-
 		#region members
 
 		readonly string myCurrentUserPK;
@@ -21,29 +20,29 @@ namespace Products.Data.Services
 		taProductCategory myProductCategoryAdapter;
 		readonly taSonderpreis mySonderpreisAdapter = new taSonderpreis();
 		readonly taProductSales myProductSalesAdapter = new taProductSales();
+		taProductSalesAll myProductSalesAllAdapter;
 		taRubrik myRubrikAdapter;
 		taBaumRubrik myBaumRubrikAdapter;
 		taBaumArtikel myBaumArtikelAdapter;
 		taArtikel myArtikelAdapter;
 
-		#endregion
-
-		#region public properties
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz der ProductDataService Klasse.
 		/// </summary>
-		/// <param name="currentUserPK">Primärschlüssel des derzeit am System angemeldeten Benutzers.</param>
+		/// <param name="currentUserPK">
+		/// Primärschlüssel des derzeit am System angemeldeten Benutzers.
+		/// </param>
 		public ProductDataService(string currentUserPK)
 		{
 			this.myCurrentUserPK = currentUserPK;
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -52,8 +51,10 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="customerPK"></param>
 		/// <returns></returns>
-		/// <remarks>Die Liste wird in erster Linie für Angebote verwendet und enthält 
-		/// alle im System vorhandenen Artikel, nicht nur Katalogartikel.</remarks>
+		/// <remarks>
+		/// Die Liste wird in erster Linie für Angebote verwendet und enthält alle im
+		/// System vorhandenen Artikel, nicht nur Katalogartikel.
+		/// </remarks>
 		public dsProducts.ProductDataTable GetProductDataTable(string customerPK)
 		{
 			if (!this.myProductDictionary.ContainsKey(customerPK))
@@ -65,7 +66,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt den Artikel mit den kundenspezifischen Eigenschaften für den angegebenen Kunden zurück.
+		/// Gibt den Artikel mit den kundenspezifischen Eigenschaften für den angegebenen
+		/// Kunden zurück.
 		/// </summary>
 		/// <param name="customerPK">Kundennummer.</param>
 		/// <param name="productPK">Artikelnummer.</param>
@@ -76,8 +78,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt die entsprechende ProductCpmRow für den angegebenen Artikel zurück. Falls es für 
-		/// den Artikel noch keinen Eintrag gibt, wird er an dieser Stelle erstellt.
+		/// Gibt die entsprechende ProductCpmRow für den angegebenen Artikel zurück. Falls
+		/// es für den Artikel noch keinen Eintrag gibt, wird er an dieser Stelle erstellt.
 		/// </summary>
 		/// <param name="productPK">Artikelnummer des Artikels, um den es geht.</param>
 		/// <param name="userName">Der Benutzername des aktuellen Mitarbeiters.</param>
@@ -114,7 +116,9 @@ namespace Products.Data.Services
 		/// Gibt eine SonderpreisDataTable mit den kundenspezifischen Sonderpreisen für den
 		/// angegebenen Kunden zurück.
 		/// </summary>
-		/// <param name="customerPK">Kundennumer des Kunden, um dessen Sonderpreise es geht.</param>
+		/// <param name="customerPK">
+		/// Kundennumer des Kunden, um dessen Sonderpreise es geht.
+		/// </param>
 		/// <returns></returns>
 		public dsProducts.SonderpreisDataTable GetSonderpreise(string customerPK)
 		{
@@ -149,8 +153,12 @@ namespace Products.Data.Services
 		/// <summary>
 		/// Erzeugt eine neue dsProducts.SonderpreisRow.
 		/// </summary>
-		/// <param name="customerPK">Kundennummer des Kunden, für den der Sonderpreis eingerichtet wird.</param>
-		/// <param name="artikelGruppe">Artikelgruppe, für den der Sonderpreis eingerichtet wird.</param>
+		/// <param name="customerPK">
+		/// Kundennummer des Kunden, für den der Sonderpreis eingerichtet wird.
+		/// </param>
+		/// <param name="artikelGruppe">
+		/// Artikelgruppe, für den der Sonderpreis eingerichtet wird.
+		/// </param>
 		/// <returns></returns>
 		public dsProducts.SonderpreisRow CreateSonderpreisRow(string customerPK, string artikelGruppe)
 		{
@@ -190,10 +198,36 @@ namespace Products.Data.Services
 			return this.myProductSalesAdapter.GetData(productPK);
 		}
 
-		#region Rubriken
+		/// <summary>
+		/// Gibt die Tabelle mit den Durchschnittsverkäufen für jeden Artikel in der
+		/// Datenbank zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsProducts.ProductSalesAllDataTable GetProductSalesAllTable()
+		{
+			if (this.myProductSalesAllAdapter == null)
+			{
+				this.myProductSalesAllAdapter = new taProductSalesAll();
+				this.myProductSalesAllAdapter.Fill(this.myDS.ProductSalesAll);
+			}
+			return this.myDS.ProductSalesAll;
+		}
 
 		/// <summary>
-		/// Gibt eine Liste aller direkten Kindelemente der BaumRubrik mit der angegebenen ID zurück.
+		/// Gibt die Durchschnittsverkäufe pro Artikel und Monat der letzten 12 Monate zurück.
+		/// </summary>
+		/// <param name="artikelPK"></param>
+		/// <returns></returns>
+		public IEnumerable<dsProducts.ProductSalesAllRow> GetProductSalesRows(string artikelPK)
+		{
+			return this.GetProductSalesAllTable().Where(s => s.Artikelnummer == artikelPK);
+		}
+
+		#region RUBRIKEN
+
+		/// <summary>
+		/// Gibt eine Liste aller direkten Kindelemente der BaumRubrik mit der angegebenen
+		/// ID zurück.
 		/// </summary>
 		/// <param name="parentID">Primärschlüssel der übergeordneten Rubrik.</param>
 		/// <returns></returns>
@@ -247,7 +281,6 @@ namespace Products.Data.Services
 			return this.myDS.BaumRubrik;
 		}
 
-
 		/// <summary>
 		/// Gibt die Rubrik DataTable mit allen Rubriken des Systems zurück.
 		/// </summary>
@@ -261,7 +294,7 @@ namespace Products.Data.Services
 			return this.myDS.Rubrik;
 		}
 
-		#endregion
+		#endregion RUBRIKEN
 
 		#region ProductCategory
 
@@ -298,7 +331,7 @@ namespace Products.Data.Services
 			return cRow;
 		}
 
-		#endregion
+		#endregion ProductCategory
 
 		#region Updating
 
@@ -314,8 +347,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Aktualisiert die Tabelle ProductCategory und speichert alle geänderten, neuen und
-		/// gelöschten Datensätze in der Datenbank. 
+		/// Aktualisiert die Tabelle ProductCategory und speichert alle geänderten, neuen
+		/// und gelöschten Datensätze in der Datenbank.
 		/// </summary>
 		/// <returns></returns>
 		public int UpdateProductCategoryTable()
@@ -324,7 +357,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Aktualisiert die Tabelle mit den kundenspezifischen Sonderpreisen des angegebenen Kunden.
+		/// Aktualisiert die Tabelle mit den kundenspezifischen Sonderpreisen des
+		/// angegebenen Kunden.
 		/// </summary>
 		/// <param name="customerPK">Kundennummer des Kunden.</param>
 		/// <returns>Gibt die Anzahl der aktualisierten Datensätze zurück.</returns>
@@ -338,9 +372,9 @@ namespace Products.Data.Services
 			return 0;
 		}
 
-		#endregion
+		#endregion Updating
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -363,7 +397,6 @@ namespace Products.Data.Services
 			this.myArtikelAdapter.Fill(this.myDS.Artikel);
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Products.Data;
@@ -12,12 +13,12 @@ namespace Products.Model.Entities
 	{
 		#region members
 
-		dsProducts.ProductRow myBase;
-		dsProducts.ProductCpmRow myProductCpmBase;
-		Kunde myKunde;
-		bool myProductCpmDirty;
-		bool mySonderpreiseDirty;
-		string serverPicturePath = Common.Global.ManufacturerPicturePath;
+		private dsProducts.ProductRow myBase;
+		private dsProducts.ProductCpmRow myProductCpmBase;
+		private Kunde myKunde;
+		private bool myProductCpmDirty;
+		private bool mySonderpreiseDirty;
+		private string serverPicturePath = CatalistRegistry.Application.ManufacturerPicturePath;
 
 		#endregion members
 
@@ -25,36 +26,60 @@ namespace Products.Model.Entities
 
 		#region integrals
 
-		public string Typ { get { return this.myBase.Typ; } }
+		public string Typ => this.myBase.Typ;
 
-		public string Kundennummer { get { return this.myKunde.CustomerId; } }
+		public string Kundennummer => this.myKunde.CustomerId;
 
 		/// <summary>
 		/// Gibt die ArtikelID dieses Artikels in der Eidamo Tabelle tabArtikel zurück.
 		/// </summary>
-		public int ArtikelID { get { return ModelManager.ProductService.GetArtikelID(this.myBase.Artikel); } }
+		public int ArtikelID => ModelManager.ProductService.GetArtikelID(this.myBase.Artikel);
 
-		public string Artikelnummer { get { return this.myBase.Artikel; } }
+		public string Artikelnummer => this.myBase.Artikel;
 
-		public string Artikelgruppe { get { return this.myBase.Artikelgruppe; } }
+		public string Artikelgruppe => this.myBase.Artikelgruppe;
 
-		public string Lieferant { get { return this.myBase.FesterLieferant; } }
+		public string Lieferant => this.myBase.FesterLieferant;
 
-		public string Matchcode { get { return this.myBase.Matchcode; } }
+		public string Matchcode => this.myBase.Matchcode;
 
-		public string Hersteller { get { return this.myBase.Hersteller; } }
+		public string Hersteller => this.myBase.Hersteller;
 
-		public string Bezeichnung1 { get { return this.myBase.Bezeichnung1; } }
+		public string Bezeichnung1 => this.myBase.Bezeichnung1;
 
-		public string Bezeichnung2 { get { return this.myBase.Bezeichnung2; } }
+		/// <summary>
+		/// Gibt den Artikelzusatz dieses Artikels zurück. Diese Eigenschaft funktioniert
+		/// nur bei Katalogartikeln und wird in Tabelle artikel_cpm gespeichert.
+		/// </summary>
+		public string Artikelzusatz
+		{
+			get
+			{
+				if (this.myProductCpmBase.IsProductAdditionNull())
+				{
+					var zusatz = this.myBase.Bezeichnung2;
+					this.myProductCpmBase.ProductAddition = zusatz;
+					return zusatz;
+				}
+				return this.myProductCpmBase.ProductAddition;
+			}
+			set
+			{
+				if (value == null) this.myProductCpmBase.SetProductAdditionNull();
+				if (value.Equals(this.myProductCpmBase.ProductAddition, StringComparison.CurrentCultureIgnoreCase)) return;
+				this.myProductCpmBase.ProductAddition = value;
+			}
+		}
 
-		public string Mengeneinheit { get { return this.myBase.Mengeneinheit; } }
+		public string Bezeichnung2 => this.myBase.Bezeichnung2;
 
-		public decimal Einkaufspreis { get { return this.myBase.EK; } }
+		public string Mengeneinheit => this.myBase.Mengeneinheit;
 
-		public decimal Standardpreis { get { return this.myBase.Verkaufspreis1; } }
+		public decimal Einkaufspreis => this.myBase.EK;
 
-		public double Bestand { get { return this.myBase.Bestand; } }
+		public decimal Standardpreis => this.myBase.Verkaufspreis1;
+
+		public double Bestand => this.myBase.Bestand;
 
 		/// <summary>
 		/// Gibt das Datum der letzten Bestellung für diesen Artikel zurück.
@@ -142,20 +167,47 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt 'Ja' zurück, wenn es sich um einen Katalogartikel handelt.
 		/// </summary>
-		public string Katalog
+		public string Katalog => (this.KatalogFlag) ? "Ja" : "Nein";
+
+		/// <summary>
+		/// Gibt die durchschnittliche Verkaufsmenge dieses Artikels zurück.
+		/// </summary>
+		public string AverageSalesCountPerSales
 		{
-			get { return (this.KatalogFlag) ? "Ja" : "Nein"; }
+			get
+			{
+				var list = ModelManager.ProductService.GetDurchschnittsverkauf(this.Artikelnummer);
+				if (list.Count == 0) return "0";
+				var count = list.Count();
+				var sum = list.Sum(s => s.Menge);
+				return (sum / count).ToString("N1");
+			}
+		}
+
+		/// <summary>
+		/// Gibt die durchschnittliche Verkaufsmenge dieses Artikels in den letzten 12 Monaten zurück.
+		/// </summary>
+		public string AverageSalesCountLast12Months
+		{
+			get
+			{
+				var list = ModelManager.ProductService.GetDurchschnittsverkauf(this.Artikelnummer);
+				if (list.Count == 0) return "0,0";
+				var count = 12;
+				var sum = list.Sum(s => s.Menge);
+				return (sum / count).ToString("N1");
+			}
 		}
 
 		/// <summary>
 		/// Gibt true zurück, wenn der Artikel geändert wurde.
 		/// </summary>
-		public bool ProductCpmDirty { get { return this.myProductCpmDirty; } }
+		public bool ProductCpmDirty => this.myProductCpmDirty;
 
 		/// <summary>
 		/// Gibt true zurück, wenn die Sonderpreise geändert wurden.
 		/// </summary>
-		public bool SonderpreiseDirty { get { return this.mySonderpreiseDirty; } }
+		public bool SonderpreiseDirty => this.mySonderpreiseDirty;
 
 		#region ARTIKEL_CPM
 
@@ -763,8 +815,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt den Namen des Mitarbeiters zurück, der diesen Artikel zuletzt bearbeitet hat oder
-		/// legt ihn fest.
+		/// Gibt den Namen des Mitarbeiters zurück, der diesen Artikel zuletzt bearbeitet
+		/// hat oder legt ihn fest.
 		/// </summary>
 		public string ChangeUser
 		{
@@ -1020,16 +1072,19 @@ namespace Products.Model.Entities
 
 		#endregion SONDERPREISE
 
+		#region DIVERSE
+
+		public bool SelectedFlag { get; set; } = true;
+
+		#endregion DIVERSE
+
 		#endregion integrals
 
 		#endregion public properties
 
 		#region private properties
 
-		dsProducts.SonderpreisRow SonderpreisBase
-		{
-			get { return ModelManager.ProductService.GetSonderpreisRow(this.myKunde, this.Artikelgruppe); }
-		}
+		dsProducts.SonderpreisRow SonderpreisBase => ModelManager.ProductService.GetSonderpreisRow(this.myKunde, this.Artikelgruppe);
 
 		#endregion private properties
 
@@ -1053,7 +1108,7 @@ namespace Products.Model.Entities
 
 		#region private procedures
 
-		void SetProductsCpmDirty()
+		private void SetProductsCpmDirty()
 		{
 			if (!this.KatalogFlag) return;
 			this.myProductCpmDirty = true;
@@ -1061,7 +1116,7 @@ namespace Products.Model.Entities
 			this.ChangeUser = ModelManager.UserService.CurrentUser.NameFull;
 		}
 
-		dsProducts.SonderpreisRow GetOrCreateSonderpreisBase()
+		private dsProducts.SonderpreisRow GetOrCreateSonderpreisBase()
 		{
 			if (this.SonderpreisBase == null)
 			{
@@ -1070,7 +1125,7 @@ namespace Products.Model.Entities
 			return this.SonderpreisBase;
 		}
 
-		void SetSonderpreiseDirty()
+		private void SetSonderpreiseDirty()
 		{
 			this.mySonderpreiseDirty = true;
 			this.ChangeDate = DateTime.Now;

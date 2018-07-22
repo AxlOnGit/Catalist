@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -110,6 +109,16 @@ namespace Products.Common.Views
 		void mbtnAddLinkedItem_Click(object sender, EventArgs e)
 		{
 			this.AddLinkedItem();
+		}
+
+		void mbtnAddLinkToContact_Click(object sender, EventArgs e)
+		{
+			this.AddLinkToContact();
+		}
+
+		void mbtnAddLinkToMachine_Click(object sender, EventArgs e)
+		{
+			this.AddLinkToCustomerMachine();
 		}
 
 		void mbtnSetAutoProperties_Click(object sender, EventArgs e)
@@ -293,31 +302,12 @@ namespace Products.Common.Views
 
 		void xcmdOpenLinkedItem_Click(object sender, EventArgs e)
 		{
-			var item = this.mySelectedLinkedItem;
+			this.OpenLinkedItem();
+		}
 
-			if (item == null) return;
-
-			switch (item.LinkTypBezeichnung)
-			{
-				case "Kunde":
-					var kmv = new KundeMainView(item as Kunde);
-					kmv.Show();
-					break;
-
-				case "Kundenmaschine":
-					var machine = item as Kundenmaschine;
-					var kunde = machine.CurrentOwner;
-					kmv = new KundeMainView(kunde, machine);
-					kmv.Show();
-					break;
-
-				case "Kundenkontakt":
-					var contact = item as Kundenkontakt;
-					kunde = ModelManager.CustomerService.GetKunde(contact.Kundennummer, false);
-					kmv = new KundeMainView(kunde, contact);
-					kmv.Show();
-					break;
-			}
+		void dgvLinkedItems_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			this.OpenLinkedItem();
 		}
 
 		void mbtnClose_Click(object sender, EventArgs e)
@@ -369,7 +359,7 @@ namespace Products.Common.Views
 		{
 			string title = "Den Termin verknüpfen mit ...";
 			string[] options = { "Kunde", "Kundenkontakt", "Maschine", "Lieferant", "Mitarbeiter", "Datei", "Abbrechen" };
-			MetroFramework.MetroColorStyle style = MetroFramework.MetroColorStyle.Magenta;
+			MetroColorStyle style = MetroColorStyle.Magenta;
 			var ad = new AuswahlDialog(title, options, style);
 			ad.ShowDialog();
 			if (ad.SelectedOption == 6) return;
@@ -406,7 +396,6 @@ namespace Products.Common.Views
 					this.AddLinkToFile();
 					break;
 			}
-			this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 		}
 
 		void AddLinkToCustomer(Kunde kunde)
@@ -421,11 +410,13 @@ namespace Products.Common.Views
 					var msg = string.Format("Ich verknüpfe den Termin mit '{0}'", cRow.Name1);
 					MetroMessageBox.Show(this, msg, "Termin mit Kunden verknüpfen", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, cRow.Kundennummer, "Kunde");
+					this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 				}
 			}
 			else
 			{
 				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, kunde.CustomerId, "Kunde");
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 			}
 		}
 
@@ -448,6 +439,7 @@ namespace Products.Common.Views
 						this.AddLinkToCustomer(kunde);
 					}
 				}
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 			}
 		}
 
@@ -478,6 +470,7 @@ namespace Products.Common.Views
 						this.AddLinkToCustomer(kunde);
 					}
 				}
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 			}
 		}
 
@@ -490,6 +483,7 @@ namespace Products.Common.Views
 				var msg = string.Format("Ich verknüpfe den Termin mit Lieferant '{0}'", lieferant.Name1);
 				MetroMessageBox.Show(this, msg, "Verknüpfen mit Lieferant", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, lieferant.Lieferantennummer, "Lieferant");
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 			}
 		}
 
@@ -502,6 +496,7 @@ namespace Products.Common.Views
 				var msg = string.Format("Ich verknüpfe den Termin mit '{0}'.", user.NameFull);
 				MetroMessageBox.Show(this, msg, "Verknüpfen mit Mitarbeiter", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				ModelManager.AppointmentService.AddLinkedItemToAppointment(this.myAppointment, user.UID, "Mitarbeiter");
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 			}
 		}
 
@@ -523,6 +518,36 @@ namespace Products.Common.Views
 				}
 				var msg = string.Format("Ich habe {0} Dateien mit diesem Termin verknüpft und auf den Server kopiert.", counter);
 				MetroMessageBox.Show(this, msg, "Termin mit Dateien verknüpfen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				this.dgvLinkedItems.Sort(this.dgvLinkedItems.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
+			}
+		}
+
+		void OpenLinkedItem()
+		{
+			var item = this.mySelectedLinkedItem;
+
+			if (item == null) return;
+
+			switch (item.LinkTypBezeichnung)
+			{
+				case "Kunde":
+					var kmv = new KundeMainView(item as Kunde);
+					kmv.Show();
+					break;
+
+				case "Kundenmaschine":
+					var machine = item as Kundenmaschine;
+					var kunde = machine.CurrentOwner;
+					kmv = new KundeMainView(kunde, machine);
+					kmv.Show();
+					break;
+
+				case "Kundenkontakt":
+					var contact = item as Kundenkontakt;
+					kunde = ModelManager.CustomerService.GetKunde(contact.Kundennummer, false);
+					kmv = new KundeMainView(kunde, contact);
+					kmv.Show();
+					break;
 			}
 		}
 

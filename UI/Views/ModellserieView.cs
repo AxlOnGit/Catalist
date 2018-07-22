@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Products.Model;
 using Products.Model.Entities;
 
 namespace Products.Common.Views
@@ -14,11 +10,18 @@ namespace Products.Common.Views
 	public partial class ModellserieView : MetroForm
 	{
 
-		#region members
+		#region CONST
 
-		Maschinenserie myMaschinenserie;
+		const string templatePath = @"CPM_INTERN\Firmenvorlagen\CatalistAuto";
 
 		#endregion
+
+		#region MEMBERS
+
+		Maschinenserie myMaschinenserie;
+		bool mySaveChanges = true;
+
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -33,9 +36,9 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		void btnSetTechnikordner_Click(object sender, EventArgs e)
 		{
@@ -50,6 +53,49 @@ namespace Products.Common.Views
 			}
 		}
 
+		private void btnSetInstChecklistVorlage_Click(object sender, EventArgs e)
+		{
+			var ofd = new OpenFileDialog();
+			var userDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+			ofd.Filter = "Word Vorlage (*.dotx)|*.dotx";
+			if (ModelManager.UserService.CurrentUser.NameFirst.ToLower() == "axel")
+			{
+				ofd.InitialDirectory = Path.Combine(userDir, @"OneDrive\VAN ANDEREN", templatePath);
+			}
+			else
+			{
+				ofd.InitialDirectory = Path.Combine(userDir, @"OneDrive\CPM", templatePath);
+			}
+			if (ofd.ShowDialog(this) == DialogResult.OK)
+			{
+				var checkFi = new FileInfo(ofd.FileName);
+				var filename = checkFi.Name;
+				this.myMaschinenserie.InstallationsChecklistenVorlage = filename;
+			}
+		}
+
+		private void btnSetInstReportVorlage_Click(object sender, EventArgs e)
+		{
+			var ofd = new OpenFileDialog();
+			var userDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+			ofd.DefaultExt = "dotx";
+			ofd.Filter = "Word Vorlage (*.dotx)|*.dotx";
+			if (ModelManager.UserService.CurrentUser.NameFirst.ToLower() == "axel")
+			{
+				ofd.InitialDirectory = Path.Combine(userDir, @"OneDrive\VAN ANDEREN", templatePath);
+			}
+			else
+			{
+				ofd.InitialDirectory = Path.Combine(userDir, @"OneDrive\CPM", templatePath);
+			}
+			if (ofd.ShowDialog(this) == DialogResult.OK)
+			{
+				var checkFi = new FileInfo(ofd.FileName);
+				var filename = checkFi.Name;
+				this.myMaschinenserie.InstallationsReportVorlage = filename;
+			}
+		}
+
 		void btnAddSerie_Click(object sender, EventArgs e)
 		{
 			Model.ModelManager.SharedItemsService.UpdateMaschinenSerien();
@@ -57,14 +103,25 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		void mbtnClose_Click(object sender, EventArgs e)
+		void chkWartungskennzeichen_CheckedChanged(object sender, EventArgs e)
+		{
+			this.SetWartung(this.chkWartungskennzeichen.Checked);
+		}
+
+		void mbtnOK_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion
+		void mbtnCancel_Click(object sender, EventArgs e)
+		{
+			this.mySaveChanges = false;
+			this.Close();
+		}
 
-		#region private procedures
+		#endregion EVENT HANDLER
+
+		#region PRIVATE PROCEDURES
 
 		void InitializeData()
 		{
@@ -96,19 +153,40 @@ namespace Products.Common.Views
 			this.mtxtEinfuehrung.DataBindings.Add("Text", this.myMaschinenserie, "Markteinfuehrung");
 			this.mtxtWartungsintervall.DataBindings.Add("Text", this.myMaschinenserie, "Wartungsintervall");
 			this.chkWartungskennzeichen.DataBindings.Add("Checked", this.myMaschinenserie, "Wartungskennzeichen");
-			this.mlblAlle.DataBindings.Add("Visible", this.myMaschinenserie, "Wartungskennzeichen", true, DataSourceUpdateMode.OnValidation);
-			this.mlblMonate.DataBindings.Add("Visible", this.myMaschinenserie, "Wartungskennzeichen", true, DataSourceUpdateMode.OnValidation);
-			this.mtxtWartungsintervall.DataBindings.Add("Visible", this.myMaschinenserie, "Wartungskennzeichen", true, DataSourceUpdateMode.OnValidation);
+			this.SetWartung(this.myMaschinenserie.Wartungskennzeichen);
+
+			this.mtxtInstChecklistVorlage.DataBindings.Add("Text", this.myMaschinenserie, "InstallationsChecklistenVorlage");
+			this.mtxtInstReportVorlage.DataBindings.Add("Text", this.myMaschinenserie, "InstallationsReportVorlage");
 
 			this.FormClosing += ModellserieView_FormClosing;
 		}
 
-		void ModellserieView_FormClosing(object sender, FormClosingEventArgs e)
+		void SetWartung(bool yesOrNo)
 		{
-			Model.ModelManager.SharedItemsService.UpdateMaschinenSerien();
+			switch (yesOrNo)
+			{
+				case true:
+				this.chkWartungskennzeichen.Text = "Wird gewartet";
+				this.mlblAlle.Visible = true;
+				this.mtxtWartungsintervall.Visible = true;
+				this.mlblMonate.Visible = true;
+				break;
+
+				case false:
+				this.chkWartungskennzeichen.Text = "Wird nicht gewartet";
+				this.mlblAlle.Visible = false;
+				this.mtxtWartungsintervall.Visible = false;
+				this.mlblMonate.Visible = false;
+				break;
+			}
 		}
 
-		#endregion
+		void ModellserieView_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (this.mySaveChanges) ModelManager.SharedItemsService.UpdateMaschinenSerien();
+		}
+
+		#endregion PRIVATE PROCEDURES
 
 	}
 }

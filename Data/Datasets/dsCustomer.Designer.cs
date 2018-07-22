@@ -1126,6 +1126,8 @@ namespace Products.Data.Datasets {
             
             private global::System.Data.DataColumn columnStatuskennzeichen;
             
+            private global::System.Data.DataColumn columnLaendercode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CustomerDataTable() {
@@ -1297,6 +1299,14 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LaendercodeColumn {
+                get {
+                    return this.columnLaendercode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1349,7 +1359,8 @@ namespace Products.Data.Datasets {
                         string Ansprechpartner_Nummer, 
                         System.DateTime Anlagedatum, 
                         string Vertreter1, 
-                        string Statuskennzeichen) {
+                        string Statuskennzeichen, 
+                        string Laendercode) {
                 CustomerRow rowCustomerRow = ((CustomerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Kundennummer,
@@ -1368,7 +1379,8 @@ namespace Products.Data.Datasets {
                         Ansprechpartner_Nummer,
                         Anlagedatum,
                         Vertreter1,
-                        Statuskennzeichen};
+                        Statuskennzeichen,
+                        Laendercode};
                 rowCustomerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerRow);
                 return rowCustomerRow;
@@ -1415,6 +1427,7 @@ namespace Products.Data.Datasets {
                 this.columnAnlagedatum = base.Columns["Anlagedatum"];
                 this.columnVertreter1 = base.Columns["Vertreter1"];
                 this.columnStatuskennzeichen = base.Columns["Statuskennzeichen"];
+                this.columnLaendercode = base.Columns["Laendercode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1454,6 +1467,8 @@ namespace Products.Data.Datasets {
                 base.Columns.Add(this.columnVertreter1);
                 this.columnStatuskennzeichen = new global::System.Data.DataColumn("Statuskennzeichen", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatuskennzeichen);
+                this.columnLaendercode = new global::System.Data.DataColumn("Laendercode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLaendercode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnKundennummer}, true));
                 this.columnKundennummer.AllowDBNull = false;
@@ -1487,6 +1502,8 @@ namespace Products.Data.Datasets {
                 this.columnVertreter1.MaxLength = 3;
                 this.columnStatuskennzeichen.AllowDBNull = false;
                 this.columnStatuskennzeichen.MaxLength = 2;
+                this.columnLaendercode.AllowDBNull = false;
+                this.columnLaendercode.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2539,6 +2556,17 @@ namespace Products.Data.Datasets {
                     this[this.tableCustomer.StatuskennzeichenColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Laendercode {
+                get {
+                    return ((string)(this[this.tableCustomer.LaendercodeColumn]));
+                }
+                set {
+                    this[this.tableCustomer.LaendercodeColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -3443,6 +3471,7 @@ namespace Products.Data.Datasets.dsCustomerTableAdapters {
             tableMapping.ColumnMappings.Add("Anlagedatum", "Anlagedatum");
             tableMapping.ColumnMappings.Add("Vertreter1", "Vertreter1");
             tableMapping.ColumnMappings.Add("Statuskennzeichen", "Statuskennzeichen");
+            tableMapping.ColumnMappings.Add("Laendercode", "Laendercode");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3459,7 +3488,7 @@ namespace Products.Data.Datasets.dsCustomerTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"Select Kundennummer, Name1, Name2, Strasse, Postleitzahl, Ort, Sperrvermerk1, Sperrvermerk2, Sperrvermerk3, Kurzbezeichnung, Zahlungskond_1_TageNetto, Zahlungskond_1_TageSkonto1, Zahlungskond_1_Prozent1, Ansprechpartner_Nummer, Anlagedatum, Vertreter1, Statuskennzeichen From kunden";
+            this._commandCollection[0].CommandText = @"Select Kundennummer, Name1, Name2, Strasse, Postleitzahl, Ort, Sperrvermerk1, Sperrvermerk2, Sperrvermerk3, Kurzbezeichnung, Zahlungskond_1_TageNetto, Zahlungskond_1_TageSkonto1, Zahlungskond_1_Prozent1, Ansprechpartner_Nummer, Anlagedatum, Vertreter1, Statuskennzeichen, Laendercode From kunden";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

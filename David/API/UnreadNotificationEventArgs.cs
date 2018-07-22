@@ -1,8 +1,5 @@
 ﻿using System;
 using DvApi32;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace David.API
 {
@@ -11,8 +8,8 @@ namespace David.API
 
 		#region public properties
 
-		public int UnreadCount { get; private set; }
-		public Archive SourceArchive { get; private set; }
+		public int UnreadCount { get; }
+		public Archive SourceArchive { get; }
 
 		#endregion
 

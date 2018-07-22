@@ -117,7 +117,16 @@ namespace Products.Common.Views
 			}
 		}
 
-		void metroTextButton2_Click(object sender, EventArgs e)
+		void dgvMachines_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			if (this.mySelectedMachine != null)
+			{
+				this.DialogResult = DialogResult.OK;
+				this.Close();
+			}
+		}
+
+		void mbtnOK_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}

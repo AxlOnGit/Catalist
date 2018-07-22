@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<configSections>
+		<sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+			<section name="Products.UI.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+		</sectionGroup>
+		<sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+			<section name="Products.UI.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+		</sectionGroup>
+	</configSections>
+	<runtime>
+		<LegacyCorruptedStateExceptionsPolicy enabled="true" />
+		<AssemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+			<DependentAssembly>
+				<AssemblyIdentity name="Microsoft.VisualBasic" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+				<BindingRedirect oldVersion="0.0.0.0-10.0.0.0" newVersion="10.0.0.0" />
+			</DependentAssembly>
+			<DependentAssembly>
+				<AssemblyIdentity name="MetroFramework" publicKeyToken="5f91a84759bf584a" culture="neutral" />
+				<BindingRedirect oldVersion="0.0.0.0-1.4.0.0" newVersion="1.4.0.0" />
+			</DependentAssembly>
+		</AssemblyBinding>
+	</runtime>
+	<UserSettings>
+		<Products.UI.Properties.Settings>
+						<setting name="ATAPI_Line" serializeAs="String">
+								<value>Axel</value>
+						</setting>
+						<setting name="UserInSage" serializeAs="String">
+								<value>AU</value>
+						</setting>
+						<setting name="Sage_ExePath" serializeAs="String">
+								<value>\\Cpm-dc\sage new classic\2014\EXE\CL.EXE</value>
+						</setting>
+						<setting name="CatalogPath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\kundenkataloge\</value>
+						</setting>
+						<setting name="CatalogTemplateFilePath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\template\catalogtemplate.docx</value>
+						</setting>
+						<setting name="TaxRate" serializeAs="String">
+								<value>1.19</value>
+						</setting>
+						<setting name="PicturePath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\graphics\</value>
+						</setting>
+						<setting name="ManufacturerPicturePath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\graphics\manufacturer\</value>
+						</setting>
+						<setting name="ProductPicturePath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\graphics\productpics\</value>
+						</setting>
+						<setting name="OfferFilePath" serializeAs="String">
+								<value>\\cpm-dc\sage_ncl\catalist\offers\</value>
+						</setting>
+						<setting name="CmdPanelVisibleTime" serializeAs="String">
+								<value>3000</value>
+						</setting>
+						<setting name="SmtpServer" serializeAs="String">
+								<value>192.168.0.102</value>
+						</setting>
+						<setting name="SmtpPort" serializeAs="String">
+								<value>25</value>
+						</setting>
+						<setting name="SenderEmailAddress" serializeAs="String">
+								<value>a.ullrich@cut-print.de</value>
+						</setting>
+				</Products.UI.Properties.Settings>
+		</UserSettings>
+<Startup>
+	<SupportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+</Startup>
+	<ApplicationSettings>
+		<Products.UI.Properties.Settings>
+						<setting name="BingMapsUrl" serializeAs="String">
+								<value>http://www.bing.com/maps/default.aspx?where1=</value>
+						</setting>
+				</Products.UI.Properties.Settings>
+		</ApplicationSettings>
+</configuration>

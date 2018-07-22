@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using MetroFramework;
@@ -12,13 +11,13 @@ namespace Products.Common.Panel
 {
 	public partial class pnlMaschinenListe : pnlSlider
 	{
-		#region members
+		#region MEMBERS
 
 		readonly KundeMainView myParent;
 		readonly Kunde myKunde;
 		Kundenmaschine mySelectedMachine;
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -27,19 +26,19 @@ namespace Products.Common.Panel
 		/// </summary>
 		/// <param name="parentCtrl"></param>
 		/// <param name="kunde"></param>
-		public pnlMaschinenListe(ContainerControl parentCtrl, Model.Entities.Kunde kunde, bool keepLoaded) : base(parentCtrl, keepLoaded)
+		public pnlMaschinenListe(ContainerControl parentCtrl, Kunde kunde, bool keepLoaded) : base(parentCtrl, keepLoaded)
 		{
 			InitializeComponent();
 
-			this.myParent = parentCtrl as Views.KundeMainView;
+			this.myParent = parentCtrl as KundeMainView;
 			this.myKunde = kunde;
 			this.dgvMachines.AutoGenerateColumns = false;
-			this.dgvMachines.DataSource = ModelManager.MachineService.GetKundenMaschineList(this.myKunde.CustomerId).Sort("Modellbezeichnung");
+			this.dgvMachines.DataSource = RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this.myKunde).Sort("Modellbezeichnung");
 		}
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		void mctxGrid_Opening(object sender, CancelEventArgs e)
 		{
@@ -91,12 +90,12 @@ namespace Products.Common.Panel
 
 		void mbtNeueMaschine_Click(object sender, EventArgs e)
 		{
-			this.AddMaschine();
+			this.CreateKundenmaschine();
 		}
 
 		void mcmnuNeueMaschine_Click(object sender, EventArgs e)
 		{
-			this.AddMaschine();
+			this.CreateKundenmaschine();
 		}
 
 		void mbtnServicetermine_Click(object sender, EventArgs e)
@@ -124,15 +123,15 @@ namespace Products.Common.Panel
 			DeleteMaschine();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void ShowServicetermine()
 		{
 			if (this.mySelectedMachine == null) return;
 			var machineAsLink = this.mySelectedMachine as ILinkedItem;
-			var aList = ModelManager.AppointmentService.GetAppointmentList(machineAsLink.Key, machineAsLink.LinkTypeId);
+			var aList = ModelManager.AppointmentService.GetAppointmentList(this.mySelectedMachine);
 			var adv = new AppointmentListView(aList, mySelectedMachine.Maschinenmodell.Modellbezeichnung);
 			adv.Show();
 		}
@@ -143,10 +142,15 @@ namespace Products.Common.Panel
 			this.myParent.ShowMaschine(mySelectedMachine);
 		}
 
-		void AddMaschine()
+		void CreateKundenmaschine()
 		{
-			var newMachine = ModelManager.MachineService.AddKundenMaschine(this.myKunde.CustomerId);
-			this.myParent.ShowMaschine(newMachine);
+			var dnm = new DialogNewMachine(this.myKunde);
+			if (dnm.ShowDialog(this) == DialogResult.OK && dnm.CreatedMachine != null)
+			{
+				this.myParent.ShowMaschine(dnm.CreatedMachine);
+			}
+			// Das Grid aktualisieren, damit die neu angelegte Maschine angezeigt wird.
+			this.dgvMachines.DataSource = RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this.myKunde);
 		}
 
 		void MoveMaschine()
@@ -159,13 +163,18 @@ namespace Products.Common.Panel
 
 			if (this.myKunde.CustomerId == csv.SelectedCustomer.Kundennummer)
 			{
-				msg = string.Format("Die Maschine gehört doch schon zu {0}", myKunde.CompanyName1);
-				MetroMessageBox.Show(this, msg, "Watt soll dat denn?", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				msg = string.Format("Die Maschine gehört doch schon zu {0}", myKunde.Matchcode);
+				MetroMessageBox.Show(this, msg, "Äh ...");
 				return;
 			}
-			ModelManager.MachineService.TransferMachine(this.mySelectedMachine, this.myKunde.CustomerId, csv.SelectedCustomer.Kundennummer);
-			msg = string.Format("Die Maschine '{0}' wurde zu '{1}' verschoben.", modell, csv.SelectedCustomer.Name1);
-			MetroMessageBox.Show(this, msg);
+
+			var zielKunde = ModelManager.CustomerService.GetKunde(csv.SelectedCustomer.Kundennummer, false);
+			if (zielKunde != null)
+			{
+				ModelManager.MachineService.TransferMachine(this.mySelectedMachine, this.myKunde, zielKunde);
+				msg = string.Format("Die Maschine '{0}' wurde zu '{1}' verschoben.", modell, csv.SelectedCustomer.Name1);
+				MetroMessageBox.Show(this, msg);
+			}
 		}
 
 		void DeleteMaschine()
@@ -176,11 +185,18 @@ namespace Products.Common.Panel
 
 				if (MetroMessageBox.Show(this, msg, "Maschine löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 				{
-					ModelManager.MachineService.DeleteKundenMachine(this.mySelectedMachine);
+					try
+					{
+						ModelManager.MachineService.DeleteKundenMachine(this.mySelectedMachine);
+					}
+					catch (OperationCanceledException oEx)
+					{
+						MetroMessageBox.Show(this, oEx.Message);
+					}
 				}
 			}
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 	}
 }

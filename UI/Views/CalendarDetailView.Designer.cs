@@ -2,6 +2,9 @@
 {
 	partial class CalendarDetailView
 	{
+
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -59,12 +62,14 @@
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.xcmdDeleteLinkedItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mtxtLocation = new MetroFramework.Controls.MetroTextBox();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.mbtnAddLinkToMachine = new System.Windows.Forms.Button();
+			this.mbtnAddLinkToContact = new System.Windows.Forms.Button();
+			this.mbtnOpenLinkedItem = new System.Windows.Forms.Button();
+			this.mbtnSettings = new MetroFramework.Controls.MetroButton();
 			this.mbtnSetAutoProperties = new System.Windows.Forms.Button();
 			this.mbtnRemoveLinkedItem = new System.Windows.Forms.Button();
 			this.mbtnAddLinkedItem = new System.Windows.Forms.Button();
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.mbtnSettings = new MetroFramework.Controls.MetroButton();
-			this.mbtnOpenLinkedItem = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvLinkedItems)).BeginInit();
 			this.mctxLinkedItems.SuspendLayout();
 			this.SuspendLayout();
@@ -75,7 +80,7 @@
 			this.dtpStartsAtDate.Location = new System.Drawing.Point(70, 167);
 			this.dtpStartsAtDate.Name = "dtpStartsAtDate";
 			this.dtpStartsAtDate.Size = new System.Drawing.Size(96, 22);
-			this.dtpStartsAtDate.TabIndex = 2;
+			this.dtpStartsAtDate.TabIndex = 8;
 			this.dtpStartsAtDate.Validated += new System.EventHandler(this.dtpBeginnDatum_Validated);
 			// 
 			// dtpEndsAtDate
@@ -84,7 +89,7 @@
 			this.dtpEndsAtDate.Location = new System.Drawing.Point(70, 195);
 			this.dtpEndsAtDate.Name = "dtpEndsAtDate";
 			this.dtpEndsAtDate.Size = new System.Drawing.Size(96, 22);
-			this.dtpEndsAtDate.TabIndex = 4;
+			this.dtpEndsAtDate.TabIndex = 10;
 			this.dtpEndsAtDate.ValueChanged += new System.EventHandler(this.dtpEndeDatum_ValueChanged);
 			// 
 			// dtpEndsAtTime
@@ -95,7 +100,7 @@
 			this.dtpEndsAtTime.Name = "dtpEndsAtTime";
 			this.dtpEndsAtTime.ShowCheckBox = true;
 			this.dtpEndsAtTime.Size = new System.Drawing.Size(66, 22);
-			this.dtpEndsAtTime.TabIndex = 5;
+			this.dtpEndsAtTime.TabIndex = 11;
 			this.dtpEndsAtTime.Value = new System.DateTime(2015, 7, 9, 11, 30, 0, 0);
 			// 
 			// dtpStartsAtTime
@@ -106,7 +111,7 @@
 			this.dtpStartsAtTime.Name = "dtpStartsAtTime";
 			this.dtpStartsAtTime.ShowCheckBox = true;
 			this.dtpStartsAtTime.Size = new System.Drawing.Size(66, 22);
-			this.dtpStartsAtTime.TabIndex = 3;
+			this.dtpStartsAtTime.TabIndex = 9;
 			this.dtpStartsAtTime.Value = new System.DateTime(2015, 7, 9, 8, 0, 0, 0);
 			// 
 			// htmlEditor
@@ -149,12 +154,14 @@
 			this.mtxtSubject.MaxLength = 32767;
 			this.mtxtSubject.Name = "mtxtSubject";
 			this.mtxtSubject.PasswordChar = '\0';
+			this.mtxtSubject.PromptText = "Name des Termins";
 			this.mtxtSubject.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtSubject.SelectedText = "";
 			this.mtxtSubject.SelectionLength = 0;
 			this.mtxtSubject.SelectionStart = 0;
+			this.mtxtSubject.ShortcutsEnabled = true;
 			this.mtxtSubject.Size = new System.Drawing.Size(1060, 26);
-			this.mtxtSubject.TabIndex = 0;
+			this.mtxtSubject.TabIndex = 6;
 			this.mtxtSubject.UseSelectable = true;
 			this.mtxtSubject.WaterMark = "Name des Termins";
 			this.mtxtSubject.WaterMarkColor = System.Drawing.Color.Gray;
@@ -186,7 +193,7 @@
 			this.mchkAllDayEvent.Location = new System.Drawing.Point(300, 167);
 			this.mchkAllDayEvent.Name = "mchkAllDayEvent";
 			this.mchkAllDayEvent.Size = new System.Drawing.Size(84, 19);
-			this.mchkAllDayEvent.TabIndex = 7;
+			this.mchkAllDayEvent.TabIndex = 99;
 			this.mchkAllDayEvent.Text = "Ganztägig";
 			this.mchkAllDayEvent.UseSelectable = true;
 			// 
@@ -198,7 +205,7 @@
 			this.mchkErinnerung.Location = new System.Drawing.Point(300, 195);
 			this.mchkErinnerung.Name = "mchkErinnerung";
 			this.mchkErinnerung.Size = new System.Drawing.Size(91, 19);
-			this.mchkErinnerung.TabIndex = 6;
+			this.mchkErinnerung.TabIndex = 12;
 			this.mchkErinnerung.Text = "Erinnerung:";
 			this.mchkErinnerung.UseSelectable = true;
 			// 
@@ -224,7 +231,7 @@
 			this.mcmbErinnerung.Location = new System.Drawing.Point(397, 190);
 			this.mcmbErinnerung.Name = "mcmbErinnerung";
 			this.mcmbErinnerung.Size = new System.Drawing.Size(84, 29);
-			this.mcmbErinnerung.TabIndex = 8;
+			this.mcmbErinnerung.TabIndex = 13;
 			this.mcmbErinnerung.UseSelectable = true;
 			this.mcmbErinnerung.SelectedValueChanged += new System.EventHandler(this.mcmbErinnerung_SelectedValueChanged);
 			// 
@@ -250,7 +257,7 @@
 			this.mcmbAnzeigenAls.Location = new System.Drawing.Point(617, 190);
 			this.mcmbAnzeigenAls.Name = "mcmbAnzeigenAls";
 			this.mcmbAnzeigenAls.Size = new System.Drawing.Size(143, 29);
-			this.mcmbAnzeigenAls.TabIndex = 9;
+			this.mcmbAnzeigenAls.TabIndex = 0;
 			this.mcmbAnzeigenAls.UseSelectable = true;
 			this.mcmbAnzeigenAls.SelectedIndexChanged += new System.EventHandler(this.mcmbAnzeigenAls_SelectedIndexChanged);
 			this.mcmbAnzeigenAls.Validated += new System.EventHandler(this.mcmbAnzeigenAls_Validated);
@@ -282,7 +289,7 @@
 			this.mbtnClose.Location = new System.Drawing.Point(983, 799);
 			this.mbtnClose.Name = "mbtnClose";
 			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
-			this.mbtnClose.TabIndex = 13;
+			this.mbtnClose.TabIndex = 17;
 			this.mbtnClose.Text = "Schließen";
 			this.mbtnClose.UseSelectable = true;
 			this.mbtnClose.UseVisualStyleBackColor = true;
@@ -298,7 +305,7 @@
 			this.mcmbAppointmentType.Name = "mcmbAppointmentType";
 			this.mcmbAppointmentType.PromptText = "Art des Termins";
 			this.mcmbAppointmentType.Size = new System.Drawing.Size(381, 29);
-			this.mcmbAppointmentType.TabIndex = 10;
+			this.mcmbAppointmentType.TabIndex = 1;
 			this.mcmbAppointmentType.UseSelectable = true;
 			// 
 			// dgvLinkedItems
@@ -308,16 +315,16 @@
 			this.dgvLinkedItems.AllowUserToResizeRows = false;
 			this.dgvLinkedItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvLinkedItems.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvLinkedItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvLinkedItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvLinkedItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvLinkedItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(202)))), ((int)(((byte)(175)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvLinkedItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvLinkedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -326,16 +333,16 @@
             this.colLinkTypBezeichnung});
 			this.dgvLinkedItems.ContextMenuStrip = this.mctxLinkedItems;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(202)))), ((int)(((byte)(175)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dgvLinkedItems.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvLinkedItems.EnableHeadersVisualStyles = false;
 			this.dgvLinkedItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvLinkedItems.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvLinkedItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvLinkedItems.HighLightPercentage = 1.2F;
 			this.dgvLinkedItems.Location = new System.Drawing.Point(702, 362);
 			this.dgvLinkedItems.MultiSelect = false;
@@ -345,19 +352,20 @@
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(202)))), ((int)(((byte)(175)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvLinkedItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dgvLinkedItems.RowHeadersVisible = false;
-			this.dgvLinkedItems.RowHeadersWidth = 21;
+			this.dgvLinkedItems.RowHeadersWidth = 18;
 			this.dgvLinkedItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvLinkedItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvLinkedItems.Size = new System.Drawing.Size(381, 417);
 			this.dgvLinkedItems.Style = MetroFramework.MetroColorStyle.Orange;
-			this.dgvLinkedItems.TabIndex = 12;
+			this.dgvLinkedItems.TabIndex = 16;
 			this.dgvLinkedItems.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLinkedItems_RowEnter);
+			this.dgvLinkedItems.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvLinkedItems_MouseDoubleClick);
 			// 
 			// colItemName
 			// 
@@ -438,91 +446,59 @@
 			this.mtxtLocation.MaxLength = 32767;
 			this.mtxtLocation.Name = "mtxtLocation";
 			this.mtxtLocation.PasswordChar = '\0';
+			this.mtxtLocation.PromptText = "Ort des Termins";
 			this.mtxtLocation.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtLocation.SelectedText = "";
 			this.mtxtLocation.SelectionLength = 0;
 			this.mtxtLocation.SelectionStart = 0;
+			this.mtxtLocation.ShortcutsEnabled = true;
 			this.mtxtLocation.Size = new System.Drawing.Size(1060, 26);
-			this.mtxtLocation.TabIndex = 1;
+			this.mtxtLocation.TabIndex = 7;
 			this.mtxtLocation.UseSelectable = true;
 			this.mtxtLocation.WaterMark = "Ort des Termins";
 			this.mtxtLocation.WaterMarkColor = System.Drawing.Color.Gray;
 			this.mtxtLocation.WaterMarkFont = new System.Drawing.Font("Segoe UI Semilight", 10F);
-			// 
-			// mbtnSetAutoProperties
-			// 
-			this.mbtnSetAutoProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnSetAutoProperties.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnSetAutoProperties.BackgroundImage = global::Products.Common.Properties.Resources.info_32_metroorange;
-			this.mbtnSetAutoProperties.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnSetAutoProperties.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.mbtnSetAutoProperties.FlatAppearance.BorderSize = 0;
-			this.mbtnSetAutoProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnSetAutoProperties.Location = new System.Drawing.Point(841, 320);
-			this.mbtnSetAutoProperties.Margin = new System.Windows.Forms.Padding(10, 10, 20, 3);
-			this.mbtnSetAutoProperties.Name = "mbtnSetAutoProperties";
-			this.mbtnSetAutoProperties.Size = new System.Drawing.Size(36, 36);
-			this.mbtnSetAutoProperties.TabIndex = 26;
-			this.toolTip1.SetToolTip(this.mbtnSetAutoProperties, "Termineigenschaften automatisch eintragen");
-			this.mbtnSetAutoProperties.UseVisualStyleBackColor = false;
-			this.mbtnSetAutoProperties.Click += new System.EventHandler(this.mbtnSetAutoProperties_Click);
-			// 
-			// mbtnRemoveLinkedItem
-			// 
-			this.mbtnRemoveLinkedItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnRemoveLinkedItem.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnRemoveLinkedItem.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroorange;
-			this.mbtnRemoveLinkedItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnRemoveLinkedItem.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.mbtnRemoveLinkedItem.FlatAppearance.BorderSize = 0;
-			this.mbtnRemoveLinkedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnRemoveLinkedItem.Location = new System.Drawing.Point(1040, 320);
-			this.mbtnRemoveLinkedItem.Margin = new System.Windows.Forms.Padding(3, 10, 10, 3);
-			this.mbtnRemoveLinkedItem.Name = "mbtnRemoveLinkedItem";
-			this.mbtnRemoveLinkedItem.Size = new System.Drawing.Size(36, 36);
-			this.mbtnRemoveLinkedItem.TabIndex = 14;
-			this.toolTip1.SetToolTip(this.mbtnRemoveLinkedItem, "Das markierte Element aus der Liste entfernen");
-			this.mbtnRemoveLinkedItem.UseVisualStyleBackColor = false;
-			this.mbtnRemoveLinkedItem.Click += new System.EventHandler(this.mbtnRemoveLinkedItem_Click);
-			// 
-			// mbtnAddLinkedItem
-			// 
-			this.mbtnAddLinkedItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnAddLinkedItem.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnAddLinkedItem.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroorange;
-			this.mbtnAddLinkedItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnAddLinkedItem.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.mbtnAddLinkedItem.FlatAppearance.BorderSize = 0;
-			this.mbtnAddLinkedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnAddLinkedItem.Location = new System.Drawing.Point(709, 320);
-			this.mbtnAddLinkedItem.Margin = new System.Windows.Forms.Padding(10, 10, 20, 3);
-			this.mbtnAddLinkedItem.Name = "mbtnAddLinkedItem";
-			this.mbtnAddLinkedItem.Size = new System.Drawing.Size(36, 36);
-			this.mbtnAddLinkedItem.TabIndex = 11;
-			this.toolTip1.SetToolTip(this.mbtnAddLinkedItem, "Neue Verknüpfung mit diesem Termin einfügen");
-			this.mbtnAddLinkedItem.UseVisualStyleBackColor = false;
-			this.mbtnAddLinkedItem.Click += new System.EventHandler(this.mbtnAddLinkedItem_Click);
 			// 
 			// toolTip1
 			// 
 			this.toolTip1.UseAnimation = false;
 			this.toolTip1.UseFading = false;
 			// 
-			// mbtnSettings
+			// mbtnAddLinkToMachine
 			// 
-			this.mbtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnSettings.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnSettings.BackgroundImage = global::Products.Common.Properties.Resources.settings_24_metroorange;
-			this.mbtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnSettings.Location = new System.Drawing.Point(709, 785);
-			this.mbtnSettings.Name = "mbtnSettings";
-			this.mbtnSettings.Size = new System.Drawing.Size(30, 30);
-			this.mbtnSettings.TabIndex = 27;
-			this.toolTip1.SetToolTip(this.mbtnSettings, "Einstellungen für neue Termine und den Kalender anzeigen und ändern");
-			this.mbtnSettings.UseCustomBackColor = true;
-			this.mbtnSettings.UseCustomForeColor = true;
-			this.mbtnSettings.UseSelectable = true;
-			this.mbtnSettings.Click += new System.EventHandler(this.mbtnSettings_Click);
+			this.mbtnAddLinkToMachine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnAddLinkToMachine.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnAddLinkToMachine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mbtnAddLinkToMachine.BackgroundImage")));
+			this.mbtnAddLinkToMachine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.mbtnAddLinkToMachine.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnAddLinkToMachine.FlatAppearance.BorderSize = 0;
+			this.mbtnAddLinkToMachine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnAddLinkToMachine.Location = new System.Drawing.Point(770, 332);
+			this.mbtnAddLinkToMachine.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
+			this.mbtnAddLinkToMachine.Name = "mbtnAddLinkToMachine";
+			this.mbtnAddLinkToMachine.Size = new System.Drawing.Size(24, 24);
+			this.mbtnAddLinkToMachine.TabIndex = 4;
+			this.toolTip1.SetToolTip(this.mbtnAddLinkToMachine, "Eine Kundenmaschine mit diesem Termin verknüpfen");
+			this.mbtnAddLinkToMachine.UseVisualStyleBackColor = false;
+			this.mbtnAddLinkToMachine.Click += new System.EventHandler(this.mbtnAddLinkToMachine_Click);
+			// 
+			// mbtnAddLinkToContact
+			// 
+			this.mbtnAddLinkToContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnAddLinkToContact.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnAddLinkToContact.BackgroundImage = global::Products.Common.Properties.Resources.contact_32_metroorange;
+			this.mbtnAddLinkToContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.mbtnAddLinkToContact.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnAddLinkToContact.FlatAppearance.BorderSize = 0;
+			this.mbtnAddLinkToContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnAddLinkToContact.Location = new System.Drawing.Point(738, 332);
+			this.mbtnAddLinkToContact.Margin = new System.Windows.Forms.Padding(0, 10, 3, 3);
+			this.mbtnAddLinkToContact.Name = "mbtnAddLinkToContact";
+			this.mbtnAddLinkToContact.Size = new System.Drawing.Size(24, 24);
+			this.mbtnAddLinkToContact.TabIndex = 3;
+			this.toolTip1.SetToolTip(this.mbtnAddLinkToContact, "Einen Ansprechpartner mit diesem Termin verknüpfen");
+			this.mbtnAddLinkToContact.UseVisualStyleBackColor = false;
+			this.mbtnAddLinkToContact.Click += new System.EventHandler(this.mbtnAddLinkToContact_Click);
 			// 
 			// mbtnOpenLinkedItem
 			// 
@@ -533,20 +509,92 @@
 			this.mbtnOpenLinkedItem.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.mbtnOpenLinkedItem.FlatAppearance.BorderSize = 0;
 			this.mbtnOpenLinkedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnOpenLinkedItem.Location = new System.Drawing.Point(775, 320);
+			this.mbtnOpenLinkedItem.Location = new System.Drawing.Point(981, 320);
 			this.mbtnOpenLinkedItem.Margin = new System.Windows.Forms.Padding(10, 10, 20, 3);
 			this.mbtnOpenLinkedItem.Name = "mbtnOpenLinkedItem";
 			this.mbtnOpenLinkedItem.Size = new System.Drawing.Size(36, 36);
-			this.mbtnOpenLinkedItem.TabIndex = 28;
+			this.mbtnOpenLinkedItem.TabIndex = 14;
 			this.toolTip1.SetToolTip(this.mbtnOpenLinkedItem, "Das verknüpfte Element öffnen");
 			this.mbtnOpenLinkedItem.UseVisualStyleBackColor = false;
 			this.mbtnOpenLinkedItem.Click += new System.EventHandler(this.xcmdOpenLinkedItem_Click);
+			// 
+			// mbtnSettings
+			// 
+			this.mbtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnSettings.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnSettings.BackgroundImage = global::Products.Common.Properties.Resources.settings_24_metroorange;
+			this.mbtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnSettings.Location = new System.Drawing.Point(709, 785);
+			this.mbtnSettings.Name = "mbtnSettings";
+			this.mbtnSettings.Size = new System.Drawing.Size(30, 30);
+			this.mbtnSettings.TabIndex = 16;
+			this.toolTip1.SetToolTip(this.mbtnSettings, "Einstellungen für neue Termine und den Kalender anzeigen und ändern");
+			this.mbtnSettings.UseCustomBackColor = true;
+			this.mbtnSettings.UseCustomForeColor = true;
+			this.mbtnSettings.UseSelectable = true;
+			this.mbtnSettings.Click += new System.EventHandler(this.mbtnSettings_Click);
+			// 
+			// mbtnSetAutoProperties
+			// 
+			this.mbtnSetAutoProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnSetAutoProperties.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnSetAutoProperties.BackgroundImage = global::Products.Common.Properties.Resources.autofill_32_metrogreen;
+			this.mbtnSetAutoProperties.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnSetAutoProperties.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnSetAutoProperties.FlatAppearance.BorderSize = 0;
+			this.mbtnSetAutoProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnSetAutoProperties.Location = new System.Drawing.Point(817, 320);
+			this.mbtnSetAutoProperties.Margin = new System.Windows.Forms.Padding(20, 10, 20, 3);
+			this.mbtnSetAutoProperties.Name = "mbtnSetAutoProperties";
+			this.mbtnSetAutoProperties.Size = new System.Drawing.Size(36, 36);
+			this.mbtnSetAutoProperties.TabIndex = 5;
+			this.toolTip1.SetToolTip(this.mbtnSetAutoProperties, "Automatisches Eintragen der Termineigenschaften");
+			this.mbtnSetAutoProperties.UseVisualStyleBackColor = false;
+			this.mbtnSetAutoProperties.Click += new System.EventHandler(this.mbtnSetAutoProperties_Click);
+			// 
+			// mbtnRemoveLinkedItem
+			// 
+			this.mbtnRemoveLinkedItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnRemoveLinkedItem.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnRemoveLinkedItem.BackgroundImage = global::Products.Common.Properties.Resources.unlink_32_metroorange;
+			this.mbtnRemoveLinkedItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnRemoveLinkedItem.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnRemoveLinkedItem.FlatAppearance.BorderSize = 0;
+			this.mbtnRemoveLinkedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnRemoveLinkedItem.Location = new System.Drawing.Point(1040, 320);
+			this.mbtnRemoveLinkedItem.Margin = new System.Windows.Forms.Padding(3, 10, 10, 3);
+			this.mbtnRemoveLinkedItem.Name = "mbtnRemoveLinkedItem";
+			this.mbtnRemoveLinkedItem.Size = new System.Drawing.Size(36, 36);
+			this.mbtnRemoveLinkedItem.TabIndex = 15;
+			this.toolTip1.SetToolTip(this.mbtnRemoveLinkedItem, "Das markierte Element aus der Liste entfernen");
+			this.mbtnRemoveLinkedItem.UseVisualStyleBackColor = false;
+			this.mbtnRemoveLinkedItem.Click += new System.EventHandler(this.mbtnRemoveLinkedItem_Click);
+			// 
+			// mbtnAddLinkedItem
+			// 
+			this.mbtnAddLinkedItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnAddLinkedItem.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnAddLinkedItem.BackgroundImage = global::Products.Common.Properties.Resources.link_32_metroorange;
+			this.mbtnAddLinkedItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnAddLinkedItem.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnAddLinkedItem.FlatAppearance.BorderSize = 0;
+			this.mbtnAddLinkedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnAddLinkedItem.Location = new System.Drawing.Point(702, 320);
+			this.mbtnAddLinkedItem.Margin = new System.Windows.Forms.Padding(10, 10, 0, 3);
+			this.mbtnAddLinkedItem.Name = "mbtnAddLinkedItem";
+			this.mbtnAddLinkedItem.Size = new System.Drawing.Size(36, 36);
+			this.mbtnAddLinkedItem.TabIndex = 2;
+			this.toolTip1.SetToolTip(this.mbtnAddLinkedItem, "Auswahl-Dialog zum Verknüpfen von Kunden, Ansprechpartnern, Maschinen etc.");
+			this.mbtnAddLinkedItem.UseVisualStyleBackColor = false;
+			this.mbtnAddLinkedItem.Click += new System.EventHandler(this.mbtnAddLinkedItem_Click);
 			// 
 			// CalendarDetailView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1106, 848);
+			this.Controls.Add(this.mbtnAddLinkToMachine);
+			this.Controls.Add(this.mbtnAddLinkToContact);
 			this.Controls.Add(this.mbtnOpenLinkedItem);
 			this.Controls.Add(this.mbtnSettings);
 			this.Controls.Add(this.mbtnSetAutoProperties);
@@ -573,6 +621,8 @@
 			this.Controls.Add(this.dtpStartsAtDate);
 			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(800, 700);
 			this.Name = "CalendarDetailView";
 			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
@@ -619,5 +669,7 @@
 		private System.Windows.Forms.ToolTip toolTip1;
 		private MetroFramework.Controls.MetroButton mbtnSettings;
 		private System.Windows.Forms.Button mbtnOpenLinkedItem;
+		private System.Windows.Forms.Button mbtnAddLinkToContact;
+		private System.Windows.Forms.Button mbtnAddLinkToMachine;
 	}
 }

@@ -1,10 +1,11 @@
 ﻿#region using
+using System;
 using System.Drawing;
 #endregion
 
 namespace Products.Common.Helpers
 {
-	public class OfferColorSettings
+	public class OfferColorSettings : IDisposable
 	{
 
 		#region members
@@ -29,6 +30,27 @@ namespace Products.Common.Helpers
 				return priceTotalFont;
 			}
 		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposing && priceTotalFont != null)
+			{
+				priceTotalFont.Dispose();
+			}
+			priceTotalFont.Dispose();
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		~OfferColorSettings()
+		{
+			Dispose(false);
+		}
+
 		#endregion
 
 	}

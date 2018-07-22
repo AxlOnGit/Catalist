@@ -189,6 +189,58 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taWartungstermin" GeneratorDataComponentClassName="taWartungstermin" Name="Wartungstermin" UserDataComponentName="taWartungstermin">
+            <MainSource>
+              <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+	MAX(ap.StartsAt) As StartsAt, 
+	kx.MaschinenId, 
+    m.Modellbezeichnung As Maschine, 
+    k.Wartungsintervall, 
+    kx.Kundennummer, 
+    ku.Name1 As Firma, 
+    ku.Postleitzahl, 
+    ku.Ort, 
+    ku.Strasse, 
+    alx.FullName as Terminpfad, 
+    ax.AppointmentType as Terminart 
+FROM 
+				cpm_kundemaschinexref kx 
+    Inner Join	kunden ku On kx.Kundennummer = ku.Kundennummer 
+    Inner Join	cpm_kundenmaschine k On k.UID = kx.MaschinenId 
+    Inner Join	cpm_maschinenmodell m On m.UID = k.MaschinenmodellId 
+    Inner Join	cpm_maschinenserie ms On ms.UID = m.MaschinenserieId
+    Inner Join	cpm_appointmentlinkxref alx On kx.MaschinenId = alx.LinkedItemId 
+    Inner Join	cpm_appointmentxref ax On ax.FullName = alx.FullName 
+    Inner Join 	cpm_appointment ap On ap.FileName = ax.FullName 
+WHERE 
+		(kx.Zuordnungsende &gt; CURDATE()) 
+    And (ax.AppointmentType = 'Wartungstermin' or ax.AppointmentType = 'Servicetermin') 
+    And (ms.Wartungskennzeichen = 1)
+Group By
+	kx.MaschinenId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaschinenId" DataSetColumn="MaschinenId" />
+              <Mapping SourceColumn="Maschine" DataSetColumn="Maschine" />
+              <Mapping SourceColumn="Kundennummer" DataSetColumn="Kundennummer" />
+              <Mapping SourceColumn="Firma" DataSetColumn="Firma" />
+              <Mapping SourceColumn="Postleitzahl" DataSetColumn="Postleitzahl" />
+              <Mapping SourceColumn="Strasse" DataSetColumn="Strasse" />
+              <Mapping SourceColumn="Terminpfad" DataSetColumn="Terminpfad" />
+              <Mapping SourceColumn="Terminart" DataSetColumn="Terminart" />
+              <Mapping SourceColumn="Ort" DataSetColumn="Ort" />
+              <Mapping SourceColumn="Wartungsintervall" DataSetColumn="Wartungsintervall" />
+              <Mapping SourceColumn="StartsAt" DataSetColumn="StartsAt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -284,6 +336,77 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Wartungstermin" msprop:Generator_TableClassName="WartungsterminDataTable" msprop:Generator_TableVarName="tableWartungstermin" msprop:Generator_TablePropName="Wartungstermin" msprop:Generator_RowDeletingName="WartungsterminRowDeleting" msprop:Generator_RowChangingName="WartungsterminRowChanging" msprop:Generator_RowEvHandlerName="WartungsterminRowChangeEventHandler" msprop:Generator_RowDeletedName="WartungsterminRowDeleted" msprop:Generator_UserTableName="Wartungstermin" msprop:Generator_RowChangedName="WartungsterminRowChanged" msprop:Generator_RowEvArgName="WartungsterminRowChangeEvent" msprop:Generator_RowClassName="WartungsterminRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaschinenId" msprop:Generator_ColumnVarNameInTable="columnMaschinenId" msprop:Generator_ColumnPropNameInRow="MaschinenId" msprop:Generator_ColumnPropNameInTable="MaschinenIdColumn" msprop:Generator_UserColumnName="MaschinenId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Maschine" msprop:Generator_ColumnVarNameInTable="columnMaschine" msprop:Generator_ColumnPropNameInRow="Maschine" msprop:Generator_ColumnPropNameInTable="MaschineColumn" msprop:Generator_UserColumnName="Maschine">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Firma" msprop:Generator_ColumnVarNameInTable="columnFirma" msprop:Generator_ColumnPropNameInRow="Firma" msprop:Generator_ColumnPropNameInTable="FirmaColumn" msprop:Generator_UserColumnName="Firma">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Postleitzahl" msprop:Generator_ColumnVarNameInTable="columnPostleitzahl" msprop:Generator_ColumnPropNameInRow="Postleitzahl" msprop:Generator_ColumnPropNameInTable="PostleitzahlColumn" msprop:Generator_UserColumnName="Postleitzahl">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Strasse" msprop:Generator_ColumnVarNameInTable="columnStrasse" msprop:Generator_ColumnPropNameInRow="Strasse" msprop:Generator_ColumnPropNameInTable="StrasseColumn" msprop:Generator_UserColumnName="Strasse">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Terminpfad" msprop:Generator_ColumnVarNameInTable="columnTerminpfad" msprop:Generator_ColumnPropNameInRow="Terminpfad" msprop:Generator_ColumnPropNameInTable="TerminpfadColumn" msprop:Generator_UserColumnName="Terminpfad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Terminart" msprop:Generator_ColumnVarNameInTable="columnTerminart" msprop:Generator_ColumnPropNameInRow="Terminart" msprop:Generator_ColumnPropNameInTable="TerminartColumn" msprop:Generator_UserColumnName="Terminart" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ort" msprop:Generator_ColumnVarNameInTable="columnOrt" msprop:Generator_ColumnPropNameInRow="Ort" msprop:Generator_ColumnPropNameInTable="OrtColumn" msprop:Generator_UserColumnName="Ort">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Wartungsintervall" msprop:Generator_ColumnVarNameInTable="columnWartungsintervall" msprop:Generator_ColumnPropNameInRow="Wartungsintervall" msprop:Generator_ColumnPropNameInTable="WartungsintervallColumn" msprop:Generator_UserColumnName="Wartungsintervall" type="xs:int" />
+              <xs:element name="StartsAt" msprop:Generator_ColumnVarNameInTable="columnStartsAt" msprop:Generator_ColumnPropNameInRow="StartsAt" msprop:Generator_ColumnPropNameInTable="StartsAtColumn" msprop:Generator_UserColumnName="StartsAt" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -302,6 +425,11 @@
       <xs:selector xpath=".//mstns:AppointmentLinkXref" />
       <xs:field xpath="mstns:FullName" />
       <xs:field xpath="mstns:LinkedItemId" />
+    </xs:unique>
+    <xs:unique name="Wartungstermin_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Wartungstermin" />
+      <xs:field xpath="mstns:MaschinenId" />
+      <xs:field xpath="mstns:Terminpfad" />
     </xs:unique>
   </xs:element>
 </xs:schema>

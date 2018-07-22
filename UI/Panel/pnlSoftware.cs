@@ -54,9 +54,9 @@ namespace Products.Common.Panel
 
 			this.mtxtLizenzschluessel.DataBindings.Add("Text", mySoftware, "Lizenzschluessel");
 
-			this.dtpInstallationsdatum.Value = mySoftware.Installationsdatum;
+			this.dtpInstallationsdatum.DataBindings.Add("Value", this.mySoftware, "Installationsdatum");
 
-			this.mcmbKundenmaschine.DataSource = ModelManager.MachineService.GetKundenMaschineList(this.myKunde.CustomerId);
+			this.mcmbKundenmaschine.DataSource = RepoManager.KundenmaschinenRepository.GetKundenmaschinenList(this.myKunde);
 			this.mcmbKundenmaschine.ValueMember = "UID";
 			this.mcmbKundenmaschine.DisplayMember = "ItemName";
 			this.mcmbKundenmaschine.DataBindings.Add("SelectedValue", mySoftware, "KundenmaschineId");

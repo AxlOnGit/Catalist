@@ -7,11 +7,11 @@ namespace Products.Common.Views
 {
 	public partial class ModellListView : MetroForm
 	{
-		#region members
+		#region PUBLIC PROPERTIES
 
-		Maschinenmodell mySelectedModel;
+		public Maschinenmodell SelectedMaschinenmodell { get; private set; }
 
-		#endregion members
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
@@ -26,7 +26,7 @@ namespace Products.Common.Views
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		void btnAddMaschinenModell_Click(object sender, System.EventArgs e)
 		{
@@ -52,8 +52,13 @@ namespace Products.Common.Views
 
 		void DgvModelle_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
-			var model = this.dgvModelle.Rows[e.RowIndex].DataBoundItem as Maschinenmodell;
-			if (model != null) this.mySelectedModel = model;
+			this.SelectedMaschinenmodell = this.dgvModelle.Rows[e.RowIndex].DataBoundItem as Maschinenmodell;
+		}
+
+		void dgvModelle_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			if (this.SelectedMaschinenmodell == null) return;
+			this.ShowModelView(this.SelectedMaschinenmodell);
 		}
 
 		void MaschinenmodellView_FormClosing(object sender, FormClosingEventArgs e)
@@ -61,9 +66,9 @@ namespace Products.Common.Views
 			UpdateMe();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void InitializeData()
 		{
@@ -99,14 +104,6 @@ namespace Products.Common.Views
 			ModelManager.SharedItemsService.UpdateMaschinenModell();
 		}
 
-		#endregion private procedures
-
-		void dgvModelle_MouseDoubleClick(object sender, MouseEventArgs e)
-		{
-			if (this.mySelectedModel != null)
-			{
-				this.ShowModelView(this.mySelectedModel);
-			}
-		}
+		#endregion PRIVATE PROCEDURES
 	}
 }

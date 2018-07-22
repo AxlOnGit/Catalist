@@ -2,6 +2,9 @@
 {
 	partial class UserDetailView
 	{
+
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -36,6 +39,7 @@
 			this.mtxtSignature = new MetroFramework.Controls.MetroTextBox();
 			this.mtxtOk = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.metroTextButton1 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
+			this.mbtnPreloadUserCalendars = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.SuspendLayout();
 			// 
 			// mlblColorText
@@ -87,6 +91,7 @@
 			this.mtxtUserName.MaxLength = 32767;
 			this.mtxtUserName.Name = "mtxtUserName";
 			this.mtxtUserName.PasswordChar = '\0';
+			this.mtxtUserName.PromptText = "Benutzername";
 			this.mtxtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtUserName.SelectedText = "";
 			this.mtxtUserName.SelectionLength = 0;
@@ -108,9 +113,9 @@
 			// 
 			// 
 			this.mtxtSignature.CustomButton.Image = null;
-			this.mtxtSignature.CustomButton.Location = new System.Drawing.Point(-67, 1);
+			this.mtxtSignature.CustomButton.Location = new System.Drawing.Point(-87, 1);
 			this.mtxtSignature.CustomButton.Name = "";
-			this.mtxtSignature.CustomButton.Size = new System.Drawing.Size(405, 405);
+			this.mtxtSignature.CustomButton.Size = new System.Drawing.Size(431, 431);
 			this.mtxtSignature.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
 			this.mtxtSignature.CustomButton.TabIndex = 1;
 			this.mtxtSignature.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -123,12 +128,13 @@
 			this.mtxtSignature.Multiline = true;
 			this.mtxtSignature.Name = "mtxtSignature";
 			this.mtxtSignature.PasswordChar = '\0';
+			this.mtxtSignature.PromptText = "E-Mail Signatur";
 			this.mtxtSignature.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.mtxtSignature.SelectedText = "";
 			this.mtxtSignature.SelectionLength = 0;
 			this.mtxtSignature.SelectionStart = 0;
 			this.mtxtSignature.ShortcutsEnabled = true;
-			this.mtxtSignature.Size = new System.Drawing.Size(339, 407);
+			this.mtxtSignature.Size = new System.Drawing.Size(345, 433);
 			this.mtxtSignature.TabIndex = 2;
 			this.mtxtSignature.UseSelectable = true;
 			this.mtxtSignature.WaterMark = "E-Mail Signatur";
@@ -140,7 +146,7 @@
 			this.mtxtOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mtxtOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.mtxtOk.Image = null;
-			this.mtxtOk.Location = new System.Drawing.Point(251, 610);
+			this.mtxtOk.Location = new System.Drawing.Point(257, 689);
 			this.mtxtOk.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
 			this.mtxtOk.Name = "mtxtOk";
 			this.mtxtOk.Size = new System.Drawing.Size(100, 26);
@@ -155,7 +161,7 @@
 			this.metroTextButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.metroTextButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.metroTextButton1.Image = null;
-			this.metroTextButton1.Location = new System.Drawing.Point(364, 610);
+			this.metroTextButton1.Location = new System.Drawing.Point(370, 689);
 			this.metroTextButton1.Name = "metroTextButton1";
 			this.metroTextButton1.Size = new System.Drawing.Size(100, 26);
 			this.metroTextButton1.TabIndex = 6;
@@ -164,11 +170,28 @@
 			this.metroTextButton1.UseVisualStyleBackColor = true;
 			this.metroTextButton1.Click += new System.EventHandler(this.mbtnClose_Click);
 			// 
+			// mbtnPreloadUserCalendars
+			// 
+			this.mbtnPreloadUserCalendars.Image = null;
+			this.mbtnPreloadUserCalendars.Location = new System.Drawing.Point(125, 636);
+			this.mbtnPreloadUserCalendars.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+			this.mbtnPreloadUserCalendars.Name = "mbtnPreloadUserCalendars";
+			this.mbtnPreloadUserCalendars.Size = new System.Drawing.Size(232, 26);
+			this.mbtnPreloadUserCalendars.Style = MetroFramework.MetroColorStyle.Silver;
+			this.mbtnPreloadUserCalendars.TabIndex = 7;
+			this.mbtnPreloadUserCalendars.Text = "Kalenderdaten vorab laden von ...";
+			this.mbtnPreloadUserCalendars.UseSelectable = true;
+			this.mbtnPreloadUserCalendars.UseStyleColors = true;
+			this.mbtnPreloadUserCalendars.UseVisualStyleBackColor = false;
+			this.mbtnPreloadUserCalendars.Click += new System.EventHandler(this.mbtnPreloadUserCalendars_Click);
+			// 
 			// UserDetailView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(487, 659);
+			this.ClientSize = new System.Drawing.Size(493, 738);
+			this.ControlBox = false;
+			this.Controls.Add(this.mbtnPreloadUserCalendars);
 			this.Controls.Add(this.metroTextButton1);
 			this.Controls.Add(this.mtxtOk);
 			this.Controls.Add(this.mtxtSignature);
@@ -196,5 +219,6 @@
 		private MetroFramework.Controls.MetroTextBox mtxtSignature;
 		private MetroFramework.Controls.MetroTextBox.MetroTextButton mtxtOk;
 		private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton1;
+		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnPreloadUserCalendars;
 	}
 }

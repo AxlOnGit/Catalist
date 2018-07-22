@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\binaries\debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\binaries\release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -117,6 +117,7 @@
     <Compile Include="Entities\LieferantenRabatt.cs" />
     <Compile Include="Entities\Linktyp.cs" />
     <Compile Include="Entities\MailItem.cs" />
+    <Compile Include="Entities\Maschinenauftrag.cs" />
     <Compile Include="Entities\Maschinenmodell.cs" />
     <Compile Include="Entities\Maschinenserie.cs" />
     <Compile Include="Entities\Maschinentyp.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Entities\Reminder.cs" />
     <Compile Include="Entities\Rubrik.cs" />
     <Compile Include="Entities\Software.cs" />
+    <Compile Include="Entities\SoftwareUpgrade.cs" />
     <Compile Include="Entities\Suchkunde.cs" />
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\Tinte.cs" />
@@ -139,11 +141,15 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Versandstaffelpreis.cs" />
     <Compile Include="Entities\WartungsAuswahlKriterium.cs" />
+    <Compile Include="Entities\Wartungstermin.cs" />
     <Compile Include="Entities\WartungsVorschlag.cs" />
     <Compile Include="EventSystem\DateilinkDeletedEventArgs.cs" />
     <Compile Include="EventSystem\MachineDeletedEventArgs.cs" />
     <Compile Include="ModelManager.cs" />
     <Compile Include="Entities\BaumArtikel.cs" />
+    <Compile Include="RepoManager.cs" />
+    <Compile Include="Repos\AppointmentRepo.cs" />
+    <Compile Include="Repos\MaschinenauftragRepo.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\CatalogService.cs" />
     <Compile Include="Services\ContactService.cs" />
@@ -151,6 +157,9 @@
     <Compile Include="Services\DavidService.cs" />
     <Compile Include="Services\FileLinkService.cs" />
     <Compile Include="Services\FileSystemService.cs" />
+    <Compile Include="Services\MachineCreatorService.cs" />
+    <Compile Include="Repos\KundenmaschinenRepo.cs" />
+    <Compile Include="Services\MachinePathCreatorService.cs" />
     <Compile Include="Services\MachineService.cs" />
     <Compile Include="Services\ModelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +185,10 @@
     <ProjectReference Include="..\Agfeo\Agfeo.csproj">
       <Project>{0CD206FB-1891-4010-9958-329AABD272CF}</Project>
       <Name>Agfeo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CatalistRegistry\CatalistRegistry.csproj">
+      <Project>{377b0a99-ae8e-47bf-bd5e-2695149338c8}</Project>
+      <Name>CatalistRegistry</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Products.Common.csproj">
       <Project>{B45CC3C0-5C84-4534-B1EA-BFEF5822CD30}</Project>
@@ -217,6 +230,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

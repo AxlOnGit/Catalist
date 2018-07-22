@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Net;
-using System.Net.Mail;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
 
 namespace Products.Common
 {
-	public class PostOffice
+	public class PostOffice : IDisposable
 	{
 
-		#region members
+		#region MEMBERS
 
 		SmtpClient myClient;
 		readonly string mySender;
 
-		#endregion
-
-		#region public properties
-
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -27,7 +23,7 @@ namespace Products.Common
 		/// </summary>
 		public PostOffice(string username, string pw, string userEmailAddress)
 		{
-			myClient = new SmtpClient(Global.SmtpServer, Global.SmtpPort);
+			myClient = new SmtpClient(CatalistRegistry.Application.SmtpServer, CatalistRegistry.Application.SmtpPort);
 			var nc = new NetworkCredential(username, pw);
 			myClient.Credentials = nc;
 			this.mySender = userEmailAddress;
@@ -35,12 +31,7 @@ namespace Products.Common
 
 		#endregion
 
-		#region private procedures
-
-
-		#endregion
-
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		/// <summary>
 		/// Erzeugt eine neue E-Mail Nachricht.
@@ -80,9 +71,9 @@ namespace Products.Common
 				}
 				return null;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				throw;
 			}
 		}
 
@@ -127,9 +118,9 @@ namespace Products.Common
 					myClient.Send(msg);
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				throw;
 			}
 		}
 
@@ -145,7 +136,39 @@ namespace Products.Common
 			System.Diagnostics.Process.Start(mailto);
 		}
 
-		#endregion
+		#region IDISPOSABLE SUPPORT
+
+		private bool disposedValue = false; // Dient zur Erkennung redundanter Aufrufe.
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					this.myClient.Dispose();
+				}
+				disposedValue = true;
+			}
+		}
+
+		// TODO: Finalizer nur überschreiben, wenn Dispose(bool disposing) weiter oben Code für die Freigabe nicht verwalteter Ressourcen enthält.
+		~PostOffice()
+		{
+			// Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in Dispose(bool disposing) weiter oben ein.
+			Dispose(false);
+		}
+
+		// Dieser Code wird hinzugefügt, um das Dispose-Muster richtig zu implementieren.
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		#endregion IDISPOSABLE SUPPORT
+
+		#endregion PUBLIC PROCEDURES
 
 	}
 }

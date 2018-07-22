@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 using MetroFramework;
 using Products.Common.Collections;
-using Products.Common.Interfaces;
 using Products.Common.Views;
 using Products.Data;
 using Products.Model;
@@ -118,6 +115,24 @@ namespace Products.Common.Panel
 			}
 		}
 
+		private void mchkToggleChecked_CheckedChanged(object sender, EventArgs e)
+		{
+			foreach (var product in this.dgvProducts.DataSource as SBList<Product>)
+			{
+				product.SelectedFlag = this.mchkToggleChecked.Checked;
+			}
+			switch (this.mchkToggleChecked.Checked)
+			{
+				case true:
+				this.mchkToggleChecked.Text = "Alle deaktivieren";
+				break;
+				case false:
+				this.mchkToggleChecked.Text = "Alle aktivieren";
+				break;
+			}
+			this.dgvProducts.Refresh();
+		}
+
 		void mtxtFilter_KeyUp(object sender, KeyEventArgs e)
 		{
 			var outputInfo = string.Empty;
@@ -147,6 +162,14 @@ namespace Products.Common.Panel
 		void mtxtFilter_ClearClicked()
 		{
 			(this.dgvProducts.DataSource as SBList<Product>).Filter = "KatalogFlag == true";
+		}
+
+		void mbtnExport_Click(object sender, EventArgs e)
+		{
+			var rawList = this.dgvProducts.DataSource as SBList<Product>;
+			var exportList = new List<Product>(rawList);
+			var pedv = new ProductExportDetailsView(this.myKunde, exportList);
+			pedv.ShowDialog();
 		}
 
 		#endregion event handler
@@ -247,20 +270,5 @@ namespace Products.Common.Panel
 
 		#endregion private procedures
 
-		// static int counter = 1;
-
-		void mbtnExport_Click(object sender, EventArgs e)
-		{
-			var pedv = new ProductExportDetailsView(this.myKunde, (IEnumerable<Product>)this.dgvProducts.DataSource);
-			pedv.ShowDialog();
-
-			//var now = DateTime.Today;
-			//var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			//var filename = $"{now.ToString("yyyy")}-{now.ToString("MM")}-{now.ToString("dd")} - Artikelpreise_{this.myKunde.Matchcode} ({counter}).xlsx";
-			//var fullName = Path.Combine(documents, filename);
-			//OfficeBridge.ServiceManager.ExcelService.ExportToWorkbook((IEnumerable<Product>)this.dgvProducts.DataSource, fullName, this.myKunde.Matchcode);
-			//counter += 1;
-			//MetroMessageBox.Show(this, "Alle Artikel exportiert ...");
-		}
 	}
 }

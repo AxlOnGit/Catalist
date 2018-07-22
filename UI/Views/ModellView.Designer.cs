@@ -2,6 +2,9 @@
 {
 	partial class ModellView
 	{
+
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -34,10 +37,11 @@
 			this.mcmbHersteller = new MetroFramework.Controls.MetroComboBox();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.mcmbMaschinenserie = new MetroFramework.Controls.MetroComboBox();
-			this.mbtnClose = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
+			this.mbtnCancel = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
 			this.mtxtModellbezeichnung = new MetroFramework.Controls.MetroTextBox();
 			this.btnAddModel = new System.Windows.Forms.Button();
+			this.mbtnOK = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.SuspendLayout();
 			// 
 			// metroLabel3
@@ -103,19 +107,20 @@
 			this.mcmbMaschinenserie.TabIndex = 2;
 			this.mcmbMaschinenserie.UseSelectable = true;
 			// 
-			// mbtnClose
+			// mbtnCancel
 			// 
-			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.mbtnClose.Image = null;
-			this.mbtnClose.Location = new System.Drawing.Point(299, 313);
-			this.mbtnClose.Name = "mbtnClose";
-			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
-			this.mbtnClose.TabIndex = 5;
-			this.mbtnClose.Text = "Schließen";
-			this.mbtnClose.UseSelectable = true;
-			this.mbtnClose.UseVisualStyleBackColor = true;
-			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
+			this.mbtnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.mbtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnCancel.Image = null;
+			this.mbtnCancel.Location = new System.Drawing.Point(223, 310);
+			this.mbtnCancel.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+			this.mbtnCancel.Name = "mbtnCancel";
+			this.mbtnCancel.Size = new System.Drawing.Size(100, 26);
+			this.mbtnCancel.TabIndex = 5;
+			this.mbtnCancel.Text = "Abbrechen";
+			this.mbtnCancel.UseSelectable = true;
+			this.mbtnCancel.UseVisualStyleBackColor = true;
+			this.mbtnCancel.Click += new System.EventHandler(this.mbtnCancel_Click);
 			// 
 			// metroLabel4
 			// 
@@ -148,6 +153,7 @@
 			this.mtxtModellbezeichnung.MaxLength = 32767;
 			this.mtxtModellbezeichnung.Name = "mtxtModellbezeichnung";
 			this.mtxtModellbezeichnung.PasswordChar = '\0';
+			this.mtxtModellbezeichnung.PromptText = "Modellbezeichnung";
 			this.mtxtModellbezeichnung.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtModellbezeichnung.SelectedText = "";
 			this.mtxtModellbezeichnung.SelectionLength = 0;
@@ -164,29 +170,46 @@
 			// 
 			this.btnAddModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnAddModel.BackColor = System.Drawing.Color.Transparent;
-			this.btnAddModel.BackgroundImage = global::Products.Common.Properties.Resources.neu_metroblue;
+			this.btnAddModel.BackgroundImage = global::Products.Common.Properties.Resources.neu_metrolime;
 			this.btnAddModel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.btnAddModel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnAddModel.FlatAppearance.BorderSize = 0;
 			this.btnAddModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnAddModel.Location = new System.Drawing.Point(23, 303);
+			this.btnAddModel.Location = new System.Drawing.Point(23, 300);
 			this.btnAddModel.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
 			this.btnAddModel.Name = "btnAddModel";
 			this.btnAddModel.Size = new System.Drawing.Size(36, 36);
 			this.btnAddModel.TabIndex = 4;
 			this.btnAddModel.UseVisualStyleBackColor = false;
+			this.btnAddModel.Visible = false;
 			this.btnAddModel.Click += new System.EventHandler(this.btnAddModel_Click);
+			// 
+			// mbtnOK
+			// 
+			this.mbtnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.mbtnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.mbtnOK.Image = null;
+			this.mbtnOK.Location = new System.Drawing.Point(100, 310);
+			this.mbtnOK.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+			this.mbtnOK.Name = "mbtnOK";
+			this.mbtnOK.Size = new System.Drawing.Size(100, 26);
+			this.mbtnOK.TabIndex = 21;
+			this.mbtnOK.Text = "OK";
+			this.mbtnOK.UseSelectable = true;
+			this.mbtnOK.UseVisualStyleBackColor = true;
+			this.mbtnOK.Click += new System.EventHandler(this.mbtnOK_Click);
 			// 
 			// ModellView
 			// 
+			this.AcceptButton = this.mbtnOK;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.mbtnClose;
-			this.ClientSize = new System.Drawing.Size(422, 362);
+			this.CancelButton = this.mbtnCancel;
+			this.ClientSize = new System.Drawing.Size(422, 359);
+			this.Controls.Add(this.mbtnOK);
 			this.Controls.Add(this.btnAddModel);
 			this.Controls.Add(this.metroLabel4);
 			this.Controls.Add(this.mtxtModellbezeichnung);
-			this.Controls.Add(this.mbtnClose);
+			this.Controls.Add(this.mbtnCancel);
 			this.Controls.Add(this.metroLabel1);
 			this.Controls.Add(this.mcmbMaschinenserie);
 			this.Controls.Add(this.metroLabel3);
@@ -197,6 +220,7 @@
 			this.MinimizeBox = false;
 			this.Name = "ModellView";
 			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+			this.Style = MetroFramework.MetroColorStyle.Lime;
 			this.Text = "Maschinenmodell";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -211,9 +235,10 @@
 		private MetroFramework.Controls.MetroComboBox mcmbHersteller;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
 		private MetroFramework.Controls.MetroComboBox mcmbMaschinenserie;
-		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnClose;
+		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnCancel;
 		private MetroFramework.Controls.MetroLabel metroLabel4;
 		private MetroFramework.Controls.MetroTextBox mtxtModellbezeichnung;
 		private System.Windows.Forms.Button btnAddModel;
+		private MetroFramework.Controls.MetroTextBox.MetroTextButton mbtnOK;
 	}
 }

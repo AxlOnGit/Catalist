@@ -12,7 +12,7 @@ namespace Products.Model.Entities
 
 		#region members
 
-		readonly dsFileLinks.FileLinkRow myBase;
+		readonly dsFileLink.FileLinkRow myBase;
 		readonly FileInfo myFileInfo;
 
 		#endregion
@@ -145,7 +145,7 @@ namespace Products.Model.Entities
 		/// Erzeugt eine neue Instanz der Dateilink Klasse.
 		/// </summary>
 		/// <param name="baseRow"></param>
-		public FileLink(dsFileLinks.FileLinkRow baseRow)
+		public FileLink(dsFileLink.FileLinkRow baseRow)
 		{
 			//this.myXrefBase = fileLinkXrefRow;
 			this.myBase = baseRow;

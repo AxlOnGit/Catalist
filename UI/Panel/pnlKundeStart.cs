@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using Agfeo;
 using MetroFramework;
 using MetroFramework.Interfaces;
-using Products.Common.Interfaces;
 using Products.Common.Views;
 using Products.Data.Datasets;
 using Products.Model;
@@ -67,13 +66,13 @@ namespace Products.Common.Panel
 				switch (adg.SelectedOption)
 				{
 					case 1:
-						var alv = new AngeboteListView(this.myKunde);
-						alv.ShowDialog();
-						break;
+					var alv = new AngeboteListView(this.myKunde);
+					alv.ShowDialog();
+					break;
 
 					default:
-						this.myParent.LoadOrShowAngebote();
-						break;
+					this.myParent.LoadOrShowAngebote();
+					break;
 				}
 			}
 		}
@@ -118,8 +117,7 @@ namespace Products.Common.Panel
 
 		void ShowTerminListe()
 		{
-			var kundeAsLink = this.myKunde as ILinkedItem;
-			var aList = ModelManager.AppointmentService.GetAppointmentList(kundeAsLink.Key, kundeAsLink.LinkTypeId);
+			var aList = ModelManager.AppointmentService.GetAppointmentList(this.myKunde);
 			var alv = new AppointmentListView(aList, this.myKunde.CompanyName1);
 			alv.Show();
 		}
@@ -189,7 +187,9 @@ namespace Products.Common.Panel
 				this.mlblInactive.ForeColor = System.Drawing.Color.DarkRed;
 				this.mlblInactive.Text = "Kunde ist inaktiv!";
 			}
-			this.mlblKundennummer.Text = string.Format("[{0}] - {1}", myKunde.CustomerId.Substring(0, 5), myKunde.CompanyName1.Replace("&", "&&"));
+			var name = this.myKunde.CompanyName1.Replace("&", "&&");
+			var kunde = $"[{myKunde.KundenNrCpm}] {name} (Kunde seit {this.myKunde.Anlagedatum:d})";
+			this.mlblKundennummer.Text = kunde;
 			this.mlblStrasse.Text = myKunde.Street;
 			this.mlblPlzOrt.Text = string.Format("{0} {1}", myKunde.ZipCode, myKunde.City);
 			this.mlblEntfernung.Text = string.Format("{0} Kilometer ungefähr von uns entfernt", this.myKunde.EntfernungZuReferenzkunde);

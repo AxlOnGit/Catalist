@@ -160,7 +160,7 @@ namespace Products.Model.Entities
 				{
 					return myBase.Installationsdatum;
 				}
-				else return null;
+				return null;
 			}
 			set
 			{
@@ -214,7 +214,13 @@ namespace Products.Model.Entities
 
 		public Kunde Kunde { get { return ModelManager.CustomerService.GetKunde(this.Kundennummer, false); } }
 
-		public Kundenmaschine Maschine { get { return myMachine; } }
+		public Kundenmaschine Maschine
+		{
+			get
+			{
+				return RepoManager.KundenmaschinenRepository.GetKundenmaschine(this.KundenmaschineId);
+			}
+		}
 
 		#endregion private properties
 

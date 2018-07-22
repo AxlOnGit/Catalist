@@ -9,26 +9,20 @@ namespace Products.Common.Views
 {
 	public partial class SettingsView : MetroForm
 	{
-		#region members
 
-		bool myDirty;
-
-		#endregion members
+		#region ### .ctor ###
 
 		public SettingsView()
 		{
 			InitializeComponent();
-			Properties.Settings.Default.SettingChanging += Default_SettingChanging;
+			this.InitializeData();
 		}
 
-		#region event handler
+		#endregion
 
-		void Default_SettingChanging(object sender, System.Configuration.SettingChangingEventArgs e)
-		{
-			myDirty = true;
-		}
+		#region EVENT HANDLER
 
-		#region Datei- und Pfadauswahl
+		#region DATEI- UND PFADAUSWAHL
 
 		void SetSageExePath(object sender, EventArgs e)
 		{
@@ -39,9 +33,10 @@ namespace Products.Common.Views
 			ofd.InitialDirectory = Path.GetDirectoryName(mtxtSageExePfad.Text);
 			ofd.Multiselect = false;
 			ofd.Title = "Wo finde ich die SAGE Programmdatei?";
-			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				mtxtSageExePfad.Text = ofd.FileName;
+				CatalistRegistry.Application.Sage_ExePath = ofd.FileName;
 			}
 		}
 
@@ -55,6 +50,7 @@ namespace Products.Common.Views
 			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				mtxtKatalogPfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.CatalogPath = fbd.SelectedPath;
 			}
 		}
 
@@ -64,12 +60,16 @@ namespace Products.Common.Views
 			ofd.AutoUpgradeEnabled = true;
 			ofd.DefaultExt = "exe";
 			ofd.Filter = "Katalogvorlage|*.docx";
-			ofd.InitialDirectory = Path.GetDirectoryName(mtxtKatalogvorlagePfad.Text);
+			if (!string.IsNullOrEmpty(CatalistRegistry.Application.CatalogTemplateFilePath))
+			{
+				ofd.InitialDirectory = Path.GetDirectoryName(CatalistRegistry.Application.CatalogTemplateFilePath);
+			}
 			ofd.Multiselect = false;
 			ofd.Title = "Welche Vorlage soll ich für Kundenkataloge nehmen?";
-			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				mtxtKatalogvorlagePfad.Text = ofd.FileName;
+				CatalistRegistry.Application.CatalogTemplateFilePath = ofd.FileName;
 			}
 		}
 
@@ -80,9 +80,10 @@ namespace Products.Common.Views
 			Directory.SetCurrentDirectory(mtxtBilderPfad.Text);
 			fbd.SelectedPath = mtxtBilderPfad.Text;
 			fbd.ShowNewFolderButton = true;
-			if (fbd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				mtxtBilderPfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.PicturePath = fbd.SelectedPath;
 			}
 		}
 
@@ -93,9 +94,10 @@ namespace Products.Common.Views
 			Directory.SetCurrentDirectory(mtxtHerstellerlogoPfad.Text);
 			fbd.SelectedPath = this.mtxtHerstellerlogoPfad.Text;
 			fbd.ShowNewFolderButton = true;
-			if (fbd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				this.mtxtHerstellerlogoPfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.ManufacturerPicturePath = fbd.SelectedPath;
 			}
 		}
 
@@ -106,9 +108,10 @@ namespace Products.Common.Views
 			Directory.SetCurrentDirectory(mtxtProduktbilderPfad.Text);
 			fbd.SelectedPath = mtxtProduktbilderPfad.Text;
 			fbd.ShowNewFolderButton = true;
-			if (fbd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				mtxtProduktbilderPfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.ProductPicturePath = fbd.SelectedPath;
 			}
 		}
 
@@ -119,9 +122,10 @@ namespace Products.Common.Views
 			Directory.SetCurrentDirectory(mtxtAngebotspfad.Text);
 			fbd.SelectedPath = mtxtAngebotspfad.Text;
 			fbd.ShowNewFolderButton = true;
-			if (fbd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				mtxtAngebotspfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.OfferFilePath = fbd.SelectedPath;
 			}
 		}
 
@@ -132,110 +136,116 @@ namespace Products.Common.Views
 			Directory.SetCurrentDirectory(mtxtDateilinksPfad.Text);
 			fbd.SelectedPath = mtxtDateilinksPfad.Text;
 			fbd.ShowNewFolderButton = false;
-			if (fbd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+			if (fbd.ShowDialog(this) == DialogResult.OK)
 			{
 				mtxtDateilinksPfad.Text = fbd.SelectedPath;
+				CatalistRegistry.Application.LinkedFilesPath = fbd.SelectedPath;
 			}
 		}
 
-		#endregion Datei- und Pfadauswahl
+		#endregion DATEI- UND PFADAUSWAHL
 
-		#region Textfelderaktualisierung
+		#region TEXTFELDER
 
 		void TaxRate_Validating(object sender, CancelEventArgs e)
 		{
-			decimal val;
-			if (decimal.TryParse(mtxtTaxRateFactor.Text, out val))
+			double val;
+			if (double.TryParse(mtxtTaxRateFactor.Text, out val))
 			{
-				Global.TaxRateMultiplier = val;
+				CatalistRegistry.Application.TaxRate = val;
 			}
 			else
 			{
 				e.Cancel = true;
-				MetroMessageBox.Show(this, "Hier sind nur Ziffern erlaubt, mit einem Komma als Dezimalseparator.", "So geht's nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MetroMessageBox.Show(this, "Hier sind nur Ziffern erlaubt, mit einem Komma als Dezimaltrennzeichen.", "Hier bitte nur Zahlen");
 			}
 		}
 
 		void Atapi_Leitung_Validating(object sender, CancelEventArgs e)
 		{
-			Global.AtapiLineName = mtxtAtapiLeitung.Text;
+			CatalistRegistry.Application.ATAPI_Line = mtxtAtapiLeitung.Text;
 		}
 
 		void SageExePfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.SageExePath = mtxtSageExePfad.Text;
+			CatalistRegistry.Application.Sage_ExePath = mtxtSageExePfad.Text;
 		}
 
 		void KatalogPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.CustomerCatalogPath = mtxtKatalogPfad.Text;
+			CatalistRegistry.Application.CatalogPath = this.mtxtKatalogPfad.Text;
 		}
 
 		void KatalogvorlagePfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.CatalogTemplateFilePath = mtxtKatalogvorlagePfad.Text;
+			CatalistRegistry.Application.CatalogTemplateFilePath = mtxtKatalogvorlagePfad.Text;
 		}
 
 		void BilderPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.PicturePath = mtxtBilderPfad.Text;
+			CatalistRegistry.Application.PicturePath = mtxtBilderPfad.Text;
 		}
 
 		void ProduktbilderPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.ProductPicturePath = mtxtProduktbilderPfad.Text;
+			CatalistRegistry.Application.ProductPicturePath = mtxtProduktbilderPfad.Text;
 		}
 
 		void HerstellerlogoPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.ManufacturerPicturePath = mtxtProduktbilderPfad.Text;
+			CatalistRegistry.Application.ManufacturerPicturePath = mtxtProduktbilderPfad.Text;
 		}
 
 		void AngebotsPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.OfferFilePath = mtxtAngebotspfad.Text;
+			CatalistRegistry.Application.OfferFilePath = mtxtAngebotspfad.Text;
 		}
 
 		void SageBenutzer_Validating(object sender, CancelEventArgs e)
 		{
-			Global.SageUser = mtxtSageBenutzer.Text;
+			CatalistRegistry.Application.UserInSage = mtxtSageBenutzer.Text;
 		}
 
 		void DateilinkPfad_Validating(object sender, CancelEventArgs e)
 		{
-			Global.LinkedFilesPath = mtxtDateilinksPfad.Text;
+			CatalistRegistry.Application.LinkedFilesPath = mtxtDateilinksPfad.Text;
 		}
 
-		void mtxtSenderEmailAddress_Validated(object sender, EventArgs e)
+		private void mtxtSmtpPassword_Validated(object sender, EventArgs e)
 		{
-			Global.SenderEmailAddress = this.mtxtSenderEmailAddress.Text;
+			CatalistRegistry.Application.SenderPW = this.mtxtSmtpPassword.Text;
 		}
 
-		void mtxtSignature_Validating(object sender, CancelEventArgs e)
-		{
-			Global.Signature = this.mtxtSignature.Text;
-		}
-
-		#endregion Textfelderaktualisierung
-
-		#endregion event handler
-
-		#region private procedures
+		#endregion TEXTFELDER
 
 		void mbtnClose_Click(object sender, EventArgs e)
 		{
-			CheckDirtyAndClose();
-		}
-
-		void CheckDirtyAndClose()
-		{
-			if (myDirty)
-			{
-				Properties.Settings.Default.Save();
-			}
 			this.Close();
 		}
 
-		#endregion private procedures
+		#endregion EVENT HANDLER
+
+		#region PRIVATE PROCEDURES
+
+		void InitializeData()
+		{
+			this.mtxtAngebotspfad.Text = CatalistRegistry.Application.OfferFilePath;
+			this.mtxtAtapiLeitung.Text = CatalistRegistry.Application.ATAPI_Line;
+			this.mtxtBilderPfad.Text = CatalistRegistry.Application.PicturePath;
+			this.mtxtDateilinksPfad.Text = CatalistRegistry.Application.LinkedFilesPath;
+			this.mtxtHerstellerlogoPfad.Text = CatalistRegistry.Application.ManufacturerPicturePath;
+			this.mtxtKatalogPfad.Text = CatalistRegistry.Application.CatalogPath;
+			this.mtxtKatalogvorlagePfad.Text = CatalistRegistry.Application.CatalogTemplateFilePath;
+			this.mtxtProduktbilderPfad.Text = CatalistRegistry.Application.ProductPicturePath;
+			this.mtxtSageBenutzer.Text = CatalistRegistry.Application.UserInSage;
+			this.mtxtSageExePfad.Text = CatalistRegistry.Application.Sage_ExePath;
+			this.mtxtSmtpPassword.Text = CatalistRegistry.Application.SenderPW;
+			this.mtxtSmtpPort.Text = CatalistRegistry.Application.SmtpPort.ToString("N0");
+			this.mtxtSmtpServer.Text = CatalistRegistry.Application.SmtpServer;
+			this.mtxtTaxRateFactor.Text = CatalistRegistry.Application.TaxRate.ToString("N2");
+		}
+
+		#endregion PRIVATE PROCEDURES
+
 	}
 }

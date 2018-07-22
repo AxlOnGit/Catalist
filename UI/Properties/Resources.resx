@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="customer_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="b_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="frage_32_metropink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\frage_32_metropink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -129,6 +135,9 @@
   </data>
   <data name="mail_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="contact_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\contact_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="neu_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neu_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,23 +157,23 @@
   <data name="PrintHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrintHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SageNCL_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SageNCL_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="move_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\move_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="telefon_32_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telefon_32_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="telefon_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telefon_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_16_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_16_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="today_24_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\today_24_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="email_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\email_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tools_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tools_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maschine_24_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maschine_24_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,26 +181,41 @@
   <data name="liste_48_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\liste_48_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="neu_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\neu_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zip_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zip_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paste_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paste_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="garbage_16_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\garbage_16_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="screwdriver_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\screwdriver_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ups_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ups_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimize_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimize_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="admin_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Euro_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Euro_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frage_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frage_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrowleft_24_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrowleft_24_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calc_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calc_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purchase_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purchase_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frage_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frage_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="h_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\h_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,17 +238,17 @@
   <data name="open_16_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printer_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SageNCL_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SageNCL_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="discount_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\discount_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="zip_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zip_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="New_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="presets_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\presets_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="asana_favicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\asana_favicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,11 +268,11 @@
   <data name="settings_a_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_a_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="search_24_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_24_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="garbage_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="d_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\d_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="createfolder_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\createfolder_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,9 +289,6 @@
   <data name="calc_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calc_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="sendmail_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sendmail_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -283,23 +304,20 @@
   <data name="excelexport_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\excelexport_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ups_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ups_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="garbage_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\garbage_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printer_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mail_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mail_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Product_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Product_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calc_24_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calc_24_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="New_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\New_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,20 +331,26 @@
   <data name="Lager_48_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lager_48_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendarAdd_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendarAdd_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="print_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_b_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_b_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fon_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fon_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="download_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Kalender_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Kalender_metrogray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrowup_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowup_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar_16_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar_16_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SageNCL_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SageNCL_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a1_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a1_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,11 +361,8 @@
   <data name="settings_24_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_24_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="neu_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\neu_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowup_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowup_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backward_24_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backward_24_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="garbage_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -351,9 +372,6 @@
   </data>
   <data name="c_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\c_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="garbage_16_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\garbage_16_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kalender_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kalender_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -367,11 +385,8 @@
   <data name="topmost_24_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\topmost_24_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="x_24_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\x_24_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="i_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\i_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="auftrag_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\auftrag_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="forward_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forward_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -384,6 +399,9 @@
   </data>
   <data name="email_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_catalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_catalist.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -403,20 +421,23 @@
   <data name="tour_16_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tour_16_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="filter_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="info_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="purchase_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\purchase_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="disks_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disks_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rename_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rename_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="angebot_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\angebot_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -430,29 +451,29 @@
   <data name="maschine_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maschine_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lager_24_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lager_24_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="link_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\link_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="artikel_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\artikel_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="list_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zip_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zip_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="forward_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forward_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="autofill_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\autofill_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calc_24_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calc_24_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="heute_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\heute_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="move_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\move_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="topmost_24_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\topmost_24_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unlink_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unlink_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="frage_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\frage_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -463,23 +484,26 @@
   <data name="service_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\service_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="frage_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\frage_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="neu_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neu_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backward_24_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backward_24_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="machine_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\machine_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="notes_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notes_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="frage_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\frage_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maximize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maximize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="New_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="neu_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neu_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -502,17 +526,20 @@
   <data name="g_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\g_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="garbage_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\garbage_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrowright_24_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrowright_24_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notes_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notes_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="newfolder_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newfolder_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="details_48_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\details_48_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar_16_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_16_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editdoc_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editdoc_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -520,26 +547,26 @@
   <data name="open_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="next_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\next_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="d_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="a1_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a1_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Euro_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Euro_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="print_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="garbage_32_metroteal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage_32_metroteal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tools_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tools_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="frage_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frage_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="email_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="move_16_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\move_16_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maximize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maximize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="admin_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -553,8 +580,8 @@
   <data name="start_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\start_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="presets_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\presets_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="next_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calc_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calc_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -562,26 +589,23 @@
   <data name="task_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maschine_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maschine_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ausrufezeichen01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ausrufezeichen01.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editdoc_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\editdoc_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="artikel_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\artikel_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lager_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lager_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="artikel_48_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\artikel_48_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="i_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\i_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="euro_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\euro_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="presets_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\presets_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_catalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_catalist.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zip_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zip_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="alarm_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -591,6 +615,9 @@
   </data>
   <data name="euro_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\euro_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="serie_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\serie_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="notiz_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notiz_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -610,23 +637,17 @@
   <data name="notizen_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notizen_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ausrufezeichen01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ausrufezeichen01.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="artikel_48_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\artikel_48_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="software_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\software_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calc_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calc_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="angebot_48_metrogray1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\angebot_48_metrogray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="open_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="frage_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\frage_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendarAdd_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendarAdd_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="neu_metrored1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neu_metrored1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -637,14 +658,20 @@
   <data name="neu_32_metropurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neu_32_metropurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="purchase_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\purchase_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_16_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_16_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calculator1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calculator1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="idea_16_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\idea_16_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="kontakte_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kontakte_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pin_24_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pin_24_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calLink_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calLink_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -652,8 +679,11 @@
   <data name="catalog_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalog_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="frage_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\frage_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="x_24_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\x_24_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editdoc_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editdoc_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calLink_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calLink_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -667,20 +697,29 @@
   <data name="liste_48_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\liste_48_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="email_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="move_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\move_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_32_metroteal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_32_metroteal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="forward_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forward_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="frage_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frage_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iexplore_16_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iexplore_16_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zip_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zip_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="garbage_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\garbage_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_32_metropurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_32_metropurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -688,26 +727,32 @@
   <data name="add_16_metroteal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16_metroteal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="serie_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\serie_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paste_24_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paste_24_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="telefon_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telefon_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="auftrag_16_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\auftrag_16_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="euro_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\euro_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iexplore_16_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iexplore_16_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="service_48_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\service_48_metrogray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kalender_metrogray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kalender_metrogray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="garbage_16_metroteal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage_16_metroteal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="move_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\move_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="details_48_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\details_48_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="f_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\f_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -718,29 +763,32 @@
   <data name="a7_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\a7_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calc_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calc_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="admin_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\admin_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editdoc_32_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editdoc_32_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="printer_32_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_32_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Touren_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Touren_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="presets_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\presets_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maschine_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maschine_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_24_metroorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_24_metroorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="presets_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\presets_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="details_24_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\details_24_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="email_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\email_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="move_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\move_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="explorer_exe_original" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\explorer_exe_original.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -748,11 +796,14 @@
   <data name="mail_32_metrogreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail_32_metrogreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="documents_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\documents_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit_24_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_24_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="frage_32_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\frage_32_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mail_16_metrolime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_16_metrolime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -763,8 +814,11 @@
   <data name="MustNichTunFisch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MustNichTunFisch.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fon_metroblack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fon_metroblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="presets_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\presets_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_32_metroblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_32_metroblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -790,28 +844,37 @@
   <data name="Print_blue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Print_blue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="customer_32_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer_32_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="supplier_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\supplier_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unpin2_24_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unpin2_24_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Product_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Product_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="neu_32_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neu_32_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="garbage_16_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\garbage_16_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="product_32_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\product_32_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zip_16_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zip_16_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lager_24_metroyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lager_24_metroyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="a_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="angebot_48_metrogray1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\angebot_48_metrogray1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download_32_metrored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download_32_metrored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="notizen_48_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notizen_48_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="customer_32_metrowhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer_32_metrowhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pois_16_metrosilver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pois_16_metrosilver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

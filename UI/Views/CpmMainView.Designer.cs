@@ -2,6 +2,8 @@
 {
 	partial class CpmMainView
 	{
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -60,7 +62,7 @@
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.mradioArtikel = new MetroFramework.Controls.MetroRadioButton();
 			this.mradioKunden = new MetroFramework.Controls.MetroRadioButton();
-			this.mlnkCurrentCustomer = new MetroFramework.Controls.MetroLink();
+			this.mlnkCurrentElement = new MetroFramework.Controls.MetroLink();
 			this.btnTest = new System.Windows.Forms.Button();
 			this.mtileShowRecent = new MetroFramework.Controls.MetroTile();
 			this.mtileQuit = new MetroFramework.Controls.MetroTile();
@@ -76,18 +78,18 @@
 			this.WhatWatch.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.WhatWatch.BackColor = System.Drawing.Color.White;
 			this.WhatWatch.BigMarkers = new AnalogClock.Marker[] {
-				new AnalogClock.Marker("BigMarker90", 90F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker60", 60F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker30", 30F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker0", 0F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker330", 330F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker300", 300F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker270", 270F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker240", 240F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker210", 210F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker180", 180F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker150", 150F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("BigMarker120", 120F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null)};
+        new AnalogClock.Marker("BigMarker90", 90F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker60", 60F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker30", 30F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker0", 0F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker330", 330F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker300", 300F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker270", 270F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker240", 240F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker210", 210F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker180", 180F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker150", 150F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("BigMarker120", 120F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.06F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null)};
 			this.WhatWatch.BorderStyle = AnalogClock.BorderStyles.Round;
 			this.WhatWatch.CenterPoint.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
 			this.WhatWatch.CenterPoint.PaintAttributes = new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F);
@@ -118,79 +120,79 @@
 			this.WhatWatch.SecondHand.Width = 1F;
 			this.WhatWatch.Size = new System.Drawing.Size(123, 123);
 			this.WhatWatch.SmallMarkers = new AnalogClock.Marker[] {
-				new AnalogClock.Marker("SmallMarker90", 90F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker84", 84F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker78", 78F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker72", 72F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker66", 66F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker60", 60F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker54", 54F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker48", 48F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker42", 42F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker36", 36F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker30", 30F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker24", 24F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker18", 18F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker12", 12F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker6", 6F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker0", 0F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker354", 354F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker348", 348F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker342", 342F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker336", 336F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker330", 330F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker324", 324F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker318", 318F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker312", 312F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker306", 306F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker300", 300F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker294", 294F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker288", 288F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker282", 282F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker276", 276F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker270", 270F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker264", 264F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker258", 258F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker252", 252F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker246", 246F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker240", 240F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker234", 234F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker228", 228F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker222", 222F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker216", 216F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker210", 210F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker204", 204F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker198", 198F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker192", 192F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker186", 186F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker180", 180F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker174", 174F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker168", 168F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker162", 162F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker156", 156F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker150", 150F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker144", 144F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker138", 138F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker132", 132F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker126", 126F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker120", 120F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker114", 114F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker108", 108F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker102", 102F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
-				new AnalogClock.Marker("SmallMarker96", 96F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null)};
+        new AnalogClock.Marker("SmallMarker90", 90F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker84", 84F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker78", 78F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker72", 72F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker66", 66F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker60", 60F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker54", 54F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker48", 48F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker42", 42F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker36", 36F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker30", 30F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker24", 24F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker18", 18F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker12", 12F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker6", 6F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker0", 0F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker354", 354F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker348", 348F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker342", 342F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker336", 336F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker330", 330F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker324", 324F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker318", 318F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker312", 312F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker306", 306F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker300", 300F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker294", 294F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker288", 288F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker282", 282F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker276", 276F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker270", 270F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker264", 264F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker258", 258F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker252", 252F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker246", 246F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker240", 240F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker234", 234F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker228", 228F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker222", 222F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker216", 216F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker210", 210F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker204", 204F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker198", 198F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker192", 192F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker186", 186F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker180", 180F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker174", 174F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker168", 168F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker162", 162F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker156", 156F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker150", 150F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker144", 144F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker138", 138F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker132", 132F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker126", 126F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker120", 120F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker114", 114F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker108", 108F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker102", 102F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null),
+        new AnalogClock.Marker("SmallMarker96", 96F, System.Drawing.Color.Black, AnalogClock.MarkerStyle.Regular, true, 61.5F, 1F, 0.03F, 1F, new AnalogClock.PaintAttributes(AnalogClock.PaintObject.Brush, 1F), AnalogClock.SmoothMode.AntiAlias, null)};
 			this.WhatWatch.Symbols = new AnalogClock.Symbol[] {
-				new AnalogClock.Symbol("Symbol90", 90F, "12", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 0, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol60", 60F, "1", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 1, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol30", 30F, "2", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 2, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol0", 0F, "3", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 3, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol330", 330F, "4", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 4, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol300", 300F, "5", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 5, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol270", 270F, "6", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 6, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol240", 240F, "7", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 7, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol210", 210F, "8", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 8, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol180", 180F, "9", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 9, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol150", 150F, "10", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 10, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
-				new AnalogClock.Symbol("Symbol120", 120F, "11", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 11, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null)};
+        new AnalogClock.Symbol("Symbol90", 90F, "12", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 0, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol60", 60F, "1", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 1, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol30", 30F, "2", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 2, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol0", 0F, "3", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 3, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol330", 330F, "4", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 4, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol300", 300F, "5", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 5, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol270", 270F, "6", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 6, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol240", 240F, "7", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 7, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol210", 210F, "8", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 8, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol180", 180F, "9", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 9, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol150", 150F, "10", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 10, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null),
+        new AnalogClock.Symbol("Symbol120", 120F, "11", new System.Drawing.Font("Engravers MT", 9.75F, System.Drawing.FontStyle.Bold), System.Drawing.Color.Black, new System.Drawing.Point(1, 1), 11, true, true, AnalogClock.SymbolStyle.Numeric, 61.5F, 0.82F, System.Drawing.Text.TextRenderingHint.SystemDefault, null)};
 			this.WhatWatch.TabIndex = 82;
 			this.mHtmlTip.SetToolTip(this.WhatWatch, "Anklicken beendet Catalist endgültig");
 			this.WhatWatch.UpdateFrequency = 10;
@@ -199,16 +201,20 @@
 			// mbtnMinimize
 			// 
 			this.mbtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnMinimize.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.mbtnMinimize.FontSize = MetroFramework.MetroButtonSize.Medium;
 			this.mbtnMinimize.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-			this.mbtnMinimize.Location = new System.Drawing.Point(246, 626);
+			this.mbtnMinimize.Location = new System.Drawing.Point(236, 625);
 			this.mbtnMinimize.Name = "mbtnMinimize";
-			this.mbtnMinimize.Size = new System.Drawing.Size(90, 30);
+			this.mbtnMinimize.Size = new System.Drawing.Size(100, 31);
+			this.mbtnMinimize.Style = MetroFramework.MetroColorStyle.Silver;
 			this.mbtnMinimize.TabIndex = 10;
-			this.mbtnMinimize.Text = "Minimieren";
+			this.mbtnMinimize.Text = "Beenden";
 			this.mHtmlTip.SetToolTip(this.mbtnMinimize, "Minimiert die Anwendung. Zum vollständigen Beenden des Programms bitte auf die Uh" +
-				"r oben klicken.");
+        "r oben klicken.");
+			this.mbtnMinimize.UseCustomBackColor = true;
 			this.mbtnMinimize.UseSelectable = true;
+			this.mbtnMinimize.UseStyleColors = true;
 			this.mbtnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
 			// 
 			// mlblCurrentUser
@@ -230,7 +236,7 @@
 			// 
 			this.tBarIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
 			this.tBarIcon.BalloonTipText = "Wenn das hier läuft, wird das Telefon überwacht und anrufende Kunden werden angez" +
-		"eigt. Cool, oder?!";
+    "eigt. Cool, oder?!";
 			this.tBarIcon.BalloonTipTitle = "Axel sacht";
 			this.tBarIcon.ContextMenuStrip = this.ctxTbarIcon;
 			this.tBarIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("tBarIcon.Icon")));
@@ -242,10 +248,10 @@
 			// 
 			this.ctxTbarIcon.BackColor = System.Drawing.Color.White;
 			this.ctxTbarIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-						this.ctxCmdShowMainView,
-						this.ctxCmdShowSettingsView,
-						this.toolStripSeparator1,
-						this.ctxCmdQuit});
+            this.ctxCmdShowMainView,
+            this.ctxCmdShowSettingsView,
+            this.toolStripSeparator1,
+            this.ctxCmdQuit});
 			this.ctxTbarIcon.Name = "ctxTbarIcon";
 			this.ctxTbarIcon.Size = new System.Drawing.Size(146, 76);
 			// 
@@ -283,9 +289,9 @@
 			// ctxView
 			// 
 			this.ctxView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-						this.ctxCmdMaschinentypen,
-						this.toolStripSeparator2,
-						this.ctxCmdViewQuit});
+            this.ctxCmdMaschinentypen,
+            this.toolStripSeparator2,
+            this.ctxCmdViewQuit});
 			this.ctxView.Name = "ctxView";
 			this.ctxView.Size = new System.Drawing.Size(163, 54);
 			// 
@@ -354,6 +360,7 @@
 			this.mtxtSearch.MaxLength = 32767;
 			this.mtxtSearch.Name = "mtxtSearch";
 			this.mtxtSearch.PasswordChar = '\0';
+			this.mtxtSearch.PromptText = "Kd-Nr, Firma, Seriennummer | STRG+Y = CPM";
 			this.mtxtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtSearch.SelectedText = "";
 			this.mtxtSearch.SelectionLength = 0;
@@ -365,7 +372,7 @@
 			this.mtxtSearch.Style = MetroFramework.MetroColorStyle.Lime;
 			this.mtxtSearch.TabIndex = 100;
 			this.mHtmlTip.SetToolTip(this.mtxtSearch, "Artikelsuche: *<Kundennummer> <Artikelname> sucht nach Artikeln für den Kunden mi" +
-				"t der vorangestellten Kundennummer");
+        "t der vorangestellten Kundennummer");
 			this.mtxtSearch.UseSelectable = true;
 			this.mtxtSearch.WaterMark = "Kd-Nr, Firma, Seriennummer | STRG+Y = CPM";
 			this.mtxtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -377,14 +384,14 @@
 			// 
 			this.btnTopMost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnTopMost.BackColor = System.Drawing.Color.Transparent;
-			this.btnTopMost.BackgroundImage = global::Products.Common.Properties.Resources.topmost_24_metrogray;
+			this.btnTopMost.BackgroundImage = global::Products.Common.Properties.Resources.unpin2_24_metrosilver;
 			this.btnTopMost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.btnTopMost.Location = new System.Drawing.Point(23, 598);
 			this.btnTopMost.Name = "btnTopMost";
 			this.btnTopMost.Size = new System.Drawing.Size(36, 36);
 			this.btnTopMost.TabIndex = 8;
 			this.mHtmlTip.SetToolTip(this.btnTopMost, "Wenn dieses Symbol rot leuchtet, bleibt dieses Fenster immer sichtbar und wird vo" +
-				"n anderen Fenstern nicht überdeckt.");
+        "n anderen Fenstern nicht überdeckt.");
 			this.btnTopMost.UseSelectable = true;
 			this.btnTopMost.Click += new System.EventHandler(this.btnTopMost_Click);
 			// 
@@ -415,7 +422,7 @@
 			this.mtileVerwaltung.TileImage = global::Products.Common.Properties.Resources.admin_48_metrowhite;
 			this.mtileVerwaltung.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.mHtmlTip.SetToolTip(this.mtileVerwaltung, "Hier lassen sich Sammlungen von Artikeleigenschaften verwalten, die dann neuen Ar" +
-				"tikeln zugewiesen werden können.");
+        "tikeln zugewiesen werden können.");
 			this.mtileVerwaltung.UseSelectable = true;
 			this.mtileVerwaltung.UseTileImage = true;
 			this.mtileVerwaltung.Click += new System.EventHandler(this.mtilePresets_Click);
@@ -444,13 +451,13 @@
 			this.mtileAngebote.Location = new System.Drawing.Point(236, 368);
 			this.mtileAngebote.Name = "mtileAngebote";
 			this.mtileAngebote.Size = new System.Drawing.Size(100, 100);
-			this.mtileAngebote.Style = MetroFramework.MetroColorStyle.Lime;
+			this.mtileAngebote.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mtileAngebote.TabIndex = 3;
 			this.mtileAngebote.Text = "Angebote";
 			this.mtileAngebote.TileImage = global::Products.Common.Properties.Resources.task_48_metrogray;
 			this.mtileAngebote.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.mHtmlTip.SetToolTip(this.mtileAngebote, "Hier kann man nach dem Auswählen eines Kunden dessen Angebote anzeigen und bearbe" +
-				"iten.");
+        "iten.");
 			this.mtileAngebote.UseSelectable = true;
 			this.mtileAngebote.UseTileImage = true;
 			this.mtileAngebote.Click += new System.EventHandler(this.mtileAngebote_Click);
@@ -468,7 +475,7 @@
 			this.mtileKalender.TileImage = global::Products.Common.Properties.Resources.calendar_48_metrowhite;
 			this.mtileKalender.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.mHtmlTip.SetToolTip(this.mtileKalender, "Zur Einsicht und Planung von Terminen. Der Kalender wird automatisch mit dem Kale" +
-				"nder in David synchronisiert.");
+        "nder in David synchronisiert.");
 			this.mtileKalender.UseSelectable = true;
 			this.mtileKalender.UseTileImage = true;
 			this.mtileKalender.Click += new System.EventHandler(this.mtileKalender_Click);
@@ -486,7 +493,7 @@
 			this.mtileArtikel.TileImage = global::Products.Common.Properties.Resources.liste_48_metrosilver;
 			this.mtileArtikel.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.mHtmlTip.SetToolTip(this.mtileArtikel, "Zuerst wählt man einen Kunden aus und bekommt anschließend dessen Artikelpreise a" +
-				"ngezeigt");
+        "ngezeigt");
 			this.mtileArtikel.UseCustomForeColor = true;
 			this.mtileArtikel.UseSelectable = true;
 			this.mtileArtikel.UseTileImage = true;
@@ -568,17 +575,17 @@
 			this.mradioKunden.Text = "Kunden";
 			this.mradioKunden.UseSelectable = true;
 			// 
-			// mlnkCurrentCustomer
+			// mlnkCurrentElement
 			// 
-			this.mlnkCurrentCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.mlnkCurrentCustomer.Location = new System.Drawing.Point(23, 321);
-			this.mlnkCurrentCustomer.Name = "mlnkCurrentCustomer";
-			this.mlnkCurrentCustomer.Size = new System.Drawing.Size(247, 23);
-			this.mlnkCurrentCustomer.TabIndex = 99;
-			this.mlnkCurrentCustomer.Text = "Letzter Kunde";
-			this.mlnkCurrentCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.mlnkCurrentCustomer.UseSelectable = true;
-			this.mlnkCurrentCustomer.Click += new System.EventHandler(this.mlnkCurrentCustomer_Click);
+			this.mlnkCurrentElement.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.mlnkCurrentElement.Location = new System.Drawing.Point(23, 321);
+			this.mlnkCurrentElement.Name = "mlnkCurrentElement";
+			this.mlnkCurrentElement.Size = new System.Drawing.Size(247, 23);
+			this.mlnkCurrentElement.TabIndex = 99;
+			this.mlnkCurrentElement.Text = "Letzter Kunde";
+			this.mlnkCurrentElement.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.mlnkCurrentElement.UseSelectable = true;
+			this.mlnkCurrentElement.Click += new System.EventHandler(this.mlnkCurrentCustomer_Click);
 			// 
 			// btnTest
 			// 
@@ -589,9 +596,10 @@
 			this.btnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
 			this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
 			this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTest.Location = new System.Drawing.Point(23, 217);
+			this.btnTest.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnTest.Location = new System.Drawing.Point(23, 210);
 			this.btnTest.Name = "btnTest";
-			this.btnTest.Size = new System.Drawing.Size(66, 25);
+			this.btnTest.Size = new System.Drawing.Size(77, 31);
 			this.btnTest.TabIndex = 102;
 			this.btnTest.Text = "Testing ...";
 			this.btnTest.UseVisualStyleBackColor = false;
@@ -605,9 +613,8 @@
 			this.mtileShowRecent.Location = new System.Drawing.Point(276, 302);
 			this.mtileShowRecent.Name = "mtileShowRecent";
 			this.mtileShowRecent.Size = new System.Drawing.Size(60, 60);
-			this.mtileShowRecent.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtileShowRecent.Style = MetroFramework.MetroColorStyle.Lime;
 			this.mtileShowRecent.TabIndex = 103;
-			this.mtileShowRecent.Text = "***";
 			this.mtileShowRecent.TextAlign = System.Drawing.ContentAlignment.TopLeft;
 			this.mtileShowRecent.TileImage = global::Products.Common.Properties.Resources.customer_32_metrowhite;
 			this.mtileShowRecent.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -626,8 +633,8 @@
 			this.mtileQuit.Size = new System.Drawing.Size(100, 100);
 			this.mtileQuit.Style = MetroFramework.MetroColorStyle.Silver;
 			this.mtileQuit.TabIndex = 97;
-			this.mtileQuit.Text = "Beenden";
-			this.mtileQuit.TileImage = global::Products.Common.Properties.Resources.poweroff_48_metrowhite;
+			this.mtileQuit.Text = "Minimieren";
+			this.mtileQuit.TileImage = global::Products.Common.Properties.Resources.minimize_48_metrowhite;
 			this.mtileQuit.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.mtileQuit.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
 			this.mtileQuit.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
@@ -643,11 +650,10 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(359, 679);
 			this.ContextMenuStrip = this.ctxView;
-			this.ControlBox = false;
 			this.Controls.Add(this.mtileShowRecent);
 			this.Controls.Add(this.btnTest);
 			this.Controls.Add(this.mtxtSearch);
-			this.Controls.Add(this.mlnkCurrentCustomer);
+			this.Controls.Add(this.mlnkCurrentElement);
 			this.Controls.Add(this.metroPanel1);
 			this.Controls.Add(this.mtileQuit);
 			this.Controls.Add(this.mlblVersion);
@@ -665,6 +671,8 @@
 			this.Controls.Add(this.picCPM);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "CpmMainView";
 			this.Resizable = false;
 			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
@@ -685,6 +693,8 @@
 			this.PerformLayout();
 
 		}
+
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
 
 		#endregion
 
@@ -718,7 +728,7 @@
 		private MetroFramework.Controls.MetroPanel metroPanel1;
 		private MetroFramework.Controls.MetroRadioButton mradioArtikel;
 		private MetroFramework.Controls.MetroRadioButton mradioKunden;
-		private MetroFramework.Controls.MetroLink mlnkCurrentCustomer;
+		private MetroFramework.Controls.MetroLink mlnkCurrentElement;
 		private MetroFramework.Controls.MetroTextBox mtxtSearch;
 		private System.Windows.Forms.Button btnTest;
 		private MetroFramework.Controls.MetroTile mtileShowRecent;

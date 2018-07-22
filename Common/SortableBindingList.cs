@@ -7,13 +7,13 @@ namespace Products.Common
 {
 	public class SortableBindingList<T> : BindingList<T>
 	{
-		readonly Dictionary<Type, PropertyComparer<T>> comparers;
+		private readonly Dictionary<Type, PropertyComparer<T>> comparers;
 
 		//IEnumerable<ListSortDescription> myListSortDescriptors;
-		bool myIsSorted;
+		private bool myIsSorted;
 
-		ListSortDirection listSortDirection;
-		PropertyDescriptor propertyDescriptor;
+		private ListSortDirection listSortDirection;
+		private PropertyDescriptor propertyDescriptor;
 		//List<T> myOriginalData = null;
 		//string myFilter = "";
 
@@ -58,6 +58,8 @@ namespace Products.Common
 
 		protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
 		{
+			this.SortPropertyName = prop.Name;
+			this.SortDirection = direction;
 			var itemsList = (List<T>)this.Items;
 
 			Type propertyType = prop.PropertyType;
@@ -101,6 +103,14 @@ namespace Products.Common
 			return -1;
 		}
 
+		public void AddRange(IEnumerable<T> colRange)
+		{
+			foreach (var item in colRange)
+			{
+				Items.Add(item);
+			}
+		}
+
 		/// <summary>
 		/// Sortiert nach der angegebenen Eigenschaft in der angegebenen Sortierreihenfolge.
 		/// </summary>
@@ -121,5 +131,9 @@ namespace Products.Common
 			}
 			return this;
 		}
+
+		public string SortPropertyName { get; private set; }
+
+		public ListSortDirection SortDirection { get; private set; }
 	}
 }

@@ -55,17 +55,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt das Statusdatum der E-Mail zurück.
 		/// </summary>
-		public DateTime Datum { get { return (DateTime)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.CreatedAt); } }
+		public DateTime Datum { get { return (DateTime)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.CreatedAt); } }
 
-		public string Von { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.From); } }
+		public string Von { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.From); } }
 
-		public string An { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.To); } }
+		public string An { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.To); } }
 
-		public string Betreff { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.Subject); } }
+		public string Betreff { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.Subject); } }
 
-		public string BodyASCII { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.BodyAscii); } }
+		public string BodyASCII { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.Content); } }
 
-		public string BodyHtml { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldEnum.BodyHtml); } }
+		public string BodyHtml { get { return (string)David.DavidManager.DavidService.GetFieldValue(this.myBase, David.DavidFieldsEnum.HTML); } }
 
 		/// <summary>
 		/// Gibt den vollständigen Pfad der E-Mail auf dem David Server zurück.

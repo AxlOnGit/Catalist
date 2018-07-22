@@ -1,57 +1,50 @@
 ﻿using Products.Common;
-using Products.Data.Datasets;
 using Products.Common.Interfaces;
+using Products.Data.Datasets;
 
 namespace Products.Model.Entities
 {
 	public class Maschinenserie : ILinkedItem
 	{
-
-		#region members
+		#region MEMBERS
 
 		readonly dsShared.MaschinenSerieRow myBase;
 		SortableBindingList<Maschinenmodell> myModelle;
 
-		#endregion
+		#endregion MEMBERS
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
-		#region ILinkedItem
+		#region ILINKEDITEM
 
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		public string Key
-		{
-			get { return this.myBase.UID; }
-		}
+		public string Key => this.myBase.UID;
 
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		public string LinkTypeId
-		{
-			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Maschinenserie").UID; }
-		}
+		public string LinkTypeId => ModelManager.SharedItemsService.GetLinkTypeByName("Maschinenserie").UID;
 
-		public string ItemName
-		{
-			get { return this.myBase.Serienname; }
-		}
+		/// <summary>
+		/// Gibt die Bezeichnung dieser Serie zurück.
+		/// </summary>
+		public string ItemName => this.myBase.Serienname;
 
-		public string LinkTypBezeichnung
-		{
-			get { return "Maschinenserie"; }
-		}
+		/// <summary>
+		/// Gibt die Zeichenfolge 'Maschinenserie' zurück.
+		/// </summary>
+		public string LinkTypBezeichnung => "Maschinenserie";
 
-		#endregion
+		#endregion ILINKEDITEM
 
-		#region skalare
+		#region SKALARE
 
 		/// <summary>
 		/// Primärschlüssel der Serie.
 		/// </summary>
-		public string UID { get { return myBase.UID; } }
+		public string UID => myBase.UID;
 
 		/// <summary>
 		/// Bezeichnung dieser Serie.
@@ -67,6 +60,25 @@ namespace Products.Model.Entities
 		/// Gibt den Dateipfad zu dieser Maschinenserie im Technikordner zurück.
 		/// </summary>
 		public string Dateipfad { get { return this.myBase.Dateipfad; } set { this.myBase.Dateipfad = value; } }
+
+		/// <summary>
+		/// Gibt den Namen der Word-Vorlage an, die für Installations-Checklisten verwendet
+		/// werden soll.
+		/// </summary>
+		public string InstallationsChecklistenVorlage
+		{
+			get { return this.myBase.InstChecklistVorlage; }
+			set { this.myBase.InstChecklistVorlage = value; }
+		}
+
+		/// <summary>
+		/// Gibt den Dateinamen der Word-Vorlage für Installationsberichte zurück oder legt ihn fest.
+		/// </summary>
+		public string InstallationsReportVorlage
+		{
+			get { return this.myBase.InstReportVorlage; }
+			set { this.myBase.InstReportVorlage = value; }
+		}
 
 		/// <summary>
 		/// GUID des Herstellers.
@@ -111,52 +123,38 @@ namespace Products.Model.Entities
 			set { this.myBase.Wartungskennzeichen = (ulong)((value == true) ? 1 : 0); }
 		}
 
+		/// <summary>
+		/// Gibt das Wartungsintervall für Modelle dieser Serie in Monaten zurück oder legt es fest.
+		/// </summary>
 		public int Wartungsintervall
 		{
 			get { return this.myBase.Wartungsintervall; }
+			set { this.myBase.Wartungsintervall = value; }
 		}
 
-		#endregion
+		#endregion SKALARE
 
-		#region entities
+		#region ENTITIES
 
 		/// <summary>
 		/// Gibt den Hersteller dieser Serie als Objekt zurück.
 		/// </summary>
-		public Hersteller Hersteller
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetHersteller(myBase.HerstellerId);
-			}
-		}
+		public Hersteller Hersteller => ModelManager.SharedItemsService.GetHersteller(myBase.HerstellerId);
 
 		/// <summary>
 		/// Gibt den Firmennamen des Herstellers zurück.
 		/// </summary>
-		public string Herstellername
-		{
-			get { return this.Hersteller.Herstellername; }
-		}
+		public string Herstellername => this.Hersteller.Herstellername;
 
 		/// <summary>
 		/// Gibt den Maschinentyp der Serie als Objekt zurück.
 		/// </summary>
-		public Maschinentyp Maschinentyp
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetMaschinenTyp(this.MaschinentypId);
-			}
-		}
+		public Maschinentyp Maschinentyp => ModelManager.SharedItemsService.GetMaschinenTyp(this.MaschinentypId);
 
 		/// <summary>
 		/// Gibt die Bezeichnung des Maschinentyps zurück.
 		/// </summary>
-		public string Typbezeichnung
-		{
-			get { return this.Maschinentyp.MaschinentypName; }
-		}
+		public string Typbezeichnung => this.Maschinentyp.MaschinentypName;
 
 		public SortableBindingList<Maschinenmodell> Maschinenmodelle
 		{
@@ -170,9 +168,9 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion ENTITIES
 
-		#endregion
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
@@ -185,15 +183,6 @@ namespace Products.Model.Entities
 			myBase = baseRow;
 		}
 
-		#endregion
-
-		#region public procedures
-		
-		#endregion
-
-		#region private procedures
-
-		#endregion
-
+		#endregion ### .ctor ###
 	}
 }

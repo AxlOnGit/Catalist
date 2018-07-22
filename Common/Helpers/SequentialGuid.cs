@@ -1,36 +1,17 @@
 ﻿using System;
+using static Products.Common.NativeMethods;
 
 namespace Products.Common
 {
 	public static class SequentialGuid
 	{
-		#region API
-
-		[System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
-		struct GUIDDATA
-		{
-			public int Data1;
-			public short Data2;
-			public short Data3;
-
-			[System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.ByValArray, SizeConst = 8)]
-			public byte[] Data4;
-		}
-
-		[System.Runtime.InteropServices.DllImport("rpcrt4.dll")]
-		static extern int UuidCreateSequential(out GUIDDATA Uuid);
-
-		#endregion API
 
 		//---------------------------------------------------------------------
 		/// <summary>
 		/// Erstellt eine GUID
 		/// </summary>
 		/// <returns>GUID</returns>
-		public static Guid NewID()
-		{
-			return Guid.NewGuid();
-		}
+		public static Guid NewID() => Guid.NewGuid();
 
 		//---------------------------------------------------------------------
 		/// <summary>
@@ -50,5 +31,29 @@ namespace Products.Common
 				guiddata.Data3,
 				guiddata.Data4);
 		}
+
 	}
+
+	internal static class NativeMethods
+	{
+		#region API
+
+		[System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
+		internal struct GUIDDATA
+		{
+			internal int Data1;
+			internal short Data2;
+			internal short Data3;
+
+			[System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.ByValArray, SizeConst = 8)]
+			public byte[] Data4;
+		}
+
+		[System.Runtime.InteropServices.DllImport("rpcrt4.dll")]
+		internal static extern int UuidCreateSequential(out GUIDDATA Uuid);
+
+		#endregion API
+
+	}
+
 }

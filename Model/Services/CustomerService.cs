@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Products.Common;
+﻿using Products.Common;
 using Products.Common.Geocoding;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Model.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace Products.Model.Services
 {
@@ -96,7 +96,8 @@ namespace Products.Model.Services
 		/// </summary>
 		/// <param name="kundePK">Kundennummer des gesuchten Kunden.</param>
 		/// <returns>
-		/// Eine <seealso cref="Kunde"/> Instanz oder null, wenn es diese Kundennummer nicht gibt.
+		/// Eine <seealso cref="Kunde"/> Instanz oder null, wenn es diese Kundennummer
+		/// nicht gibt.
 		/// </returns>
 		public Kunde GetKunde(string kundePK, bool setAsCurrent)
 		{
@@ -130,20 +131,81 @@ namespace Products.Model.Services
 			return result;
 		}
 
+		/// <summary>
+		/// Gibt den Kunden CPM (also uns) zurück.
+		/// </summary>
+		/// <returns></returns>
+		public Kunde GetCPM()
+		{
+			return this.GetKunde(cpmPrimaryKey, false);
+		}
+
 		internal void GetAdresskoordinaten(Kunde kunde)
 		{
 			try
 			{
-				var adresse = string.Format("{0}, {1} {2}", kunde.Street, kunde.ZipCode, kunde.City);
+				var land = string.Empty;
+				switch (kunde.Laendercode)
+				{
+					case "AT":
+						land = "Austria";
+						break;
+
+					case "CH":
+						land = "Switzerland";
+						break;
+
+					case "DK":
+						land = "Denmark";
+						break;
+
+					case "ES":
+						land = "Spain";
+						break;
+
+					case "FR":
+						land = "France";
+						break;
+
+					case "GE":
+						land = "Georgian Republic";
+						break;
+
+					case "IT":
+						land = "Italy";
+						break;
+
+					case "NL":
+						land = "Netherlands";
+						break;
+
+					case "PL":
+						land = "Poland";
+						break;
+
+					case "RU":
+						land = "Russia";
+						break;
+
+					case "YU":
+						land = "Serbia";
+						break;
+
+					default:
+						land = "Germany";
+						break;
+				}
+				var adresse = $"{kunde.Street}, {kunde.ZipCode}, {land}"; // string.Format("{0}, {1} {2}", kunde.Street, kunde.ZipCode, kunde.City.Replace("a. d. Weser", ""));
 				var coords = GeoData.GetAddressCoordinates(kunde.Matchcode, adresse);
 				if (coords != null)
 				{
 					DataManager.CustomerDataService.SetAddressCoordinates(kunde.CustomerId, coords.Latitude, coords.Longitude);
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				var msg = $"{DateTime.Now}: Die Kundenadresse von '{kunde.Matchcode} [{kunde.KundenNrCpm}]' ist Grütze und kann vom Kartendienst nicht gefunden werden";
+				Common.Services.LogService.WriteLogEntry(msg);
 			}
 		}
 

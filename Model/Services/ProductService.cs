@@ -11,6 +11,11 @@ namespace Products.Model.Services
 {
 	public class ProductService
 	{
+		#region EVENTS
+
+		public event EventHandler CurrentProductSet;
+
+		#endregion EVENTS
 
 		#region members
 
@@ -19,20 +24,29 @@ namespace Products.Model.Services
 		SBList<BaumRubrik> myBaumRubrikList;
 		SBList<Rubrik> myRubrikList;
 		readonly Dictionary<int, SortableBindingList<BaumArtikel>> myBaumArtikelDictionary = new Dictionary<int, SortableBindingList<BaumArtikel>>();
+		Product myCurrentProduct;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		/// <summary>
-		/// Gibt den derzeit ausgewählten Artikel zurück. 
+		/// Gibt den derzeit ausgewählten Artikel zurück.
 		/// </summary>
-		public Product CurrentProduct { get; set; }
+		public Product CurrentProduct
+		{
+			get
+			{
+				return this.myCurrentProduct;
+			}
+			set
+			{
+				this.myCurrentProduct = value;
+				this.CurrentProductSet?.Invoke(this, new EventArgs());
+			}
+		}
 
-		#endregion
-
-		#region ### .ctor ###
-		#endregion
+		#endregion public properties
 
 		#region public procedures
 
@@ -47,7 +61,7 @@ namespace Products.Model.Services
 			if (!this.myProductDictionary.ContainsKey(kunde.CustomerId))
 			{
 				var list = new List<Product>();
-				foreach (var pRow in Data.DataManager.ProductDataService.GetProductDataTable(kunde.CustomerId))
+				foreach (var pRow in DataManager.ProductDataService.GetProductDataTable(kunde.CustomerId))
 				{
 					dsProducts.ProductCpmRow pcRow = null;
 					if (pRow.USER_Katalogartikel == "1")
@@ -63,7 +77,8 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt eine Liste der Produkte des angegebenen Kunden zurück, die dem angegebenen Filterkriterium entsprechen.
+		/// Gibt eine Liste der Produkte des angegebenen Kunden zurück, die dem angegebenen
+		/// Filterkriterium entsprechen.
 		/// </summary>
 		/// <param name="kunde">Kunde.</param>
 		/// <param name="filter">Suchtext.</param>
@@ -71,7 +86,7 @@ namespace Products.Model.Services
 		public SBList<Product> GetProductList(Kunde kunde, string filter)
 		{
 			var lowFilter = filter.ToLower();
-			var filtered = this.GetProductList(kunde).Where(p => p.Artikelnummer.ToLower().Contains(lowFilter) | p.Bezeichnung2.ToLower().Contains(lowFilter));
+			var filtered = this.GetProductList(kunde).Where(p => p.Artikelnummer.ToLower().Contains(lowFilter) | p.Bezeichnung1.ToLower().Contains(lowFilter));
 			return new SBList<Product>(filtered);
 		}
 
@@ -95,9 +110,12 @@ namespace Products.Model.Services
 		/// <param name="kunde"></param>
 		/// <param name="productPK"></param>
 		/// <returns></returns>
-		public Product GetProduct(Kunde kunde, string productPK)
+		public Product GetProduct(Kunde kunde, string productPK, bool setAsCurrent)
 		{
-			return this.myProductDictionary[kunde.CustomerId].FirstOrDefault(p => p.Artikelnummer == productPK);
+			var result = this.GetProductList(kunde).FirstOrDefault(p => p.Artikelnummer == productPK);
+			if (result != null && setAsCurrent) this.CurrentProduct = result;
+			return result;
+			//return this.myProductDictionary[kunde.CustomerId].FirstOrDefault(p => p.Artikelnummer == productPK);
 		}
 
 		public Product GetProductByArtikelFKey(int artikelFKey, Kunde myKunde)
@@ -106,11 +124,10 @@ namespace Products.Model.Services
 			var eidamoArtikel = DataManager.ProductDataService.GetArtikelTable().FirstOrDefault(a => a.ID == artikelFKey);
 			if (eidamoArtikel != null)
 			{
-				product = this.GetProduct(myKunde, eidamoArtikel.Artikelnummer);
+				product = this.GetProduct(myKunde, eidamoArtikel.Artikelnummer, false);
 			}
 			return product;
 		}
-
 
 		/// <summary>
 		/// Gibt alle Artikel der angegebenen Artikelgruppe für den angegebenen Kunden zurück.
@@ -136,7 +153,7 @@ namespace Products.Model.Services
 			return new SBList<Product>(pList);
 		}
 
-		#endregion
+		#endregion PRODUKTE
 
 		#region RUBRIKEN
 
@@ -153,7 +170,9 @@ namespace Products.Model.Services
 		/// <summary>
 		/// Gibt eine Liste der Kindelemente der angegebenen BaumRubrik zurück.
 		/// </summary>
-		/// <param name="parentID">Primärschlüssel der BaumRubrik deren Kindelemente gesucht werden.</param>
+		/// <param name="parentID">
+		/// Primärschlüssel der BaumRubrik deren Kindelemente gesucht werden.
+		/// </param>
 		/// <returns></returns>
 		public SortableBindingList<BaumRubrik> GetBaumRubrikListByParentID(int parentID)
 		{
@@ -180,7 +199,8 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt die ID in der Eidamo Artikeltabelle des Artikels mit der angegebenen Artikelnummer zurück.
+		/// Gibt die ID in der Eidamo Artikeltabelle des Artikels mit der angegebenen
+		/// Artikelnummer zurück.
 		/// </summary>
 		/// <param name="artikel"></param>
 		/// <returns></returns>
@@ -189,14 +209,16 @@ namespace Products.Model.Services
 			return DataManager.ProductDataService.GetArtikelTable().FirstOrDefault(a => a.Artikelnummer == artikel).ID;
 		}
 
-		#endregion
+		#endregion RUBRIKEN
 
 		#region KATEGORIEN
 
 		/// <summary>
 		/// Erstellt eine neue Produktkategorie.
 		/// </summary>
-		/// <param name="parentCategory">Übergeordnete Produktkategorie, in die die neue Kategorie eingefügt wird.</param>
+		/// <param name="parentCategory">
+		/// Übergeordnete Produktkategorie, in die die neue Kategorie eingefügt wird.
+		/// </param>
 		/// <returns></returns>
 		public ProductCategory AddProductCategory(ProductCategory parentCategory)
 		{
@@ -262,12 +284,13 @@ namespace Products.Model.Services
 			return list;
 		}
 
-		#endregion
+		#endregion KATEGORIEN
 
 		#region ANDERE
 
 		/// <summary>
-		/// Gibt die dsProducts.SonderpreisRow für die angegebene Artikelgruppe und den angegebenen Kunden zurück.
+		/// Gibt die dsProducts.SonderpreisRow für die angegebene Artikelgruppe und den
+		/// angegebenen Kunden zurück.
 		/// </summary>
 		/// <param name="kunde">Kunde.</param>
 		/// <param name="artikelgruppe">Artikelgruppe.</param>
@@ -288,10 +311,12 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Erstellt eine 
+		/// Erstellt eine
 		/// </summary>
 		/// <param name="kunde">Kunde, dem der Sonderpreis zugeordnet wird.</param>
-		/// <param name="product">Artikel (bzw. seine Artikelgruppe), für den der Sonderpreis vereinbart wird.</param>
+		/// <param name="product">
+		/// Artikel (bzw. seine Artikelgruppe), für den der Sonderpreis vereinbart wird.
+		/// </param>
 		/// <returns></returns>
 		public dsProducts.SonderpreisRow CreateSonderpreis(Kunde kunde, Product product)
 		{
@@ -309,15 +334,23 @@ namespace Products.Model.Services
 			return list;
 		}
 
-		#endregion
+		public SortableBindingList<dsProducts.ProductSalesAllRow> GetDurchschnittsverkauf(string artikelPK)
+		{
+			var list = new SortableBindingList<dsProducts.ProductSalesAllRow>(DataManager.ProductDataService.GetProductSalesRows(artikelPK));
+			return list;
+		}
+
+		#endregion ANDERE
 
 		#region UPDATE
 
 		/// <summary>
-		/// Aktualisiert die Produkteigenschaften und Sonderpreise für die
-		/// Artikel des angegebenen Kunden.
+		/// Aktualisiert die Produkteigenschaften und Sonderpreise für die Artikel des
+		/// angegebenen Kunden.
 		/// </summary>
-		/// <param name="kunde">Der <seealso cref="Kunde"/>, dessen Produkte aktualisiert werden sollen.</param>
+		/// <param name="kunde">
+		/// Der <seealso cref="Kunde"/>, dessen Produkte aktualisiert werden sollen.
+		/// </param>
 		public void UpdateProducts(Kunde kunde)
 		{
 			DataManager.ProductDataService.UpdateProductCpm();
@@ -336,7 +369,9 @@ namespace Products.Model.Services
 		/// <summary>
 		/// Aktualisiert die Sonderpreise des angegebenen Kunden.
 		/// </summary>
-		/// <param name="kunde">Kundennummer des Kunden, dessen Sonderpreise aktualisiert werden sollen.</param>
+		/// <param name="kunde">
+		/// Kundennummer des Kunden, dessen Sonderpreise aktualisiert werden sollen.
+		/// </param>
 		/// <returns></returns>
 		public int UpdateSonderpreise(Kunde kunde)
 		{
@@ -344,9 +379,9 @@ namespace Products.Model.Services
 			return result;
 		}
 
-		#endregion
+		#endregion UPDATE
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -364,13 +399,14 @@ namespace Products.Model.Services
 			return this.myBaumRubrikList;
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region STRUCTS
 
 		public struct ProductSale
 		{
 			public string Zeitraum { get; private set; }
+
 			public double Menge { get; private set; }
 
 			public ProductSale(string zeitraum, double menge)
@@ -380,7 +416,6 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
-
+		#endregion STRUCTS
 	}
 }

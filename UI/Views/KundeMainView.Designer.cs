@@ -154,6 +154,8 @@
 			this.Controls.Add(this.mbtnBack);
 			this.Controls.Add(this.mbtnClose);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1280, 900);
 			this.Name = "KundeMainView";
 			this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;

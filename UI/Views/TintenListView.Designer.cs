@@ -52,8 +52,8 @@
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvTinten.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvTinten.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-						| System.Windows.Forms.AnchorStyles.Left) 
-						| System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvTinten.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvTinten.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvTinten.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -68,9 +68,9 @@
 			this.dgvTinten.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvTinten.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTinten.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-						this.colTyp,
-						this.colTintenbezeichnung,
-						this.colHersteller});
+            this.colTyp,
+            this.colTintenbezeichnung,
+            this.colHersteller});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -192,6 +192,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(552, 788);
+			this.ControlBox = false;
 			this.Controls.Add(this.mbtnMakeEditable);
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.btnNeueTinte);

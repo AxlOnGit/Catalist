@@ -129,10 +129,20 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="mbtnAddLinkToMachine.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAOdJREFUWEdjGAW4wMt6LZ735eYK1MAgs6DGEg8+lpsmfC43/U8NDDILaizxYOQ4
+        4HOZyXxk/KnUNAUkTgsHfCo1C0C3jwFDA0gQCL6UmBoA+Q3UwCCzQGZC+Sj24XQALQDQfMIO+FRuch5I
+        o/iAWvhTmel+II1iH2YI0BmPOmAQOqDM9DMwJ9ynCS43fY9uHxYHDHA2HDQO+FhmZgEPOgrxpzLjEJId
+        8Lnc2AFDjkwMqwuA7MHoAKCFyBhWG9LCAVhrQ1yAFg4gCYw6YNQBow4YcAe8z9cXgDiCcgxsFUtAjR0F
+        aICBAQChFmOrAp8FngAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>39</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAMDAAAAEAIACTCAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAwAAAAMAgGAAAAVwL5hwAAAAFz

@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using David;
 using Products.Common;
-using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data;
 using Products.Data.Datasets;
@@ -14,15 +13,17 @@ namespace Products.Model.Services
 {
 	public class AppointmentService
 	{
-		#region members
+		#region MEMBERS
 
-		readonly string myCurrentUserPK;
-		readonly Dictionary<string, SBList<Appointment>> myAppointmentDictionary = new Dictionary<string, SBList<Appointment>>();
-		readonly Dictionary<string, SBList<ILinkedItem>> myLinkedItemsDictionary = new Dictionary<string, SBList<ILinkedItem>>();
-		SortableBindingList<AppointmentType> myAppointmentTypeList;
-		SBList<string> myLocationList;
+		private readonly string myCurrentUserPK;
+		private readonly Dictionary<string, SortableBindingList<Appointment>> myAppointmentDictionary = new Dictionary<string, SortableBindingList<Appointment>>();
+		private readonly Dictionary<string, SortableBindingList<ILinkedItem>> myLinkedItemsDictionary = new Dictionary<string, SortableBindingList<ILinkedItem>>();
 
-		#endregion members
+		private SortableBindingList<AppointmentType> myAppointmentTypeList;
+
+		private SortableBindingList<string> myLocationList;
+
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -44,10 +45,11 @@ namespace Products.Model.Services
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
-		// Wird vom DavidService ausgelöst, wenn eine neue automatische Terminerstellungsanfrage eingeht.
-		void DavidService_NewAppointmentMailEvent(object sender, David.API.ItemNotificationEventArgs e)
+		// Wird vom DavidService ausgelöst, wenn eine neue automatische
+		// Terminerstellungsanfrage eingeht.
+		private void DavidService_NewAppointmentMailEvent(object sender, David.API.ItemNotificationEventArgs e)
 		{
 			if (e.MsgItems2.GetCount() > 0)
 			{
@@ -55,7 +57,7 @@ namespace Products.Model.Services
 				var parseResult = parser.Parse();
 				if (parseResult.Sender != null && parseResult.Kunde != null)
 				{
-					var termin = this.AddAppointment(parseResult.Sender, parseResult.Start, parseResult.End, parseResult.Category);
+					var termin = this.CreateAppointment(parseResult.Sender, parseResult.Start, parseResult.End, parseResult.Category);
 					if (termin != null)
 					{
 						// Verknüpfung zum Kunden hinzufügen.
@@ -79,8 +81,8 @@ namespace Products.Model.Services
 				}
 				else
 				{
-					// Entweder der Absender oder der Kunde konnten nicht ermittelt werden Wir
-					// schreiben dem Absender eine entsprechende E-Mail
+					// Entweder der Absender oder der Kunde konnten nicht ermittelt werden
+					// Wir schreiben dem Absender eine entsprechende E-Mail
 					var to = parseResult.Sender.EmailWork;
 					var msgText = string.Format("Der Fehler steckt in dieser Betreffzeile: '{0}'", parseResult.Subject);
 					var bcc = new List<string>();
@@ -91,25 +93,42 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		/// <summary>
 		/// Erstellt einen neuen Termin für den angegebenen Benutzer.
 		/// </summary>
 		/// <param name="forUser"></param>
 		/// <returns></returns>
-		public Appointment AddAppointment(User forUser, DateTime startsAt, DateTime endsAt, string appointmentTypePK)
+		public Appointment CreateAppointment(User forUser, DateTime startsAt, DateTime endsAt, string appointmentTypePK)
 		{
-			var davidAppointment = DavidManager.DavidService.CreateCalendarItem(startsAt, endsAt, forUser.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender));
-			var xRow = DataManager.AppointmentDataService.AddAppointmentXref(davidAppointment.Filename, appointmentTypePK);
-			var linkList = new SBList<ILinkedItem>();
-			this.myLinkedItemsDictionary.Add(davidAppointment.Filename, linkList);
-			var newAppointment = new Appointment(davidAppointment.MessageItem2Object, xRow);
+			// var davidAppointment = DavidManager.DavidService.CreateCalendarItem(startsAt, endsAt, forUser.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender));
+			var calCreateParams = DavidManager.MessageItem2Creator.CreateCalendarItem(startsAt, endsAt, forUser.UID, forUser.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender));
+			var xRow = DataManager.AppointmentDataService.AddAppointmentXref(calCreateParams.Filename, appointmentTypePK);
+			//var linkList = new SBList<ILinkedItem>();
+			//this.myLinkedItemsDictionary.Add(calCreateParams.Filename, linkList);
+			var newAppointment = new Appointment(calCreateParams.MessageItem2Object, xRow);
 			this.GetAppointmentList(forUser).Add(newAppointment);
 
 			return newAppointment;
+		}
+
+		/// <summary>
+		/// Gibt den Kalendereintrag zum angegebenen Dateinamen auf dem David-Server zurück.
+		/// </summary>
+		/// <param name="fullName"></param>
+		/// <returns></returns>
+		public Appointment GetAppointment(string fullName)
+		{
+			// Den Benutzer ermitteln
+			var user = ModelManager.UserService.GetUser(fullName, UserService.UserSearchParamType.DavidFileName);
+			if (user != null)
+			{
+				return this.GetAppointmentList(user).FirstOrDefault(a => a.FullName == fullName);
+			}
+			return null;
 		}
 
 		/// <summary>
@@ -117,49 +136,29 @@ namespace Products.Model.Services
 		/// </summary>
 		/// <param name="user"></param>
 		/// <returns></returns>
-		public SBList<Appointment> GetAppointmentList(User user)
+		public SortableBindingList<Appointment> GetAppointmentList(User user)
 		{
-			if (!this.myAppointmentDictionary.ContainsKey(user.UID)) this.LoadAppointmentList(user);
-			return this.myAppointmentDictionary[user.UID];
-		}
-
-		public SBList<Appointment> GetAppointmentList(string linkedItemPK, string linkedItemTypePK)
-		{
-			var linkType = ModelManager.SharedItemsService.GetLinkTypeByPK(linkedItemTypePK);
-			ILinkedItem linkedItem = null;
-
-			switch (linkType.Bezeichnung)
+			try
 			{
-				case "Kunde":
-					linkedItem = ModelManager.CustomerService.GetKunde(linkedItemPK, false);
-					break;
-
-				case "Kundenkontakt":
-					linkedItem = ModelManager.ContactService.GetKundenkontakt(linkedItemPK);
-					break;
-
-				case "Kundenmaschine":
-					linkedItem = ModelManager.MachineService.GetKundenMaschine(linkedItemPK);
-					break;
+				if (!this.myAppointmentDictionary.ContainsKey(user.UID)) this.LoadAppointmentList(user);
+				return this.myAppointmentDictionary[user.UID];
 			}
-
-			var list = new SBList<Appointment>();
-			foreach (var terminListe in this.myAppointmentDictionary)
+			catch (Exception)
 			{
-				list.AddRange(terminListe.Value.Where(a => a.GetLinkedItemsList().Contains(linkedItem)));
+				throw;
 			}
-			return list;
 		}
 
 		/// <summary>
-		/// Gibt eine Liste von Terminen zurück, mit denen das angegebene ILinkedItem verknüpft ist.
+		/// Gibt eine Liste von Terminen zurück, mit denen das angegebene ILinkedItem
+		/// verknüpft ist.
 		/// </summary>
 		/// <param name="linkedItem">Das verknüpfte <seealso cref="ILinkedItem"/></param>
 		/// .
 		/// <returns></returns>
-		public SBList<Appointment> GetAppointmentList(ILinkedItem linkedItem)
+		public SortableBindingList<Appointment> GetAppointmentList(ILinkedItem linkedItem)
 		{
-			var list = new SBList<Appointment>();
+			var list = new SortableBindingList<Appointment>();
 			foreach (var terminListe in this.myAppointmentDictionary)
 			{
 				list.AddRange(terminListe.Value.Where(a => a.GetLinkedItemsList().Contains(linkedItem)));
@@ -182,53 +181,53 @@ namespace Products.Model.Services
 			switch (linkedItemType)
 			{
 				case "Kunde":
-					var kunde = ModelManager.CustomerService.GetKunde(linkedItemPK, false);
-					if (!this.GetLinkedItemsList(appointment).Contains(kunde as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(kunde);
-					}
-					return kunde;
+				var kunde = ModelManager.CustomerService.GetKunde(linkedItemPK, false);
+				if (!this.GetLinkedItemsList(appointment).Contains(kunde as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(kunde);
+				}
+				return kunde;
 
 				case "Kundenkontakt":
-					var contact = ModelManager.ContactService.GetKundenkontakt(linkedItemPK);
-					if (!this.GetLinkedItemsList(appointment).Contains(contact as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(contact);
-					}
-					return contact;
+				var contact = ModelManager.ContactService.GetKundenkontakt(linkedItemPK);
+				if (!this.GetLinkedItemsList(appointment).Contains(contact as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(contact);
+				}
+				return contact;
 
 				case "Kundenmaschine":
-					var machine = ModelManager.MachineService.GetKundenMaschine(linkedItemPK);
-					if (!this.GetLinkedItemsList(appointment).Contains(machine as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(machine);
-					}
-					return machine;
+				var machine = RepoManager.KundenmaschinenRepository.GetKundenmaschine(linkedItemPK);
+				if (!this.GetLinkedItemsList(appointment).Contains(machine as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(machine);
+				}
+				return machine;
 
 				case "Lieferant":
-					var supplier = ModelManager.SupplierService.GetSupplier(linkedItemPK);
-					if (!this.GetLinkedItemsList(appointment).Contains(supplier as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(supplier);
-					}
-					return supplier;
+				var supplier = ModelManager.SupplierService.GetSupplier(linkedItemPK);
+				if (!this.GetLinkedItemsList(appointment).Contains(supplier as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(supplier);
+				}
+				return supplier;
 
 				case "Mitarbeiter":
-					var user = ModelManager.UserService.FindUser(linkedItemPK, UserService.UserSearchParamType.PrimaryKey);
-					if (!this.GetLinkedItemsList(appointment).Contains(user as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(user);
-					}
-					return user;
+				var user = ModelManager.UserService.GetUser(linkedItemPK, UserService.UserSearchParamType.PrimaryKey);
+				if (!this.GetLinkedItemsList(appointment).Contains(user as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(user);
+				}
+				return user;
 
 				case "Datei":
-					var fi = new FileInfo(linkedItemPK);
-					var calendarFileLink = new CalendarFileLink(fi);
-					if (!this.GetLinkedItemsList(appointment).Contains(calendarFileLink as ILinkedItem))
-					{
-						this.GetLinkedItemsList(appointment).Add(calendarFileLink);
-					}
-					return calendarFileLink;
+				var fi = new FileInfo(linkedItemPK);
+				var calendarFileLink = new CalendarFileLink(fi);
+				if (!this.GetLinkedItemsList(appointment).Contains(calendarFileLink as ILinkedItem))
+				{
+					this.GetLinkedItemsList(appointment).Add(calendarFileLink);
+				}
+				return calendarFileLink;
 			}
 			return null;
 		}
@@ -268,18 +267,18 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt eine Liste aller mit dem angegebenen Kalendereintrag verknüpften Elemente zurück
-		/// oder Null, falls keine verknüpften Elemente existieren.
+		/// Gibt eine Liste aller mit dem angegebenen Kalendereintrag verknüpften Elemente
+		/// zurück oder Null, falls keine verknüpften Elemente existieren.
 		/// </summary>
 		/// <param name="appointment">
 		/// Der Kalendereintrag, für den die verknüpften Elemente gesucht werden.
 		/// </param>
 		/// <returns>Eine <seealso cref="SBList{ILinkedItem}"/> Instanz.</returns>
-		public SBList<ILinkedItem> GetLinkedItemsList(Appointment appointment)
+		public SortableBindingList<ILinkedItem> GetLinkedItemsList(Appointment appointment)
 		{
 			if (!this.myLinkedItemsDictionary.ContainsKey(appointment.FullName))
 			{
-				var list = new SBList<ILinkedItem>();
+				var list = new SortableBindingList<ILinkedItem>();
 				var linkXrefs = DataManager.AppointmentDataService.GetLinkXrefRowsForAppointment(appointment.FullName);
 				foreach (var xRef in linkXrefs)
 				{
@@ -287,43 +286,53 @@ namespace Products.Model.Services
 					switch (type.Bezeichnung)
 					{
 						case "Kunde":
-							var kunde = ModelManager.CustomerService.GetKunde(xRef.LinkedItemId, false);
-							if (kunde != null) list.Add(kunde);
-							break;
+						var kunde = ModelManager.CustomerService.GetKunde(xRef.LinkedItemId, false);
+						if (kunde != null) list.Add(kunde);
+						break;
 
 						case "Kundenkontakt":
-							var contact = ModelManager.ContactService.GetKundenkontakt(xRef.LinkedItemId);
-							if (contact != null) { list.Add(contact); }
-							break;
+						var contact = ModelManager.ContactService.GetKundenkontakt(xRef.LinkedItemId);
+						if (contact != null) { list.Add(contact); }
+						break;
 
 						case "Kundenmaschine":
-							var kundenmaschine = ModelManager.MachineService.GetKundenMaschine(xRef.LinkedItemId);
-							if (kundenmaschine != null) { list.Add(kundenmaschine); }
-							break;
+						var kundenmaschine = RepoManager.KundenmaschinenRepository.GetKundenmaschine(xRef.LinkedItemId);
+						if (kundenmaschine != null) { list.Add(kundenmaschine); }
+						break;
 
 						case "Mitarbeiter":
-							var user = ModelManager.UserService.FindUser(xRef.LinkedItemId, UserService.UserSearchParamType.PrimaryKey);
-							if (user != null) list.Add(user);
-							break;
+						var user = ModelManager.UserService.GetUser(xRef.LinkedItemId, UserService.UserSearchParamType.PrimaryKey);
+						if (user != null) list.Add(user);
+						break;
 
 						case "Lieferant":
-							var lieferant = ModelManager.SupplierService.GetSupplier(xRef.LinkedItemId);
-							if (lieferant != null) list.Add(lieferant);
-							break;
+						var lieferant = ModelManager.SupplierService.GetSupplier(xRef.LinkedItemId);
+						if (lieferant != null) list.Add(lieferant);
+						break;
 
 						case "Datei":
-							var fileInfo = new FileInfo(xRef.LinkedItemId);
-							if (fileInfo != null) list.Add(new CalendarFileLink(fileInfo));
-							break;
+						var fileInfo = new FileInfo(xRef.LinkedItemId);
+						if (fileInfo != null) list.Add(new CalendarFileLink(fileInfo));
+						break;
 
 						case "Interessent":
-							//Machen: Interessenten komplett verarzten (InteressentenService etc ...)
-							break;
+						//Machen: Interessenten komplett verarzten (InteressentenService etc ...)
+						break;
 					}
 				}
 				this.myLinkedItemsDictionary.Add(appointment.FullName, list);
 			}
 			return this.myLinkedItemsDictionary[appointment.FullName];
+		}
+
+		/// <summary>
+		/// Verschiebt den angegebenen Termin zum angegebenen Benutzer.
+		/// </summary>
+		/// <param name="appointment"></param>
+		/// <param name="toUser"></param>
+		public void MoveAppointment(Appointment appointment, User toUser)
+		{
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -348,11 +357,11 @@ namespace Products.Model.Services
 		/// Gibt eine Liste von Orten zurück, an denen Termine stattfinden können.
 		/// </summary>
 		/// <returns></returns>
-		public SBList<string> GetLocationList()
+		public SortableBindingList<string> GetLocationList()
 		{
 			if (this.myLocationList == null)
 			{
-				this.myLocationList = new SBList<string>();
+				this.myLocationList = new SortableBindingList<string>();
 				foreach (var item in DataManager.AppointmentDataService.GetLocationTable())
 				{
 					this.myLocationList.Add(item.Name);
@@ -363,8 +372,8 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Löscht alle Einträge in Tabelle AppointmentLinkXRef, für die es keinen gültigen Termin in
-		/// David gibt.
+		/// Löscht alle Einträge in Tabelle AppointmentLinkXRef, für die es keinen gültigen
+		/// Termin in David gibt.
 		/// </summary>
 		public int CleanAppointmentLinkXRefs()
 		{
@@ -386,28 +395,46 @@ namespace Products.Model.Services
 			this.InitAppointmentLists();
 		}
 
+		#region WARTUNGSTERMINE
+
+		/// <summary>
+		/// Gibt eine sortierbare Liste aller Wartungs- und Servicetermine im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		public SortableBindingList<Wartungstermin> GetWartungsliste(Kunde referenzKunde = null)
+		{
+			var list = new SortableBindingList<Wartungstermin>();
+			foreach (var item in DataManager.AppointmentDataService.GetWartungsterminTable())
+			{
+				list.Add(new Wartungstermin(item, referenzKunde));
+			}
+			return list;
+		}
+
+		#endregion WARTUNGSTERMINE
+
 		/// <summary>
 		/// Aktualisiert den David Kalendereintrag
 		/// </summary>
-		public int Update()
-		{
-			return DataManager.AppointmentDataService.Update();
-		}
+		public int Update() => DataManager.AppointmentDataService.Update();
 
-		#endregion public procedures
+		#endregion PUBLIC PROCEDURES
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void LoadAppointmentList(User user)
 		{
-			var list = new SBList<Appointment>();
+			if (user == null) return;
+			var list = new SortableBindingList<Appointment>();
 			try
 			{
-				var items = DavidManager.DavidService.GetCalendarItems(user.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender), DateTime.Today.AddMonths(-18), DateTime.Today.AddYears(1));
+				//var monthsBack = -12; // Termine, die 'monthsBack' Monate zurückliegen, laden.
+				//var items = DavidManager.DavidService.GetCalendarItems(user.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender), DateTime.Today.AddMonths(monthsBack), DateTime.Today.AddYears(1));
+
+				var items = DavidManager.DavidTerminRepo.GetMessageItem2List(user.UID, user.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender));
 				foreach (var msgItem2 in items)
 				{
-					var item = msgItem2 as DvApi32.MessageItem2;
-					var fileName = (string)DavidManager.DavidService.GetFieldValue(item, DavidFieldEnum.FileName);
+					var fileName = (string)DavidManager.DavidService.GetFieldValue(msgItem2, DavidFieldsEnum.FileName);
 					fileName = (fileName.EndsWith(".001", StringComparison.CurrentCulture)) ? fileName : string.Format("{0}.001", fileName);
 
 					var xRow = DataManager.AppointmentDataService.GetXrefRow(fileName);
@@ -418,7 +445,7 @@ namespace Products.Model.Services
 						var linkedItem = this.GetLinkedItem(xLinkRow);
 						xrefList.Add(linkedItem);
 					}
-					list.Add(new Appointment(item, xRow));
+					list.Add(new Appointment(msgItem2, xRow));
 				}
 				this.myAppointmentDictionary.Add(user.UID, list);
 			}
@@ -436,25 +463,25 @@ namespace Products.Model.Services
 				switch (typ.Bezeichnung)
 				{
 					case "Kunde":
-						return ModelManager.CustomerService.GetKunde(xLinkRow.LinkedItemId, false);
+					return ModelManager.CustomerService.GetKunde(xLinkRow.LinkedItemId, false);
 
 					case "Kundenkontakt":
-						return ModelManager.ContactService.GetKundenkontakt(xLinkRow.LinkedItemId);
+					return ModelManager.ContactService.GetKundenkontakt(xLinkRow.LinkedItemId);
 
 					case "Kundenmaschine":
-						return ModelManager.MachineService.GetKundenMaschine(xLinkRow.LinkedItemId);
+					return RepoManager.KundenmaschinenRepository.GetKundenmaschine(xLinkRow.LinkedItemId);
 
 					case "Lieferant":
-						return ModelManager.SupplierService.GetSupplier(xLinkRow.LinkedItemId);
+					return ModelManager.SupplierService.GetSupplier(xLinkRow.LinkedItemId);
 
 					case "Lieferantenkontakt":
-						return ModelManager.SupplierService.GetLieferantenKontakt(xLinkRow.LinkedItemId.Substring(0, 10), xLinkRow.LinkedItemId.Substring(11, 5));
+					return ModelManager.SupplierService.GetLieferantenKontakt(xLinkRow.LinkedItemId.Substring(0, 10), xLinkRow.LinkedItemId.Substring(11, 5));
 
 					case "Mitarbeiter":
-						return ModelManager.UserService.FindUser(xLinkRow.LinkedItemId, UserService.UserSearchParamType.PrimaryKey);
+					return ModelManager.UserService.GetUser(xLinkRow.LinkedItemId, UserService.UserSearchParamType.PrimaryKey);
 
 					default:
-						return null;
+					return null;
 				}
 			}
 			return null;
@@ -462,22 +489,35 @@ namespace Products.Model.Services
 
 		void InitAppointmentLists()
 		{
-			foreach (var user in ModelManager.UserService.GetUserList())
+			this.TestLoadDavidCalendarItems();
+			var currentUser = ModelManager.UserService.GetUser(ModelManager.CurrentUserPK, UserService.UserSearchParamType.PrimaryKey);
+			if (currentUser != null)
 			{
-				this.LoadAppointmentList(user);
+				foreach (var user in currentUser.CalendarSettings.PreloadUserList)
+				{
+					this.LoadAppointmentList(user);
+				}
 			}
 		}
 
-		#endregion private procedures
+		void TestLoadDavidCalendarItems()
+		{
+			foreach (var user in ModelManager.UserService.GetActiveUsersList())
+			{
+				DavidManager.DavidTerminRepo.GetMessageItem2List(user.UID, user.GetDavidArchivePath(Global.DavidArchiveTypes.Kalender));
+			}
+		}
+
+		#endregion PRIVATE PROCEDURES
 	}
 
 	public class AppointmentMailParser
 	{
-		#region members
+		#region MEMBERS
 
-		readonly DvApi32.MessageItem2 myMsgItem2;
+		private readonly DvApi32.MessageItem2 myMsgItem2;
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -494,16 +534,16 @@ namespace Products.Model.Services
 
 		#endregion ### .ctor ###
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		public AppointmentMailParseResult Parse()
 		{
 			var result = new AppointmentMailParseResult();
 
-			var from = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldEnum.From);
-			result.Sender = ModelManager.UserService.FindUser(from, UserService.UserSearchParamType.EmailAddressWork);
+			var from = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldsEnum.From);
+			result.Sender = ModelManager.UserService.GetUser(from, UserService.UserSearchParamType.EmailAddressWork);
 
-			var subject = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldEnum.Subject);
+			var subject = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldsEnum.Subject);
 
 			result.Subject = subject;
 			result.Kunde = null;
@@ -561,7 +601,7 @@ namespace Products.Model.Services
 			}
 			else result.Category = "Kundenbesuch";
 
-			var body = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldEnum.BodyAscii);
+			var body = (string)DavidManager.DavidService.GetFieldValue(this.myMsgItem2, DavidFieldsEnum.Content);
 			if (body.Length > 0)
 			{
 				result.MessageBody = body;
@@ -571,7 +611,7 @@ namespace Products.Model.Services
 			return result;
 		}
 
-		#endregion public procedures
+		#endregion PUBLIC PROCEDURES
 	}
 
 	public struct AppointmentMailParseResult
@@ -585,7 +625,7 @@ namespace Products.Model.Services
 		string myCategory;
 		string myMessageBody;
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
 		public User Sender { get { return this.mySender; } set { this.mySender = value; } }
 
@@ -603,6 +643,6 @@ namespace Products.Model.Services
 
 		public string MessageBody { get { return this.myMessageBody; } set { this.myMessageBody = value; } }
 
-		#endregion public properties
+		#endregion PUBLIC PROPERTIES
 	}
 }

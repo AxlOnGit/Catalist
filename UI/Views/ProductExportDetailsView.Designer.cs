@@ -69,13 +69,18 @@
 			this.mtxtHeaderFontSize = new MetroFramework.Controls.MetroTextBox();
 			this.mtxtDataFontSize = new MetroFramework.Controls.MetroTextBox();
 			this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+			this.mtogglSaveSettings = new MetroFramework.Controls.MetroToggle();
+			this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+			this.mlnkExportPfad = new MetroFramework.Controls.MetroLink();
 			this.SuspendLayout();
 			// 
 			// mbtnClose
 			// 
 			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mbtnClose.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnClose.Location = new System.Drawing.Point(317, 639);
+			this.mbtnClose.Location = new System.Drawing.Point(371, 691);
+			this.mbtnClose.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
 			this.mbtnClose.Name = "mbtnClose";
 			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
 			this.mbtnClose.Style = MetroFramework.MetroColorStyle.Orange;
@@ -295,16 +300,16 @@
 			// 
 			// mlblExportInfo
 			// 
-			this.mlblExportInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.mlblExportInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.mlblExportInfo.FontSize = MetroFramework.MetroLabelSize.Small;
-			this.mlblExportInfo.Location = new System.Drawing.Point(23, 535);
+			this.mlblExportInfo.Location = new System.Drawing.Point(23, 563);
 			this.mlblExportInfo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.mlblExportInfo.Name = "mlblExportInfo";
-			this.mlblExportInfo.Size = new System.Drawing.Size(390, 32);
-			this.mlblExportInfo.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mlblExportInfo.Size = new System.Drawing.Size(444, 27);
+			this.mlblExportInfo.Style = MetroFramework.MetroColorStyle.Red;
 			this.mlblExportInfo.TabIndex = 18;
 			this.mlblExportInfo.Text = "Export-Dateiname";
+			this.mlblExportInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.mlblExportInfo.UseStyleColors = true;
 			this.mlblExportInfo.WrapToLine = true;
 			// 
@@ -312,7 +317,8 @@
 			// 
 			this.mbtnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.mbtnExport.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnExport.Location = new System.Drawing.Point(23, 639);
+			this.mbtnExport.Location = new System.Drawing.Point(23, 691);
+			this.mbtnExport.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
 			this.mbtnExport.Name = "mbtnExport";
 			this.mbtnExport.Size = new System.Drawing.Size(100, 26);
 			this.mbtnExport.Style = MetroFramework.MetroColorStyle.Orange;
@@ -326,7 +332,7 @@
 			// 
 			this.mtogglShowPostExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.mtogglShowPostExport.AutoSize = true;
-			this.mtogglShowPostExport.Location = new System.Drawing.Point(240, 582);
+			this.mtogglShowPostExport.Location = new System.Drawing.Point(264, 596);
 			this.mtogglShowPostExport.Name = "mtogglShowPostExport";
 			this.mtogglShowPostExport.Size = new System.Drawing.Size(80, 17);
 			this.mtogglShowPostExport.Style = MetroFramework.MetroColorStyle.Orange;
@@ -338,11 +344,11 @@
 			// 
 			this.metroLabel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.metroLabel10.AutoSize = true;
-			this.metroLabel10.Location = new System.Drawing.Point(23, 582);
+			this.metroLabel10.Location = new System.Drawing.Point(23, 595);
 			this.metroLabel10.Name = "metroLabel10";
-			this.metroLabel10.Size = new System.Drawing.Size(210, 19);
+			this.metroLabel10.Size = new System.Drawing.Size(213, 19);
 			this.metroLabel10.TabIndex = 22;
-			this.metroLabel10.Text = "Tabelle nach dem Export anzeigen";
+			this.metroLabel10.Text = "Tabelle nach dem Export anzeigen:";
 			// 
 			// mtogglDiscountedOnly
 			// 
@@ -391,7 +397,7 @@
 			// 
 			this.mtileLightBlue.ActiveControl = null;
 			this.mtileLightBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
-			this.mtileLightBlue.Location = new System.Drawing.Point(115, 415);
+			this.mtileLightBlue.Location = new System.Drawing.Point(145, 426);
 			this.mtileLightBlue.Name = "mtileLightBlue";
 			this.mtileLightBlue.Size = new System.Drawing.Size(32, 32);
 			this.mtileLightBlue.TabIndex = 10;
@@ -403,7 +409,7 @@
 			// 
 			this.mtileOrange.ActiveControl = null;
 			this.mtileOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(125)))), ((int)(((byte)(49)))));
-			this.mtileOrange.Location = new System.Drawing.Point(153, 415);
+			this.mtileOrange.Location = new System.Drawing.Point(183, 426);
 			this.mtileOrange.Name = "mtileOrange";
 			this.mtileOrange.Size = new System.Drawing.Size(32, 32);
 			this.mtileOrange.TabIndex = 11;
@@ -415,7 +421,7 @@
 			// 
 			this.mtileYellow.ActiveControl = null;
 			this.mtileYellow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			this.mtileYellow.Location = new System.Drawing.Point(229, 415);
+			this.mtileYellow.Location = new System.Drawing.Point(259, 426);
 			this.mtileYellow.Name = "mtileYellow";
 			this.mtileYellow.Size = new System.Drawing.Size(32, 32);
 			this.mtileYellow.TabIndex = 13;
@@ -427,7 +433,7 @@
 			// 
 			this.mtileGray.ActiveControl = null;
 			this.mtileGray.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(165)))), ((int)(((byte)(165)))));
-			this.mtileGray.Location = new System.Drawing.Point(191, 415);
+			this.mtileGray.Location = new System.Drawing.Point(221, 426);
 			this.mtileGray.Name = "mtileGray";
 			this.mtileGray.Size = new System.Drawing.Size(32, 32);
 			this.mtileGray.TabIndex = 12;
@@ -439,7 +445,7 @@
 			// 
 			this.mtileGreen.ActiveControl = null;
 			this.mtileGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(173)))), ((int)(((byte)(71)))));
-			this.mtileGreen.Location = new System.Drawing.Point(305, 415);
+			this.mtileGreen.Location = new System.Drawing.Point(335, 426);
 			this.mtileGreen.Name = "mtileGreen";
 			this.mtileGreen.Size = new System.Drawing.Size(32, 32);
 			this.mtileGreen.TabIndex = 15;
@@ -451,7 +457,7 @@
 			// 
 			this.mtileDarkBlue.ActiveControl = null;
 			this.mtileDarkBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(114)))), ((int)(((byte)(196)))));
-			this.mtileDarkBlue.Location = new System.Drawing.Point(267, 415);
+			this.mtileDarkBlue.Location = new System.Drawing.Point(297, 426);
 			this.mtileDarkBlue.Name = "mtileDarkBlue";
 			this.mtileDarkBlue.Size = new System.Drawing.Size(32, 32);
 			this.mtileDarkBlue.TabIndex = 14;
@@ -462,16 +468,16 @@
 			// metroLabel14
 			// 
 			this.metroLabel14.AutoSize = true;
-			this.metroLabel14.Location = new System.Drawing.Point(23, 422);
+			this.metroLabel14.Location = new System.Drawing.Point(23, 433);
 			this.metroLabel14.Name = "metroLabel14";
-			this.metroLabel14.Size = new System.Drawing.Size(87, 19);
+			this.metroLabel14.Size = new System.Drawing.Size(90, 19);
 			this.metroLabel14.TabIndex = 33;
-			this.metroLabel14.Text = "Tabellenfarbe";
+			this.metroLabel14.Text = "Tabellenfarbe:";
 			// 
 			// mlblTabellenfarbe
 			// 
 			this.mlblTabellenfarbe.AutoSize = true;
-			this.mlblTabellenfarbe.Location = new System.Drawing.Point(343, 422);
+			this.mlblTabellenfarbe.Location = new System.Drawing.Point(373, 433);
 			this.mlblTabellenfarbe.Name = "mlblTabellenfarbe";
 			this.mlblTabellenfarbe.Size = new System.Drawing.Size(37, 19);
 			this.mlblTabellenfarbe.TabIndex = 34;
@@ -480,7 +486,7 @@
 			// mtrackHeaderFontSize
 			// 
 			this.mtrackHeaderFontSize.BackColor = System.Drawing.Color.Transparent;
-			this.mtrackHeaderFontSize.Location = new System.Drawing.Point(176, 468);
+			this.mtrackHeaderFontSize.Location = new System.Drawing.Point(179, 464);
 			this.mtrackHeaderFontSize.Maximum = 20;
 			this.mtrackHeaderFontSize.MouseWheelBarPartitions = 20;
 			this.mtrackHeaderFontSize.Name = "mtrackHeaderFontSize";
@@ -494,7 +500,7 @@
 			// mtrackDataFontSize
 			// 
 			this.mtrackDataFontSize.BackColor = System.Drawing.Color.Transparent;
-			this.mtrackDataFontSize.Location = new System.Drawing.Point(176, 497);
+			this.mtrackDataFontSize.Location = new System.Drawing.Point(179, 495);
 			this.mtrackDataFontSize.Maximum = 20;
 			this.mtrackDataFontSize.MouseWheelBarPartitions = 20;
 			this.mtrackDataFontSize.Name = "mtrackDataFontSize";
@@ -508,11 +514,11 @@
 			// metroLabel13
 			// 
 			this.metroLabel13.AutoSize = true;
-			this.metroLabel13.Location = new System.Drawing.Point(23, 468);
+			this.metroLabel13.Location = new System.Drawing.Point(23, 466);
 			this.metroLabel13.Name = "metroLabel13";
-			this.metroLabel13.Size = new System.Drawing.Size(113, 19);
+			this.metroLabel13.Size = new System.Drawing.Size(116, 19);
 			this.metroLabel13.TabIndex = 36;
-			this.metroLabel13.Text = "Spaltenüberschrift";
+			this.metroLabel13.Text = "Spaltenüberschrift:";
 			// 
 			// mtxtHeaderFontSize
 			// 
@@ -532,7 +538,7 @@
 			this.mtxtHeaderFontSize.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtHeaderFontSize.Lines = new string[] {
 				"10"};
-			this.mtxtHeaderFontSize.Location = new System.Drawing.Point(142, 468);
+			this.mtxtHeaderFontSize.Location = new System.Drawing.Point(145, 464);
 			this.mtxtHeaderFontSize.MaxLength = 32767;
 			this.mtxtHeaderFontSize.Name = "mtxtHeaderFontSize";
 			this.mtxtHeaderFontSize.PasswordChar = '\0';
@@ -568,7 +574,7 @@
 			this.mtxtDataFontSize.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtDataFontSize.Lines = new string[] {
 				"9"};
-			this.mtxtDataFontSize.Location = new System.Drawing.Point(142, 497);
+			this.mtxtDataFontSize.Location = new System.Drawing.Point(145, 495);
 			this.mtxtDataFontSize.MaxLength = 32767;
 			this.mtxtDataFontSize.Name = "mtxtDataFontSize";
 			this.mtxtDataFontSize.PasswordChar = '\0';
@@ -591,16 +597,64 @@
 			this.metroLabel15.AutoSize = true;
 			this.metroLabel15.Location = new System.Drawing.Point(23, 497);
 			this.metroLabel15.Name = "metroLabel15";
-			this.metroLabel15.Size = new System.Drawing.Size(89, 19);
+			this.metroLabel15.Size = new System.Drawing.Size(92, 19);
 			this.metroLabel15.TabIndex = 38;
-			this.metroLabel15.Text = "Tabellendaten";
+			this.metroLabel15.Text = "Tabellendaten:";
+			// 
+			// metroLabel16
+			// 
+			this.metroLabel16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.metroLabel16.AutoSize = true;
+			this.metroLabel16.Location = new System.Drawing.Point(23, 626);
+			this.metroLabel16.Name = "metroLabel16";
+			this.metroLabel16.Size = new System.Drawing.Size(211, 19);
+			this.metroLabel16.TabIndex = 41;
+			this.metroLabel16.Text = "Die Einstellungen NICHT speichern:";
+			// 
+			// mtogglSaveSettings
+			// 
+			this.mtogglSaveSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mtogglSaveSettings.AutoSize = true;
+			this.mtogglSaveSettings.Location = new System.Drawing.Point(264, 628);
+			this.mtogglSaveSettings.Name = "mtogglSaveSettings";
+			this.mtogglSaveSettings.Size = new System.Drawing.Size(80, 17);
+			this.mtogglSaveSettings.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtogglSaveSettings.TabIndex = 40;
+			this.mtogglSaveSettings.Text = "Aus";
+			this.mtogglSaveSettings.UseSelectable = true;
+			// 
+			// metroLabel17
+			// 
+			this.metroLabel17.AutoSize = true;
+			this.metroLabel17.Location = new System.Drawing.Point(23, 539);
+			this.metroLabel17.Name = "metroLabel17";
+			this.metroLabel17.Size = new System.Drawing.Size(136, 19);
+			this.metroLabel17.TabIndex = 42;
+			this.metroLabel17.Text = "Speichern im Ordner:";
+			// 
+			// mlnkExportPfad
+			// 
+			this.mlnkExportPfad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.mlnkExportPfad.Location = new System.Drawing.Point(165, 537);
+			this.mlnkExportPfad.Name = "mlnkExportPfad";
+			this.mlnkExportPfad.Size = new System.Drawing.Size(302, 23);
+			this.mlnkExportPfad.TabIndex = 43;
+			this.mlnkExportPfad.Text = "Zum Ändern anklicken";
+			this.mlnkExportPfad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.mlnkExportPfad.UseSelectable = true;
+			this.mlnkExportPfad.Click += new System.EventHandler(this.mlnkExportPfad_Click);
 			// 
 			// ProductExportDetailsView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(440, 688);
+			this.ClientSize = new System.Drawing.Size(494, 740);
 			this.ControlBox = false;
+			this.Controls.Add(this.mlnkExportPfad);
+			this.Controls.Add(this.metroLabel17);
+			this.Controls.Add(this.metroLabel16);
+			this.Controls.Add(this.mtogglSaveSettings);
 			this.Controls.Add(this.mtxtDataFontSize);
 			this.Controls.Add(this.metroLabel15);
 			this.Controls.Add(this.mtxtHeaderFontSize);
@@ -695,5 +749,9 @@
 		private MetroFramework.Controls.MetroTextBox mtxtHeaderFontSize;
 		private MetroFramework.Controls.MetroTextBox mtxtDataFontSize;
 		private MetroFramework.Controls.MetroLabel metroLabel15;
+		private MetroFramework.Controls.MetroLabel metroLabel16;
+		private MetroFramework.Controls.MetroToggle mtogglSaveSettings;
+		private MetroFramework.Controls.MetroLabel metroLabel17;
+		private MetroFramework.Controls.MetroLink mlnkExportPfad;
 	}
 }

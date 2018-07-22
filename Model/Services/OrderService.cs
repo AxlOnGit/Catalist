@@ -67,9 +67,7 @@ namespace Products.Model.Services
 		}
 
 		public SBList<OrderDetail> GetOrderDetailList(Order order)
-		{
-			return new SBList<OrderDetail>(this.GetOrderDetailList(order.Kundennummer).Where(d => d.Nummer == order.Nummer));
-		}
+			=> new SBList<OrderDetail>(this.GetOrderDetailList(order.Kundennummer).Where(d => d.Nummer == order.Nummer));
 
 		/// <summary>
 		/// Gibt eine sortierbare Liste aller Rechnungen und Direktrechnungen des angegebenen Kunden zurück.
@@ -91,9 +89,7 @@ namespace Products.Model.Services
 		}
 
 		public SortableBindingList<Order> GetInvoiceList(Order order)
-		{
-			return new SortableBindingList<Order>(this.GetInvoiceList(order.Kunde).Where(i => i.ParentOrder == order.Nummer));
-		}
+			=> new SortableBindingList<Order>(this.GetInvoiceList(order.Kunde).Where(i => i.ParentOrder == order.Nummer));
 
 		/// <summary>
 		/// Gibt eine sortierbare Liste aller Rechnungs- und Direktrechnungspositionen des
@@ -121,39 +117,37 @@ namespace Products.Model.Services
 		/// <param name="invoice">Rechnung.</param>
 		/// <returns></returns>
 		public SortableBindingList<OrderDetail> GetInvoiceDetailList(Order invoice)
-		{
-			return new SortableBindingList<OrderDetail>(this.GetInvoiceDetailList(invoice.Kunde).Where(d => d.Nummer == invoice.Nummer));
-		}
+			=> new SortableBindingList<OrderDetail>(this.GetInvoiceDetailList(invoice.Kunde).Where(d => d.Nummer == invoice.Nummer));
 
 		public string GetOrderInfoBySerialNumber(string seriennummer, string kundePK)
 		{
 			var sb = new StringBuilder();
 			var vorgangsListe = DataManager.OrderDataService.GetOrderDataBySN(seriennummer, kundePK);
-			if (vorgangsListe.Count() == 0) return $"Für die Seriennummer '{seriennummer}' gibt es keinen Auftrag.";
+			if (vorgangsListe == null && vorgangsListe.Count() == 0) return $"Für die Seriennummer '{seriennummer}' gibt es keinen Auftrag.";
 
 			foreach (var row in vorgangsListe.OrderBy(o => o.Vorgang))
 			{
 				switch (row.Vorgang)
 				{
 					case "A":
-						sb.AppendLine($@"Auftrag: {row.Nummer} vom {row.Datum:d}");
-						break;
+					sb.AppendLine($@"Auftrag: {row.Nummer} vom {row.Datum:d}");
+					break;
 
 					case "D":
-						sb.AppendLine($@"Direktrechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
-						break;
+					sb.AppendLine($@"Direktrechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+					break;
 
 					case "R":
-						sb.AppendLine($@"Rechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: { row.Auftrag})");
-						break;
+					sb.AppendLine($@"Rechnung: {row.Nummer} vom {row.Datum:d} (Auftrag: { row.Auftrag})");
+					break;
 
 					case "L":
-						sb.AppendLine($@"Lieferung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
-						break;
+					sb.AppendLine($@"Lieferung: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+					break;
 
 					default:
-						sb.AppendLine($@"{row.Vorgang}: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
-						break;
+					sb.AppendLine($@"{row.Vorgang}: {row.Nummer} vom {row.Datum:d} (Auftrag: {row.Auftrag})");
+					break;
 				}
 			}
 

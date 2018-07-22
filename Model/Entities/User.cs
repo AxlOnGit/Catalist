@@ -1,63 +1,47 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using Products.Common;
+using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data.Datasets;
-using System.Runtime.InteropServices;
-using Products.Common.Collections;
 
 namespace Products.Model.Entities
 {
 	public class User : ILinkedItem
 	{
+		#region MEMBERS
 
-		#region members
+		private readonly dsUser.UserRow myBase;
+		private SBList<Reminder> myReminderList;
+		private CalendarSettings myCalendarSettings;
 
-		readonly dsUser.UserRow myBase;
-		SBList<Reminder> myReminderList;
-		CalendarSettings myCalendarSettings;
+		#endregion MEMBERS
 
-		#endregion
+		#region PUBLIC PROPERTIES
 
-		#region public properties
-
-		#region ILinkedItem
+		#region ILINKEDITEM
 
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		public string Key
-		{
-			get { return this.myBase.UID; }
-		}
+		public string Key => this.myBase.UID;
 
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		public string LinkTypeId
-		{
-			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Mitarbeiter").UID; }
-		}
+		public string LinkTypeId => ModelManager.SharedItemsService.GetLinkTypeByName("Mitarbeiter").UID;
 
-		public string ItemName
-		{
-			get { return myBase.UserName; }
-		}
+		public string ItemName => myBase.UserName;
 
-		public string LinkTypBezeichnung
-		{
-			get { return "Mitarbeiter"; }
-		}
+		public string LinkTypBezeichnung => "Mitarbeiter";
 
-		#endregion
+		#endregion ILINKEDITEM
 
 		/// <summary>
 		/// Gibt den Primärschlüssel (GUID als Zeichenfolge) des Users zurück.
 		/// </summary>
-		public string UID
-		{
-			get { return myBase.UID; }
-		}
+		public string UID => myBase.UID;
 
 		public string UserName
 		{
@@ -69,10 +53,9 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				var nameArray = myBase.UserName.Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+				var nameArray = myBase.UserName.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 				if (nameArray.Length > 0)
 				{
-
 					return nameArray[0];
 				}
 				return string.Empty;
@@ -83,7 +66,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				var nameArray = myBase.UserName.Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+				var nameArray = myBase.UserName.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 				if (nameArray.Length > 1)
 				{
 					return nameArray[1];
@@ -95,13 +78,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den vollständigen Namen des Benutzers zurück.
 		/// </summary>
-		public string NameFull
-		{
-			get
-			{
-				return myBase.UserName;
-			}
-		}
+		public string NameFull => myBase.UserName;
 
 		public string LoginWindows
 		{
@@ -208,7 +185,17 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Kalendereinstellungen des Benutzers zurück.
 		/// </summary>
-		public CalendarSettings CalendarSettings { get { return this.myCalendarSettings; } }
+		public CalendarSettings CalendarSettings
+		{
+			get
+			{
+				if (this.myCalendarSettings == null)
+				{
+					this.myCalendarSettings = new CalendarSettings(this);
+				}
+				return this.myCalendarSettings;
+			}
+		}
 
 		/// <summary>
 		/// Gibt die Farbe der Kalendereinträge des Mitarbeiters zurück oder legt sie fest.
@@ -219,7 +206,7 @@ namespace Products.Model.Entities
 			{
 				var rgb = this.myBase.AppointmentColor.Split(new char[] { ',' });
 
-				int red = 255; 
+				int red = 255;
 				int.TryParse(rgb[0], out red);
 
 				int green = 255;
@@ -239,9 +226,9 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt eine sortierbare Liste aller Termine dieses Benutzers zurück.
 		/// </summary>
-		public SBList<Appointment> Terminliste
+		public SortableBindingList<Appointment> Terminliste
 		{
-			get 
+			get
 			{
 				try
 				{
@@ -254,13 +241,14 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#region tasks and reminders
+		#region TASKS AND REMINDERS
 
 		/// <summary>
 		/// Gibt eine sortier- und filterbare Liste aller Erinnerungen für diesen Benutzer zurück.
 		/// </summary>
 		/// <remarks>
-		/// Es wird immer eine Liste zurückgegeben, die allerdings auch 0 Elemente enthalten kann.
+		/// Es wird immer eine Liste zurückgegeben, die allerdings auch 0 Elemente
+		/// enthalten kann.
 		/// </remarks>
 		public SBList<Reminder> Reminderliste
 		{
@@ -282,9 +270,9 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion TASKS AND REMINDERS
 
-		#endregion
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
@@ -295,66 +283,63 @@ namespace Products.Model.Entities
 		public User(dsUser.UserRow userRow)
 		{
 			this.myBase = userRow;
-			this.myCalendarSettings = new CalendarSettings(this);
-			this.InitCalendarSettings();
+			//this.myCalendarSettings = new CalendarSettings(this);
+			//this.InitCalendarSettings();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		/// <summary>
 		/// Überschreibt base.ToString() und gibt den Vornamen des Users zurück.
 		/// </summary>
 		/// <returns></returns>
-		public override string ToString()
-		{
-			return this.NameFirst;
-		}
+		public override string ToString() => this.NameFirst;
 
 		/// <summary>
 		/// Returns the complete path to the requested folder type for this user.
 		/// </summary>
 		/// <param name="folderType">An element of the Global.DavidFolderTypes enum.</param>
 		/// <returns>This string containing the requested path.</returns>
-		public string GetDavidArchivePath(Products.Common.Global.DavidArchiveTypes folderType)
+		public string GetDavidArchivePath(Global.DavidArchiveTypes folderType)
 		{
+			var archivePath = CatalistRegistry.Application.DavidArchivePath;
 			switch (folderType)
 			{
 				case Global.DavidArchiveTypes.Adressen:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "address");
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "address");
 
 				case Global.DavidArchiveTypes.Aufgaben:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "todo");
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "todo");
 
 				case Global.DavidArchiveTypes.Postausgang:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "out");
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "out");
 
 				case Global.DavidArchiveTypes.Posteingang:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "in");
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "in");
 
 				case Global.DavidArchiveTypes.Kalender:
-					if (this.UserName.ToLower() == "urlaub")
-					{
-						return @"\\david\david\archive\group\urlaub";
-					}
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "cal");
+				if (this.UserName.ToLower() == "urlaub")
+				{
+					return @"\\david\david\archive\group\urlaub";
+				}
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "cal");
 
 				case Global.DavidArchiveTypes.Kalenderarchiv:
-					return Path.Combine(GetDavidArchivePath(Global.DavidArchiveTypes.Kalender), myBase.DavidCalArchive);
+				return Path.Combine(GetDavidArchivePath(Global.DavidArchiveTypes.Kalender), myBase.DavidCalArchive);
 
 				case Global.DavidArchiveTypes.Wiedervorlagen:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "$remind$");
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "$remind$");
 
 				default:
-					return Path.Combine(Global.DavidArchivePath, myBase.UserFolderDavid, "in");
-
+				return Path.Combine(archivePath, myBase.UserFolderDavid, "in");
 			}
 		}
 
-		#endregion
+		#endregion PUBLIC PROCEDURES
 
-		#region private procedures
+		#region PRIVATAE PROCEDURES
 
 		private void InitCalendarSettings()
 		{
@@ -378,7 +363,6 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
-
+		#endregion PRIVATAE PROCEDURES
 	}
 }

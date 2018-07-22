@@ -28,12 +28,12 @@
 		/// </summary>
 		void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pnlKundeStart));
 			this.mlblHauptkontakt = new MetroFramework.Controls.MetroLabel();
 			this.mlblPlzOrt = new MetroFramework.Controls.MetroLabel();
@@ -67,41 +67,49 @@
 			// 
 			// mlblHauptkontakt
 			// 
+			this.mlblHauptkontakt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlblHauptkontakt.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblHauptkontakt.Location = new System.Drawing.Point(698, 188);
+			this.mlblHauptkontakt.Location = new System.Drawing.Point(602, 188);
 			this.mlblHauptkontakt.Name = "mlblHauptkontakt";
-			this.mlblHauptkontakt.Size = new System.Drawing.Size(533, 25);
+			this.mlblHauptkontakt.Size = new System.Drawing.Size(629, 25);
 			this.mlblHauptkontakt.TabIndex = 14;
 			this.mlblHauptkontakt.Text = "Hauptkontakt";
 			// 
 			// mlblPlzOrt
 			// 
+			this.mlblPlzOrt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlblPlzOrt.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblPlzOrt.Location = new System.Drawing.Point(698, 122);
+			this.mlblPlzOrt.Location = new System.Drawing.Point(602, 122);
 			this.mlblPlzOrt.Name = "mlblPlzOrt";
-			this.mlblPlzOrt.Size = new System.Drawing.Size(533, 25);
+			this.mlblPlzOrt.Size = new System.Drawing.Size(629, 25);
 			this.mlblPlzOrt.TabIndex = 11;
 			this.mlblPlzOrt.Text = "PLZ Ort";
 			// 
 			// mlblStrasse
 			// 
+			this.mlblStrasse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlblStrasse.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.mlblStrasse.Location = new System.Drawing.Point(698, 97);
+			this.mlblStrasse.Location = new System.Drawing.Point(602, 97);
 			this.mlblStrasse.Name = "mlblStrasse";
-			this.mlblStrasse.Size = new System.Drawing.Size(533, 25);
+			this.mlblStrasse.Size = new System.Drawing.Size(629, 25);
 			this.mlblStrasse.TabIndex = 10;
 			this.mlblStrasse.Text = "Straße";
 			// 
 			// mlnkEmail
 			// 
+			this.mlnkEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlnkEmail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.mlnkEmail.FontSize = MetroFramework.MetroLinkSize.Medium;
 			this.mlnkEmail.FontWeight = MetroFramework.MetroLinkWeight.Light;
 			this.mlnkEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.mlnkEmail.Location = new System.Drawing.Point(698, 235);
+			this.mlnkEmail.Location = new System.Drawing.Point(602, 235);
 			this.mlnkEmail.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.mlnkEmail.Name = "mlnkEmail";
-			this.mlnkEmail.Size = new System.Drawing.Size(533, 23);
+			this.mlnkEmail.Size = new System.Drawing.Size(629, 23);
 			this.mlnkEmail.TabIndex = 16;
 			this.mlnkEmail.Text = "E-Mail";
 			this.mlnkEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,15 +118,17 @@
 			// 
 			// mlnkTelefon
 			// 
+			this.mlnkTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlnkTelefon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.mlnkTelefon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.mlnkTelefon.FontSize = MetroFramework.MetroLinkSize.Medium;
 			this.mlnkTelefon.FontWeight = MetroFramework.MetroLinkWeight.Light;
 			this.mlnkTelefon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.mlnkTelefon.Location = new System.Drawing.Point(698, 213);
+			this.mlnkTelefon.Location = new System.Drawing.Point(602, 213);
 			this.mlnkTelefon.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.mlnkTelefon.Name = "mlnkTelefon";
-			this.mlnkTelefon.Size = new System.Drawing.Size(533, 23);
+			this.mlnkTelefon.Size = new System.Drawing.Size(629, 23);
 			this.mlnkTelefon.TabIndex = 15;
 			this.mlnkTelefon.Text = "Telefon";
 			this.mlnkTelefon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,11 +137,13 @@
 			// 
 			// mlblKundennummer
 			// 
+			this.mlblKundennummer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlblKundennummer.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.mlblKundennummer.ForeColor = System.Drawing.Color.DarkGreen;
-			this.mlblKundennummer.Location = new System.Drawing.Point(698, 38);
+			this.mlblKundennummer.Location = new System.Drawing.Point(602, 38);
 			this.mlblKundennummer.Name = "mlblKundennummer";
-			this.mlblKundennummer.Size = new System.Drawing.Size(533, 25);
+			this.mlblKundennummer.Size = new System.Drawing.Size(629, 25);
 			this.mlblKundennummer.TabIndex = 18;
 			this.mlblKundennummer.Text = "Kunden-Nr. - Firma";
 			this.mlblKundennummer.UseCustomForeColor = true;
@@ -141,22 +153,22 @@
 			this.dgvTop10b.AllowUserToAddRows = false;
 			this.dgvTop10b.AllowUserToDeleteRows = false;
 			this.dgvTop10b.AllowUserToResizeRows = false;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(244, 244, 244);
-			this.dgvTop10b.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+			this.dgvTop10b.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvTop10b.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dgvTop10b.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvTop10b.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvTop10b.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvTop10b.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvTop10b.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(255, 0, ((int)(((byte)(148)))));
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvTop10b.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvTop10b.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvTop10b.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTop10b.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colArtikel,
@@ -164,36 +176,36 @@
             this.colDatumZuletzt,
             this.colUmsatz,
             this.colAnzahl});
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvTop10b.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvTop10b.DefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvTop10b.EnableHeadersVisualStyles = false;
 			this.dgvTop10b.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.dgvTop10b.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
+			this.dgvTop10b.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvTop10b.HighLightPercentage = 0.9F;
-			this.dgvTop10b.Location = new System.Drawing.Point(698, 310);
+			this.dgvTop10b.Location = new System.Drawing.Point(602, 310);
 			this.dgvTop10b.Margin = new System.Windows.Forms.Padding(5, 35, 5, 5);
 			this.dgvTop10b.Name = "dgvTop10b";
 			this.dgvTop10b.ReadOnly = true;
 			this.dgvTop10b.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(255, 0, ((int)(((byte)(148)))));
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(255, ((int)(((byte)(113)))), ((int)(((byte)(194)))));
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvTop10b.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(194)))));
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvTop10b.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.dgvTop10b.RowHeadersVisible = false;
 			this.dgvTop10b.RowHeadersWidth = 21;
 			this.dgvTop10b.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvTop10b.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvTop10b.Size = new System.Drawing.Size(533, 268);
+			this.dgvTop10b.Size = new System.Drawing.Size(629, 268);
 			this.dgvTop10b.Style = MetroFramework.MetroColorStyle.Magenta;
 			this.dgvTop10b.TabIndex = 22;
 			this.dgvTop10b.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTop10b_RowEnter);
@@ -221,9 +233,9 @@
 			// 
 			this.colDatumZuletzt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colDatumZuletzt.DataPropertyName = "Datum";
-			dataGridViewCellStyle9.Format = "d";
-			dataGridViewCellStyle9.NullValue = null;
-			this.colDatumZuletzt.DefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle3.Format = "d";
+			dataGridViewCellStyle3.NullValue = null;
+			this.colDatumZuletzt.DefaultCellStyle = dataGridViewCellStyle3;
 			this.colDatumZuletzt.FillWeight = 15F;
 			this.colDatumZuletzt.HeaderText = "Zuletzt am";
 			this.colDatumZuletzt.Name = "colDatumZuletzt";
@@ -233,9 +245,9 @@
 			// 
 			this.colUmsatz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colUmsatz.DataPropertyName = "Umsatz";
-			dataGridViewCellStyle10.Format = "N2";
-			dataGridViewCellStyle10.NullValue = null;
-			this.colUmsatz.DefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle4.Format = "N2";
+			dataGridViewCellStyle4.NullValue = null;
+			this.colUmsatz.DefaultCellStyle = dataGridViewCellStyle4;
 			this.colUmsatz.FillWeight = 15F;
 			this.colUmsatz.HeaderText = "Umsatz";
 			this.colUmsatz.Name = "colUmsatz";
@@ -253,7 +265,7 @@
 			// mtileKalender
 			// 
 			this.mtileKalender.ActiveControl = null;
-			this.mtileKalender.Location = new System.Drawing.Point(410, 478);
+			this.mtileKalender.Location = new System.Drawing.Point(341, 478);
 			this.mtileKalender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileKalender.Name = "mtileKalender";
 			this.mtileKalender.Size = new System.Drawing.Size(100, 100);
@@ -269,7 +281,7 @@
 			// mtileNotizen
 			// 
 			this.mtileNotizen.ActiveControl = null;
-			this.mtileNotizen.Location = new System.Drawing.Point(518, 368);
+			this.mtileNotizen.Location = new System.Drawing.Point(449, 368);
 			this.mtileNotizen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileNotizen.Name = "mtileNotizen";
 			this.mtileNotizen.Size = new System.Drawing.Size(100, 100);
@@ -285,7 +297,7 @@
 			// mtileUPS
 			// 
 			this.mtileUPS.ActiveControl = null;
-			this.mtileUPS.Location = new System.Drawing.Point(410, 368);
+			this.mtileUPS.Location = new System.Drawing.Point(341, 368);
 			this.mtileUPS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileUPS.Name = "mtileUPS";
 			this.mtileUPS.Size = new System.Drawing.Size(100, 100);
@@ -301,7 +313,7 @@
 			// mtileServicetermine
 			// 
 			this.mtileServicetermine.ActiveControl = null;
-			this.mtileServicetermine.Location = new System.Drawing.Point(410, 148);
+			this.mtileServicetermine.Location = new System.Drawing.Point(341, 148);
 			this.mtileServicetermine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileServicetermine.Name = "mtileServicetermine";
 			this.mtileServicetermine.Size = new System.Drawing.Size(208, 100);
@@ -317,7 +329,7 @@
 			// mtileSoftware
 			// 
 			this.mtileSoftware.ActiveControl = null;
-			this.mtileSoftware.Location = new System.Drawing.Point(410, 258);
+			this.mtileSoftware.Location = new System.Drawing.Point(341, 258);
 			this.mtileSoftware.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileSoftware.Name = "mtileSoftware";
 			this.mtileSoftware.Size = new System.Drawing.Size(208, 100);
@@ -333,7 +345,7 @@
 			// mtileMaschinen
 			// 
 			this.mtileMaschinen.ActiveControl = null;
-			this.mtileMaschinen.Location = new System.Drawing.Point(410, 38);
+			this.mtileMaschinen.Location = new System.Drawing.Point(341, 38);
 			this.mtileMaschinen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileMaschinen.Name = "mtileMaschinen";
 			this.mtileMaschinen.Size = new System.Drawing.Size(208, 100);
@@ -348,7 +360,7 @@
 			// mtileKontakte
 			// 
 			this.mtileKontakte.ActiveControl = null;
-			this.mtileKontakte.Location = new System.Drawing.Point(194, 148);
+			this.mtileKontakte.Location = new System.Drawing.Point(125, 148);
 			this.mtileKontakte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileKontakte.Name = "mtileKontakte";
 			this.mtileKontakte.Size = new System.Drawing.Size(208, 100);
@@ -364,7 +376,7 @@
 			// mtileArtikel
 			// 
 			this.mtileArtikel.ActiveControl = null;
-			this.mtileArtikel.Location = new System.Drawing.Point(194, 38);
+			this.mtileArtikel.Location = new System.Drawing.Point(125, 38);
 			this.mtileArtikel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileArtikel.Name = "mtileArtikel";
 			this.mtileArtikel.Size = new System.Drawing.Size(208, 100);
@@ -380,7 +392,7 @@
 			// mtileFinanzen
 			// 
 			this.mtileFinanzen.ActiveControl = null;
-			this.mtileFinanzen.Location = new System.Drawing.Point(194, 478);
+			this.mtileFinanzen.Location = new System.Drawing.Point(125, 478);
 			this.mtileFinanzen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileFinanzen.Name = "mtileFinanzen";
 			this.mtileFinanzen.Size = new System.Drawing.Size(208, 100);
@@ -397,7 +409,7 @@
 			// 
 			this.mtileAngebote.ActiveControl = null;
 			this.mtileAngebote.BackColor = System.Drawing.SystemColors.Control;
-			this.mtileAngebote.Location = new System.Drawing.Point(194, 368);
+			this.mtileAngebote.Location = new System.Drawing.Point(125, 368);
 			this.mtileAngebote.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileAngebote.Name = "mtileAngebote";
 			this.mtileAngebote.Size = new System.Drawing.Size(208, 100);
@@ -413,7 +425,7 @@
 			// mtileAuftraege
 			// 
 			this.mtileAuftraege.ActiveControl = null;
-			this.mtileAuftraege.Location = new System.Drawing.Point(194, 258);
+			this.mtileAuftraege.Location = new System.Drawing.Point(125, 258);
 			this.mtileAuftraege.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mtileAuftraege.Name = "mtileAuftraege";
 			this.mtileAuftraege.Size = new System.Drawing.Size(208, 100);
@@ -428,8 +440,10 @@
 			// 
 			// mlblFrachtfreigrenze
 			// 
+			this.mlblFrachtfreigrenze.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.mlblFrachtfreigrenze.AutoSize = true;
-			this.mlblFrachtfreigrenze.Location = new System.Drawing.Point(698, 269);
+			this.mlblFrachtfreigrenze.Location = new System.Drawing.Point(602, 269);
 			this.mlblFrachtfreigrenze.Name = "mlblFrachtfreigrenze";
 			this.mlblFrachtfreigrenze.Size = new System.Drawing.Size(83, 19);
 			this.mlblFrachtfreigrenze.TabIndex = 23;
@@ -438,7 +452,7 @@
 			// mTileClose
 			// 
 			this.mTileClose.ActiveControl = null;
-			this.mTileClose.Location = new System.Drawing.Point(518, 478);
+			this.mTileClose.Location = new System.Drawing.Point(449, 478);
 			this.mTileClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.mTileClose.Name = "mTileClose";
 			this.mTileClose.Size = new System.Drawing.Size(100, 100);
@@ -456,7 +470,7 @@
 			this.mlblInactive.AutoSize = true;
 			this.mlblInactive.FontWeight = MetroFramework.MetroLabelWeight.Bold;
 			this.mlblInactive.ForeColor = System.Drawing.Color.Green;
-			this.mlblInactive.Location = new System.Drawing.Point(700, 68);
+			this.mlblInactive.Location = new System.Drawing.Point(604, 68);
 			this.mlblInactive.Name = "mlblInactive";
 			this.mlblInactive.Size = new System.Drawing.Size(107, 19);
 			this.mlblInactive.TabIndex = 25;
@@ -465,9 +479,11 @@
 			// 
 			// mlblEntfernung
 			// 
-			this.mlblEntfernung.Location = new System.Drawing.Point(700, 152);
+			this.mlblEntfernung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.mlblEntfernung.Location = new System.Drawing.Point(604, 152);
 			this.mlblEntfernung.Name = "mlblEntfernung";
-			this.mlblEntfernung.Size = new System.Drawing.Size(531, 25);
+			this.mlblEntfernung.Size = new System.Drawing.Size(627, 25);
 			this.mlblEntfernung.TabIndex = 26;
 			this.mlblEntfernung.Text = "Entfernung";
 			// 

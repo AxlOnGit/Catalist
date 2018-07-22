@@ -1,19 +1,18 @@
-﻿using Products.Data.Datasets;
-using Products.Data.Datasets.dsSharedTableAdapters;
-using System;
+﻿using System;
 using Products.Common;
+using Products.Data.Datasets;
+using Products.Data.Datasets.dsSharedTableAdapters;
 
 namespace Products.Data.Services
 {
 	public class SharedDataService
 	{
-
-		#region members
+		#region MEMBERS
 
 		readonly string myCurrentUserPK;
 		readonly dsShared mySharedDS = new dsShared();
 
-		#region Adapter
+		#region ADAPTER
 
 		taHersteller myHerstellerAdapter;
 		taLinkTyp myLinkTypAdapter;
@@ -23,9 +22,9 @@ namespace Products.Data.Services
 		taPreset myPresetAdapter;
 		taTinte myTinteAdapter;
 
-		#endregion
+		#endregion ADAPTER
 
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -38,19 +37,19 @@ namespace Products.Data.Services
 			this.myCurrentUserPK = currentUserPK;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
-		#region Hersteller
+		#region HERSTELLER
 
 		/// <summary>
-		/// Fügt der Tabelle Hersteller eine neue Zeile hinzu. Optional kann der Herstellername 
-		/// angegeben werden.
+		/// Fügt der Tabelle Hersteller eine neue Zeile hinzu. Optional kann der
+		/// Herstellername angegeben werden.
 		/// </summary>
 		/// <param name="hersteller">Zeichenfolge mit dem Herstellernamen.</param>
 		/// <returns></returns>
-		public dsShared.HerstellerRow AddHerstellerRow(string hersteller = "Hersteller")
+		public dsShared.HerstellerRow AddHerstellerRow(string hersteller = "Herstellername")
 		{
 			this.AssureHerstellerInitialized();
 			var hRow = this.mySharedDS.Hersteller.NewHerstellerRow();
@@ -118,9 +117,9 @@ namespace Products.Data.Services
 			return result;
 		}
 
-		#endregion
+		#endregion HERSTELLER
 
-		#region LinkTyp
+		#region LINKTYP
 
 		/// <summary>
 		/// Fügt der Tabelle LinkTyp eine neue Zeile hinzu und speichert sie in der Datenbank.
@@ -179,9 +178,9 @@ namespace Products.Data.Services
 			return result;
 		}
 
-		#endregion
+		#endregion LINKTYP
 
-		#region MaschinenModell
+		#region MASCHINENMODELL
 
 		public dsShared.MaschinenModellRow AddMaschinenModellRow(string modellBezeichnung = "Modellbezeichnung")
 		{
@@ -204,7 +203,7 @@ namespace Products.Data.Services
 		/// Gibt die Tabelle MaschinenModell des Systems zurück.
 		/// </summary>
 		/// <returns></returns>
-		public dsShared.MaschinenModellDataTable GetMaschinenModellTable() 
+		public dsShared.MaschinenModellDataTable GetMaschinenModellTable()
 		{
 			this.AsssureMaschinenModellInitialized();
 			return this.mySharedDS.MaschinenModell;
@@ -215,7 +214,7 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="modellPK">Primärschlüssel (GUID) des MaschinenModells</param>
 		/// <returns></returns>
-		public dsShared.MaschinenModellRow GetMaschinenModellRow(string modellPK) 
+		public dsShared.MaschinenModellRow GetMaschinenModellRow(string modellPK)
 		{
 			this.AsssureMaschinenModellInitialized();
 			return this.mySharedDS.MaschinenModell.FindByUID(modellPK);
@@ -226,7 +225,7 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="modellPK"></param>
 		/// <returns></returns>
-		public int DeleteMaschinenModellRow(string modellPK) 
+		public int DeleteMaschinenModellRow(string modellPK)
 		{
 			this.AsssureMaschinenModellInitialized();
 			var mRow = this.mySharedDS.MaschinenModell.FindByUID(modellPK);
@@ -235,8 +234,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Speichert Änderungen an der übergebenen Zeile oder der ganzen Tabelle, wenn keine
-		/// MaschinenModellRow Instanz übergeben wird.
+		/// Speichert Änderungen an der übergebenen Zeile oder der ganzen Tabelle, wenn
+		/// keine MaschinenModellRow Instanz übergeben wird.
 		/// </summary>
 		/// <param name="mRow"></param>
 		/// <returns></returns>
@@ -249,16 +248,16 @@ namespace Products.Data.Services
 			return this.myMaschinenModellAdapter.Update(this.mySharedDS.MaschinenModell);
 		}
 
-		#endregion
+		#endregion MASCHINENMODELL
 
-		#region MaschinenSerie
+		#region MASCHINENSERIE
 
 		/// <summary>
 		/// Fügt der Tabelle MaschinenSerie eine neue Zeile hinzu.
 		/// </summary>
 		/// <param name="serienBezeichnung">Optional. Die Bezeichnung der Serie.</param>
 		/// <returns></returns>
-		public dsShared.MaschinenSerieRow AddMaschinenSerieRow(string serienBezeichnung = "*Serie*") 
+		public dsShared.MaschinenSerieRow AddMaschinenSerieRow(string serienBezeichnung = "*Serie*")
 		{
 			this.AssureMaschinenSerieInitialized();
 
@@ -269,7 +268,11 @@ namespace Products.Data.Services
 			mRow.MaschinentypId = "00000000-0000-0000-0000-000000000000";
 			mRow.LetzteFirmware = "-";
 			mRow.Markteinfuehrung = DateTime.Now.Year;
-			mRow.Dateipfad = @"\\NASE82002\technik\Service Maschinen\";
+			mRow.Dateipfad = @"\\NASE82002\technik\Kundenmaschinen\";
+			mRow.Wartungskennzeichen = 0;
+			mRow.Wartungsintervall = 0;
+			mRow.InstChecklistVorlage = "";
+			mRow.InstReportVorlage = "";
 
 			this.mySharedDS.MaschinenSerie.AddMaschinenSerieRow(mRow);
 			this.UpdateMaschinenSerie(mRow);
@@ -281,7 +284,7 @@ namespace Products.Data.Services
 		/// Gibt die gesamte Tabelle MaschinenSerie zurück.
 		/// </summary>
 		/// <returns></returns>
-		public dsShared.MaschinenSerieDataTable GetMaschinenSerieTable() 
+		public dsShared.MaschinenSerieDataTable GetMaschinenSerieTable()
 		{
 			this.AssureMaschinenSerieInitialized();
 			return this.mySharedDS.MaschinenSerie;
@@ -292,7 +295,7 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="serienPK"></param>
 		/// <returns></returns>
-		public dsShared.MaschinenSerieRow GetMaschinenSerieRow(string serienPK) 
+		public dsShared.MaschinenSerieRow GetMaschinenSerieRow(string serienPK)
 		{
 			this.AssureMaschinenSerieInitialized();
 			return this.mySharedDS.MaschinenSerie.FindByUID(serienPK);
@@ -330,7 +333,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Aktualisiert die angegebene Zeile oder die gesamte Tahelle, falls keine spezifische Zeile übergeben wird.
+		/// Aktualisiert die angegebene Zeile oder die gesamte Tahelle, falls keine
+		/// spezifische Zeile übergeben wird.
 		/// </summary>
 		/// <param name="mRow"></param>
 		public int UpdateMaschinenSerie(dsShared.MaschinenSerieRow mRow = null)
@@ -348,9 +352,9 @@ namespace Products.Data.Services
 			return 0;
 		}
 
-		#endregion
+		#endregion MASCHINENSERIE
 
-		#region MaschinenTyp
+		#region MASCHINENTYP
 
 		/// <summary>
 		/// Fügt der MaschinenTyp Tabelle eine neue Zeile hinzu.
@@ -382,11 +386,13 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Speichert die Änderungen der übergebenen MaschinenTypRow oder die gesamte Tabelle, falls
-		/// keine Zeile übergheben wurde.
+		/// Speichert die Änderungen der übergebenen MaschinenTypRow oder die gesamte
+		/// Tabelle, falls keine Zeile übergheben wurde.
 		/// </summary>
 		/// <param name="typRow">Die zu löschende MaschinenTypRow Instanz.</param>
-		/// <returns>1, nach erfolgreichem Löschen oder 0, wenn die Zeile nicht gelöscht werden konnte.</returns>
+		/// <returns>
+		/// 1, nach erfolgreichem Löschen oder 0, wenn die Zeile nicht gelöscht werden konnte.
+		/// </returns>
 		public int UpdateMaschinenTyp(dsShared.MaschinenTypRow typRow = null)
 		{
 			if (typRow != null)
@@ -398,12 +404,12 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Speichert Änderungen der übergebenen MaschinenTyp Zeile oder, falls keine übergeben wurde,
-		/// alle Änderungen in der Datenbank.
+		/// Speichert Änderungen der übergebenen MaschinenTyp Zeile oder, falls keine
+		/// übergeben wurde, alle Änderungen in der Datenbank.
 		/// </summary>
 		/// <param name="typPK"></param>
 		/// <returns></returns>
-		public int UpdateMaschinenTyp(string typPK) 
+		public int UpdateMaschinenTyp(string typPK)
 		{
 			var tRow = this.mySharedDS.MaschinenTyp.FindByUID(typPK);
 			if (tRow != null)
@@ -414,15 +420,15 @@ namespace Products.Data.Services
 			return 0;
 		}
 
-		#endregion
+		#endregion MASCHINENTYP
 
-		#region Presets
+		#region PRESETS
 
 		/// <summary>
 		/// Erstellt eine neue PresetRow und speichert sie direkt in der Datenbank.
 		/// </summary>
 		/// <returns></returns>
-		public dsShared.PresetRow AddPresetRow() 
+		public dsShared.PresetRow AddPresetRow()
 		{
 			this.AssurePresetInitialized();
 			var pRow = this.mySharedDS.Preset.NewPresetRow();
@@ -458,9 +464,9 @@ namespace Products.Data.Services
 			return 0;
 		}
 
-		#endregion
+		#endregion PRESETS
 
-		#region Tinte
+		#region TINTE
 
 		/// <summary>
 		/// Fügt der Tabelle Tinte eine neue Zeile hinzu.
@@ -508,10 +514,10 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="tinteRow">Die zu löschende dsShared.TinteRow.</param>
 		/// <returns></returns>
-		public int DeleteTinteRow(dsShared.TinteRow tinteRow) 
+		public int DeleteTinteRow(dsShared.TinteRow tinteRow)
 		{
 			this.AssureTinteInitialized();
-			if (tinteRow != null) 
+			if (tinteRow != null)
 			{
 				tinteRow.Delete();
 				return this.UpdateTinte(tinteRow);
@@ -549,11 +555,11 @@ namespace Products.Data.Services
 			return this.myTinteAdapter.Update(this.mySharedDS.Tinte);
 		}
 
-		#endregion
+		#endregion Tinte
 
-		#endregion
+		#endregion PROCEDURES
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void AssureHerstellerInitialized()
 		{
@@ -582,7 +588,7 @@ namespace Products.Data.Services
 			}
 		}
 
-		void AssureMaschinenSerieInitialized() 
+		void AssureMaschinenSerieInitialized()
 		{
 			if (this.myMaschinenSerieAdapter == null)
 			{
@@ -591,7 +597,7 @@ namespace Products.Data.Services
 			}
 		}
 
-		void AssureMaschinenTypInitialized() 
+		void AssureMaschinenTypInitialized()
 		{
 			if (this.myMaschinenTypAdapter == null)
 			{
@@ -618,7 +624,6 @@ namespace Products.Data.Services
 			}
 		}
 
-		#endregion
-
+		#endregion PRIVATE PROCEDURES
 	}
 }

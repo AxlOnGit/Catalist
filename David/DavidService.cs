@@ -5,7 +5,6 @@ using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using David.API;
 using DvApi32;
-using Products.Common;
 
 namespace David
 {
@@ -28,23 +27,23 @@ namespace David
 	/// <summary>
 	/// Übersetzung von Feldindex zu lesbarem
 	/// </summary>
-	public enum DavidFieldEnum
+	public enum DavidFieldsEnum
 	{
 		AllDayEvent = 79,
 		CreatedAt = 7,
-		CreatedBy = 53,
-		EndsAt = 51,
+		Creator = 53,
+		StopTime = 51,
 		FileName = 58,
 		To = 56,
 		From = 57,
-		ChangedAt = 38,
+		LastChangedTime = 38,
 		Location = 70,
-		BodyAscii = 132,
-		BodyHtml = 104,
+		Content = 132,
+		HTML = 104,
 		Owner = 4,
-		RemindAt = 78,
+		ReminderTime = 78,
 		ShowAs = 83,
-		StartsAt = 8,
+		SendTime = 8,
 		Subject = 59
 	}
 
@@ -62,7 +61,7 @@ namespace David
 
 		IApplication myDavidApp = new DavidAPIClass();
 		Account myAccount;
-		ArchiveNotification myNotification;
+		ArchiveNotification myAutoAppointmentNotification;
 		bool myConnected;
 
 		#endregion members
@@ -72,18 +71,14 @@ namespace David
 		/// <summary>
 		/// Gibt FALSE zurück, wenn keine Verbindung zum DAVID Server besteht.
 		/// </summary>
-		public bool Connected
-		{
-			get
-			{
-				return this.myConnected;
-			}
-		}
+		public bool Connected => this.myConnected;
+
+		public Account Account => this.myAccount;
 
 		/// <summary>
 		/// True, wenn die Anwendung mit dem Schalter "AppointmentListener" gestartet wurde.
 		/// </summary>
-		public bool WithAppointmentListener { get; private set; }
+		public bool WithAppointmentListener { get; }
 
 		#endregion public properties
 
@@ -111,12 +106,12 @@ namespace David
 			// (Global.AppointmentArchivePath). Derzeit ist das der Ordner "\\david\david\archive\group\b".
 			if (this.WithAppointmentListener)
 			{
-				var appointmentArchive = this.myAccount.GetArchive(Global.AppointmentArchivePath);
+				var appointmentArchive = this.myAccount.GetArchive(CatalistRegistry.Application.AppointmentArchivePath);
 				if (appointmentArchive != null)
 				{
-					this.myNotification = new ArchiveNotification();
-					this.myNotification.ItemNewEvent += MyNotification_ItemNewEvent;
-					this.myNotification.AddArchive(appointmentArchive);
+					this.myAutoAppointmentNotification = new ArchiveNotification();
+					this.myAutoAppointmentNotification.ItemNewEvent += MyNotification_ItemNewEvent;
+					this.myAutoAppointmentNotification.AddArchive(appointmentArchive);
 				}
 			}
 		}
@@ -161,7 +156,6 @@ namespace David
 				var to = toDate.Value.ToString("M-d-yyyy H:m:s");
 				var filter = $"OnlyEMail StatusTime=\"{from} - {to}\"{char.MinValue}";
 				var items = calArchive.GetArchiveEntries(filter);
-				//var items = calArchive.GetArchiveEntries(DvItemFilterBits.DvFilterAll);
 				return items;
 			}
 			catch (AccessViolationException accEx)
@@ -229,9 +223,9 @@ namespace David
 		/// Gibt den Inhalt des angegebenen Felds für die angegebene MessageItem2 Instanz zurück.
 		/// </summary>
 		/// <param name="msgItem2">Die MessageItem2 Instanz.</param>
-		/// <param name="field">Ein Element der <seealso cref="David.DavidFieldEnum"/> Auflistung.</param>
+		/// <param name="field">Ein Element der <seealso cref="David.DavidFieldsEnum"/> Auflistung.</param>
 		/// <returns></returns>
-		public object GetFieldValue(MessageItem2 msgItem2, DavidFieldEnum field)
+		public object GetFieldValue(MessageItem2 msgItem2, DavidFieldsEnum field)
 		{
 			var fields = msgItem2.Fields as Fields;
 			if (fields != null)
@@ -247,11 +241,11 @@ namespace David
 		/// <param name="start">Datum und Uhrzeit des Terminbeginns.</param>
 		/// <param name="end">Datum und Uhrzeit des Terminendes.</param>
 		/// <returns></returns>
-		public CreateMsgItm2Params CreateCalendarItem(DateTime start, DateTime end, string inArchive)
+		public MessageItem2CreationParams CreateCalendarItem(DateTime start, DateTime end, string inArchive)
 		{
 			var cal = myAccount.GetArchive(inArchive);
-			var newItem2 = (MessageItem2)cal.CreateArchiveEntry(DvItemTypes.DvCalendarItem);
-			var fields = (DvApi32.Fields)newItem2.Fields;
+			var newItem2 = cal.CreateArchiveEntry(DvItemTypes.DvCalendarItem);
+			var fields = (Fields)newItem2.Fields;
 
 			newItem2.Subject = "Termin"; // Terminbezeichnung
 			fields.Item(8).Value = start; // Terminbeginn
@@ -263,7 +257,7 @@ namespace David
 			var uid = this.CreateGuidField(newItem2); // Benutzerdefiniertes Feld "GUID" erstellen und mit einem GUID füllen.
 			newItem2.Save();
 			var fileName = string.Format("{0}.001", ((Fields)newItem2.Fields).Item(58).Value);
-			return new CreateMsgItm2Params(newItem2, fileName, uid);
+			return new MessageItem2CreationParams(newItem2, fileName, uid);
 		}
 
 		/// <summary>
@@ -395,7 +389,7 @@ namespace David
 		public void Shutdown()
 		{
 			if (!this.myConnected) return;
-			if (this.myNotification != null) this.myNotification.ClearAll(this.myAccount);
+			if (this.myAutoAppointmentNotification != null) this.myAutoAppointmentNotification.ClearAll(this.myAccount);
 			this.myAccount.Logoff();
 		}
 

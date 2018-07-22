@@ -9,30 +9,27 @@ namespace Products.Data.Services
 {
 	public class AppointmentDataService
 	{
+		#region MEMBERS
 
-		#region members
+		private readonly string myCurrentUserPK;
 
-		string myCurrentUserPK;
+		#region ADAPTER
 
-		#region Adapter
+		private readonly taAppointmentXref myAppointmentXrefAdapter = new taAppointmentXref();
+		private readonly taAppointmentLinkXref myAppointmentLinkXrefAdapter = new taAppointmentLinkXref();
+		private readonly taAppointmentType myAppointmentTypeAdapter = new taAppointmentType();
+		private readonly taLocation myLocationAdapter = new taLocation();
+		private readonly taWartungstermin myWartungsterminAdapter = new taWartungstermin();
 
-		readonly taAppointmentXref myAppointmentXrefAdapter = new taAppointmentXref();
-		readonly taAppointmentLinkXref myAppointmentLinkXrefAdapter = new taAppointmentLinkXref();
-		readonly taAppointmentType myAppointmentTypeAdapter = new taAppointmentType();
-		readonly taLocation myLocationAdapter = new taLocation();
+		#endregion ADAPTER
 
-		#endregion
+		#region DATA STORE
 
-		#region Data Store
+		private readonly dsAppointments myDS = new dsAppointments();
 
-		readonly dsAppointments myDS = new dsAppointments();
+		#endregion DATA STORE
 
-		#endregion
-
-		#endregion
-
-		#region public properties
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
@@ -46,9 +43,9 @@ namespace Products.Data.Services
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		public void AddLinkXrefRow(string fullName, string linkedItemPK, string linkedItemTypePK)
 		{
@@ -168,6 +165,19 @@ namespace Products.Data.Services
 			return 0;
 		}
 
+		#region WARTUNGSTERMINE
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Wartungsterminen im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsAppointments.WartungsterminDataTable GetWartungsterminTable()
+		{
+			return this.myWartungsterminAdapter.GetData();
+		}
+
+		#endregion WARTUNGSTERMINE
+
 		/// <summary>
 		/// Aktualisiert alle neuen, geänderten und gelöschten AppointmentXrefRows, AppointmentTypeRows und LocationRows.
 		/// </summary>
@@ -196,11 +206,11 @@ namespace Products.Data.Services
 			return result;
 		}
 
-		#endregion
+		#endregion PUBLIC PROCEDURES
 
 		#region private procedures
 
-		void InitializeData()
+		private void InitializeData()
 		{
 			this.myAppointmentXrefAdapter.Fill(this.myDS.AppointmentXref);
 			this.myAppointmentLinkXrefAdapter.Fill(this.myDS.AppointmentLinkXref);
@@ -208,7 +218,7 @@ namespace Products.Data.Services
 			this.myLocationAdapter.Fill(this.myDS.Location);
 		}
 
-		dsAppointments.AppointmentXrefRow CreateAppointmentXrefRow(string fileName, string appointmentType = "Undefiniert")
+		private dsAppointments.AppointmentXrefRow CreateAppointmentXrefRow(string fileName, string appointmentType = "Undefiniert")
 		{
 			var xRow = this.myDS.AppointmentXref.NewAppointmentXrefRow();
 			xRow.FullName = fileName;
@@ -219,7 +229,6 @@ namespace Products.Data.Services
 			return xRow;
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

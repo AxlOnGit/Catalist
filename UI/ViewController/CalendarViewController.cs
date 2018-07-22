@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Products.Model.Entities;
-using Products.Common.Views;
-using Products.Model;
 using System.ComponentModel;
+using System.Windows.Forms;
 using Products.Common.Collections;
+using Products.Model;
+using Products.Model.Entities;
 
 namespace Products.Common.ViewController
 {
 	public class CalendarViewController : INotifyPropertyChanged
 	{
-
-		#region enums
+		#region ENUMS
 
 		public enum DaysToShowEnum
 		{
@@ -23,33 +19,34 @@ namespace Products.Common.ViewController
 			SevenDays = 7
 		}
 
-		#endregion
+		#endregion ENUMS
 
-		#region events
+		#region EVENTS
 
 		public event PropertyChangedEventHandler PropertyChanged;
+
 		public event EventHandler ActiveUserListChanged;
 
-		#endregion
+		#endregion EVENTS
 
-		#region members
+		#region MEMBERS
 
 		User myCalendarOwner = null;
 		SelectionRange mySelectionRange = new SelectionRange(DateTime.Today, DateTime.Today);
 		DateTime myCalendarStartDay = DateTime.Today;
-		int myCalendarDaysToShow  = 5;
+		int myVisibleDaysCount = 5;
 		readonly List<User> myActiveUsersList = new List<User>();
-		Appointment mySelectedAppointment = null;
+		Appointment mySelectedAppointment;
 
-		#endregion
+		#endregion MEMBERS
 
-		#region public properties
+		#region PUBLIC PROPERTIES
 
 		/// <summary>
 		/// Gibt den User zurück, dessen Kalender angezeigt wird.
 		/// </summary>
-		public User CalendarOwner 
-		{ 
+		public User CalendarOwner
+		{
 			get { return this.myCalendarOwner; }
 			set
 			{
@@ -64,10 +61,10 @@ namespace Products.Common.ViewController
 		/// <summary>
 		/// Gibt den im CalendarView ausgewählten Datumsbereich zurück oder legt ihn fest.
 		/// </summary>
-		public SelectionRange SelectionRange 
-		{ 
-			get { return this.mySelectionRange; } 
-			set 
+		public SelectionRange SelectionRange
+		{
+			get { return this.mySelectionRange; }
+			set
 			{
 				if (value != this.mySelectionRange)
 				{
@@ -81,11 +78,11 @@ namespace Products.Common.ViewController
 					}
 					//else if (daysToShow > this.CalendarDaysToShow)
 					//{
-					//  this.CalendarDaysToShow = daysToShow;						
-					//} 
+					//  this.CalendarDaysToShow = daysToShow;
+					//}
 					this.NotifyPropertyChanged("SelectionRange");
 				}
-			} 
+			}
 		}
 
 		/// <summary>
@@ -94,7 +91,7 @@ namespace Products.Common.ViewController
 		public DateTime CalendarStartDay
 		{
 			get { return this.myCalendarStartDay; }
-			private set 
+			private set
 			{
 				if (this.myCalendarStartDay != value)
 				{
@@ -109,12 +106,12 @@ namespace Products.Common.ViewController
 		/// </summary>
 		public int CalendarDaysToShow
 		{
-			get { return this.myCalendarDaysToShow; }
+			get { return this.myVisibleDaysCount; }
 			set
 			{
-				if (this.myCalendarDaysToShow != value)
+				if (this.myVisibleDaysCount != value)
 				{
-					this.myCalendarDaysToShow = (value > 7) ? 7 : value;
+					this.myVisibleDaysCount = (value > 7) ? 7 : value;
 					this.NotifyPropertyChanged("CalendarDaysToShow");
 				}
 			}
@@ -123,9 +120,10 @@ namespace Products.Common.ViewController
 		/// <summary>
 		/// Gibt den aktuell ausgewählten Termin zurück oder legt ihn fest.
 		/// </summary>
-		public Appointment SelectedAppointment {
+		public Appointment SelectedAppointment
+		{
 			get { return this.mySelectedAppointment; }
-			set 
+			set
 			{
 				if (value != this.mySelectedAppointment)
 				{
@@ -133,38 +131,32 @@ namespace Products.Common.ViewController
 					this.NotifyPropertyChanged("SelectedAppointment");
 					this.NotifyPropertyChanged("AppointmentInfo");
 				}
-			} 
+			}
 		}
 
 		/// <summary>
 		/// Liste aller Benutzer, deren Kalender angezeigt werden können.
 		/// </summary>
-		public SBList<User> UserItemsList { get { return ModelManager.UserService.GetActiveUsersList(); } }
+		public SBList<User> UserItemsList => ModelManager.UserService.GetActiveUsersList();
 
 		/// <summary>
 		/// Gibt die Liste aller Benutzer zurück, deren Kalender gerade angezeigt werden.
 		/// </summary>
-		public List<User> ActiveUsersList 
-		{ 
-			get 
-			{
-				return this.myActiveUsersList; 
-			}
-		}
+		public List<User> ActiveUsersList => this.myActiveUsersList;
 
 		/// <summary>
 		/// Gibt die Namen der ebenfalls angezeigten Kalender (bzw. die Namen der betreffenden User) zurück.
 		/// </summary>
 		public string ActiveUserNames
 		{
-			get 
+			get
 			{
 				string returnString = string.Empty;
 				string suffix = ", ";
 				int counter = this.ActiveUsersList.Count;
 				for (int i = 0; i < counter; i++)
 				{
-					if (i == counter -2) suffix = " und ";					
+					if (i == counter - 2) suffix = " und ";
 					else if (i == counter - 1) suffix = string.Empty;
 
 					returnString += string.Format("{0}{1}", this.ActiveUsersList[i].NameFirst, suffix);
@@ -186,7 +178,7 @@ namespace Products.Common.ViewController
 			}
 		}
 
-		#endregion
+		#endregion PUBLIC PROPERTIES
 
 		#region ### .ctor ###
 
@@ -199,11 +191,12 @@ namespace Products.Common.ViewController
 			this.myCalendarOwner = calendarOwner;
 			this.AddUserCalendar(calendarOwner);
 			this.CalendarStartDay = this.GetPrecedingMonday(DateTime.Today);
+			if (calendarOwner.CalendarSettings.TargetUser != calendarOwner) this.AddUserCalendar(calendarOwner.CalendarSettings.TargetUser);
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
 
 		public void BackOneWeek()
 		{
@@ -243,7 +236,7 @@ namespace Products.Common.ViewController
 		internal void ClearActiveUserList()
 		{
 			int counter = this.ActiveUsersList.Count;
-			for (int i = counter - 1; i >= 0 ; i--)
+			for (int i = counter - 1; i >= 0; i--)
 			{
 				this.RemoveUserCalendar(this.ActiveUsersList[i]);
 			}
@@ -269,9 +262,9 @@ namespace Products.Common.ViewController
 			}
 		}
 
-		#endregion
+		#endregion PUBLIC PROCEDURES
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void NotifyPropertyChanged(string propertyName)
 		{
@@ -298,26 +291,31 @@ namespace Products.Common.ViewController
 			switch (startDate.DayOfWeek)
 			{
 				case DayOfWeek.Monday:
-					return selectedDays;
+				return selectedDays;
 
 				case DayOfWeek.Tuesday:
-					return selectedDays + 1;
+				return selectedDays + 1;
+
 				case DayOfWeek.Wednesday:
-					return selectedDays + 2;
+				return selectedDays + 2;
+
 				case DayOfWeek.Thursday:
-					return selectedDays + 3;
+				return selectedDays + 3;
+
 				case DayOfWeek.Friday:
-					return selectedDays + 4;
+				return selectedDays + 4;
+
 				case DayOfWeek.Saturday:
-					return selectedDays + 5;
+				return selectedDays + 5;
+
 				case DayOfWeek.Sunday:
-					return selectedDays + 6;
+				return selectedDays + 6;
+
 				default:
-					return 5;
+				return 5;
 			}
 		}
 
-		#endregion
-
+		#endregion PRIVATE PROCEDURES
 	}
 }

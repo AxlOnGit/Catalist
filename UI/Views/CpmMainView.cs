@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Agfeo;
 using MetroFramework;
 using MetroFramework.Forms;
+using Microsoft.Win32;
 using Products.Common.Collections;
 using Products.Common.Extensions;
 using Products.Common.Geocoding;
@@ -21,34 +22,37 @@ namespace Products.Common.Views
 {
 	public partial class CpmMainView : MetroForm
 	{
-		#region delegates
+		#region DELEGATES
 
-		delegate void CustomerGeneralViewOpenDelegate(string customerId);
+		private delegate void CustomerGeneralViewOpenDelegate(string customerId);
 
-		delegate void ShowReminderDelegate(Reminder reminder);
+		private delegate void ShowReminderDelegate(Reminder reminder);
 
-		// If the phone rings we handle an event that's fired by the Agfeo module's thread. For this
-		// a delegate is needed that will be invoked by that event.
-		CustomerGeneralViewOpenDelegate cgvoDelegate;
+		// If the phone rings we handle an event that's fired by the Agfeo module's thread.
+		// For this a delegate is needed that will be invoked by that event.
+		private CustomerGeneralViewOpenDelegate cgvoDelegate;
 
-		#endregion delegates
+		#endregion DELEGATES
 
-		#region members
+		#region MEMBERS
 
-		List<Kunde> myRecentCustomerList = new List<Kunde>();
-		Kunde myProductCustomer;
-		Model.Services.AppointmentService myAppointmentService = ModelManager.AppointmentService;
-		bool quit;
+		private const int myMaxRecentCustomers = 15;
+		private const int myMaxRecentProducts = 15;
+		private List<Kunde> myRecentCustomerList = new List<Kunde>();
+		private List<Product> myRecentProductList = new List<Product>();
+		private Kunde myProductCustomer;
+		private Model.Services.AppointmentService myAppointmentService = ModelManager.AppointmentService;
+		private bool quit;
 
-		#endregion members
+		#endregion MEMBERS
 
-		#region private properties
+		#region PRIVATE PROPERTIES
 
 		public string SearchText { get; set; }
 
 		// public string ProductSearchText { get; set; }
 
-		#endregion private properties
+		#endregion PRIVATE PROPERTIES
 
 		#region ### .ctor ###
 
@@ -62,13 +66,16 @@ namespace Products.Common.Views
 			this.mlblVersion.Text = string.Format("Ver. {0}", Application.ProductVersion);
 			this.mtxtSearch.DataBindings.Add("Text", this, "SearchText");
 			ModelManager.CustomerService.CurrentCustomerSet += CustomerService_CurrentCustomerSet;
+			ModelManager.ProductService.CurrentProductSet += ProductService_CurrentProductSet;
 			this.CustomerService_CurrentCustomerSet(this, EventArgs.Empty);
 			if (ModelManager.UserService.CurrentUser != null)
 			{
 				this.mlblCurrentUser.Text = string.Format("Tach {0}", ModelManager.UserService.CurrentUser.NameFirst);
 			}
 			this.SetClock();
-			this.btnTest.Visible |= ModelManager.UserService.CurrentUser.LoginWindows.ToLower() == "axel";
+			//this.btnTest.Visible |= ModelManager.UserService.CurrentUser.LoginWindows.ToLower() == "axel";
+			this.RestoreRecentCustomers();
+			this.RestoreRecentProducts();
 			try
 			{
 				if (!David.DavidManager.DavidService.WithAppointmentListener && FonManager.FonService.ServerReachable())
@@ -102,7 +109,8 @@ namespace Products.Common.Views
 					Services.LogService.WriteLogEntry(logText);
 				}
 			}
-			// David Notifications starten David.DavidManager.DavidService.NewAppointmentMailEvent += DavidService_NewAppointmentMailHandler;
+			// David Notifications starten
+			// David.DavidManager.DavidService.NewAppointmentMailEvent += DavidService_NewAppointmentMailHandler;
 
 			//this.AppointmentWorker.RunWorkerAsync();
 			//MACHEN: ModelManager.ReminderService.JobReminderExecuted += new EventHandler<Model.Services.ReminderService.JobReminderExecutedEventArgs>(ReminderService_JobReminderExecuted);
@@ -114,13 +122,23 @@ namespace Products.Common.Views
 		//	MessageBox.Show(msg, "Catalist - Nachrichtensystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		//}
 
-		void CustomerService_CurrentCustomerSet(object sender, EventArgs e)
+		private void CustomerService_CurrentCustomerSet(object sender, EventArgs e)
 		{
 			var kunde = ModelManager.CustomerService.CurrentCustomer;
 			if (kunde != null)
 			{
-				this.mlnkCurrentCustomer.Text = kunde.Matchcode;
-				this.mlnkCurrentCustomer.Tag = kunde;
+				this.mlnkCurrentElement.Text = kunde.Matchcode;
+				this.mlnkCurrentElement.Tag = kunde;
+			}
+		}
+
+		private void ProductService_CurrentProductSet(object sender, EventArgs e)
+		{
+			var product = ModelManager.ProductService.CurrentProduct;
+			if (product != null)
+			{
+				this.mlnkCurrentElement.Text = product.Bezeichnung1;
+				this.mlnkCurrentElement.Tag = product;
 			}
 		}
 
@@ -140,7 +158,7 @@ namespace Products.Common.Views
 			this.btnLineOpen.BackgroundImage = Properties.Resources.telefon_32_metrogray;
 		}
 
-		void DatMachIchWennsKlingelt(object sender, IncomingCallEventArgs e)
+		private void DatMachIchWennsKlingelt(object sender, IncomingCallEventArgs e)
 		{
 			if (this.InvokeRequired)
 			{
@@ -150,9 +168,9 @@ namespace Products.Common.Views
 
 		#endregion AGFEO
 
-		#region event handler
+		#region EVENT HANDLER
 
-		void ReminderService_JobReminderExecuted(object sender, Model.Services.ReminderService.JobReminderExecutedEventArgs e)
+		private void ReminderService_JobReminderExecuted(object sender, Model.Services.ReminderService.JobReminderExecutedEventArgs e)
 		{
 			if (this.InvokeRequired)
 			{
@@ -160,7 +178,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void CpmMainView_MouseEnter(object sender, EventArgs e)
+		private void CpmMainView_MouseEnter(object sender, EventArgs e)
 		{
 			//if (!this.Focused)
 			//{
@@ -168,9 +186,9 @@ namespace Products.Common.Views
 			//}
 		}
 
-		#region tiles
+		#region TILES
 
-		void mpicLineOpen_Click(object sender, EventArgs e)
+		private void mpicLineOpen_Click(object sender, EventArgs e)
 		{
 			if (Agfeo.FonManager.FonService.IsListening)
 			{
@@ -184,103 +202,140 @@ namespace Products.Common.Views
 			}
 		}
 
-		void mtileArtikel_Click(object sender, EventArgs e)
+		private void mtileArtikel_Click(object sender, EventArgs e)
 		{
 			this.ShowAppointmentListView();
 		}
 
-		void ShowAppointmentListView()
+		private void ShowAppointmentListView()
 		{
 			User currentUser = ModelManager.UserService.CurrentUser;
 			var alv = new AppointmentListView(ModelManager.AppointmentService.GetAppointmentList(currentUser), currentUser.NameFirst);
 			alv.Show();
 		}
 
-		void ShowArtikelstammView()
+		private void ShowArtikelstammView()
 		{
 			var asv = new ArtikelstammView();
 			asv.Show();
 		}
 
-		void mtileKalender_Click(object sender, EventArgs e)
+		private void mtileKalender_Click(object sender, EventArgs e)
 		{
 			ShowCalendarView();
 		}
 
-		void mtileAngebote_Click(object sender, EventArgs e)
+		private void mtileAngebote_Click(object sender, EventArgs e)
 		{
 			var alv = new AngeboteListView();
 			alv.Show();
 			//ShowTaskListView();
 		}
 
-		void mtileKatalog_Click(object sender, EventArgs e)
+		private void mtileKatalog_Click(object sender, EventArgs e)
 		{
 			CreateCatalog();
 		}
 
-		void mtileKataloginhalt_Click(object sender, EventArgs e)
+		private void mtileKataloginhalt_Click(object sender, EventArgs e)
 		{
 			ShowCatalogView();
 		}
 
-		void mtilePresets_Click(object sender, EventArgs e)
+		private void mtilePresets_Click(object sender, EventArgs e)
 		{
 			ShowVerwaltungsView();
 		}
 
-		void btnMinimize_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
-		#endregion tiles
-
-		#region context menus
-
-		void ctxCmdViewQuit_Click(object sender, EventArgs e)
+		private void btnMinimize_Click(object sender, EventArgs e)
 		{
 			this.KommWirHaunAbHierUndLassenDenScheiss();
 		}
 
-		void ctxCmdShowSettingsView_Click(object sender, EventArgs e)
+		#endregion TILES
+
+		#region CONTEXT MENUS
+
+		private void ctxCmdViewQuit_Click(object sender, EventArgs e)
+		{
+			this.KommWirHaunAbHierUndLassenDenScheiss();
+		}
+
+		private void ctxCmdShowSettingsView_Click(object sender, EventArgs e)
 		{
 			this.ShowSettingsView();
 		}
 
-		void ctxCmdMaschinentypen_Click(object sender, EventArgs e)
+		private void ctxCmdMaschinentypen_Click(object sender, EventArgs e)
 		{
 			var mmv = new ModellListView();
 			mmv.Show();
 		}
 
-		void ctxCmdShowMainView_Click(object sender, EventArgs e)
+		private void ctxCmdShowMainView_Click(object sender, EventArgs e)
 		{
 			if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
 			this.ShowMainView();
 		}
 
-		#endregion context menus
+		#endregion CONTEXT MENUS
 
-		void mradioArtikel_CheckedChanged(object sender, EventArgs e)
+		private void mradioArtikel_CheckedChanged(object sender, EventArgs e)
 		{
 			if (this.mradioArtikel.Checked)
 			{
-				this.Style = MetroFramework.MetroColorStyle.Magenta;
-				this.mtxtSearch.Style = MetroFramework.MetroColorStyle.Magenta;
+				this.Style = MetroColorStyle.Magenta;
+				this.mtxtSearch.Style = MetroColorStyle.Magenta;
 				this.mtxtSearch.WaterMark = "Artikel-Nr. oder Artikelname";
+				this.mtileShowRecent.Style = MetroColorStyle.Magenta;
+				this.mtileShowRecent.TileImage = Properties.Resources.product_32_metrowhite;
+				this.mtxtSearch.CustomButton.Invalidate();
+				this.mtileShowRecent.Invalidate();
+
+				var currentProduct = ModelManager.ProductService.CurrentProduct;
+				if (currentProduct == null)
+				{
+					if (this.myRecentProductList.Count == 0)
+					{
+						this.mlnkCurrentElement.Text = string.Empty;
+						this.mlnkCurrentElement.Tag = null;
+						return;
+					}
+					currentProduct = this.myRecentProductList[0];
+				}
+				this.mlnkCurrentElement.Text = currentProduct.Bezeichnung1;
+				this.mlnkCurrentElement.Tag = currentProduct;
+				this.mtxtSearch.Text = string.Empty;
 			}
 			else
 			{
-				this.Style = MetroFramework.MetroColorStyle.Lime;
-				this.mtxtSearch.Style = MetroFramework.MetroColorStyle.Lime;
+				this.Style = MetroColorStyle.Lime;
+				this.mtxtSearch.Style = MetroColorStyle.Lime;
 				this.mtxtSearch.WaterMark = "Kd - Nr, Firma, Seriennummer | STRG + Y = CPM";
+				this.mtileShowRecent.Style = MetroColorStyle.Lime;
+				this.mtileShowRecent.TileImage = Properties.Resources.customer_32_metrowhite;
+				this.mtxtSearch.CustomButton.Invalidate();
+				this.mtileShowRecent.Invalidate();
+
+				var currentCustomer = ModelManager.CustomerService.CurrentCustomer;
+				if (currentCustomer == null)
+				{
+					if (this.myRecentCustomerList.Count == 0)
+					{
+						this.mlnkCurrentElement.Text = string.Empty;
+						this.mlnkCurrentElement.Tag = null;
+						this.mtxtSearch.Text = string.Empty;
+						return;
+					}
+				}
+				currentCustomer = this.myRecentCustomerList[0];
+				this.mlnkCurrentElement.Text = currentCustomer.Matchcode;
+				this.mlnkCurrentElement.Tag = currentCustomer;
+				this.mtxtSearch.Text = string.Empty;
 			}
-			this.Invalidate();
-			this.mtxtSearch.CustomButton.Invalidate();
 		}
 
-		void CpmMainView_KeyUp(object sender, KeyEventArgs e)
+		private void CpmMainView_KeyUp(object sender, KeyEventArgs e)
 		{
 			if (e.Control && e.KeyCode == Keys.Y)
 			{
@@ -288,7 +343,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void CpmMainView_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void CpmMainView_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Middle)
 			{
@@ -296,7 +351,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void txtSearch_KeyUp(object sender, KeyEventArgs e)
+		private void txtSearch_KeyUp(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
@@ -312,7 +367,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void mtxtSearch_ButtonClick(object sender, EventArgs e)
+		private void mtxtSearch_ButtonClick(object sender, EventArgs e)
 		{
 			this.SearchText = this.mtxtSearch.Text;
 			if (this.mradioKunden.Checked)
@@ -325,26 +380,36 @@ namespace Products.Common.Views
 			}
 		}
 
-		void mbtnShowRecentCustomers_Click(object sender, EventArgs e)
+		private void mbtnShowRecentCustomers_Click(object sender, EventArgs e)
 		{
-			var rcv = new RecentCustomerListView(this.myRecentCustomerList);
-			rcv.Show();
+			switch (this.mradioKunden.Checked)
+			{
+				case true:
+				var rcv = new RecentCustomerListView(this, this.myRecentCustomerList);
+				rcv.Show();
+				break;
+
+				case false:
+				var adv = new RecentProductsView(this, this.myRecentProductList);
+				adv.Show();
+				break;
+			}
 		}
 
-		void btnTopMost_Click(object sender, EventArgs e)
+		private void btnTopMost_Click(object sender, EventArgs e)
 		{
 			TopMost = !TopMost;
 			if (!TopMost)
 			{
-				this.btnTopMost.BackgroundImage = global::Products.Common.Properties.Resources.topmost_24_metrogray;
+				this.btnTopMost.BackgroundImage = Properties.Resources.unpin2_24_metrosilver;
 			}
 			else
 			{
-				this.btnTopMost.BackgroundImage = global::Products.Common.Properties.Resources.topmost_24_metrored;
+				this.btnTopMost.BackgroundImage = Properties.Resources.pin_24_metrogreen;
 			}
 		}
 
-		void tBarIcon_MouseClick(object sender, MouseEventArgs e)
+		private void tBarIcon_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
@@ -352,12 +417,12 @@ namespace Products.Common.Views
 			}
 		}
 
-		void picCPM_Click(object sender, EventArgs e)
+		private void picCPM_Click(object sender, EventArgs e)
 		{
 			ShowSettingsView();
 		}
 
-		void CpmMainView_FormClosing(object sender, FormClosingEventArgs e)
+		private void CpmMainView_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (!quit)
 			{
@@ -367,12 +432,12 @@ namespace Products.Common.Views
 			else ModelManager.ReminderService.ShutdownScheduler();
 		}
 
-		void WhatClock_Click(object sender, EventArgs e)
+		private void WhatClock_Click(object sender, EventArgs e)
 		{
 			this.KommWirHaunAbHierUndLassenDenScheiss();
 		}
 
-		void mlblVersion_Click(object sender, EventArgs e)
+		private void mlblVersion_Click(object sender, EventArgs e)
 		{
 			var args = Environment.GetCommandLineArgs();
 			var msg = string.Empty;
@@ -396,20 +461,20 @@ namespace Products.Common.Views
 			MetroMessageBox.Show(this, msg, "Catalist Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-		void mtileQuit_Click(object sender, EventArgs e)
+		private void mtileQuit_Click(object sender, EventArgs e)
 		{
-			this.KommWirHaunAbHierUndLassenDenScheiss();
+			this.Close();
 		}
 
-		#region AppointmentWorker
+		#region APPOINTMENTWORKER
 
-		void AppointmentWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+		private void AppointmentWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			User currentUser = null;
 			try
 			{
 				var bw = sender as BackgroundWorker;
-				var AppointmentListDictionary = new Dictionary<User, SBList<Appointment>>();
+				var AppointmentListDictionary = new Dictionary<User, SortableBindingList<Appointment>>();
 				foreach (var user in ModelManager.UserService.GetActiveUsersList())
 				{
 					currentUser = user;
@@ -419,11 +484,12 @@ namespace Products.Common.Views
 			}
 			catch (Exception ex)
 			{
-				MetroMessageBox.Show(this, string.Format("User: {0}, Fehler: {1}{2}", currentUser, ex.Message + Environment.NewLine, ex.InnerException.Message), "Bullshit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				var msg = $"User: {currentUser}, Fehler: {Environment.NewLine}{ex.InnerException.Message}";
+				MetroMessageBox.Show(this, msg, "Bullshit");
 			}
 		}
 
-		void AppointmentWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+		private void AppointmentWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			var appointmentDictionary = e.Result as Dictionary<User, SortableBindingList<Appointment>>;
 			if (appointmentDictionary != null && appointmentDictionary.Count >= 0)
@@ -432,13 +498,13 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion AppointmentWorker
+		#endregion APPOINTMENTWORKER
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
-		void SetClock()
+		private void SetClock()
 		{
 			DateTime time = DateTime.Now;
 			var isDayLight = TimeZoneInfo.Local.IsDaylightSavingTime(time);
@@ -452,29 +518,31 @@ namespace Products.Common.Views
 			}
 		}
 
-		void ShowReminder(Reminder reminder)
+		private void ShowReminder(Reminder reminder)
 		{
 			var rv = new ReminderView(reminder);
 			rv.Show();
 		}
 
-		void ShowMainView()
+		private void ShowMainView()
 		{
 			if (!this.Visible)
 			{
 				this.WindowState = FormWindowState.Normal;
 				this.Visible = true;
 			}
+			this.TopMost = true;
+			Application.DoEvents();
+			this.TopMost = false;
 		}
 
 		// Delegate function that's called by the SomeoneIsCalling event handler.
-		void ShowCustomerDashboardView(string theCallersId)
+		private void ShowCustomerDashboardView(string theCallersId)
 		{
 			var customerId = Data.DataManager.AllDataService.GetCustomerIdByFonNumber(theCallersId);
 			if (!string.IsNullOrEmpty(customerId))
 			{
 				var customer = ModelManager.CustomerService.GetKunde(customerId, true);
-				//var contact = ModelManager.ContactService.GetKundenkontaktByFonNumber(customerId, theCallersId);
 				Kundenkontakt contact = null;
 				if (customer != null)
 				{
@@ -492,7 +560,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void ShowCalendarView()
+		private void ShowCalendarView()
 		{
 			if (!David.DavidManager.DavidService.Connected)
 			{
@@ -502,7 +570,7 @@ namespace Products.Common.Views
 			ServiceManager.UiService.ShowCalendar();
 		}
 
-		void ShowTaskListView()
+		private void ShowTaskListView()
 		{
 			User currentUser = ModelManager.UserService.CurrentUser;
 			SortableBindingList<Task> taskList = null;
@@ -519,19 +587,19 @@ namespace Products.Common.Views
 			else this.ShowNoCurrentUserMessage();
 		}
 
-		void ShowNoCurrentUserMessage()
+		private void ShowNoCurrentUserMessage()
 		{
 			string msg = "Auf mir unerklärliche Weise ist es Dir gelungen, Catalist zu starten, ohne dabei aktueller Benutzer zu sein. Sowas ...";
 			MetroMessageBox.Show(this, msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
 
-		void ShowNoTasksMessage()
+		private void ShowNoTasksMessage()
 		{
 			string msg = "Du hast im Augenblick keine Aufgaben";
 			MetroMessageBox.Show(this, msg, "Catalist", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-		void CreateCatalog()
+		private void CreateCatalog()
 		{
 			// Select customer
 			var csv = new CustomerSearchView("Für welchen Kunden soll der Katalog erstellt werden?", false);
@@ -550,53 +618,53 @@ namespace Products.Common.Views
 				switch (dlg.SelectedOption)
 				{
 					case 0:
-						makeItShort = true;
-						docx = DocxCreator.ServiceManager.DocXService;
-						newDoc = docx.CreateCatalogDocument(customer, Properties.Settings.Default.CatalogPath, makeItShort);
-						if (MetroMessageBox.Show(this, string.Format(@"Soll die Datei ""{0}"" jetzt geöffnet werden?", newDoc), "Catalist - Katalog", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-						{
-							var progName = "winword.exe";
-							var progPath = string.Format(@"""{0}""", Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge\", newDoc));
-							Process.Start(progName, progPath);
-						}
-						break;
+					makeItShort = true;
+					docx = DocxCreator.ServiceManager.DocXService;
+					newDoc = docx.CreateCatalogDocument(customer, CatalistRegistry.Application.CatalogPath, makeItShort);
+					if (MetroMessageBox.Show(this, string.Format(@"Soll die Datei ""{0}"" jetzt geöffnet werden?", newDoc), "Catalist - Katalog", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						var progName = "winword.exe";
+						var progPath = string.Format(@"""{0}""", Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge\", newDoc));
+						Process.Start(progName, progPath);
+					}
+					break;
 
 					case 1:
-						makeItShort = false;
-						docx = DocxCreator.ServiceManager.DocXService;
-						newDoc = docx.CreateCatalogDocument(customer, Properties.Settings.Default.CatalogPath, makeItShort);
-						if (MetroMessageBox.Show(this, string.Format("Soll die Datei '{0}' jetzt geöffnet werden?", newDoc), "Catalist - Katalog", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-						{
-							var progName = "winword.exe";
-							//string progPath = Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge", newDoc);
-							var progPath = string.Format(@"""{0}""", Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge\", newDoc));
-							Process.Start(progName, progPath);
-						}
-						break;
+					makeItShort = false;
+					docx = DocxCreator.ServiceManager.DocXService;
+					newDoc = docx.CreateCatalogDocument(customer, CatalistRegistry.Application.CatalogPath, makeItShort);
+					if (MetroMessageBox.Show(this, string.Format("Soll die Datei '{0}' jetzt geöffnet werden?", newDoc), "Catalist - Katalog", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						var progName = "winword.exe";
+						//string progPath = Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge", newDoc);
+						var progPath = string.Format(@"""{0}""", Path.Combine(@"\\cpm-dc\sage_ncl\catalist\kundenkataloge\", newDoc));
+						Process.Start(progName, progPath);
+					}
+					break;
 
 					case 2:
-						docx = null;
-						MetroMessageBox.Show(this, "Ganz genau. Gute Wahl. Sollen die Anderen das doch machen ...");
-						break;
+					docx = null;
+					MetroMessageBox.Show(this, "Ganz genau. Gute Wahl. Sollen die Anderen das doch machen ...");
+					break;
 				}
 				docx = null;
 			}
 		}
 
-		void ShowCatalogView()
+		private void ShowCatalogView()
 		{
 			var kv = new KatalogIndexView();
 			kv.ShowDialog();
 			kv.Dispose();
 		}
 
-		void ShowVerwaltungsView()
+		private void ShowVerwaltungsView()
 		{
 			var vv = new VerwaltungsView();
 			vv.Show(this);
 		}
 
-		void ShowSettingsView()
+		private void ShowSettingsView()
 		{
 			var sv = new SettingsView();
 			sv.ShowDialog(this);
@@ -644,7 +712,7 @@ namespace Products.Common.Views
 		//	}
 		//}
 
-		bool SearchCustomer()
+		private bool SearchCustomer()
 		{
 			if (string.IsNullOrEmpty(this.SearchText) || string.IsNullOrWhiteSpace(this.SearchText)) return false;
 
@@ -660,7 +728,7 @@ namespace Products.Common.Views
 			if (list.Count == 1)
 			{
 				var kunde = ModelManager.CustomerService.GetKunde(list[0].Kundennummer, true);
-				if (!this.myRecentCustomerList.Contains(kunde)) this.myRecentCustomerList.Add(kunde);
+				this.AddRecentCustomer(kunde);
 				var kmv = new KundeMainView(kunde);
 				this.Cursor = Cursors.Default;
 				kmv.Show();
@@ -671,7 +739,7 @@ namespace Products.Common.Views
 			if (dlgResult == DialogResult.OK && csv1.SelectedSuchkunde != null)
 			{
 				var kunde = ModelManager.CustomerService.GetKunde(csv1.SelectedSuchkunde.Kundennummer, true);
-				if (!this.myRecentCustomerList.Contains(kunde)) this.myRecentCustomerList.Add(kunde);
+				this.AddRecentCustomer(kunde);
 				var kmv = new KundeMainView(kunde);
 				kmv.Show();
 				return true;
@@ -680,7 +748,7 @@ namespace Products.Common.Views
 			return false;
 		}
 
-		bool SearchProduct()
+		private bool SearchProduct()
 		{
 			errSearch.SetError(mtxtSearch, string.Empty);
 			if (string.IsNullOrEmpty(this.SearchText) || string.IsNullOrWhiteSpace(this.SearchText)) return false;
@@ -699,15 +767,17 @@ namespace Products.Common.Views
 			}
 			if (this.myProductCustomer != null)
 			{
-				if (!this.myRecentCustomerList.Contains(this.myProductCustomer)) this.myRecentCustomerList.Add(this.myProductCustomer);
+				this.AddRecentCustomer(this.myProductCustomer);
 			}
 			else
 			{
-				this.myProductCustomer = ModelManager.CustomerService.GetKunde("1000000000", false);
+				this.myProductCustomer = ModelManager.CustomerService.GetCPM();
 			}
 			var list = ModelManager.ProductService.GetProductList(this.myProductCustomer, this.SearchText);
 			if (list.Count == 1)
 			{
+				this.AddRecentProduct(list[0]);
+				ModelManager.ProductService.CurrentProduct = list[0];
 				var adv = new ArtikelDetailView(list[0], this.myProductCustomer);
 				adv.Show();
 			}
@@ -725,60 +795,268 @@ namespace Products.Common.Views
 			return true;
 		}
 
-		void Psv_ProductChosen(object sender, EventArgs e)
+		private void Psv_ProductChosen(object sender, EventArgs e)
 		{
 			var psv = sender as ProductSearchView;
 			Kunde kunde = this.myProductCustomer;
 			ArtikelDetailView adv = null;
 			if (kunde != null)
 			{
+				this.AddRecentProduct(psv.SelectedProduct);
+				ModelManager.ProductService.CurrentProduct = psv.SelectedProduct;
 				adv = new ArtikelDetailView(psv.SelectedProduct, kunde);
 			}
 			else
 			{
-				adv = new ArtikelDetailView(psv.SelectedProduct, ModelManager.CustomerService.GetKunde("1000000000", false));
+				this.AddRecentProduct(psv.SelectedProduct);
+				ModelManager.ProductService.CurrentProduct = psv.SelectedProduct;
+				adv = new ArtikelDetailView(psv.SelectedProduct, ModelManager.CustomerService.GetCPM());
 			}
 			adv.Show();
 		}
 
-		void mlnkCurrentCustomer_Click(object sender, EventArgs e)
+		private void mlnkCurrentCustomer_Click(object sender, EventArgs e)
 		{
-			var kunde = this.mlnkCurrentCustomer.Tag as Kunde;
-			if (kunde != null)
+			switch (this.mradioArtikel.Checked)
 			{
-				var kmv = new KundeMainView(kunde);
-				kmv.Show();
+				case true:
+				var product = this.mlnkCurrentElement.Tag as Product;
+				if (product != null)
+				{
+					var adv = new ArtikelDetailView(product, ModelManager.CustomerService.GetCPM());
+					adv.Show();
+				}
+				break;
+
+				case false:
+				var kunde = this.mlnkCurrentElement.Tag as Kunde;
+				if (kunde != null)
+				{
+					var kmv = new KundeMainView(kunde);
+					kmv.Show();
+				}
+				break;
 			}
 		}
 
-		void ShowCPM()
+		private void ShowCPM()
 		{
 			var wir = ModelManager.CustomerService.GetKunde("1000000000", true);
 			var kmv = new KundeMainView(wir);
 			kmv.Show();
 		}
 
-		void KommWirHaunAbHierUndLassenDenScheiss()
+		#region RECENT
+
+		private void AddRecentCustomer(Kunde kunde)
 		{
-			var msg = "Feierabend oder watt?";
-			var result = MetroMessageBox.Show(this, msg, "Und Tschüss ...", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+			if (kunde == null || this.myRecentCustomerList.Contains(kunde)) return;
+
+			// Maximal myMaxRecentCustomers Kunden in der Liste
+			var listCount = this.myRecentCustomerList.Count;
+			if (listCount == myMaxRecentCustomers)
+			{
+				this.myRecentCustomerList.RemoveAt(0);
+			}
+			this.myRecentCustomerList.Add(kunde);
+		}
+
+		private void RestoreRecentCustomers()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentCustomers";
+			var key = hKCU.OpenSubKey(regPath);
+			try
+			{
+				if (key == null) return;
+				for (int i = 0; i < key.ValueCount; i++)
+				{
+					var custId = (string)key.GetValue($"Kunde{i + 1}");
+					this.myRecentCustomerList.Add(ModelManager.CustomerService.GetKunde(custId, false));
+				}
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		private void SaveRecentCustomers()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentCustomers";
+			var key = hKCU.OpenSubKey(regPath, true);
+			try
+			{
+				if (key == null) key = hKCU.CreateSubKey(regPath, RegistryKeyPermissionCheck.ReadWriteSubTree);
+				// Alte Liste löschen.
+				this.ClearRecentCustomers();
+
+				int counter = 0;
+				foreach (var kunde in this.myRecentCustomerList)
+				{
+					counter++;
+					var name = $"Kunde{counter}";
+					key.SetValue(name, kunde.CustomerId);
+				}
+				key.Flush();
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		private void ClearRecentCustomers()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentCustomers";
+			var key = hKCU.OpenSubKey(regPath, true);
+			try
+			{
+				if (key == null) return;
+				var valueCount = key.ValueCount;
+				for (int i = 0; i < valueCount; i++)
+				{
+					key.DeleteValue($"Kunde{i + 1}", false);
+				}
+				key.Flush();
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		internal void ClearRecentCustomersList()
+		{
+			this.myRecentCustomerList.Clear();
+		}
+
+		private void AddRecentProduct(Product product)
+		{
+			if (product == null || this.myRecentProductList.Contains(product)) return;
+			ModelManager.ProductService.CurrentProduct = product;
+			var listCount = this.myRecentProductList.Count;
+			if (listCount == myMaxRecentProducts)
+			{
+				this.myRecentProductList.RemoveAt(0);
+			}
+			this.myRecentProductList.Add(product);
+		}
+
+		private void RestoreRecentProducts()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentProducts";
+			var cpm = ModelManager.CustomerService.GetCPM();
+			var key = hKCU.OpenSubKey(regPath);
+			try
+			{
+				if (key == null) return;
+				for (int i = 0; i < key.ValueCount; i++)
+				{
+					var productId = (string)key.GetValue($"Artikel{i + 1}");
+					this.myRecentProductList.Add(ModelManager.ProductService.GetProduct(cpm, productId, false));
+				}
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		private void SaveRecentProducts()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentProducts";
+			var key = hKCU.OpenSubKey(regPath, true);
+			try
+			{
+				if (key == null) key = hKCU.CreateSubKey(regPath, RegistryKeyPermissionCheck.ReadWriteSubTree);
+				// Zunächst ggf. vorhandene Einträge löschen.
+				this.ClearRecentProducts();
+
+				int counter = 0;
+				foreach (var product in this.myRecentProductList)
+				{
+					counter++;
+					var name = $"Artikel{counter}";
+					key.SetValue(name, product.Artikelnummer);
+				}
+				key.Flush();
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		private void ClearRecentProducts()
+		{
+			var hKCU = Microsoft.Win32.Registry.CurrentUser;
+			var regPath = @"Software\UllrichIT\Catalist\RecentProducts";
+			var key = hKCU.OpenSubKey(regPath, true);
+			try
+			{
+				if (key == null) return;
+				var valueCount = key.ValueCount;
+				for (int i = 0; i < valueCount; i++)
+				{
+					key.DeleteValue($"Artikel{i + 1}", false);
+				}
+				key.Flush();
+			}
+			finally
+			{
+				if (key != null) key.Dispose();
+			}
+		}
+
+		internal void ClearRecentProductsList()
+		{
+			this.myRecentProductList.Clear();
+		}
+
+		#endregion RECENT
+
+		private void KommWirHaunAbHierUndLassenDenScheiss()
+		{
+			var msg = $"{Environment.NewLine}Dann, bis dahin ...";
+			var result = MetroMessageBox.Show(this, msg, "War's das?", MessageBoxButtons.YesNo);
 			if (result == DialogResult.Yes)
 			{
 				this.quit = true;
+				this.SaveRecentCustomers();
+				this.SaveRecentProducts();
 				this.Close();
 			}
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 
 		#region TESTING
 
-		void btnTest_Click(object sender, EventArgs e)
+		private void btnTest_Click(object sender, EventArgs e)
 		{
-			this.TestMe10();
+			this.TestMe7();
 		}
 
-		void TestMe10()
+		private void TestMe12()
+		{
+			var wartungsListe = ModelManager.AppointmentService.GetWartungsliste();
+			MetroMessageBox.Show(this, $"Der Kunde für den 27. Wartungstermin heißt {wartungsListe[26].Kunde.CompanyName1}");
+			MetroMessageBox.Show(this, $"Bisher wurden insgesamt {wartungsListe.Count} Wartungs- und Servicetermine durchgeführt und erfasst.");
+		}
+
+		private void TestMe11()
+		{
+			var filesMoved = ModelManager.FileLinkService.MoveFilesToMachineFolders();
+			var msg = $"Ich habe {filesMoved} Maschinendateien vom Server auf die NASE kopiert.";
+			MetroMessageBox.Show(this, msg, "Voll die Dateiverschiebeaktion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void TestMe10()
 		{
 			var kundeA = ModelManager.CustomerService.GetKunde("4901100000", false);
 			var kundeB = ModelManager.CustomerService.GetKunde("4988900000", false);
@@ -794,12 +1072,12 @@ namespace Products.Common.Views
 			tv.Show();
 		}
 
-		void mbtnTestMe_Click(object sender, EventArgs e)
+		private void mbtnTestMe_Click(object sender, EventArgs e)
 		{
 			this.TestMe4();
 		}
 
-		void TestMe()
+		private void TestMe()
 		{
 			var list = new List<double> { 5100.0, 4900.0, 5000.0, 5000.0, 5000.0, 6000.0, 5000.0, 5000.0, 5000.0, 5000.0 };
 			var mean = list.Mean();
@@ -811,7 +1089,7 @@ namespace Products.Common.Views
 			MetroMessageBox.Show(this, string.Format("Mittel: {0}\nMedian: {1}\nStandardabweichung: {2}\nAbweichung in Prozent: ({3}%)", values));
 		}
 
-		void OldTest_Click(object sender, EventArgs e)
+		private void OldTest_Click(object sender, EventArgs e)
 		{
 			var klv = new KalenderListeView(ModelManager.UserService.CurrentUser);
 			if (klv.ShowDialog() == DialogResult.OK)
@@ -821,7 +1099,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void TestMe1()
+		private void TestMe1()
 		{
 			int i = 0;
 			string searchHere = @"C:\Windows\System32\";
@@ -838,7 +1116,7 @@ namespace Products.Common.Views
 			MetroMessageBox.Show(this, string.Format("{0} Dateien nach '{1}' durchsucht und nicht gefunden.", i, searchFor));
 		}
 
-		void TestMe2()
+		private void TestMe2()
 		{
 			foreach (var item in ModelManager.UserService.CurrentUser.Reminderliste)
 			{
@@ -846,18 +1124,19 @@ namespace Products.Common.Views
 			}
 		}
 
-		void TestMe3()
+		private void TestMe3()
 		{
 			var kv = new KalenderView(new ViewController.CalendarViewController(ModelManager.UserService.CurrentUser));
 			kv.Show();
 		}
 
-		void TestMe4()
+		private void TestMe4()
 		{
-			var terminListe = ModelManager.AppointmentService.GetAppointmentList("4810500000", "0f941eeb-9a48-4469-b6bf-a65c70e5dfe6");
+			var bungert = ModelManager.CustomerService.GetKunde("4810500000", false);
+			var terminListe = ModelManager.AppointmentService.GetAppointmentList(bungert);
 		}
 
-		void TestMe5()
+		private void TestMe5()
 		{
 			var attachmentList = David.DavidManager.DavidService.GetAttachments(@"\\david\david\archive\group\4");
 			if (attachmentList != null)
@@ -871,7 +1150,7 @@ namespace Products.Common.Views
 			}
 		}
 
-		void TestMe6()
+		private void TestMe6()
 		{
 			var av = new AngeboteListView();
 			av.Show();
@@ -880,13 +1159,15 @@ namespace Products.Common.Views
 			pcv.Show();
 		}
 
-		void TestMe7()
+		private void TestMe7()
 		{
-			var wvv = new WartungsvorschlagView(ModelManager.MachineService.CreateWartungsplanungTable());
+			var kunde = ModelManager.CustomerService.GetKunde("3377500000", false);
+			var wvv = new WartungsvorschlagView(kunde);
+			//var wvv = new WartungsvorschlagView(ModelManager.MachineService.CreateWartungsplanungTable());
 			wvv.Show();
 		}
 
-		void TestMe8()
+		private void TestMe8()
 		{
 			try
 			{
@@ -903,7 +1184,7 @@ namespace Products.Common.Views
 
 		#endregion TESTING
 
-		void TestMe9()
+		private void TestMe9()
 		{
 			var la1 = 38.304455;
 			var lo1 = -0.599458;

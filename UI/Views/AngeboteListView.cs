@@ -8,13 +8,12 @@ namespace Products.Common.Views
 {
 	public partial class AngeboteListView : MetroForm
 	{
-
 		#region members
 
 		readonly Kunde myKunde;
 		Angebot mySelectedAngebot;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -28,7 +27,7 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region event handler
 
@@ -37,7 +36,7 @@ namespace Products.Common.Views
 			this.Close();
 		}
 
-		#endregion
+		#endregion event handler
 
 		#region private procedures
 
@@ -57,7 +56,7 @@ namespace Products.Common.Views
 			this.dgvAngebote.RowEnter += DgvAngebote_RowEnter;
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region event handler
 
@@ -84,7 +83,14 @@ namespace Products.Common.Views
 			elv.ShowDialog();
 		}
 
-		#endregion
+		#endregion event handler
 
+		void xcmdOpenInSage_Click(object sender, EventArgs e)
+		{
+			var shorty = Model.ModelManager.UserService.CurrentUser.SageLoginName;
+			var angebot = this.mySelectedAngebot.Nummer;
+			var kundePK = this.mySelectedAngebot.Kunde.KundenNrCpm;
+			SageBridge.ServiceManager.SageService.StartSageApp(SageBridge.Services.SageService.SageAppType.Angebot, shorty, angebot, kundePK);
+		}
 	}
 }

@@ -77,7 +77,7 @@ namespace Products.Model.Entities
 			{
 				if (!string.IsNullOrEmpty(this.myBase.Bearbeiter))
 				{
-					var user = ModelManager.UserService.FindUser(this.myBase.Bearbeiter, Services.UserService.UserSearchParamType.SageEmployeeId);
+					var user = ModelManager.UserService.GetUser(this.myBase.Bearbeiter, Services.UserService.UserSearchParamType.SageEmployeeId);
 					if (user != null) return user.NameFull;
 				}
 				return "Unbekannt";

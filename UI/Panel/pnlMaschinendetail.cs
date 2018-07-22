@@ -519,6 +519,7 @@ namespace Products.Common.Panel
 			{
 				// Dateipfad der Serie ermitteln z. B.: "\\NASE82002\technik\Service Maschinen\Mimaki\CJV\CJV30"
 				var pfadSerie = this.myMachine.Maschinenserie.Dateipfad;
+				var modell = this.myMachine.Modellbezeichnung.Replace("/", "_");
 
 				// Ordner für die Maschine zusammenbauen. Schema: "Modell +_+ Seriennummer + (Kundenmatchcode)"
 				var ordnerMaschine = string.Format("{0}_{1} ({2})", this.myMachine.Modellbezeichnung, this.myMachine.Seriennummer, this.myMachine.CurrentOwner.Matchcode.Replace("/", "_"));

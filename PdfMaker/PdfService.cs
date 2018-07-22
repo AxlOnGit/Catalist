@@ -63,7 +63,7 @@ namespace Products.PdfMaker
 			{
 				ResetVars();
 				myOffer = offer;
-				var fileAndPath = Path.Combine(Common.Global.OfferFilePath, offer.OfferId + ".pdf");
+				var fileAndPath = Path.Combine(CatalistRegistry.Application.OfferFilePath, offer.OfferId + ".pdf");
 
 				if (File.Exists(fileAndPath))
 				{
@@ -101,7 +101,7 @@ namespace Products.PdfMaker
 			const double fontSize = 10.0;
 			bool isOffer = (this.myOffer.Bestellkennzeichen | asOrder);
 
-			string fullName = Path.Combine(Common.Global.OfferFilePath, offer.OfferId + ".pdf");
+			string fullName = Path.Combine(CatalistRegistry.Application.OfferFilePath, offer.OfferId + ".pdf");
 			doc = new PdfDocument(PaperType.A4, false, UnitOfMeasure.mm, fullName);
 			doc.Debug = false;
 			page = new PdfPage(doc);
@@ -118,7 +118,7 @@ namespace Products.PdfMaker
 			descent = fontDefault.Descent(fontSize);
 
 			// Header
-			string imagePath = Path.Combine(Common.Global.PicturePath, "briefkopf.png");
+			string imagePath = Path.Combine(CatalistRegistry.Application.PicturePath, "briefkopf.png");
 			img = new PdfImage(doc, imagePath);
 			content.DrawImage(img, 5, pageHeight - 27.9 - 5, 199.6, 27.4);
 			content.DrawLine(xLeftMargin - 5, pageHeight - 27.9 - 5 - 2, xRightMargin + 5, pageHeight - 27.9 - 5 - 2);

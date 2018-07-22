@@ -9,12 +9,11 @@ namespace Products.Model.Entities
 {
 	public class WartungsTour : ILinkedItem
 	{
-
 		#region members
 
-		readonly dsTechnik.WartungstourRow myBase;
+		private readonly dsTechnik.WartungstourRow myBase;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
@@ -65,7 +64,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion ILinkedItem
 
 		/// <summary>
 		/// Gibt den Techniker (Benutzer) dieser Wartungstour  zurück.
@@ -74,14 +73,14 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return ModelManager.UserService.FindUser(this.myBase.TechnikerId, Services.UserService.UserSearchParamType.PrimaryKey);
+				return ModelManager.UserService.GetUser(this.myBase.TechnikerId, Services.UserService.UserSearchParamType.PrimaryKey);
 			}
 		}
 
 		/// <summary>
 		/// Gibt eine Liste der Termine dieser Wartungstour zurück.
 		/// </summary>
-		public SBList<Appointment> TerminListe
+		public SortableBindingList<Appointment> TerminListe
 		{
 			get
 			{
@@ -100,7 +99,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -113,7 +112,6 @@ namespace Products.Model.Entities
 			this.myBase = baseRow;
 		}
 
-		#endregion
-
+		#endregion ### .ctor ###
 	}
 }

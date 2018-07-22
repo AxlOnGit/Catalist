@@ -78,7 +78,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public User Owner
 		{
-			get { return ModelManager.UserService.FindUser(this.myBase.OwnerUid, Services.UserService.UserSearchParamType.PrimaryKey); }
+			get { return ModelManager.UserService.GetUser(this.myBase.OwnerUid, Services.UserService.UserSearchParamType.PrimaryKey); }
 		}
 
 		/// <summary>
@@ -102,7 +102,7 @@ namespace Products.Model.Entities
 		/// </summary>
 		public User Responsible
 		{
-			get { return ModelManager.UserService.FindUser(this.myBase.ResponsibleUid, Services.UserService.UserSearchParamType.PrimaryKey); }
+			get { return ModelManager.UserService.GetUser(this.myBase.ResponsibleUid, Services.UserService.UserSearchParamType.PrimaryKey); }
 		}
 
 		/// <summary>

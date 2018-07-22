@@ -70,5 +70,22 @@ namespace Products.Common.Views
 
 		#endregion
 
+		private void mbtnPreloadUserCalendars_Click(object sender, EventArgs e)
+		{
+			var usv = new UserSearchView();
+			if (usv.ShowDialog() == DialogResult.OK)
+			{
+				var userList = usv.SelectedUsers;
+				if (userList.Count > 0)
+				{
+					var userCals = new string[userList.Count];
+					for (int i = 0; i < userList.Count; i++)
+					{
+						userCals[i] = userList[i].UID;
+					}
+					CatalistRegistry.CalendarSettings.SetPreloadUserList(userCals);
+				}
+			}
+		}
 	}
 }

@@ -18,9 +18,10 @@ namespace Products.Common.Panel
 	{
 		#region members
 
-		readonly KundeMainView myParent;
-		readonly Kunde myKunde;
-		Notiz mySelectedNotiz;
+		private readonly KundeMainView myParent;
+		private readonly Kunde myKunde;
+		private readonly string nl = Environment.NewLine;
+		private Notiz mySelectedNotiz;
 
 		#endregion members
 
@@ -42,39 +43,39 @@ namespace Products.Common.Panel
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
-		void btnAddNote_Click(object sender, EventArgs e)
+		private void btnAddNote_Click(object sender, EventArgs e)
 		{
 			this.AddNote();
 		}
 
-		void xcmdAddNote_Click(object sender, EventArgs e)
+		private void xcmdAddNote_Click(object sender, EventArgs e)
 		{
 			this.AddNote();
 		}
 
-		void btnShowNote_Click(object sender, EventArgs e)
+		private void btnShowNote_Click(object sender, EventArgs e)
 		{
 			this.ShowNote();
 		}
 
-		void xcmdShowNote_Click(object sender, EventArgs e)
+		private void xcmdShowNote_Click(object sender, EventArgs e)
 		{
 			this.ShowNote();
 		}
 
-		void btnDeleteNotiz_Click(object sender, EventArgs e)
+		private void btnDeleteNotiz_Click(object sender, EventArgs e)
 		{
 			this.DeleteNote();
 		}
 
-		void xcmdDeleteNote_Click(object sender, EventArgs e)
+		private void xcmdDeleteNote_Click(object sender, EventArgs e)
 		{
 			this.DeleteNote();
 		}
 
-		void dgvNotizen_RowEnter(object sender, DataGridViewCellEventArgs e)
+		private void dgvNotizen_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			this.mySelectedNotiz = this.dgvNotizen.Rows[e.RowIndex].DataBoundItem as Notiz;
 			if (mySelectedNotiz != null)
@@ -83,28 +84,32 @@ namespace Products.Common.Panel
 			}
 		}
 
-		void dgvNotizen_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void dgvNotizen_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			this.ShowNote();
 		}
 
-		void mlnkFontSize_Click(object sender, EventArgs e)
+		private void mlnkFontSize_Click(object sender, EventArgs e)
 		{
 			if (this.mtxtNotiztext.FontSize == MetroTextBoxSize.Tall) this.mtxtNotiztext.FontSize = MetroTextBoxSize.Small;
 			this.mtxtNotiztext.FontSize += 1;
 		}
 
-		#endregion event handler
+		private void mbtnInsertClipboardClean_Click(object sender, EventArgs e)
+		{
+		}
+
+		#endregion EVENT HANDLER
 
 		#region private procedures
 
-		void InitializeData()
+		private void InitializeData()
 		{
 			this.dgvNotizen.AutoGenerateColumns = false;
 			this.dgvNotizen.DataSource = myKunde.Notizlist.Sort("AssignedAt", ListSortDirection.Descending);
 		}
 
-		void AddNote()
+		private void AddNote()
 		{
 			var builder = new NoteBuilder(this.myKunde, this.myKunde, this.myKunde.Kontaktlist.FirstOrDefault(k => k.MainContactFlag == true).Nummer);
 			var note = ModelManager.NotesService.AddNote(builder);
@@ -112,7 +117,7 @@ namespace Products.Common.Panel
 			nv.Show();
 		}
 
-		void ShowNote()
+		private void ShowNote()
 		{
 			if (this.mySelectedNotiz != null)
 			{
@@ -121,7 +126,7 @@ namespace Products.Common.Panel
 			}
 		}
 
-		void DeleteNote()
+		private void DeleteNote()
 		{
 			var msg = string.Empty;
 			if (this.mySelectedNotiz != null && this.mySelectedNotiz.GetCanDelete())

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Products.OfficeBridge
+﻿namespace Products.OfficeBridge
 {
 	public static class ServiceManager
 	{
 		#region members
 
 		static Services.ExcelService myExcelService;
+		static Services.InstChecklistCreator myInstChecklistCreator;
+		static Services.InstReportCreator myInstReportCreator;
 
 		#endregion members
 
@@ -28,6 +24,31 @@ namespace Products.OfficeBridge
 			}
 		}
 
-		#endregion public properties
+		/// <summary>
+		/// Gibt den statischen singleton <seealso cref="Services.InstChecklistCreator"/>
+		/// des Systems zurück.
+		/// </summary>
+		public static Services.InstChecklistCreator InstallationChecklistCreator
+		{
+			get
+			{
+				if (myInstChecklistCreator == null) myInstChecklistCreator = new Services.InstChecklistCreator();
+				return myInstChecklistCreator;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton <seealso cref="InstallationReportCreator"/> des Systems zurück.
+		/// </summary>
+		public static Services.InstReportCreator InstallationReportCreator
+		{
+			get
+			{
+				if (myInstReportCreator == null) myInstReportCreator = new Services.InstReportCreator();
+				return myInstReportCreator;
+			}
+		}
+
+		#endregion PUBLIC PROPERTIES
 	}
 }

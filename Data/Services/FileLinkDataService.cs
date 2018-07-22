@@ -1,33 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Products.Data.Datasets;
-using Products.Data.Datasets.dsFileLinksTableAdapters;
 using System.IO;
-using Products.Common;
-using Products.Common.Interfaces;
+using System.Linq;
+using Products.Data.Datasets;
+using Products.Data.Datasets.dsFileLinkTableAdapters;
 
 namespace Products.Data.Services
 {
 	public class FileLinkDataService
 	{
-
 		#region events
 
 		public event EventHandler<FileLinkRowsCreatedEventArgs> FileLinkRowsCreated;
 
-		#endregion
+		#endregion events
 
 		#region members
 
 		readonly string myCurrentUserPK;
-		readonly dsFileLinks myDS = new dsFileLinks();
+		readonly dsFileLink myDS = new dsFileLink();
 		readonly taFileLink myFileLinkAdapter = new taFileLink();
 		readonly taFileLinkXref myFileLinkXrefAdapter = new taFileLinkXref();
 		readonly taFileLinkQueries myFileLinkQueryAdapter = new taFileLinkQueries();
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -41,7 +37,7 @@ namespace Products.Data.Services
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -52,10 +48,10 @@ namespace Products.Data.Services
 		/// <param name="fileInfo"></param>
 		/// <param name="linkedItemPK"></param>
 		/// <param name="linkedItemTypePK"></param>
-		public dsFileLinks.FileLinkRow AddFileLinkRows(string oldFilename, FileInfo fileInfo, string linkedItemPK, string linkedItemTypePK)
+		public dsFileLink.FileLinkRow AddFileLinkRows(string oldFilename, FileInfo fileInfo, string linkedItemPK, string linkedItemTypePK)
 		{
-			dsFileLinks.FileLinkRow fRow = null;
-			dsFileLinks.FileLinkXrefRow xRow = null;
+			dsFileLink.FileLinkRow fRow = null;
+			dsFileLink.FileLinkXrefRow xRow = null;
 
 			// Wenn es für diese Datei noch keine FileLinkRow gibt ...
 			if (this.myDS.FileLink.Count(f => f.FullName == fileInfo.FullName) <= 0)
@@ -97,17 +93,17 @@ namespace Products.Data.Services
 		/// </summary>
 		/// <param name="linkedItemPK"></param>
 		/// <returns></returns>
-		public List<dsFileLinks.FileLinkRow> GetFileLinkRows(string linkedItemPK)
+		public List<dsFileLink.FileLinkRow> GetFileLinkRows(string linkedItemPK)
 		{
-			var list = new List<dsFileLinks.FileLinkRow>();
-			var xRefs = this.myDS.FileLinkXref.Where (x => x.LinkedItemId == linkedItemPK);
+			var list = new List<dsFileLink.FileLinkRow>();
+			var xRefs = this.myDS.FileLinkXref.Where(x => x.LinkedItemId == linkedItemPK);
 			foreach (var xref in xRefs)
 			{
 				var fLink = this.myDS.FileLink.FirstOrDefault(f => f.FullName == xref.FullName);
-				if(fLink != null) list.Add(fLink);
+				if (fLink != null) list.Add(fLink);
 			}
 
-			if(list.Count > 0) return list;
+			if (list.Count > 0) return list;
 			return null;
 		}
 
@@ -144,6 +140,16 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
+		/// Tabelle mit Infos zu den Dateien auf dem Server, die mit Maschinen verknüpft sind.
+		/// </summary>
+		/// <returns></returns>
+		public dsFileLink.ServerMachineLinkDataTable GetServerMachineLinkTable()
+		{
+			var adapter = new taServerMachineLink();
+			return adapter.GetData();
+		}
+
+		/// <summary>
 		/// Aktualisiert alle Änderungen der FileLink- und FileLinkXref-Tabellen.
 		/// </summary>
 		/// <returns></returns>
@@ -156,7 +162,7 @@ namespace Products.Data.Services
 			return result;
 		}
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -166,28 +172,28 @@ namespace Products.Data.Services
 			this.myFileLinkXrefAdapter.Fill(this.myDS.FileLinkXref);
 		}
 
-		#endregion
+		#endregion private procedures
 
 		#region sub classes
 
 		public class FileLinkRowsCreatedEventArgs : EventArgs
 		{
-			public dsFileLinks.FileLinkRow FileLinkRow { get; private set; }
-			public dsFileLinks.FileLinkXrefRow FileLinkXrefRow { get; private set; }
+			public dsFileLink.FileLinkRow FileLinkRow { get; private set; }
+
+			public dsFileLink.FileLinkXrefRow FileLinkXrefRow { get; private set; }
 
 			/// <summary>
 			/// Erzeugt eine neue Instanz der FileLinkRowsCreatedEventArgs Klasse.
 			/// </summary>
 			/// <param name="fileLinkRow">Die neue erstellte FileLinkRow.</param>
 			/// <param name="fileLinkXrefRow">Die neu erstellte FileLinkXrefRow.</param>
-			public FileLinkRowsCreatedEventArgs(dsFileLinks.FileLinkRow fileLinkRow, dsFileLinks.FileLinkXrefRow fileLinkXrefRow)
+			public FileLinkRowsCreatedEventArgs(dsFileLink.FileLinkRow fileLinkRow, dsFileLink.FileLinkXrefRow fileLinkXrefRow)
 			{
 				this.FileLinkRow = fileLinkRow;
 				this.FileLinkXrefRow = fileLinkXrefRow;
 			}
 		}
 
-		#endregion
-
+		#endregion sub classes
 	}
 }

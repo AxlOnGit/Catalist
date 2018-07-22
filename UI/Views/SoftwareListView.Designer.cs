@@ -79,8 +79,8 @@
 			this.dgvSoftware.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvSoftware.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.dgvSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvSoftware.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvSoftware.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvSoftware.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -95,11 +95,11 @@
 			this.dgvSoftware.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvSoftware.ColumnHeadersHeight = 20;
 			this.dgvSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSoftware,
-            this.colInstDatum,
-            this.colHauptbenutzerr,
-            this.colComputa,
-            this.colLizenzschluessell});
+						this.colSoftware,
+						this.colInstDatum,
+						this.colHauptbenutzerr,
+						this.colComputa,
+						this.colLizenzschluessell});
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -184,9 +184,9 @@
 			// 
 			// mtxtAnmerkungen
 			// 
-			this.mtxtAnmerkungen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.mtxtAnmerkungen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
 			// 
@@ -223,7 +223,7 @@
 			// 
 			this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnNew.BackColor = System.Drawing.Color.Transparent;
-			this.btnNew.BackgroundImage = global::Products.Common.Properties.Resources.Add_metrogblue;
+			this.btnNew.BackgroundImage = global::Products.Common.Properties.Resources.add_16_metroblue;
 			this.btnNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.btnNew.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btnNew.FontSize = MetroFramework.MetroButtonSize.Medium;

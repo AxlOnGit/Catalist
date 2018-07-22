@@ -60,7 +60,7 @@
               <DbSource ConnectionRef="conLiveToSage (Settings)" DbObjectName="sagecl_mandant001.kunden" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>Select Kundennummer, Name1, Name2, Strasse, Postleitzahl, Ort, Sperrvermerk1, Sperrvermerk2, Sperrvermerk3, Kurzbezeichnung, Zahlungskond_1_TageNetto, Zahlungskond_1_TageSkonto1, Zahlungskond_1_Prozent1, Ansprechpartner_Nummer, Anlagedatum, Vertreter1, Statuskennzeichen From kunden</CommandText>
+                    <CommandText>Select Kundennummer, Name1, Name2, Strasse, Postleitzahl, Ort, Sperrvermerk1, Sperrvermerk2, Sperrvermerk3, Kurzbezeichnung, Zahlungskond_1_TageNetto, Zahlungskond_1_TageSkonto1, Zahlungskond_1_Prozent1, Ansprechpartner_Nummer, Anlagedatum, Vertreter1, Statuskennzeichen, Laendercode From kunden</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -84,6 +84,7 @@
               <Mapping SourceColumn="Anlagedatum" DataSetColumn="Anlagedatum" />
               <Mapping SourceColumn="Vertreter1" DataSetColumn="Vertreter1" />
               <Mapping SourceColumn="Statuskennzeichen" DataSetColumn="Statuskennzeichen" />
+              <Mapping SourceColumn="Laendercode" DataSetColumn="Laendercode" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -184,7 +185,7 @@
   <xs:element name="dsCustomer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCustomer" msprop:Generator_UserDSName="dsCustomer">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="KundenSuche" msprop:Generator_TableClassName="KundenSucheDataTable" msprop:Generator_TableVarName="tableKundenSuche" msprop:Generator_TablePropName="KundenSuche" msprop:Generator_RowDeletingName="KundenSucheRowDeleting" msprop:Generator_RowChangingName="KundenSucheRowChanging" msprop:Generator_RowEvHandlerName="KundenSucheRowChangeEventHandler" msprop:Generator_RowDeletedName="KundenSucheRowDeleted" msprop:Generator_UserTableName="KundenSuche" msprop:Generator_RowChangedName="KundenSucheRowChanged" msprop:Generator_RowEvArgName="KundenSucheRowChangeEvent" msprop:Generator_RowClassName="KundenSucheRow">
+        <xs:element name="KundenSuche" msprop:Generator_TableClassName="KundenSucheDataTable" msprop:Generator_TableVarName="tableKundenSuche" msprop:Generator_RowChangedName="KundenSucheRowChanged" msprop:Generator_TablePropName="KundenSuche" msprop:Generator_RowDeletingName="KundenSucheRowDeleting" msprop:Generator_RowChangingName="KundenSucheRowChanging" msprop:Generator_RowEvHandlerName="KundenSucheRowChangeEventHandler" msprop:Generator_RowDeletedName="KundenSucheRowDeleted" msprop:Generator_RowClassName="KundenSucheRow" msprop:Generator_UserTableName="KundenSuche" msprop:Generator_RowEvArgName="KundenSucheRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Typ" msprop:Generator_ColumnVarNameInTable="columnTyp" msprop:Generator_ColumnPropNameInRow="Typ" msprop:Generator_ColumnPropNameInTable="TypColumn" msprop:Generator_UserColumnName="Typ" type="xs:string" />
@@ -204,7 +205,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CustomerInfo" msprop:Generator_TableClassName="CustomerInfoDataTable" msprop:Generator_TableVarName="tableCustomerInfo" msprop:Generator_RowChangedName="CustomerInfoRowChanged" msprop:Generator_TablePropName="CustomerInfo" msprop:Generator_RowDeletingName="CustomerInfoRowDeleting" msprop:Generator_RowChangingName="CustomerInfoRowChanging" msprop:Generator_RowEvHandlerName="CustomerInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerInfoRowDeleted" msprop:Generator_RowClassName="CustomerInfoRow" msprop:Generator_UserTableName="CustomerInfo" msprop:Generator_RowEvArgName="CustomerInfoRowChangeEvent">
+        <xs:element name="CustomerInfo" msprop:Generator_TableClassName="CustomerInfoDataTable" msprop:Generator_TableVarName="tableCustomerInfo" msprop:Generator_TablePropName="CustomerInfo" msprop:Generator_RowDeletingName="CustomerInfoRowDeleting" msprop:Generator_RowChangingName="CustomerInfoRowChanging" msprop:Generator_RowEvHandlerName="CustomerInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerInfoRowDeleted" msprop:Generator_UserTableName="CustomerInfo" msprop:Generator_RowChangedName="CustomerInfoRowChanged" msprop:Generator_RowEvArgName="CustomerInfoRowChangeEvent" msprop:Generator_RowClassName="CustomerInfoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
@@ -259,7 +260,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Customer" msprop:Generator_TableClassName="CustomerDataTable" msprop:Generator_TableVarName="tableCustomer" msprop:Generator_TablePropName="Customer" msprop:Generator_RowDeletingName="CustomerRowDeleting" msprop:Generator_RowChangingName="CustomerRowChanging" msprop:Generator_RowEvHandlerName="CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerRowDeleted" msprop:Generator_UserTableName="Customer" msprop:Generator_RowChangedName="CustomerRowChanged" msprop:Generator_RowEvArgName="CustomerRowChangeEvent" msprop:Generator_RowClassName="CustomerRow">
+        <xs:element name="Customer" msprop:Generator_TableClassName="CustomerDataTable" msprop:Generator_TableVarName="tableCustomer" msprop:Generator_RowChangedName="CustomerRowChanged" msprop:Generator_TablePropName="Customer" msprop:Generator_RowDeletingName="CustomerRowDeleting" msprop:Generator_RowChangingName="CustomerRowChanging" msprop:Generator_RowEvHandlerName="CustomerRowChangeEventHandler" msprop:Generator_RowDeletedName="CustomerRowDeleted" msprop:Generator_RowClassName="CustomerRow" msprop:Generator_UserTableName="Customer" msprop:Generator_RowEvArgName="CustomerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">
@@ -357,10 +358,17 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Laendercode" msprop:Generator_ColumnVarNameInTable="columnLaendercode" msprop:Generator_ColumnPropNameInRow="Laendercode" msprop:Generator_ColumnPropNameInTable="LaendercodeColumn" msprop:Generator_UserColumnName="Laendercode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Kunde" msprop:Generator_TableClassName="KundeDataTable" msprop:Generator_TableVarName="tableKunde" msprop:Generator_TablePropName="Kunde" msprop:Generator_RowDeletingName="KundeRowDeleting" msprop:Generator_RowChangingName="KundeRowChanging" msprop:Generator_RowEvHandlerName="KundeRowChangeEventHandler" msprop:Generator_RowDeletedName="KundeRowDeleted" msprop:Generator_UserTableName="Kunde" msprop:Generator_RowChangedName="KundeRowChanged" msprop:Generator_RowEvArgName="KundeRowChangeEvent" msprop:Generator_RowClassName="KundeRow">
+        <xs:element name="Kunde" msprop:Generator_TableClassName="KundeDataTable" msprop:Generator_TableVarName="tableKunde" msprop:Generator_RowChangedName="KundeRowChanged" msprop:Generator_TablePropName="Kunde" msprop:Generator_RowDeletingName="KundeRowDeleting" msprop:Generator_RowChangingName="KundeRowChanging" msprop:Generator_RowEvHandlerName="KundeRowChangeEventHandler" msprop:Generator_RowDeletedName="KundeRowDeleted" msprop:Generator_RowClassName="KundeRow" msprop:Generator_UserTableName="Kunde" msprop:Generator_RowEvArgName="KundeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Kundennummer" msprop:Generator_ColumnVarNameInTable="columnKundennummer" msprop:Generator_ColumnPropNameInRow="Kundennummer" msprop:Generator_ColumnPropNameInTable="KundennummerColumn" msprop:Generator_UserColumnName="Kundennummer">

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using Products.Common;
-using Products.Data;
 using Products.Data.Datasets;
 using Products.Data.Datasets.dsMachinesTableAdapters;
 
@@ -18,20 +16,23 @@ namespace Products.Data.Services
 
 		#endregion events
 
-		#region members
+		#region MEMBERS
 
-		string myCurrentUserPK;
+		private string myCurrentUserPK;
 
 		#region Dataset und Adapter
 
-		dsMachines myMachinesDS;
-		taKundeMaschineXref myKundeMaschineXrefAdapter;
-		taKundenMaschine myKundenMaschineAdapter;
-		readonly taKundenmaschinenListe myKundenmaschinenListeAdapter = new taKundenmaschinenListe();
+		private dsMachines myMachinesDS;
+		private taKundeMaschineXref myKundeMaschineXrefAdapter;
+		private taKundenMaschine myKundenMaschineAdapter;
+		private taMaschinenauftrag myMaschinenauftragAdapter;
+
+		private readonly taKundenmaschinenListe myKundenmaschinenListeAdapter = new taKundenmaschinenListe();
+		private readonly taWartungsListe myWartungslisteAdapter = new taWartungsListe();
 
 		#endregion Dataset und Adapter
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region ### .ctor
 
@@ -46,7 +47,9 @@ namespace Products.Data.Services
 
 		#endregion ### .ctor
 
-		#region public procedures
+		#region PUBLIC PROCEDURES
+
+		#region KUNDENMASCHINE
 
 		/// <summary>
 		/// Erstellt eine neue KundenMaschineRow für den angegebenen Kunden.
@@ -54,32 +57,21 @@ namespace Products.Data.Services
 		/// <param name="kundePK"></param>
 		/// <returns></returns>
 		/// <remarks></remarks>
-		public MachineBuildParams AddKundenMaschineRow(string kundePK, string createdByPK)
+		public MachineCreationParams NewKundenmaschineRows(string kundePK, string maschinenmodellPK, string createdByPK, string seriennummer)
 		{
 			// Neue Zeile in Tabelle Kundenmaschine einfügen.
 			var mRow = this.myMachinesDS.KundenMaschine.NewKundenMaschineRow();
 			mRow.UID = SequentialGuid.NewSequentialGuid().ToString();
 			mRow.Kundennummer = kundePK;
-			mRow.MaschinenmodellId = "00000000-0000-0000-0000-000000000000";
-			//mRow.Seriennummer = "-";
-			//mRow.Firmware = "-";
-			//mRow.SetHaendlerNull();
-			//mRow.Auftragsdatum = DateTime.Today;
-			//mRow.Lieferdatum = DateTime.Today;
+			mRow.MaschinenmodellId = maschinenmodellPK;
+			mRow.Seriennummer = (!string.IsNullOrEmpty(seriennummer)) ? seriennummer : string.Empty;
 			mRow.LeasingFlag = "0";
 			mRow.MietkaufFlag = "0";
-			//mRow.Finanzierungsgesellschaft = "-";
-			//mRow.Finanzierungsende = new DateTime(100, 1, 1, 0, 0, 0);
 			mRow.ErstverwertungsFlag = "0";
 			mRow.Installationsdatum = DateTime.Today;
-			//mRow.Anmerkungen = "";
 			mRow.TintenId = "00000000-0000-0000-0000-000000000000";
-			//mRow.FarbenSet = "";
-			//mRow.AuftragsnummerSage = "";
-			//mRow.RechnungsnummerSage = "";
 			mRow.Wartungsintervall = 12;
-			//mRow.Dateipfad = "";
-			//mRow.Sonderausstattung = "";
+			mRow.KundenauftragFlag = "0";
 
 			this.myMachinesDS.KundenMaschine.AddKundenMaschineRow(mRow);
 
@@ -87,8 +79,18 @@ namespace Products.Data.Services
 			var xRow = this.AddMachineXrefRow(mRow.UID, kundePK, createdByPK);
 
 			this.UpdateKundenMaschinen();
-			var retParams = new MachineBuildParams(mRow, xRow);
+			var retParams = new MachineCreationParams(mRow, xRow);
 			return retParams;
+		}
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Kundenmaschinen zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsMachines.KundenMaschineDataTable GetKundenmaschineTable()
+		{
+			this.AssureMachinesInitialized();
+			return this.myMachinesDS.KundenMaschine;
 		}
 
 		/// <summary>
@@ -125,25 +127,21 @@ namespace Products.Data.Services
 		/// <param name="machinePK"></param>
 		/// <returns></returns>
 		public IEnumerable<dsMachines.KundeMaschineXrefRow> GetKundenMaschineXrefRows(string machinePK)
-		{
-			return this.myMachinesDS.KundeMaschineXref.Where(m => m.MaschinenId == machinePK);
-		}
+			=> this.myMachinesDS.KundeMaschineXref.Where(m => m.MaschinenId == machinePK);
 
 		/// <summary>
-		/// Gibt die KundenMaschineXrefRow für die angegebene Maschine und den angegebenen Kunden,
-		/// bei der das Zuordnungsende noch nicht erreicht ist.
+		/// Gibt die KundenMaschineXrefRow für die angegebene Maschine und den angegebenen
+		/// Kunden, bei der das Zuordnungsende noch nicht erreicht ist.
 		/// </summary>
 		/// <param name="machinePK"></param>
 		/// <param name="kundePK"></param>
 		/// <returns></returns>
 		public dsMachines.KundeMaschineXrefRow GetKundenMaschineXrefRow(string machinePK, string kundePK)
-		{
-			return this.myMachinesDS.KundeMaschineXref.FirstOrDefault(x => x.MaschinenId == machinePK && x.Kundennummer == kundePK && x.Zuordnungsende >= DateTime.Now);
-		}
+			=> this.myMachinesDS.KundeMaschineXref.FirstOrDefault(x => x.MaschinenId == machinePK && x.Kundennummer == kundePK && x.Zuordnungsende >= DateTime.Now);
 
 		/// <summary>
-		/// Gibt die KundeMaschineXrefRow für die angegebene Maschine zurück, die aktuell einem
-		/// Kunden zugeordnet ist.
+		/// Gibt die KundeMaschineXrefRow für die angegebene Maschine zurück, die aktuell
+		/// einem Kunden zugeordnet ist.
 		/// </summary>
 		/// <param name="machinePK"></param>
 		/// <returns></returns>
@@ -154,7 +152,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Ändert die KundenMaschineRow der angegebenen Maschine und ordnet sie einem neuen Kunden zu.
+		/// Ändert die KundenMaschineRow der angegebenen Maschine und ordnet sie einem
+		/// neuen Kunden zu.
 		/// </summary>
 		/// <param name="machinePK">Primärschlüssel der Maschine.</param>
 		/// <param name="fromKundePK">Primärschlüssel des bisherigen Kunden.</param>
@@ -174,10 +173,7 @@ namespace Products.Data.Services
 			this.UpdateKundenMaschinen();
 
 			// Ereignis nach dem Verschieben auslösen.
-			if (AfterMachineMoved != null)
-			{
-				AfterMachineMoved(this, new MachineMovedEventArgs(machinePK, fromKundePK, toKundePK));
-			}
+			AfterMachineMoved?.Invoke(this, new MachineMovedEventArgs(machinePK, fromKundePK, toKundePK));
 
 			return result;
 		}
@@ -208,8 +204,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Speichert Änderungen der angegebenen KundenMaschineRow in der Datenbank oder alle
-		/// Datensätze für den angegebenen Kunden, falls keine KundenMaschineRow angegeben wurde.
+		/// Speichert alle Änderungen in den Tabellen KundenMaschine, KundeMaschineXref und
+		/// Maschinenauftrag in der Datenbank.
 		/// </summary>
 		/// <returns></returns>
 		public int UpdateKundenMaschinen()
@@ -223,10 +219,16 @@ namespace Products.Data.Services
 			{
 				result += this.myKundeMaschineXrefAdapter.Update(this.myMachinesDS.KundeMaschineXref);
 			}
+			if (this.myMachinesDS.Maschinenauftrag.GetChanges() != null)
+			{
+				result += this.myMaschinenauftragAdapter.Update(this.myMachinesDS.Maschinenauftrag);
+			}
 			return result;
 		}
 
-		#region Kundenmaschinensuche
+		#endregion KUNDENMASCHINE
+
+		#region KUNDENMASCHINENSUCHE
 
 		/// <summary>
 		/// Gibt die Tabelle mit allen aktuell zugeordneten Kundenmaschinen für die Suche zurück.
@@ -253,7 +255,8 @@ namespace Products.Data.Services
 		}
 
 		/// <summary>
-		/// Gibt eine Liste von aktuell zugeordneten Kundenmaschinen für den angegebenen Kunden zurück.
+		/// Gibt eine Liste von aktuell zugeordneten Kundenmaschinen für den angegebenen
+		/// Kunden zurück.
 		/// </summary>
 		/// <param name="kundeCpm"></param>
 		/// <returns></returns>
@@ -276,13 +279,90 @@ namespace Products.Data.Services
 			//}
 		}
 
-		#endregion Kundenmaschinensuche
+		public IEnumerable<dsMachines.KundenmaschinenListeRow> GetDueServiceMachineList()
+		{
+			var result = this.GetKundenmaschinenSearchList();
+			return result.Where(m => m.Wartungskennzeichen == 1);
+		}
 
-		#endregion public procedures
+		#endregion KUNDENMASCHINENSUCHE
 
-		#region private procedures
+		#region MASCHINENAUFTRAG
 
-		void AssureMachinesInitialized()
+		/// <summary>
+		/// Gibt die Tabelle mit allen Maschinenaufträgen im System zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsMachines.MaschinenauftragDataTable GetMaschinenauftragTabelle()
+		{
+			if (this.myMaschinenauftragAdapter == null)
+			{
+				this.myMaschinenauftragAdapter = new taMaschinenauftrag();
+				this.myMaschinenauftragAdapter.Fill(this.myMachinesDS.Maschinenauftrag);
+			}
+			return this.myMachinesDS.Maschinenauftrag;
+		}
+
+		/// <summary>
+		/// Erstellt eine neue Zeile in Tabelle cpm_maschinenauftrag und gibt diese zurück.
+		/// </summary>
+		/// <param name="machinePK">
+		/// Primärschlüssel der Maschine, für die der Maschinenauftrag erstellt wird.
+		/// </param>
+		/// <returns></returns>
+		public dsMachines.MaschinenauftragRow CreateMaschinenauftragRow(string machinePK)
+		{
+			var aRow = this.myMachinesDS.Maschinenauftrag.NewMaschinenauftragRow();
+
+			aRow.MaschinenId = machinePK;
+			aRow.SetKundenbestellungAmNull();
+			aRow.SetKundenbestellungDurchNull();
+			aRow.SetKundenbestellungPerNull();
+			aRow.SetMaschinenbestellungAmNull();
+			aRow.SetMaschinenbestellungDurchIdNull();
+			aRow.SetMaschinenlieferungAmNull();
+			aRow.SetLieferungZumKundenAmNull();
+			aRow.SetBestellIdSageNull();
+			aRow.SetMaschinenlieferungAmNull();
+			aRow.SetAnmerkungenBestellungNull();
+			aRow.SetBestelleintrittAmNull();
+			aRow.VertragsunterlagenFlag = "0";
+			aRow.UebernahmebestaetigungFlag = "0";
+			aRow.ObjektversicherungFlag = "0";
+			aRow.AgbUnterzeichnetFlag = "0";
+			aRow.SetAnmerkungenFinanzierungNull();
+			aRow.SetInstallationDurchIdNull();
+			aRow.SetInstallationsdatumNull();
+			aRow.GarantieunterlagenFlag = "0";
+			aRow.SetGarantieablaufdatumNull();
+			aRow.AuftragErledigtFlag = "0";
+
+			this.myMachinesDS.Maschinenauftrag.AddMaschinenauftragRow(aRow);
+			this.myMaschinenauftragAdapter.Update(aRow);
+			return aRow;
+		}
+
+		#endregion MASCHINENAUFTRAG
+
+		#region MASCHINENWARTUNG
+
+		/// <summary>
+		/// Gibt eine Liste aller MaschinenIds und die Pfade zu David Terminen zurück, für
+		/// die es einen Service- oder Wartungstermin gibt.
+		/// </summary>
+		/// <returns></returns>
+		public dsMachines.WartungsListeDataTable GetWartungsliste()
+		{
+			return this.myWartungslisteAdapter.GetData();
+		}
+
+		#endregion MASCHINENWARTUNG
+
+		#endregion PUBLIC PROCEDURES
+
+		#region PRIVATE PROCEDURES
+
+		private void AssureMachinesInitialized()
 		{
 			if (this.myKundeMaschineXrefAdapter == null)
 			{
@@ -294,7 +374,7 @@ namespace Products.Data.Services
 			}
 		}
 
-		dsMachines.KundeMaschineXrefRow AddMachineXrefRow(string machinePK, string kundePK, string creatorPK, DateTime? zuordnungsBeginn = null)
+		private dsMachines.KundeMaschineXrefRow AddMachineXrefRow(string machinePK, string kundePK, string creatorPK, DateTime? zuordnungsBeginn = null)
 		{
 			if (!zuordnungsBeginn.HasValue) zuordnungsBeginn = DateTime.Now;
 			var xRowTo = this.myMachinesDS.KundeMaschineXref.NewKundeMaschineXrefRow();
@@ -312,7 +392,7 @@ namespace Products.Data.Services
 			return xRowTo;
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 
 		#region SubClasses
 
@@ -321,11 +401,11 @@ namespace Products.Data.Services
 		/// </summary>
 		public class MachineMovedEventArgs : EventArgs
 		{
-			public string MachinePK { get; private set; }
+			public string MachinePK { get; }
 
-			public string FromKundePK { get; private set; }
+			public string FromKundePK { get; }
 
-			public string ToKundePK { get; private set; }
+			public string ToKundePK { get; }
 
 			public MachineMovedEventArgs(string machinePK, string fromKundePK, string toKundePK)
 			{
@@ -338,13 +418,13 @@ namespace Products.Data.Services
 		/// <summary>
 		/// Rückgabeparameter für die Erstellung einer neuen Kundenmaschine.
 		/// </summary>
-		public class MachineBuildParams
+		public class MachineCreationParams
 		{
-			public dsMachines.KundenMaschineRow KundenMaschineRow { get; private set; }
+			public dsMachines.KundenMaschineRow KundenMaschineRow { get; }
 
-			public dsMachines.KundeMaschineXrefRow KundenXrefRow { get; private set; }
+			public dsMachines.KundeMaschineXrefRow KundenXrefRow { get; }
 
-			public MachineBuildParams(dsMachines.KundenMaschineRow machineRow, dsMachines.KundeMaschineXrefRow kundenXrefRow)
+			public MachineCreationParams(dsMachines.KundenMaschineRow machineRow, dsMachines.KundeMaschineXrefRow kundenXrefRow)
 			{
 				this.KundenMaschineRow = machineRow;
 				this.KundenXrefRow = kundenXrefRow;

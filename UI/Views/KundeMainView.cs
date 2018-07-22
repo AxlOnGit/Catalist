@@ -12,7 +12,7 @@ namespace Products.Common.Views
 {
 	public partial class KundeMainView : MetroForm
 	{
-		#region members
+		#region MEMBERS
 
 		readonly Model.Entities.Kunde myKunde;
 
@@ -31,11 +31,11 @@ namespace Products.Common.Views
 		pnlSoftwareliste mySoftwarePanel;
 		pnlNotizen myNotizenPanel;
 
-		#endregion members
+		#endregion MEMBERS
 
 		#region public properties
 
-		public Kunde CurrentCustomer { get { return this.myKunde; } }
+		public Kunde CurrentCustomer => this.myKunde;
 
 		#endregion public properties
 
@@ -45,7 +45,10 @@ namespace Products.Common.Views
 		{
 			InitializeComponent();
 			this.myKunde = kunde;
-			this.Text = string.Format("[{0}] [{1}] - {2}", myKunde.CustomerId.Substring(0, 5), myKunde.Vertreter, myKunde.CompanyName1.Replace("&", "&&"));
+			Model.ModelManager.CustomerService.CurrentCustomer = kunde;
+			var name = this.myKunde.CompanyName1.Replace("&", "&&");
+			var titel = $"[{this.myKunde.KundenNrCpm}] [{this.myKunde.Vertreter}] {name}";
+			this.Text = titel;
 			Application.Idle += Application_Idle;
 
 			ShowStartPanel();
@@ -55,23 +58,23 @@ namespace Products.Common.Views
 				switch (openThis.LinkTypBezeichnung)
 				{
 					case "Kundenkontakt":
-						this.LoadOrShowKontakte();
-						break;
+					this.LoadOrShowKontakte();
+					break;
 
 					case "Kundenmaschine":
-						var machine = openThis as Kundenmaschine;
-						if (machine != null)
-						{
-							this.ShowMaschine(machine);
-						}
-						break;
+					var machine = openThis as Kundenmaschine;
+					if (machine != null)
+					{
+						this.ShowMaschine(machine);
+					}
+					break;
 				}
 			}
 		}
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		[DebuggerStepThrough]
 		void Application_Idle(object sender, EventArgs e)
@@ -142,9 +145,9 @@ namespace Products.Common.Views
 			ClearPanels();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
-		#region internal procedures
+		#region INTERNAL PROCEDURES
 
 		void KundeMainView_KeyUp(object sender, KeyEventArgs e)
 		{
@@ -324,9 +327,9 @@ namespace Products.Common.Views
 
 		#endregion JUST SHOW
 
-		#endregion internal procedures
+		#endregion INTERNAL PROCEDURES
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
 		void Next(pnlSlider panel)
 		{
@@ -395,6 +398,6 @@ namespace Products.Common.Views
 			}
 		}
 
-		#endregion private procedures
+		#endregion PRIVATE PROCEDURES
 	}
 }

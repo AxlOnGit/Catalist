@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Products.Common.Collections;
 using Products.Data.Datasets;
 using Products.Data.Datasets.dsOrdersTableAdapters;
 
@@ -96,7 +94,14 @@ namespace Products.Data.Services
 		/// <returns></returns>
 		public IEnumerable<dsOrders.OrderBySNRow> GetOrderDataBySN(string seriennummer, string kundePK)
 		{
-			return this.myOrderBySNAdapter.GetData(seriennummer, kundePK);
+			try
+			{
+				return this.myOrderBySNAdapter.GetData(seriennummer, kundePK);
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 
 		#endregion public procedures

@@ -193,6 +193,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.mbtnClose;
 			this.ClientSize = new System.Drawing.Size(830, 673);
+			this.ControlBox = false;
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.dgvTransactions);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

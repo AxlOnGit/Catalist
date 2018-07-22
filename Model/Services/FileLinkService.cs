@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Products.Model.Entities;
-using Products.Data;
-using Products.Common.Collections;
 using System.IO;
+using System.Linq;
+using Products.Common.Collections;
 using Products.Common.Interfaces;
+using Products.Data;
+using Products.Model.Entities;
 
 namespace Products.Model.Services
 {
 	public class FileLinkService
 	{
-
 		#region members
 
 		//private FileLinkDataService myDataService = null;
 		readonly Dictionary<string, SBList<FileLink>> myFileLinkDictionary = new Dictionary<string, SBList<FileLink>>();
 
-		#endregion
+		#endregion members
 
 		#region public procedures
 
@@ -31,7 +30,7 @@ namespace Products.Model.Services
 		{
 			var originalFileInfo = new FileInfo(forFile);
 			var now = DateTime.Now;
-			var serverPath = Products.Common.Global.LinkedFilesPath;
+			var serverPath = CatalistRegistry.Application.LinkedFilesPath;
 			var newFilename = string.Format("{0}-{1}-{2}_{3}.{4}.{5}{6}",
 				now.ToString("yyyy"),
 				now.ToString("MM"),
@@ -122,14 +121,66 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt True zurück, wenn die Dateiverknüpfung gelöscht werden kann, ohne dass andere Referenzen 
-		/// vor die Pumpe laufen. 
+		/// Gibt True zurück, wenn die Dateiverknüpfung gelöscht werden kann, ohne dass
+		/// andere Referenzen vor die Pumpe laufen.
 		/// </summary>
 		/// <param name="fullName">Pfad und Dateiname der verknüpften Datei.</param>
-		/// <returns>True, wenn es maximal eine Verknüpfung zu der angegebenen Datei gibt.</returns>
-		public bool GetCanDelete(string fullName)
+		/// <returns>
+		/// True, wenn es maximal eine Verknüpfung zu der angegebenen Datei gibt.
+		/// </returns>
+		public bool GetCanDelete(string fullName) => DataManager.FileLinkDataService.CanDelete(fullName);
+
+		public int MoveFilesToMachineFolders()
 		{
-			return DataManager.FileLinkDataService.CanDelete(fullName);
+			int counter = 0;
+
+			var ft = DataManager.FileLinkDataService.GetServerMachineLinkTable();
+			foreach (var fRow in ft)
+			{
+				var fullName = fRow.FullName;
+				var targetPath = fRow.Dateipfad;
+				var title = fRow.Title;
+				var ext = fRow.Extension;
+
+				var sourceFile = new FileInfo(fullName);
+				var targetFolder = new DirectoryInfo(targetPath);
+
+				// Prüfen, ob sowohl Ursprungsdatei auf dem Server und Maschinenordner auf
+				// der NASE existieren.
+				if (!sourceFile.Exists)
+				{
+					var logEntry = $"Datei '{sourceFile}' fehlt. Ich lösche die Verknüpfungen in der Datenbank.";
+					Common.Services.LogService.WriteLogEntry(logEntry);
+					var kundenmaschine = RepoManager.KundenmaschinenRepository.GetKundenmaschine(fRow.LinkedItemId);
+					this.DeleteFileLink(sourceFile, kundenmaschine);
+					continue;
+				}
+
+				// Ursprungsdatei auf die NASE kopieren.
+				try
+				{
+					if (!targetFolder.Exists) targetFolder.Create();  // Ordner erstellen, falls er noch nicht existiert.
+					var targetFileName = $"{title}.{ext}";
+					var targetFullName = Path.Combine(targetPath, targetFileName);
+
+					// Kopieren ...
+					var copiedFile = sourceFile.CopyTo(targetFullName, true);
+
+					// ... und dann die Quelldatei löschen.
+					if (copiedFile.Exists) sourceFile.Delete();
+
+					// Schlussendlich die Spuren der Datei in der Datenbank löschen.
+					var kundenmaschine = RepoManager.KundenmaschinenRepository.GetKundenmaschine(fRow.LinkedItemId);
+					this.DeleteFileLink(sourceFile, kundenmaschine);
+
+					counter++;
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+			}
+			return counter;
 		}
 
 		/// <summary>
@@ -140,7 +191,6 @@ namespace Products.Model.Services
 			DataManager.FileLinkDataService.Update();
 		}
 
-		#endregion
-
+		#endregion public procedures
 	}
 }

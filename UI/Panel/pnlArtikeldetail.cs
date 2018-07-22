@@ -294,6 +294,7 @@ namespace Products.Common.Panel
 				this.cmbCategory.DataBindings.Add("SelectedValue", myProduct, "Katalogsektion");
 
 				this.txtDescription.DataBindings.Add("Text", myProduct, "Beschreibung");
+				this.mtxtArtikelzusatz.DataBindings.Add("Text", this.myProduct, "Artikelzusatz");
 				this.lblME.DataBindings.Add("Text", myProduct, "Mengeneinheit");
 
 				var binding = this.lblPreisProME.DataBindings.Add("Text", myProduct, "Kundenpreis");

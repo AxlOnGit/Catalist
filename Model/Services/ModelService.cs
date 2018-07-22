@@ -1,31 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Products.Common;
-using Products.Data;
-using Products.Model.Entities;
-using Products.Data.Datasets;
-using Products.Common.Interfaces;
-using System.IO;
-using Products.Common.Collections;
+﻿using Products.Common;
 
 namespace Products.Model.Services
 {
-
 	public class ModelService
 	{
-
 		#region members
 
-		private SortableBindingList<TaskPriority> myPriorityList = null;
-		private SortableBindingList<TaskStatus> myStatusList = null;
+		SortableBindingList<TaskPriority> myPriorityList;
+		SortableBindingList<TaskStatus> myStatusList;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		/// <summary>
-		/// Gibt eine nummerierte Liste mit Prioritäten für  zurück.
+		/// Gibt eine nummerierte Liste mit Prioritäten für zurück.
 		/// </summary>
 		public SortableBindingList<TaskPriority> PriorityList
 		{
@@ -62,21 +51,7 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
-
-		#region ### .ctor ###
-
-		/// <summary>
-		/// Creates a new instance of the ModelService class.
-		/// </summary>
-		public ModelService()
-		{
-		}
-
-		#endregion
-
-		#region private procedures
-		#endregion
+		#endregion public properties
 
 		#region STRUCTS
 
@@ -86,6 +61,7 @@ namespace Products.Model.Services
 		public struct TaskPriority
 		{
 			public sbyte Key { get; private set; }
+
 			public string Priority { get; private set; }
 
 			public TaskPriority(sbyte key, string prio)
@@ -102,6 +78,7 @@ namespace Products.Model.Services
 		public struct TaskStatus
 		{
 			public sbyte Key { get; private set; }
+
 			public string Status { get; private set; }
 
 			public TaskStatus(sbyte key, string status)
@@ -126,7 +103,6 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
-
+		#endregion STRUCTS
 	}
 }

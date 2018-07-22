@@ -1975,6 +1975,10 @@ namespace Products.Data.Datasets {
             
             private global::System.Data.DataColumn columnWartungsintervall;
             
+            private global::System.Data.DataColumn columnInstChecklistVorlage;
+            
+            private global::System.Data.DataColumn columnInstReportVorlage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MaschinenSerieDataTable() {
@@ -2090,6 +2094,22 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstChecklistVorlageColumn {
+                get {
+                    return this.columnInstChecklistVorlage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstReportVorlageColumn {
+                get {
+                    return this.columnInstReportVorlage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2125,7 +2145,7 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaschinenSerieRow AddMaschinenSerieRow(string UID, string Serienname, string HerstellerId, string MaschinentypId, string LetzteFirmware, int Markteinfuehrung, string Kurzname, string Dateipfad, ulong Wartungskennzeichen, int Wartungsintervall) {
+            public MaschinenSerieRow AddMaschinenSerieRow(string UID, string Serienname, string HerstellerId, string MaschinentypId, string LetzteFirmware, int Markteinfuehrung, string Kurzname, string Dateipfad, ulong Wartungskennzeichen, int Wartungsintervall, string InstChecklistVorlage, string InstReportVorlage) {
                 MaschinenSerieRow rowMaschinenSerieRow = ((MaschinenSerieRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UID,
@@ -2137,7 +2157,9 @@ namespace Products.Data.Datasets {
                         Kurzname,
                         Dateipfad,
                         Wartungskennzeichen,
-                        Wartungsintervall};
+                        Wartungsintervall,
+                        InstChecklistVorlage,
+                        InstReportVorlage};
                 rowMaschinenSerieRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaschinenSerieRow);
                 return rowMaschinenSerieRow;
@@ -2177,6 +2199,8 @@ namespace Products.Data.Datasets {
                 this.columnDateipfad = base.Columns["Dateipfad"];
                 this.columnWartungskennzeichen = base.Columns["Wartungskennzeichen"];
                 this.columnWartungsintervall = base.Columns["Wartungsintervall"];
+                this.columnInstChecklistVorlage = base.Columns["InstChecklistVorlage"];
+                this.columnInstReportVorlage = base.Columns["InstReportVorlage"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2202,6 +2226,10 @@ namespace Products.Data.Datasets {
                 base.Columns.Add(this.columnWartungskennzeichen);
                 this.columnWartungsintervall = new global::System.Data.DataColumn("Wartungsintervall", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWartungsintervall);
+                this.columnInstChecklistVorlage = new global::System.Data.DataColumn("InstChecklistVorlage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstChecklistVorlage);
+                this.columnInstReportVorlage = new global::System.Data.DataColumn("InstReportVorlage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstReportVorlage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUID}, true));
                 this.columnUID.AllowDBNull = false;
@@ -2218,6 +2246,8 @@ namespace Products.Data.Datasets {
                 this.columnKurzname.MaxLength = 20;
                 this.columnDateipfad.MaxLength = 250;
                 this.columnWartungskennzeichen.AllowDBNull = false;
+                this.columnInstChecklistVorlage.MaxLength = 45;
+                this.columnInstReportVorlage.MaxLength = 45;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3335,6 +3365,38 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string InstChecklistVorlage {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenSerie.InstChecklistVorlageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InstChecklistVorlage\' in table \'MaschinenSerie\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenSerie.InstChecklistVorlageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string InstReportVorlage {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenSerie.InstReportVorlageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InstReportVorlage\' in table \'MaschinenSerie\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenSerie.InstReportVorlageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeriennameNull() {
                 return this.IsNull(this.tableMaschinenSerie.SeriennameColumn);
             }
@@ -3403,6 +3465,30 @@ namespace Products.Data.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWartungsintervallNull() {
                 this[this.tableMaschinenSerie.WartungsintervallColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstChecklistVorlageNull() {
+                return this.IsNull(this.tableMaschinenSerie.InstChecklistVorlageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstChecklistVorlageNull() {
+                this[this.tableMaschinenSerie.InstChecklistVorlageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstReportVorlageNull() {
+                return this.IsNull(this.tableMaschinenSerie.InstReportVorlageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstReportVorlageNull() {
+                this[this.tableMaschinenSerie.InstReportVorlageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6196,6 +6282,8 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             tableMapping.ColumnMappings.Add("Dateipfad", "Dateipfad");
             tableMapping.ColumnMappings.Add("Wartungskennzeichen", "Wartungskennzeichen");
             tableMapping.ColumnMappings.Add("Wartungsintervall", "Wartungsintervall");
+            tableMapping.ColumnMappings.Add("InstChecklistVorlage", "InstChecklistVorlage");
+            tableMapping.ColumnMappings.Add("InstReportVorlage", "InstReportVorlage");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6211,10 +6299,7 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `cpm_maschinenserie` (`UID`, `Serienname`, `Kurzname`, `Dateipfad`, `" +
-                "HerstellerId`, `MaschinentypId`, `LetzteFirmware`, `Markteinfuehrung`, `Wartungs" +
-                "kennzeichen`, `Wartungsintervall`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p" +
-                "8, @p9, @p10)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_maschinenserie` (`UID`, `Serienname`, `Kurzname`, `Dateipfad`, `HerstellerId`, `MaschinentypId`, `LetzteFirmware`, `Markteinfuehrung`, `Wartungskennzeichen`, `Wartungsintervall`, `InstChecklistVorlage`, `InstReportVorlage`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6286,9 +6371,23 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Wartungsintervall";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstChecklistVorlage";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstReportVorlage";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_maschinenserie` SET `UID` = @p1, `Serienname` = @p2, `Kurzname` = @p3, `Dateipfad` = @p4, `HerstellerId` = @p5, `MaschinentypId` = @p6, `LetzteFirmware` = @p7, `Markteinfuehrung` = @p8, `Wartungskennzeichen` = @p9, `Wartungsintervall` = @p10 WHERE ((`UID` = @p11))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_maschinenserie` SET `UID` = @p1, `Serienname` = @p2, `Kurzname` = @p3, `Dateipfad` = @p4, `HerstellerId` = @p5, `MaschinentypId` = @p6, `LetzteFirmware` = @p7, `Markteinfuehrung` = @p8, `Wartungskennzeichen` = @p9, `Wartungsintervall` = @p10, `InstChecklistVorlage` = @p11, `InstReportVorlage` = @p12 WHERE ((`UID` = @p13))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6365,6 +6464,20 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
+            param.SourceColumn = "InstChecklistVorlage";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstReportVorlage";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
             param.SourceColumn = "UID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -6398,17 +6511,6 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsShared.MaschinenSerieDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsShared.MaschinenSerieDataTable dataTable = new dsShared.MaschinenSerieDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6471,7 +6573,7 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10) {
+        public virtual int Insert(string p1, string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10, string p11, string p12) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -6522,6 +6624,18 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
+            if ((p11 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
+            }
+            if ((p12 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(p12));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6542,7 +6656,7 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10, string p11) {
+        public virtual int Update(string p1, string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10, string p11, string p12, string p13) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -6594,10 +6708,22 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((p11 == null)) {
-                throw new global::System.ArgumentNullException("p11");
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
+            }
+            if ((p12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
+            }
+            if ((p13 == null)) {
+                throw new global::System.ArgumentNullException("p13");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6619,8 +6745,8 @@ namespace Products.Data.Datasets.dsSharedTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10, string p11) {
-            return this.Update(p11, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+        public virtual int Update(string p2, string p3, string p4, string p5, string p6, string p7, int p8, ulong p9, global::System.Nullable<int> p10, string p11, string p12, string p13) {
+            return this.Update(p13, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
     }
     

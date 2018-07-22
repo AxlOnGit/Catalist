@@ -2,6 +2,9 @@
 {
 	partial class TaskDetailView
 	{
+
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -92,6 +95,7 @@
 			this.mtxtTaskname.MaxLength = 32767;
 			this.mtxtTaskname.Name = "mtxtTaskname";
 			this.mtxtTaskname.PasswordChar = '\0';
+			this.mtxtTaskname.PromptText = "Aufgabe";
 			this.mtxtTaskname.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtTaskname.SelectedText = "";
 			this.mtxtTaskname.SelectionLength = 0;
@@ -130,6 +134,7 @@
 			this.mtxtDescription.Multiline = true;
 			this.mtxtDescription.Name = "mtxtDescription";
 			this.mtxtDescription.PasswordChar = '\0';
+			this.mtxtDescription.PromptText = "Beschreibung";
 			this.mtxtDescription.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtDescription.SelectedText = "";
 			this.mtxtDescription.SelectionLength = 0;
@@ -316,10 +321,10 @@
 			this.ndtpReminderTime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpReminderTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
 			this.ndtpReminderTime.Location = new System.Drawing.Point(248, 291);
+			this.ndtpReminderTime.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpReminderTime.Name = "ndtpReminderTime";
 			this.ndtpReminderTime.NullValue = "Nix";
-			this.ndtpReminderTime.ShowUpDown = true;
-			this.ndtpReminderTime.Size = new System.Drawing.Size(57, 23);
+			this.ndtpReminderTime.Size = new System.Drawing.Size(57, 29);
 			this.ndtpReminderTime.TabIndex = 7;
 			this.ndtpReminderTime.Value = new System.DateTime(2016, 2, 3, 9, 26, 36, 35);
 			// 
@@ -329,10 +334,11 @@
 			this.ndtpReminderDate.Checked = false;
 			this.ndtpReminderDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpReminderDate.Location = new System.Drawing.Point(112, 291);
+			this.ndtpReminderDate.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpReminderDate.Name = "ndtpReminderDate";
 			this.ndtpReminderDate.NullValue = "Nö";
 			this.ndtpReminderDate.ShowCheckBox = true;
-			this.ndtpReminderDate.Size = new System.Drawing.Size(96, 23);
+			this.ndtpReminderDate.Size = new System.Drawing.Size(96, 29);
 			this.ndtpReminderDate.TabIndex = 6;
 			this.ndtpReminderDate.Value = new System.DateTime(2016, 2, 3, 9, 26, 36, 35);
 			this.ndtpReminderDate.ValueChanged += new System.EventHandler(this.ndtpReminderDate_ValueChanged);
@@ -342,8 +348,9 @@
 			this.ndtpDueAt.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpDueAt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpDueAt.Location = new System.Drawing.Point(112, 249);
+			this.ndtpDueAt.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpDueAt.Name = "ndtpDueAt";
-			this.ndtpDueAt.Size = new System.Drawing.Size(96, 23);
+			this.ndtpDueAt.Size = new System.Drawing.Size(96, 29);
 			this.ndtpDueAt.TabIndex = 2;
 			this.ndtpDueAt.Value = new System.DateTime(2016, 2, 3, 9, 26, 36, 35);
 			// 
@@ -352,8 +359,9 @@
 			this.ndtpStartsAt.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpStartsAt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ndtpStartsAt.Location = new System.Drawing.Point(112, 207);
+			this.ndtpStartsAt.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpStartsAt.Name = "ndtpStartsAt";
-			this.ndtpStartsAt.Size = new System.Drawing.Size(96, 23);
+			this.ndtpStartsAt.Size = new System.Drawing.Size(96, 29);
 			this.ndtpStartsAt.TabIndex = 1;
 			this.ndtpStartsAt.Value = new System.DateTime(2016, 2, 3, 9, 26, 36, 35);
 			// 
@@ -362,6 +370,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(914, 745);
+			this.ControlBox = false;
 			this.Controls.Add(this.mbtnShowReminder);
 			this.Controls.Add(this.ndtpReminderTime);
 			this.Controls.Add(this.ndtpReminderDate);
@@ -390,6 +399,8 @@
 			this.MouseEnter += new System.EventHandler(this.TaskDetailView_MouseEnter);
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
 
 		}
 

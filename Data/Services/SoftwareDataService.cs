@@ -9,20 +9,17 @@ namespace Products.Data.Services
 {
 	public class SoftwareDataService
 	{
-
 		#region members
 
 		readonly string myCurrentUserPK;
-		readonly dsSoftware myDS = new Datasets.dsSoftware();
+		readonly dsSoftware myDS = new dsSoftware();
 		readonly taKundenSoftware myKundenSoftwareAdapter = new taKundenSoftware();
-		readonly taSoftware mySoftwareAdapter = new taSoftware(); 
+		readonly taSoftwareUpgrade mySoftwareUpgradeAdapter = new taSoftwareUpgrade();
+		readonly taSoftware mySoftwareAdapter = new taSoftware();
 
-		private string myGuidUnknown = "00000000-0000-0000-0000-000000000000";
+		readonly string myGuidUnknown = "00000000-0000-0000-0000-000000000000";
 
-		#endregion
-
-		#region public properties
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -36,14 +33,15 @@ namespace Products.Data.Services
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
-		#region Kundensoftware
+		#region KUNDEN-SOFTWARE
 
 		/// <summary>
-		/// Erstellt eine neue KundenSoftwareRow für den angegebenen Kunden und optional die angegebene Kundenmaschine.
+		/// Erstellt eine neue KundenSoftwareRow für den angegebenen Kunden und optional die
+		/// angegebene Kundenmaschine.
 		/// </summary>
 		/// <param name="customerPK">Kundennummer des Kunden.</param>
 		/// <param name="machinePK">Primärschlüssel der Kundenmaschine.</param>
@@ -116,9 +114,9 @@ namespace Products.Data.Services
 			}
 		}
 
-		#endregion
+		#endregion KUNDEN-SOFTWARE
 
-		#region Software
+		#region SOFTWARE
 
 		/// <summary>
 		/// Gibt die SoftwareDataTable mit allen im System verfügbaren Softwareprogrammen zurück.
@@ -154,9 +152,78 @@ namespace Products.Data.Services
 			}
 		}
 
-		#endregion
+		#endregion SOFTWARE
 
-		#endregion
+		#region SOFTWARE-UPGRADES
+
+		/// <summary>
+		/// Gibt die Tabelle mit allen Software-Upgrade Einträgen des Systems zurück.
+		/// </summary>
+		/// <returns></returns>
+		public dsSoftware.SoftwareUpgradeDataTable GetSoftwareUpgradeTable()
+		{
+			return this.myDS.SoftwareUpgrade;
+		}
+
+		/// <summary>
+		/// Gibt eine neue <seealso cref="dsSoftware.SoftwareUpgradeRow"/> zurück.
+		/// </summary>
+		/// <param name="customerPK">Kundennummer des Kunden, den das Upgrade betrifft.</param>
+		/// <returns></returns>
+		public dsSoftware.SoftwareUpgradeRow AddSoftwareUpgradeRow(string customerPK, string alteSoftwarePK, string alteLizenz, string maschinenModell, string serienNummer)
+		{
+			var uRow = this.myDS.SoftwareUpgrade.NewSoftwareUpgradeRow();
+			uRow.Kundennummer = customerPK;
+			uRow.AlteVersionId = alteSoftwarePK;
+			uRow.AlteLizenz = alteLizenz;
+			uRow.Maschinenmodell = maschinenModell;
+			uRow.Seriennummer = serienNummer;
+
+			this.myDS.SoftwareUpgrade.AddSoftwareUpgradeRow(uRow);
+			this.mySoftwareUpgradeAdapter.Update(uRow);
+			return uRow;
+		}
+
+		/// <summary>
+		/// Aktualisiert alle Änderungen in Tabelle cpm_softwareupgrade.
+		/// </summary>
+		/// <returns></returns>
+		public int UpdateSoftwareUpgrades()
+		{
+			try
+			{
+				return this.mySoftwareUpgradeAdapter.Update(this.myDS.SoftwareUpgrade);
+			}
+			catch (System.Data.ConstraintException)
+			{
+				throw;
+			}
+		}
+
+		/// <summary>
+		/// Löscht die <seealso cref="dsSoftware.SoftwareUpgradeRow"/> mit dem angegebenen
+		/// Primärschlüssel (Kundennummer + UID der alten Software). Und zwar endgültig!
+		/// </summary>
+		/// <param name="customerId">Die Kundennummer des zugeordneten Kunden.</param>
+		/// <param name="alteSoftwarePK">
+		/// UID der Kundensoftware, die aktualisiert wurde, bzw. werden sollte.
+		/// </param>
+		public int DeleteSoftwareUpgradeRow(string customerId, string alteSoftwarePK)
+		{
+			var result = 0;
+			var dRow = this.myDS.SoftwareUpgrade.FindByKundennummerAlteVersionId(customerId, alteSoftwarePK);
+			if (dRow != null)
+			{
+				dRow.Delete();
+				this.mySoftwareUpgradeAdapter.Update(dRow);
+				result = 1;
+			}
+			return result;
+		}
+
+		#endregion SOFTWARE-UPGRADES
+
+		#endregion public procedures
 
 		#region private procedures
 
@@ -164,9 +231,9 @@ namespace Products.Data.Services
 		{
 			this.mySoftwareAdapter.Fill(this.myDS.Software);
 			this.myKundenSoftwareAdapter.Fill(this.myDS.KundenSoftware);
+			this.mySoftwareUpgradeAdapter.Fill(this.myDS.SoftwareUpgrade);
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

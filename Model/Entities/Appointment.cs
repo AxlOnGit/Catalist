@@ -1,24 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using David;
+using Products.Common;
+using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data.Datasets;
-using System.Diagnostics;
-using Products.Common.Collections;
 
 namespace Products.Model.Entities
 {
 	public class Appointment : Calendar.Appointment, ILinkedItem
 	{
+		#region MEMBERS
 
-		#region members
+		private readonly DvApi32.MessageItem2 myMsgItem2Base;
+		private readonly DvApi32.Fields myMsgItem2Fields;
+		private dsAppointments.AppointmentXrefRow myXrefBase;
+		private bool myIsDirty;
 
-		readonly DvApi32.MessageItem2 myMsgItem2Base;
-		dsAppointments.AppointmentXrefRow myXrefBase;
-		bool myIsDirty;
-
-		#endregion
+		#endregion MEMBERS
 
 		#region events
 
@@ -34,56 +33,45 @@ namespace Products.Model.Entities
 			base.OnEndDateChanged();
 		}
 
-		#endregion
+		#endregion events
 
 		#region public properties
 
 		#region ILinkedItem
 
-		public string Key
-		{
-			get { return this.FullName; }
-		}
+		public string Key => this.FullName;
 
-		public string LinkTypeId
-		{
-			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Termin").UID; }
-		}
+		public string LinkTypeId => ModelManager.SharedItemsService.GetLinkTypeByName("Termin").UID;
 
 		/// <summary>
 		/// Gibt die Bezeichnung des verknüpften Elements zurück.
 		/// </summary>
-		public string ItemName
-		{
-			get { return string.Format("{0} [{1}]", this.myMsgItem2Base.Subject, this.OwnerName); }
-		}
+		public string ItemName => string.Format("{0} [{1}]", this.myMsgItem2Base.Subject, this.OwnerName);
 
 		/// <summary>
 		/// Gibt die Bezeichnung des Linktyps zurück.
 		/// </summary>
-		public string LinkTypBezeichnung
-		{
-			get { return "Termin"; }
-		}
+		public string LinkTypBezeichnung => "Termin";
 
-		#endregion
+		#endregion ILinkedItem
 
 		#region MessageItem2
 
 		/// <summary>
-		/// Gibt true zurück, wenn es sich bei dem Kalendereintrag um einen ganztägigen Termin handelt, sonst false.
+		/// Gibt true zurück, wenn es sich bei dem Kalendereintrag um einen ganztägigen Termin
+		/// handelt, sonst false.
 		/// </summary>
 		public new bool AllDayEvent
 		{
 			get
 			{
-				return (bool)this.GetFieldValue(DavidFieldEnum.AllDayEvent);
+				return (bool)this.GetFieldValue(DavidFieldsEnum.AllDayEvent);
 			}
 			set
 			{
 				if (this.AllDayEvent != value)
 				{
-					this.SetFieldValue(DavidFieldEnum.AllDayEvent, value);
+					this.SetFieldValue(DavidFieldsEnum.AllDayEvent, value);
 					base.AllDayEvent = value;
 					this.myIsDirty = true;
 				}
@@ -93,10 +81,10 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt den Typ des Termins zurück oder legt ihn fest.
 		/// </summary>
-		public string AppointmentType 
-		{ 
+		public string AppointmentType
+		{
 			get { return this.myXrefBase.AppointmentType; }
-			set 
+			set
 			{
 				if (!this.AppointmentType.Equals(value))
 				{
@@ -110,12 +98,12 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string BodyAscii
 		{
-			get { return (string)this.GetFieldValue(DavidFieldEnum.BodyAscii); }
+			get { return (string)this.GetFieldValue(DavidFieldsEnum.Content); }
 			set
 			{
 				if (this.BodyAscii != value)
 				{
-					this.SetFieldValue(DavidFieldEnum.BodyAscii, value);
+					this.SetFieldValue(DavidFieldsEnum.Content, value);
 					this.myIsDirty = true;
 				}
 			}
@@ -126,12 +114,12 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string BodyHtml
 		{
-			get { return (string)this.GetFieldValue(DavidFieldEnum.BodyHtml); }
+			get { return (string)this.GetFieldValue(DavidFieldsEnum.HTML); }
 			set
 			{
 				if (this.BodyHtml != value)
 				{
-					this.SetFieldValue(DavidFieldEnum.BodyHtml, value);
+					this.SetFieldValue(DavidFieldsEnum.HTML, value);
 					this.myIsDirty = true;
 				}
 			}
@@ -140,22 +128,19 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt Datum und Uhrzeit der letzten Änderung des Kalendereintrags zurück.
 		/// </summary>
-		public DateTime ChangedAt
-		{
-			get { return (DateTime)this.GetFieldValue(DavidFieldEnum.ChangedAt); }
-		}
+		public DateTime ChangedAt => (DateTime)this.GetFieldValue(DavidFieldsEnum.LastChangedTime);
 
 		/// <summary>
 		/// Gibt Datum und Uhrzeit des Terminendes zurück oder legt sie fest.
 		/// </summary>
 		public DateTime EndsAt
 		{
-			get { return (DateTime)this.GetFieldValue(DavidFieldEnum.EndsAt); }
+			get { return (DateTime)this.GetFieldValue(DavidFieldsEnum.StopTime); }
 			set
 			{
 				if (!this.EndsAt.Equals(value))
 				{
-					this.SetFieldValue(DavidFieldEnum.EndsAt, value);
+					this.SetFieldValue(DavidFieldsEnum.StopTime, value);
 					EndDate = value;
 					this.myIsDirty = true;
 				}
@@ -169,7 +154,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				var fName = this.GetFieldValue(DavidFieldEnum.FileName) as string;
+				var fName = this.GetFieldValue(DavidFieldsEnum.FileName) as string;
 				if (fName == null) return null;
 				return fName.EndsWith(".001", StringComparison.CurrentCulture) ? fName : string.Format("{0}.001", fName);
 			}
@@ -180,46 +165,47 @@ namespace Products.Model.Entities
 		/// </summary>
 		public string Location
 		{
-			get { return this.GetFieldValue(DavidFieldEnum.Location) as string; }
+			get { return this.GetFieldValue(DavidFieldsEnum.Location) as string; }
 			set
 			{
 				if (!this.Location.Equals(value))
 				{
-					this.SetFieldValue(DavidFieldEnum.Location, value);
+					this.SetFieldValue(DavidFieldsEnum.Location, value);
 					this.myIsDirty = true;
 				}
 			}
 		}
 
 		/// <summary>
-		/// Gibt die Anzahl an Minuten zurück, die der Benutzer vor dem Terminbeginn erinnert werden soll oder legt sie fest.
+		/// Gibt die Anzahl an Minuten zurück, die der Benutzer vor dem Terminbeginn erinnert werden
+		/// soll oder legt sie fest.
 		/// </summary>
 		public int RemindAt
 		{
-			get { return (int)this.GetFieldValue(DavidFieldEnum.RemindAt); }
+			get { return (int)this.GetFieldValue(DavidFieldsEnum.ReminderTime); }
 			set
 			{
 				if (!this.RemindAt.Equals(value))
 				{
-					if (value.Equals(0)) value = -1;	// Der Wert -1 schaltet die Erinnerungsfunktion aus.
-					this.SetFieldValue(DavidFieldEnum.RemindAt, value);
+					if (value.Equals(0)) value = -1;  // Der Wert -1 schaltet die Erinnerungsfunktion aus.
+					this.SetFieldValue(DavidFieldsEnum.ReminderTime, value);
 					this.myIsDirty = true;
 				}
 			}
 		}
 
 		/// <summary>
-		/// Gibt zurück, ob der Termin als 'Frei', 'Beschäftigt', 'Abwesend' oder 'Unter Vorbehalt' 
+		/// Gibt zurück, ob der Termin als 'Frei', 'Beschäftigt', 'Abwesend' oder 'Unter Vorbehalt'
 		/// angezeigt werden soll oder legt das fest.
 		/// </summary>
 		public DvApi32.DvShowAsType ShowAs
 		{
-			get { return (DvApi32.DvShowAsType)this.GetFieldValue(DavidFieldEnum.ShowAs); }
+			get { return (DvApi32.DvShowAsType)this.GetFieldValue(DavidFieldsEnum.ShowAs); }
 			set
 			{
 				if (this.ShowAs != value)
 				{
-					this.SetFieldValue(DavidFieldEnum.ShowAs, value);
+					this.SetFieldValue(DavidFieldsEnum.ShowAs, value);
 					this.myIsDirty = true;
 				}
 			}
@@ -230,12 +216,12 @@ namespace Products.Model.Entities
 		/// </summary>
 		public DateTime StartsAt
 		{
-			get { return (DateTime)this.GetFieldValue(DavidFieldEnum.StartsAt); }
+			get { return (DateTime)this.GetFieldValue(DavidFieldsEnum.SendTime); }
 			set
 			{
 				if (!this.StartsAt.Equals(value))
 				{
-					this.SetFieldValue(DavidFieldEnum.StartsAt, value);
+					this.SetFieldValue(DavidFieldsEnum.SendTime, value);
 					StartDate = value;
 					this.myIsDirty = true;
 				}
@@ -259,7 +245,7 @@ namespace Products.Model.Entities
 			}
 		}
 
-		#endregion
+		#endregion MessageItem2
 
 		#region Entities and related
 
@@ -268,23 +254,17 @@ namespace Products.Model.Entities
 		/// </summary>
 		public User CreatedBy
 		{
-			get 
+			get
 			{
-				var folder = ((int)this.GetFieldValue(DavidFieldEnum.CreatedBy)).ToString("X");
-				return ModelManager.UserService.FindUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder); 
+				var folder = ((int)this.GetFieldValue(DavidFieldsEnum.Creator)).ToString("X");
+				return ModelManager.UserService.GetUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder);
 			}
 		}
 
 		/// <summary>
 		/// Gibt den Namen des Users zurück, der den Kalendereintrag ursprünglich erstellt hat.
 		/// </summary>
-		public string CreatedByName
-		{
-			get
-			{
-				return this.CreatedBy != null ? this.CreatedBy.NameFull : null;
-			}
-		}
+		public string CreatedByName => this.CreatedBy != null ? this.CreatedBy.NameFull : null;
 
 		/// <summary>
 		/// Gibt den Besitzer dieses Kalendereintrags zurück.
@@ -293,42 +273,29 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				var folder = ((int)this.GetFieldValue(DavidFieldEnum.Owner)).ToString("X");
-				return ModelManager.UserService.FindUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder);
+				var folder = ((int)this.GetFieldValue(DavidFieldsEnum.Owner)).ToString("X");
+				return ModelManager.UserService.GetUser(folder, Services.UserService.UserSearchParamType.DavidUserFolder);
 			}
 		}
 
 		/// <summary>
-		/// Gibt den Namen des Benutzers zurück, in dessen Kalender dieser Kalendereintrag gespeichert ist.
+		/// Gibt den Namen des Benutzers zurück, in dessen Kalender dieser Kalendereintrag
+		/// gespeichert ist.
 		/// </summary>
-		public string OwnerName 
-		{ 
-			get 
-			{
-				return (this.Owner != null) ? this.Owner.NameFull : null;
-			} 
-		}
+		public string OwnerName => (this.Owner != null) ? this.Owner.NameFull : null;
 
 		/// <summary>
 		/// Gibt den User zurück, in dessen Kalender dieser Eintrag aktuell gespeichert ist.
 		/// </summary>
-		public User Responsible
-		{
-			get
-			{
-				return ModelManager.UserService.FindUser(this.FullName, Services.UserService.UserSearchParamType.DavidFileName);
-			}
-		}
+		public User Responsible => ModelManager.UserService.GetUser(this.FullName, Services.UserService.UserSearchParamType.DavidFileName);
 
 		/// <summary>
-		/// Gibt Vor- und Nachnamen des Users zurück, in dessen Kalender dieser Eintrag aktuell gespeichert ist.
+		/// Gibt Vor- und Nachnamen des Users zurück, in dessen Kalender dieser Eintrag aktuell
+		/// gespeichert ist.
 		/// </summary>
-		public string ResponsibleName
-		{
-			get { return this.Responsible != null ? this.Responsible.NameFull : null; }
-		}
+		public string ResponsibleName => this.Responsible != null ? this.Responsible.NameFull : null;
 
-		#endregion
+		#endregion Entities and related
 
 		/// <summary>
 		/// Gibt eine Übersicht für diesen Kalendereintrag im Ascii Format zurück (z. B. für ToolTips).
@@ -358,31 +325,36 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt true zurück, wenn der Kalendereintrag geändert wurde, sonst false.
 		/// </summary>
-		public bool IsDirty { get { return this.myIsDirty; } }
+		public bool IsDirty => this.myIsDirty;
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz der Appointment Klasse.
 		/// </summary>
-		/// <param name="baseItem2">Eine <seealso cref="DvApi32.MessageItem2"/>Instanz, die den Kalendereintrag in David repräsentiert.</param>
-		/// <param name="xRefBase">Eine <seealso cref="Products.Data.Datasets.dsAppointments.AppointmentXrefRow"/> Instanz, die die
-		/// Verknüpfung zwischen Kalendereintrag und dem verantwortlichen User repräsentiert.</param>
+		/// <param name="baseItem2">
+		/// Eine <seealso cref="DvApi32.MessageItem2"/> Instanz, die den Kalendereintrag in David repräsentiert.
+		/// </param>
+		/// <param name="xRefBase">
+		/// Eine <seealso cref="Products.Data.Datasets.dsAppointments.AppointmentXrefRow"/> Instanz,
+		/// die die Verknüpfung zwischen Kalendereintrag und dem verantwortlichen User repräsentiert.
+		/// </param>
 		public Appointment(DvApi32.MessageItem2 baseItem2, dsAppointments.AppointmentXrefRow xRefBase)
 		{
 			this.myMsgItem2Base = baseItem2;
+			this.myMsgItem2Fields = baseItem2.Fields as DvApi32.Fields; ;
 			this.myXrefBase = xRefBase;
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
 		/// <summary>
-		/// Gibt eine Übersicht für diesen Kalendereintrag im Ascii Format zurück (z. B. für ToolTips).
+		/// Gibt eine Übersicht im HTML-Format für diesen Kalendereintrag zurück (für ToolTips etc.).
 		/// </summary>
 		/// <returns></returns>
 		public string GetAppointmentInfoHtml()
@@ -396,10 +368,7 @@ namespace Products.Model.Entities
 			return sb.ToString();
 		}
 
-		internal SBList<ILinkedItem> GetLinkedItemsList()
-		{
-			return ModelManager.AppointmentService.GetLinkedItemsList(this);
-		}
+		internal SortableBindingList<ILinkedItem> GetLinkedItemsList() => ModelManager.AppointmentService.GetLinkedItemsList(this);
 
 		/// <summary>
 		/// Gibt die Felder und Feldinhalte der zugrundeliegenden MessageItem2 Instanz zurück.
@@ -425,13 +394,13 @@ namespace Products.Model.Entities
 			return ModelManager.AppointmentService.Update();
 		}
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
-		void InitializeData()
+		private void InitializeData()
 		{
-			base.AllDayEvent = (bool)this.GetFieldValue(DavidFieldEnum.AllDayEvent);
+			base.AllDayEvent = (bool)this.GetFieldValue(DavidFieldsEnum.AllDayEvent);
 			this.Color = this.Responsible.AppointmentColor;
 			this.SetBorderColor();
 			this.DrawBorder = true;
@@ -440,50 +409,50 @@ namespace Products.Model.Entities
 			this.Layer = 0;
 			this.Locked = false;
 			StartDate = this.StartsAt;
-			TextColor = System.Drawing.Color.FromArgb(32,32,32);
+			TextColor = System.Drawing.Color.FromArgb(32, 32, 32);
 			Title = this.Subject;
 		}
 
-		void SetBorderColor()
+		private void SetBorderColor()
 		{
 			switch (ShowAs)
 			{
 				case DvApi32.DvShowAsType.DvShowAsBusy:
-					BorderColor = System.Drawing.Color.DarkBlue;
-					break;
+				BorderColor = System.Drawing.Color.DarkBlue;
+				break;
+
 				case DvApi32.DvShowAsType.DvShowAsFree:
-					BorderColor = System.Drawing.Color.LightGreen;
-					break;
+				BorderColor = System.Drawing.Color.LightGreen;
+				break;
+
 				case DvApi32.DvShowAsType.DvShowAsOutOfOffice:
-					BorderColor = System.Drawing.Color.DarkRed;
-					break;
+				BorderColor = System.Drawing.Color.DarkRed;
+				break;
+
 				case DvApi32.DvShowAsType.DvShowAsTentative:
-					BorderColor = System.Drawing.Color.LightYellow;
-					break;
+				BorderColor = System.Drawing.Color.LightYellow;
+				break;
+
 				default:
-					BorderColor = System.Drawing.Color.White;
-					break;
+				BorderColor = System.Drawing.Color.White;
+				break;
 			}
 		}
 
-		object GetFieldValue(DavidFieldEnum field)
-		{
-			return ((DvApi32.Fields)this.myMsgItem2Base.Fields).Item(field).Value;
-		}
+		private object GetFieldValue(DavidFieldsEnum field) => this.myMsgItem2Fields.Item(field).Value;
 
-		void SetFieldValue(DavidFieldEnum field, object value)
+		private void SetFieldValue(DavidFieldsEnum field, object value)
 		{
 			try
 			{
-				((DvApi32.Fields)this.myMsgItem2Base.Fields).Item(field).Value = value;
+				this.myMsgItem2Fields.Item(field).Value = value;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				throw;
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

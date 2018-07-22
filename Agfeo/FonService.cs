@@ -5,15 +5,15 @@ using JulMar.Atapi;
 
 namespace Agfeo
 {
-	public class FonService
+	public class FonService : IDisposable
 	{
-
 		#region public events
 
 		public event EventHandler<IncomingCallEventArgs> SomeoneIsCalling;
+
 		public event EventHandler OnLineOpened;
 
-		#endregion
+		#endregion public events
 
 		#region members
 
@@ -21,32 +21,20 @@ namespace Agfeo
 		TapiLine myLine;
 		TapiAddress myAddress;
 
-		#endregion
+		#endregion members
 
 		#region public properties
 
 		/// <summary>
-		/// Returns true if we have registered event handlers for 
+		/// Returns true if we have registered event handlers for
 		/// our SomeoneIsCalling event.
 		/// </summary>
-		public bool IsListening
-		{
-			get
-			{
-				return (SomeoneIsCalling != null);
-			}
-		}
+		public bool IsListening => (SomeoneIsCalling != null);
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
-		public TapiManager TapiManager
-		{
-			get
-			{
-				return this.myTapiManager;
-			}
-		}
+		public TapiManager TapiManager => this.myTapiManager;
 
 		public bool Initialized { get; private set; }
 
@@ -55,7 +43,7 @@ namespace Agfeo
 		/// </summary>
 		public bool Connected { get; set; }
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -67,7 +55,7 @@ namespace Agfeo
 			this.myTapiManager = new TapiManager("Catalist");
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -111,7 +99,7 @@ namespace Agfeo
 			}
 		}
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -154,12 +142,9 @@ namespace Agfeo
 			}
 		}
 
-		private string NormalizedFonNumber(string input)
-		{
-			return input.Replace("+", "00").Replace("/", "");
-		}
+		private string NormalizedFonNumber(string input) => input.Replace("+", "00").Replace("/", "");
 
-		#endregion
+		#endregion private procedures
 
 		#region event handler
 
@@ -168,20 +153,42 @@ namespace Agfeo
 			SomeoneIsCalling?.Invoke(sender, new IncomingCallEventArgs(e.Call.Address.Address));
 		}
 
-		#endregion
+		#endregion event handler
 
+		#region IDisposable Support
+
+		private bool disposedValue = false; // Dient zur Erkennung redundanter Aufrufe.
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					this.myTapiManager.Shutdown();
+				}
+				disposedValue = true;
+			}
+		}
+
+		// Dieser Code wird hinzugefügt, um das Dispose-Muster richtig zu implementieren.
+		public void Dispose()
+		{
+			Dispose(true);
+		}
+
+		#endregion IDisposable Support
 	}
 
 	#region classes
 
 	public class IncomingCallEventArgs : EventArgs
 	{
-
 		#region members
 
 		readonly string phoneNumber;
 
-		#endregion
+		#endregion members
 
 		#region ### .ctor ###
 
@@ -190,22 +197,14 @@ namespace Agfeo
 			phoneNumber = incomingNumber;
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public properties
 
-		public string CallerNumber
-		{
-			get
-			{
-				return this.phoneNumber;
-			}
-		}
+		public string CallerNumber => this.phoneNumber;
 
-		#endregion
-
+		#endregion public properties
 	}
 
-	#endregion
-
+	#endregion classes
 }

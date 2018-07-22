@@ -2,6 +2,9 @@
 {
 	partial class CalendarSettingsView
 	{
+
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -95,6 +98,7 @@
 			this.mtxtForUser.MaxLength = 32767;
 			this.mtxtForUser.Name = "mtxtForUser";
 			this.mtxtForUser.PasswordChar = '\0';
+			this.mtxtForUser.PromptText = "Mitarbeiter, für den Termine erstellt werden";
 			this.mtxtForUser.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtForUser.SelectedText = "";
 			this.mtxtForUser.SelectionLength = 0;

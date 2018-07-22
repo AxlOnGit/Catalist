@@ -3,27 +3,25 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Products.Model.Entities;
-using Products.Common.Collections;
 
 namespace Products.Common.Views
 {
 	public partial class AppointmentListView : MetroForm
 	{
+		#region MEMBERS
 
-		#region members
+		private readonly SortableBindingList<Appointment> myTerminListe;
+		private readonly string myTitle;
+		private Appointment mySelectedAppointment;
 
-		readonly SBList<Appointment> myTerminListe;
-		readonly string myTitle;
-		Appointment mySelectedAppointment;
-
-		#endregion
+		#endregion MEMBERS
 
 		#region ### .ctor ###
 
 		/// <summary>
 		/// Erzeugt eine neue Instanz der <seealso cref="AppointmentListView"/> Klasse.
 		/// </summary>
-		public AppointmentListView(SBList<Appointment> terminListe, string title)
+		public AppointmentListView(SortableBindingList<Appointment> terminListe, string title)
 		{
 			InitializeComponent();
 			this.myTerminListe = terminListe;
@@ -31,42 +29,42 @@ namespace Products.Common.Views
 			this.InitializeData();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
-		void dgvAppointments_RowEnter(object sender, DataGridViewCellEventArgs e)
+		private void dgvAppointments_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			this.mySelectedAppointment = this.dgvAppointments.Rows[e.RowIndex].DataBoundItem as Appointment;
 		}
 
-		void xcmdShowAppointment_Click(object sender, EventArgs e)
+		private void xcmdShowAppointment_Click(object sender, EventArgs e)
 		{
 			this.ShowAppointment();
 		}
 
-		void dgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void dgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			this.ShowAppointment();
 		}
 
-		void mbtnClose_Click(object sender, EventArgs e)
+		private void mbtnClose_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion
+		#endregion EVENT HANDLER
 
-		#region private procedures
+		#region PRIVATE PROCEDURES
 
-		void InitializeData()
+		private void InitializeData()
 		{
-			this.Text = string.Format("Terminliste für {0}", this.myTitle.Replace("&","&&"));
+			this.Text = string.Format("Terminliste für {0}", this.myTitle.Replace("&", "&&"));
 			this.dgvAppointments.AutoGenerateColumns = false;
 			this.dgvAppointments.DataSource = this.myTerminListe.Sort("StartsAt", ListSortDirection.Descending);
 		}
 
-		void ShowAppointment()
+		private void ShowAppointment()
 		{
 			if (this.mySelectedAppointment == null) return;
 
@@ -74,7 +72,6 @@ namespace Products.Common.Views
 			cdv.Show();
 		}
 
-		#endregion
-
+		#endregion PRIVATE PROCEDURES
 	}
 }

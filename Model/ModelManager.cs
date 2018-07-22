@@ -5,8 +5,7 @@ namespace Products.Model
 {
 	public static class ModelManager
 	{
-
-		#region members
+		#region MEMBERS
 
 		static AppointmentService myAppointmentSvc;
 		static CatalogService myCatalogSvc;
@@ -15,6 +14,8 @@ namespace Products.Model
 		static DavidService myDavidSvc;
 		static FileLinkService myFileLinkSvc;
 		static FileSystemService myFileSystemSvc;
+		static MachineCreatorService myMachineCreatorSvc;
+		static MachinePathCreatorService myMachinePathCreatorSvc;
 		static MachineService myMachineSvc;
 		static ModelService myModelSvc;
 		static NotesService myNotesSvc;
@@ -34,7 +35,7 @@ namespace Products.Model
 		static TechnikService myTechnikSvc;
 		static UserService myUserSvc;
 
-		#endregion
+		#endregion MEMBERS
 
 		#region public properties
 
@@ -149,8 +150,31 @@ namespace Products.Model
 		}
 
 		/// <summary>
-		/// Gibt den statischen singleton MachineService des Systems zurück.
+		/// Gibt den statischen singleton <seealso cref="MachineCreatorService"/> des
+		/// Systems zurück.
 		/// </summary>
+		public static MachineCreatorService MachineCreatorService
+		{
+			get
+			{
+				if (myMachineCreatorSvc == null) myMachineCreatorSvc = new MachineCreatorService();
+				return myMachineCreatorSvc;
+			}
+		}
+
+		/// <summary>
+		/// Gibt den statischen singleton <seealso cref="MachinePathCreatorService"/> des
+		/// Systems zurück.
+		/// </summary>
+		public static MachinePathCreatorService MachinePathCreatorService
+		{
+			get
+			{
+				if (myMachinePathCreatorSvc == null) myMachinePathCreatorSvc = new MachinePathCreatorService();
+				return myMachinePathCreatorSvc;
+			}
+		}
+
 		public static MachineService MachineService
 		{
 			get
@@ -226,13 +250,14 @@ namespace Products.Model
 		/// <summary>
 		/// Gibt den statischen singleton Postbüdel des Systems zurück.
 		/// </summary>
-		public static Common.PostOffice PostBuedel
+		public static PostOffice PostBuedel
 		{
 			get
 			{
 				if (myPostSvc == null)
 				{
-					myPostSvc = new Common.PostOffice(UserService.CurrentUser.LoginWindows, Global.SenderPW, UserService.CurrentUser.EmailWork);
+					var password = CatalistRegistry.Application.SenderPW;
+					myPostSvc = new PostOffice(UserService.CurrentUser.LoginWindows, password, UserService.CurrentUser.EmailWork);
 				}
 				return myPostSvc;
 			}
@@ -418,7 +443,6 @@ namespace Products.Model
 			}
 		}
 
-		#endregion
-
+		#endregion public properties
 	}
 }

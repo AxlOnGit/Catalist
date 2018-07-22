@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -9,7 +8,6 @@ using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Products.Common.Collections;
 using Products.Common.Interfaces;
-using Products.Data.Datasets;
 using Products.Model;
 using Products.Model.Builder;
 using Products.Model.Entities;
@@ -186,12 +184,12 @@ namespace Products.Common.Views
 				switch (MetroMessageBox.Show(this, msg, "Dateiverknüpfungen", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
 				{
 					case DialogResult.No:
-						this.AddFileLink(ofd.FileName, true);
-						break;
+					this.AddFileLink(ofd.FileName, true);
+					break;
 
 					case DialogResult.Yes:
-						this.AddFileLink(ofd.FileName, false);
-						break;
+					this.AddFileLink(ofd.FileName, false);
+					break;
 				}
 			}
 		}
@@ -300,9 +298,7 @@ namespace Products.Common.Views
 		void xcmdShowAppointmentList_Click(object sender, EventArgs e)
 		{
 			if (this.mySelectedKunde == null) return;
-
-			var kundeAsLink = this.mySelectedKunde as ILinkedItem;
-			var aList = ModelManager.AppointmentService.GetAppointmentList(kundeAsLink.Key, kundeAsLink.LinkTypeId);
+			var aList = ModelManager.AppointmentService.GetAppointmentList(this.mySelectedKunde);
 			var alv = new AppointmentListView(aList, this.mySelectedKunde.CompanyName1);
 			alv.Show();
 		}

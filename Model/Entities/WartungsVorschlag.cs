@@ -6,12 +6,11 @@ namespace Products.Model.Entities
 {
 	public class WartungsVorschlag
 	{
-
 		#region members
 
 		readonly dsMachines.KundenmaschinenListeRow myBase;
 
-		#endregion
+		#endregion members
 
 		#region pubic properties
 
@@ -23,25 +22,33 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Modellbezeichnung der Maschine zurück.
 		/// </summary>
-		public string Bezeichnung {
+		public string Bezeichnung
+		{
 			get
 			{
 				if (this.Maschine == null) return "";
 				return this.Maschine.Modellbezeichnung;
 			}
 		}
+
 		public string Seriennummer { get { return this.myBase.Seriennummer; } }
+
 		public DateTime Zuordnungsdatum { get { return this.myBase.Zuordnung; } }
+
 		public bool Wartungskennzeichen { get { return this.myBase.Wartungskennzeichen == 1; } }
+
 		public int Wartungsintervall { get { return this.myBase.Wartungsintervall; } }
+
 		public DateTime Auftragsdatum { get { return this.myBase.Auftragsdatum; } }
+
 		public DateTime Installationsdatum { get { return this.myBase.Installationsdatum; } }
-		public DateTime Kaufdatum { get { return this.myBase.Kaufdatum; } }
+
+		public DateTime Lieferdatum { get { return this.myBase.Lieferdatum; } }
+
 		public DateTime? Vorschlagdatum
 		{
 			get
 			{
-
 				DateTime? vorschlag = null;
 				var list = new List<DateTime>();
 
@@ -58,7 +65,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				return ModelManager.MachineService.GetKundenMaschine(this.Kunde, this.UID);
+				return RepoManager.KundenmaschinenRepository.GetKundenmaschine(this.UID);
 			}
 		}
 
@@ -67,9 +74,9 @@ namespace Products.Model.Entities
 		/// </summary>
 		public Kunde Kunde { get { return ModelManager.CustomerService.GetKunde(this.myBase.Kundennummer, false); } }
 
-		#endregion
+		#endregion ENTITIES
 
-		#endregion
+		#endregion pubic properties
 
 		#region ### .ctor ###
 
@@ -78,10 +85,6 @@ namespace Products.Model.Entities
 			this.myBase = baseRow;
 		}
 
-		#endregion
-
-		#region public procedures
-		#endregion
-
+		#endregion ### .ctor ###
 	}
 }

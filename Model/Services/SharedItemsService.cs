@@ -1,16 +1,15 @@
 ﻿using Products.Common;
-using Products.Data;
-using Products.Model.Entities;
-using System.Linq;
-using Products.Data.Datasets;
 using Products.Common.Interfaces;
+using Products.Data;
+using Products.Data.Datasets;
+using Products.Model.Entities;
 using System;
+using System.Linq;
 
 namespace Products.Model.Services
 {
 	public class SharedItemsService
 	{
-
 		#region members
 
 		readonly SortableBindingList<Linktyp> myLinkTypList = new SortableBindingList<Linktyp>();
@@ -20,8 +19,15 @@ namespace Products.Model.Services
 		SortableBindingList<Maschinentyp> myMaschinenTypList;
 		SortableBindingList<Tinte> myTinteList;
 
-		#endregion
+		/// <summary>
+		/// Schreibt neue, geänderte und gelöschte Daten in die Herstellertabelle der Datenbank.
+		/// </summary>
+		public void UpdateHersteller()
+		{
+			DataManager.SharedDataService.UpdateHersteller();
+		}
 
+		#endregion members
 
 		#region public properties
 
@@ -97,7 +103,7 @@ namespace Products.Model.Services
 		/// </summary>
 		public SortableBindingList<Maschinentyp> MaschinenTypList
 		{
-			get			
+			get
 			{
 				if (this.myMaschinenTypList == null)
 				{
@@ -130,7 +136,7 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
+		#endregion public properties
 
 		#region ### .ctor ###
 
@@ -142,7 +148,7 @@ namespace Products.Model.Services
 			this.InitializeLinkTypeList();
 		}
 
-		#endregion
+		#endregion ### .ctor ###
 
 		#region public procedures
 
@@ -169,7 +175,8 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Ermittelt den Objekttyp des angegebenen ILinkedItem und gibt den entsprechenden Linktyp zurück.
+		/// Ermittelt den Objekttyp des angegebenen ILinkedItem und gibt den entsprechenden
+		/// Linktyp zurück.
 		/// </summary>
 		/// <param name="item">Das Element dessen Linktyp gesucht wird.</param>
 		/// <returns></returns>
@@ -178,7 +185,7 @@ namespace Products.Model.Services
 			return this.GetLinkTypeByName(item.LinkTypBezeichnung);
 		}
 
-		#endregion
+		#endregion LinkTyp
 
 		#region Hersteller
 
@@ -205,7 +212,7 @@ namespace Products.Model.Services
 			return this.HerstellerList.FirstOrDefault(h => h.UID == herstellerPK);
 		}
 
-		#endregion
+		#endregion Hersteller
 
 		#region MaschinenModell
 
@@ -231,7 +238,8 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
-		/// Gibt eine sortierbare Liste aller Maschinenmodelle der angegebenen Maschinenserie zurück.
+		/// Gibt eine sortierbare Liste aller Maschinenmodelle der angegebenen
+		/// Maschinenserie zurück.
 		/// </summary>
 		/// <param name="maschinenserie"></param>
 		/// <returns></returns>
@@ -246,6 +254,27 @@ namespace Products.Model.Services
 		}
 
 		/// <summary>
+		/// Löscht das angegebene <seealso cref="Maschinenmodell"/>.
+		/// </summary>
+		/// <param name="maschinenModell">Das zu löschende <seealso cref="Maschinenmodell"/>.</param>
+		public void DeleteMaschinenModell(Maschinenmodell maschinenModell)
+		{
+			bool modelRemoved = false;
+			if (maschinenModell.CanDelete)
+			{
+				if (this.myMaschinenModellList.Contains(maschinenModell))
+				{
+					this.myMaschinenModellList.Remove(maschinenModell);
+					modelRemoved = true;
+				}
+				if (!DataManager.SharedDataService.DeleteMaschinenModellRow(maschinenModell.UID).Equals(1) && modelRemoved)
+				{
+					this.myMaschinenModellList.Add(maschinenModell);
+				}
+			}
+		}
+
+		/// <summary>
 		/// Aktualisiert die Tabelle MaschinenModell.
 		/// </summary>
 		/// <returns></returns>
@@ -254,7 +283,7 @@ namespace Products.Model.Services
 			return DataManager.SharedDataService.UpdateMaschinenModell();
 		}
 
-		#endregion
+		#endregion MaschinenModell
 
 		#region MaschinenSerie
 
@@ -280,7 +309,7 @@ namespace Products.Model.Services
 			return this.MaschinenSerieList.FirstOrDefault(s => s.UID == seriePK);
 		}
 
-		#endregion
+		#endregion MaschinenSerie
 
 		#region MaschinenTyp
 
@@ -307,7 +336,7 @@ namespace Products.Model.Services
 			return this.MaschinenTypList.FirstOrDefault(t => t.UID == maschinenTypPK);
 		}
 
-		#endregion
+		#endregion MaschinenTyp
 
 		#region Tinte
 
@@ -348,9 +377,9 @@ namespace Products.Model.Services
 			return DataManager.SharedDataService.UpdateTinte();
 		}
 
-		#endregion
+		#endregion Tinte
 
-		#endregion
+		#endregion public procedures
 
 		#region private procedures
 
@@ -362,7 +391,6 @@ namespace Products.Model.Services
 			}
 		}
 
-		#endregion
-
+		#endregion private procedures
 	}
 }

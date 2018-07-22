@@ -47,7 +47,6 @@
 			this.colBruttosumme = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colGesamtrabatt = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.xmnuAngebote = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.xcmdSearchEmails = new System.Windows.Forms.ToolStripMenuItem();
 			this.mbtnClose = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
 			this.dgvDetails = new MetroFramework.Controls.MetroGrid();
 			this.colArtikelnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +54,8 @@
 			this.colBezeichnung2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colMenge = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colGesamtpreis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.xcmdSearchEmails = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdOpenInSage = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAngebote)).BeginInit();
 			this.xmnuAngebote.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
@@ -169,17 +170,10 @@
 			// xmnuAngebote
 			// 
 			this.xmnuAngebote.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xcmdSearchEmails});
+            this.xcmdSearchEmails,
+            this.xcmdOpenInSage});
 			this.xmnuAngebote.Name = "xmnuAngebote";
-			this.xmnuAngebote.Size = new System.Drawing.Size(167, 26);
-			// 
-			// xcmdSearchEmails
-			// 
-			this.xcmdSearchEmails.Image = global::Products.Common.Properties.Resources.email_16_metrogreen;
-			this.xcmdSearchEmails.Name = "xcmdSearchEmails";
-			this.xcmdSearchEmails.Size = new System.Drawing.Size(166, 22);
-			this.xcmdSearchEmails.Text = "E-Mails suchen ...";
-			this.xcmdSearchEmails.Click += new System.EventHandler(this.xcmdSearchEmails_Click);
+			this.xmnuAngebote.Size = new System.Drawing.Size(167, 70);
 			// 
 			// mbtnClose
 			// 
@@ -297,6 +291,22 @@
 			this.colGesamtpreis.HeaderText = "Gesamt";
 			this.colGesamtpreis.Name = "colGesamtpreis";
 			// 
+			// xcmdSearchEmails
+			// 
+			this.xcmdSearchEmails.Image = global::Products.Common.Properties.Resources.email_16_metrogreen;
+			this.xcmdSearchEmails.Name = "xcmdSearchEmails";
+			this.xcmdSearchEmails.Size = new System.Drawing.Size(166, 22);
+			this.xcmdSearchEmails.Text = "E-Mails suchen ...";
+			this.xcmdSearchEmails.Click += new System.EventHandler(this.xcmdSearchEmails_Click);
+			// 
+			// xcmdOpenInSage
+			// 
+			this.xcmdOpenInSage.Image = global::Products.Common.Properties.Resources.SageNCL_16;
+			this.xcmdOpenInSage.Name = "xcmdOpenInSage";
+			this.xcmdOpenInSage.Size = new System.Drawing.Size(166, 22);
+			this.xcmdOpenInSage.Text = "In Sage öffnen";
+			this.xcmdOpenInSage.Click += new System.EventHandler(this.xcmdOpenInSage_Click);
+			// 
 			// AngeboteListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +343,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colGesamtrabatt;
 		private System.Windows.Forms.ContextMenuStrip xmnuAngebote;
 		private System.Windows.Forms.ToolStripMenuItem xcmdSearchEmails;
+		private System.Windows.Forms.ToolStripMenuItem xcmdOpenInSage;
 	}
 }

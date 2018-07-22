@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Products.Common.Collections
 {
@@ -22,29 +20,11 @@ namespace Products.Common.Collections
 
 		#region public properties
 
-		public ListSortDescriptionCollection SortDescriptions
-		{
-			get
-			{
-				return new ListSortDescriptionCollection(this.myListSortDescriptors.ToArray());
-			}
-		}
+		public ListSortDescriptionCollection SortDescriptions => new ListSortDescriptionCollection(this.myListSortDescriptors.ToArray());
 
-		public bool SupportsAdvancedSorting
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool SupportsAdvancedSorting => true;
 
-		public bool SupportsFiltering
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool SupportsFiltering => true;
 
 		public void ApplySort(ListSortDescriptionCollection sorts)
 		{
@@ -69,7 +49,7 @@ namespace Products.Common.Collections
 
 		#region ### .ctor ###
 
-		public SBList() :base(new List<T>())
+		public SBList() : base(new List<T>())
 		{
 			this.myOriginalData = new List<T>(); // base.Items.ToList();		//as List<T>
 
@@ -89,29 +69,11 @@ namespace Products.Common.Collections
 
 		#region override
 
-		protected override bool SupportsSearchingCore
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool SupportsSearchingCore => true;
 
-		protected override bool SupportsSortingCore
-		{
-			get
-			{
-				return true;
-			}
-		}
+		protected override bool SupportsSortingCore => true;
 
-		protected override bool IsSortedCore
-		{
-			get
-			{
-				return this.myIsSorted;
-			}
-		}
+		protected override bool IsSortedCore => this.myIsSorted;
 
 		protected override PropertyDescriptor SortPropertyCore
 		{
@@ -243,14 +205,14 @@ namespace Products.Common.Collections
 					}
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				Items.Clear();
 				foreach (var oItem in this.myOriginalData)
 				{
 					Items.Add(oItem);
 				}
-				throw ex;
+				throw;
 			}
 		}
 
@@ -391,14 +353,14 @@ namespace Products.Common.Collections
 					this.ApplySortCore(this.myListSortDescriptors, false);
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				Items.Clear();
 				foreach (T item in this.myOriginalData)
 				{
 					Items.Add(item);
 				}
-				throw ex;
+				throw;
 			}
 			finally
 			{

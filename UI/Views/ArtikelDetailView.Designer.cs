@@ -73,6 +73,8 @@
 			this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
 			this.mlblAverageSales = new MetroFramework.Controls.MetroLabel();
+			this.mlblAverageSales12Months = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBestellungen)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProductSales)).BeginInit();
 			this.SuspendLayout();
@@ -238,7 +240,7 @@
 			// 
 			this.mbtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.mbtnClose.Image = null;
-			this.mbtnClose.Location = new System.Drawing.Point(548, 771);
+			this.mbtnClose.Location = new System.Drawing.Point(548, 788);
 			this.mbtnClose.Name = "mbtnClose";
 			this.mbtnClose.Size = new System.Drawing.Size(100, 26);
 			this.mbtnClose.TabIndex = 20;
@@ -472,7 +474,7 @@
 			this.dgvProductSales.RowHeadersWidth = 21;
 			this.dgvProductSales.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.dgvProductSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvProductSales.Size = new System.Drawing.Size(126, 335);
+			this.dgvProductSales.Size = new System.Drawing.Size(126, 352);
 			this.dgvProductSales.Style = MetroFramework.MetroColorStyle.Teal;
 			this.dgvProductSales.TabIndex = 28;
 			// 
@@ -511,12 +513,12 @@
 			// 
 			this.metroLabel9.AutoSize = true;
 			this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Small;
-			this.metroLabel9.Location = new System.Drawing.Point(522, 729);
+			this.metroLabel9.Location = new System.Drawing.Point(483, 729);
 			this.metroLabel9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
 			this.metroLabel9.Name = "metroLabel9";
-			this.metroLabel9.Size = new System.Drawing.Size(35, 15);
+			this.metroLabel9.Size = new System.Drawing.Size(97, 15);
 			this.metroLabel9.TabIndex = 30;
-			this.metroLabel9.Text = "Ø =>";
+			this.metroLabel9.Text = "Ø pro Auftrag =>";
 			// 
 			// mlblAverageSales
 			// 
@@ -528,11 +530,34 @@
 			this.mlblAverageSales.Text = "0";
 			this.mlblAverageSales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
+			// mlblAverageSales12Months
+			// 
+			this.mlblAverageSales12Months.FontSize = MetroFramework.MetroLabelSize.Small;
+			this.mlblAverageSales12Months.Location = new System.Drawing.Point(570, 747);
+			this.mlblAverageSales12Months.Name = "mlblAverageSales12Months";
+			this.mlblAverageSales12Months.Size = new System.Drawing.Size(78, 23);
+			this.mlblAverageSales12Months.TabIndex = 33;
+			this.mlblAverageSales12Months.Text = "0";
+			this.mlblAverageSales12Months.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// metroLabel13
+			// 
+			this.metroLabel13.AutoSize = true;
+			this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Small;
+			this.metroLabel13.Location = new System.Drawing.Point(483, 750);
+			this.metroLabel13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
+			this.metroLabel13.Name = "metroLabel13";
+			this.metroLabel13.Size = new System.Drawing.Size(90, 15);
+			this.metroLabel13.TabIndex = 32;
+			this.metroLabel13.Text = "Ø 12 Monate =>";
+			// 
 			// ArtikelDetailView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(671, 820);
+			this.ClientSize = new System.Drawing.Size(671, 837);
+			this.Controls.Add(this.mlblAverageSales12Months);
+			this.Controls.Add(this.metroLabel13);
 			this.Controls.Add(this.mlblAverageSales);
 			this.Controls.Add(this.metroLabel9);
 			this.Controls.Add(this.metroLabel5);
@@ -608,5 +633,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colMenge;
 		private MetroFramework.Controls.MetroLabel metroLabel9;
 		private MetroFramework.Controls.MetroLabel mlblAverageSales;
+		private MetroFramework.Controls.MetroLabel mlblAverageSales12Months;
+		private MetroFramework.Controls.MetroLabel metroLabel13;
 	}
 }

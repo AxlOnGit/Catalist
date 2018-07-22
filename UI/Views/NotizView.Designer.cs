@@ -28,6 +28,8 @@
 		/// </summary>
 		void InitializeComponent()
 		{
+#pragma warning disable CS0618 // Typ oder Element ist veraltet
+
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -53,17 +55,18 @@
 			this.mdtpCreatedAt = new MetroFramework.Controls.MetroDateTime();
 			this.mcmbKontakt = new MetroFramework.Controls.MetroComboBox();
 			this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+			this.mbtnInsertClipboardClean = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDateilinks)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblErfassung
 			// 
-			this.lblErfassung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			this.lblErfassung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.lblErfassung.FontSize = MetroFramework.MetroLabelSize.Small;
-			this.lblErfassung.Location = new System.Drawing.Point(184, 546);
+			this.lblErfassung.Location = new System.Drawing.Point(271, 546);
 			this.lblErfassung.Name = "lblErfassung";
-			this.lblErfassung.Size = new System.Drawing.Size(623, 86);
+			this.lblErfassung.Size = new System.Drawing.Size(536, 86);
 			this.lblErfassung.TabIndex = 7;
 			this.lblErfassung.Text = "Am Hmpften erfasst von Gnurz";
 			this.lblErfassung.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -79,8 +82,8 @@
 			// 
 			// txtNotiztext
 			// 
-			this.txtNotiztext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-						| System.Windows.Forms.AnchorStyles.Left) 
+			this.txtNotiztext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
@@ -103,6 +106,7 @@
 			this.txtNotiztext.Multiline = true;
 			this.txtNotiztext.Name = "txtNotiztext";
 			this.txtNotiztext.PasswordChar = '\0';
+			this.txtNotiztext.PromptText = "Notizentext";
 			this.txtNotiztext.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtNotiztext.SelectedText = "";
 			this.txtNotiztext.SelectionLength = 0;
@@ -131,7 +135,7 @@
 			// 
 			// mtxtThema
 			// 
-			this.mtxtThema.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.mtxtThema.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			// 
 			// 
@@ -152,6 +156,7 @@
 			this.mtxtThema.MaxLength = 32767;
 			this.mtxtThema.Name = "mtxtThema";
 			this.mtxtThema.PasswordChar = '\0';
+			this.mtxtThema.PromptText = "Worum geht\'s?";
 			this.mtxtThema.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtThema.SelectedText = "";
 			this.mtxtThema.SelectionLength = 0;
@@ -217,7 +222,7 @@
 			this.dgvDateilinks.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
 			this.dgvDateilinks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.dgvDateilinks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			this.dgvDateilinks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvDateilinks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvDateilinks.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -393,11 +398,28 @@
 			this.metroLabel2.TabIndex = 140;
 			this.metroLabel2.Text = "Kontakt:";
 			// 
+			// mbtnInsertClipboardClean
+			// 
+			this.mbtnInsertClipboardClean.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnInsertClipboardClean.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.mbtnInsertClipboardClean.FlatAppearance.BorderSize = 0;
+			this.mbtnInsertClipboardClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnInsertClipboardClean.Image = global::Products.Common.Properties.Resources.paste_24_metroyellow;
+			this.mbtnInsertClipboardClean.Location = new System.Drawing.Point(184, 531);
+			this.mbtnInsertClipboardClean.Margin = new System.Windows.Forms.Padding(3, 20, 20, 3);
+			this.mbtnInsertClipboardClean.Name = "mbtnInsertClipboardClean";
+			this.mbtnInsertClipboardClean.Size = new System.Drawing.Size(30, 30);
+			this.mbtnInsertClipboardClean.TabIndex = 141;
+			this.mbtnInsertClipboardClean.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.mbtnInsertClipboardClean.UseVisualStyleBackColor = false;
+			this.mbtnInsertClipboardClean.Click += new System.EventHandler(this.mbtnInsertClipboardClean_Click);
+			// 
 			// NotizView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(830, 895);
+			this.Controls.Add(this.mbtnInsertClipboardClean);
 			this.Controls.Add(this.metroLabel2);
 			this.Controls.Add(this.mcmbKontakt);
 			this.Controls.Add(this.mdtpCreatedAt);
@@ -425,6 +447,8 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
+#pragma warning restore CS0618 // Typ oder Element ist veraltet
+
 		}
 
 		#endregion
@@ -449,5 +473,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colFileTitle;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colExtension;
+		private System.Windows.Forms.Button mbtnInsertClipboardClean;
 	}
 }

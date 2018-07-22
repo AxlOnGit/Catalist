@@ -14,10 +14,12 @@ namespace Products.Common.Views
 	{
 		#region members
 
-		readonly Notiz myNotiz;
-		readonly ILinkedItem myLinkedElement;
-		FileLink mySelectedDateilink;
-		string myLinkedElementText = string.Empty;
+		private readonly Notiz myNotiz;
+		private readonly ILinkedItem myLinkedElement;
+		private readonly string nl = Environment.NewLine;
+		private FileLink mySelectedDateilink;
+
+		private string myLinkedElementText = string.Empty;
 
 		#endregion members
 
@@ -36,7 +38,7 @@ namespace Products.Common.Views
 
 		#endregion ### .ctor ###
 
-		#region event handler
+		#region EVENT HANDLER
 
 		//void lnkLinkedElement_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		//{
@@ -79,27 +81,27 @@ namespace Products.Common.Views
 		//  }
 		//}
 
-		void mbtnClose_Click(object sender, System.EventArgs e)
+		private void mbtnClose_Click(object sender, System.EventArgs e)
 		{
 			this.Close();
 		}
 
-		void NotizView_FormClosing(object sender, FormClosingEventArgs e)
+		private void NotizView_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			UpdateMe();
 		}
 
-		void btnDelegiereMich_Click(object sender, System.EventArgs e)
+		private void btnDelegiereMich_Click(object sender, System.EventArgs e)
 		{
 			this.DelegiereMich();
 		}
 
-		void lnkDelegation_Click(object sender, System.EventArgs e)
+		private void lnkDelegation_Click(object sender, System.EventArgs e)
 		{
 			this.DelegiereMich();
 		}
 
-		void btnAddFileLink_Click(object sender, System.EventArgs e)
+		private void btnAddFileLink_Click(object sender, System.EventArgs e)
 		{
 			var ofd = new OpenFileDialog();
 			ofd.AutoUpgradeEnabled = true;
@@ -114,17 +116,17 @@ namespace Products.Common.Views
 				switch (MetroMessageBox.Show(this, msg, "Dateiverknüpfungen", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
 				{
 					case DialogResult.No:
-						ModelManager.FileLinkService.AddFileLink(new FileInfo(ofd.FileName), this.myNotiz, true);
-						break;
+					ModelManager.FileLinkService.AddFileLink(new FileInfo(ofd.FileName), this.myNotiz, true);
+					break;
 
 					case DialogResult.Yes:
-						ModelManager.FileLinkService.AddFileLink(new FileInfo(ofd.FileName), this.myNotiz, false);
-						break;
+					ModelManager.FileLinkService.AddFileLink(new FileInfo(ofd.FileName), this.myNotiz, false);
+					break;
 				}
 			}
 		}
 
-		void btnRemoveLink_Click(object sender, EventArgs e)
+		private void btnRemoveLink_Click(object sender, EventArgs e)
 		{
 			if (this.mySelectedDateilink != null && this.mySelectedDateilink.GetCanDelete())
 			{
@@ -145,23 +147,23 @@ namespace Products.Common.Views
 			}
 		}
 
-		void btnOpenFileLink_Click(object sender, EventArgs e)
+		private void btnOpenFileLink_Click(object sender, EventArgs e)
 		{
 			this.OpenDateilink();
 		}
 
-		void dgvDateilinks_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void dgvDateilinks_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			this.OpenDateilink();
 		}
 
-		void dgvDateilinks_RowEnter(object sender, DataGridViewCellEventArgs e)
+		private void dgvDateilinks_RowEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			this.mySelectedDateilink = this.dgvDateilinks.Rows[e.RowIndex].DataBoundItem as Model.Entities.FileLink;
 			this.mtoolTip.SetToolTip(this.dgvDateilinks, this.mySelectedDateilink.FileTitle);
 		}
 
-		void mlblFontSize_Click(object sender, EventArgs e)
+		private void mlblFontSize_Click(object sender, EventArgs e)
 		{
 			if (this.txtNotiztext.FontSize == MetroFramework.MetroTextBoxSize.Tall)
 			{
@@ -171,16 +173,23 @@ namespace Products.Common.Views
 			this.txtNotiztext.FontSize += 1;
 		}
 
-		void lnkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void mbtnInsertClipboardClean_Click(object sender, EventArgs e)
+		{
+			var clipRawText = Clipboard.GetText();
+			var clipBoard = clipRawText.Replace("\r\n\r\n" + " " + "\r\n\r\n", "\r\n\r\n").Replace("\r\n\r\n", "\r\n");
+			this.txtNotiztext.Text += nl + clipBoard;
+		}
+
+		private void lnkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			this.Close();
 		}
 
-		#endregion event handler
+		#endregion EVENT HANDLER
 
 		#region private procedures
 
-		void InitializeData()
+		private void InitializeData()
 		{
 			this.Text = this.myNotiz.Subject;
 
@@ -206,7 +215,7 @@ namespace Products.Common.Views
 			this.dgvDateilinks.DataSource = myNotiz.Dateilinks;
 		}
 
-		void OpenDateilink()
+		private void OpenDateilink()
 		{
 			if (this.mySelectedDateilink != null)
 			{
@@ -222,17 +231,17 @@ namespace Products.Common.Views
 			}
 		}
 
-		void DelegiereMich()
+		private void DelegiereMich()
 		{
 			//NEXT: Notiz delegieren ...
 		}
 
-		void AddFileLink(string fileName, bool keepSourceFile = true)
+		private void AddFileLink(string fileName, bool keepSourceFile = true)
 		{
 			ModelManager.FileLinkService.AddFileLink(new FileInfo(fileName), this.myNotiz, keepSourceFile);
 		}
 
-		void UpdateMe()
+		private void UpdateMe()
 		{
 			ModelManager.NotesService.UpdateNotes();
 			ModelManager.FileLinkService.Update();

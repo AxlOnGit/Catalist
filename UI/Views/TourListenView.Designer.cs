@@ -185,6 +185,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(566, 725);
 			this.ContextMenuStrip = this.ctxGrid;
+			this.ControlBox = false;
 			this.Controls.Add(this.mbtnOpen);
 			this.Controls.Add(this.mbtnClose);
 			this.Controls.Add(this.dgvTouren);

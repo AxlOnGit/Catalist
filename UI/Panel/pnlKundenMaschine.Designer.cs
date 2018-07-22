@@ -33,17 +33,22 @@ namespace Products.Common.Panel
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pnlKundenMaschine));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label4 = new MetroFramework.Controls.MetroLabel();
 			this.cmbInkType = new MetroFramework.Controls.MetroComboBox();
 			this.label3 = new MetroFramework.Controls.MetroLabel();
@@ -54,10 +59,8 @@ namespace Products.Common.Panel
 			this.mtxtSerialNumber = new MetroFramework.Controls.MetroTextBox();
 			this.mlblTitel = new MetroFramework.Controls.MetroLabel();
 			this.mctxTree = new MetroFramework.Controls.MetroContextMenu(this.components);
-			this.xcmdOpenInExplorer = new System.Windows.Forms.ToolStripMenuItem();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.mctxGrid = new MetroFramework.Controls.MetroContextMenu(this.components);
-			this.xcmdOpenFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.mtabProperties = new MetroFramework.Controls.MetroTabControl();
 			this.tabFiles = new System.Windows.Forms.TabPage();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -70,27 +73,40 @@ namespace Products.Common.Panel
 			this.colChangeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabNotes = new MetroFramework.Controls.MetroTabPage();
 			this.mtxtNoteText = new MetroFramework.Controls.MetroTextBox();
-			this.mbtnDeleteNote = new System.Windows.Forms.Button();
-			this.mbtnOpenNote = new System.Windows.Forms.Button();
 			this.dgvNotizen = new MetroFramework.Controls.MetroGrid();
 			this.colErfassungsdatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colThema = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colNotiztext = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.mbtnCreateNote = new System.Windows.Forms.Button();
 			this.lblNotizen = new MetroFramework.Controls.MetroLabel();
+			this.tabService = new System.Windows.Forms.TabPage();
+			this.dgvAppointments = new MetroFramework.Controls.MetroGrid();
+			this.colStartsAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colAppointmentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colResponsibleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.mctxService = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tabSoftware = new System.Windows.Forms.TabPage();
-			this.mbtnDeleteSoftware = new System.Windows.Forms.Button();
-			this.mbtnOpenSoftware = new System.Windows.Forms.Button();
 			this.label9 = new MetroFramework.Controls.MetroLabel();
-			this.mbtnCreateSoftware = new System.Windows.Forms.Button();
 			this.dgvSoftware = new MetroFramework.Controls.MetroGrid();
 			this.colSoftwareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colLizenzSchluessel = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabSales = new System.Windows.Forms.TabPage();
+			this.mctxAuftrag = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.mbtnLoadSageInfo = new MetroFramework.Controls.MetroButton();
+			this.ndtpVertragsende = new Products.UI.Controls.NullableDateTimePicker();
+			this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+			this.mtxtFinanzierungDurch = new MetroFramework.Controls.MetroTextBox();
+			this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+			this.mtogglErstverwertung = new MetroFramework.Controls.MetroToggle();
+			this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+			this.mtogglMietkauf = new MetroFramework.Controls.MetroToggle();
+			this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+			this.mtogglLeasing = new MetroFramework.Controls.MetroToggle();
 			this.mcmbTechniker = new MetroFramework.Controls.MetroComboBox();
 			this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
 			this.mtxtSageInfos = new MetroFramework.Controls.MetroTextBox();
-			this.mbtnOpenInSage = new MetroFramework.Controls.MetroButton();
 			this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -106,16 +122,21 @@ namespace Products.Common.Panel
 			this.mtxtRechnung = new MetroFramework.Controls.MetroTextBox();
 			this.mtxtAuftrag = new MetroFramework.Controls.MetroTextBox();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.mtogglLeasing = new MetroFramework.Controls.MetroToggle();
-			this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-			this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-			this.mtogglMietkauf = new MetroFramework.Controls.MetroToggle();
-			this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-			this.mtogglErstverwertung = new MetroFramework.Controls.MetroToggle();
-			this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-			this.mtxtFinanzierungDurch = new MetroFramework.Controls.MetroTextBox();
-			this.ndtpVertragsende = new Products.UI.Controls.NullableDateTimePicker();
-			this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+			this.mtxtFirmware = new MetroFramework.Controls.MetroTextBox();
+			this.xcmdOpenInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdOpenFile = new System.Windows.Forms.ToolStripMenuItem();
+			this.mbtnDeleteNote = new System.Windows.Forms.Button();
+			this.mbtnOpenNote = new System.Windows.Forms.Button();
+			this.mbtnCreateNote = new System.Windows.Forms.Button();
+			this.xcmdOpenAppointment = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdShowCalendarView = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdWartungsvorschlag = new System.Windows.Forms.ToolStripMenuItem();
+			this.mbtnDeleteSoftware = new System.Windows.Forms.Button();
+			this.mbtnOpenSoftware = new System.Windows.Forms.Button();
+			this.mbtnCreateSoftware = new System.Windows.Forms.Button();
+			this.xcmdKundenauftrag = new System.Windows.Forms.ToolStripMenuItem();
+			this.mbtnOpenInSage = new MetroFramework.Controls.MetroButton();
 			this.mctxTree.SuspendLayout();
 			this.mctxGrid.SuspendLayout();
 			this.mtabProperties.SuspendLayout();
@@ -127,15 +148,19 @@ namespace Products.Common.Panel
 			((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
 			this.tabNotes.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNotizen)).BeginInit();
+			this.tabService.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
+			this.mctxService.SuspendLayout();
 			this.tabSoftware.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSoftware)).BeginInit();
 			this.tabSales.SuspendLayout();
+			this.mctxAuftrag.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(818, 103);
+			this.label4.Location = new System.Drawing.Point(816, 103);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(54, 19);
 			this.label4.TabIndex = 122;
@@ -146,18 +171,18 @@ namespace Products.Common.Panel
 			this.cmbInkType.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
 			this.cmbInkType.FormattingEnabled = true;
 			this.cmbInkType.ItemHeight = 23;
-			this.cmbInkType.Location = new System.Drawing.Point(644, 100);
+			this.cmbInkType.Location = new System.Drawing.Point(642, 100);
 			this.cmbInkType.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
 			this.cmbInkType.Name = "cmbInkType";
 			this.cmbInkType.Size = new System.Drawing.Size(151, 29);
 			this.cmbInkType.Style = MetroFramework.MetroColorStyle.Orange;
-			this.cmbInkType.TabIndex = 2;
+			this.cmbInkType.TabIndex = 10;
 			this.cmbInkType.UseSelectable = true;
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(598, 103);
+			this.label3.Location = new System.Drawing.Point(596, 103);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(40, 19);
 			this.label3.TabIndex = 121;
@@ -166,7 +191,7 @@ namespace Products.Common.Panel
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(317, 103);
+			this.label2.Location = new System.Drawing.Point(315, 103);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(99, 19);
 			this.label2.TabIndex = 120;
@@ -211,7 +236,7 @@ namespace Products.Common.Panel
 			this.txtColorSet.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.txtColorSet.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.txtColorSet.Lines = new string[0];
-			this.txtColorSet.Location = new System.Drawing.Point(878, 100);
+			this.txtColorSet.Location = new System.Drawing.Point(876, 100);
 			this.txtColorSet.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
 			this.txtColorSet.MaxLength = 32767;
 			this.txtColorSet.Multiline = true;
@@ -225,7 +250,7 @@ namespace Products.Common.Panel
 			this.txtColorSet.ShortcutsEnabled = true;
 			this.txtColorSet.Size = new System.Drawing.Size(153, 29);
 			this.txtColorSet.Style = MetroFramework.MetroColorStyle.Orange;
-			this.txtColorSet.TabIndex = 3;
+			this.txtColorSet.TabIndex = 15;
 			this.txtColorSet.UseSelectable = true;
 			this.txtColorSet.WaterMark = "z. B. CMYK";
 			this.txtColorSet.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -248,7 +273,7 @@ namespace Products.Common.Panel
 			this.mtxtSerialNumber.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtSerialNumber.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtSerialNumber.Lines = new string[0];
-			this.mtxtSerialNumber.Location = new System.Drawing.Point(422, 100);
+			this.mtxtSerialNumber.Location = new System.Drawing.Point(420, 100);
 			this.mtxtSerialNumber.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
 			this.mtxtSerialNumber.MaxLength = 32767;
 			this.mtxtSerialNumber.Multiline = true;
@@ -262,7 +287,7 @@ namespace Products.Common.Panel
 			this.mtxtSerialNumber.ShortcutsEnabled = true;
 			this.mtxtSerialNumber.Size = new System.Drawing.Size(153, 29);
 			this.mtxtSerialNumber.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtxtSerialNumber.TabIndex = 1;
+			this.mtxtSerialNumber.TabIndex = 5;
 			this.mtxtSerialNumber.UseSelectable = true;
 			this.mtxtSerialNumber.WaterMark = "z. B. 3.30";
 			this.mtxtSerialNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -285,14 +310,6 @@ namespace Products.Common.Panel
 			this.mctxTree.Name = "mctxTree";
 			this.mctxTree.Size = new System.Drawing.Size(117, 26);
 			// 
-			// xcmdOpenInExplorer
-			// 
-			this.xcmdOpenInExplorer.Image = global::Products.Common.Properties.Resources.explorer_exe_original;
-			this.xcmdOpenInExplorer.Name = "xcmdOpenInExplorer";
-			this.xcmdOpenInExplorer.Size = new System.Drawing.Size(116, 22);
-			this.xcmdOpenInExplorer.Text = "Explorer";
-			this.xcmdOpenInExplorer.Click += new System.EventHandler(this.xcmdOpenInExplorer_Click);
-			// 
 			// imageList1
 			// 
 			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -307,29 +324,23 @@ namespace Products.Common.Panel
 			this.mctxGrid.Name = "mctxGrid";
 			this.mctxGrid.Size = new System.Drawing.Size(112, 26);
 			// 
-			// xcmdOpenFile
-			// 
-			this.xcmdOpenFile.Image = global::Products.Common.Properties.Resources.open_16_metroorange;
-			this.xcmdOpenFile.Name = "xcmdOpenFile";
-			this.xcmdOpenFile.Size = new System.Drawing.Size(111, 22);
-			this.xcmdOpenFile.Text = "Öffnen";
-			this.xcmdOpenFile.Click += new System.EventHandler(this.xcmdOpenFile_Click);
-			// 
 			// mtabProperties
 			// 
 			this.mtabProperties.Controls.Add(this.tabFiles);
 			this.mtabProperties.Controls.Add(this.tabNotes);
+			this.mtabProperties.Controls.Add(this.tabService);
 			this.mtabProperties.Controls.Add(this.tabSoftware);
 			this.mtabProperties.Controls.Add(this.tabSales);
 			this.mtabProperties.HotTrack = true;
 			this.mtabProperties.ItemSize = new System.Drawing.Size(100, 34);
 			this.mtabProperties.Location = new System.Drawing.Point(23, 162);
 			this.mtabProperties.Name = "mtabProperties";
-			this.mtabProperties.SelectedIndex = 3;
+			this.mtabProperties.SelectedIndex = 2;
 			this.mtabProperties.ShowToolTips = true;
 			this.mtabProperties.Size = new System.Drawing.Size(1242, 591);
 			this.mtabProperties.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtabProperties.TabIndex = 4;
+			this.mtabProperties.TabIndex = 25;
+			this.mtabProperties.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			this.mtabProperties.UseSelectable = true;
 			this.mtabProperties.SelectedIndexChanged += new System.EventHandler(this.mtabProperties_SelectedIndexChanged);
 			// 
@@ -343,7 +354,7 @@ namespace Products.Common.Panel
 			this.tabFiles.Padding = new System.Windows.Forms.Padding(20);
 			this.tabFiles.Size = new System.Drawing.Size(1234, 549);
 			this.tabFiles.TabIndex = 0;
-			this.tabFiles.Text = "Dateien";
+			this.tabFiles.Text = "Dateien  ";
 			this.tabFiles.UseVisualStyleBackColor = true;
 			// 
 			// metroLabel1
@@ -408,14 +419,14 @@ namespace Products.Common.Panel
 			this.dgvFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvFiles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colFilename,
@@ -423,14 +434,14 @@ namespace Products.Common.Panel
             this.colType,
             this.colChangeDate});
 			this.dgvFiles.ContextMenuStrip = this.mctxGrid;
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvFiles.DefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvFiles.DefaultCellStyle = dataGridViewCellStyle3;
 			this.dgvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvFiles.EnableHeadersVisualStyles = false;
 			this.dgvFiles.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -441,14 +452,14 @@ namespace Products.Common.Panel
 			this.dgvFiles.Name = "dgvFiles";
 			this.dgvFiles.ReadOnly = true;
 			this.dgvFiles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-			dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
-			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(149)))), ((int)(((byte)(173)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.dgvFiles.RowHeadersVisible = false;
 			this.dgvFiles.RowHeadersWidth = 21;
 			this.dgvFiles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -475,10 +486,10 @@ namespace Products.Common.Panel
 			// 
 			this.colSize.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colSize.DataPropertyName = "Length";
-			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-			dataGridViewCellStyle13.Format = "N0";
-			dataGridViewCellStyle13.NullValue = null;
-			this.colSize.DefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+			dataGridViewCellStyle2.Format = "N0";
+			dataGridViewCellStyle2.NullValue = null;
+			this.colSize.DefaultCellStyle = dataGridViewCellStyle2;
 			this.colSize.FillWeight = 15F;
 			this.colSize.HeaderText = "Größe";
 			this.colSize.Name = "colSize";
@@ -505,11 +516,11 @@ namespace Products.Common.Panel
 			// tabNotes
 			// 
 			this.tabNotes.Controls.Add(this.mtxtNoteText);
+			this.tabNotes.Controls.Add(this.dgvNotizen);
+			this.tabNotes.Controls.Add(this.lblNotizen);
 			this.tabNotes.Controls.Add(this.mbtnDeleteNote);
 			this.tabNotes.Controls.Add(this.mbtnOpenNote);
-			this.tabNotes.Controls.Add(this.dgvNotizen);
 			this.tabNotes.Controls.Add(this.mbtnCreateNote);
-			this.tabNotes.Controls.Add(this.lblNotizen);
 			this.tabNotes.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabNotes.HorizontalScrollbarBarColor = true;
 			this.tabNotes.HorizontalScrollbarHighlightOnWheel = false;
@@ -519,7 +530,7 @@ namespace Products.Common.Panel
 			this.tabNotes.Padding = new System.Windows.Forms.Padding(20);
 			this.tabNotes.Size = new System.Drawing.Size(1234, 549);
 			this.tabNotes.TabIndex = 1;
-			this.tabNotes.Text = "Notizen";
+			this.tabNotes.Text = "  Notizen  ";
 			this.tabNotes.UseVisualStyleBackColor = true;
 			this.tabNotes.VerticalScrollbarBarColor = true;
 			this.tabNotes.VerticalScrollbarHighlightOnWheel = false;
@@ -542,7 +553,7 @@ namespace Products.Common.Panel
 			this.mtxtNoteText.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
 			this.mtxtNoteText.CustomButton.UseSelectable = true;
 			this.mtxtNoteText.CustomButton.Visible = false;
-			this.mtxtNoteText.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+			this.mtxtNoteText.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtNoteText.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
 			this.mtxtNoteText.Lines = new string[0];
 			this.mtxtNoteText.Location = new System.Drawing.Point(20, 378);
@@ -550,7 +561,7 @@ namespace Products.Common.Panel
 			this.mtxtNoteText.Multiline = true;
 			this.mtxtNoteText.Name = "mtxtNoteText";
 			this.mtxtNoteText.PasswordChar = '\0';
-			this.mtxtNoteText.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.mtxtNoteText.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
 			this.mtxtNoteText.SelectedText = "";
 			this.mtxtNoteText.SelectionLength = 0;
 			this.mtxtNoteText.SelectionStart = 0;
@@ -563,37 +574,6 @@ namespace Products.Common.Panel
 			this.mtxtNoteText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			this.mtxtNoteText.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtNoteText_Validating);
 			// 
-			// mbtnDeleteNote
-			// 
-			this.mbtnDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnDeleteNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnDeleteNote.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroorange;
-			this.mbtnDeleteNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnDeleteNote.FlatAppearance.BorderSize = 0;
-			this.mbtnDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnDeleteNote.Location = new System.Drawing.Point(1178, 11);
-			this.mbtnDeleteNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnDeleteNote.Name = "mbtnDeleteNote";
-			this.mbtnDeleteNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnDeleteNote.TabIndex = 133;
-			this.mbtnDeleteNote.UseVisualStyleBackColor = false;
-			this.mbtnDeleteNote.Click += new System.EventHandler(this.btnDeleteNote_Click);
-			// 
-			// mbtnOpenNote
-			// 
-			this.mbtnOpenNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnOpenNote.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroorange;
-			this.mbtnOpenNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenNote.FlatAppearance.BorderSize = 0;
-			this.mbtnOpenNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnOpenNote.Location = new System.Drawing.Point(24, 10);
-			this.mbtnOpenNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnOpenNote.Name = "mbtnOpenNote";
-			this.mbtnOpenNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnOpenNote.TabIndex = 130;
-			this.mbtnOpenNote.UseVisualStyleBackColor = false;
-			this.mbtnOpenNote.Click += new System.EventHandler(this.mbtnOpenNote_Click);
-			// 
 			// dgvNotizen
 			// 
 			this.dgvNotizen.AllowUserToAddRows = false;
@@ -605,27 +585,27 @@ namespace Products.Common.Panel
 			this.dgvNotizen.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvNotizen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvNotizen.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvNotizen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvNotizen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvNotizen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvNotizen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colErfassungsdatum,
             this.colThema,
             this.colNotiztext});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvNotizen.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvNotizen.DefaultCellStyle = dataGridViewCellStyle7;
 			this.dgvNotizen.EnableHeadersVisualStyles = false;
 			this.dgvNotizen.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.dgvNotizen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -634,14 +614,14 @@ namespace Products.Common.Panel
 			this.dgvNotizen.Name = "dgvNotizen";
 			this.dgvNotizen.ReadOnly = true;
 			this.dgvNotizen.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-			dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvNotizen.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvNotizen.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvNotizen.RowHeadersVisible = false;
 			this.dgvNotizen.RowHeadersWidth = 21;
 			this.dgvNotizen.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -656,9 +636,9 @@ namespace Products.Common.Panel
 			// 
 			this.colErfassungsdatum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colErfassungsdatum.DataPropertyName = "CreatedAt";
-			dataGridViewCellStyle3.Format = "d";
-			dataGridViewCellStyle3.NullValue = null;
-			this.colErfassungsdatum.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.Format = "d";
+			dataGridViewCellStyle6.NullValue = null;
+			this.colErfassungsdatum.DefaultCellStyle = dataGridViewCellStyle6;
 			this.colErfassungsdatum.FillWeight = 10F;
 			this.colErfassungsdatum.HeaderText = "Datum";
 			this.colErfassungsdatum.MinimumWidth = 75;
@@ -685,21 +665,6 @@ namespace Products.Common.Panel
 			this.colNotiztext.Name = "colNotiztext";
 			this.colNotiztext.ReadOnly = true;
 			// 
-			// mbtnCreateNote
-			// 
-			this.mbtnCreateNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnCreateNote.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroorange;
-			this.mbtnCreateNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnCreateNote.FlatAppearance.BorderSize = 0;
-			this.mbtnCreateNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnCreateNote.Location = new System.Drawing.Point(83, 11);
-			this.mbtnCreateNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnCreateNote.Name = "mbtnCreateNote";
-			this.mbtnCreateNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnCreateNote.TabIndex = 132;
-			this.mbtnCreateNote.UseVisualStyleBackColor = false;
-			this.mbtnCreateNote.Click += new System.EventHandler(this.mbtnCreateNote_Click);
-			// 
 			// lblNotizen
 			// 
 			this.lblNotizen.AutoSize = true;
@@ -709,6 +674,138 @@ namespace Products.Common.Panel
 			this.lblNotizen.Size = new System.Drawing.Size(71, 25);
 			this.lblNotizen.TabIndex = 134;
 			this.lblNotizen.Text = "Notizen";
+			// 
+			// tabService
+			// 
+			this.tabService.BackColor = System.Drawing.Color.Transparent;
+			this.tabService.Controls.Add(this.dgvAppointments);
+			this.tabService.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabService.Location = new System.Drawing.Point(4, 38);
+			this.tabService.Name = "tabService";
+			this.tabService.Padding = new System.Windows.Forms.Padding(20);
+			this.tabService.Size = new System.Drawing.Size(1234, 549);
+			this.tabService.TabIndex = 4;
+			this.tabService.Text = "  Service/Wartung  ";
+			// 
+			// dgvAppointments
+			// 
+			this.dgvAppointments.AllowUserToAddRows = false;
+			this.dgvAppointments.AllowUserToDeleteRows = false;
+			this.dgvAppointments.AllowUserToResizeRows = false;
+			this.dgvAppointments.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dgvAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.dgvAppointments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colStartsAt,
+            this.colAppointmentType,
+            this.colResponsibleName,
+            this.colSubject});
+			this.dgvAppointments.ContextMenuStrip = this.mctxService;
+			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle12;
+			this.dgvAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvAppointments.EnableHeadersVisualStyles = false;
+			this.dgvAppointments.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.dgvAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvAppointments.HighLightPercentage = 1.2F;
+			this.dgvAppointments.Location = new System.Drawing.Point(20, 20);
+			this.dgvAppointments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.dgvAppointments.Name = "dgvAppointments";
+			this.dgvAppointments.ReadOnly = true;
+			this.dgvAppointments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+			dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			this.dgvAppointments.RowHeadersVisible = false;
+			this.dgvAppointments.RowHeadersWidth = 21;
+			this.dgvAppointments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvAppointments.Size = new System.Drawing.Size(1194, 509);
+			this.dgvAppointments.Style = MetroFramework.MetroColorStyle.Silver;
+			this.dgvAppointments.TabIndex = 7;
+			this.toolTip1.SetToolTip(this.dgvAppointments, "Zeigt alle mit dieser Maschine verknüpften Termine an");
+			this.dgvAppointments.UseCustomBackColor = true;
+			this.dgvAppointments.UseCustomForeColor = true;
+			this.dgvAppointments.UseStyleColors = true;
+			this.dgvAppointments.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppointments_RowEnter);
+			this.dgvAppointments.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAppointments_MouseDoubleClick);
+			// 
+			// colStartsAt
+			// 
+			this.colStartsAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colStartsAt.DataPropertyName = "StartsAt";
+			dataGridViewCellStyle10.Format = "d";
+			dataGridViewCellStyle10.NullValue = null;
+			this.colStartsAt.DefaultCellStyle = dataGridViewCellStyle10;
+			this.colStartsAt.FillWeight = 10F;
+			this.colStartsAt.HeaderText = "Datum";
+			this.colStartsAt.Name = "colStartsAt";
+			this.colStartsAt.ReadOnly = true;
+			// 
+			// colAppointmentType
+			// 
+			this.colAppointmentType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colAppointmentType.DataPropertyName = "AppointmentType";
+			this.colAppointmentType.FillWeight = 15F;
+			this.colAppointmentType.HeaderText = "Typ";
+			this.colAppointmentType.Name = "colAppointmentType";
+			this.colAppointmentType.ReadOnly = true;
+			// 
+			// colResponsibleName
+			// 
+			this.colResponsibleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colResponsibleName.DataPropertyName = "ResponsibleName";
+			this.colResponsibleName.FillWeight = 15F;
+			this.colResponsibleName.HeaderText = "Techniker";
+			this.colResponsibleName.Name = "colResponsibleName";
+			this.colResponsibleName.ReadOnly = true;
+			// 
+			// colSubject
+			// 
+			this.colSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colSubject.DataPropertyName = "Subject";
+			dataGridViewCellStyle11.NullValue = null;
+			this.colSubject.DefaultCellStyle = dataGridViewCellStyle11;
+			this.colSubject.FillWeight = 60F;
+			this.colSubject.HeaderText = "Termin";
+			this.colSubject.Name = "colSubject";
+			this.colSubject.ReadOnly = true;
+			// 
+			// mctxService
+			// 
+			this.mctxService.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xcmdOpenAppointment,
+            this.toolStripMenuItem1,
+            this.xcmdShowCalendarView,
+            this.xcmdWartungsvorschlag});
+			this.mctxService.Name = "mctxGrid";
+			this.mctxService.Size = new System.Drawing.Size(183, 76);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(179, 6);
 			// 
 			// tabSoftware
 			// 
@@ -723,40 +820,8 @@ namespace Products.Common.Panel
 			this.tabSoftware.Padding = new System.Windows.Forms.Padding(20);
 			this.tabSoftware.Size = new System.Drawing.Size(1234, 549);
 			this.tabSoftware.TabIndex = 2;
-			this.tabSoftware.Text = "Software";
+			this.tabSoftware.Text = "  Software  ";
 			this.tabSoftware.UseVisualStyleBackColor = true;
-			// 
-			// mbtnDeleteSoftware
-			// 
-			this.mbtnDeleteSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnDeleteSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnDeleteSoftware.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroyellow;
-			this.mbtnDeleteSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnDeleteSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnDeleteSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnDeleteSoftware.Location = new System.Drawing.Point(1178, 11);
-			this.mbtnDeleteSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 20);
-			this.mbtnDeleteSoftware.Name = "mbtnDeleteSoftware";
-			this.mbtnDeleteSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnDeleteSoftware.TabIndex = 128;
-			this.mbtnDeleteSoftware.UseVisualStyleBackColor = false;
-			this.mbtnDeleteSoftware.Click += new System.EventHandler(this.mbtnDeleteSoftware_Click);
-			// 
-			// mbtnOpenSoftware
-			// 
-			this.mbtnOpenSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnOpenSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnOpenSoftware.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroyellow;
-			this.mbtnOpenSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnOpenSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnOpenSoftware.Location = new System.Drawing.Point(24, 10);
-			this.mbtnOpenSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnOpenSoftware.Name = "mbtnOpenSoftware";
-			this.mbtnOpenSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnOpenSoftware.TabIndex = 125;
-			this.mbtnOpenSoftware.UseVisualStyleBackColor = false;
-			this.mbtnOpenSoftware.Click += new System.EventHandler(this.mbtnOpenSoftware_Click);
 			// 
 			// label9
 			// 
@@ -768,22 +833,6 @@ namespace Products.Common.Panel
 			this.label9.TabIndex = 129;
 			this.label9.Text = "Software";
 			// 
-			// mbtnCreateSoftware
-			// 
-			this.mbtnCreateSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnCreateSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnCreateSoftware.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroyellow;
-			this.mbtnCreateSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnCreateSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnCreateSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnCreateSoftware.Location = new System.Drawing.Point(83, 11);
-			this.mbtnCreateSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnCreateSoftware.Name = "mbtnCreateSoftware";
-			this.mbtnCreateSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnCreateSoftware.TabIndex = 127;
-			this.mbtnCreateSoftware.UseVisualStyleBackColor = false;
-			this.mbtnCreateSoftware.Click += new System.EventHandler(this.mbtnCreateSoftware_Click);
-			// 
 			// dgvSoftware
 			// 
 			this.dgvSoftware.AllowUserToAddRows = false;
@@ -793,26 +842,26 @@ namespace Products.Common.Panel
 			this.dgvSoftware.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvSoftware.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvSoftware.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
-			dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
-			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvSoftware.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
+			dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
+			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvSoftware.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
 			this.dgvSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSoftware.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSoftwareName,
             this.colLizenzSchluessel});
-			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
-			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvSoftware.DefaultCellStyle = dataGridViewCellStyle18;
+			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
+			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvSoftware.DefaultCellStyle = dataGridViewCellStyle15;
 			this.dgvSoftware.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dgvSoftware.EnableHeadersVisualStyles = false;
 			this.dgvSoftware.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -821,14 +870,14 @@ namespace Products.Common.Panel
 			this.dgvSoftware.Name = "dgvSoftware";
 			this.dgvSoftware.ReadOnly = true;
 			this.dgvSoftware.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
-			dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
-			dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvSoftware.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
+			dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(57)))));
+			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvSoftware.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
 			this.dgvSoftware.RowHeadersVisible = false;
 			this.dgvSoftware.RowHeadersWidth = 21;
 			this.dgvSoftware.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -860,6 +909,8 @@ namespace Products.Common.Panel
 			// tabSales
 			// 
 			this.tabSales.AllowDrop = true;
+			this.tabSales.ContextMenuStrip = this.mctxAuftrag;
+			this.tabSales.Controls.Add(this.mbtnLoadSageInfo);
 			this.tabSales.Controls.Add(this.ndtpVertragsende);
 			this.tabSales.Controls.Add(this.metroLabel14);
 			this.tabSales.Controls.Add(this.mtxtFinanzierungDurch);
@@ -873,7 +924,6 @@ namespace Products.Common.Panel
 			this.tabSales.Controls.Add(this.mcmbTechniker);
 			this.tabSales.Controls.Add(this.metroLabel5);
 			this.tabSales.Controls.Add(this.mtxtSageInfos);
-			this.tabSales.Controls.Add(this.mbtnOpenInSage);
 			this.tabSales.Controls.Add(this.metroLabel6);
 			this.tabSales.Controls.Add(this.metroLabel7);
 			this.tabSales.Controls.Add(this.metroLabel8);
@@ -888,29 +938,173 @@ namespace Products.Common.Panel
 			this.tabSales.Controls.Add(this.mtxtLieferschein);
 			this.tabSales.Controls.Add(this.mtxtRechnung);
 			this.tabSales.Controls.Add(this.mtxtAuftrag);
+			this.tabSales.Controls.Add(this.mbtnOpenInSage);
 			this.tabSales.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabSales.Location = new System.Drawing.Point(4, 38);
 			this.tabSales.Name = "tabSales";
 			this.tabSales.Padding = new System.Windows.Forms.Padding(20);
 			this.tabSales.Size = new System.Drawing.Size(1234, 549);
 			this.tabSales.TabIndex = 3;
-			this.tabSales.Text = "Auftrag/Finanzierung";
+			this.tabSales.Text = "  Auftrag/Finanzierung";
 			this.tabSales.UseVisualStyleBackColor = true;
+			// 
+			// mctxAuftrag
+			// 
+			this.mctxAuftrag.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xcmdKundenauftrag});
+			this.mctxAuftrag.Name = "mctxAuftrag";
+			this.mctxAuftrag.Size = new System.Drawing.Size(171, 26);
+			this.mctxAuftrag.Opening += new System.ComponentModel.CancelEventHandler(this.mctxAuftrag_Opening);
+			// 
+			// mbtnLoadSageInfo
+			// 
+			this.mbtnLoadSageInfo.Location = new System.Drawing.Point(475, 209);
+			this.mbtnLoadSageInfo.Name = "mbtnLoadSageInfo";
+			this.mbtnLoadSageInfo.Size = new System.Drawing.Size(100, 23);
+			this.mbtnLoadSageInfo.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mbtnLoadSageInfo.TabIndex = 8;
+			this.mbtnLoadSageInfo.Text = "Suchen";
+			this.mbtnLoadSageInfo.UseCustomBackColor = true;
+			this.mbtnLoadSageInfo.UseSelectable = true;
+			this.mbtnLoadSageInfo.UseStyleColors = true;
+			this.mbtnLoadSageInfo.Click += new System.EventHandler(this.mbtnLoadSageInfo_Click);
+			// 
+			// ndtpVertragsende
+			// 
+			this.ndtpVertragsende.CustomFormat = "";
+			this.ndtpVertragsende.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ndtpVertragsende.Location = new System.Drawing.Point(406, 331);
+			this.ndtpVertragsende.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+			this.ndtpVertragsende.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
+			this.ndtpVertragsende.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpVertragsende.Name = "ndtpVertragsende";
+			this.ndtpVertragsende.NullValue = "";
+			this.ndtpVertragsende.Size = new System.Drawing.Size(105, 29);
+			this.ndtpVertragsende.TabIndex = 13;
+			this.ndtpVertragsende.Value = new System.DateTime(2016, 10, 26, 18, 21, 39, 144);
+			this.ndtpVertragsende.Validated += new System.EventHandler(this.ndtpVertragsende_Validated);
+			// 
+			// metroLabel14
+			// 
+			this.metroLabel14.AutoSize = true;
+			this.metroLabel14.Location = new System.Drawing.Point(360, 334);
+			this.metroLabel14.Name = "metroLabel14";
+			this.metroLabel14.Size = new System.Drawing.Size(38, 19);
+			this.metroLabel14.TabIndex = 162;
+			this.metroLabel14.Text = "Ende";
+			// 
+			// mtxtFinanzierungDurch
+			// 
+			// 
+			// 
+			// 
+			this.mtxtFinanzierungDurch.CustomButton.Image = null;
+			this.mtxtFinanzierungDurch.CustomButton.Location = new System.Drawing.Point(203, 1);
+			this.mtxtFinanzierungDurch.CustomButton.Name = "";
+			this.mtxtFinanzierungDurch.CustomButton.Size = new System.Drawing.Size(21, 21);
+			this.mtxtFinanzierungDurch.CustomButton.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtxtFinanzierungDurch.CustomButton.TabIndex = 1;
+			this.mtxtFinanzierungDurch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+			this.mtxtFinanzierungDurch.CustomButton.UseSelectable = true;
+			this.mtxtFinanzierungDurch.CustomButton.Visible = false;
+			this.mtxtFinanzierungDurch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+			this.mtxtFinanzierungDurch.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+			this.mtxtFinanzierungDurch.Lines = new string[0];
+			this.mtxtFinanzierungDurch.Location = new System.Drawing.Point(116, 335);
+			this.mtxtFinanzierungDurch.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.mtxtFinanzierungDurch.MaxLength = 11;
+			this.mtxtFinanzierungDurch.Name = "mtxtFinanzierungDurch";
+			this.mtxtFinanzierungDurch.PasswordChar = '\0';
+			this.mtxtFinanzierungDurch.PromptText = "Finanzierungsgesellschaft";
+			this.mtxtFinanzierungDurch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.mtxtFinanzierungDurch.SelectedText = "";
+			this.mtxtFinanzierungDurch.SelectionLength = 0;
+			this.mtxtFinanzierungDurch.SelectionStart = 0;
+			this.mtxtFinanzierungDurch.ShortcutsEnabled = true;
+			this.mtxtFinanzierungDurch.Size = new System.Drawing.Size(225, 23);
+			this.mtxtFinanzierungDurch.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtxtFinanzierungDurch.TabIndex = 12;
+			this.mtxtFinanzierungDurch.UseSelectable = true;
+			this.mtxtFinanzierungDurch.WaterMark = "Finanzierungsgesellschaft";
+			this.mtxtFinanzierungDurch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+			this.mtxtFinanzierungDurch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+			// 
+			// metroLabel13
+			// 
+			this.metroLabel13.AutoSize = true;
+			this.metroLabel13.Location = new System.Drawing.Point(25, 337);
+			this.metroLabel13.Name = "metroLabel13";
+			this.metroLabel13.Size = new System.Drawing.Size(83, 19);
+			this.metroLabel13.TabIndex = 159;
+			this.metroLabel13.Text = "Finanzierung";
+			// 
+			// metroLabel12
+			// 
+			this.metroLabel12.AutoSize = true;
+			this.metroLabel12.Location = new System.Drawing.Point(461, 296);
+			this.metroLabel12.Name = "metroLabel12";
+			this.metroLabel12.Size = new System.Drawing.Size(97, 19);
+			this.metroLabel12.TabIndex = 158;
+			this.metroLabel12.Text = "Erstverwertung";
+			// 
+			// mtogglErstverwertung
+			// 
+			this.mtogglErstverwertung.AutoSize = true;
+			this.mtogglErstverwertung.Location = new System.Drawing.Point(379, 297);
+			this.mtogglErstverwertung.Name = "mtogglErstverwertung";
+			this.mtogglErstverwertung.Size = new System.Drawing.Size(80, 17);
+			this.mtogglErstverwertung.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtogglErstverwertung.TabIndex = 11;
+			this.mtogglErstverwertung.Text = "Aus";
+			this.mtogglErstverwertung.UseSelectable = true;
+			// 
+			// metroLabel11
+			// 
+			this.metroLabel11.AutoSize = true;
+			this.metroLabel11.Location = new System.Drawing.Point(282, 296);
+			this.metroLabel11.Name = "metroLabel11";
+			this.metroLabel11.Size = new System.Drawing.Size(59, 19);
+			this.metroLabel11.TabIndex = 156;
+			this.metroLabel11.Text = "Mietkauf";
+			// 
+			// mtogglMietkauf
+			// 
+			this.mtogglMietkauf.AutoSize = true;
+			this.mtogglMietkauf.Location = new System.Drawing.Point(200, 297);
+			this.mtogglMietkauf.Name = "mtogglMietkauf";
+			this.mtogglMietkauf.Size = new System.Drawing.Size(80, 17);
+			this.mtogglMietkauf.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtogglMietkauf.TabIndex = 10;
+			this.mtogglMietkauf.Text = "Aus";
+			this.mtogglMietkauf.UseSelectable = true;
+			// 
+			// metroLabel10
+			// 
+			this.metroLabel10.AutoSize = true;
+			this.metroLabel10.Location = new System.Drawing.Point(107, 295);
+			this.metroLabel10.Name = "metroLabel10";
+			this.metroLabel10.Size = new System.Drawing.Size(52, 19);
+			this.metroLabel10.TabIndex = 154;
+			this.metroLabel10.Text = "Leasing";
+			// 
+			// mtogglLeasing
+			// 
+			this.mtogglLeasing.AutoSize = true;
+			this.mtogglLeasing.Location = new System.Drawing.Point(25, 296);
+			this.mtogglLeasing.Name = "mtogglLeasing";
+			this.mtogglLeasing.Size = new System.Drawing.Size(80, 17);
+			this.mtogglLeasing.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtogglLeasing.TabIndex = 9;
+			this.mtogglLeasing.Text = "Aus";
+			this.mtogglLeasing.UseSelectable = true;
 			// 
 			// mcmbTechniker
 			// 
 			this.mcmbTechniker.FormattingEnabled = true;
 			this.mcmbTechniker.ItemHeight = 23;
-			this.mcmbTechniker.Items.AddRange(new object[] {
-            "Matthias",
-            "Johannes",
-            "Felix",
-            "Axel",
-            "Markus"});
 			this.mcmbTechniker.Location = new System.Drawing.Point(117, 174);
 			this.mcmbTechniker.MaxDropDownItems = 5;
 			this.mcmbTechniker.Name = "mcmbTechniker";
-			this.mcmbTechniker.PromptText = "Johannes";
 			this.mcmbTechniker.Size = new System.Drawing.Size(112, 29);
 			this.mcmbTechniker.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mcmbTechniker.TabIndex = 6;
@@ -947,7 +1141,7 @@ namespace Products.Common.Panel
 			this.mtxtSageInfos.Multiline = true;
 			this.mtxtSageInfos.Name = "mtxtSageInfos";
 			this.mtxtSageInfos.PasswordChar = '\0';
-			this.mtxtSageInfos.PromptText = "Infos zu SAGE Aufträgen, Rechnungen, Lieferungen für diese Maschine";
+			this.mtxtSageInfos.PromptText = "Informationen zu SAGE Aufträgen, Rechnungen, Lieferungen für diese Maschine";
 			this.mtxtSageInfos.ReadOnly = true;
 			this.mtxtSageInfos.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtSageInfos.SelectedText = "";
@@ -958,22 +1152,9 @@ namespace Products.Common.Panel
 			this.mtxtSageInfos.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mtxtSageInfos.TabIndex = 152;
 			this.mtxtSageInfos.UseSelectable = true;
-			this.mtxtSageInfos.WaterMark = "Infos zu SAGE Aufträgen, Rechnungen, Lieferungen für diese Maschine";
+			this.mtxtSageInfos.WaterMark = "Informationen zu SAGE Aufträgen, Rechnungen, Lieferungen für diese Maschine";
 			this.mtxtSageInfos.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtSageInfos.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-			// 
-			// mbtnOpenInSage
-			// 
-			this.mbtnOpenInSage.BackgroundImage = global::Products.Common.Properties.Resources.SageNCL_32;
-			this.mbtnOpenInSage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenInSage.Location = new System.Drawing.Point(401, 60);
-			this.mbtnOpenInSage.Name = "mbtnOpenInSage";
-			this.mbtnOpenInSage.Size = new System.Drawing.Size(34, 34);
-			this.mbtnOpenInSage.TabIndex = 151;
-			this.toolTip1.SetToolTip(this.mbtnOpenInSage, "Öffnet (wenn einer da ist) den Auftrag in Sage");
-			this.mbtnOpenInSage.UseCustomBackColor = true;
-			this.mbtnOpenInSage.UseSelectable = true;
-			this.mbtnOpenInSage.Click += new System.EventHandler(this.mbtnOpenInSage_Click);
 			// 
 			// metroLabel6
 			// 
@@ -1114,14 +1295,13 @@ namespace Products.Common.Panel
 			this.mtxtLieferschein.CustomButton.Visible = false;
 			this.mtxtLieferschein.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtLieferschein.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-			this.mtxtLieferschein.Lines = new string[] {
-        "20160001712"};
+			this.mtxtLieferschein.Lines = new string[0];
 			this.mtxtLieferschein.Location = new System.Drawing.Point(117, 138);
 			this.mtxtLieferschein.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.mtxtLieferschein.MaxLength = 11;
 			this.mtxtLieferschein.Name = "mtxtLieferschein";
 			this.mtxtLieferschein.PasswordChar = '\0';
-			this.mtxtLieferschein.PromptText = "Auftrags-Nr.";
+			this.mtxtLieferschein.PromptText = "Lieferschein-Nr.";
 			this.mtxtLieferschein.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtLieferschein.SelectedText = "";
 			this.mtxtLieferschein.SelectionLength = 0;
@@ -1130,10 +1310,9 @@ namespace Products.Common.Panel
 			this.mtxtLieferschein.Size = new System.Drawing.Size(112, 23);
 			this.mtxtLieferschein.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mtxtLieferschein.TabIndex = 4;
-			this.mtxtLieferschein.Text = "20160001712";
 			this.mtxtLieferschein.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.mtxtLieferschein.UseSelectable = true;
-			this.mtxtLieferschein.WaterMark = "Auftrags-Nr.";
+			this.mtxtLieferschein.WaterMark = "Lieferschein-Nr.";
 			this.mtxtLieferschein.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtLieferschein.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
@@ -1153,14 +1332,13 @@ namespace Products.Common.Panel
 			this.mtxtRechnung.CustomButton.Visible = false;
 			this.mtxtRechnung.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtRechnung.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-			this.mtxtRechnung.Lines = new string[] {
-        "20160001712"};
+			this.mtxtRechnung.Lines = new string[0];
 			this.mtxtRechnung.Location = new System.Drawing.Point(117, 102);
 			this.mtxtRechnung.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.mtxtRechnung.MaxLength = 13;
 			this.mtxtRechnung.Name = "mtxtRechnung";
 			this.mtxtRechnung.PasswordChar = '\0';
-			this.mtxtRechnung.PromptText = "Auftrags-Nr.";
+			this.mtxtRechnung.PromptText = "Rechnungs-Nr.";
 			this.mtxtRechnung.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.mtxtRechnung.SelectedText = "";
 			this.mtxtRechnung.SelectionLength = 0;
@@ -1169,12 +1347,11 @@ namespace Products.Common.Panel
 			this.mtxtRechnung.Size = new System.Drawing.Size(112, 23);
 			this.mtxtRechnung.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mtxtRechnung.TabIndex = 2;
-			this.mtxtRechnung.Text = "20160001712";
 			this.mtxtRechnung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip1.SetToolTip(this.mtxtRechnung, "Hier bitte zur Identifikation ein \'R-\' oder \'D-\' vor die Rechnungsnummer setzten." +
         "");
 			this.mtxtRechnung.UseSelectable = true;
-			this.mtxtRechnung.WaterMark = "Auftrags-Nr.";
+			this.mtxtRechnung.WaterMark = "Rechnungs-Nr.";
 			this.mtxtRechnung.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtRechnung.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
@@ -1194,8 +1371,7 @@ namespace Products.Common.Panel
 			this.mtxtAuftrag.CustomButton.Visible = false;
 			this.mtxtAuftrag.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.mtxtAuftrag.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-			this.mtxtAuftrag.Lines = new string[] {
-        "20160001712"};
+			this.mtxtAuftrag.Lines = new string[0];
 			this.mtxtAuftrag.Location = new System.Drawing.Point(117, 66);
 			this.mtxtAuftrag.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.mtxtAuftrag.MaxLength = 11;
@@ -1210,149 +1386,220 @@ namespace Products.Common.Panel
 			this.mtxtAuftrag.Size = new System.Drawing.Size(112, 23);
 			this.mtxtAuftrag.Style = MetroFramework.MetroColorStyle.Orange;
 			this.mtxtAuftrag.TabIndex = 0;
-			this.mtxtAuftrag.Text = "20160001712";
 			this.mtxtAuftrag.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.mtxtAuftrag.UseSelectable = true;
 			this.mtxtAuftrag.WaterMark = "Auftrags-Nr.";
 			this.mtxtAuftrag.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAuftrag.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
-			// mtogglLeasing
+			// metroLabel15
 			// 
-			this.mtogglLeasing.AutoSize = true;
-			this.mtogglLeasing.Location = new System.Drawing.Point(25, 255);
-			this.mtogglLeasing.Name = "mtogglLeasing";
-			this.mtogglLeasing.Size = new System.Drawing.Size(80, 17);
-			this.mtogglLeasing.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtogglLeasing.TabIndex = 8;
-			this.mtogglLeasing.Text = "Aus";
-			this.mtogglLeasing.UseSelectable = true;
+			this.metroLabel15.AutoSize = true;
+			this.metroLabel15.Location = new System.Drawing.Point(1048, 103);
+			this.metroLabel15.Name = "metroLabel15";
+			this.metroLabel15.Size = new System.Drawing.Size(67, 19);
+			this.metroLabel15.TabIndex = 125;
+			this.metroLabel15.Text = "Firmware:";
 			// 
-			// metroLabel10
-			// 
-			this.metroLabel10.AutoSize = true;
-			this.metroLabel10.Location = new System.Drawing.Point(107, 254);
-			this.metroLabel10.Name = "metroLabel10";
-			this.metroLabel10.Size = new System.Drawing.Size(52, 19);
-			this.metroLabel10.TabIndex = 154;
-			this.metroLabel10.Text = "Leasing";
-			// 
-			// metroLabel11
-			// 
-			this.metroLabel11.AutoSize = true;
-			this.metroLabel11.Location = new System.Drawing.Point(282, 255);
-			this.metroLabel11.Name = "metroLabel11";
-			this.metroLabel11.Size = new System.Drawing.Size(59, 19);
-			this.metroLabel11.TabIndex = 156;
-			this.metroLabel11.Text = "Mietkauf";
-			// 
-			// mtogglMietkauf
-			// 
-			this.mtogglMietkauf.AutoSize = true;
-			this.mtogglMietkauf.Location = new System.Drawing.Point(200, 256);
-			this.mtogglMietkauf.Name = "mtogglMietkauf";
-			this.mtogglMietkauf.Size = new System.Drawing.Size(80, 17);
-			this.mtogglMietkauf.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtogglMietkauf.TabIndex = 9;
-			this.mtogglMietkauf.Text = "Aus";
-			this.mtogglMietkauf.UseSelectable = true;
-			// 
-			// metroLabel12
-			// 
-			this.metroLabel12.AutoSize = true;
-			this.metroLabel12.Location = new System.Drawing.Point(461, 255);
-			this.metroLabel12.Name = "metroLabel12";
-			this.metroLabel12.Size = new System.Drawing.Size(97, 19);
-			this.metroLabel12.TabIndex = 158;
-			this.metroLabel12.Text = "Erstverwertung";
-			// 
-			// mtogglErstverwertung
-			// 
-			this.mtogglErstverwertung.AutoSize = true;
-			this.mtogglErstverwertung.Location = new System.Drawing.Point(379, 256);
-			this.mtogglErstverwertung.Name = "mtogglErstverwertung";
-			this.mtogglErstverwertung.Size = new System.Drawing.Size(80, 17);
-			this.mtogglErstverwertung.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtogglErstverwertung.TabIndex = 10;
-			this.mtogglErstverwertung.Text = "Aus";
-			this.mtogglErstverwertung.UseSelectable = true;
-			// 
-			// metroLabel13
-			// 
-			this.metroLabel13.AutoSize = true;
-			this.metroLabel13.Location = new System.Drawing.Point(25, 296);
-			this.metroLabel13.Name = "metroLabel13";
-			this.metroLabel13.Size = new System.Drawing.Size(83, 19);
-			this.metroLabel13.TabIndex = 159;
-			this.metroLabel13.Text = "Finanzierung";
-			// 
-			// mtxtFinanzierungDurch
+			// mtxtFirmware
 			// 
 			// 
 			// 
 			// 
-			this.mtxtFinanzierungDurch.CustomButton.Image = null;
-			this.mtxtFinanzierungDurch.CustomButton.Location = new System.Drawing.Point(203, 1);
-			this.mtxtFinanzierungDurch.CustomButton.Name = "";
-			this.mtxtFinanzierungDurch.CustomButton.Size = new System.Drawing.Size(21, 21);
-			this.mtxtFinanzierungDurch.CustomButton.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtxtFinanzierungDurch.CustomButton.TabIndex = 1;
-			this.mtxtFinanzierungDurch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-			this.mtxtFinanzierungDurch.CustomButton.UseSelectable = true;
-			this.mtxtFinanzierungDurch.CustomButton.Visible = false;
-			this.mtxtFinanzierungDurch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-			this.mtxtFinanzierungDurch.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
-			this.mtxtFinanzierungDurch.Lines = new string[] {
-        "20160001712"};
-			this.mtxtFinanzierungDurch.Location = new System.Drawing.Point(116, 294);
-			this.mtxtFinanzierungDurch.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-			this.mtxtFinanzierungDurch.MaxLength = 11;
-			this.mtxtFinanzierungDurch.Name = "mtxtFinanzierungDurch";
-			this.mtxtFinanzierungDurch.PasswordChar = '\0';
-			this.mtxtFinanzierungDurch.PromptText = "Auftrags-Nr.";
-			this.mtxtFinanzierungDurch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.mtxtFinanzierungDurch.SelectedText = "";
-			this.mtxtFinanzierungDurch.SelectionLength = 0;
-			this.mtxtFinanzierungDurch.SelectionStart = 0;
-			this.mtxtFinanzierungDurch.ShortcutsEnabled = true;
-			this.mtxtFinanzierungDurch.Size = new System.Drawing.Size(225, 23);
-			this.mtxtFinanzierungDurch.Style = MetroFramework.MetroColorStyle.Orange;
-			this.mtxtFinanzierungDurch.TabIndex = 160;
-			this.mtxtFinanzierungDurch.Text = "20160001712";
-			this.mtxtFinanzierungDurch.UseSelectable = true;
-			this.mtxtFinanzierungDurch.WaterMark = "Auftrags-Nr.";
-			this.mtxtFinanzierungDurch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-			this.mtxtFinanzierungDurch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+			this.mtxtFirmware.CustomButton.Image = null;
+			this.mtxtFirmware.CustomButton.Location = new System.Drawing.Point(112, 1);
+			this.mtxtFirmware.CustomButton.Name = "";
+			this.mtxtFirmware.CustomButton.Size = new System.Drawing.Size(27, 27);
+			this.mtxtFirmware.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+			this.mtxtFirmware.CustomButton.TabIndex = 1;
+			this.mtxtFirmware.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+			this.mtxtFirmware.CustomButton.UseSelectable = true;
+			this.mtxtFirmware.CustomButton.Visible = false;
+			this.mtxtFirmware.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+			this.mtxtFirmware.FontWeight = MetroFramework.MetroTextBoxWeight.Light;
+			this.mtxtFirmware.Lines = new string[0];
+			this.mtxtFirmware.Location = new System.Drawing.Point(1121, 100);
+			this.mtxtFirmware.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+			this.mtxtFirmware.MaxLength = 32767;
+			this.mtxtFirmware.Multiline = true;
+			this.mtxtFirmware.Name = "mtxtFirmware";
+			this.mtxtFirmware.PasswordChar = '\0';
+			this.mtxtFirmware.PromptText = "X.XX";
+			this.mtxtFirmware.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.mtxtFirmware.SelectedText = "";
+			this.mtxtFirmware.SelectionLength = 0;
+			this.mtxtFirmware.SelectionStart = 0;
+			this.mtxtFirmware.ShortcutsEnabled = true;
+			this.mtxtFirmware.Size = new System.Drawing.Size(140, 29);
+			this.mtxtFirmware.Style = MetroFramework.MetroColorStyle.Orange;
+			this.mtxtFirmware.TabIndex = 20;
+			this.mtxtFirmware.UseSelectable = true;
+			this.mtxtFirmware.WaterMark = "X.XX";
+			this.mtxtFirmware.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+			this.mtxtFirmware.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
 			// 
-			// ndtpVertragsende
+			// xcmdOpenInExplorer
 			// 
-			this.ndtpVertragsende.CustomFormat = "";
-			this.ndtpVertragsende.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ndtpVertragsende.Location = new System.Drawing.Point(406, 290);
-			this.ndtpVertragsende.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-			this.ndtpVertragsende.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpVertragsende.MinimumSize = new System.Drawing.Size(4, 29);
-			this.ndtpVertragsende.Name = "ndtpVertragsende";
-			this.ndtpVertragsende.NullValue = "";
-			this.ndtpVertragsende.Size = new System.Drawing.Size(105, 29);
-			this.ndtpVertragsende.TabIndex = 161;
-			this.ndtpVertragsende.Value = new System.DateTime(2016, 10, 26, 18, 21, 39, 144);
-			this.ndtpVertragsende.Validated += new System.EventHandler(this.ndtpVertragsende_Validated);
+			this.xcmdOpenInExplorer.Image = global::Products.Common.Properties.Resources.explorer_exe_original;
+			this.xcmdOpenInExplorer.Name = "xcmdOpenInExplorer";
+			this.xcmdOpenInExplorer.Size = new System.Drawing.Size(116, 22);
+			this.xcmdOpenInExplorer.Text = "Explorer";
+			this.xcmdOpenInExplorer.Click += new System.EventHandler(this.xcmdOpenInExplorer_Click);
 			// 
-			// metroLabel14
+			// xcmdOpenFile
 			// 
-			this.metroLabel14.AutoSize = true;
-			this.metroLabel14.Location = new System.Drawing.Point(360, 293);
-			this.metroLabel14.Name = "metroLabel14";
-			this.metroLabel14.Size = new System.Drawing.Size(38, 19);
-			this.metroLabel14.TabIndex = 162;
-			this.metroLabel14.Text = "Ende";
+			this.xcmdOpenFile.Image = global::Products.Common.Properties.Resources.open_16_metroorange;
+			this.xcmdOpenFile.Name = "xcmdOpenFile";
+			this.xcmdOpenFile.Size = new System.Drawing.Size(111, 22);
+			this.xcmdOpenFile.Text = "Öffnen";
+			this.xcmdOpenFile.Click += new System.EventHandler(this.xcmdOpenFile_Click);
+			// 
+			// mbtnDeleteNote
+			// 
+			this.mbtnDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnDeleteNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnDeleteNote.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroorange;
+			this.mbtnDeleteNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnDeleteNote.FlatAppearance.BorderSize = 0;
+			this.mbtnDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnDeleteNote.Location = new System.Drawing.Point(1178, 11);
+			this.mbtnDeleteNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnDeleteNote.Name = "mbtnDeleteNote";
+			this.mbtnDeleteNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnDeleteNote.TabIndex = 133;
+			this.mbtnDeleteNote.UseVisualStyleBackColor = false;
+			this.mbtnDeleteNote.Click += new System.EventHandler(this.btnDeleteNote_Click);
+			// 
+			// mbtnOpenNote
+			// 
+			this.mbtnOpenNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnOpenNote.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroorange;
+			this.mbtnOpenNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenNote.FlatAppearance.BorderSize = 0;
+			this.mbtnOpenNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnOpenNote.Location = new System.Drawing.Point(24, 10);
+			this.mbtnOpenNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnOpenNote.Name = "mbtnOpenNote";
+			this.mbtnOpenNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnOpenNote.TabIndex = 130;
+			this.mbtnOpenNote.UseVisualStyleBackColor = false;
+			this.mbtnOpenNote.Click += new System.EventHandler(this.mbtnOpenNote_Click);
+			// 
+			// mbtnCreateNote
+			// 
+			this.mbtnCreateNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnCreateNote.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroorange;
+			this.mbtnCreateNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnCreateNote.FlatAppearance.BorderSize = 0;
+			this.mbtnCreateNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnCreateNote.Location = new System.Drawing.Point(83, 11);
+			this.mbtnCreateNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnCreateNote.Name = "mbtnCreateNote";
+			this.mbtnCreateNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnCreateNote.TabIndex = 132;
+			this.mbtnCreateNote.UseVisualStyleBackColor = false;
+			this.mbtnCreateNote.Click += new System.EventHandler(this.mbtnCreateNote_Click);
+			// 
+			// xcmdOpenAppointment
+			// 
+			this.xcmdOpenAppointment.Image = global::Products.Common.Properties.Resources.open_16_metrogray;
+			this.xcmdOpenAppointment.Name = "xcmdOpenAppointment";
+			this.xcmdOpenAppointment.Size = new System.Drawing.Size(182, 22);
+			this.xcmdOpenAppointment.Text = "Öffnen";
+			this.xcmdOpenAppointment.Click += new System.EventHandler(this.xcmdOpenAppointment_Click);
+			// 
+			// xcmdShowCalendarView
+			// 
+			this.xcmdShowCalendarView.Image = global::Products.Common.Properties.Resources.calendar_16_metrosilver;
+			this.xcmdShowCalendarView.Name = "xcmdShowCalendarView";
+			this.xcmdShowCalendarView.Size = new System.Drawing.Size(182, 22);
+			this.xcmdShowCalendarView.Text = "Kalender";
+			this.xcmdShowCalendarView.Click += new System.EventHandler(this.xcmdShowCalendarView_Click);
+			// 
+			// xcmdWartungsvorschlag
+			// 
+			this.xcmdWartungsvorschlag.Image = global::Products.Common.Properties.Resources.idea_16_metrosilver;
+			this.xcmdWartungsvorschlag.Name = "xcmdWartungsvorschlag";
+			this.xcmdWartungsvorschlag.Size = new System.Drawing.Size(182, 22);
+			this.xcmdWartungsvorschlag.Text = "Wartungsvorschläge";
+			this.xcmdWartungsvorschlag.Click += new System.EventHandler(this.xcmdWartungsvorschlag_Click);
+			// 
+			// mbtnDeleteSoftware
+			// 
+			this.mbtnDeleteSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnDeleteSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnDeleteSoftware.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroyellow;
+			this.mbtnDeleteSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnDeleteSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnDeleteSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnDeleteSoftware.Location = new System.Drawing.Point(1178, 11);
+			this.mbtnDeleteSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 20);
+			this.mbtnDeleteSoftware.Name = "mbtnDeleteSoftware";
+			this.mbtnDeleteSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnDeleteSoftware.TabIndex = 128;
+			this.mbtnDeleteSoftware.UseVisualStyleBackColor = false;
+			this.mbtnDeleteSoftware.Click += new System.EventHandler(this.mbtnDeleteSoftware_Click);
+			// 
+			// mbtnOpenSoftware
+			// 
+			this.mbtnOpenSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnOpenSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnOpenSoftware.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroyellow;
+			this.mbtnOpenSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnOpenSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnOpenSoftware.Location = new System.Drawing.Point(24, 10);
+			this.mbtnOpenSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnOpenSoftware.Name = "mbtnOpenSoftware";
+			this.mbtnOpenSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnOpenSoftware.TabIndex = 125;
+			this.mbtnOpenSoftware.UseVisualStyleBackColor = false;
+			this.mbtnOpenSoftware.Click += new System.EventHandler(this.mbtnOpenSoftware_Click);
+			// 
+			// mbtnCreateSoftware
+			// 
+			this.mbtnCreateSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnCreateSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnCreateSoftware.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroyellow;
+			this.mbtnCreateSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnCreateSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnCreateSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnCreateSoftware.Location = new System.Drawing.Point(83, 11);
+			this.mbtnCreateSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnCreateSoftware.Name = "mbtnCreateSoftware";
+			this.mbtnCreateSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnCreateSoftware.TabIndex = 127;
+			this.mbtnCreateSoftware.UseVisualStyleBackColor = false;
+			this.mbtnCreateSoftware.Click += new System.EventHandler(this.mbtnCreateSoftware_Click);
+			// 
+			// xcmdKundenauftrag
+			// 
+			this.xcmdKundenauftrag.Image = global::Products.Common.Properties.Resources.auftrag_16_metrogreen;
+			this.xcmdKundenauftrag.Name = "xcmdKundenauftrag";
+			this.xcmdKundenauftrag.Size = new System.Drawing.Size(170, 22);
+			this.xcmdKundenauftrag.Text = "Maschinenauftrag";
+			this.xcmdKundenauftrag.Click += new System.EventHandler(this.xcmdKundenauftrag_Click);
+			// 
+			// mbtnOpenInSage
+			// 
+			this.mbtnOpenInSage.BackgroundImage = global::Products.Common.Properties.Resources.SageNCL_32;
+			this.mbtnOpenInSage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenInSage.Location = new System.Drawing.Point(401, 60);
+			this.mbtnOpenInSage.Name = "mbtnOpenInSage";
+			this.mbtnOpenInSage.Size = new System.Drawing.Size(34, 34);
+			this.mbtnOpenInSage.TabIndex = 151;
+			this.toolTip1.SetToolTip(this.mbtnOpenInSage, "Öffnet (wenn einer da ist) den Auftrag in Sage");
+			this.mbtnOpenInSage.UseCustomBackColor = true;
+			this.mbtnOpenInSage.UseSelectable = true;
+			this.mbtnOpenInSage.Click += new System.EventHandler(this.mbtnOpenInSage_Click);
 			// 
 			// pnlKundenMaschine
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.metroLabel15);
+			this.Controls.Add(this.mtxtFirmware);
 			this.Controls.Add(this.mtabProperties);
 			this.Controls.Add(this.mlblTitel);
 			this.Controls.Add(this.label4);
@@ -1382,11 +1629,15 @@ namespace Products.Common.Panel
 			this.tabNotes.ResumeLayout(false);
 			this.tabNotes.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNotizen)).EndInit();
+			this.tabService.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
+			this.mctxService.ResumeLayout(false);
 			this.tabSoftware.ResumeLayout(false);
 			this.tabSoftware.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSoftware)).EndInit();
 			this.tabSales.ResumeLayout(false);
 			this.tabSales.PerformLayout();
+			this.mctxAuftrag.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1466,6 +1717,22 @@ namespace Products.Common.Panel
 		private MetroFramework.Controls.MetroToggle mtogglMietkauf;
 		private MetroFramework.Controls.MetroLabel metroLabel10;
 		private MetroFramework.Controls.MetroToggle mtogglLeasing;
+		private MetroFramework.Controls.MetroButton mbtnLoadSageInfo;
+		private System.Windows.Forms.TabPage tabService;
+		private MetroFramework.Controls.MetroGrid dgvAppointments;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colStartsAt;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colAppointmentType;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colResponsibleName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colSubject;
+		private MetroFramework.Controls.MetroContextMenu mctxService;
+		private System.Windows.Forms.ToolStripMenuItem xcmdOpenAppointment;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem xcmdShowCalendarView;
+		private MetroFramework.Controls.MetroContextMenu mctxAuftrag;
+		private System.Windows.Forms.ToolStripMenuItem xcmdKundenauftrag;
+		private MetroFramework.Controls.MetroLabel metroLabel15;
+		private MetroFramework.Controls.MetroTextBox mtxtFirmware;
+		private System.Windows.Forms.ToolStripMenuItem xcmdWartungsvorschlag;
 
 #pragma warning restore CS0618 // Typ oder Element ist veraltet
 

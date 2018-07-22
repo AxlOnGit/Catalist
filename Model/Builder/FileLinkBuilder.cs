@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Products.Data.Services;
-using Products.Model.Entities;
+using System.IO;
 using Products.Common.Interfaces;
 using Products.Data;
-using System.IO;
-using Products.Data.Datasets;
-using Products.Common;
+using Products.Data.Services;
+using Products.Model.Entities;
 
 namespace Products.Model.Builder
 {
@@ -17,14 +12,14 @@ namespace Products.Model.Builder
 
 		#region members
 
-		private FileLinkDataService myDataService  = null;
+		private FileLinkDataService myDataService = null;
 
 		#endregion
 
 		#region public properties
 
 		public FileInfo SourceFile { get; private set; }
-		public DirectoryInfo DestinationDirectory { get; private set; }
+		public DirectoryInfo DestinationDirectory { get; }
 		public ILinkedItem LinkedItem { get; private set; }
 		public bool myKeepSourceFile { get; private set; }
 
@@ -89,7 +84,7 @@ namespace Products.Model.Builder
 				if (this.LinkedItem == null) throw new ArgumentException("Es muss ein ILinkedItem angegeben werden.");
 				if (this.SourceFile == null) throw new ArgumentException("Es muss die zu verknüpfende Datei angegeben werden.");
 
-				string serverDir = Global.LinkedFilesPath;
+				string serverDir = CatalistRegistry.Application.LinkedFilesPath;
 				var oldFileName = this.SourceFile.Name;
 				string newFileName = string.Format("{0}{1}", DateTime.Now.ToString("yyyy-MM-dd_HH.mm.ss"), this.SourceFile.Extension);
 				string newFullName = Path.Combine(serverDir, newFileName);

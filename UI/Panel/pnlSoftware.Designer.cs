@@ -54,9 +54,9 @@
 			// 
 			// 
 			this.mtxtAnmerkungen.CustomButton.Image = null;
-			this.mtxtAnmerkungen.CustomButton.Location = new System.Drawing.Point(202, 1);
+			this.mtxtAnmerkungen.CustomButton.Location = new System.Drawing.Point(303, 1);
 			this.mtxtAnmerkungen.CustomButton.Name = "";
-			this.mtxtAnmerkungen.CustomButton.Size = new System.Drawing.Size(241, 235);
+			this.mtxtAnmerkungen.CustomButton.Size = new System.Drawing.Size(361, 361);
 			this.mtxtAnmerkungen.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
 			this.mtxtAnmerkungen.CustomButton.TabIndex = 1;
 			this.mtxtAnmerkungen.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -90,10 +90,12 @@
 			this.dtpInstallationsdatum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dtpInstallationsdatum.CalendarForeColor = System.Drawing.Color.Gray;
 			this.dtpInstallationsdatum.Checked = false;
+			this.dtpInstallationsdatum.CustomFormat = "";
 			this.dtpInstallationsdatum.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpInstallationsdatum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.dtpInstallationsdatum.Location = new System.Drawing.Point(178, 160);
 			this.dtpInstallationsdatum.Name = "dtpInstallationsdatum";
+			this.dtpInstallationsdatum.NullValue = " kein Datum";
 			this.dtpInstallationsdatum.Size = new System.Drawing.Size(113, 25);
 			this.dtpInstallationsdatum.TabIndex = 2;
 			this.dtpInstallationsdatum.Value = new System.DateTime(2015, 7, 24, 17, 42, 31, 803);
@@ -194,9 +196,9 @@
 			// 
 			// 
 			this.mtxtLizenzschluessel.CustomButton.Image = null;
-			this.mtxtLizenzschluessel.CustomButton.Location = new System.Drawing.Point(213, 1);
+			this.mtxtLizenzschluessel.CustomButton.Location = new System.Drawing.Point(319, 1);
 			this.mtxtLizenzschluessel.CustomButton.Name = "";
-			this.mtxtLizenzschluessel.CustomButton.Size = new System.Drawing.Size(14, 14);
+			this.mtxtLizenzschluessel.CustomButton.Size = new System.Drawing.Size(21, 21);
 			this.mtxtLizenzschluessel.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
 			this.mtxtLizenzschluessel.CustomButton.TabIndex = 1;
 			this.mtxtLizenzschluessel.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;

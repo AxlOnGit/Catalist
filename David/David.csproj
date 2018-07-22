@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\binaries\debug\</OutputPath>
+    <OutputPath>bin\debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\binaries\release\</OutputPath>
+    <OutputPath>bin\release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,16 +69,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ArchiveInfoEventArgs.cs" />
     <Compile Include="API\ArchiveNotification.cs" />
     <Compile Include="API\ItemNotificationEventArgs.cs" />
     <Compile Include="API\NotificationType.cs" />
     <Compile Include="API\UnreadNotificationEventArgs.cs" />
-    <Compile Include="CreateMsgItm2Params.cs" />
+    <Compile Include="MessageItem2CreationParams.cs" />
     <Compile Include="DavidManager.cs" />
     <Compile Include="DavidService.cs" />
+    <Compile Include="DavidTerminRepo.cs" />
+    <Compile Include="MessageItem2Creator.cs" />
+    <Compile Include="MessageItem2Mover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CatalistRegistry\CatalistRegistry.csproj">
+      <Project>{377b0a99-ae8e-47bf-bd5e-2695149338c8}</Project>
+      <Name>CatalistRegistry</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Products.Common.csproj">
       <Project>{B45CC3C0-5C84-4534-B1EA-BFEF5822CD30}</Project>
       <Name>Products.Common</Name>

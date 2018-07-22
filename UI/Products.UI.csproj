@@ -41,7 +41,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>..\binaries\debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -68,7 +68,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -86,6 +86,9 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnalogClockControl">
       <HintPath>..\ThirdParty\AnalogClockControl\AnalogClockControl.dll</HintPath>
@@ -100,9 +103,6 @@
     <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="ControlLib">
-      <HintPath>..\..\..\AREA51\Ullrich\ControlLib\bin\Release\ControlLib.dll</HintPath>
     </Reference>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -389,6 +389,12 @@
     <Compile Include="Views\CustomerSearchView2.Designer.cs">
       <DependentUpon>CustomerSearchView2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DialogNewMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DialogNewMachine.Designer.cs">
+      <DependentUpon>DialogNewMachine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmailListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,6 +418,12 @@
     </Compile>
     <Compile Include="Views\FileSearchView.Designer.cs">
       <DependentUpon>FileSearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HerstellerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HerstellerView.Designer.cs">
+      <DependentUpon>HerstellerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InteressentView.cs">
       <SubType>Form</SubType>
@@ -443,6 +455,12 @@
     <Compile Include="Views\KundeMainView.Designer.cs">
       <DependentUpon>KundeMainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\KundenmaschinenListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KundenmaschinenListView.Designer.cs">
+      <DependentUpon>KundenmaschinenListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\KundenmaschineSearchView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +473,12 @@
     <Compile Include="Views\KundenmaschineSearchView2.Designer.cs">
       <DependentUpon>KundenmaschineSearchView2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\KundensoftwareSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KundensoftwareSearchView.Designer.cs">
+      <DependentUpon>KundensoftwareSearchView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LieferantenListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,6 +490,24 @@
     </Compile>
     <Compile Include="Views\LieferantenStaffelpreisView.Designer.cs">
       <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaschinenauftragListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaschinenauftragListView.Designer.cs">
+      <DependentUpon>MaschinenauftragListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaschinenauftragView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaschinenauftragView.Designer.cs">
+      <DependentUpon>MaschinenauftragView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaschinenmodellTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaschinenmodellTreeView.Designer.cs">
+      <DependentUpon>MaschinenmodellTreeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ModellListView.cs">
       <SubType>Form</SubType>
@@ -541,6 +583,12 @@
     <Compile Include="Views\RecentCustomerListView.Designer.cs">
       <DependentUpon>RecentCustomerListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RecentProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RecentProductsView.Designer.cs">
+      <DependentUpon>RecentProductsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReminderView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -564,6 +612,18 @@
     </Compile>
     <Compile Include="Views\SettingsView.Designer.cs">
       <DependentUpon>SettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoftwareUpgradeListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SoftwareUpgradeListView.Designer.cs">
+      <DependentUpon>SoftwareUpgradeListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoftwareUpgradeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SoftwareUpgradeView.Designer.cs">
+      <DependentUpon>SoftwareUpgradeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SonderpreisView.cs">
       <SubType>Form</SubType>
@@ -657,6 +717,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panel\pnlArtikeldetail.resx">
       <DependentUpon>pnlArtikeldetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Panel\pnlArtikelpreise.resx">
       <DependentUpon>pnlArtikelpreise.cs</DependentUpon>
@@ -760,6 +821,9 @@
     <EmbeddedResource Include="Views\CustomerSearchView2.resx">
       <DependentUpon>CustomerSearchView2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DialogNewMachine.resx">
+      <DependentUpon>DialogNewMachine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmailListView.resx">
       <DependentUpon>EmailListView.cs</DependentUpon>
     </EmbeddedResource>
@@ -771,6 +835,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FileSearchView.resx">
       <DependentUpon>FileSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HerstellerView.resx">
+      <DependentUpon>HerstellerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InteressentView.resx">
       <DependentUpon>InteressentView.cs</DependentUpon>
@@ -787,17 +854,32 @@
     <EmbeddedResource Include="Views\KundeMainView.resx">
       <DependentUpon>KundeMainView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\KundenmaschinenListView.resx">
+      <DependentUpon>KundenmaschinenListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\KundenmaschineSearchView.resx">
       <DependentUpon>KundenmaschineSearchView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\KundenmaschineSearchView2.resx">
       <DependentUpon>KundenmaschineSearchView2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\KundensoftwareSearchView.resx">
+      <DependentUpon>KundensoftwareSearchView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LieferantenListView.resx">
       <DependentUpon>LieferantenListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LieferantenStaffelpreisView.resx">
       <DependentUpon>LieferantenStaffelpreisView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaschinenauftragListView.resx">
+      <DependentUpon>MaschinenauftragListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaschinenauftragView.resx">
+      <DependentUpon>MaschinenauftragView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaschinenmodellTreeView.resx">
+      <DependentUpon>MaschinenmodellTreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModellListView.resx">
       <DependentUpon>ModellListView.cs</DependentUpon>
@@ -840,6 +922,9 @@
     <EmbeddedResource Include="Views\RecentCustomerListView.resx">
       <DependentUpon>RecentCustomerListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecentProductsView.resx">
+      <DependentUpon>RecentProductsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ReminderView.resx">
       <DependentUpon>ReminderView.cs</DependentUpon>
     </EmbeddedResource>
@@ -851,6 +936,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SettingsView.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SoftwareUpgradeListView.resx">
+      <DependentUpon>SoftwareUpgradeListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SoftwareUpgradeView.resx">
+      <DependentUpon>SoftwareUpgradeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SonderpreisView.resx">
       <DependentUpon>SonderpreisView.cs</DependentUpon>
@@ -894,15 +985,13 @@
     <EmbeddedResource Include="Views\WartungsvorschlagView.resx">
       <DependentUpon>WartungsvorschlagView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Diagramme\CalendarView.cd" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Products.UI_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -917,6 +1006,10 @@
     <ProjectReference Include="..\Agfeo\Agfeo.csproj">
       <Project>{0CD206FB-1891-4010-9958-329AABD272CF}</Project>
       <Name>Agfeo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CatalistRegistry\CatalistRegistry.csproj">
+      <Project>{377b0a99-ae8e-47bf-bd5e-2695149338c8}</Project>
+      <Name>CatalistRegistry</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Products.Common.csproj">
       <Project>{B45CC3C0-5C84-4534-B1EA-BFEF5822CD30}</Project>
@@ -949,6 +1042,10 @@
     <ProjectReference Include="..\Products.Contracts\Products.Contracts.csproj">
       <Project>{66A8E88B-430B-4B17-A328-9D0E068A68FD}</Project>
       <Name>Products.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SageBridge\SageBridge.csproj">
+      <Project>{99da1437-3682-4f75-be9d-130e2fe769a5}</Project>
+      <Name>SageBridge</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -1070,6 +1167,28 @@
     <None Include="Resources\search_24_metroorange.png" />
     <None Include="Resources\SageNCL_32.png" />
     <None Include="Resources\customer_32_metrowhite.png" />
+    <None Include="Resources\product_32_metrowhite.png" />
+    <None Include="Resources\SageNCL_16.png" />
+    <None Include="Resources\link_32_metroorange.png" />
+    <None Include="Resources\contact_32_metroorange.png" />
+    <None Include="Resources\printer_32_metroorange.png" />
+    <None Include="Resources\unlink_32_metroorange.png" />
+    <None Include="Resources\autofill_32_metrogreen.png" />
+    <None Include="Resources\calendar_16_metrosilver.png" />
+    <None Include="Resources\disks_48_metrowhite.png" />
+    <None Include="Resources\customer_16_metrogreen.png" />
+    <None Include="Resources\machine_16_metrogreen.png" />
+    <None Include="Resources\add_16_metrolime.png" />
+    <None Include="Resources\list_16_metrolime.png" />
+    <None Include="Resources\minimize_48_metrowhite.png" />
+    <None Include="Resources\documents_16_metrolime.png" />
+    <None Include="Resources\documents_16_lightyellow.png" />
+    <None Include="Resources\move_16_metroorange.png" />
+    <None Include="Resources\pin_24_metrogreen.png" />
+    <None Include="Resources\unpin2_24_metrosilver.png" />
+    <None Include="Resources\paste_24_metroyellow.png" />
+    <None Include="Resources\idea_16_metrosilver.png" />
+    <None Include="Resources\pois_16_metrosilver.png" />
     <Content Include="Windows 8.ico" />
     <None Include="Resources\filter_16_metrolime.png" />
     <None Include="Resources\frage_32_metroyellow.png" />

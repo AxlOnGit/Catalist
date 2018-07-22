@@ -1,10 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Products.Model.Entities.Kundenmaschine">
+  <Class Name="Products.Model.Entities.Kundenmaschine" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AXQUAQAAAAggAHxBAEAAACABCQAgIACQhBCFiAARUgg=</HashCode>
+      <HashCode>AXQUAQAAgAggAHxBAFACACEBCAAgIQi0jDCFiAgRUAo=</HashCode>
       <FileName>Entities\Kundenmaschine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Products.Model.Entities.Appointment">
+    <Position X="4.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>4AQEIACAAIEACIQAAIIAAAqACgigAAAQgAgBAAkAIyE=</HashCode>
+      <FileName>Entities\Appointment.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

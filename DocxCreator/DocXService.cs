@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Novacode;
-using Products.Common;
 using Products.Data;
 using Products.Data.Datasets;
 using Products.Model;
@@ -50,7 +49,7 @@ namespace Products.DocxCreator
 				// string.Format("{0:yyyy-MM-dd_mmss}_{1}_{2}.docx", serviceTermin.StartsAt,
 				// serviceTermin.Kundennummer.Substring(0, 5), serviceTermin.Techniker.NameFirst);
 				// string reportFilePath = System.IO.Path.Combine(Common.Global.LinkedFilesPath, reportFilename);
-				var templateFilePath = Path.Combine(Global.TemplatePath, "sb_cjv30.docx");
+				var templateFilePath = Path.Combine(CatalistRegistry.Application.TemplatePath, "sb_cjv30.docx");
 
 				using (DocX doc = DocX.Load(templateFilePath))
 				{
@@ -151,7 +150,7 @@ namespace Products.DocxCreator
 			var catFileName = string.Format("{0:yyyy-MM-dd_mmss}_({1})_{2}.docx", DateTime.Now, kunde.KundenNrCpm, kunde.Matchcode);
 			var catCompleteFilePath = string.Format("{0}{1}", catalogPath, catFileName);
 
-			using (DocX doc = DocX.Load(Global.CatalogTemplateFilePath))
+			using (DocX doc = DocX.Load(CatalistRegistry.Application.CatalogTemplateFilePath))
 			{
 				// Firmenname und Kundennummer einfügen
 				var companyAndNumber = string.Format(@"{0} - [Ihre Kd.-Nr.: {1}]", kunde.CompanyName1, kunde.KundenNrCpm);
@@ -274,11 +273,11 @@ namespace Products.DocxCreator
 
 			if (product.Herstellerlogo == null)
 			{
-				manufacturerImage = doc.AddImage(Global.ManufacturerPicturePath + "dummy.png");
+				manufacturerImage = doc.AddImage(CatalistRegistry.Application.ManufacturerPicturePath + "dummy.png");
 			}
 			else
 			{
-				manufacturerImage = doc.AddImage(Global.ManufacturerPicturePath + product.HerstellerlogoPfad);
+				manufacturerImage = doc.AddImage(CatalistRegistry.Application.ManufacturerPicturePath + product.HerstellerlogoPfad);
 			}
 			manufacturerPicture = manufacturerImage.CreatePicture();
 			manufacturerPicture.Height = picWidth * manufacturerPicture.Height / manufacturerPicture.Width;
@@ -286,7 +285,7 @@ namespace Products.DocxCreator
 
 			if (product.Produktbild != null)
 			{
-				productImage = doc.AddImage(Global.ProductPicturePath + product.ProkuktbildPfad);
+				productImage = doc.AddImage(CatalistRegistry.Application.ProductPicturePath + product.ProkuktbildPfad);
 			}
 
 			var props = GetProperties(product);
@@ -319,7 +318,7 @@ namespace Products.DocxCreator
 				// Product image
 				if (product.Produktbild != null)
 				{
-					productImage = doc.AddImage(Global.ProductPicturePath + product.ProkuktbildPfad);
+					productImage = doc.AddImage(CatalistRegistry.Application.ProductPicturePath + product.ProkuktbildPfad);
 					productPicture = productImage.CreatePicture();
 					productPicture.Height = picWidth * productPicture.Height / productPicture.Width;
 					productPicture.Width = picWidth;

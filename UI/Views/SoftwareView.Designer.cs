@@ -158,6 +158,7 @@
 			this.mtxtLizenzschluessel.SelectedText = "";
 			this.mtxtLizenzschluessel.SelectionLength = 0;
 			this.mtxtLizenzschluessel.SelectionStart = 0;
+			this.mtxtLizenzschluessel.ShortcutsEnabled = true;
 			this.mtxtLizenzschluessel.Size = new System.Drawing.Size(381, 23);
 			this.mtxtLizenzschluessel.TabIndex = 1;
 			this.mtxtLizenzschluessel.UseSelectable = true;
@@ -199,6 +200,7 @@
 			this.mtxtHauptbenutzer.SelectedText = "";
 			this.mtxtHauptbenutzer.SelectionLength = 0;
 			this.mtxtHauptbenutzer.SelectionStart = 0;
+			this.mtxtHauptbenutzer.ShortcutsEnabled = true;
 			this.mtxtHauptbenutzer.Size = new System.Drawing.Size(222, 23);
 			this.mtxtHauptbenutzer.TabIndex = 5;
 			this.mtxtHauptbenutzer.UseSelectable = true;
@@ -211,17 +213,15 @@
 			// 
 			// dtpInstallationsdatum
 			// 
-			this.metroStyleExtender1.SetApplyMetroTheme(this.dtpInstallationsdatum, true);
 			this.dtpInstallationsdatum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dtpInstallationsdatum.CalendarForeColor = System.Drawing.Color.Gray;
 			this.dtpInstallationsdatum.Checked = false;
 			this.dtpInstallationsdatum.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dtpInstallationsdatum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.dtpInstallationsdatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dtpInstallationsdatum.Location = new System.Drawing.Point(179, 179);
+			this.dtpInstallationsdatum.MinimumSize = new System.Drawing.Size(0, 29);
 			this.dtpInstallationsdatum.Name = "dtpInstallationsdatum";
-			this.dtpInstallationsdatum.NullValue = " ";
-			this.dtpInstallationsdatum.Size = new System.Drawing.Size(113, 25);
+			this.dtpInstallationsdatum.Size = new System.Drawing.Size(113, 29);
 			this.dtpInstallationsdatum.TabIndex = 2;
 			this.dtpInstallationsdatum.Value = new System.DateTime(2015, 7, 24, 17, 42, 31, 803);
 			this.dtpInstallationsdatum.ValueChanged += new System.EventHandler(this.dtpInstallationsdatum_ValueChanged);
@@ -250,6 +250,7 @@
 			this.mtxtComputer.SelectedText = "";
 			this.mtxtComputer.SelectionLength = 0;
 			this.mtxtComputer.SelectionStart = 0;
+			this.mtxtComputer.ShortcutsEnabled = true;
 			this.mtxtComputer.Size = new System.Drawing.Size(222, 23);
 			this.mtxtComputer.TabIndex = 4;
 			this.mtxtComputer.UseSelectable = true;
@@ -295,6 +296,7 @@
 			this.mtxtAnmerkungen.SelectedText = "";
 			this.mtxtAnmerkungen.SelectionLength = 0;
 			this.mtxtAnmerkungen.SelectionStart = 0;
+			this.mtxtAnmerkungen.ShortcutsEnabled = true;
 			this.mtxtAnmerkungen.Size = new System.Drawing.Size(381, 114);
 			this.mtxtAnmerkungen.TabIndex = 6;
 			this.mtxtAnmerkungen.UseSelectable = true;

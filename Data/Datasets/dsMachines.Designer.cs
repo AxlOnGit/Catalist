@@ -30,6 +30,10 @@ namespace Products.Data.Datasets {
         
         private KundenmaschinenListeDataTable tableKundenmaschinenListe;
         
+        private MaschinenauftragDataTable tableMaschinenauftrag;
+        
+        private WartungsListeDataTable tableWartungsListe;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +70,12 @@ namespace Products.Data.Datasets {
                 }
                 if ((ds.Tables["KundenmaschinenListe"] != null)) {
                     base.Tables.Add(new KundenmaschinenListeDataTable(ds.Tables["KundenmaschinenListe"]));
+                }
+                if ((ds.Tables["Maschinenauftrag"] != null)) {
+                    base.Tables.Add(new MaschinenauftragDataTable(ds.Tables["Maschinenauftrag"]));
+                }
+                if ((ds.Tables["WartungsListe"] != null)) {
+                    base.Tables.Add(new WartungsListeDataTable(ds.Tables["WartungsListe"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +122,26 @@ namespace Products.Data.Datasets {
         public KundenmaschinenListeDataTable KundenmaschinenListe {
             get {
                 return this.tableKundenmaschinenListe;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public MaschinenauftragDataTable Maschinenauftrag {
+            get {
+                return this.tableMaschinenauftrag;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public WartungsListeDataTable WartungsListe {
+            get {
+                return this.tableWartungsListe;
             }
         }
         
@@ -191,6 +221,12 @@ namespace Products.Data.Datasets {
                 if ((ds.Tables["KundenmaschinenListe"] != null)) {
                     base.Tables.Add(new KundenmaschinenListeDataTable(ds.Tables["KundenmaschinenListe"]));
                 }
+                if ((ds.Tables["Maschinenauftrag"] != null)) {
+                    base.Tables.Add(new MaschinenauftragDataTable(ds.Tables["Maschinenauftrag"]));
+                }
+                if ((ds.Tables["WartungsListe"] != null)) {
+                    base.Tables.Add(new WartungsListeDataTable(ds.Tables["WartungsListe"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +278,18 @@ namespace Products.Data.Datasets {
                     this.tableKundenmaschinenListe.InitVars();
                 }
             }
+            this.tableMaschinenauftrag = ((MaschinenauftragDataTable)(base.Tables["Maschinenauftrag"]));
+            if ((initTable == true)) {
+                if ((this.tableMaschinenauftrag != null)) {
+                    this.tableMaschinenauftrag.InitVars();
+                }
+            }
+            this.tableWartungsListe = ((WartungsListeDataTable)(base.Tables["WartungsListe"]));
+            if ((initTable == true)) {
+                if ((this.tableWartungsListe != null)) {
+                    this.tableWartungsListe.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +306,10 @@ namespace Products.Data.Datasets {
             base.Tables.Add(this.tableKundeMaschineXref);
             this.tableKundenmaschinenListe = new KundenmaschinenListeDataTable();
             base.Tables.Add(this.tableKundenmaschinenListe);
+            this.tableMaschinenauftrag = new MaschinenauftragDataTable();
+            base.Tables.Add(this.tableMaschinenauftrag);
+            this.tableWartungsListe = new WartungsListeDataTable();
+            base.Tables.Add(this.tableWartungsListe);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +327,18 @@ namespace Products.Data.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeKundenmaschinenListe() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeMaschinenauftrag() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeWartungsListe() {
             return false;
         }
         
@@ -342,6 +406,12 @@ namespace Products.Data.Datasets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void KundenmaschinenListeRowChangeEventHandler(object sender, KundenmaschinenListeRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void MaschinenauftragRowChangeEventHandler(object sender, MaschinenauftragRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void WartungsListeRowChangeEventHandler(object sender, WartungsListeRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -398,6 +468,8 @@ namespace Products.Data.Datasets {
             private global::System.Data.DataColumn columnRechnungsdatum;
             
             private global::System.Data.DataColumn columnLieferdatum;
+            
+            private global::System.Data.DataColumn columnKundenauftragFlag;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -634,6 +706,14 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KundenauftragFlagColumn {
+                get {
+                    return this.columnKundenauftragFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -694,7 +774,8 @@ namespace Products.Data.Datasets {
                         string InstallationDurchId, 
                         string Haendler, 
                         System.DateTime Rechnungsdatum, 
-                        System.DateTime Lieferdatum) {
+                        System.DateTime Lieferdatum, 
+                        string KundenauftragFlag) {
                 KundenMaschineRow rowKundenMaschineRow = ((KundenMaschineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UID,
@@ -721,7 +802,8 @@ namespace Products.Data.Datasets {
                         InstallationDurchId,
                         Haendler,
                         Rechnungsdatum,
-                        Lieferdatum};
+                        Lieferdatum,
+                        KundenauftragFlag};
                 rowKundenMaschineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKundenMaschineRow);
                 return rowKundenMaschineRow;
@@ -776,6 +858,7 @@ namespace Products.Data.Datasets {
                 this.columnHaendler = base.Columns["Haendler"];
                 this.columnRechnungsdatum = base.Columns["Rechnungsdatum"];
                 this.columnLieferdatum = base.Columns["Lieferdatum"];
+                this.columnKundenauftragFlag = base.Columns["KundenauftragFlag"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -831,6 +914,8 @@ namespace Products.Data.Datasets {
                 base.Columns.Add(this.columnRechnungsdatum);
                 this.columnLieferdatum = new global::System.Data.DataColumn("Lieferdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLieferdatum);
+                this.columnKundenauftragFlag = new global::System.Data.DataColumn("KundenauftragFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKundenauftragFlag);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUID}, true));
                 this.columnUID.AllowDBNull = false;
@@ -861,6 +946,7 @@ namespace Products.Data.Datasets {
                 this.columnLieferscheinnummerSage.MaxLength = 11;
                 this.columnInstallationDurchId.MaxLength = 36;
                 this.columnHaendler.MaxLength = 45;
+                this.columnKundenauftragFlag.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1401,9 +1487,9 @@ namespace Products.Data.Datasets {
             
             private global::System.Data.DataColumn columnInstallationsdatum;
             
-            private global::System.Data.DataColumn columnKaufdatum;
-            
             private global::System.Data.DataColumn columnWartungsintervall;
+            
+            private global::System.Data.DataColumn columnLieferdatum;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1536,17 +1622,17 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn KaufdatumColumn {
+            public global::System.Data.DataColumn WartungsintervallColumn {
                 get {
-                    return this.columnKaufdatum;
+                    return this.columnWartungsintervall;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WartungsintervallColumn {
+            public global::System.Data.DataColumn LieferdatumColumn {
                 get {
-                    return this.columnWartungsintervall;
+                    return this.columnLieferdatum;
                 }
             }
             
@@ -1587,7 +1673,7 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public KundenmaschinenListeRow AddKundenmaschinenListeRow(string Maschine, string Seriennummer, System.DateTime Zuordnung, string Kunde, string Firma, string Ort, string UID, string Kundennummer, ulong Wartungskennzeichen, string Postleitzahl, System.DateTime Auftragsdatum, System.DateTime Installationsdatum, System.DateTime Kaufdatum, int Wartungsintervall) {
+            public KundenmaschinenListeRow AddKundenmaschinenListeRow(string Maschine, string Seriennummer, System.DateTime Zuordnung, string Kunde, string Firma, string Ort, string UID, string Kundennummer, ulong Wartungskennzeichen, string Postleitzahl, System.DateTime Auftragsdatum, System.DateTime Installationsdatum, int Wartungsintervall, System.DateTime Lieferdatum) {
                 KundenmaschinenListeRow rowKundenmaschinenListeRow = ((KundenmaschinenListeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Maschine,
@@ -1602,8 +1688,8 @@ namespace Products.Data.Datasets {
                         Postleitzahl,
                         Auftragsdatum,
                         Installationsdatum,
-                        Kaufdatum,
-                        Wartungsintervall};
+                        Wartungsintervall,
+                        Lieferdatum};
                 rowKundenmaschinenListeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKundenmaschinenListeRow);
                 return rowKundenmaschinenListeRow;
@@ -1645,8 +1731,8 @@ namespace Products.Data.Datasets {
                 this.columnPostleitzahl = base.Columns["Postleitzahl"];
                 this.columnAuftragsdatum = base.Columns["Auftragsdatum"];
                 this.columnInstallationsdatum = base.Columns["Installationsdatum"];
-                this.columnKaufdatum = base.Columns["Kaufdatum"];
                 this.columnWartungsintervall = base.Columns["Wartungsintervall"];
+                this.columnLieferdatum = base.Columns["Lieferdatum"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1676,10 +1762,10 @@ namespace Products.Data.Datasets {
                 base.Columns.Add(this.columnAuftragsdatum);
                 this.columnInstallationsdatum = new global::System.Data.DataColumn("Installationsdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInstallationsdatum);
-                this.columnKaufdatum = new global::System.Data.DataColumn("Kaufdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKaufdatum);
                 this.columnWartungsintervall = new global::System.Data.DataColumn("Wartungsintervall", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWartungsintervall);
+                this.columnLieferdatum = new global::System.Data.DataColumn("Lieferdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLieferdatum);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUID}, true));
                 this.columnMaschine.AllowDBNull = false;
@@ -1700,8 +1786,6 @@ namespace Products.Data.Datasets {
                 this.columnWartungskennzeichen.AllowDBNull = false;
                 this.columnPostleitzahl.AllowDBNull = false;
                 this.columnPostleitzahl.MaxLength = 10;
-                this.columnInstallationsdatum.AllowDBNull = false;
-                this.columnKaufdatum.AllowDBNull = false;
                 this.columnWartungsintervall.AllowDBNull = false;
             }
             
@@ -1789,6 +1873,864 @@ namespace Products.Data.Datasets {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "KundenmaschinenListeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class MaschinenauftragDataTable : global::System.Data.TypedTableBase<MaschinenauftragRow> {
+            
+            private global::System.Data.DataColumn columnMaschinenId;
+            
+            private global::System.Data.DataColumn columnKundenbestellungAm;
+            
+            private global::System.Data.DataColumn columnKundenbestellungDurch;
+            
+            private global::System.Data.DataColumn columnKundenbestellungPer;
+            
+            private global::System.Data.DataColumn columnMaschinenbestellungAm;
+            
+            private global::System.Data.DataColumn columnMaschinenbestellungDurchId;
+            
+            private global::System.Data.DataColumn columnBestellIdSage;
+            
+            private global::System.Data.DataColumn columnMaschinenlieferungAm;
+            
+            private global::System.Data.DataColumn columnLieferungZumKundenAm;
+            
+            private global::System.Data.DataColumn columnLieferungZumKundenDurchId;
+            
+            private global::System.Data.DataColumn columnAnmerkungenBestellung;
+            
+            private global::System.Data.DataColumn columnBestelleintrittAm;
+            
+            private global::System.Data.DataColumn columnVertragsunterlagenFlag;
+            
+            private global::System.Data.DataColumn columnUebernahmebestaetigungFlag;
+            
+            private global::System.Data.DataColumn columnObjektversicherungFlag;
+            
+            private global::System.Data.DataColumn columnAgbUnterzeichnetFlag;
+            
+            private global::System.Data.DataColumn columnAnmerkungenFinanzierung;
+            
+            private global::System.Data.DataColumn columnInstallationDurchId;
+            
+            private global::System.Data.DataColumn columnInstallationsdatum;
+            
+            private global::System.Data.DataColumn columnGarantieunterlagenFlag;
+            
+            private global::System.Data.DataColumn columnGarantieablaufdatum;
+            
+            private global::System.Data.DataColumn columnAuftragErledigtFlag;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragDataTable() {
+                this.TableName = "Maschinenauftrag";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MaschinenauftragDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected MaschinenauftragDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaschinenIdColumn {
+                get {
+                    return this.columnMaschinenId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KundenbestellungAmColumn {
+                get {
+                    return this.columnKundenbestellungAm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KundenbestellungDurchColumn {
+                get {
+                    return this.columnKundenbestellungDurch;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KundenbestellungPerColumn {
+                get {
+                    return this.columnKundenbestellungPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaschinenbestellungAmColumn {
+                get {
+                    return this.columnMaschinenbestellungAm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaschinenbestellungDurchIdColumn {
+                get {
+                    return this.columnMaschinenbestellungDurchId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BestellIdSageColumn {
+                get {
+                    return this.columnBestellIdSage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaschinenlieferungAmColumn {
+                get {
+                    return this.columnMaschinenlieferungAm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LieferungZumKundenAmColumn {
+                get {
+                    return this.columnLieferungZumKundenAm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LieferungZumKundenDurchIdColumn {
+                get {
+                    return this.columnLieferungZumKundenDurchId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AnmerkungenBestellungColumn {
+                get {
+                    return this.columnAnmerkungenBestellung;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BestelleintrittAmColumn {
+                get {
+                    return this.columnBestelleintrittAm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VertragsunterlagenFlagColumn {
+                get {
+                    return this.columnVertragsunterlagenFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UebernahmebestaetigungFlagColumn {
+                get {
+                    return this.columnUebernahmebestaetigungFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ObjektversicherungFlagColumn {
+                get {
+                    return this.columnObjektversicherungFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AgbUnterzeichnetFlagColumn {
+                get {
+                    return this.columnAgbUnterzeichnetFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AnmerkungenFinanzierungColumn {
+                get {
+                    return this.columnAnmerkungenFinanzierung;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstallationDurchIdColumn {
+                get {
+                    return this.columnInstallationDurchId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstallationsdatumColumn {
+                get {
+                    return this.columnInstallationsdatum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GarantieunterlagenFlagColumn {
+                get {
+                    return this.columnGarantieunterlagenFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GarantieablaufdatumColumn {
+                get {
+                    return this.columnGarantieablaufdatum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AuftragErledigtFlagColumn {
+                get {
+                    return this.columnAuftragErledigtFlag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRow this[int index] {
+                get {
+                    return ((MaschinenauftragRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MaschinenauftragRowChangeEventHandler MaschinenauftragRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MaschinenauftragRowChangeEventHandler MaschinenauftragRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MaschinenauftragRowChangeEventHandler MaschinenauftragRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MaschinenauftragRowChangeEventHandler MaschinenauftragRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddMaschinenauftragRow(MaschinenauftragRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRow AddMaschinenauftragRow(
+                        string MaschinenId, 
+                        System.DateTime KundenbestellungAm, 
+                        string KundenbestellungDurch, 
+                        string KundenbestellungPer, 
+                        System.DateTime MaschinenbestellungAm, 
+                        string MaschinenbestellungDurchId, 
+                        string BestellIdSage, 
+                        System.DateTime MaschinenlieferungAm, 
+                        System.DateTime LieferungZumKundenAm, 
+                        string LieferungZumKundenDurchId, 
+                        string AnmerkungenBestellung, 
+                        System.DateTime BestelleintrittAm, 
+                        string VertragsunterlagenFlag, 
+                        string UebernahmebestaetigungFlag, 
+                        string ObjektversicherungFlag, 
+                        string AgbUnterzeichnetFlag, 
+                        string AnmerkungenFinanzierung, 
+                        string InstallationDurchId, 
+                        System.DateTime Installationsdatum, 
+                        string GarantieunterlagenFlag, 
+                        System.DateTime Garantieablaufdatum, 
+                        string AuftragErledigtFlag) {
+                MaschinenauftragRow rowMaschinenauftragRow = ((MaschinenauftragRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        MaschinenId,
+                        KundenbestellungAm,
+                        KundenbestellungDurch,
+                        KundenbestellungPer,
+                        MaschinenbestellungAm,
+                        MaschinenbestellungDurchId,
+                        BestellIdSage,
+                        MaschinenlieferungAm,
+                        LieferungZumKundenAm,
+                        LieferungZumKundenDurchId,
+                        AnmerkungenBestellung,
+                        BestelleintrittAm,
+                        VertragsunterlagenFlag,
+                        UebernahmebestaetigungFlag,
+                        ObjektversicherungFlag,
+                        AgbUnterzeichnetFlag,
+                        AnmerkungenFinanzierung,
+                        InstallationDurchId,
+                        Installationsdatum,
+                        GarantieunterlagenFlag,
+                        Garantieablaufdatum,
+                        AuftragErledigtFlag};
+                rowMaschinenauftragRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMaschinenauftragRow);
+                return rowMaschinenauftragRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRow FindByMaschinenId(string MaschinenId) {
+                return ((MaschinenauftragRow)(this.Rows.Find(new object[] {
+                            MaschinenId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                MaschinenauftragDataTable cln = ((MaschinenauftragDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MaschinenauftragDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnMaschinenId = base.Columns["MaschinenId"];
+                this.columnKundenbestellungAm = base.Columns["KundenbestellungAm"];
+                this.columnKundenbestellungDurch = base.Columns["KundenbestellungDurch"];
+                this.columnKundenbestellungPer = base.Columns["KundenbestellungPer"];
+                this.columnMaschinenbestellungAm = base.Columns["MaschinenbestellungAm"];
+                this.columnMaschinenbestellungDurchId = base.Columns["MaschinenbestellungDurchId"];
+                this.columnBestellIdSage = base.Columns["BestellIdSage"];
+                this.columnMaschinenlieferungAm = base.Columns["MaschinenlieferungAm"];
+                this.columnLieferungZumKundenAm = base.Columns["LieferungZumKundenAm"];
+                this.columnLieferungZumKundenDurchId = base.Columns["LieferungZumKundenDurchId"];
+                this.columnAnmerkungenBestellung = base.Columns["AnmerkungenBestellung"];
+                this.columnBestelleintrittAm = base.Columns["BestelleintrittAm"];
+                this.columnVertragsunterlagenFlag = base.Columns["VertragsunterlagenFlag"];
+                this.columnUebernahmebestaetigungFlag = base.Columns["UebernahmebestaetigungFlag"];
+                this.columnObjektversicherungFlag = base.Columns["ObjektversicherungFlag"];
+                this.columnAgbUnterzeichnetFlag = base.Columns["AgbUnterzeichnetFlag"];
+                this.columnAnmerkungenFinanzierung = base.Columns["AnmerkungenFinanzierung"];
+                this.columnInstallationDurchId = base.Columns["InstallationDurchId"];
+                this.columnInstallationsdatum = base.Columns["Installationsdatum"];
+                this.columnGarantieunterlagenFlag = base.Columns["GarantieunterlagenFlag"];
+                this.columnGarantieablaufdatum = base.Columns["Garantieablaufdatum"];
+                this.columnAuftragErledigtFlag = base.Columns["AuftragErledigtFlag"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnMaschinenId = new global::System.Data.DataColumn("MaschinenId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaschinenId);
+                this.columnKundenbestellungAm = new global::System.Data.DataColumn("KundenbestellungAm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKundenbestellungAm);
+                this.columnKundenbestellungDurch = new global::System.Data.DataColumn("KundenbestellungDurch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKundenbestellungDurch);
+                this.columnKundenbestellungPer = new global::System.Data.DataColumn("KundenbestellungPer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKundenbestellungPer);
+                this.columnMaschinenbestellungAm = new global::System.Data.DataColumn("MaschinenbestellungAm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaschinenbestellungAm);
+                this.columnMaschinenbestellungDurchId = new global::System.Data.DataColumn("MaschinenbestellungDurchId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaschinenbestellungDurchId);
+                this.columnBestellIdSage = new global::System.Data.DataColumn("BestellIdSage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBestellIdSage);
+                this.columnMaschinenlieferungAm = new global::System.Data.DataColumn("MaschinenlieferungAm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaschinenlieferungAm);
+                this.columnLieferungZumKundenAm = new global::System.Data.DataColumn("LieferungZumKundenAm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLieferungZumKundenAm);
+                this.columnLieferungZumKundenDurchId = new global::System.Data.DataColumn("LieferungZumKundenDurchId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLieferungZumKundenDurchId);
+                this.columnAnmerkungenBestellung = new global::System.Data.DataColumn("AnmerkungenBestellung", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAnmerkungenBestellung);
+                this.columnBestelleintrittAm = new global::System.Data.DataColumn("BestelleintrittAm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBestelleintrittAm);
+                this.columnVertragsunterlagenFlag = new global::System.Data.DataColumn("VertragsunterlagenFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVertragsunterlagenFlag);
+                this.columnUebernahmebestaetigungFlag = new global::System.Data.DataColumn("UebernahmebestaetigungFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUebernahmebestaetigungFlag);
+                this.columnObjektversicherungFlag = new global::System.Data.DataColumn("ObjektversicherungFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObjektversicherungFlag);
+                this.columnAgbUnterzeichnetFlag = new global::System.Data.DataColumn("AgbUnterzeichnetFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAgbUnterzeichnetFlag);
+                this.columnAnmerkungenFinanzierung = new global::System.Data.DataColumn("AnmerkungenFinanzierung", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAnmerkungenFinanzierung);
+                this.columnInstallationDurchId = new global::System.Data.DataColumn("InstallationDurchId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstallationDurchId);
+                this.columnInstallationsdatum = new global::System.Data.DataColumn("Installationsdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstallationsdatum);
+                this.columnGarantieunterlagenFlag = new global::System.Data.DataColumn("GarantieunterlagenFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGarantieunterlagenFlag);
+                this.columnGarantieablaufdatum = new global::System.Data.DataColumn("Garantieablaufdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGarantieablaufdatum);
+                this.columnAuftragErledigtFlag = new global::System.Data.DataColumn("AuftragErledigtFlag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAuftragErledigtFlag);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnMaschinenId}, true));
+                this.columnMaschinenId.AllowDBNull = false;
+                this.columnMaschinenId.Unique = true;
+                this.columnMaschinenId.MaxLength = 36;
+                this.columnKundenbestellungDurch.MaxLength = 45;
+                this.columnKundenbestellungPer.MaxLength = 20;
+                this.columnMaschinenbestellungDurchId.MaxLength = 36;
+                this.columnBestellIdSage.MaxLength = 11;
+                this.columnLieferungZumKundenDurchId.MaxLength = 36;
+                this.columnAnmerkungenBestellung.MaxLength = 500;
+                this.columnVertragsunterlagenFlag.AllowDBNull = false;
+                this.columnVertragsunterlagenFlag.MaxLength = 1;
+                this.columnUebernahmebestaetigungFlag.AllowDBNull = false;
+                this.columnUebernahmebestaetigungFlag.MaxLength = 1;
+                this.columnObjektversicherungFlag.AllowDBNull = false;
+                this.columnObjektversicherungFlag.MaxLength = 1;
+                this.columnAgbUnterzeichnetFlag.AllowDBNull = false;
+                this.columnAgbUnterzeichnetFlag.MaxLength = 1;
+                this.columnAnmerkungenFinanzierung.MaxLength = 500;
+                this.columnInstallationDurchId.MaxLength = 36;
+                this.columnGarantieunterlagenFlag.MaxLength = 1;
+                this.columnAuftragErledigtFlag.MaxLength = 1;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRow NewMaschinenauftragRow() {
+                return ((MaschinenauftragRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MaschinenauftragRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(MaschinenauftragRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MaschinenauftragRowChanged != null)) {
+                    this.MaschinenauftragRowChanged(this, new MaschinenauftragRowChangeEvent(((MaschinenauftragRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MaschinenauftragRowChanging != null)) {
+                    this.MaschinenauftragRowChanging(this, new MaschinenauftragRowChangeEvent(((MaschinenauftragRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MaschinenauftragRowDeleted != null)) {
+                    this.MaschinenauftragRowDeleted(this, new MaschinenauftragRowChangeEvent(((MaschinenauftragRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MaschinenauftragRowDeleting != null)) {
+                    this.MaschinenauftragRowDeleting(this, new MaschinenauftragRowChangeEvent(((MaschinenauftragRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveMaschinenauftragRow(MaschinenauftragRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsMachines ds = new dsMachines();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MaschinenauftragDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class WartungsListeDataTable : global::System.Data.TypedTableBase<WartungsListeRow> {
+            
+            private global::System.Data.DataColumn columnMaschinenId;
+            
+            private global::System.Data.DataColumn columnFullName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeDataTable() {
+                this.TableName = "WartungsListe";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal WartungsListeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected WartungsListeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MaschinenIdColumn {
+                get {
+                    return this.columnMaschinenId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FullNameColumn {
+                get {
+                    return this.columnFullName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeRow this[int index] {
+                get {
+                    return ((WartungsListeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WartungsListeRowChangeEventHandler WartungsListeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WartungsListeRowChangeEventHandler WartungsListeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WartungsListeRowChangeEventHandler WartungsListeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WartungsListeRowChangeEventHandler WartungsListeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddWartungsListeRow(WartungsListeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeRow AddWartungsListeRow(string MaschinenId, string FullName) {
+                WartungsListeRow rowWartungsListeRow = ((WartungsListeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        MaschinenId,
+                        FullName};
+                rowWartungsListeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWartungsListeRow);
+                return rowWartungsListeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                WartungsListeDataTable cln = ((WartungsListeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new WartungsListeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnMaschinenId = base.Columns["MaschinenId"];
+                this.columnFullName = base.Columns["FullName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnMaschinenId = new global::System.Data.DataColumn("MaschinenId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaschinenId);
+                this.columnFullName = new global::System.Data.DataColumn("FullName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFullName);
+                this.columnMaschinenId.AllowDBNull = false;
+                this.columnMaschinenId.MaxLength = 36;
+                this.columnFullName.AllowDBNull = false;
+                this.columnFullName.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeRow NewWartungsListeRow() {
+                return ((WartungsListeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new WartungsListeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(WartungsListeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.WartungsListeRowChanged != null)) {
+                    this.WartungsListeRowChanged(this, new WartungsListeRowChangeEvent(((WartungsListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.WartungsListeRowChanging != null)) {
+                    this.WartungsListeRowChanging(this, new WartungsListeRowChangeEvent(((WartungsListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.WartungsListeRowDeleted != null)) {
+                    this.WartungsListeRowDeleted(this, new WartungsListeRowChangeEvent(((WartungsListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.WartungsListeRowDeleting != null)) {
+                    this.WartungsListeRowDeleting(this, new WartungsListeRowChangeEvent(((WartungsListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveWartungsListeRow(WartungsListeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsMachines ds = new dsMachines();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "WartungsListeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2207,6 +3149,22 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string KundenauftragFlag {
+                get {
+                    try {
+                        return ((string)(this[this.tableKundenMaschine.KundenauftragFlagColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KundenauftragFlag\' in table \'KundenMaschine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKundenMaschine.KundenauftragFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeriennummerNull() {
                 return this.IsNull(this.tableKundenMaschine.SeriennummerColumn);
             }
@@ -2407,6 +3365,18 @@ namespace Products.Data.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLieferdatumNull() {
                 this[this.tableKundenMaschine.LieferdatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKundenauftragFlagNull() {
+                return this.IsNull(this.tableKundenMaschine.KundenauftragFlagColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKundenauftragFlagNull() {
+                this[this.tableKundenMaschine.KundenauftragFlagColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2673,21 +3643,16 @@ namespace Products.Data.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Installationsdatum {
                 get {
-                    return ((global::System.DateTime)(this[this.tableKundenmaschinenListe.InstallationsdatumColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableKundenmaschinenListe.InstallationsdatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Installationsdatum\' in table \'KundenmaschinenListe\' is DBNu" +
+                                "ll.", e);
+                    }
                 }
                 set {
                     this[this.tableKundenmaschinenListe.InstallationsdatumColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Kaufdatum {
-                get {
-                    return ((global::System.DateTime)(this[this.tableKundenmaschinenListe.KaufdatumColumn]));
-                }
-                set {
-                    this[this.tableKundenmaschinenListe.KaufdatumColumn] = value;
                 }
             }
             
@@ -2699,6 +3664,22 @@ namespace Products.Data.Datasets {
                 }
                 set {
                     this[this.tableKundenmaschinenListe.WartungsintervallColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Lieferdatum {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableKundenmaschinenListe.LieferdatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Lieferdatum\' in table \'KundenmaschinenListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKundenmaschinenListe.LieferdatumColumn] = value;
                 }
             }
             
@@ -2724,6 +3705,626 @@ namespace Products.Data.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAuftragsdatumNull() {
                 this[this.tableKundenmaschinenListe.AuftragsdatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstallationsdatumNull() {
+                return this.IsNull(this.tableKundenmaschinenListe.InstallationsdatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstallationsdatumNull() {
+                this[this.tableKundenmaschinenListe.InstallationsdatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLieferdatumNull() {
+                return this.IsNull(this.tableKundenmaschinenListe.LieferdatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLieferdatumNull() {
+                this[this.tableKundenmaschinenListe.LieferdatumColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MaschinenauftragRow : global::System.Data.DataRow {
+            
+            private MaschinenauftragDataTable tableMaschinenauftrag;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MaschinenauftragRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMaschinenauftrag = ((MaschinenauftragDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MaschinenId {
+                get {
+                    return ((string)(this[this.tableMaschinenauftrag.MaschinenIdColumn]));
+                }
+                set {
+                    this[this.tableMaschinenauftrag.MaschinenIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime KundenbestellungAm {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.KundenbestellungAmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KundenbestellungAm\' in table \'Maschinenauftrag\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.KundenbestellungAmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string KundenbestellungDurch {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.KundenbestellungDurchColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KundenbestellungDurch\' in table \'Maschinenauftrag\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.KundenbestellungDurchColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string KundenbestellungPer {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.KundenbestellungPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KundenbestellungPer\' in table \'Maschinenauftrag\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.KundenbestellungPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime MaschinenbestellungAm {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.MaschinenbestellungAmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaschinenbestellungAm\' in table \'Maschinenauftrag\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.MaschinenbestellungAmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MaschinenbestellungDurchId {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.MaschinenbestellungDurchIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaschinenbestellungDurchId\' in table \'Maschinenauftrag\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.MaschinenbestellungDurchIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BestellIdSage {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.BestellIdSageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BestellIdSage\' in table \'Maschinenauftrag\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.BestellIdSageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime MaschinenlieferungAm {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.MaschinenlieferungAmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaschinenlieferungAm\' in table \'Maschinenauftrag\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.MaschinenlieferungAmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime LieferungZumKundenAm {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.LieferungZumKundenAmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LieferungZumKundenAm\' in table \'Maschinenauftrag\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.LieferungZumKundenAmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LieferungZumKundenDurchId {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.LieferungZumKundenDurchIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LieferungZumKundenDurchId\' in table \'Maschinenauftrag\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.LieferungZumKundenDurchIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AnmerkungenBestellung {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.AnmerkungenBestellungColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnmerkungenBestellung\' in table \'Maschinenauftrag\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.AnmerkungenBestellungColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime BestelleintrittAm {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.BestelleintrittAmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BestelleintrittAm\' in table \'Maschinenauftrag\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.BestelleintrittAmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string VertragsunterlagenFlag {
+                get {
+                    return ((string)(this[this.tableMaschinenauftrag.VertragsunterlagenFlagColumn]));
+                }
+                set {
+                    this[this.tableMaschinenauftrag.VertragsunterlagenFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string UebernahmebestaetigungFlag {
+                get {
+                    return ((string)(this[this.tableMaschinenauftrag.UebernahmebestaetigungFlagColumn]));
+                }
+                set {
+                    this[this.tableMaschinenauftrag.UebernahmebestaetigungFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ObjektversicherungFlag {
+                get {
+                    return ((string)(this[this.tableMaschinenauftrag.ObjektversicherungFlagColumn]));
+                }
+                set {
+                    this[this.tableMaschinenauftrag.ObjektversicherungFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AgbUnterzeichnetFlag {
+                get {
+                    return ((string)(this[this.tableMaschinenauftrag.AgbUnterzeichnetFlagColumn]));
+                }
+                set {
+                    this[this.tableMaschinenauftrag.AgbUnterzeichnetFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AnmerkungenFinanzierung {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.AnmerkungenFinanzierungColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnmerkungenFinanzierung\' in table \'Maschinenauftrag\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.AnmerkungenFinanzierungColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string InstallationDurchId {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.InstallationDurchIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InstallationDurchId\' in table \'Maschinenauftrag\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.InstallationDurchIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Installationsdatum {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.InstallationsdatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Installationsdatum\' in table \'Maschinenauftrag\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.InstallationsdatumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string GarantieunterlagenFlag {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.GarantieunterlagenFlagColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GarantieunterlagenFlag\' in table \'Maschinenauftrag\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.GarantieunterlagenFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Garantieablaufdatum {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMaschinenauftrag.GarantieablaufdatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Garantieablaufdatum\' in table \'Maschinenauftrag\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.GarantieablaufdatumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AuftragErledigtFlag {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaschinenauftrag.AuftragErledigtFlagColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AuftragErledigtFlag\' in table \'Maschinenauftrag\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableMaschinenauftrag.AuftragErledigtFlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKundenbestellungAmNull() {
+                return this.IsNull(this.tableMaschinenauftrag.KundenbestellungAmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKundenbestellungAmNull() {
+                this[this.tableMaschinenauftrag.KundenbestellungAmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKundenbestellungDurchNull() {
+                return this.IsNull(this.tableMaschinenauftrag.KundenbestellungDurchColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKundenbestellungDurchNull() {
+                this[this.tableMaschinenauftrag.KundenbestellungDurchColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKundenbestellungPerNull() {
+                return this.IsNull(this.tableMaschinenauftrag.KundenbestellungPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKundenbestellungPerNull() {
+                this[this.tableMaschinenauftrag.KundenbestellungPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaschinenbestellungAmNull() {
+                return this.IsNull(this.tableMaschinenauftrag.MaschinenbestellungAmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaschinenbestellungAmNull() {
+                this[this.tableMaschinenauftrag.MaschinenbestellungAmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaschinenbestellungDurchIdNull() {
+                return this.IsNull(this.tableMaschinenauftrag.MaschinenbestellungDurchIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaschinenbestellungDurchIdNull() {
+                this[this.tableMaschinenauftrag.MaschinenbestellungDurchIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBestellIdSageNull() {
+                return this.IsNull(this.tableMaschinenauftrag.BestellIdSageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBestellIdSageNull() {
+                this[this.tableMaschinenauftrag.BestellIdSageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMaschinenlieferungAmNull() {
+                return this.IsNull(this.tableMaschinenauftrag.MaschinenlieferungAmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMaschinenlieferungAmNull() {
+                this[this.tableMaschinenauftrag.MaschinenlieferungAmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLieferungZumKundenAmNull() {
+                return this.IsNull(this.tableMaschinenauftrag.LieferungZumKundenAmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLieferungZumKundenAmNull() {
+                this[this.tableMaschinenauftrag.LieferungZumKundenAmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLieferungZumKundenDurchIdNull() {
+                return this.IsNull(this.tableMaschinenauftrag.LieferungZumKundenDurchIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLieferungZumKundenDurchIdNull() {
+                this[this.tableMaschinenauftrag.LieferungZumKundenDurchIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAnmerkungenBestellungNull() {
+                return this.IsNull(this.tableMaschinenauftrag.AnmerkungenBestellungColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAnmerkungenBestellungNull() {
+                this[this.tableMaschinenauftrag.AnmerkungenBestellungColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBestelleintrittAmNull() {
+                return this.IsNull(this.tableMaschinenauftrag.BestelleintrittAmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBestelleintrittAmNull() {
+                this[this.tableMaschinenauftrag.BestelleintrittAmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAnmerkungenFinanzierungNull() {
+                return this.IsNull(this.tableMaschinenauftrag.AnmerkungenFinanzierungColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAnmerkungenFinanzierungNull() {
+                this[this.tableMaschinenauftrag.AnmerkungenFinanzierungColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstallationDurchIdNull() {
+                return this.IsNull(this.tableMaschinenauftrag.InstallationDurchIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstallationDurchIdNull() {
+                this[this.tableMaschinenauftrag.InstallationDurchIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInstallationsdatumNull() {
+                return this.IsNull(this.tableMaschinenauftrag.InstallationsdatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInstallationsdatumNull() {
+                this[this.tableMaschinenauftrag.InstallationsdatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGarantieunterlagenFlagNull() {
+                return this.IsNull(this.tableMaschinenauftrag.GarantieunterlagenFlagColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGarantieunterlagenFlagNull() {
+                this[this.tableMaschinenauftrag.GarantieunterlagenFlagColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGarantieablaufdatumNull() {
+                return this.IsNull(this.tableMaschinenauftrag.GarantieablaufdatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGarantieablaufdatumNull() {
+                this[this.tableMaschinenauftrag.GarantieablaufdatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAuftragErledigtFlagNull() {
+                return this.IsNull(this.tableMaschinenauftrag.AuftragErledigtFlagColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAuftragErledigtFlagNull() {
+                this[this.tableMaschinenauftrag.AuftragErledigtFlagColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class WartungsListeRow : global::System.Data.DataRow {
+            
+            private WartungsListeDataTable tableWartungsListe;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal WartungsListeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableWartungsListe = ((WartungsListeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MaschinenId {
+                get {
+                    return ((string)(this[this.tableWartungsListe.MaschinenIdColumn]));
+                }
+                set {
+                    this[this.tableWartungsListe.MaschinenIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FullName {
+                get {
+                    return ((string)(this[this.tableWartungsListe.FullNameColumn]));
+                }
+                set {
+                    this[this.tableWartungsListe.FullNameColumn] = value;
+                }
             }
         }
         
@@ -2815,6 +4416,74 @@ namespace Products.Data.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KundenmaschinenListeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class MaschinenauftragRowChangeEvent : global::System.EventArgs {
+            
+            private MaschinenauftragRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRowChangeEvent(MaschinenauftragRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MaschinenauftragRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class WartungsListeRowChangeEvent : global::System.EventArgs {
+            
+            private WartungsListeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeRowChangeEvent(WartungsListeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WartungsListeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2979,6 +4648,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             tableMapping.ColumnMappings.Add("Haendler", "Haendler");
             tableMapping.ColumnMappings.Add("Rechnungsdatum", "Rechnungsdatum");
             tableMapping.ColumnMappings.Add("Lieferdatum", "Lieferdatum");
+            tableMapping.ColumnMappings.Add("KundenauftragFlag", "KundenauftragFlag");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -2994,7 +4664,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_kundenmaschine` (`UID`, `Kundennummer`, `MaschinenmodellId`, `Seriennummer`, `Firmware`, `Haendler`, `Auftragsdatum`, `Rechnungsdatum`, `Lieferdatum`, `Installationsdatum`, `LeasingFlag`, `MietkaufFlag`, `Finanzierungsgesellschaft`, `Finanzierungsende`, `ErstverwertungsFlag`, `Anmerkungen`, `TintenId`, `FarbenSet`, `AuftragsnummerSage`, `RechnungsnummerSage`, `LieferscheinnummerSage`, `InstallationDurchId`, `Wartungsintervall`, `Dateipfad`, `Sonderausstattung`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_kundenmaschine` (`UID`, `Kundennummer`, `MaschinenmodellId`, `Seriennummer`, `Firmware`, `Haendler`, `Auftragsdatum`, `Rechnungsdatum`, `Lieferdatum`, `Installationsdatum`, `LeasingFlag`, `MietkaufFlag`, `Finanzierungsgesellschaft`, `Finanzierungsende`, `ErstverwertungsFlag`, `Anmerkungen`, `TintenId`, `FarbenSet`, `AuftragsnummerSage`, `RechnungsnummerSage`, `LieferscheinnummerSage`, `InstallationDurchId`, `Wartungsintervall`, `Dateipfad`, `Sonderausstattung`, `KundenauftragFlag`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -3170,9 +4840,16 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Sonderausstattung";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p26";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenauftragFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_kundenmaschine` SET `UID` = @p1, `Kundennummer` = @p2, `MaschinenmodellId` = @p3, `Seriennummer` = @p4, `Firmware` = @p5, `Haendler` = @p6, `Auftragsdatum` = @p7, `Rechnungsdatum` = @p8, `Lieferdatum` = @p9, `Installationsdatum` = @p10, `LeasingFlag` = @p11, `MietkaufFlag` = @p12, `Finanzierungsgesellschaft` = @p13, `Finanzierungsende` = @p14, `ErstverwertungsFlag` = @p15, `Anmerkungen` = @p16, `TintenId` = @p17, `FarbenSet` = @p18, `AuftragsnummerSage` = @p19, `RechnungsnummerSage` = @p20, `LieferscheinnummerSage` = @p21, `InstallationDurchId` = @p22, `Wartungsintervall` = @p23, `Dateipfad` = @p24, `Sonderausstattung` = @p25 WHERE ((`UID` = @p26))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_kundenmaschine` SET `UID` = @p1, `Kundennummer` = @p2, `MaschinenmodellId` = @p3, `Seriennummer` = @p4, `Firmware` = @p5, `Haendler` = @p6, `Auftragsdatum` = @p7, `Rechnungsdatum` = @p8, `Lieferdatum` = @p9, `Installationsdatum` = @p10, `LeasingFlag` = @p11, `MietkaufFlag` = @p12, `Finanzierungsgesellschaft` = @p13, `Finanzierungsende` = @p14, `ErstverwertungsFlag` = @p15, `Anmerkungen` = @p16, `TintenId` = @p17, `FarbenSet` = @p18, `AuftragsnummerSage` = @p19, `RechnungsnummerSage` = @p20, `LieferscheinnummerSage` = @p21, `InstallationDurchId` = @p22, `Wartungsintervall` = @p23, `Dateipfad` = @p24, `Sonderausstattung` = @p25, `KundenauftragFlag` = @p26 WHERE ((`UID` = @p27))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -3350,6 +5027,13 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p26";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenauftragFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p27";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -3371,7 +5055,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT UID, Kundennummer, MaschinenmodellId, Seriennummer, Firmware, Haendler, Auftragsdatum, Rechnungsdatum, Lieferdatum, Installationsdatum, LeasingFlag, MietkaufFlag, Finanzierungsgesellschaft, Finanzierungsende, ErstverwertungsFlag, Anmerkungen, TintenId, FarbenSet, AuftragsnummerSage, RechnungsnummerSage, LieferscheinnummerSage, InstallationDurchId, Wartungsintervall, Dateipfad, Sonderausstattung FROM cpm_kundenmaschine";
+            this._commandCollection[0].CommandText = "SELECT * FROM cpm_kundenmaschine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3473,7 +5157,8 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     string p22, 
                     int p23, 
                     string p24, 
-                    string p25) {
+                    string p25, 
+                    string p26) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -3619,6 +5304,12 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[24].Value = ((string)(p25));
             }
+            if ((p26 == null)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(p26));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3665,7 +5356,8 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     int p23, 
                     string p24, 
                     string p25, 
-                    string p26) {
+                    string p26, 
+                    string p27) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -3812,10 +5504,16 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(p25));
             }
             if ((p26 == null)) {
-                throw new global::System.ArgumentNullException("p26");
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(p26));
+            }
+            if ((p27 == null)) {
+                throw new global::System.ArgumentNullException("p27");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(p27));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3862,8 +5560,9 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     int p23, 
                     string p24, 
                     string p25, 
-                    string p26) {
-            return this.Update(p26, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26);
+                    string p26, 
+                    string p27) {
+            return this.Update(p27, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27);
         }
     }
     
@@ -4504,8 +6203,8 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             tableMapping.ColumnMappings.Add("Postleitzahl", "Postleitzahl");
             tableMapping.ColumnMappings.Add("Auftragsdatum", "Auftragsdatum");
             tableMapping.ColumnMappings.Add("Installationsdatum", "Installationsdatum");
-            tableMapping.ColumnMappings.Add("Kaufdatum", "Kaufdatum");
             tableMapping.ColumnMappings.Add("Wartungsintervall", "Wartungsintervall");
+            tableMapping.ColumnMappings.Add("Lieferdatum", "Lieferdatum");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4525,7 +6224,10 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._commandCollection[0].CommandText = @"SELECT 
 	m.UID, 
 	o.Modellbezeichnung AS Maschine, 
-	m.Seriennummer, 
+	(CASE 
+		When Seriennummer Is Null Then ''
+		Else Seriennummer
+	End) As Seriennummer,
 	x.Zuordnungsbeginn AS Zuordnung, 
 	k.Kundennummer,
 	LEFT(k.Kundennummer, 5) AS Kunde, 
@@ -4535,7 +6237,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
 	s.Wartungskennzeichen,
 	m.Auftragsdatum,
 	m.Installationsdatum,
-	m.Kaufdatum,
+	m.Lieferdatum,
 	m.Wartungsintervall
 FROM
 	cpm_kundenmaschine m INNER JOIN cpm_kundemaschinexref x ON m.UID = x.MaschinenId 
@@ -4562,6 +6264,1117 @@ ORDER BY
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class taMaschinenauftrag : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public taMaschinenauftrag() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Maschinenauftrag";
+            tableMapping.ColumnMappings.Add("MaschinenId", "MaschinenId");
+            tableMapping.ColumnMappings.Add("KundenbestellungAm", "KundenbestellungAm");
+            tableMapping.ColumnMappings.Add("KundenbestellungDurch", "KundenbestellungDurch");
+            tableMapping.ColumnMappings.Add("KundenbestellungPer", "KundenbestellungPer");
+            tableMapping.ColumnMappings.Add("MaschinenbestellungAm", "MaschinenbestellungAm");
+            tableMapping.ColumnMappings.Add("MaschinenbestellungDurchId", "MaschinenbestellungDurchId");
+            tableMapping.ColumnMappings.Add("BestellIdSage", "BestellIdSage");
+            tableMapping.ColumnMappings.Add("MaschinenlieferungAm", "MaschinenlieferungAm");
+            tableMapping.ColumnMappings.Add("LieferungZumKundenAm", "LieferungZumKundenAm");
+            tableMapping.ColumnMappings.Add("LieferungZumKundenDurchId", "LieferungZumKundenDurchId");
+            tableMapping.ColumnMappings.Add("AnmerkungenBestellung", "AnmerkungenBestellung");
+            tableMapping.ColumnMappings.Add("BestelleintrittAm", "BestelleintrittAm");
+            tableMapping.ColumnMappings.Add("VertragsunterlagenFlag", "VertragsunterlagenFlag");
+            tableMapping.ColumnMappings.Add("UebernahmebestaetigungFlag", "UebernahmebestaetigungFlag");
+            tableMapping.ColumnMappings.Add("ObjektversicherungFlag", "ObjektversicherungFlag");
+            tableMapping.ColumnMappings.Add("AgbUnterzeichnetFlag", "AgbUnterzeichnetFlag");
+            tableMapping.ColumnMappings.Add("AnmerkungenFinanzierung", "AnmerkungenFinanzierung");
+            tableMapping.ColumnMappings.Add("InstallationDurchId", "InstallationDurchId");
+            tableMapping.ColumnMappings.Add("Installationsdatum", "Installationsdatum");
+            tableMapping.ColumnMappings.Add("GarantieunterlagenFlag", "GarantieunterlagenFlag");
+            tableMapping.ColumnMappings.Add("Garantieablaufdatum", "Garantieablaufdatum");
+            tableMapping.ColumnMappings.Add("AuftragErledigtFlag", "AuftragErledigtFlag");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `cpm_maschinenauftrag` WHERE ((`MaschinenId` = @p1))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_maschinenauftrag` (`MaschinenId`, `KundenbestellungAm`, `KundenbestellungDurch`, `KundenbestellungPer`, `MaschinenbestellungAm`, `MaschinenbestellungDurchId`, `BestellIdSage`, `MaschinenlieferungAm`, `LieferungZumKundenAm`, `LieferungZumKundenDurchId`, `AnmerkungenBestellung`, `BestelleintrittAm`, `VertragsunterlagenFlag`, `UebernahmebestaetigungFlag`, `ObjektversicherungFlag`, `AgbUnterzeichnetFlag`, `AnmerkungenFinanzierung`, `InstallationDurchId`, `Installationsdatum`, `GarantieunterlagenFlag`, `Garantieablaufdatum`, `AuftragErledigtFlag`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungAm";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungDurch";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungPer";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenbestellungAm";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenbestellungDurchId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "BestellIdSage";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenlieferungAm";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "LieferungZumKundenAm";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "LieferungZumKundenDurchId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "AnmerkungenBestellung";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "BestelleintrittAm";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "VertragsunterlagenFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "UebernahmebestaetigungFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "ObjektversicherungFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "AgbUnterzeichnetFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "AnmerkungenFinanzierung";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstallationDurchId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p19";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Installationsdatum";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p20";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "GarantieunterlagenFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p21";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Garantieablaufdatum";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p22";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "AuftragErledigtFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_maschinenauftrag` SET `MaschinenId` = @p1, `KundenbestellungAm` = @p2, `KundenbestellungDurch` = @p3, `KundenbestellungPer` = @p4, `MaschinenbestellungAm` = @p5, `MaschinenbestellungDurchId` = @p6, `BestellIdSage` = @p7, `MaschinenlieferungAm` = @p8, `LieferungZumKundenAm` = @p9, `LieferungZumKundenDurchId` = @p10, `AnmerkungenBestellung` = @p11, `BestelleintrittAm` = @p12, `VertragsunterlagenFlag` = @p13, `UebernahmebestaetigungFlag` = @p14, `ObjektversicherungFlag` = @p15, `AgbUnterzeichnetFlag` = @p16, `AnmerkungenFinanzierung` = @p17, `InstallationDurchId` = @p18, `Installationsdatum` = @p19, `GarantieunterlagenFlag` = @p20, `Garantieablaufdatum` = @p21, `AuftragErledigtFlag` = @p22 WHERE ((`MaschinenId` = @p23))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungAm";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungDurch";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "KundenbestellungPer";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenbestellungAm";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenbestellungDurchId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "BestellIdSage";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenlieferungAm";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "LieferungZumKundenAm";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "LieferungZumKundenDurchId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "AnmerkungenBestellung";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "BestelleintrittAm";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "VertragsunterlagenFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "UebernahmebestaetigungFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "ObjektversicherungFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "AgbUnterzeichnetFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "AnmerkungenFinanzierung";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstallationDurchId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p19";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Installationsdatum";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p20";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "GarantieunterlagenFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p21";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Garantieablaufdatum";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p22";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "AuftragErledigtFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "MaschinenId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Products.Data.Properties.Settings.Default.conLiveToSage;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "Select * From cpm_maschinenauftrag";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsMachines.MaschinenauftragDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsMachines.MaschinenauftragDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsMachines dataSet) {
+            return this.Adapter.Update(dataSet, "Maschinenauftrag");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string p1) {
+            if ((p1 == null)) {
+                throw new global::System.ArgumentNullException("p1");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(p1));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string p1, 
+                    global::System.Nullable<global::System.DateTime> p2, 
+                    string p3, 
+                    string p4, 
+                    global::System.Nullable<global::System.DateTime> p5, 
+                    string p6, 
+                    string p7, 
+                    global::System.Nullable<global::System.DateTime> p8, 
+                    global::System.Nullable<global::System.DateTime> p9, 
+                    string p10, 
+                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p12, 
+                    string p13, 
+                    string p14, 
+                    string p15, 
+                    string p16, 
+                    string p17, 
+                    string p18, 
+                    global::System.Nullable<global::System.DateTime> p19, 
+                    string p20, 
+                    global::System.Nullable<global::System.DateTime> p21, 
+                    string p22) {
+            if ((p1 == null)) {
+                throw new global::System.ArgumentNullException("p1");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
+            }
+            if ((p2.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(p2.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p3 == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
+            }
+            if ((p4 == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p4));
+            }
+            if ((p5.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((p6 == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p6));
+            }
+            if ((p7 == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(p7));
+            }
+            if ((p8.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(p8.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((p9.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((p10 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(p10));
+            }
+            if ((p11 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
+            }
+            if ((p12.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(p12.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((p13 == null)) {
+                throw new global::System.ArgumentNullException("p13");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(p13));
+            }
+            if ((p14 == null)) {
+                throw new global::System.ArgumentNullException("p14");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(p14));
+            }
+            if ((p15 == null)) {
+                throw new global::System.ArgumentNullException("p15");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(p15));
+            }
+            if ((p16 == null)) {
+                throw new global::System.ArgumentNullException("p16");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(p16));
+            }
+            if ((p17 == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(p17));
+            }
+            if ((p18 == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(p18));
+            }
+            if ((p19.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((System.DateTime)(p19.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((p20 == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(p20));
+            }
+            if ((p21.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((System.DateTime)(p21.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((p22 == null)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(p22));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string p1, 
+                    global::System.Nullable<global::System.DateTime> p2, 
+                    string p3, 
+                    string p4, 
+                    global::System.Nullable<global::System.DateTime> p5, 
+                    string p6, 
+                    string p7, 
+                    global::System.Nullable<global::System.DateTime> p8, 
+                    global::System.Nullable<global::System.DateTime> p9, 
+                    string p10, 
+                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p12, 
+                    string p13, 
+                    string p14, 
+                    string p15, 
+                    string p16, 
+                    string p17, 
+                    string p18, 
+                    global::System.Nullable<global::System.DateTime> p19, 
+                    string p20, 
+                    global::System.Nullable<global::System.DateTime> p21, 
+                    string p22, 
+                    string p23) {
+            if ((p1 == null)) {
+                throw new global::System.ArgumentNullException("p1");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
+            }
+            if ((p2.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(p2.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((p3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
+            }
+            if ((p4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
+            }
+            if ((p5.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((p6 == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
+            }
+            if ((p7 == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
+            }
+            if ((p8.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(p8.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((p9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((p10 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
+            }
+            if ((p11 == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
+            }
+            if ((p12.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(p12.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((p13 == null)) {
+                throw new global::System.ArgumentNullException("p13");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
+            }
+            if ((p14 == null)) {
+                throw new global::System.ArgumentNullException("p14");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(p14));
+            }
+            if ((p15 == null)) {
+                throw new global::System.ArgumentNullException("p15");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
+            }
+            if ((p16 == null)) {
+                throw new global::System.ArgumentNullException("p16");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
+            }
+            if ((p17 == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
+            }
+            if ((p18 == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(p18));
+            }
+            if ((p19.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(p19.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((p20 == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(p20));
+            }
+            if ((p21.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(p21.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((p22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(p22));
+            }
+            if ((p23 == null)) {
+                throw new global::System.ArgumentNullException("p23");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(p23));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> p2, 
+                    string p3, 
+                    string p4, 
+                    global::System.Nullable<global::System.DateTime> p5, 
+                    string p6, 
+                    string p7, 
+                    global::System.Nullable<global::System.DateTime> p8, 
+                    global::System.Nullable<global::System.DateTime> p9, 
+                    string p10, 
+                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p12, 
+                    string p13, 
+                    string p14, 
+                    string p15, 
+                    string p16, 
+                    string p17, 
+                    string p18, 
+                    global::System.Nullable<global::System.DateTime> p19, 
+                    string p20, 
+                    global::System.Nullable<global::System.DateTime> p21, 
+                    string p22, 
+                    string p23) {
+            return this.Update(p23, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class taWartungsListe : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public taWartungsListe() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "WartungsListe";
+            tableMapping.ColumnMappings.Add("MaschinenId", "MaschinenId");
+            tableMapping.ColumnMappings.Add("FullName", "FullName");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Products.Data.Properties.Settings.Default.conLiveToSage;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"Select k.MaschinenId, alx.FullName From cpm_kundemaschinexref k inner join cpm_appointmentlinkxref alx on k.MaschinenId = alx.LinkedItemId inner join cpm_appointmentxref ax on ax.FullName = alx.FullName Where ax.AppointmentType = 'Wartungstermin' Or ax.AppointmentType = 'Servicetermin'";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsMachines.WartungsListeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsMachines.WartungsListeDataTable dataTable = new dsMachines.WartungsListeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4576,6 +7389,8 @@ ORDER BY
         private taKundenMaschine _taKundenMaschine;
         
         private taKundeMaschineXref _taKundeMaschineXref;
+        
+        private taMaschinenauftrag _taMaschinenauftrag;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4622,6 +7437,20 @@ ORDER BY
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public taMaschinenauftrag taMaschinenauftrag {
+            get {
+                return this._taMaschinenauftrag;
+            }
+            set {
+                this._taMaschinenauftrag = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -4647,6 +7476,10 @@ ORDER BY
                             && (this._taKundeMaschineXref.Connection != null))) {
                     return this._taKundeMaschineXref.Connection;
                 }
+                if (((this._taMaschinenauftrag != null) 
+                            && (this._taMaschinenauftrag.Connection != null))) {
+                    return this._taMaschinenauftrag.Connection;
+                }
                 return null;
             }
             set {
@@ -4664,6 +7497,9 @@ ORDER BY
                     count = (count + 1);
                 }
                 if ((this._taKundeMaschineXref != null)) {
+                    count = (count + 1);
+                }
+                if ((this._taMaschinenauftrag != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4695,6 +7531,15 @@ ORDER BY
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._taMaschinenauftrag != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Maschinenauftrag.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taMaschinenauftrag.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -4721,6 +7566,14 @@ ORDER BY
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._taMaschinenauftrag != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Maschinenauftrag.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taMaschinenauftrag.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -4731,6 +7584,14 @@ ORDER BY
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsMachines dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._taMaschinenauftrag != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Maschinenauftrag.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taMaschinenauftrag.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._taKundeMaschineXref != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.KundeMaschineXref.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -4796,6 +7657,11 @@ ORDER BY
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._taMaschinenauftrag != null) 
+                        && (this.MatchTableAdapterConnection(this._taMaschinenauftrag.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -4844,6 +7710,15 @@ ORDER BY
                     if (this._taKundeMaschineXref.Adapter.AcceptChangesDuringUpdate) {
                         this._taKundeMaschineXref.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._taKundeMaschineXref.Adapter);
+                    }
+                }
+                if ((this._taMaschinenauftrag != null)) {
+                    revertConnections.Add(this._taMaschinenauftrag, this._taMaschinenauftrag.Connection);
+                    this._taMaschinenauftrag.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._taMaschinenauftrag.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._taMaschinenauftrag.Adapter.AcceptChangesDuringUpdate) {
+                        this._taMaschinenauftrag.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taMaschinenauftrag.Adapter);
                     }
                 }
                 // 
@@ -4911,6 +7786,10 @@ ORDER BY
                 if ((this._taKundeMaschineXref != null)) {
                     this._taKundeMaschineXref.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._taKundeMaschineXref]));
                     this._taKundeMaschineXref.Transaction = null;
+                }
+                if ((this._taMaschinenauftrag != null)) {
+                    this._taMaschinenauftrag.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._taMaschinenauftrag]));
+                    this._taMaschinenauftrag.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

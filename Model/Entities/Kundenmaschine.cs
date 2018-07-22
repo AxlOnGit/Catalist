@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Products.Common;
-using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data;
 using Products.Data.Datasets;
-using Products.Model;
-using Products.Model.Services;
 
 namespace Products.Model.Entities
 {
@@ -16,7 +11,6 @@ namespace Products.Model.Entities
 		#region members
 
 		dsMachines.KundenMaschineRow myBase;
-		Dictionary<DateTime, Kunde> myOwnerList;
 		readonly DateTime noDate = new DateTime(100, 1, 1);
 		readonly string nl = Environment.NewLine;
 
@@ -28,11 +22,9 @@ namespace Products.Model.Entities
 		/// Erstellt eine neue Instanz der Klasse Kundenmaschine.
 		/// </summary>
 		/// <param name="baseRow"></param>
-		public Kundenmaschine(dsMachines.KundenMaschineRow baseRow, Dictionary<DateTime, Kunde> ownerList)
+		public Kundenmaschine(dsMachines.KundenMaschineRow baseRow)
 		{
 			this.myBase = baseRow;
-			this.myOwnerList = ownerList;
-			//ModelManager.NotesService.NoteCreated += new EventHandler<NotesService.NoteCreatedEventArgs>(NotesService_NoteCreated);
 		}
 
 		#endregion ### .ctor ###
@@ -44,61 +36,41 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		public string Key
-		{
-			get { return this.myBase.UID; }
-		}
+		public string Key => this.myBase.UID;
 
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		public string LinkTypeId
-		{
-			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Kundenmaschine").UID; }
-		}
+		public string LinkTypeId => ModelManager.SharedItemsService.GetLinkTypeByName("Kundenmaschine").UID;
 
-		public string ItemName
-		{
-			get { return string.Format("{0} [{1}]", this.Modellbezeichnung, this.Seriennummer); }
-		}
+		public string ItemName => string.Format("{0} [{1}]", this.Modellbezeichnung, this.Seriennummer);
 
-		public string LinkTypBezeichnung
-		{
-			get { return "Kundenmaschine"; }
-		}
+		public string LinkTypBezeichnung => "Kundenmaschine";
 
 		#endregion ILinkedItem
 
 		/// <summary>
 		/// Gibt den Primärschlüssel (GUID) dieser Kundenmaschine zurück.
 		/// </summary>
-		public string UID
-		{
-			get
-			{
-				return myBase.UID;
-			}
-		}
+		public string UID => myBase.UID;
 
 		/// <summary>
-		/// Gibt die Kundennummer des Kunden zurück, dem diese Kundenmaschine zugeordnet ist oder
-		/// legt sie fest.
+		/// Gibt die Kundennummer des Kunden zurück, dem diese Kundenmaschine zugeordnet
+		/// ist oder legt sie fest.
 		/// </summary>
-		public string Kundennummer
-		{
-			get
-			{
-				return this.CurrentOwner.CustomerId;
-			}
-		}
+		public string Kundennummer => this.CurrentOwner != null ? this.CurrentOwner.CustomerId : string.Empty;
+
+		public string KundennummerCpm => this.Kundennummer.Substring(0, 5);
 
 		/// <summary>
 		/// Gibt den Kunden (Eigentümer/Besitzer/Leasingnehmer oder watt) dieser Maschine zurück.
 		/// </summary>
-		public Kunde Kunde
-		{
-			get { return ModelManager.CustomerService.GetKunde(this.myBase.Kundennummer, false); }
-		}
+		public Kunde Kunde => this.CurrentOwner;
+
+		/// <summary>
+		/// Gibt den Matchcode des aktuellen Besitzers zurück.
+		/// </summary>
+		public string Matchcode => this.CurrentOwner == null ? string.Empty : this.CurrentOwner.Matchcode;
 
 		/// <summary>
 		/// Gibt den Primärschlüssel (GUID) des Maschinenmodells zurück.
@@ -116,8 +88,8 @@ namespace Products.Model.Entities
 					var serieOriginal = this.Maschinenserie;
 					this.myBase.MaschinenmodellId = value;
 
-					// Wenn das neu zugewiesene Modell zu einer anderen Serie gehört, wird das
-					// Wartungsintervall der neuen Serie bei dieser Maschine eingetragen.
+					// Wenn das neu zugewiesene Modell zu einer anderen Serie gehört, wird
+					// das Wartungsintervall der neuen Serie bei dieser Maschine eingetragen.
 					var serieNeu = this.Maschinenserie;
 					if (!serieOriginal.Equals(serieNeu))
 					{
@@ -147,7 +119,7 @@ namespace Products.Model.Entities
 					this.myBase.SetSeriennummerNull();
 					return;
 				}
-				if (!this.myBase.IsSeriennummerNull() || !value.Equals(this.myBase.Seriennummer, StringComparison.CurrentCulture))
+				if (this.myBase.IsSeriennummerNull() || !value.Equals(this.myBase.Seriennummer, StringComparison.CurrentCulture))
 					this.myBase.Seriennummer = value.Replace(nl, string.Empty);
 			}
 		}
@@ -159,7 +131,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				if (this.myBase.IsFirmwareNull()) return string.Empty;
+				if (this.myBase.IsFirmwareNull()) return "0.00";
 				return myBase.Firmware;
 			}
 			set
@@ -175,7 +147,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt den Namen der Firma zurück, bei der die Kundenmaschine gekauft wurde oder legt ihn fest.
+		/// Gibt den Namen der Firma zurück, bei der die Kundenmaschine gekauft wurde oder
+		/// legt ihn fest.
 		/// </summary>
 		public string Haendler
 		{
@@ -274,8 +247,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt den Primärschlüssel des Users zurück, der diese Maschine installiert hat oder legt
-		/// ihn fest.
+		/// Gibt den Primärschlüssel des Users zurück, der diese Maschine installiert hat
+		/// oder legt ihn fest.
 		/// </summary>
 		public string InstallationDurchId
 		{
@@ -321,8 +294,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt die Auftragsnummer für diese Maschine in unserer Auftragsverarbeitung (Sage NCL)
-		/// zurück. Zumindest, wenn sich einer erbarmt hat, die zu pflegen ...
+		/// Gibt die Auftragsnummer für diese Maschine in unserer Auftragsverarbeitung
+		/// (Sage NCL) zurück. Zumindest, wenn sich einer erbarmt hat, die zu pflegen ...
 		/// </summary>
 		public string AuftragsnummerSage
 		{
@@ -436,8 +409,8 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt das Kennzeichen zurück, ob wir nach Ablauf des Leasing Vertrags das Recht zur
-		/// Erstverwertung haben.
+		/// Gibt das Kennzeichen zurück, ob wir nach Ablauf des Leasing Vertrags das Recht
+		/// zur Erstverwertung haben.
 		/// </summary>
 		public bool ErstverwertungsFlag
 		{
@@ -534,7 +507,7 @@ namespace Products.Model.Entities
 		}
 
 		/// <summary>
-		/// Gibt die in dieser Maschine eingefüllte Tinte zurück.
+		/// Gibt die Bezeichnung des Tintentyps zurück, mit der diese Maschine befüllt werden soll/wurde.
 		/// </summary>
 		public string Tinte
 		{
@@ -548,70 +521,48 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt das <seealso cref="Maschinenmodell"/> dieser Maschine zurück.
 		/// </summary>
-		public Maschinenmodell Maschinenmodell
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId);
-			}
-		}
+		public Maschinenmodell Maschinenmodell => ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId);
 
 		/// <summary>
 		/// Gibt die Modellbezeichnung dieser Maschine zurück.
 		/// </summary>
-		public string Modellbezeichnung
-		{
-			get { return this.Maschinenmodell.Modellbezeichnung; }
-		}
+		public string Modellbezeichnung => this.Maschinenmodell.Modellbezeichnung;
+
+		/// <summary>
+		/// Gibt den Primärschlüssel der Maschinenserie dieser Kundenmaschine zurück.
+		/// </summary>
+		public string MaschinenserieId => this.Maschinenmodell != null ? this.Maschinenmodell.ModellSerieId : string.Empty;
 
 		/// <summary>
 		/// Gibt die <seealso cref="Maschinenserie"/> dieser Maschine zurück.
 		/// </summary>
-		public Maschinenserie Maschinenserie
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetModellSerie(this.Maschinenmodell.ModellSerieId);
-			}
-		}
+		public Maschinenserie Maschinenserie => ModelManager.SharedItemsService.GetModellSerie(this.Maschinenmodell.ModellSerieId);
 
 		/// <summary>
 		/// Gibt die Bezeichnung des Maschinentyps zurück.
 		/// </summary>
-		public string Maschinentyp
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId).Maschinentyp;
-			}
-		}
+		public string Maschinentyp => ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId).Maschinentyp;
 
 		/// <summary>
 		/// Gibt den Namen der Herstellerfirma zurück.
 		/// </summary>
-		public string Herstellername
-		{
-			get
-			{
-				return ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId).Herstellername;
-			}
-		}
+		public string Herstellername => ModelManager.SharedItemsService.GetMaschinenModell(this.myBase.MaschinenmodellId).Herstellername;
 
 		/// <summary>
-		/// Gibt True zurück, wenn diese Maschine zu einer Serie gehört, die herkömmlicher Weise
-		/// gewartet wird.
+		/// Gibt True zurück, wenn diese Maschine zu einer Serie gehört, die herkömmlicher
+		/// Weise gewartet wird.
 		/// </summary>
 		/// <remarks>
-		/// Dieses Kennzeichen sagt nichts darüber aus, ob diese Maschine tatsächlich regelmäßig
-		/// gewartet wird. Das ergibt sich vielmehr aus dem Wartungsintervall. Ist dies &gt; 0, wird
-		/// die Maschine gewartet, und zwar alle "Wartungsintervall" Monate.
+		/// Dieses Kennzeichen sagt nichts darüber aus, ob diese Maschine tatsächlich
+		/// regelmäßig gewartet wird. Das ergibt sich vielmehr aus dem Wartungsintervall.
+		/// Ist dies &gt; 0, wird die Maschine gewartet, und zwar alle "Wartungsintervall" Monate.
 		/// </remarks>
-		public bool Wartungskennzeichen { get { return this.Maschinenserie.Wartungskennzeichen; } }
+		public bool Wartungskennzeichen => this.Maschinenserie.Wartungskennzeichen;
 
 		/// <summary>
-		/// Gibt das Wartungsintervall für diese Maschine in Monaten zurück. Ist dies auf einen Wert
-		/// &gt; 0 festgelegt, findet für diese Maschine eine periodische Wartung statt, zumindest
-		/// theoretisch ... :-|.
+		/// Gibt das Wartungsintervall für diese Maschine in Monaten zurück. Ist dies auf
+		/// einen Wert &gt; 0 festgelegt, findet für diese Maschine eine periodische
+		/// Wartung statt, zumindest theoretisch ... :-|.
 		/// </summary>
 		public int Wartungsintervall
 		{
@@ -673,10 +624,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Gibt die Liste aller bisherigen und des derzeitigen Eigentümers der Maschine zurück.
 		/// </summary>
-		public Dictionary<DateTime, Kunde> OwnerList
-		{
-			get { return this.myOwnerList; }
-		}
+		public Dictionary<DateTime, Kunde> OwnerList => RepoManager.KundenmaschinenRepository.GetOwnerDictionary(this.UID);
 
 		/// <summary>
 		/// Gibt den derzeitigen Eigentümer der Maschine zurück.
@@ -687,15 +635,15 @@ namespace Products.Model.Entities
 			{
 				foreach (var item in this.OwnerList)
 				{
-					if (item.Key >= DateTime.Today) return item.Value;
+					if (item.Key >= DateTime.Now) return item.Value;
 				}
 				return null;
 			}
 		}
 
 		/// <summary>
-		/// Gibt einen Überblick über die SAGE Aufträge, Rechnungen und Lieferungen zurück, in denen
-		/// die Seriennummer dieser Maschine auftaucht.
+		/// Gibt einen Überblick über die SAGE Aufträge, Rechnungen und Lieferungen zurück,
+		/// in denen die Seriennummer dieser Maschine auftaucht.
 		/// </summary>
 		public string SageOrderInfo
 		{
@@ -703,6 +651,40 @@ namespace Products.Model.Entities
 			{
 				if (string.IsNullOrEmpty(this.Seriennummer)) return string.Empty;
 				return ModelManager.OrderService.GetOrderInfoBySerialNumber(this.Seriennummer, this.CurrentOwner.CustomerId);
+			}
+		}
+
+		/// <summary>
+		/// Gibt den Kundenauftrag für diese Maschine zurück oder Null, wenn keiner existiert.
+		/// </summary>
+		public Maschinenauftrag Maschinenauftrag => ModelManager.MachineService.GetMaschinenauftrag(this.UID);
+
+		/// <summary>
+		/// True, wenn diese Maschine Bestandteil eines unerledigten Kundenauftrags ist.
+		/// </summary>
+		public bool KundenauftragOffenFlag
+		{
+			get
+			{
+				if (this.myBase.IsKundenauftragFlagNull())
+				{
+					this.myBase.KundenauftragFlag = "0";
+					return false;
+				}
+				return this.myBase.KundenauftragFlag == "1";
+			}
+			set
+			{
+				switch (value)
+				{
+					case true:
+					this.myBase.KundenauftragFlag = "1";
+					break;
+
+					case false:
+					this.myBase.KundenauftragFlag = "0";
+					break;
+				}
 			}
 		}
 

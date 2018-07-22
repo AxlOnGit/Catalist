@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Text;
-using Products.Data;
+using Products.Common.Collections;
 using Products.Common.Interfaces;
 using Products.Data.Datasets;
-using Products.Common.Collections;
 
 namespace Products.Model.Entities
 {
@@ -23,79 +22,69 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Primärschlüssel der ILinkedItem Instanz.
 		/// </summary>
-		public string Key
-		{
-			get { return this.myBase.UID; }
-		}
+		public string Key => this.myBase.UID;
 
 		/// <summary>
 		/// Primärschlüssel des LinkTyps der ILinkedItem Instanz,.
 		/// </summary>
-		public string LinkTypeId
-		{
-			get { return ModelManager.SharedItemsService.GetLinkTypeByName("Angebot-Catalist").UID; }
-		}
+		public string LinkTypeId => ModelManager.SharedItemsService.GetLinkTypeByName("Angebot-Catalist").UID;
 
-		public string ItemName
-		{
-			get { return this.myBase.OfferId; }
-		}
+		public string ItemName => this.myBase.OfferId;
 
-		public string LinkTypBezeichnung
-		{
-			get { return "Angebot-Catalist"; }
-		}
+		public string LinkTypBezeichnung => "Angebot-Catalist";
 
 		#endregion
 
 		#region integrals
 
-		public string UID { get { return this.myBase.UID; } }
-		public string CustomerId { get { return this.myBase.CustomerId; } }
+		public string UID => this.myBase.UID;
 
-		public DateTime CreateDate 
+		public string CustomerId => this.myBase.CustomerId;
+
+		public DateTime CreateDate
 		{
-			get { return this.myBase.CreateDate; } 
-			set 
-			{ 
+			get { return this.myBase.CreateDate; }
+			set
+			{
 				this.myBase.CreateDate = value;
- 
-			} 
+
+			}
 		}
-		public string CreateUser 
-		{ 
-			get { return this.myBase.CreateUser; } 
-			set 
-			{ 
+		public string CreateUser
+		{
+			get { return this.myBase.CreateUser; }
+			set
+			{
 				this.myBase.ChangeUser = value;
 				this.myBase.ChangeUser = ModelManager.UserService.CurrentUser.UserName;
-			} 
-		}
-
-		public DateTime ChangeDate 
-		{ get { return this.myBase.ChangeDate; } 
-			set
-			{ 
-				this.myBase.ChangeDate = value; 
-				this.ChangeUser = ModelManager.UserService.CurrentUser.NameFull; 
 			}
 		}
 
-		public string ChangeUser 
+		public DateTime ChangeDate
+		{
+			get { return this.myBase.ChangeDate; }
+			set
+			{
+				this.myBase.ChangeDate = value;
+				this.ChangeUser = ModelManager.UserService.CurrentUser.NameFull;
+			}
+		}
+
+		public string ChangeUser
 		{
 			get { return this.myBase.ChangeUser; }
-			set 
-			{ 
-				this.myBase.ChangeUser = value; 
-				this.myBase.ChangeDate = DateTime.Now; 
+			set
+			{
+				this.myBase.ChangeUser = value;
+				this.myBase.ChangeDate = DateTime.Now;
 			}
 		}
 
-		public string Comments 
+		public string Comments
 		{
 			get { return this.myBase.Comments; }
-			set 
-			{ 
+			set
+			{
 				this.myBase.Comments = value;
 				this.ChangeDate = DateTime.Now;
 			}
@@ -105,13 +94,13 @@ namespace Products.Model.Entities
 		/// Die Angebotsnummer, so wie sie auf dem Ausdruck erscheint.
 		/// </summary>
 		public string OfferId
-		{ 
-			get { return myBase.OfferId; } 
-			set 
-			{ 
+		{
+			get { return myBase.OfferId; }
+			set
+			{
 				myBase.OfferId = value;
 				this.ChangeDate = DateTime.Now;
-			} 
+			}
 		}
 
 		/// <summary>
@@ -124,9 +113,9 @@ namespace Products.Model.Entities
 		/// <remarks>Das Kack MySQL kommt mit Boolean nicht klar, deshalb muss man
 		/// von 0, bzw. 1 mach True, bzw. False konvertieren. Ätzend ...</remarks>
 		/// </summary>
-		public bool Bestellkennzeichen 
-		{ 
-			get { return (myBase.Bestellkennzeichen != 0); } 
+		public bool Bestellkennzeichen
+		{
+			get { return (myBase.Bestellkennzeichen != 0); }
 			set
 			{
 				this.myBase.Bestellkennzeichen = (ulong)((value == true) ? 1 : 0);
@@ -173,24 +162,12 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Returns the tax amount for this offer.
 		/// </summary>
-		public decimal TaxAmount
-		{
-			get
-			{
-				return (NetAmount * Common.Global.TaxRateMultiplier) - NetAmount;
-			}
-		}
+		public decimal TaxAmount => (NetAmount * (decimal)CatalistRegistry.Application.TaxRate) - NetAmount;
 
 		/// <summary>
 		/// Returns the offer amount incl. tax.
 		/// </summary>
-		public decimal OfferTotal
-		{
-			get
-			{
-				return NetAmount + TaxAmount;
-			}
-		}
+		public decimal OfferTotal => NetAmount + TaxAmount;
 
 		/// <summary>
 		/// Gibt die Rohmarge für das gesamte Angebot zurück.
@@ -200,7 +177,7 @@ namespace Products.Model.Entities
 			get
 			{
 				decimal retVal = 0;
-				foreach (Model.Entities.OfferDetail od in OfferDetails)
+				foreach (OfferDetail od in OfferDetails)
 				{
 					retVal += od.RohmargeTotal;
 				}
@@ -215,7 +192,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				if (this.myBase.IsDruckdatumAngebotNull() && this.myBase.DruckdatumAngebot.Equals(new DateTime(1970,1,1)))
+				if (this.myBase.IsDruckdatumAngebotNull() && this.myBase.DruckdatumAngebot.Equals(new DateTime(1970, 1, 1)))
 				{
 					return null;
 				}
@@ -227,7 +204,7 @@ namespace Products.Model.Entities
 				{
 					this.myBase.DruckdatumAngebot = value.Value;
 				}
-				else this.myBase.DruckdatumAngebot = new DateTime(1970,1,1);
+				else this.myBase.DruckdatumAngebot = new DateTime(1970, 1, 1);
 				this.ChangeDate = DateTime.Now;
 			}
 		}
@@ -239,7 +216,7 @@ namespace Products.Model.Entities
 		{
 			get
 			{
-				if (this.myBase.IsDruckdatumBestellungNull() && this.myBase.DruckdatumBestellung.Equals(new DateTime(1970,1,1)))
+				if (this.myBase.IsDruckdatumBestellungNull() && this.myBase.DruckdatumBestellung.Equals(new DateTime(1970, 1, 1)))
 				{
 					return null;
 				}
@@ -275,13 +252,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Returns true if this offer has been modified.
 		/// </summary>
-		public bool Dirty 
-		{ 
-			get 
-			{ 
-				return myBase.RowState != System.Data.DataRowState.Unchanged || GetDetailsDirty(); 
-			} 
-		}
+		public bool Dirty => myBase.RowState != System.Data.DataRowState.Unchanged || GetDetailsDirty();
 
 		#endregion
 
@@ -309,13 +280,7 @@ namespace Products.Model.Entities
 		/// <summary>
 		/// Returns a sortable list of all offer details for this offer.
 		/// </summary>
-		public SBList<OfferDetail> OfferDetails
-		{
-			get
-			{
-				return ModelManager.OfferService.GetOfferDetailList(this.CustomerId, this.UID);
-			}
-		}
+		public SBList<OfferDetail> OfferDetails => ModelManager.OfferService.GetOfferDetailList(this.CustomerId, this.UID);
 
 		#endregion
 
