@@ -69,6 +69,8 @@
 			this.mtxtFarbSet = new MetroFramework.Controls.MetroTextBox();
 			this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
 			this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+			this.xcmdOpenCustomer = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdOpenMachine = new System.Windows.Forms.ToolStripMenuItem();
 			this.mctxForm.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -536,10 +538,12 @@
 			// 
 			this.mctxForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xcmdOpenInExplorer,
+            this.xcmdOpenMachine,
+            this.xcmdOpenCustomer,
             this.toolStripMenuItem1,
             this.xcmdCreateInstDocuments});
 			this.mctxForm.Name = "mctxForm";
-			this.mctxForm.Size = new System.Drawing.Size(246, 54);
+			this.mctxForm.Size = new System.Drawing.Size(246, 120);
 			// 
 			// xcmdOpenInExplorer
 			// 
@@ -640,6 +644,22 @@
 			this.metroLabel12.Text = "Farbset:";
 			this.metroLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
+			// xcmdOpenCustomer
+			// 
+			this.xcmdOpenCustomer.Image = global::Products.Common.Properties.Resources.customer_16_metrogreen;
+			this.xcmdOpenCustomer.Name = "xcmdOpenCustomer";
+			this.xcmdOpenCustomer.Size = new System.Drawing.Size(245, 22);
+			this.xcmdOpenCustomer.Text = "Kunden öffnen";
+			this.xcmdOpenCustomer.Click += new System.EventHandler(this.xcmdOpenCustomer_Click);
+			// 
+			// xcmdOpenMachine
+			// 
+			this.xcmdOpenMachine.Image = global::Products.Common.Properties.Resources.machine_16_metrogreen;
+			this.xcmdOpenMachine.Name = "xcmdOpenMachine";
+			this.xcmdOpenMachine.Size = new System.Drawing.Size(245, 22);
+			this.xcmdOpenMachine.Text = "Maschine öffnen";
+			this.xcmdOpenMachine.Click += new System.EventHandler(this.xcmdOpenMachine_Click);
+			// 
 			// MaschinenauftragView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,5 +751,7 @@
 		private MetroFramework.Controls.MetroTextBox mtxtFarbSet;
 		private MetroFramework.Controls.MetroLabel metroLabel11;
 		private MetroFramework.Controls.MetroLabel metroLabel12;
+		private System.Windows.Forms.ToolStripMenuItem xcmdOpenMachine;
+		private System.Windows.Forms.ToolStripMenuItem xcmdOpenCustomer;
 	}
 }

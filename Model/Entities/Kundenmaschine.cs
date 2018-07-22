@@ -269,6 +269,9 @@ namespace Products.Model.Entities
 			}
 		}
 
+		/// <summary>
+		/// Datum an dem die Installation abgeschlossen wurde.
+		/// </summary>
 		public DateTime? Installationsdatum
 		{
 			get
@@ -289,6 +292,30 @@ namespace Products.Model.Entities
 				{
 					if (this.myBase.IsInstallationsdatumNull() || !value.Equals(this.myBase.Installationsdatum))
 						this.myBase.Installationsdatum = value.Value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Datum an dem die Garantie für die Maschine abläuft.
+		/// </summary>
+		public DateTime? Garantieablaufdatum
+		{
+			get
+			{
+				if (this.myBase.IsGarantieablaufdatumNull()) return null;
+				return this.myBase.Garantieablaufdatum;
+			}
+			set
+			{
+				if (!value.HasValue)
+				{
+					this.myBase.SetGarantieablaufdatumNull();
+				}
+				else
+				{
+					if (this.myBase.IsGarantieablaufdatumNull() || !value.Equals(this.myBase.Garantieablaufdatum))
+						this.myBase.Garantieablaufdatum = value.Value;
 				}
 			}
 		}

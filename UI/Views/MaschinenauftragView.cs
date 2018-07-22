@@ -12,7 +12,6 @@ namespace Products.Common.Views
 {
 	public partial class MaschinenauftragView : MetroForm
 	{
-
 		#region MEMBERS
 
 		readonly Maschinenauftrag myMaschinenauftrag;
@@ -71,6 +70,18 @@ namespace Products.Common.Views
 			var path = this.myMaschinenauftrag.Maschine.Dateipfad;
 			if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 			Process.Start("Explorer.exe", path);
+		}
+
+		private void xcmdOpenMachine_Click(object sender, EventArgs e)
+		{
+			if (this.myMaschinenauftrag.Maschine == null || this.myMaschinenauftrag.Maschine.CurrentOwner == null) return;
+			this.ShowMachine();
+		}
+
+		private void xcmdOpenCustomer_Click(object sender, EventArgs e)
+		{
+			if (this.myMaschinenauftrag.Maschine == null || this.myMaschinenauftrag.Maschine.CurrentOwner == null) return;
+			this.ShowCustomer();
 		}
 
 		void xcmdCreateInstDocuments_Click(object sender, EventArgs e)
@@ -240,6 +251,18 @@ namespace Products.Common.Views
 			irData.VorlagenDatei = this.myMaschinenauftrag.Maschine.Maschinenserie.InstallationsReportVorlage;
 
 			OfficeBridge.ServiceManager.InstallationReportCreator.CreateInstallationReport(irData, false);
+		}
+
+		void ShowMachine()
+		{
+			var kmv = new KundeMainView(this.myMaschinenauftrag.Maschine.CurrentOwner, this.myMaschinenauftrag.Maschine);
+			kmv.Show();
+		}
+
+		void ShowCustomer()
+		{
+			var kmv = new KundeMainView(this.myMaschinenauftrag.Maschine.CurrentOwner);
+			kmv.Show();
 		}
 
 		#endregion PRIVATE PROCEDURES

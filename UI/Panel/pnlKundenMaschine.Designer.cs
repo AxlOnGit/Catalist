@@ -59,8 +59,10 @@ namespace Products.Common.Panel
 			this.mtxtSerialNumber = new MetroFramework.Controls.MetroTextBox();
 			this.mlblTitel = new MetroFramework.Controls.MetroLabel();
 			this.mctxTree = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.xcmdOpenInExplorer = new System.Windows.Forms.ToolStripMenuItem();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.mctxGrid = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.xcmdOpenFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.mtabProperties = new MetroFramework.Controls.MetroTabControl();
 			this.tabFiles = new System.Windows.Forms.TabPage();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -78,6 +80,9 @@ namespace Products.Common.Panel
 			this.colThema = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colNotiztext = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lblNotizen = new MetroFramework.Controls.MetroLabel();
+			this.mbtnDeleteNote = new System.Windows.Forms.Button();
+			this.mbtnOpenNote = new System.Windows.Forms.Button();
+			this.mbtnCreateNote = new System.Windows.Forms.Button();
 			this.tabService = new System.Windows.Forms.TabPage();
 			this.dgvAppointments = new MetroFramework.Controls.MetroGrid();
 			this.colStartsAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,14 +90,21 @@ namespace Products.Common.Panel
 			this.colResponsibleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.mctxService = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.xcmdOpenAppointment = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.xcmdShowCalendarView = new System.Windows.Forms.ToolStripMenuItem();
+			this.xcmdWartungsvorschlag = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabSoftware = new System.Windows.Forms.TabPage();
+			this.mbtnDeleteSoftware = new System.Windows.Forms.Button();
+			this.mbtnOpenSoftware = new System.Windows.Forms.Button();
 			this.label9 = new MetroFramework.Controls.MetroLabel();
+			this.mbtnCreateSoftware = new System.Windows.Forms.Button();
 			this.dgvSoftware = new MetroFramework.Controls.MetroGrid();
 			this.colSoftwareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colLizenzSchluessel = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tabSales = new System.Windows.Forms.TabPage();
 			this.mctxAuftrag = new MetroFramework.Controls.MetroContextMenu(this.components);
+			this.xcmdKundenauftrag = new System.Windows.Forms.ToolStripMenuItem();
 			this.mbtnLoadSageInfo = new MetroFramework.Controls.MetroButton();
 			this.ndtpVertragsende = new Products.UI.Controls.NullableDateTimePicker();
 			this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
@@ -121,22 +133,12 @@ namespace Products.Common.Panel
 			this.mtxtLieferschein = new MetroFramework.Controls.MetroTextBox();
 			this.mtxtRechnung = new MetroFramework.Controls.MetroTextBox();
 			this.mtxtAuftrag = new MetroFramework.Controls.MetroTextBox();
+			this.mbtnOpenInSage = new MetroFramework.Controls.MetroButton();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
 			this.mtxtFirmware = new MetroFramework.Controls.MetroTextBox();
-			this.xcmdOpenInExplorer = new System.Windows.Forms.ToolStripMenuItem();
-			this.xcmdOpenFile = new System.Windows.Forms.ToolStripMenuItem();
-			this.mbtnDeleteNote = new System.Windows.Forms.Button();
-			this.mbtnOpenNote = new System.Windows.Forms.Button();
-			this.mbtnCreateNote = new System.Windows.Forms.Button();
-			this.xcmdOpenAppointment = new System.Windows.Forms.ToolStripMenuItem();
-			this.xcmdShowCalendarView = new System.Windows.Forms.ToolStripMenuItem();
-			this.xcmdWartungsvorschlag = new System.Windows.Forms.ToolStripMenuItem();
-			this.mbtnDeleteSoftware = new System.Windows.Forms.Button();
-			this.mbtnOpenSoftware = new System.Windows.Forms.Button();
-			this.mbtnCreateSoftware = new System.Windows.Forms.Button();
-			this.xcmdKundenauftrag = new System.Windows.Forms.ToolStripMenuItem();
-			this.mbtnOpenInSage = new MetroFramework.Controls.MetroButton();
+			this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+			this.ndtpGarantieBis = new Products.UI.Controls.NullableDateTimePicker();
 			this.mctxTree.SuspendLayout();
 			this.mctxGrid.SuspendLayout();
 			this.mtabProperties.SuspendLayout();
@@ -310,6 +312,14 @@ namespace Products.Common.Panel
 			this.mctxTree.Name = "mctxTree";
 			this.mctxTree.Size = new System.Drawing.Size(117, 26);
 			// 
+			// xcmdOpenInExplorer
+			// 
+			this.xcmdOpenInExplorer.Image = global::Products.Common.Properties.Resources.explorer_exe_original;
+			this.xcmdOpenInExplorer.Name = "xcmdOpenInExplorer";
+			this.xcmdOpenInExplorer.Size = new System.Drawing.Size(116, 22);
+			this.xcmdOpenInExplorer.Text = "Explorer";
+			this.xcmdOpenInExplorer.Click += new System.EventHandler(this.xcmdOpenInExplorer_Click);
+			// 
 			// imageList1
 			// 
 			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -324,6 +334,14 @@ namespace Products.Common.Panel
 			this.mctxGrid.Name = "mctxGrid";
 			this.mctxGrid.Size = new System.Drawing.Size(112, 26);
 			// 
+			// xcmdOpenFile
+			// 
+			this.xcmdOpenFile.Image = global::Products.Common.Properties.Resources.open_16_metroorange;
+			this.xcmdOpenFile.Name = "xcmdOpenFile";
+			this.xcmdOpenFile.Size = new System.Drawing.Size(111, 22);
+			this.xcmdOpenFile.Text = "Öffnen";
+			this.xcmdOpenFile.Click += new System.EventHandler(this.xcmdOpenFile_Click);
+			// 
 			// mtabProperties
 			// 
 			this.mtabProperties.Controls.Add(this.tabFiles);
@@ -335,7 +353,7 @@ namespace Products.Common.Panel
 			this.mtabProperties.ItemSize = new System.Drawing.Size(100, 34);
 			this.mtabProperties.Location = new System.Drawing.Point(23, 162);
 			this.mtabProperties.Name = "mtabProperties";
-			this.mtabProperties.SelectedIndex = 2;
+			this.mtabProperties.SelectedIndex = 4;
 			this.mtabProperties.ShowToolTips = true;
 			this.mtabProperties.Size = new System.Drawing.Size(1242, 591);
 			this.mtabProperties.Style = MetroFramework.MetroColorStyle.Orange;
@@ -675,6 +693,52 @@ namespace Products.Common.Panel
 			this.lblNotizen.TabIndex = 134;
 			this.lblNotizen.Text = "Notizen";
 			// 
+			// mbtnDeleteNote
+			// 
+			this.mbtnDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.mbtnDeleteNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnDeleteNote.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroorange;
+			this.mbtnDeleteNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnDeleteNote.FlatAppearance.BorderSize = 0;
+			this.mbtnDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnDeleteNote.Location = new System.Drawing.Point(1178, 11);
+			this.mbtnDeleteNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnDeleteNote.Name = "mbtnDeleteNote";
+			this.mbtnDeleteNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnDeleteNote.TabIndex = 133;
+			this.mbtnDeleteNote.UseVisualStyleBackColor = false;
+			this.mbtnDeleteNote.Click += new System.EventHandler(this.btnDeleteNote_Click);
+			// 
+			// mbtnOpenNote
+			// 
+			this.mbtnOpenNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnOpenNote.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroorange;
+			this.mbtnOpenNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenNote.FlatAppearance.BorderSize = 0;
+			this.mbtnOpenNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnOpenNote.Location = new System.Drawing.Point(24, 10);
+			this.mbtnOpenNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnOpenNote.Name = "mbtnOpenNote";
+			this.mbtnOpenNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnOpenNote.TabIndex = 130;
+			this.mbtnOpenNote.UseVisualStyleBackColor = false;
+			this.mbtnOpenNote.Click += new System.EventHandler(this.mbtnOpenNote_Click);
+			// 
+			// mbtnCreateNote
+			// 
+			this.mbtnCreateNote.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnCreateNote.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroorange;
+			this.mbtnCreateNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnCreateNote.FlatAppearance.BorderSize = 0;
+			this.mbtnCreateNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnCreateNote.Location = new System.Drawing.Point(83, 11);
+			this.mbtnCreateNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnCreateNote.Name = "mbtnCreateNote";
+			this.mbtnCreateNote.Size = new System.Drawing.Size(36, 36);
+			this.mbtnCreateNote.TabIndex = 132;
+			this.mbtnCreateNote.UseVisualStyleBackColor = false;
+			this.mbtnCreateNote.Click += new System.EventHandler(this.mbtnCreateNote_Click);
+			// 
 			// tabService
 			// 
 			this.tabService.BackColor = System.Drawing.Color.Transparent;
@@ -802,10 +866,34 @@ namespace Products.Common.Panel
 			this.mctxService.Name = "mctxGrid";
 			this.mctxService.Size = new System.Drawing.Size(183, 76);
 			// 
+			// xcmdOpenAppointment
+			// 
+			this.xcmdOpenAppointment.Image = global::Products.Common.Properties.Resources.open_16_metrogray;
+			this.xcmdOpenAppointment.Name = "xcmdOpenAppointment";
+			this.xcmdOpenAppointment.Size = new System.Drawing.Size(182, 22);
+			this.xcmdOpenAppointment.Text = "Öffnen";
+			this.xcmdOpenAppointment.Click += new System.EventHandler(this.xcmdOpenAppointment_Click);
+			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(179, 6);
+			// 
+			// xcmdShowCalendarView
+			// 
+			this.xcmdShowCalendarView.Image = global::Products.Common.Properties.Resources.calendar_16_metrosilver;
+			this.xcmdShowCalendarView.Name = "xcmdShowCalendarView";
+			this.xcmdShowCalendarView.Size = new System.Drawing.Size(182, 22);
+			this.xcmdShowCalendarView.Text = "Kalender";
+			this.xcmdShowCalendarView.Click += new System.EventHandler(this.xcmdShowCalendarView_Click);
+			// 
+			// xcmdWartungsvorschlag
+			// 
+			this.xcmdWartungsvorschlag.Image = global::Products.Common.Properties.Resources.idea_16_metrosilver;
+			this.xcmdWartungsvorschlag.Name = "xcmdWartungsvorschlag";
+			this.xcmdWartungsvorschlag.Size = new System.Drawing.Size(182, 22);
+			this.xcmdWartungsvorschlag.Text = "Wartungsvorschläge";
+			this.xcmdWartungsvorschlag.Click += new System.EventHandler(this.xcmdWartungsvorschlag_Click);
 			// 
 			// tabSoftware
 			// 
@@ -823,6 +911,38 @@ namespace Products.Common.Panel
 			this.tabSoftware.Text = "  Software  ";
 			this.tabSoftware.UseVisualStyleBackColor = true;
 			// 
+			// mbtnDeleteSoftware
+			// 
+			this.mbtnDeleteSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnDeleteSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnDeleteSoftware.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroyellow;
+			this.mbtnDeleteSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnDeleteSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnDeleteSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnDeleteSoftware.Location = new System.Drawing.Point(1178, 11);
+			this.mbtnDeleteSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 20);
+			this.mbtnDeleteSoftware.Name = "mbtnDeleteSoftware";
+			this.mbtnDeleteSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnDeleteSoftware.TabIndex = 128;
+			this.mbtnDeleteSoftware.UseVisualStyleBackColor = false;
+			this.mbtnDeleteSoftware.Click += new System.EventHandler(this.mbtnDeleteSoftware_Click);
+			// 
+			// mbtnOpenSoftware
+			// 
+			this.mbtnOpenSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnOpenSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnOpenSoftware.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroyellow;
+			this.mbtnOpenSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnOpenSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnOpenSoftware.Location = new System.Drawing.Point(24, 10);
+			this.mbtnOpenSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnOpenSoftware.Name = "mbtnOpenSoftware";
+			this.mbtnOpenSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnOpenSoftware.TabIndex = 125;
+			this.mbtnOpenSoftware.UseVisualStyleBackColor = false;
+			this.mbtnOpenSoftware.Click += new System.EventHandler(this.mbtnOpenSoftware_Click);
+			// 
 			// label9
 			// 
 			this.label9.AutoSize = true;
@@ -832,6 +952,22 @@ namespace Products.Common.Panel
 			this.label9.Size = new System.Drawing.Size(77, 25);
 			this.label9.TabIndex = 129;
 			this.label9.Text = "Software";
+			// 
+			// mbtnCreateSoftware
+			// 
+			this.mbtnCreateSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.mbtnCreateSoftware.BackColor = System.Drawing.Color.Transparent;
+			this.mbtnCreateSoftware.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroyellow;
+			this.mbtnCreateSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnCreateSoftware.FlatAppearance.BorderSize = 0;
+			this.mbtnCreateSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.mbtnCreateSoftware.Location = new System.Drawing.Point(83, 11);
+			this.mbtnCreateSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
+			this.mbtnCreateSoftware.Name = "mbtnCreateSoftware";
+			this.mbtnCreateSoftware.Size = new System.Drawing.Size(36, 36);
+			this.mbtnCreateSoftware.TabIndex = 127;
+			this.mbtnCreateSoftware.UseVisualStyleBackColor = false;
+			this.mbtnCreateSoftware.Click += new System.EventHandler(this.mbtnCreateSoftware_Click);
 			// 
 			// dgvSoftware
 			// 
@@ -910,6 +1046,8 @@ namespace Products.Common.Panel
 			// 
 			this.tabSales.AllowDrop = true;
 			this.tabSales.ContextMenuStrip = this.mctxAuftrag;
+			this.tabSales.Controls.Add(this.metroLabel16);
+			this.tabSales.Controls.Add(this.ndtpGarantieBis);
 			this.tabSales.Controls.Add(this.mbtnLoadSageInfo);
 			this.tabSales.Controls.Add(this.ndtpVertragsende);
 			this.tabSales.Controls.Add(this.metroLabel14);
@@ -956,6 +1094,14 @@ namespace Products.Common.Panel
 			this.mctxAuftrag.Size = new System.Drawing.Size(171, 26);
 			this.mctxAuftrag.Opening += new System.ComponentModel.CancelEventHandler(this.mctxAuftrag_Opening);
 			// 
+			// xcmdKundenauftrag
+			// 
+			this.xcmdKundenauftrag.Image = global::Products.Common.Properties.Resources.auftrag_16_metrogreen;
+			this.xcmdKundenauftrag.Name = "xcmdKundenauftrag";
+			this.xcmdKundenauftrag.Size = new System.Drawing.Size(170, 22);
+			this.xcmdKundenauftrag.Text = "Maschinenauftrag";
+			this.xcmdKundenauftrag.Click += new System.EventHandler(this.xcmdKundenauftrag_Click);
+			// 
 			// mbtnLoadSageInfo
 			// 
 			this.mbtnLoadSageInfo.Location = new System.Drawing.Point(475, 209);
@@ -976,7 +1122,7 @@ namespace Products.Common.Panel
 			this.ndtpVertragsende.Location = new System.Drawing.Point(406, 331);
 			this.ndtpVertragsende.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
 			this.ndtpVertragsende.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpVertragsende.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpVertragsende.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpVertragsende.Name = "ndtpVertragsende";
 			this.ndtpVertragsende.NullValue = "";
 			this.ndtpVertragsende.Size = new System.Drawing.Size(105, 29);
@@ -1199,7 +1345,7 @@ namespace Products.Common.Panel
 			this.ndtpInstallation.Location = new System.Drawing.Point(284, 174);
 			this.ndtpInstallation.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
 			this.ndtpInstallation.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpInstallation.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpInstallation.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpInstallation.Name = "ndtpInstallation";
 			this.ndtpInstallation.NullValue = " -";
 			this.ndtpInstallation.Size = new System.Drawing.Size(105, 29);
@@ -1214,7 +1360,7 @@ namespace Products.Common.Panel
 			this.ndtpLieferschein.Location = new System.Drawing.Point(284, 138);
 			this.ndtpLieferschein.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
 			this.ndtpLieferschein.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpLieferschein.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpLieferschein.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpLieferschein.Name = "ndtpLieferschein";
 			this.ndtpLieferschein.NullValue = "";
 			this.ndtpLieferschein.Size = new System.Drawing.Size(105, 29);
@@ -1238,7 +1384,7 @@ namespace Products.Common.Panel
 			this.ndtpRechnung.Location = new System.Drawing.Point(284, 102);
 			this.ndtpRechnung.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
 			this.ndtpRechnung.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpRechnung.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpRechnung.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpRechnung.Name = "ndtpRechnung";
 			this.ndtpRechnung.NullValue = "";
 			this.ndtpRechnung.Size = new System.Drawing.Size(105, 29);
@@ -1262,7 +1408,7 @@ namespace Products.Common.Panel
 			this.ndtpAuftrag.Location = new System.Drawing.Point(284, 63);
 			this.ndtpAuftrag.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
 			this.ndtpAuftrag.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
-			this.ndtpAuftrag.MinimumSize = new System.Drawing.Size(4, 29);
+			this.ndtpAuftrag.MinimumSize = new System.Drawing.Size(0, 29);
 			this.ndtpAuftrag.Name = "ndtpAuftrag";
 			this.ndtpAuftrag.NullValue = "";
 			this.ndtpAuftrag.Size = new System.Drawing.Size(105, 29);
@@ -1392,6 +1538,19 @@ namespace Products.Common.Panel
 			this.mtxtAuftrag.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtAuftrag.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
+			// mbtnOpenInSage
+			// 
+			this.mbtnOpenInSage.BackgroundImage = global::Products.Common.Properties.Resources.SageNCL_32;
+			this.mbtnOpenInSage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.mbtnOpenInSage.Location = new System.Drawing.Point(401, 60);
+			this.mbtnOpenInSage.Name = "mbtnOpenInSage";
+			this.mbtnOpenInSage.Size = new System.Drawing.Size(34, 34);
+			this.mbtnOpenInSage.TabIndex = 151;
+			this.toolTip1.SetToolTip(this.mbtnOpenInSage, "Öffnet (wenn einer da ist) den Auftrag in Sage");
+			this.mbtnOpenInSage.UseCustomBackColor = true;
+			this.mbtnOpenInSage.UseSelectable = true;
+			this.mbtnOpenInSage.Click += new System.EventHandler(this.mbtnOpenInSage_Click);
+			// 
 			// metroLabel15
 			// 
 			this.metroLabel15.AutoSize = true;
@@ -1438,160 +1597,29 @@ namespace Products.Common.Panel
 			this.mtxtFirmware.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.mtxtFirmware.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
 			// 
-			// xcmdOpenInExplorer
+			// metroLabel16
 			// 
-			this.xcmdOpenInExplorer.Image = global::Products.Common.Properties.Resources.explorer_exe_original;
-			this.xcmdOpenInExplorer.Name = "xcmdOpenInExplorer";
-			this.xcmdOpenInExplorer.Size = new System.Drawing.Size(116, 22);
-			this.xcmdOpenInExplorer.Text = "Explorer";
-			this.xcmdOpenInExplorer.Click += new System.EventHandler(this.xcmdOpenInExplorer_Click);
+			this.metroLabel16.AutoSize = true;
+			this.metroLabel16.Location = new System.Drawing.Point(198, 213);
+			this.metroLabel16.Name = "metroLabel16";
+			this.metroLabel16.Size = new System.Drawing.Size(78, 19);
+			this.metroLabel16.TabIndex = 164;
+			this.metroLabel16.Text = "Garantie bis";
 			// 
-			// xcmdOpenFile
+			// ndtpGarantieBis
 			// 
-			this.xcmdOpenFile.Image = global::Products.Common.Properties.Resources.open_16_metroorange;
-			this.xcmdOpenFile.Name = "xcmdOpenFile";
-			this.xcmdOpenFile.Size = new System.Drawing.Size(111, 22);
-			this.xcmdOpenFile.Text = "Öffnen";
-			this.xcmdOpenFile.Click += new System.EventHandler(this.xcmdOpenFile_Click);
-			// 
-			// mbtnDeleteNote
-			// 
-			this.mbtnDeleteNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.mbtnDeleteNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnDeleteNote.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroorange;
-			this.mbtnDeleteNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnDeleteNote.FlatAppearance.BorderSize = 0;
-			this.mbtnDeleteNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnDeleteNote.Location = new System.Drawing.Point(1178, 11);
-			this.mbtnDeleteNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnDeleteNote.Name = "mbtnDeleteNote";
-			this.mbtnDeleteNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnDeleteNote.TabIndex = 133;
-			this.mbtnDeleteNote.UseVisualStyleBackColor = false;
-			this.mbtnDeleteNote.Click += new System.EventHandler(this.btnDeleteNote_Click);
-			// 
-			// mbtnOpenNote
-			// 
-			this.mbtnOpenNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnOpenNote.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroorange;
-			this.mbtnOpenNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenNote.FlatAppearance.BorderSize = 0;
-			this.mbtnOpenNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnOpenNote.Location = new System.Drawing.Point(24, 10);
-			this.mbtnOpenNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnOpenNote.Name = "mbtnOpenNote";
-			this.mbtnOpenNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnOpenNote.TabIndex = 130;
-			this.mbtnOpenNote.UseVisualStyleBackColor = false;
-			this.mbtnOpenNote.Click += new System.EventHandler(this.mbtnOpenNote_Click);
-			// 
-			// mbtnCreateNote
-			// 
-			this.mbtnCreateNote.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnCreateNote.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroorange;
-			this.mbtnCreateNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnCreateNote.FlatAppearance.BorderSize = 0;
-			this.mbtnCreateNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnCreateNote.Location = new System.Drawing.Point(83, 11);
-			this.mbtnCreateNote.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnCreateNote.Name = "mbtnCreateNote";
-			this.mbtnCreateNote.Size = new System.Drawing.Size(36, 36);
-			this.mbtnCreateNote.TabIndex = 132;
-			this.mbtnCreateNote.UseVisualStyleBackColor = false;
-			this.mbtnCreateNote.Click += new System.EventHandler(this.mbtnCreateNote_Click);
-			// 
-			// xcmdOpenAppointment
-			// 
-			this.xcmdOpenAppointment.Image = global::Products.Common.Properties.Resources.open_16_metrogray;
-			this.xcmdOpenAppointment.Name = "xcmdOpenAppointment";
-			this.xcmdOpenAppointment.Size = new System.Drawing.Size(182, 22);
-			this.xcmdOpenAppointment.Text = "Öffnen";
-			this.xcmdOpenAppointment.Click += new System.EventHandler(this.xcmdOpenAppointment_Click);
-			// 
-			// xcmdShowCalendarView
-			// 
-			this.xcmdShowCalendarView.Image = global::Products.Common.Properties.Resources.calendar_16_metrosilver;
-			this.xcmdShowCalendarView.Name = "xcmdShowCalendarView";
-			this.xcmdShowCalendarView.Size = new System.Drawing.Size(182, 22);
-			this.xcmdShowCalendarView.Text = "Kalender";
-			this.xcmdShowCalendarView.Click += new System.EventHandler(this.xcmdShowCalendarView_Click);
-			// 
-			// xcmdWartungsvorschlag
-			// 
-			this.xcmdWartungsvorschlag.Image = global::Products.Common.Properties.Resources.idea_16_metrosilver;
-			this.xcmdWartungsvorschlag.Name = "xcmdWartungsvorschlag";
-			this.xcmdWartungsvorschlag.Size = new System.Drawing.Size(182, 22);
-			this.xcmdWartungsvorschlag.Text = "Wartungsvorschläge";
-			this.xcmdWartungsvorschlag.Click += new System.EventHandler(this.xcmdWartungsvorschlag_Click);
-			// 
-			// mbtnDeleteSoftware
-			// 
-			this.mbtnDeleteSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnDeleteSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnDeleteSoftware.BackgroundImage = global::Products.Common.Properties.Resources.garbage_32_metroyellow;
-			this.mbtnDeleteSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnDeleteSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnDeleteSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnDeleteSoftware.Location = new System.Drawing.Point(1178, 11);
-			this.mbtnDeleteSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 20);
-			this.mbtnDeleteSoftware.Name = "mbtnDeleteSoftware";
-			this.mbtnDeleteSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnDeleteSoftware.TabIndex = 128;
-			this.mbtnDeleteSoftware.UseVisualStyleBackColor = false;
-			this.mbtnDeleteSoftware.Click += new System.EventHandler(this.mbtnDeleteSoftware_Click);
-			// 
-			// mbtnOpenSoftware
-			// 
-			this.mbtnOpenSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnOpenSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnOpenSoftware.BackgroundImage = global::Products.Common.Properties.Resources.open_32_metroyellow;
-			this.mbtnOpenSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnOpenSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnOpenSoftware.Location = new System.Drawing.Point(24, 10);
-			this.mbtnOpenSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnOpenSoftware.Name = "mbtnOpenSoftware";
-			this.mbtnOpenSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnOpenSoftware.TabIndex = 125;
-			this.mbtnOpenSoftware.UseVisualStyleBackColor = false;
-			this.mbtnOpenSoftware.Click += new System.EventHandler(this.mbtnOpenSoftware_Click);
-			// 
-			// mbtnCreateSoftware
-			// 
-			this.mbtnCreateSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.mbtnCreateSoftware.BackColor = System.Drawing.Color.Transparent;
-			this.mbtnCreateSoftware.BackgroundImage = global::Products.Common.Properties.Resources.neu_32_metroyellow;
-			this.mbtnCreateSoftware.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnCreateSoftware.FlatAppearance.BorderSize = 0;
-			this.mbtnCreateSoftware.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.mbtnCreateSoftware.Location = new System.Drawing.Point(83, 11);
-			this.mbtnCreateSoftware.Margin = new System.Windows.Forms.Padding(3, 10, 20, 3);
-			this.mbtnCreateSoftware.Name = "mbtnCreateSoftware";
-			this.mbtnCreateSoftware.Size = new System.Drawing.Size(36, 36);
-			this.mbtnCreateSoftware.TabIndex = 127;
-			this.mbtnCreateSoftware.UseVisualStyleBackColor = false;
-			this.mbtnCreateSoftware.Click += new System.EventHandler(this.mbtnCreateSoftware_Click);
-			// 
-			// xcmdKundenauftrag
-			// 
-			this.xcmdKundenauftrag.Image = global::Products.Common.Properties.Resources.auftrag_16_metrogreen;
-			this.xcmdKundenauftrag.Name = "xcmdKundenauftrag";
-			this.xcmdKundenauftrag.Size = new System.Drawing.Size(170, 22);
-			this.xcmdKundenauftrag.Text = "Maschinenauftrag";
-			this.xcmdKundenauftrag.Click += new System.EventHandler(this.xcmdKundenauftrag_Click);
-			// 
-			// mbtnOpenInSage
-			// 
-			this.mbtnOpenInSage.BackgroundImage = global::Products.Common.Properties.Resources.SageNCL_32;
-			this.mbtnOpenInSage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.mbtnOpenInSage.Location = new System.Drawing.Point(401, 60);
-			this.mbtnOpenInSage.Name = "mbtnOpenInSage";
-			this.mbtnOpenInSage.Size = new System.Drawing.Size(34, 34);
-			this.mbtnOpenInSage.TabIndex = 151;
-			this.toolTip1.SetToolTip(this.mbtnOpenInSage, "Öffnet (wenn einer da ist) den Auftrag in Sage");
-			this.mbtnOpenInSage.UseCustomBackColor = true;
-			this.mbtnOpenInSage.UseSelectable = true;
-			this.mbtnOpenInSage.Click += new System.EventHandler(this.mbtnOpenInSage_Click);
+			this.ndtpGarantieBis.CustomFormat = "";
+			this.ndtpGarantieBis.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ndtpGarantieBis.Location = new System.Drawing.Point(284, 209);
+			this.ndtpGarantieBis.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+			this.ndtpGarantieBis.MinDate = new System.DateTime(2006, 12, 17, 0, 0, 0, 0);
+			this.ndtpGarantieBis.MinimumSize = new System.Drawing.Size(0, 29);
+			this.ndtpGarantieBis.Name = "ndtpGarantieBis";
+			this.ndtpGarantieBis.NullValue = " -";
+			this.ndtpGarantieBis.Size = new System.Drawing.Size(105, 29);
+			this.ndtpGarantieBis.TabIndex = 163;
+			this.ndtpGarantieBis.Value = new System.DateTime(2016, 10, 26, 18, 21, 39, 144);
+			this.ndtpGarantieBis.Validated += new System.EventHandler(this.ndtpGarantieBis_Validated);
 			// 
 			// pnlKundenMaschine
 			// 
@@ -1733,6 +1761,8 @@ namespace Products.Common.Panel
 		private MetroFramework.Controls.MetroLabel metroLabel15;
 		private MetroFramework.Controls.MetroTextBox mtxtFirmware;
 		private System.Windows.Forms.ToolStripMenuItem xcmdWartungsvorschlag;
+		private MetroFramework.Controls.MetroLabel metroLabel16;
+		private NullableDateTimePicker ndtpGarantieBis;
 
 #pragma warning restore CS0618 // Typ oder Element ist veraltet
 

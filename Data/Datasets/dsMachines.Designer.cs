@@ -471,6 +471,8 @@ namespace Products.Data.Datasets {
             
             private global::System.Data.DataColumn columnKundenauftragFlag;
             
+            private global::System.Data.DataColumn columnGarantieablaufdatum;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KundenMaschineDataTable() {
@@ -714,6 +716,14 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GarantieablaufdatumColumn {
+                get {
+                    return this.columnGarantieablaufdatum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -775,7 +785,8 @@ namespace Products.Data.Datasets {
                         string Haendler, 
                         System.DateTime Rechnungsdatum, 
                         System.DateTime Lieferdatum, 
-                        string KundenauftragFlag) {
+                        string KundenauftragFlag, 
+                        System.DateTime Garantieablaufdatum) {
                 KundenMaschineRow rowKundenMaschineRow = ((KundenMaschineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UID,
@@ -803,7 +814,8 @@ namespace Products.Data.Datasets {
                         Haendler,
                         Rechnungsdatum,
                         Lieferdatum,
-                        KundenauftragFlag};
+                        KundenauftragFlag,
+                        Garantieablaufdatum};
                 rowKundenMaschineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKundenMaschineRow);
                 return rowKundenMaschineRow;
@@ -859,6 +871,7 @@ namespace Products.Data.Datasets {
                 this.columnRechnungsdatum = base.Columns["Rechnungsdatum"];
                 this.columnLieferdatum = base.Columns["Lieferdatum"];
                 this.columnKundenauftragFlag = base.Columns["KundenauftragFlag"];
+                this.columnGarantieablaufdatum = base.Columns["Garantieablaufdatum"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -916,6 +929,8 @@ namespace Products.Data.Datasets {
                 base.Columns.Add(this.columnLieferdatum);
                 this.columnKundenauftragFlag = new global::System.Data.DataColumn("KundenauftragFlag", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKundenauftragFlag);
+                this.columnGarantieablaufdatum = new global::System.Data.DataColumn("Garantieablaufdatum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGarantieablaufdatum);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUID}, true));
                 this.columnUID.AllowDBNull = false;
@@ -3165,6 +3180,22 @@ namespace Products.Data.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Garantieablaufdatum {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableKundenMaschine.GarantieablaufdatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Garantieablaufdatum\' in table \'KundenMaschine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKundenMaschine.GarantieablaufdatumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeriennummerNull() {
                 return this.IsNull(this.tableKundenMaschine.SeriennummerColumn);
             }
@@ -3377,6 +3408,18 @@ namespace Products.Data.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetKundenauftragFlagNull() {
                 this[this.tableKundenMaschine.KundenauftragFlagColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGarantieablaufdatumNull() {
+                return this.IsNull(this.tableKundenMaschine.GarantieablaufdatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGarantieablaufdatumNull() {
+                this[this.tableKundenMaschine.GarantieablaufdatumColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4649,6 +4692,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             tableMapping.ColumnMappings.Add("Rechnungsdatum", "Rechnungsdatum");
             tableMapping.ColumnMappings.Add("Lieferdatum", "Lieferdatum");
             tableMapping.ColumnMappings.Add("KundenauftragFlag", "KundenauftragFlag");
+            tableMapping.ColumnMappings.Add("Garantieablaufdatum", "Garantieablaufdatum");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4664,7 +4708,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_kundenmaschine` (`UID`, `Kundennummer`, `MaschinenmodellId`, `Seriennummer`, `Firmware`, `Haendler`, `Auftragsdatum`, `Rechnungsdatum`, `Lieferdatum`, `Installationsdatum`, `LeasingFlag`, `MietkaufFlag`, `Finanzierungsgesellschaft`, `Finanzierungsende`, `ErstverwertungsFlag`, `Anmerkungen`, `TintenId`, `FarbenSet`, `AuftragsnummerSage`, `RechnungsnummerSage`, `LieferscheinnummerSage`, `InstallationDurchId`, `Wartungsintervall`, `Dateipfad`, `Sonderausstattung`, `KundenauftragFlag`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `cpm_kundenmaschine` (`UID`, `Kundennummer`, `MaschinenmodellId`, `Seriennummer`, `Firmware`, `Haendler`, `Auftragsdatum`, `Rechnungsdatum`, `Lieferdatum`, `Installationsdatum`, `Garantieablaufdatum`, `LeasingFlag`, `MietkaufFlag`, `Finanzierungsgesellschaft`, `Finanzierungsende`, `ErstverwertungsFlag`, `Anmerkungen`, `TintenId`, `FarbenSet`, `AuftragsnummerSage`, `RechnungsnummerSage`, `LieferscheinnummerSage`, `InstallationDurchId`, `Wartungsintervall`, `Dateipfad`, `Sonderausstattung`, `KundenauftragFlag`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -4738,110 +4782,117 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "LeasingFlag";
+            param.SourceColumn = "Garantieablaufdatum";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
-            param.SourceColumn = "MietkaufFlag";
+            param.SourceColumn = "LeasingFlag";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "MietkaufFlag";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Finanzierungsgesellschaft";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "Finanzierungsende";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
             param.SourceColumn = "ErstverwertungsFlag";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p16";
+            param.ParameterName = "@p17";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "Anmerkungen";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "TintenId";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "FarbenSet";
+            param.SourceColumn = "TintenId";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "AuftragsnummerSage";
+            param.SourceColumn = "FarbenSet";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "RechnungsnummerSage";
+            param.SourceColumn = "AuftragsnummerSage";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "LieferscheinnummerSage";
+            param.SourceColumn = "RechnungsnummerSage";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "InstallationDurchId";
+            param.SourceColumn = "LieferscheinnummerSage";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstallationDurchId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Wartungsintervall";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p24";
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Dateipfad";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
+            param.ParameterName = "@p26";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Sonderausstattung";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p26";
+            param.ParameterName = "@p27";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
@@ -4849,7 +4900,7 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_kundenmaschine` SET `UID` = @p1, `Kundennummer` = @p2, `MaschinenmodellId` = @p3, `Seriennummer` = @p4, `Firmware` = @p5, `Haendler` = @p6, `Auftragsdatum` = @p7, `Rechnungsdatum` = @p8, `Lieferdatum` = @p9, `Installationsdatum` = @p10, `LeasingFlag` = @p11, `MietkaufFlag` = @p12, `Finanzierungsgesellschaft` = @p13, `Finanzierungsende` = @p14, `ErstverwertungsFlag` = @p15, `Anmerkungen` = @p16, `TintenId` = @p17, `FarbenSet` = @p18, `AuftragsnummerSage` = @p19, `RechnungsnummerSage` = @p20, `LieferscheinnummerSage` = @p21, `InstallationDurchId` = @p22, `Wartungsintervall` = @p23, `Dateipfad` = @p24, `Sonderausstattung` = @p25, `KundenauftragFlag` = @p26 WHERE ((`UID` = @p27))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `cpm_kundenmaschine` SET `UID` = @p1, `Kundennummer` = @p2, `MaschinenmodellId` = @p3, `Seriennummer` = @p4, `Firmware` = @p5, `Haendler` = @p6, `Auftragsdatum` = @p7, `Rechnungsdatum` = @p8, `Lieferdatum` = @p9, `Installationsdatum` = @p10, `Garantieablaufdatum` = @p11, `LeasingFlag` = @p12, `MietkaufFlag` = @p13, `Finanzierungsgesellschaft` = @p14, `Finanzierungsende` = @p15, `ErstverwertungsFlag` = @p16, `Anmerkungen` = @p17, `TintenId` = @p18, `FarbenSet` = @p19, `AuftragsnummerSage` = @p20, `RechnungsnummerSage` = @p21, `LieferscheinnummerSage` = @p22, `InstallationDurchId` = @p23, `Wartungsintervall` = @p24, `Dateipfad` = @p25, `Sonderausstattung` = @p26, `KundenauftragFlag` = @p27 WHERE ((`UID` = @p28))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -4923,117 +4974,124 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.StringFixedLength;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "LeasingFlag";
+            param.SourceColumn = "Garantieablaufdatum";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
-            param.SourceColumn = "MietkaufFlag";
+            param.SourceColumn = "LeasingFlag";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.StringFixedLength;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
+            param.IsNullable = true;
+            param.SourceColumn = "MietkaufFlag";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Finanzierungsgesellschaft";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "Finanzierungsende";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
             param.SourceColumn = "ErstverwertungsFlag";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p16";
+            param.ParameterName = "@p17";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "Anmerkungen";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "TintenId";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "FarbenSet";
+            param.SourceColumn = "TintenId";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "AuftragsnummerSage";
+            param.SourceColumn = "FarbenSet";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "RechnungsnummerSage";
+            param.SourceColumn = "AuftragsnummerSage";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "LieferscheinnummerSage";
+            param.SourceColumn = "RechnungsnummerSage";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "InstallationDurchId";
+            param.SourceColumn = "LieferscheinnummerSage";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "InstallationDurchId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Wartungsintervall";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p24";
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Dateipfad";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
+            param.ParameterName = "@p26";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Sonderausstattung";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p26";
+            param.ParameterName = "@p27";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
             param.SourceColumn = "KundenauftragFlag";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p27";
+            param.ParameterName = "@p28";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -5143,11 +5201,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     global::System.Nullable<global::System.DateTime> p8, 
                     global::System.Nullable<global::System.DateTime> p9, 
                     global::System.Nullable<global::System.DateTime> p10, 
-                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p11, 
                     string p12, 
                     string p13, 
-                    global::System.Nullable<global::System.DateTime> p14, 
-                    string p15, 
+                    string p14, 
+                    global::System.Nullable<global::System.DateTime> p15, 
                     string p16, 
                     string p17, 
                     string p18, 
@@ -5155,10 +5213,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     string p20, 
                     string p21, 
                     string p22, 
-                    int p23, 
-                    string p24, 
+                    string p23, 
+                    int p24, 
                     string p25, 
-                    string p26) {
+                    string p26, 
+                    string p27) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -5219,11 +5278,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((p11 == null)) {
-                throw new global::System.ArgumentNullException("p11");
+            if ((p11.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(p11.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((p12 == null)) {
                 throw new global::System.ArgumentNullException("p12");
@@ -5232,37 +5291,37 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((string)(p12));
             }
             if ((p13 == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p13");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(p13));
             }
-            if ((p14.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(p14.Value));
-            }
-            else {
+            if ((p14 == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((p15 == null)) {
-                throw new global::System.ArgumentNullException("p15");
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(p14));
+            }
+            if ((p15.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((System.DateTime)(p15.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(p15));
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((p16 == null)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p16");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(p16));
             }
             if ((p17 == null)) {
-                throw new global::System.ArgumentNullException("p17");
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = ((string)(p17));
             }
             if ((p18 == null)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p18");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = ((string)(p18));
@@ -5291,13 +5350,13 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = ((string)(p22));
             }
-            this.Adapter.InsertCommand.Parameters[22].Value = ((int)(p23));
-            if ((p24 == null)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            if ((p23 == null)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(p24));
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(p23));
             }
+            this.Adapter.InsertCommand.Parameters[23].Value = ((int)(p24));
             if ((p25 == null)) {
                 this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
@@ -5309,6 +5368,12 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[25].Value = ((string)(p26));
+            }
+            if ((p27 == null)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(p27));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5341,11 +5406,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     global::System.Nullable<global::System.DateTime> p8, 
                     global::System.Nullable<global::System.DateTime> p9, 
                     global::System.Nullable<global::System.DateTime> p10, 
-                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p11, 
                     string p12, 
                     string p13, 
-                    global::System.Nullable<global::System.DateTime> p14, 
-                    string p15, 
+                    string p14, 
+                    global::System.Nullable<global::System.DateTime> p15, 
                     string p16, 
                     string p17, 
                     string p18, 
@@ -5353,11 +5418,12 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     string p20, 
                     string p21, 
                     string p22, 
-                    int p23, 
-                    string p24, 
+                    string p23, 
+                    int p24, 
                     string p25, 
                     string p26, 
-                    string p27) {
+                    string p27, 
+                    string p28) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -5418,11 +5484,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((p11 == null)) {
-                throw new global::System.ArgumentNullException("p11");
+            if ((p11.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(p11.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((p12 == null)) {
                 throw new global::System.ArgumentNullException("p12");
@@ -5431,37 +5497,37 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
             }
             if ((p13 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p13");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
             }
-            if ((p14.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(p14.Value));
-            }
-            else {
+            if ((p14 == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((p15 == null)) {
-                throw new global::System.ArgumentNullException("p15");
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(p14));
+            }
+            if ((p15.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(p15.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((p16 == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p16");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
             }
             if ((p17 == null)) {
-                throw new global::System.ArgumentNullException("p17");
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
             }
             if ((p18 == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p18");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(p18));
@@ -5490,13 +5556,13 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(p22));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(p23));
-            if ((p24 == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            if ((p23 == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(p23));
             }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(p24));
             if ((p25 == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
@@ -5510,10 +5576,16 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(p26));
             }
             if ((p27 == null)) {
-                throw new global::System.ArgumentNullException("p27");
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(p27));
+            }
+            if ((p28 == null)) {
+                throw new global::System.ArgumentNullException("p28");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(p28));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5545,11 +5617,11 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     global::System.Nullable<global::System.DateTime> p8, 
                     global::System.Nullable<global::System.DateTime> p9, 
                     global::System.Nullable<global::System.DateTime> p10, 
-                    string p11, 
+                    global::System.Nullable<global::System.DateTime> p11, 
                     string p12, 
                     string p13, 
-                    global::System.Nullable<global::System.DateTime> p14, 
-                    string p15, 
+                    string p14, 
+                    global::System.Nullable<global::System.DateTime> p15, 
                     string p16, 
                     string p17, 
                     string p18, 
@@ -5557,12 +5629,13 @@ namespace Products.Data.Datasets.dsMachinesTableAdapters {
                     string p20, 
                     string p21, 
                     string p22, 
-                    int p23, 
-                    string p24, 
+                    string p23, 
+                    int p24, 
                     string p25, 
                     string p26, 
-                    string p27) {
-            return this.Update(p27, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27);
+                    string p27, 
+                    string p28) {
+            return this.Update(p28, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28);
         }
     }
     

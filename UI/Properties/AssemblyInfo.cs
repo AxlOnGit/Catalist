@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Axel Ullrich IT")]
 [assembly: AssemblyProduct("CPM Catalist")]
-[assembly: AssemblyCopyright("Copyright ©2016 Axel Ullrich")]
+[assembly: AssemblyCopyright("Copyright ©2016-2018 Axel Ullrich")]
 [assembly: AssemblyTrademark("Catalist™")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.1.116")]
-[assembly: AssemblyFileVersion("1.2.1.116")]
+[assembly: AssemblyVersion("1.2.1.118")]
+[assembly: AssemblyFileVersion("1.2.1.118")]

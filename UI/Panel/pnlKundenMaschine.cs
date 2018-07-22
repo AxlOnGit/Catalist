@@ -95,6 +95,7 @@ namespace Products.Common.Panel
 				this.ndtpRechnung.Value = this.myMachine.Rechnungsdatum;
 				this.ndtpLieferschein.Value = this.myMachine.Lieferdatum;
 				this.ndtpInstallation.Value = this.myMachine.Installationsdatum;
+				this.ndtpGarantieBis.Value = this.myMachine.Garantieablaufdatum;
 
 				this.mcmbTechniker.DisplayMember = "NameFirst";
 				this.mcmbTechniker.ValueMember = "UID";
@@ -331,6 +332,17 @@ namespace Products.Common.Panel
 			}
 			var date = (DateTime)this.ndtpVertragsende.Value;
 			this.myMachine.Finanzierungsende = date;
+		}
+
+		private void ndtpGarantieBis_Validated(object sender, EventArgs e)
+		{
+			if (ndtpGarantieBis.Value == null)
+			{
+				this.myMachine.Garantieablaufdatum = null;
+				return;
+			}
+			var date = (DateTime)this.ndtpGarantieBis.Value;
+			this.myMachine.Garantieablaufdatum = date;
 		}
 
 		private void xcmdKundenauftrag_Click(object sender, EventArgs e)
