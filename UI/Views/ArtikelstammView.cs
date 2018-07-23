@@ -1,134 +1,135 @@
-﻿using System;
-using System.Windows.Forms;
-using MetroFramework.Forms;
+﻿using MetroFramework.Forms;
+using Products.Common.Collections;
 using Products.Model;
 using Products.Model.Entities;
-using Products.Common.Collections;
+using System;
+using System.Windows.Forms;
 
 namespace Products.Common.Views
 {
-	public partial class ArtikelstammView : MetroForm
-	{
+    public partial class ArtikelstammView : MetroForm
+    {
+        #region PROPERTIES
 
-		#region members
+        Kunde Kunde { get; set; }
 
-		Kunde myKunde;
-		Product mySelectedProduct;
-		SBList<Product> myDatasource;
+        Product SelectedProduct { get; set; }
 
-		#endregion
+        SBList<Product> DataSource { get; set; }
 
-		#region ### .ctor ###
+        #endregion PROPERTIES
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der ArtikelstammView Klasse.
-		/// </summary>
-		public ArtikelstammView(Kunde kunde = null)
-		{
-			InitializeComponent();
-			if (kunde == null)
-			{
-				myKunde = ModelManager.CustomerService.GetKunde("1000000000", false);
-			}
-			else myKunde = kunde;
-			this.myDatasource = ModelManager.ProductService.GetProductList(myKunde);
-			this.mtxtFilter.KeyUp += this.mtxtFilter_KeyUp; 
-			this.dgvArtikel.AutoGenerateColumns = false;
+        #region ### .ctor ###
 
-			this.InitializeData();
-			this.Location.Offset(1, 1);
-			this.Location.Offset(-1, -1);
-		}
+        /// <summary>
+        /// Erzeugt eine neue Instanz der ArtikelstammView Klasse.
+        /// </summary>
+        public ArtikelstammView(Kunde kunde = null)
+        {
+            InitializeComponent();
+            if (kunde == null)
+            {
+                Kunde = ModelManager.CustomerService.GetKunde("1000000000", false);
+            }
+            else Kunde = kunde;
+            this.DataSource = ModelManager.ProductService.GetProductList(Kunde);
+            this.MTxtFilter.KeyUp += this.MTxtFilter_KeyUp;
+            this.DgvArtikel.AutoGenerateColumns = false;
 
-		#endregion
+            this.InitializeData();
+            this.Location.Offset(1, 1);
+            this.Location.Offset(-1, -1);
+        }
 
-		#region event handler
+        #endregion ### .ctor ###
 
-		void mtxtFilter_KeyUp(object sender, KeyEventArgs e)
-		{
-			if (string.IsNullOrEmpty(this.mtxtFilter.Text))
-			{
-				this.myDatasource.Filter = "";
-				return;
-			}
+        #region EVENT HANDLER
 
-			var outputInfo = string.Empty;
-			var keyWords = this.mtxtFilter.Text.Split();
-			foreach (string word in keyWords)
-			{
-				if (outputInfo.Length == 0)
-				{
-					outputInfo = string.Format(@"(Bezeichnung1.ToLower().IndexOf(""{0}"") > -1 OR Matchcode.ToLower().IndexOf(""{0}"") > -1 OR Artikelnummer.ToLower().IndexOf(""{0}"") > -1)", word.ToLower());
-				}
-				else
-				{
-					outputInfo += string.Format(@" AND ((Bezeichnung1.ToLower().IndexOf(""{0}"") > -1 OR Matchcode.ToLower().IndexOf(""{0}"") > -1 OR Artikelnummer.ToLower().IndexOf(""{0}"") > -1))", word.ToLower());
-				}
-				this.myDatasource.Filter = outputInfo;
-				// this.mtxtFilter.ShowButton = !string.IsNullOrEmpty(outputInfo);
-			}
-		}
+        void MTxtFilter_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.MTxtFilter.Text))
+            {
+                this.DataSource.Filter = "";
+                return;
+            }
 
-		void mtxtFilter_ClearClicked()
-		{
-			this.myDatasource.Filter = "";
-			this.mtxtFilter.ShowButton = false;
-		}
+            var outputInfo = string.Empty;
+            var keyWords = this.MTxtFilter.Text.Split();
+            foreach (string word in keyWords)
+            {
+                if (outputInfo.Length == 0)
+                {
+                    outputInfo = string.Format(@"(Bezeichnung1.ToLower().IndexOf(""{0}"") > -1 OR Matchcode.ToLower().IndexOf(""{0}"") > -1 OR Artikelnummer.ToLower().IndexOf(""{0}"") > -1)", word.ToLower());
+                }
+                else
+                {
+                    outputInfo += string.Format(@" AND ((Bezeichnung1.ToLower().IndexOf(""{0}"") > -1 OR Matchcode.ToLower().IndexOf(""{0}"") > -1 OR Artikelnummer.ToLower().IndexOf(""{0}"") > -1))", word.ToLower());
+                }
+                this.DataSource.Filter = outputInfo;
 
-		void btnChangeKunde_Click(object sender, EventArgs e)
-		{
-			var csv = new CustomerSearchView("Für welchen Kunden soll der Artikelstamm angezeigt werden?", true);
-			if (csv.ShowDialog() == DialogResult.OK)
-			{
-				this.myKunde = ModelManager.CustomerService.GetKunde(csv.SelectedCustomer.Kundennummer, false);
-				if (myKunde != null) this.InitializeData();
-			}
-		}
+                // this.mtxtFilter.ShowButton = !string.IsNullOrEmpty(outputInfo);
+            }
+        }
 
-		void mbtnClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        void MtxtFilter_ClearClicked()
+        {
+            this.DataSource.Filter = "";
+            this.MTxtFilter.ShowButton = false;
+        }
 
-		#endregion
+        void BtnChangeKunde_Click(object sender, EventArgs e)
+        {
+            var csv = new CustomerSearchView("Für welchen Kunden soll der Artikelstamm angezeigt werden?", true);
+            if (csv.ShowDialog() == DialogResult.OK)
+            {
+                this.Kunde = ModelManager.CustomerService.GetKunde(csv.SelectedCustomer.Kundennummer, false);
+                if (Kunde != null) this.InitializeData();
+            }
+        }
 
-		#region private procedures
+        void McmdAuftraege_Click(object sender, EventArgs e)
+        {
+            if (this.SelectedProduct != null)
+            {
+                var apav = new AuftraegeProArtikelView(this.SelectedProduct.Artikelnummer);
+                apav.ShowDialog();
+            }
+        }
 
-		void InitializeData()
-		{
-			this.Text = string.Format("Artikelstamm für {0}{1}", myKunde.CompanyName1.Replace("&", "&&"), Environment.NewLine);
-			dgvArtikel.DataSource = this.myDatasource;
-		}
+        void DgvArtikel_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.SelectedProduct = this.DgvArtikel.Rows[e.RowIndex].DataBoundItem as Product;
+        }
 
-		#endregion
+        void DgvArtikel_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.DgvArtikel.ClearSelection();
+        }
 
-		void mcmdAuftraege_Click(object sender, EventArgs e)
-		{
-			if (this.mySelectedProduct != null)
-			{
-				var apav = new AuftraegeProArtikelView(this.mySelectedProduct.Artikelnummer);
-				apav.ShowDialog();
-			}
-		}
+        void XcmdShowInventoryView_Click(object sender, EventArgs e)
+        {
+            if (this.SelectedProduct != null)
+            {
+                var piv = new LagerbestandView(this.Kunde, this.SelectedProduct);
+                piv.ShowDialog();
+            }
+        }
 
-		void dgvArtikel_RowEnter(object sender, DataGridViewCellEventArgs e)
-		{
-			this.mySelectedProduct = this.dgvArtikel.Rows[e.RowIndex].DataBoundItem as Product;
-		}
+        void MbtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		void dgvArtikel_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-		{
-			this.dgvArtikel.ClearSelection();
-		}
+        #endregion EVENT HANDLER
 
-		void xcmdShowInventoryView_Click(object sender, EventArgs e)
-		{
-			if (this.mySelectedProduct != null)
-			{
-				var piv = new LagerbestandView(this.myKunde, this.mySelectedProduct);
-				piv.ShowDialog();
-			}
-		}
+        #region METHODS
 
-	}
+        void InitializeData()
+        {
+            this.Text = string.Format("Artikelstamm für {0}{1}", Kunde.CompanyName1.Replace("&", "&&"), Environment.NewLine);
+            DgvArtikel.DataSource = this.DataSource;
+        }
+
+        #endregion METHODS
+    }
 }

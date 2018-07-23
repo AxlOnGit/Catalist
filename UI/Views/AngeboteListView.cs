@@ -1,96 +1,94 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using Products.Model.Entities;
+using System;
 using System.Text;
 using System.Windows.Forms;
-using MetroFramework.Forms;
-using Products.Model.Entities;
 
 namespace Products.Common.Views
 {
-	public partial class AngeboteListView : MetroForm
-	{
-		#region members
+    public partial class AngeboteListView : MetroForm
+    {
+        #region PROPERTIES
 
-		readonly Kunde myKunde;
-		Angebot mySelectedAngebot;
+        Kunde Kunde { get; set; }
 
-		#endregion members
+        Angebot SelectedAngebot { get; set; }
 
-		#region ### .ctor ###
+        #endregion PROPERTIES
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der <seealso cref="AngeboteListView"/> Formularklasse.
-		/// </summary>
-		public AngeboteListView(Kunde kunde = null)
-		{
-			this.InitializeComponent();
-			if (kunde != null) this.myKunde = kunde;
-			this.InitializeData();
-		}
+        #region ### .ctor ###
 
-		#endregion ### .ctor ###
+        /// <summary>
+        /// Erzeugt eine neue Instanz der <seealso cref="AngeboteListView" /> Formularklasse.
+        /// </summary>
+        public AngeboteListView(Kunde kunde = null)
+        {
+            this.InitializeComponent();
+            if (kunde != null) this.Kunde = kunde;
+            this.InitializeData();
+        }
 
-		#region event handler
+        #endregion ### .ctor ###
 
-		void mbtnClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        #region EVENT HANDLER
 
-		#endregion event handler
+        void DgvAngebote_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.SelectedAngebot = dgvAngebote.Rows[e.RowIndex].DataBoundItem as Angebot;
+            if (this.SelectedAngebot != null)
+            {
+                this.dgvDetails.DataSource = Model.ModelManager.SalesService.GetAngebotsDetails(this.SelectedAngebot);
 
-		#region private procedures
+                //var sb = new StringBuilder();
+                //var criteria = string.Format("O{0}", this.mySelectedAngebot.Nummer);
+                //foreach (var mail in Model.ModelManager.DavidService.GetMailItems(criteria))
+                //{
+                //	sb.AppendLine(mail.Betreff);
+                //}
+                //MessageBox.Show(sb.ToString());
+            }
+        }
 
-		void InitializeData()
-		{
-			this.dgvAngebote.AutoGenerateColumns = false;
-			this.dgvDetails.AutoGenerateColumns = false;
-			if (this.myKunde != null)
-			{
-				this.Text = string.Format("Angebote in Sage für {0}", this.myKunde.Matchcode);
-				this.dgvAngebote.DataSource = Model.ModelManager.SalesService.GetAngeboteSageList(this.myKunde.CustomerId).Sort("Datum", System.ComponentModel.ListSortDirection.Descending);
-			}
-			else
-			{
-				this.dgvAngebote.DataSource = Model.ModelManager.SalesService.GetAngeboteSageList().Sort("Datum", System.ComponentModel.ListSortDirection.Descending);
-			}
-			this.dgvAngebote.RowEnter += DgvAngebote_RowEnter;
-		}
+        void XcmdSearchEmails_Click(object sender, EventArgs e)
+        {
+            if (this.SelectedAngebot == null) return;
+            var elv = new EmailListView(this.SelectedAngebot);
+            elv.ShowDialog();
+        }
 
-		#endregion private procedures
+        void XcmdOpenInSage_Click(object sender, EventArgs e)
+        {
+            var shorty = Model.ModelManager.UserService.CurrentUser.SageLoginName;
+            var angebot = this.SelectedAngebot.Nummer;
+            var kundePK = this.SelectedAngebot.Kunde.KundenNrCpm;
+            SageBridge.ServiceManager.SageService.StartSageApp(SageBridge.Services.SageService.SageAppType.Angebot, shorty, angebot, kundePK);
+        }
 
-		#region event handler
+        void MbtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		void DgvAngebote_RowEnter(object sender, DataGridViewCellEventArgs e)
-		{
-			this.mySelectedAngebot = dgvAngebote.Rows[e.RowIndex].DataBoundItem as Angebot;
-			if (this.mySelectedAngebot != null)
-			{
-				this.dgvDetails.DataSource = Model.ModelManager.SalesService.GetAngebotsDetails(this.mySelectedAngebot);
-				//var sb = new StringBuilder();
-				//var criteria = string.Format("O{0}", this.mySelectedAngebot.Nummer);
-				//foreach (var mail in Model.ModelManager.DavidService.GetMailItems(criteria))
-				//{
-				//	sb.AppendLine(mail.Betreff);
-				//}
-				//MessageBox.Show(sb.ToString());
-			}
-		}
+        #endregion EVENT HANDLER
 
-		void xcmdSearchEmails_Click(object sender, EventArgs e)
-		{
-			if (this.mySelectedAngebot == null) return;
-			var elv = new EmailListView(this.mySelectedAngebot);
-			elv.ShowDialog();
-		}
+        #region METHODS
 
-		#endregion event handler
+        void InitializeData()
+        {
+            this.dgvAngebote.AutoGenerateColumns = false;
+            this.dgvDetails.AutoGenerateColumns = false;
+            if (this.Kunde != null)
+            {
+                this.Text = string.Format("Angebote in Sage für {0}", this.Kunde.Matchcode);
+                this.dgvAngebote.DataSource = Model.ModelManager.SalesService.GetAngeboteSageList(this.Kunde.CustomerId).Sort("Datum", System.ComponentModel.ListSortDirection.Descending);
+            }
+            else
+            {
+                this.dgvAngebote.DataSource = Model.ModelManager.SalesService.GetAngeboteSageList().Sort("Datum", System.ComponentModel.ListSortDirection.Descending);
+            }
+            this.dgvAngebote.RowEnter += DgvAngebote_RowEnter;
+        }
 
-		void xcmdOpenInSage_Click(object sender, EventArgs e)
-		{
-			var shorty = Model.ModelManager.UserService.CurrentUser.SageLoginName;
-			var angebot = this.mySelectedAngebot.Nummer;
-			var kundePK = this.mySelectedAngebot.Kunde.KundenNrCpm;
-			SageBridge.ServiceManager.SageService.StartSageApp(SageBridge.Services.SageService.SageAppType.Angebot, shorty, angebot, kundePK);
-		}
-	}
+        #endregion METHODS
+    }
 }

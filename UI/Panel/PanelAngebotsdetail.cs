@@ -37,12 +37,12 @@ namespace Products.Common.Panel
 
             InitializeData();
             Application.Idle += Application_Idle;
-            this.OnClosed += pnlAngebotsdetail_OnClosed;
+            this.OnClosed += PnlAngebotsdetail_OnClosed;
         }
 
         #endregion ### .ctor ###
 
-        #region event handler
+        #region EVENT HANDLER
 
         [DebuggerStepThrough]
         void Application_Idle(object sender, EventArgs e)
@@ -71,91 +71,91 @@ namespace Products.Common.Panel
             }
         }
 
-        void btnNeuePosition_Click(object sender, EventArgs e)
+        void BtnNeuePosition_Click(object sender, EventArgs e)
         {
             AddOfferDetail();
         }
 
-        void ccmdNewDetail_Click(object sender, EventArgs e)
+        void CcmdNewDetail_Click(object sender, EventArgs e)
         {
             AddOfferDetail();
         }
 
-        void btnPositionLoeschen_Click(object sender, EventArgs e)
+        void BtnPositionLoeschen_Click(object sender, EventArgs e)
         {
             DeleteOfferDetail();
         }
 
-        void ccmdDeleteDetail_Click(object sender, EventArgs e)
+        void CcmdDeleteDetail_Click(object sender, EventArgs e)
         {
             DeleteOfferDetail();
         }
 
-        void btnDrucken_Click(object sender, EventArgs e)
+        void BtnDrucken_Click(object sender, EventArgs e)
         {
             Print();
         }
 
-        void ccmdPrint2_Click(object sender, EventArgs e)
+        void CcmdPrint2_Click(object sender, EventArgs e)
         {
             Print();
         }
 
-        void ccmdPrint_Click(object sender, EventArgs e)
+        void CcmdPrint_Click(object sender, EventArgs e)
         {
             Print();
         }
 
-        void xcmdMoveUp_Click(object sender, EventArgs e)
+        void XcmdMoveUp_Click(object sender, EventArgs e)
         {
             if (this.myCurrentOfferDetail == null) return;
             this.myOffer.MoveUp(this.myCurrentOfferDetail);
         }
 
-        void xcmdMoveDown_Click(object sender, EventArgs e)
+        void XcmdMoveDown_Click(object sender, EventArgs e)
         {
             if (this.myCurrentOfferDetail == null) return;
             this.myOffer.MoveDown(this.myCurrentOfferDetail);
         }
 
-        void btnMailToCustomer_Click(object sender, EventArgs e)
+        void BtnMailToCustomer_Click(object sender, EventArgs e)
         {
             this.MailToCustomer();
         }
 
-        void mcmdMailToCustomer_Click(object sender, EventArgs e)
+        void McmdMailToCustomer_Click(object sender, EventArgs e)
         {
             this.MailToCustomer();
         }
 
-        void btnMailToUser_Click(object sender, EventArgs e)
+        void BtnMailToUser_Click(object sender, EventArgs e)
         {
             this.MailToUser();
         }
 
-        void mcmdMailToUser_Click(object sender, EventArgs e)
+        void McmdMailToUser_Click(object sender, EventArgs e)
         {
             this.MailToUser();
         }
 
-        void btnRechner_Click(object sender, EventArgs e)
+        void BtnRechner_Click(object sender, EventArgs e)
         {
             ShowCalculator();
         }
 
-        void ccmdTaschenrechner_Click(object sender, EventArgs e)
+        void CcmdTaschenrechner_Click(object sender, EventArgs e)
         {
             ShowCalculator();
         }
 
-        void pnlAngebotsdetail_OnClosed(object sender, EventArgs e)
+        void PnlAngebotsdetail_OnClosed(object sender, EventArgs e)
         {
             ModelManager.OfferService.UpdateOffers(this.myOffer.CustomerId);
         }
 
-        #endregion event handler
+        #endregion EVENT HANDLER
 
-        #region private procedures
+        #region METHODS
 
         void InitializeData()
         {
@@ -270,6 +270,6 @@ namespace Products.Common.Panel
             calc.Start();
         }
 
-        #endregion private procedures
+        #endregion METHODS
     }
 }

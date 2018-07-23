@@ -1,57 +1,56 @@
 ﻿using System;
-using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
 using Products.Data;
 using Products.Model;
 
+using System;
+
+using System.Windows.Forms;
+
 namespace Products.Common.Views
 {
-	public partial class AxelsVerwaltungsView : MetroForm
-	{
-		#region ### .ctor ###
+    public partial class AxelsVerwaltungsView : MetroForm
+    {
+        #region ### .ctor ###
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der AxelsVerwaltungsView Klasse.
-		/// </summary>
-		public AxelsVerwaltungsView()
-		{
-			InitializeComponent();
-		}
+        /// <summary>
+        /// Erzeugt eine neue Instanz der AxelsVerwaltungsView Klasse.
+        /// </summary>
+        public AxelsVerwaltungsView()
+        {
+            InitializeComponent();
+        }
 
-		#endregion ### .ctor ###
+        #endregion ### .ctor ###
 
-		#region event handler
+        #region EVENT HANDLER
 
-		void mbtnKundenumsatzAktualisieren_Click(object sender, EventArgs e)
-		{
-			var msg = "Augenblick, das kann eine Weile dauern.";
-			MetroMessageBox.Show(this, msg, "Aktualisierung der Kundenumsätze", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			DataManager.AllDataService.UpdateKundenumsatzTabelle();
-			msg = "So, die Kundenumsätze sind aktuell.";
-			MetroMessageBox.Show(this, msg, "Aktualisierung der Kundenumsätze", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
+        void ButtonKundenumsatzAktualisieren_Click(object sender, EventArgs e)
+        {
+            var msg = "Augenblick, das kann eine Weile dauern.";
+            MetroMessageBox.Show(this, msg, "Ich aktualisiere die Kundenumsätze ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DataManager.AllDataService.UpdateKundenumsatzTabelle();
+            msg = "So, die Kundenumsätze sind aktuell.";
+            MetroMessageBox.Show(this, msg, "Ich aktualisiere die Kundenumsätze ...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
-		void mbtnClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        void ButtonLieferanten_Click(object sender, EventArgs e)
+        {
+            var llv = new LieferantenListView();
+            llv.ShowDialog();
+        }
 
-		#endregion event handler
+        void ButtonCleanTerminXRefs_Click(object sender, EventArgs e)
+        {
+            ModelManager.AppointmentService.CleanAppointmentLinkXRefs();
+        }
 
-		#region private procedures
+        void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		void mbtnLieferanten_Click(object sender, EventArgs e)
-		{
-			var llv = new LieferantenListView();
-			llv.ShowDialog();
-		}
-
-		void mbtnCleanTerminXRefs_Click(object sender, EventArgs e)
-		{
-			ModelManager.AppointmentService.CleanAppointmentLinkXRefs();
-		}
-
-		#endregion private procedures
-	}
+        #endregion EVENT HANDLER
+    }
 }

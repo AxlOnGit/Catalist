@@ -1,78 +1,77 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using Products.Data;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using MetroFramework.Forms;
-using Products.Data;
 
 namespace Products.Common.Views
 {
-	public partial class AuftraegeProArtikelView : MetroForm
-	{
+    public partial class AuftraegeProArtikelView : MetroForm
+    {
+        #region PROPERTIES
 
-		#region members
+        string ArtikelNummer { get; set; }
 
-		readonly string myArtikelNummer;
-		dsSage.AuftragProArtikelRow mySelectedRow;
+        dsSage.AuftragProArtikelRow SelectedRow { get; set; }
 
-		#endregion
+        #endregion PROPERTIES
 
-		#region ### .ctor ###
+        #region ### .ctor ###
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der AuftraegeProArtikelView Klasse.
-		/// </summary>
-		public AuftraegeProArtikelView(string artikelNummer)
-		{
-			InitializeComponent();
-			this.myArtikelNummer = artikelNummer;
-			this.InitializeData();
-		}
+        /// <summary>
+        /// Erzeugt eine neue Instanz der AuftraegeProArtikelView Klasse.
+        /// </summary>
+        public AuftraegeProArtikelView(string artikelNummer)
+        {
+            InitializeComponent();
+            this.ArtikelNummer = artikelNummer;
+            this.InitializeData();
+        }
 
-		#endregion
+        #endregion ### .ctor ###
 
-		#region private procedures
+        #region METHODS
 
-		void InitializeData()
-		{
-			try
-			{
-				if (string.IsNullOrEmpty(this.myArtikelNummer)) return;
-				this.dgvAuftraege.AutoGenerateColumns = false;
-				this.dgvAuftraege.DataSource = DataManager.AllDataService.GetAuftraegeProArtikel(this.myArtikelNummer);
-			}
-			catch (Exception)
-			{
-				this.Close();
-			}
-		}
+        void InitializeData()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(this.ArtikelNummer)) return;
+                this.DgvAuftraege.AutoGenerateColumns = false;
+                this.DgvAuftraege.DataSource = DataManager.AllDataService.GetAuftraegeProArtikel(this.ArtikelNummer);
+            }
+            catch (Exception)
+            {
+                this.Close();
+            }
+        }
 
-		#endregion
+        #endregion METHODS
 
-		#region event handler
+        #region EVENT HANDLER
 
-		void dgvAuftraege_RowEnter(object sender, DataGridViewCellEventArgs e)
-		{
-			var drv = this.dgvAuftraege.Rows[e.RowIndex].DataBoundItem as DataRowView;
-			if (drv != null)
-			{
-				this.mySelectedRow = drv.Row as dsSage.AuftragProArtikelRow;
-			}
-		}
+        void DgvAuftraege_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var drv = this.DgvAuftraege.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            if (drv != null)
+            {
+                this.SelectedRow = drv.Row as dsSage.AuftragProArtikelRow;
+            }
+        }
 
-		void mcmdCopyAuftrag_Click(object sender, EventArgs e)
-		{
-			if (this.mySelectedRow != null)
-			{
-				Clipboard.SetDataObject(mySelectedRow.Auftrag, true);
-			}
-		}
+        void McmdCopyAuftrag_Click(object sender, EventArgs e)
+        {
+            if (this.SelectedRow != null)
+            {
+                Clipboard.SetDataObject(SelectedRow.Auftrag, true);
+            }
+        }
 
-		void mbtnClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        void MbtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		#endregion
-
-	}
+        #endregion EVENT HANDLER
+    }
 }

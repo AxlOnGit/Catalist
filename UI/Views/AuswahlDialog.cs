@@ -1,146 +1,162 @@
-﻿using System;
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using MetroFramework;
-using MetroFramework.Forms;
 
 namespace Products.Common.Views
 {
-	public partial class AuswahlDialog : MetroForm
-	{
+    public partial class AuswahlDialog : MetroForm
+    {
+        #region PROPERTIES
 
-		#region members
+        string[] Optionen { get; set; }
 
-		string[] myOptionen;
-		string myTitel = string.Empty;
-		MetroColorStyle myStyle  = MetroColorStyle.Default;
-		int selectedOption;
+        string Titel { get; set; }
 
-		#endregion
+        MetroColorStyle ColorStyle { get; set; } = MetroColorStyle.Default;
 
-		#region public properties
+        #endregion PROPERTIES
 
-		/// <summary>
-		/// Gibt den Index der ausgewählten Option zurück.
-		/// </summary>
-		public int SelectedOption
-		{
-			get { return selectedOption; }
-		}
+        #region public properties
 
-		#endregion
+        /// <summary>
+        /// Gibt den Index der ausgewählten Option zurück.
+        /// </summary>
+        public int SelectedOption { get; private set; }
 
-		#region ### .ctor ###
+        #endregion public properties
 
-		public AuswahlDialog(string titel, string[] optionen, MetroColorStyle style = MetroColorStyle.Red)
-		{
-			InitializeComponent();
-			this.myOptionen = optionen;
-			this.myTitel = titel;
-			this.myStyle = style;
-			this.Style = myStyle;
+        #region ### .ctor ###
 
-			InitializeData();
-		}
+        public AuswahlDialog(string titel, string[] optionen, MetroColorStyle colorStyle = MetroColorStyle.Red)
+        {
+            InitializeComponent();
+            this.Optionen = optionen;
+            this.Titel = titel;
+            this.ColorStyle = colorStyle;
+            this.Style = colorStyle;
 
-		#endregion
+            InitializeData();
+        }
 
-		#region event handler
+        #endregion ### .ctor ###
 
-		void btn_Click(object sender, EventArgs e)
-		{
-			var button = sender as MetroFramework.Controls.MetroButton;
-			this.selectedOption = (int)(button).Tag;
-			//button.DialogResult = DialogResult.OK;
-			this.DialogResult = DialogResult.OK;
-			this.Close();
-		}
+        #region event handler
 
-		#endregion
+        void btn_Click(object sender, EventArgs e)
+        {
+            var button = sender as MetroFramework.Controls.MetroButton;
+            this.SelectedOption = (int)(button).Tag;
 
-		#region private procedures
+            //button.DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
-		void InitializeData()
-		{
-			int opts = myOptionen.Length;
-			mlblTitel.Text = myTitel;
-			this.Width = 80 + (opts * 120) + ((opts-1) * 20);
-			SetPicture();
+        #endregion event handler
 
-			for (int i = 0; i < opts; i++)
-			{
-				var btn = new MetroFramework.Controls.MetroButton();
-				btn.Text = myOptionen[i];
-				btn.Size = new System.Drawing.Size(120, 30);
-				btn.Location = new Point(40 + (i * (btn.Width + 20)), this.Height - 100);
-				btn.Style = myStyle;
-				btn.Name = string.Format("btnOption{0}", i);
-				btn.TabIndex = i;
-				btn.UseSelectable = true;
-				btn.UseStyleColors = true;
-				btn.Tag = i;
-				btn.Click += btn_Click;
-				this.Controls.Add(btn);
-			}
-		}
+        #region private procedures
 
-		void SetPicture()
-		{
-			switch (myStyle)
-			{
-				case MetroColorStyle.Black:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Blue:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Brown:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Default:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Green:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metrogreen;
-					break;
-				case MetroColorStyle.Lime:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metrolime;
-					break;
-				case MetroColorStyle.Magenta:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metrored;
-					break;
-				case MetroColorStyle.Orange:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroorange;
-					break;
-				case MetroColorStyle.Pink:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metrored;
-					break;
-				case MetroColorStyle.Purple:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metropink;
-					break;
-				case MetroColorStyle.Red:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metrored;
-					break;
-				case MetroColorStyle.Silver:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Teal:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.White:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-				case MetroColorStyle.Yellow:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroyellow;
-					break;
-				default:
-					this.picFragezeichen.Image = global::Products.Common.Properties.Resources.frage_32_metroblue;
-					break;
-			}
-		}
+        void InitializeData()
+        {
+            var buttonWidth = 120;
+            var buttonHeight = 30;
+            int buttonCount = Optionen.Length;
 
+            MLblTitel.Text = Titel;
+            this.Width = 80 + (buttonCount * buttonWidth) + ((buttonCount - 1) * 20);
+            SetPicture();
 
-		#endregion
+            for (int i = 0; i < buttonCount; i++)
+            {
+                var button = new MetroFramework.Controls.MetroButton
+                {
+                    Text = Optionen[i],
+                    Size = new Size(buttonWidth, buttonHeight),
+                    Location = new Point(40 + (i * (buttonWidth + 20)), this.Height - 100),
+                    Style = this.ColorStyle,
+                    Name = $"ButtonOption{i}",
+                    TabIndex = i,
+                    UseSelectable = true,
+                    UseStyleColors = true,
+                    Tag = i
+                };
+                button.Click += btn_Click;
+                this.Controls.Add(button);
+            }
+        }
 
-	}
+        void SetPicture()
+        {
+            switch (this.ColorStyle)
+            {
+                case MetroColorStyle.Black:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Blue:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Brown:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Default:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Green:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metrogreen;
+                    break;
+
+                case MetroColorStyle.Lime:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metrolime;
+                    break;
+
+                case MetroColorStyle.Magenta:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metrored;
+                    break;
+
+                case MetroColorStyle.Orange:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroorange;
+                    break;
+
+                case MetroColorStyle.Pink:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metrored;
+                    break;
+
+                case MetroColorStyle.Purple:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metropink;
+                    break;
+
+                case MetroColorStyle.Red:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metrored;
+                    break;
+
+                case MetroColorStyle.Silver:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Teal:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.White:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+
+                case MetroColorStyle.Yellow:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroyellow;
+                    break;
+
+                default:
+                    this.PicBoxFragezeichen.Image = Properties.Resources.frage_32_metroblue;
+                    break;
+            }
+        }
+
+        #endregion private procedures
+    }
 }

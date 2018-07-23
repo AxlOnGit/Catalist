@@ -198,7 +198,7 @@ namespace Products.Common.Panel
 			this.ccmdNewDetail.ShortcutKeys = ((Keys)((Keys.Control | Keys.N)));
 			this.ccmdNewDetail.Size = new Size(201, 22);
 			this.ccmdNewDetail.Text = "Neue Position";
-			this.ccmdNewDetail.Click += new System.EventHandler(this.ccmdNewDetail_Click);
+			this.ccmdNewDetail.Click += new System.EventHandler(this.CcmdNewDetail_Click);
 			// 
 			// ccmdDeleteDetail
 			// 
@@ -207,7 +207,7 @@ namespace Products.Common.Panel
 			this.ccmdDeleteDetail.ShortcutKeyDisplayString = "";
 			this.ccmdDeleteDetail.Size = new Size(201, 22);
 			this.ccmdDeleteDetail.Text = "Position löschen";
-			this.ccmdDeleteDetail.Click += new System.EventHandler(this.ccmdDeleteDetail_Click);
+			this.ccmdDeleteDetail.Click += new System.EventHandler(this.CcmdDeleteDetail_Click);
 			// 
 			// ccmdPrint2
 			// 
@@ -217,7 +217,7 @@ namespace Products.Common.Panel
 			this.ccmdPrint2.ShortcutKeys = ((Keys)((Keys.Control | Keys.P)));
 			this.ccmdPrint2.Size = new Size(201, 22);
 			this.ccmdPrint2.Text = "Drucken";
-			this.ccmdPrint2.Click += new System.EventHandler(this.ccmdPrint2_Click);
+			this.ccmdPrint2.Click += new System.EventHandler(this.CcmdPrint2_Click);
 			// 
 			// nachObenToolStripMenuItem
 			// 
@@ -230,7 +230,7 @@ namespace Products.Common.Panel
 			this.xcmdMoveUp.Name = "xcmdMoveUp";
 			this.xcmdMoveUp.Size = new Size(201, 22);
 			this.xcmdMoveUp.Text = "Rauf";
-			this.xcmdMoveUp.Click += new System.EventHandler(this.xcmdMoveUp_Click);
+			this.xcmdMoveUp.Click += new System.EventHandler(this.XcmdMoveUp_Click);
 			// 
 			// xcmdMoveDown
 			// 
@@ -238,7 +238,7 @@ namespace Products.Common.Panel
 			this.xcmdMoveDown.Name = "xcmdMoveDown";
 			this.xcmdMoveDown.Size = new Size(201, 22);
 			this.xcmdMoveDown.Text = "Runter";
-			this.xcmdMoveDown.Click += new System.EventHandler(this.xcmdMoveDown_Click);
+			this.xcmdMoveDown.Click += new System.EventHandler(this.XcmdMoveDown_Click);
 			// 
 			// toolStripMenuItem2
 			// 
@@ -251,7 +251,7 @@ namespace Products.Common.Panel
 			this.ccmdTaschenrechner.Name = "ccmdTaschenrechner";
 			this.ccmdTaschenrechner.Size = new Size(201, 22);
 			this.ccmdTaschenrechner.Text = "Taschenrechner";
-			this.ccmdTaschenrechner.Click += new System.EventHandler(this.ccmdTaschenrechner_Click);
+			this.ccmdTaschenrechner.Click += new System.EventHandler(this.CcmdTaschenrechner_Click);
 			// 
 			// mToolTip
 			// 
@@ -289,7 +289,7 @@ namespace Products.Common.Panel
 			this.btnMailToUser.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnMailToUser, "Sendet das Angebot als Bestellung an einen Kollegen");
 			this.btnMailToUser.UseVisualStyleBackColor = false;
-			this.btnMailToUser.Click += new System.EventHandler(this.btnMailToUser_Click);
+			this.btnMailToUser.Click += new System.EventHandler(this.BtnMailToUser_Click);
 			// 
 			// btnMailToCustomer
 			// 
@@ -305,7 +305,7 @@ namespace Products.Common.Panel
 			this.btnMailToCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnMailToCustomer, "Sendet das Angebot als E-Mail Anhang an den Kunden");
 			this.btnMailToCustomer.UseVisualStyleBackColor = false;
-			this.btnMailToCustomer.Click += new System.EventHandler(this.btnMailToCustomer_Click);
+			this.btnMailToCustomer.Click += new System.EventHandler(this.BtnMailToCustomer_Click);
 			// 
 			// btnRechner
 			// 
@@ -321,7 +321,7 @@ namespace Products.Common.Panel
 			this.btnRechner.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnRechner, "Taschenrechner");
 			this.btnRechner.UseVisualStyleBackColor = false;
-			this.btnRechner.Click += new System.EventHandler(this.btnRechner_Click);
+			this.btnRechner.Click += new System.EventHandler(this.BtnRechner_Click);
 			// 
 			// btnDrucken
 			// 
@@ -337,7 +337,7 @@ namespace Products.Common.Panel
 			this.btnDrucken.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnDrucken, "Angebot drucken");
 			this.btnDrucken.UseVisualStyleBackColor = false;
-			this.btnDrucken.Click += new System.EventHandler(this.btnDrucken_Click);
+			this.btnDrucken.Click += new System.EventHandler(this.BtnDrucken_Click);
 			// 
 			// btnPositionLoeschen
 			// 
@@ -353,7 +353,7 @@ namespace Products.Common.Panel
 			this.btnPositionLoeschen.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnPositionLoeschen, "Position löschen");
 			this.btnPositionLoeschen.UseVisualStyleBackColor = false;
-			this.btnPositionLoeschen.Click += new System.EventHandler(this.btnPositionLoeschen_Click);
+			this.btnPositionLoeschen.Click += new System.EventHandler(this.BtnPositionLoeschen_Click);
 			// 
 			// btnNeuePosition
 			// 
@@ -369,7 +369,7 @@ namespace Products.Common.Panel
 			this.btnNeuePosition.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.mToolTip.SetToolTip(this.btnNeuePosition, "Neue Position");
 			this.btnNeuePosition.UseVisualStyleBackColor = false;
-			this.btnNeuePosition.Click += new System.EventHandler(this.btnNeuePosition_Click);
+			this.btnNeuePosition.Click += new System.EventHandler(this.BtnNeuePosition_Click);
 			// 
 			// ctxForm
 			// 
@@ -387,7 +387,7 @@ namespace Products.Common.Panel
 			this.ccmdPrint.ShortcutKeyDisplayString = "(Strg+P)";
 			this.ccmdPrint.Size = new Size(248, 22);
 			this.ccmdPrint.Text = "Drucken";
-			this.ccmdPrint.Click += new System.EventHandler(this.ccmdPrint_Click);
+			this.ccmdPrint.Click += new System.EventHandler(this.CcmdPrint_Click);
 			// 
 			// mcmdMailToCustomer
 			// 
@@ -395,7 +395,7 @@ namespace Products.Common.Panel
 			this.mcmdMailToCustomer.Name = "mcmdMailToCustomer";
 			this.mcmdMailToCustomer.Size = new Size(248, 22);
 			this.mcmdMailToCustomer.Text = "Per E-Mail zum Kunden";
-			this.mcmdMailToCustomer.Click += new System.EventHandler(this.mcmdMailToCustomer_Click);
+			this.mcmdMailToCustomer.Click += new System.EventHandler(this.McmdMailToCustomer_Click);
 			// 
 			// mcmdMailToUser
 			// 
@@ -403,7 +403,7 @@ namespace Products.Common.Panel
 			this.mcmdMailToUser.Name = "mcmdMailToUser";
 			this.mcmdMailToUser.Size = new Size(248, 22);
 			this.mcmdMailToUser.Text = "Als Bestellung zu einem Kollegen";
-			this.mcmdMailToUser.Click += new System.EventHandler(this.mcmdMailToUser_Click);
+			this.mcmdMailToUser.Click += new System.EventHandler(this.McmdMailToUser_Click);
 			// 
 			// txtPositionsinfo
 			// 

@@ -1,77 +1,82 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Windows.Forms;
 using MetroFramework.Forms;
 using Products.Model.Entities;
 
+using System;
+
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace Products.Common.Views
 {
-	public partial class AppointmentListView : MetroForm
-	{
-		#region MEMBERS
+    public partial class AppointmentListView : MetroForm
+    {
+        #region PROPERTIES
 
-		private readonly SortableBindingList<Appointment> myTerminListe;
-		private readonly string myTitle;
-		private Appointment mySelectedAppointment;
+        SortableBindingList<Appointment> TerminListe { get; set; }
 
-		#endregion MEMBERS
+        string Title { get; set; }
 
-		#region ### .ctor ###
+        Appointment SelectedAppointment { get; set; }
 
-		/// <summary>
-		/// Erzeugt eine neue Instanz der <seealso cref="AppointmentListView"/> Klasse.
-		/// </summary>
-		public AppointmentListView(SortableBindingList<Appointment> terminListe, string title)
-		{
-			InitializeComponent();
-			this.myTerminListe = terminListe;
-			this.myTitle = title;
-			this.InitializeData();
-		}
+        #endregion PROPERTIES
 
-		#endregion ### .ctor ###
+        #region ### .ctor ###
 
-		#region EVENT HANDLER
+        /// <summary>
+        /// Erzeugt eine neue Instanz der <seealso cref="AppointmentListView" /> Klasse.
+        /// </summary>
+        public AppointmentListView(SortableBindingList<Appointment> terminListe, string title)
+        {
+            InitializeComponent();
+            this.TerminListe = terminListe;
+            this.Title = title;
+            this.InitializeData();
+        }
 
-		private void dgvAppointments_RowEnter(object sender, DataGridViewCellEventArgs e)
-		{
-			this.mySelectedAppointment = this.dgvAppointments.Rows[e.RowIndex].DataBoundItem as Appointment;
-		}
+        #endregion ### .ctor ###
 
-		private void xcmdShowAppointment_Click(object sender, EventArgs e)
-		{
-			this.ShowAppointment();
-		}
+        #region EVENT HANDLER
 
-		private void dgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
-		{
-			this.ShowAppointment();
-		}
+        void DgvAppointments_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.SelectedAppointment = this.dgvAppointments.Rows[e.RowIndex].DataBoundItem as Appointment;
+        }
 
-		private void mbtnClose_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        void XcmdShowAppointment_Click(object sender, EventArgs e)
+        {
+            this.ShowAppointment();
+        }
 
-		#endregion EVENT HANDLER
+        void DgvAppointments_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ShowAppointment();
+        }
 
-		#region PRIVATE PROCEDURES
+        void MbtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		private void InitializeData()
-		{
-			this.Text = string.Format("Terminliste für {0}", this.myTitle.Replace("&", "&&"));
-			this.dgvAppointments.AutoGenerateColumns = false;
-			this.dgvAppointments.DataSource = this.myTerminListe.Sort("StartsAt", ListSortDirection.Descending);
-		}
+        #endregion EVENT HANDLER
 
-		private void ShowAppointment()
-		{
-			if (this.mySelectedAppointment == null) return;
+        #region METHODS
 
-			var cdv = new CalendarDetailView(this.mySelectedAppointment);
-			cdv.Show();
-		}
+        void InitializeData()
+        {
+            this.Text = $"Terminliste für {this.Title.Replace("&", "&&")}";
+            this.dgvAppointments.AutoGenerateColumns = false;
+            this.dgvAppointments.DataSource = this.TerminListe.Sort("StartsAt", ListSortDirection.Descending);
+        }
 
-		#endregion PRIVATE PROCEDURES
-	}
+        void ShowAppointment()
+        {
+            if (this.SelectedAppointment == null) return;
+
+            var cdv = new CalendarDetailView(this.SelectedAppointment);
+            cdv.Show();
+        }
+
+        #endregion METHODS
+    }
 }

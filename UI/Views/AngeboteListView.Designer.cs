@@ -186,7 +186,7 @@
 			this.mbtnClose.Text = "Schließen";
 			this.mbtnClose.UseSelectable = true;
 			this.mbtnClose.UseVisualStyleBackColor = true;
-			this.mbtnClose.Click += new System.EventHandler(this.mbtnClose_Click);
+			this.mbtnClose.Click += new System.EventHandler(this.MbtnClose_Click);
 			// 
 			// dgvDetails
 			// 
@@ -297,7 +297,7 @@
 			this.xcmdSearchEmails.Name = "xcmdSearchEmails";
 			this.xcmdSearchEmails.Size = new System.Drawing.Size(166, 22);
 			this.xcmdSearchEmails.Text = "E-Mails suchen ...";
-			this.xcmdSearchEmails.Click += new System.EventHandler(this.xcmdSearchEmails_Click);
+			this.xcmdSearchEmails.Click += new System.EventHandler(this.XcmdSearchEmails_Click);
 			// 
 			// xcmdOpenInSage
 			// 
@@ -305,7 +305,7 @@
 			this.xcmdOpenInSage.Name = "xcmdOpenInSage";
 			this.xcmdOpenInSage.Size = new System.Drawing.Size(166, 22);
 			this.xcmdOpenInSage.Text = "In Sage öffnen";
-			this.xcmdOpenInSage.Click += new System.EventHandler(this.xcmdOpenInSage_Click);
+			this.xcmdOpenInSage.Click += new System.EventHandler(this.XcmdOpenInSage_Click);
 			// 
 			// AngeboteListView
 			// 
