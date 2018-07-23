@@ -165,101 +165,101 @@
     <Compile Include="Controls\NullableDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel\pnlAngebote.cs">
+    <Compile Include="Panel\PanelAngebote.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlAngebote.Designer.cs">
-      <DependentUpon>pnlAngebote.cs</DependentUpon>
+    <Compile Include="Panel\PanelAngebote.Designer.cs">
+      <DependentUpon>PanelAngebote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlAngebotsdetail.cs">
+    <Compile Include="Panel\PanelAngebotsdetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlAngebotsdetail.Designer.cs">
-      <DependentUpon>pnlAngebotsdetail.cs</DependentUpon>
+    <Compile Include="Panel\PanelAngebotsdetail.Designer.cs">
+      <DependentUpon>PanelAngebotsdetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlArtikeldetail.cs">
+    <Compile Include="Panel\PanelArtikeldetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlArtikeldetail.Designer.cs">
-      <DependentUpon>pnlArtikeldetail.cs</DependentUpon>
+    <Compile Include="Panel\PanelArtikeldetail.Designer.cs">
+      <DependentUpon>PanelArtikeldetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlArtikelpreise.cs">
+    <Compile Include="Panel\PanelArtikelpreise.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlArtikelpreise.Designer.cs">
-      <DependentUpon>pnlArtikelpreise.cs</DependentUpon>
+    <Compile Include="Panel\PanelArtikelpreise.Designer.cs">
+      <DependentUpon>PanelArtikelpreise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlAuftraege.cs">
+    <Compile Include="Panel\PanelAuftrag.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlAuftraege.Designer.cs">
-      <DependentUpon>pnlAuftraege.cs</DependentUpon>
+    <Compile Include="Panel\PanelAuftrag.Designer.cs">
+      <DependentUpon>PanelAuftrag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlFinanzen.cs">
+    <Compile Include="Panel\PanelFinanzen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlFinanzen.Designer.cs">
-      <DependentUpon>pnlFinanzen.cs</DependentUpon>
+    <Compile Include="Panel\PanelFinanzen.Designer.cs">
+      <DependentUpon>PanelFinanzen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlKontakte.cs">
+    <Compile Include="Panel\PanelKontakte.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlKontakte.Designer.cs">
-      <DependentUpon>pnlKontakte.cs</DependentUpon>
+    <Compile Include="Panel\PanelKontakte.Designer.cs">
+      <DependentUpon>PanelKontakte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlKundenMaschine.cs">
+    <Compile Include="Panel\PanelKundenMaschine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlKundenMaschine.Designer.cs">
-      <DependentUpon>pnlKundenMaschine.cs</DependentUpon>
+    <Compile Include="Panel\PanelKundenMaschine.Designer.cs">
+      <DependentUpon>PanelKundenMaschine.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlKundeStart.cs">
+    <Compile Include="Panel\PanelKundeStart.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlKundeStart.designer.cs">
-      <DependentUpon>pnlKundeStart.cs</DependentUpon>
+    <Compile Include="Panel\PanelKundeStart.designer.cs">
+      <DependentUpon>PanelKundeStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlMaschinenListe.cs">
+    <Compile Include="Panel\PanelMaschinenListe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlMaschinenListe.Designer.cs">
-      <DependentUpon>pnlMaschinenListe.cs</DependentUpon>
+    <Compile Include="Panel\PanelMaschinenListe.Designer.cs">
+      <DependentUpon>PanelMaschinenListe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlMaschinendetail.cs">
+    <Compile Include="Panel\PanelMaschinendetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlMaschinendetail.Designer.cs">
-      <DependentUpon>pnlMaschinendetail.cs</DependentUpon>
+    <Compile Include="Panel\PanelMaschinendetail.Designer.cs">
+      <DependentUpon>PanelMaschinendetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlNotiz.cs">
+    <Compile Include="Panel\PanelNotiz.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlNotiz.Designer.cs">
-      <DependentUpon>pnlNotiz.cs</DependentUpon>
+    <Compile Include="Panel\PanelNotiz.Designer.cs">
+      <DependentUpon>PanelNotiz.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlNotizen.cs">
+    <Compile Include="Panel\PanelNotizen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlNotizen.Designer.cs">
-      <DependentUpon>pnlNotizen.cs</DependentUpon>
+    <Compile Include="Panel\PanelNotizen.Designer.cs">
+      <DependentUpon>PanelNotizen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlSlider.cs">
+    <Compile Include="Panel\PanelSlider.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlSlider.designer.cs">
-      <DependentUpon>pnlSlider.cs</DependentUpon>
+    <Compile Include="Panel\PanelSlider.designer.cs">
+      <DependentUpon>PanelSlider.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlSoftware.cs">
+    <Compile Include="Panel\PanelSoftware.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlSoftware.Designer.cs">
-      <DependentUpon>pnlSoftware.cs</DependentUpon>
+    <Compile Include="Panel\PanelSoftware.Designer.cs">
+      <DependentUpon>PanelSoftware.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel\pnlSoftwareliste.cs">
+    <Compile Include="Panel\PanelSoftwareliste.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panel\pnlSoftwareliste.Designer.cs">
-      <DependentUpon>pnlSoftwareliste.cs</DependentUpon>
+    <Compile Include="Panel\PanelSoftwareliste.Designer.cs">
+      <DependentUpon>PanelSoftwareliste.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -709,55 +709,55 @@
     <Compile Include="Views\WartungsvorschlagView.Designer.cs">
       <DependentUpon>WartungsvorschlagView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Panel\pnlAngebote.resx">
-      <DependentUpon>pnlAngebote.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelAngebote.resx">
+      <DependentUpon>PanelAngebote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlAngebotsdetail.resx">
-      <DependentUpon>pnlAngebotsdetail.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelAngebotsdetail.resx">
+      <DependentUpon>PanelAngebotsdetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlArtikeldetail.resx">
-      <DependentUpon>pnlArtikeldetail.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelArtikeldetail.resx">
+      <DependentUpon>PanelArtikeldetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlArtikelpreise.resx">
-      <DependentUpon>pnlArtikelpreise.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelArtikelpreise.resx">
+      <DependentUpon>PanelArtikelpreise.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlAuftraege.resx">
-      <DependentUpon>pnlAuftraege.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelAuftrag.resx">
+      <DependentUpon>PanelAuftrag.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlFinanzen.resx">
-      <DependentUpon>pnlFinanzen.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelFinanzen.resx">
+      <DependentUpon>PanelFinanzen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlKontakte.resx">
-      <DependentUpon>pnlKontakte.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelKontakte.resx">
+      <DependentUpon>PanelKontakte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlKundenMaschine.resx">
-      <DependentUpon>pnlKundenMaschine.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelKundenMaschine.resx">
+      <DependentUpon>PanelKundenMaschine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlKundeStart.resx">
-      <DependentUpon>pnlKundeStart.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelKundeStart.resx">
+      <DependentUpon>PanelKundeStart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlMaschinenListe.resx">
-      <DependentUpon>pnlMaschinenListe.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelMaschinenListe.resx">
+      <DependentUpon>PanelMaschinenListe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlMaschinendetail.resx">
-      <DependentUpon>pnlMaschinendetail.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelMaschinendetail.resx">
+      <DependentUpon>PanelMaschinendetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlNotiz.resx">
-      <DependentUpon>pnlNotiz.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelNotiz.resx">
+      <DependentUpon>PanelNotiz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlNotizen.resx">
-      <DependentUpon>pnlNotizen.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelNotizen.resx">
+      <DependentUpon>PanelNotizen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlSlider.resx">
-      <DependentUpon>pnlSlider.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelSlider.resx">
+      <DependentUpon>PanelSlider.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlSoftware.resx">
-      <DependentUpon>pnlSoftware.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelSoftware.resx">
+      <DependentUpon>PanelSoftware.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel\pnlSoftwareliste.resx">
-      <DependentUpon>pnlSoftwareliste.cs</DependentUpon>
+    <EmbeddedResource Include="Panel\PanelSoftwareliste.resx">
+      <DependentUpon>PanelSoftwareliste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\UI.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -16,20 +16,20 @@ namespace Products.Common.Views
 
 		readonly Model.Entities.Kunde myKunde;
 
-		Stack<pnlSlider> myPanelsBack = new Stack<pnlSlider>();
-		Stack<pnlSlider> myPanelsNext = new Stack<pnlSlider>();
+		Stack<PanelSlider> myPanelsBack = new Stack<PanelSlider>();
+		Stack<PanelSlider> myPanelsNext = new Stack<PanelSlider>();
 
-		pnlSlider myActivePanel;
-		pnlKundeStart myStartPanel;
-		pnlArtikelpreise myArtikelPanel;
-		pnlArtikeldetail myArtikelDetailPanel;
-		pnlKontakte myKontaktePanel;
-		pnlAuftraege myAuftragsPanel;
-		pnlAngebote myAngebotsPanel;
-		pnlFinanzen myFinanzPanel;
-		pnlMaschinenListe myMmaschinenPanel;
-		pnlSoftwareliste mySoftwarePanel;
-		pnlNotizen myNotizenPanel;
+		PanelSlider myActivePanel;
+		PanelKundeStart myStartPanel;
+		PanelArtikelpreise myArtikelPanel;
+		PanelArtikeldetail myArtikelDetailPanel;
+		PanelKontakte myKontaktePanel;
+		PanelAuftrag myAuftragsPanel;
+		PanelAngebote myAngebotsPanel;
+		PanelFinanzen myFinanzPanel;
+		PanelMaschinenListe myMmaschinenPanel;
+		PanelSoftwareliste mySoftwarePanel;
+		PanelNotizen myNotizenPanel;
 
 		#endregion MEMBERS
 
@@ -163,7 +163,7 @@ namespace Products.Common.Views
 		{
 			if (this.myAuftragsPanel == null)
 			{
-				this.myAuftragsPanel = new pnlAuftraege(this, myKunde, true);
+				this.myAuftragsPanel = new PanelAuftrag(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) myPanelsBack.Push(myActivePanel);
 			myActivePanel.Swipe(false);
@@ -176,7 +176,7 @@ namespace Products.Common.Views
 		{
 			if (this.myAngebotsPanel == null)
 			{
-				this.myAngebotsPanel = new pnlAngebote(this, myKunde, true);
+				this.myAngebotsPanel = new PanelAngebote(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(myActivePanel);
 			myActivePanel.Swipe(false);
@@ -187,7 +187,7 @@ namespace Products.Common.Views
 
 		internal void ShowAngebotsdetail(Offer angebot)
 		{
-			var angebotsDetailPanel = new pnlAngebotsdetail(this, angebot, true);
+			var angebotsDetailPanel = new PanelAngebotsdetail(this, angebot, true);
 			if (myActivePanel.KeepLoaded) myPanelsBack.Push(myActivePanel);
 			myActivePanel.Swipe(false);
 			angebotsDetailPanel.Swipe(true);
@@ -199,7 +199,7 @@ namespace Products.Common.Views
 		{
 			if (this.myArtikelPanel == null)
 			{
-				this.myArtikelPanel = new pnlArtikelpreise(this, myKunde, true);
+				this.myArtikelPanel = new PanelArtikelpreise(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -215,7 +215,7 @@ namespace Products.Common.Views
 				this.myArtikelDetailPanel.Dispose();
 				this.myArtikelDetailPanel = null;
 			}
-			this.myArtikelDetailPanel = new pnlArtikeldetail(this, myKunde, product, true);
+			this.myArtikelDetailPanel = new PanelArtikeldetail(this, myKunde, product, true);
 			if (this.myActivePanel.KeepLoaded) myPanelsBack.Push(myActivePanel);
 			myActivePanel.Swipe(false);
 			myArtikelDetailPanel.Swipe(true);
@@ -227,7 +227,7 @@ namespace Products.Common.Views
 		{
 			if (this.myKontaktePanel == null)
 			{
-				this.myKontaktePanel = new Panel.pnlKontakte(this, myKunde, true);
+				this.myKontaktePanel = new Panel.PanelKontakte(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -240,7 +240,7 @@ namespace Products.Common.Views
 		{
 			if (this.myFinanzPanel == null)
 			{
-				this.myFinanzPanel = new pnlFinanzen(this, myKunde, true);
+				this.myFinanzPanel = new PanelFinanzen(this, myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -253,7 +253,7 @@ namespace Products.Common.Views
 		{
 			if (this.myMmaschinenPanel == null)
 			{
-				this.myMmaschinenPanel = new pnlMaschinenListe(this, this.myKunde, true);
+				this.myMmaschinenPanel = new PanelMaschinenListe(this, this.myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -266,7 +266,7 @@ namespace Products.Common.Views
 		{
 			if (this.mySoftwarePanel == null)
 			{
-				this.mySoftwarePanel = new pnlSoftwareliste(this, this.myKunde, true);
+				this.mySoftwarePanel = new PanelSoftwareliste(this, this.myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -279,7 +279,7 @@ namespace Products.Common.Views
 		{
 			if (this.myNotizenPanel == null)
 			{
-				this.myNotizenPanel = new pnlNotizen(this, this.myKunde, true);
+				this.myNotizenPanel = new PanelNotizen(this, this.myKunde, true);
 			}
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
@@ -293,10 +293,10 @@ namespace Products.Common.Views
 		#region JUST SHOW
 
 		//internal pnlMaschinendetail ShowMaschine(Kundenmaschine kundenmaschine)
-		internal pnlKundenMaschine ShowMaschine(Kundenmaschine kundenmaschine)
+		internal PanelKundenMaschine ShowMaschine(Kundenmaschine kundenmaschine)
 		{
 			//var detailPanel = new pnlMaschinendetail(this, kundenmaschine, true);
-			var detailPanel = new pnlKundenMaschine(this, kundenmaschine);
+			var detailPanel = new PanelKundenMaschine(this, kundenmaschine);
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
 			detailPanel.Swipe(true);
@@ -307,7 +307,7 @@ namespace Products.Common.Views
 
 		internal void ShowNotiz(Notiz notiz)
 		{
-			var notizPanel = new pnlNotiz(this, notiz, this.myKunde, false);
+			var notizPanel = new PanelNotiz(this, notiz, this.myKunde, false);
 			if (this.myActivePanel.KeepLoaded) this.myPanelsBack.Push(this.myActivePanel);
 			this.myActivePanel.Swipe(false);
 			notizPanel.Swipe(true);
@@ -317,7 +317,7 @@ namespace Products.Common.Views
 
 		internal void ShowSoftware(Kundensoftware software)
 		{
-			var softwarePanel = new pnlSoftware(this, software, true);
+			var softwarePanel = new PanelSoftware(this, software, true);
 			if (myActivePanel.KeepLoaded) myPanelsBack.Push(myActivePanel);
 			this.myActivePanel.Swipe(false);
 			softwarePanel.Swipe(true);
@@ -331,7 +331,7 @@ namespace Products.Common.Views
 
 		#region PRIVATE PROCEDURES
 
-		void Next(pnlSlider panel)
+		void Next(PanelSlider panel)
 		{
 			if (panel.KeepLoaded)
 			{
@@ -358,7 +358,7 @@ namespace Products.Common.Views
 		{
 			foreach (Control ctrl in this.Controls)
 			{
-				if (ctrl is pnlSlider) //  ctrl.GetType().BaseType.Equals(typeof(Panel.pnlSlider)
+				if (ctrl is PanelSlider) //  ctrl.GetType().BaseType.Equals(typeof(Panel.pnlSlider)
 				{
 					this.Controls.Remove(ctrl);
 					ctrl.Dispose();
@@ -373,7 +373,7 @@ namespace Products.Common.Views
 			if (this.myActivePanel != null) this.myActivePanel.Swipe(false);
 			if (this.myStartPanel == null)
 			{
-				this.myStartPanel = new pnlKundeStart(this, myKunde, true);
+				this.myStartPanel = new PanelKundeStart(this, myKunde, true);
 			}
 			this.myPanelsBack.Push(this.myStartPanel);
 			this.myActivePanel = this.myStartPanel;

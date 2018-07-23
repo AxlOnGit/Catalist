@@ -1,33 +1,30 @@
-﻿
-namespace Products.PdfMaker
+﻿namespace Products.PdfMaker
 {
-	public static class PdfManager
-	{
+    public static class PdfManager
+    {
+        #region FIELDS
 
-		#region members
+        static PdfService pdfService;
 
-		static PdfService pdfService;
+        #endregion FIELDS
 
-		#endregion
+        #region PUBLIC PROPERTIES
 
-		#region public properties
+        /// <summary>
+        /// Returns the static singleton PdfService.
+        /// </summary>
+        public static PdfService PdfService
+        {
+            get
+            {
+                if (pdfService == null)
+                {
+                    pdfService = new PdfService();
+                }
+                return pdfService;
+            }
+        }
 
-		/// <summary>
-		/// Returns the static singleton PdfService.
-		/// </summary>
-		public static PdfService PdfService
-		{
-			get
-			{
-				if (pdfService == null)
-				{
-					pdfService = new PdfService();
-				}
-				return pdfService;
-			}
-		}
-
-		#endregion
-
-	}
+        #endregion PUBLIC PROPERTIES
+    }
 }
