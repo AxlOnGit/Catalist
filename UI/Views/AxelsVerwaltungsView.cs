@@ -1,11 +1,8 @@
-﻿using System;
-using MetroFramework;
+﻿using MetroFramework;
 using MetroFramework.Forms;
 using Products.Data;
 using Products.Model;
-
 using System;
-
 using System.Windows.Forms;
 
 namespace Products.Common.Views

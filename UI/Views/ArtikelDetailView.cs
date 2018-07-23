@@ -1,12 +1,9 @@
-﻿using System;
-using MetroFramework;
+﻿using MetroFramework;
 using MetroFramework.Forms;
 using Products.Common.Collections;
 using Products.Model;
 using Products.Model.Entities;
-
 using System;
-
 using System.Linq;
 using System.Windows.Forms;
 

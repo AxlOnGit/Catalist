@@ -253,7 +253,7 @@ namespace Products.Common.Views
             this.MTxtFilter.MaxLength = 32767;
             this.MTxtFilter.Name = "mtxtFilter";
             this.MTxtFilter.PasswordChar = '\0';
-            this.MTxtFilter.PromptText = "Art.-Nr., Bezeichnung oder Matchcode eingeben";
+            this.MTxtFilter.WaterMark = "Art.-Nr., Bezeichnung oder Matchcode eingeben";
             this.MTxtFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.MTxtFilter.SelectedText = "";
             this.MTxtFilter.SelectionLength = 0;

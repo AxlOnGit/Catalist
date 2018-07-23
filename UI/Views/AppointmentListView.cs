@@ -1,9 +1,6 @@
-﻿using System;
-using MetroFramework.Forms;
+﻿using MetroFramework.Forms;
 using Products.Model.Entities;
-
 using System;
-
 using System.ComponentModel;
 using System.Windows.Forms;
 
